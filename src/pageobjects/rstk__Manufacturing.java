@@ -38,4 +38,16 @@ public class rstk__Manufacturing {
 	@FindBy(linkText = "Inventory by Serial Number")
 	public WebElement inventoryBySerialNumber;
 
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='New Disassembly Order']")
+	public WebElement newDisassemblyOrder;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='WO Issue']")
+	public WebElement wOIssue;
+
+	@LinkType()
+	@FindBy(xpath = "//div/li/a[normalize-space(.)='Work Orders']")
+	public WebElement workOrders;
+
 }
