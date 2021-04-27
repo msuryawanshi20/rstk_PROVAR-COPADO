@@ -50,4 +50,8 @@ public class rstk__Manufacturing {
 	@FindBy(xpath = "//div/li/a[normalize-space(.)='Work Orders']")
 	public WebElement workOrders;
 
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Inventory Location Add']")
+	public WebElement inventoryLocationAdd;
+
 }

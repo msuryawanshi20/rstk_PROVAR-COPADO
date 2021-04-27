@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="0">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: QARSF_Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">Force_com</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="3" title="Read Exel Data">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Exel Data</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="opInvLocLocExcelData" variableScope="Test">
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/LocationToLocation.xlsx;1617563709944</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="Site"/>
+            <apiParam name="ItemName"/>
+            <apiParam name="LocID"/>
+            <apiParam name="LocationNumber"/>
+            <apiParam name="LotNo"/>
+            <apiParam name="Project"/>
+            <apiParam name="SerialNumbers"/>
+            <apiParam name="ToLocID"/>
+            <apiParam name="ToLocNo"/>
+            <apiParam name="TxnComment"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/LocationToLocation.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Serial Track</worksheetName>
+            <valuesRange class="value" valueClass="string">A:J</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="4"/>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="5" title="For Each: {opInvLocLocExcelData}=&gt;opInvLocLocExcelRow">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="opInvLocLocExcelData"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">opInvLocLocExcelRow</value>
+        </argument>
+        <argument id="continueOnFailure">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="6">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="9" title="Set Values: opInvLocLocExcelRow.ToLocNo">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">opInvLocLocExcelRow.ToLocNo</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="compound">
+                          <parts>
+                            <value valueClass="string">P-</value>
+                            <funcCall id="UniqueId">
+                              <argument id="length">
+                                <value class="value" valueClass="decimal">4</value>
+                              </argument>
+                            </funcCall>
+                          </parts>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <caseCall testCaseId="381b93b6-fa76-49de-a354-113949c26246" testCasePath="tests/Inventory Transaction/Callable/Inv Loc to Loc-To New Location-Serial Track Item.testcase" testItemId="8">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">QARSF_Admin</value>
+                </argument>
+                <argument id="ipItemName">
+                  <value class="variable">
+                    <path element="opInvLocLocExcelRow"/>
+                    <path element="ItemName"/>
+                  </value>
+                </argument>
+                <argument id="ipFromLocationID">
+                  <value class="variable">
+                    <path element="opInvLocLocExcelRow"/>
+                    <path element="LocID"/>
+                  </value>
+                </argument>
+                <argument id="ipFromLocationNumber">
+                  <value class="variable">
+                    <path element="opInvLocLocExcelRow"/>
+                    <path element="LocationNumber"/>
+                  </value>
+                </argument>
+                <argument id="ipFromLot">
+                  <value class="variable">
+                    <path element="opInvLocLocExcelRow"/>
+                    <path element="LotNo"/>
+                  </value>
+                </argument>
+                <argument id="ipFromProject">
+                  <value class="variable">
+                    <path element="opInvLocLocExcelRow"/>
+                    <path element="Project"/>
+                  </value>
+                </argument>
+                <argument id="ipToLocID">
+                  <value class="variable">
+                    <path element="opInvLocLocExcelRow"/>
+                    <path element="ToLocID"/>
+                  </value>
+                </argument>
+                <argument id="ipToLocationNumber">
+                  <value class="variable">
+                    <path element="opInvLocLocExcelRow"/>
+                    <path element="ToLocNo"/>
+                  </value>
+                </argument>
+                <argument id="ipSerialNum">
+                  <value class="variable">
+                    <path element="opInvLocLocExcelRow"/>
+                    <path element="SerialNumbers"/>
+                  </value>
+                </argument>
+                <argument id="ipTxnComment">
+                  <value class="variable">
+                    <path element="opInvLocLocExcelRow"/>
+                    <path element="TxnComment"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="opTotalSerialCount">
+                  <name class="variable">
+                    <path element="opSerialCount"/>
+                    <path element="fields"/>
+                    <path element="serialCount"/>
+                    <path element="value"/>
+                  </name>
+                </outputArgument>
+                <outputArgument id="opToLocationNumber">
+                  <name class="value" valueClass="string">opToLocationNumber</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>
