@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="2">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: QARSFAdmin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">Rootstock_Financials</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <caseCall testCaseId="8776e8de-4e97-4c6a-bb72-e18b4b100b52" testCasePath="tests/EndToEndtestcase/Callable/PO with multiple lines.testcase" testItemId="2">
+      <arguments>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="VendorName">
+          <value class="variable">
+            <path element="ExcelData"/>
+            <path element="Vendor"/>
+          </value>
+        </argument>
+        <argument id="POItem">
+          <value class="variable">
+            <path element="ExcelData"/>
+            <path element="Item"/>
+          </value>
+        </argument>
+        <argument id="QuantityRequired">
+          <value class="variable">
+            <path element="ExcelData"/>
+            <path element="Quantity"/>
+          </value>
+        </argument>
+        <argument id="ItemPrice">
+          <value class="variable">
+            <path element="ExcelData"/>
+            <path element="UnitPrice"/>
+          </value>
+        </argument>
+      </arguments>
+      <outputArguments>
+        <outputArgument id="PONumber">
+          <name class="value" valueClass="string">PONumber</name>
+        </outputArgument>
+        <outputArgument id="POHDRID">
+          <name class="value" valueClass="string">POHDRID</name>
+        </outputArgument>
+        <outputArgument id="OrderNumber">
+          <name class="value" valueClass="string">OrderNumber</name>
+        </outputArgument>
+        <outputArgument id="CreatedDate">
+          <name class="value" valueClass="string">CreatedDate</name>
+        </outputArgument>
+      </outputArguments>
+    </caseCall>
+    <caseCall testCaseId="db8dad26-6341-4bb3-a5aa-d1b82ed1dc11" testCasePath="tests/EndToEndtestcase/Callable/PurchaseOrderIssue.testcase" testItemId="14">
+      <arguments>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="PONumber">
+          <value class="variable">
+            <path element="PONumber"/>
+          </value>
+        </argument>
+      </arguments>
+    </caseCall>
+    <caseCall testCaseId="bc86e6b2-9609-43e2-b616-d3e6d10407d7" testCasePath="tests/EndToEndtestcase/Callable/PurchaseOrderReceipt.testcase" testItemId="15">
+      <arguments>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="OrdNo">
+          <value class="variable">
+            <path element="OrderNumber"/>
+          </value>
+        </argument>
+      </arguments>
+    </caseCall>
+    <caseCall testCaseId="c91f974a-7bf1-4a7c-b765-b83c7a15f0df" testCasePath="tests/EndToEndtestcase/Callable/PurchaseOrderAuthorization.testcase" testItemId="16">
+      <arguments>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="OrderNumber">
+          <value class="variable">
+            <path element="OrderNumber"/>
+          </value>
+        </argument>
+      </arguments>
+    </caseCall>
+    <caseCall testCaseId="98f49f3a-7453-430c-90fb-e55914fe6081" testCasePath="tests/EndToEndtestcase/Callable/PODMDVerification.testcase" testItemId="17">
+      <arguments>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="POHDRID">
+          <value class="variable">
+            <path element="POHDRID"/>
+          </value>
+        </argument>
+      </arguments>
+    </caseCall>
+    <caseCall testCaseId="29846612-c501-4e3b-863b-1cd4c090c96b" testCasePath="tests/EndToEndtestcase/Callable/POReceiptVerification.testcase" testItemId="18">
+      <arguments>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="POHDRID">
+          <value class="variable">
+            <path element="POHDRID"/>
+          </value>
+        </argument>
+      </arguments>
+    </caseCall>
+    <caseCall testCaseId="77316cb1-877c-44bd-ae52-84ab20b0758f" testCasePath="tests/EndToEndtestcase/Callable/PODimValVerification.testcase" testItemId="19">
+      <arguments>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="POHDR">
+          <value class="variable">
+            <path element="POHDRID"/>
+          </value>
+        </argument>
+        <argument id="ExpectedPOlineDimVal">
+          <value class="variable">
+            <path element="SourceData"/>
+            <path element="PolineDimval"/>
+          </value>
+        </argument>
+        <argument id="ExpectedPODMDDimval">
+          <value class="variable">
+            <path element="SourceData"/>
+            <path element="Podmddimval"/>
+          </value>
+        </argument>
+      </arguments>
+    </caseCall>
+    <caseCall testCaseId="284adeee-afaa-4faf-8bc4-5ed43dda5dc0" testCasePath="tests/EndToEndtestcase/Callable/CostTransactionVerification.testcase" testItemId="10">
+      <arguments>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="Item">
+          <value class="variable">
+            <path element="ExcelData"/>
+            <path element="Item"/>
+          </value>
+        </argument>
+        <argument id="ExpectedCreditAcc">
+          <value class="variable">
+            <path element="ExcelData"/>
+            <path element="CreditAccount"/>
+          </value>
+        </argument>
+        <argument id="ExpectedDebitAcc">
+          <value class="variable">
+            <path element="ExcelData"/>
+            <path element="DebitAccount"/>
+          </value>
+        </argument>
+        <argument id="ExpectedTransId">
+          <value class="variable">
+            <path element="ExcelData"/>
+            <path element="TransactionID"/>
+          </value>
+        </argument>
+        <argument id="CreatedDate">
+          <value class="variable">
+            <path element="CreatedDate"/>
+          </value>
+        </argument>
+      </arguments>
+    </caseCall>
+  </steps>
+</testCase>
