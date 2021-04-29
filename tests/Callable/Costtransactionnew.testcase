@@ -1,0 +1,2035 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="2" registryId="d125f5d9-1057-4637-8a13-f1c92d34ed8e" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="321" title="Salesforce Connect: QARSFAdmin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">Rootstock_Financials</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument argId="2410de3d-8ae8-48cc-a1c2-67695f196c99" id="reuseConnectionName">
+          <value class="variable">
+            <path element="reuseConnectionName"/>
+          </value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="440" title="Read Inventory Quantity">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Inventory Quantity</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="441">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="365" title="SOQL Query: select ID,name,rstk__iclocitem_icitem__c, rstk__iclocitem_locnum__c, rstk__iclocitem_locqty__c from rstk__iclocitem__c where Name like '{ItemName}' order by lastModifiedDate DESC=&gt;Location">
+              <arguments>
+                <argument argId="93f059e8-f73f-4a79-8ab2-c42aa42024ae" id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select ID,name,rstk__iclocitem_icitem__c, rstk__iclocitem_locnum__c, rstk__iclocitem_locqty__c from rstk__iclocitem__c where Name like '</value>
+                      <variable>
+                        <path element="ItemName"/>
+                      </variable>
+                      <value valueClass="string">' order by lastModifiedDate DESC</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument argId="f623ace5-abff-46f2-bc47-02291de8a4ed" id="apexConnectionName">
+                  <value class="value" valueClass="string">QARSFAdmin</value>
+                </argument>
+                <argument argId="9f96017b-dacc-4f93-a03b-61c0413d904a" id="resultListName">
+                  <value class="value" valueClass="string">Location</value>
+                </argument>
+                <argument argId="131b0142-de5b-40fc-b15d-c568c6177194" id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="388" title="SOQL Query: select Id,rstk__icitemcst_item__c,rstk__icitemcst_qtyoh__c, Name from rstk__icitemcst__c where Name like '{ItemName}'=&gt;invqty">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select Id,rstk__icitemcst_item__c,rstk__icitemcst_qtyoh__c, Name from rstk__icitemcst__c where Name like '</value>
+                      <variable>
+                        <path element="ItemName"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">QARSFAdmin</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">invqty</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="366" title="Set Values: UpdatedLocqty">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">UpdatedLocqty</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="Location"/>
+                          <path element="rstk__iclocitem_locqty__c"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="389" title="Set Values: InvQtyOnHand">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">InvQtyOnHand</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="invqty"/>
+                          <path element="rstk__icitemcst_qtyoh__c"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="426" title="Read Expected Account">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Expected Account</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="427">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="367" title="SOQL Query: select rstk__sycmp_apclracct__c,Id,Name from rstk__sycmp__c where Name like 'Mountain Manufacturing (100)%'=&gt;AccuredAPAcc">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="value" valueClass="string">select rstk__sycmp_apclracct__c,Id,Name from rstk__sycmp__c where Name like 'Mountain Manufacturing (100)%'</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">QARSFAdmin</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">AccuredAPAcc</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="368" title="SOQL Query: Select ID, rstk__iccomcodacc_invacct__c,rstk__iccomcodacc_adjclracct__c from rstk__iccomcodacc__c where ID in (select rstk__icitemacc_comcod__c from rstk__icitemacc__c where Name Like '{ItemName}')=&gt;Invacc">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">Select ID, rstk__iccomcodacc_invacct__c,rstk__iccomcodacc_adjclracct__c from rstk__iccomcodacc__c where ID in (select rstk__icitemacc_comcod__c from rstk__icitemacc__c where Name Like '</value>
+                      <variable>
+                        <path element="ItemName"/>
+                      </variable>
+                      <value valueClass="string">')</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">QARSFAdmin</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">Invacc</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="369" title="SOQL Query: select Id,Name,rstk__syvatclass_vatclearing__c from rstk__syvatclass__c=&gt;VatClassAcc">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="value" valueClass="string">select Id,Name,rstk__syvatclass_vatclearing__c from rstk__syvatclass__c</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">QARSFAdmin</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">VatClassAcc</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="370" title="SOQL Query: select Name,Id, rstk__syacc_glxrefacct__c from rstk__syacc__c where id = '{AccuredAPAcc.rstk__sycmp_apclracct__c}'=&gt;creditacc">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select Name,Id, rstk__syacc_glxrefacct__c from rstk__syacc__c where id = '</value>
+                      <variable>
+                        <path element="AccuredAPAcc"/>
+                        <path element="rstk__sycmp_apclracct__c"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">QARSFAdmin</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">creditacc</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="371" title="Set Values: ExpectedCreditAcc">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ExpectedCreditAcc</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="creditacc"/>
+                          <path element="Name"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="394" title="Set Values: ExpectedCRGLAcc">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ExpectedCRGLAcc</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="creditacc"/>
+                          <path element="rstk__syacc_glxrefacct__c"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="372" title="SOQL Query: select Id,Name, rstk__syacc_glxrefacct__c from rstk__syacc__c where id ='{Invacc.rstk__iccomcodacc_invacct__c}'=&gt;debitacc">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select Id,Name, rstk__syacc_glxrefacct__c from rstk__syacc__c where id ='</value>
+                      <variable>
+                        <path element="Invacc"/>
+                        <path element="rstk__iccomcodacc_invacct__c"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">QARSFAdmin</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">debitacc</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="373" title="Set Values: ExpectedDebitAcc">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ExpectedDebitAcc</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="debitacc"/>
+                          <path element="Name"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="395" title="Set Values: ExpectedDbGLAcc">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ExpectedDbGLAcc</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="debitacc"/>
+                          <path element="rstk__syacc_glxrefacct__c"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="374" title="SOQL Query: select Id,Name, rstk__syacc_glxrefacct__c from rstk__syacc__c where id ='a7541000000Gwms'=&gt;vatacc">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="value" valueClass="string">select Id,Name, rstk__syacc_glxrefacct__c from rstk__syacc__c where id ='a7541000000Gwms'</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">QARSFAdmin</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">vatacc</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="375" title="Set Values: ExpectedVatAcc">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ExpectedVatAcc</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="vatacc"/>
+                          <path element="Name"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="396" title="Set Values: ExpectedVatGLAcc">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ExpectedVatGLAcc</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="vatacc"/>
+                          <path element="rstk__syacc_glxrefacct__c"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="362" title="SOQL Query: select Id,Name from rstk__sytxncst__c where rstk__sytxncst_pohdr__c ='{PurchaseOrdId}'=&gt;sytxn">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">select Id,Name from rstk__sytxncst__c where rstk__sytxncst_pohdr__c ='</value>
+              <variable>
+                <path element="PurchaseOrdId"/>
+              </variable>
+              <value valueClass="string">'</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">sytxn</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="363" title="Set Values: RowNum">
+      <tags>
+        <string>disabled</string>
+      </tags>
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">RowNum</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">1</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="343" title="For Each: {sytxn}=&gt;CostTrans">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="sytxn"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="string">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">CostTrans</value>
+        </argument>
+        <argument id="continueOnFailure">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+      </arguments>
+      <parameterValueSources/>
+      <clauses>
+        <clause name="substeps" testItemId="344">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="320" title="On SF Rootstock Cost Transaction View screen">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">QARSFAdmin</value>
+                </argument>
+                <argument id="target">
+                  <value class="uiTarget" uri="sf:ui:target?object=rstk__sytxncst__c&amp;action=View"/>
+                </argument>
+                <argument id="navigate">
+                  <value class="value" valueClass="string">Always</value>
+                </argument>
+                <argument id="targetDescription">
+                  <value class="value" valueClass="string">On SF Rootstock Cost Transaction View screen</value>
+                </argument>
+                <argument id="windowSelection">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="windowSize">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="closeWindow"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="sfUiTargetObjectId">
+                  <value class="variable">
+                    <path element="CostTrans"/>
+                    <path element="Id"/>
+                  </value>
+                </argument>
+                <argument id="sfUiTargetVfIndex">
+                  <value class="value" valueClass="string">1</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="260">
+                  <steps/>
+                </clause>
+              </clauses>
+              <generatedParameters>
+                <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
+                  <summary>The Id of the SF Object to be Viewed or Edited.</summary>
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="322" title="On SF rstk__SytxncstView page with pageobject Rstk__ Sytxncst View">
+              <arguments>
+                <argument id="uiConnectionName">
+                  <value class="value" valueClass="string">QARSFAdmin</value>
+                </argument>
+                <argument id="target">
+                  <value class="uiTarget" uri="sf:ui:target?page=rstk__SytxncstView&amp;pageObject=pageobjects.rstk__SytxncstView"/>
+                </argument>
+                <argument id="navigate">
+                  <value class="value" valueClass="string">Always</value>
+                </argument>
+                <argument id="targetDescription">
+                  <value class="value" valueClass="string">On SF rstk__SytxncstView page with pageobject Rstk__ Sytxncst View</value>
+                </argument>
+                <argument id="windowSelection">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="windowSize">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="closeWindow"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="sfUiTargetObjectId">
+                  <value class="value" valueClass="string">a7w1K0000000ANu</value>
+                </argument>
+                <argument id="sfUiTargetVfIndex">
+                  <value class="value" valueClass="string">1</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="323">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="325" title="AssertInventoryItem">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="inventoryItemMaster">
+                              <fieldLocator uri="ui:locator?name=inventoryItemMaster"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="variable">
+                                    <path element="ItemName"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="341" title="ReadDebitAccount">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">debitacc</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="debitAccount">
+                              <fieldLocator uri="ui:locator?name=debitAccount"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="None"/>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="385" title="Set Values: ActualDebitAcc">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">ActualDebitAcc</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="debitacc"/>
+                                  <path element="fields"/>
+                                  <path element="debitAccount"/>
+                                  <path element="value"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="326" title="ReadCreditAccount">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">creditacc</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="creditaccount">
+                              <fieldLocator uri="ui:locator?name=creditaccount"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="None"/>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="386" title="Set Values: ActualCreditAccount">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">ActualCreditAccount</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="creditacc"/>
+                                  <path element="fields"/>
+                                  <path element="creditaccount"/>
+                                  <path element="value"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="327" title="ReadTransactionID">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">txnid</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="transactionID">
+                              <fieldLocator uri="ui:locator?name=transactionID"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="None"/>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="383" title="Set Values: TransactionID">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">TransactionID</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="txnid"/>
+                                  <path element="fields"/>
+                                  <path element="transactionID"/>
+                                  <path element="value"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="328" title="AssertQuantityonHand">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="quantityOnHand">
+                              <fieldLocator uri="ui:locator?name=quantityOnHand"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="variable">
+                                    <path element="InvQtyOnHand"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="329" title="AssertTransactionQty">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="transactionQty">
+                              <fieldLocator uri="ui:locator?name=transactionQty"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="variable">
+                                    <path element="TxnQty"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="338" title="AssertProject">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="Project">
+                              <fieldLocator uri="ui:locator?name=Project"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="value" valueClass="string">100 Home Project</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="332" title="AssertAccountingDate">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="accountingDate">
+                              <fieldLocator uri="ui:locator?name=accountingDate"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="value" valueClass="string">2/9/2021</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="333" title="AssertFiscalYear">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="fiscalYear">
+                              <fieldLocator uri="ui:locator?name=fiscalYear"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="value" valueClass="string">2021</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="334" title="AssertFiscalPeriod">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="fiscalPeriod">
+                              <fieldLocator uri="ui:locator?name=fiscalPeriod"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="value" valueClass="string">2</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="339" title="Click the Tab_ Orders_lbl field">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=tab_Orders_lbl"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Click the Tab_ Orders_lbl field</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="hover" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="335" title="AssertPurchaseOrder">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="purchaseOrder">
+                              <fieldLocator uri="ui:locator?name=purchaseOrder"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="variable">
+                                    <path element="PONUM"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="336" title="AssertPOReceipt">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="pOReceiptTransaction">
+                              <fieldLocator uri="ui:locator?name=pOReceiptTransaction"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="variable">
+                                    <path element="PORcpt"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="401" title="Read Journal Entry Detail">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read Journal Entry Detail</value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="hidden" testItemId="402">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="391" title="SOQL Query: select Id,Name,rstk__gljed_gljeh__c,rstk__gljed_sytxncst__c, rstk__gljed_xrefacct__c,rstk__gljed_amount__c, rstk__gljed_drcr__c,rstk__gljed_desc__c, rstk__formula_iscredit__c,rstk__formula_isdebit__c,\trstk__gljed_mfgacct__c from rstk__gljed__c where rstk__gljed_sytxncst__c = '{CostTrans.Id}'=&gt;gljed">
+                              <arguments>
+                                <argument id="soqlQuery">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">select Id,Name,rstk__gljed_gljeh__c,rstk__gljed_sytxncst__c, rstk__gljed_xrefacct__c,rstk__gljed_amount__c, rstk__gljed_drcr__c,rstk__gljed_desc__c, rstk__formula_iscredit__c,rstk__formula_isdebit__c,\trstk__gljed_mfgacct__c from rstk__gljed__c where rstk__gljed_sytxncst__c = '</value>
+                                      <variable>
+                                        <path element="CostTrans"/>
+                                        <path element="Id"/>
+                                      </variable>
+                                      <value valueClass="string">'</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="apexConnectionName">
+                                  <value class="value" valueClass="string">QARSFAdmin</value>
+                                </argument>
+                                <argument id="resultListName">
+                                  <value class="value" valueClass="string">gljed</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="446" title="SOQL Query: select Name,Id from rstk__syacc__c where id = '{gljed.rstk__gljed_mfgacct__c}'=&gt;jdacc">
+                              <arguments>
+                                <argument id="soqlQuery">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">select Name,Id from rstk__syacc__c where id = '</value>
+                                      <variable>
+                                        <path element="gljed"/>
+                                        <path element="rstk__gljed_mfgacct__c"/>
+                                      </variable>
+                                      <value valueClass="string">'</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="apexConnectionName">
+                                  <value class="value" valueClass="string">QARSFAdmin</value>
+                                </argument>
+                                <argument id="resultListName">
+                                  <value class="value" valueClass="string">jdacc</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="397" title="Set Values: EntryType">
+                              <arguments>
+                                <argument id="values">
+                                  <value class="valueList" mutable="Mutable">
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">EntryType</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="variable">
+                                          <path element="gljed"/>
+                                          <path element="rstk__gljed_drcr__c"/>
+                                        </value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                  </value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="399" title="Set Values: LineDesc">
+                              <arguments>
+                                <argument id="values">
+                                  <value class="valueList" mutable="Mutable">
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">LineDesc</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="variable">
+                                          <path element="gljed"/>
+                                          <path element="rstk__gljed_desc__c"/>
+                                        </value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                  </value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="410" title="Set Values: JDAccount">
+                              <arguments>
+                                <argument id="values">
+                                  <value class="valueList" mutable="Mutable">
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">JDAccount</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="variable">
+                                          <path element="jdacc"/>
+                                          <path element="Name"/>
+                                        </value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                  </value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="403" title="Read GL Transaction">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read GL Transaction</value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="hidden" testItemId="404">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="393" title="SOQL Query: select Id, rstkf__gltxn_sytxncst__c ,rstkf__gltxn_glacct__c ,rstkf__gltxn_dramt__c, rstkf__gltxn_cramt__c from rstkf__gltxn__c where rstkf__gltxn_sytxncst__c = '{CostTrans.Id}'=&gt;gltxn">
+                              <arguments>
+                                <argument id="soqlQuery">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">select Id, rstkf__gltxn_sytxncst__c ,rstkf__gltxn_glacct__c ,rstkf__gltxn_dramt__c, rstkf__gltxn_cramt__c from rstkf__gltxn__c where rstkf__gltxn_sytxncst__c = '</value>
+                                      <variable>
+                                        <path element="CostTrans"/>
+                                        <path element="Id"/>
+                                      </variable>
+                                      <value valueClass="string">'</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="apexConnectionName">
+                                  <value class="value" valueClass="string">QARSFAdmin</value>
+                                </argument>
+                                <argument id="resultListName">
+                                  <value class="value" valueClass="string">gltxn</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="413" title="Set Values: GLAccount">
+                              <arguments>
+                                <argument id="values">
+                                  <value class="valueList" mutable="Mutable">
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">GLAccount</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="variable">
+                                          <path element="gltxn"/>
+                                          <path element="rstkf__gltxn_glacct__c"/>
+                                        </value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                  </value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+              <generatedParameters>
+                <apiParam group="target" name="sfUiTargetVfIndex" title="Page Index">
+                  <summary>The VF page index. This is by default 1 and is used when there is same VF embedded multiple times</summary>
+                  <type>
+                    <numericType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="382" title="If: {TransactionID = &quot;ACCRUED AP&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="variable">
+                      <path element="TransactionID"/>
+                    </lhs>
+                    <rhs class="value" valueClass="string">ACCRUED AP</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="296">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="300" title="Assert: {ExpectedCreditAcc} EqualTo {ActualCreditAccount}">
+                      <arguments>
+                        <argument id="expectedValue">
+                          <value class="variable">
+                            <path element="ExpectedCreditAcc"/>
+                          </value>
+                        </argument>
+                        <argument id="actualValue">
+                          <value class="variable">
+                            <path element="ActualCreditAccount"/>
+                          </value>
+                        </argument>
+                        <argument id="comparisonType">
+                          <value class="value" valueClass="string">EqualTo</value>
+                        </argument>
+                        <argument id="caseSensitive">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="numeric">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="retainDecimals">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="nullGreater">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="matchMultiLine">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="matchDotAll">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="failureMessage">
+                          <value class="value" valueClass="string">Accured AP Acount not matching</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="398" title="Assert: Credit EqualTo {EntryType}">
+                      <arguments>
+                        <argument id="expectedValue">
+                          <value class="value" valueClass="string">Credit</value>
+                        </argument>
+                        <argument id="actualValue">
+                          <value class="variable">
+                            <path element="EntryType"/>
+                          </value>
+                        </argument>
+                        <argument id="comparisonType">
+                          <value class="value" valueClass="string">EqualTo</value>
+                        </argument>
+                        <argument id="caseSensitive">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="numeric">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="retainDecimals">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="nullGreater">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="matchMultiLine">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="matchDotAll">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="failureMessage">
+                          <value class="value" valueClass="string">Jounal Detail Entry type is not correct</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="411" title="Assert: {TransactionID} EqualTo {LineDesc}">
+                      <arguments>
+                        <argument id="expectedValue">
+                          <value class="variable">
+                            <path element="TransactionID"/>
+                          </value>
+                        </argument>
+                        <argument id="actualValue">
+                          <value class="variable">
+                            <path element="LineDesc"/>
+                          </value>
+                        </argument>
+                        <argument id="comparisonType">
+                          <value class="value" valueClass="string">EqualTo</value>
+                        </argument>
+                        <argument id="caseSensitive">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="numeric">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="retainDecimals">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="nullGreater">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="matchMultiLine">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="matchDotAll">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="failureMessage">
+                          <value class="value" valueClass="string">Journal Detail Line description is not correct</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="412" title="Assert: {ExpectedCreditAcc} EqualTo {JDAccount}">
+                      <arguments>
+                        <argument id="expectedValue">
+                          <value class="variable">
+                            <path element="ExpectedCreditAcc"/>
+                          </value>
+                        </argument>
+                        <argument id="actualValue">
+                          <value class="variable">
+                            <path element="JDAccount"/>
+                          </value>
+                        </argument>
+                        <argument id="comparisonType">
+                          <value class="value" valueClass="string">EqualTo</value>
+                        </argument>
+                        <argument id="caseSensitive">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="numeric">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="retainDecimals">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="nullGreater">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="matchMultiLine">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="matchDotAll">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="failureMessage">
+                          <value class="value" valueClass="string">Journal Detail Account is not correct</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="420" title="Assert: {ExpectedCRGLAcc} EqualTo {GLAccount}">
+                      <arguments>
+                        <argument id="expectedValue">
+                          <value class="variable">
+                            <path element="ExpectedCRGLAcc"/>
+                          </value>
+                        </argument>
+                        <argument id="actualValue">
+                          <value class="variable">
+                            <path element="GLAccount"/>
+                          </value>
+                        </argument>
+                        <argument id="comparisonType">
+                          <value class="value" valueClass="string">EqualTo</value>
+                        </argument>
+                        <argument id="caseSensitive">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="numeric">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="retainDecimals">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="nullGreater">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="matchMultiLine">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="matchDotAll">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="failureMessage">
+                          <value class="value" valueClass="string">GL Account is incorrect</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="303">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="308" title="If: {TransactionID = &quot;PORCPT TO INV&quot;}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="eq">
+                            <lhs class="variable">
+                              <path element="TransactionID"/>
+                            </lhs>
+                            <rhs class="value" valueClass="string">PORCPT TO INV</rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="309">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="315" title="Assert: {ExpectedDebitAcc} EqualTo {ActualDebitAcc}">
+                              <arguments>
+                                <argument id="expectedValue">
+                                  <value class="variable">
+                                    <path element="ExpectedDebitAcc"/>
+                                  </value>
+                                </argument>
+                                <argument id="actualValue">
+                                  <value class="variable">
+                                    <path element="ActualDebitAcc"/>
+                                  </value>
+                                </argument>
+                                <argument id="comparisonType">
+                                  <value class="value" valueClass="string">EqualTo</value>
+                                </argument>
+                                <argument id="caseSensitive">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="numeric">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="retainDecimals">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="nullGreater">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchMultiLine">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchDotAll">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="failureMessage">
+                                  <value class="value" valueClass="string">Inventory Acoount not matching</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="416" title="Assert: Debit EqualTo {EntryType}">
+                              <arguments>
+                                <argument id="expectedValue">
+                                  <value class="value" valueClass="string">Debit</value>
+                                </argument>
+                                <argument id="actualValue">
+                                  <value class="variable">
+                                    <path element="EntryType"/>
+                                  </value>
+                                </argument>
+                                <argument id="comparisonType">
+                                  <value class="value" valueClass="string">EqualTo</value>
+                                </argument>
+                                <argument id="caseSensitive">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="numeric">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="retainDecimals">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="nullGreater">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchMultiLine">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchDotAll">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="failureMessage">
+                                  <value class="value" valueClass="string">Jounal Detail Entry type is not correct</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="417" title="Assert: {TransactionID} EqualTo {LineDesc}">
+                              <arguments>
+                                <argument id="expectedValue">
+                                  <value class="variable">
+                                    <path element="TransactionID"/>
+                                  </value>
+                                </argument>
+                                <argument id="actualValue">
+                                  <value class="variable">
+                                    <path element="LineDesc"/>
+                                  </value>
+                                </argument>
+                                <argument id="comparisonType">
+                                  <value class="value" valueClass="string">EqualTo</value>
+                                </argument>
+                                <argument id="caseSensitive">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="numeric">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="retainDecimals">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="nullGreater">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchMultiLine">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchDotAll">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="failureMessage">
+                                  <value class="value" valueClass="string">Journal Detail Line description is not correct</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="418" title="Assert: {ExpectedDebitAcc} EqualTo {JDAccount}">
+                              <arguments>
+                                <argument id="expectedValue">
+                                  <value class="variable">
+                                    <path element="ExpectedDebitAcc"/>
+                                  </value>
+                                </argument>
+                                <argument id="actualValue">
+                                  <value class="variable">
+                                    <path element="JDAccount"/>
+                                  </value>
+                                </argument>
+                                <argument id="comparisonType">
+                                  <value class="value" valueClass="string">EqualTo</value>
+                                </argument>
+                                <argument id="caseSensitive">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="numeric">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="retainDecimals">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="nullGreater">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchMultiLine">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchDotAll">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="failureMessage">
+                                  <value class="value" valueClass="string">Journal Detail Account is not correct</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="419" title="Assert: {ExpectedDbGLAcc} EqualTo {GLAccount}">
+                              <arguments>
+                                <argument id="expectedValue">
+                                  <value class="variable">
+                                    <path element="ExpectedDbGLAcc"/>
+                                  </value>
+                                </argument>
+                                <argument id="actualValue">
+                                  <value class="variable">
+                                    <path element="GLAccount"/>
+                                  </value>
+                                </argument>
+                                <argument id="comparisonType">
+                                  <value class="value" valueClass="string">EqualTo</value>
+                                </argument>
+                                <argument id="caseSensitive">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="numeric">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="retainDecimals">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="nullGreater">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchMultiLine">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchDotAll">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="failureMessage">
+                                  <value class="value" valueClass="string">GL Account is incorrect</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="318">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="319" title="Assert: {ExpectedVatAcc} EqualTo {ActualDebitAcc}">
+                              <arguments>
+                                <argument id="expectedValue">
+                                  <value class="variable">
+                                    <path element="ExpectedVatAcc"/>
+                                  </value>
+                                </argument>
+                                <argument id="actualValue">
+                                  <value class="variable">
+                                    <path element="ActualDebitAcc"/>
+                                  </value>
+                                </argument>
+                                <argument id="comparisonType">
+                                  <value class="value" valueClass="string">EqualTo</value>
+                                </argument>
+                                <argument id="caseSensitive">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="numeric">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="retainDecimals">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="nullGreater">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchMultiLine">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchDotAll">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="failureMessage">
+                                  <value class="value" valueClass="string">Vat Account is not matching</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="421" title="Assert: Debit EqualTo {EntryType}">
+                              <arguments>
+                                <argument id="expectedValue">
+                                  <value class="value" valueClass="string">Debit</value>
+                                </argument>
+                                <argument id="actualValue">
+                                  <value class="variable">
+                                    <path element="EntryType"/>
+                                  </value>
+                                </argument>
+                                <argument id="comparisonType">
+                                  <value class="value" valueClass="string">EqualTo</value>
+                                </argument>
+                                <argument id="caseSensitive">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="numeric">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="retainDecimals">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="nullGreater">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchMultiLine">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchDotAll">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="failureMessage">
+                                  <value class="value" valueClass="string">Jounal Detail Entry type is not correct</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="422" title="Assert: {TransactionID} EqualTo {LineDesc}">
+                              <arguments>
+                                <argument id="expectedValue">
+                                  <value class="variable">
+                                    <path element="TransactionID"/>
+                                  </value>
+                                </argument>
+                                <argument id="actualValue">
+                                  <value class="variable">
+                                    <path element="LineDesc"/>
+                                  </value>
+                                </argument>
+                                <argument id="comparisonType">
+                                  <value class="value" valueClass="string">EqualTo</value>
+                                </argument>
+                                <argument id="caseSensitive">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="numeric">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="retainDecimals">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="nullGreater">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchMultiLine">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchDotAll">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="failureMessage">
+                                  <value class="value" valueClass="string">Journal Detail Line description is not correct</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="423" title="Assert: {ExpectedVatAcc} EqualTo {JDAccount}">
+                              <arguments>
+                                <argument id="expectedValue">
+                                  <value class="variable">
+                                    <path element="ExpectedVatAcc"/>
+                                  </value>
+                                </argument>
+                                <argument id="actualValue">
+                                  <value class="variable">
+                                    <path element="JDAccount"/>
+                                  </value>
+                                </argument>
+                                <argument id="comparisonType">
+                                  <value class="value" valueClass="string">EqualTo</value>
+                                </argument>
+                                <argument id="caseSensitive">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="numeric">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="retainDecimals">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="nullGreater">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchMultiLine">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchDotAll">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="failureMessage">
+                                  <value class="value" valueClass="string">Journal Detail Account is not correct</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="424" title="Assert: {ExpectedVatGLAcc} EqualTo {GLAccount}">
+                              <arguments>
+                                <argument id="expectedValue">
+                                  <value class="variable">
+                                    <path element="ExpectedVatGLAcc"/>
+                                  </value>
+                                </argument>
+                                <argument id="actualValue">
+                                  <value class="variable">
+                                    <path element="GLAccount"/>
+                                  </value>
+                                </argument>
+                                <argument id="comparisonType">
+                                  <value class="value" valueClass="string">EqualTo</value>
+                                </argument>
+                                <argument id="caseSensitive">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="numeric">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="retainDecimals">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="nullGreater">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchMultiLine">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchDotAll">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="failureMessage">
+                                  <value class="value" valueClass="string">GL Account is incorrect</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="364" title="Set Values: RowNum">
+              <tags>
+                <string>disabled</string>
+              </tags>
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">RowNum</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="add">
+                          <lhs class="variable">
+                            <path element="RowNum"/>
+                          </lhs>
+                          <rhs class="value" valueClass="decimal">1</rhs>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+  <params>
+    <param linkedToUrl="provar:hasvalue:2410de3d-8ae8-48cc-a1c2-67695f196c99" name="reuseConnectionName" title="Override Connection">
+      <summary>The name of an already opened connect to re-use.</summary>
+      <type>
+        <connectionType>
+          <constraints>
+            <valueConstraint name="variableName">true</valueConstraint>
+            <valueConstraint name="requiredCapabilities">sfSoapConnect</valueConstraint>
+          </constraints>
+        </connectionType>
+      </type>
+    </param>
+    <param name="ItemName" title="ItemName">
+      <summary>The Apex code to be executed.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="PurchaseOrdId" title="PurchaseOrdId">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="TxnQty" title="TxnQty">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="PONUM" title="PONUM">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="PORcpt" title="PORcpt">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+  </params>
+  <args>
+    <argument id="reuseConnectionName">
+      <value class="variable">
+        <path element="reuseconnection"/>
+      </value>
+    </argument>
+    <argument id="ItemName">
+      <value class="variable">
+        <path element="ExcelData"/>
+        <path element="Item"/>
+      </value>
+    </argument>
+    <argument id="PurchaseOrdId">
+      <value class="variable">
+        <path element="POID"/>
+      </value>
+    </argument>
+    <argument id="TxnQty">
+      <value class="variable">
+        <path element="ExcelData"/>
+        <path element="Quantity"/>
+      </value>
+    </argument>
+    <argument id="PONUM">
+      <value class="variable">
+        <path element="Purchase_Order"/>
+      </value>
+    </argument>
+    <argument id="PORcpt">
+      <value class="variable">
+        <path element="POReceiptName"/>
+      </value>
+    </argument>
+  </args>
+  <parameterValueSources/>
+</testCase>
