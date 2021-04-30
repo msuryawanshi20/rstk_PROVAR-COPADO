@@ -61,5 +61,20 @@ public class rstk__SytxncstView {
 	@TextType()
 	@FindBy(xpath = "//label[normalize-space(.)='Debit Account']/parent::span/parent::th/following-sibling::td")
 	public WebElement debitAccount;
+	@TextType()
+	@FindBy(xpath = "//label[contains(text(),'Division Dimension')]/following::td[1]//span[1]")
+	public WebElement divisionDimension;
+	@TextType()
+	@FindBy(xpath = "//label[contains(text(),'Customer Dimension')]/following::td[1]//span[1]")
+	public WebElement customerDimension;
+	@LinkType()
+	@FindBy(xpath = "//th[text()='Sales Order']/following::span[contains(@id,'pbs_Orders')]//a[1]")
+	public WebElement salesOrder;
+	@TextType()
+	@FindBy(xpath = "//span[text()='Order Type']/following::td//span[contains(@id,'pbs_Orders')][1]")
+	public WebElement orderType;
+	@TextType()
+	@FindBy(xpath = "//span[text()='Customer']/following::td//span[contains(@id,'pbs_Orders')][1]")
+	public WebElement Customer;
 	
 }

@@ -14,13 +14,14 @@ import com.provar.core.testapi.annotations.*;
                , object="rstk__peitem__c"
                , connection="QARSFAdmin"
      )             
+
 public class rstk__peitem {
 
 	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='Quantity On-Hand']/parent::span/parent::th/following-sibling::td[1]//span")
+	public WebElement quantityOnHand;
+	@TextType()
 	@FindBy(id = "pg:fm:pb:tab_Inventory_lbl")
 	public WebElement tab_Inventory_lbl;
-	@TextType()
-	@FindBy(id = "pg:fm:pb:pbs_InvParam:j_id444:j_id446")
-	public WebElement quantityOnHand;
 	
 }
