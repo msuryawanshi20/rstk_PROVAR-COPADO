@@ -15,6 +15,14 @@ import com.provar.core.testapi.annotations.*;
      , connection="QARSFAdmin"
      )             
 public class MyPageObject {
+	
+	
+	@TextType()
+	@FindBy(xpath = "//input[@placeholder='Search apps and items...']")
+	public WebElement searchAppsAndItems;
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Sales Order Header']")
+	public WebElement SalesOrderHeader;
 
 public WebDriver driver;
 
