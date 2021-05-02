@@ -8,7 +8,6 @@ import org.openqa.selenium.support.FindBy;
 import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
 import com.provar.core.testapi.annotations.ChoiceListType;
-import com.provar.core.testapi.annotations.ChoiceListValue;
 import com.provar.core.testapi.annotations.DateType;
 import com.provar.core.testapi.annotations.FindByLabel;
 import com.provar.core.testapi.annotations.LinkType;
