@@ -99,8 +99,15 @@ public class rstk__Manufacturing {
 	@VisualforceBy(componentXPath = "apex:outputPanel[not(@id)][2]//tr/td[2]/div[2]/div/div[2]/div/li[18]//a[1]")
 	public WebElement pOIssueReversal;
 	
+
+	@LinkType()
+	@FindBy(linkText = "Sales Order Entry")
+	public WebElement salesOrderEntry1;
+
+	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Inventory Location Add']")
 	public WebElement inventoryLocationAdd;
+
 
 }
 
