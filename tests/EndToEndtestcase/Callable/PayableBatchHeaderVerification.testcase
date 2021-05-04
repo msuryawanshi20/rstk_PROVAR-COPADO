@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase registryId="3a3fd54e-7208-45d3-a39e-fee0eff06e88" visibility="Internal">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: QARSFAdmin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">Rootstock_Financials</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument argId="eaada2ea-1217-44e1-bc13-5cc74f1bc5af" id="reuseConnectionName">
+          <value class="variable">
+            <path element="reuseConnectionName"/>
+          </value>
+        </argument>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select Id,Name,rstk__ttaphdr_batchno__c,rstk__ttaphdr_dimvals__c,rstk__ttaphdr_invoice_status__c from rstk__ttaphdr__c where rstk__ttaphdr_batchno__c = {batchno.fields.batchNumber.value} and Name like '{invno.fields.vendorInvoiceNumber.value}%'=&gt;rstkRows">
+      <arguments>
+        <argument argId="d73a0fa6-8bef-490d-85af-469fe8643cec" id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">select Id,Name,rstk__ttaphdr_batchno__c,rstk__ttaphdr_dimvals__c,rstk__ttaphdr_invoice_status__c from rstk__ttaphdr__c where rstk__ttaphdr_batchno__c = </value>
+              <variable>
+                <path element="batchno"/>
+                <path element="fields"/>
+                <path element="batchNumber"/>
+                <path element="value"/>
+              </variable>
+              <value valueClass="string"> and Name like '</value>
+              <variable>
+                <path element="invno"/>
+                <path element="fields"/>
+                <path element="vendorInvoiceNumber"/>
+                <path element="value"/>
+              </variable>
+              <value valueClass="string">%'</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">QARSFAdmin</value>
+        </argument>
+        <argument argId="923f3eb5-eea5-4173-b7ed-bf60a1ff8177" id="resultListName">
+          <value class="value" valueClass="string">rstkRows</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+  </steps>
+  <params>
+    <param linkedToUrl="provar:hasvalue:eaada2ea-1217-44e1-bc13-5cc74f1bc5af" name="reuseConnectionName" title="Override Connection">
+      <summary>The name of an already opened connect to re-use.</summary>
+      <type>
+        <connectionType>
+          <constraints>
+            <valueConstraint name="variableName">true</valueConstraint>
+            <valueConstraint name="requiredCapabilities">sfSoapConnect</valueConstraint>
+          </constraints>
+        </connectionType>
+      </type>
+    </param>
+    <param name="INVNO" title="INVNO">
+      <summary>The Apex code to be executed.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="BatchNo" title="BatchNo">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+  </params>
+  <args>
+    <argument id="reuseConnectionName">
+      <value class="variable">
+        <path element="reuseConnectionName"/>
+      </value>
+    </argument>
+    <argument id="INVNO"/>
+    <argument id="BatchNo"/>
+  </args>
+</testCase>
