@@ -107,7 +107,5 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Inventory Location Add']")
 	public WebElement inventoryLocationAdd;
-
-
 }
 

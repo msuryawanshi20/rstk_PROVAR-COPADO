@@ -2,13 +2,13 @@
 <testCase id="0">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: QARSF_Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -127,7 +127,7 @@
             <caseCall testCaseId="381b93b6-fa76-49de-a354-113949c26246" testCasePath="tests/Inventory Transaction/Callable/Inv Loc to Loc-To New Location-Serial Track Item.testcase" testItemId="8">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">QARSF_Admin</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="ipItemName">
                   <value class="variable">
@@ -183,6 +183,27 @@
                     <path element="TxnComment"/>
                   </value>
                 </argument>
+                <argument id="ip_ItemName">
+                  <value class="value" valueClass="string">6644-6 (BC Lot 1)</value>
+                </argument>
+                <argument id="ip_FromLocationID">
+                  <value class="value" valueClass="string">STK1</value>
+                </argument>
+                <argument id="ip_FromLocationNumber">
+                  <value class="value" valueClass="string">100</value>
+                </argument>
+                <argument id="ip_FromLot"/>
+                <argument id="ip_FromProject">
+                  <value class="value" valueClass="string">Home Project</value>
+                </argument>
+                <argument id="ip_TxnComment">
+                  <value class="value" valueClass="string">Test Provar-Lot Track</value>
+                </argument>
+                <argument id="ip_SerialNum"/>
+                <argument id="ip_ToLocationNumber"/>
+                <argument id="ip_ToLocID">
+                  <value class="value" valueClass="string">OH (On Hand Loc)</value>
+                </argument>
               </arguments>
               <outputArguments>
                 <outputArgument id="opTotalSerialCount">
@@ -195,6 +216,9 @@
                 </outputArgument>
                 <outputArgument id="opToLocationNumber">
                   <name class="value" valueClass="string">opToLocationNumber</name>
+                </outputArgument>
+                <outputArgument id="op_TotalSerialCount">
+                  <name class="value" valueClass="string">op_TotalSerialCount</name>
                 </outputArgument>
               </outputArguments>
             </caseCall>
