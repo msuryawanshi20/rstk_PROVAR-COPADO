@@ -103,10 +103,16 @@ public class rstk__Manufacturing {
 	@FindBy(xpath = "//a[normalize-space(.)='PO Receipt Reversals']")
 	public WebElement pOReceiptReversals;
 	
-	@LinkType()
+
 	@FindBy(xpath = "//a[normalize-space(.)='PO Issue Reversal']")
 	public WebElement pOIssueReversal;
+  
+  @FindBy(linkText = "Sales Order Entry")
+	public WebElement salesOrderEntry1;
 
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Inventory Location Add']")
+	public WebElement inventoryLocationAdd;
 
 }
 

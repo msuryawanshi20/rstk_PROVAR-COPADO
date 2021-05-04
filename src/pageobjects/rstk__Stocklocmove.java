@@ -136,5 +136,9 @@ public class rstk__Stocklocmove {
 	@ChoiceListType()
 	@FindBy(xpath = "//label[normalize-space(.)='From Site']/parent::span/parent::th/following-sibling::td//select")
 	public WebElement FromSite;
+	
+	@TextType()
+	@FindBy(xpath = "//span[contains(@id,'locmoveentries')]//textarea")
+	public WebElement selectedSerialNumber;
 
 }

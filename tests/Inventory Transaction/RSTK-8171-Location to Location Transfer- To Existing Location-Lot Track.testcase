@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="10">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -531,6 +531,31 @@
                   <value class="variable">
                     <path element="op_InvLocLocExcelRow"/>
                     <path element="Site"/>
+                  </value>
+                </argument>
+                <argument id="ip_Site">
+                  <value class="variable">
+                    <path element="ip_Site"/>
+                  </value>
+                </argument>
+                <argument id="ip_ItemName">
+                  <value class="variable">
+                    <path element="ip_ItemName"/>
+                  </value>
+                </argument>
+                <argument id="ip_FromLocationID">
+                  <value class="variable">
+                    <path element="ip_FromLocationID"/>
+                  </value>
+                </argument>
+                <argument id="ip_FromLocationNumber">
+                  <value class="variable">
+                    <path element="ipFromLocationNumber"/>
+                  </value>
+                </argument>
+                <argument id="ip_FromLotNumber">
+                  <value class="variable">
+                    <path element="ip_FromLotNumber"/>
                   </value>
                 </argument>
               </arguments>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Inherit" id="4" registryId="3d7a234f-3773-46be-9738-a9f0a97ccb37" visibility="Internal">
+<testCase failureBehaviour="Continue" id="4" registryId="3d7a234f-3773-46be-9738-a9f0a97ccb37" visibility="Internal">
   <summary>Callable testcase-Can be used to perform Location to Location Transfer on Existing location</summary>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="2" title="Salesforce Connect: QARSF_Admin (Test)">
@@ -200,7 +200,7 @@
                       <clauses>
                         <clause name="substeps" testItemId="62">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="75" title="Set the From Site select to {ipSite}">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="75" title="Set the From Site select to {ip_Site}">
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=FromSite"/>
@@ -209,7 +209,7 @@
                                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                                 </argument>
                                 <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the From Site select to {ipSite}</value>
+                                  <value class="value" valueClass="string">Set the From Site select to {ip_Site}</value>
                                 </argument>
                                 <argument id="beforeWait"/>
                                 <argument id="afterWait"/>
@@ -220,9 +220,9 @@
                                 <argument id="captureAfter">
                                   <value class="value" valueClass="string">false</value>
                                 </argument>
-                                <argument id="value">
+                                <argument argId="6bf5e6ce-ef19-458c-aad4-e90ed8417804" id="value">
                                   <value class="variable">
-                                    <path element="ipSite"/>
+                                    <path element="ip_Site"/>
                                   </value>
                                 </argument>
                                 <argument id="blur"/>
@@ -249,7 +249,7 @@
                                 </apiParam>
                               </generatedParameters>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="63" title="Set the Search_ Item field to {ipItemName}">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="63" title="Set the Search_ Item field to {ip_ItemName}">
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=Search_Item"/>
@@ -267,15 +267,15 @@
                                   <value class="uiWait" uri="default"/>
                                 </argument>
                                 <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Search_ Item field to {ipItemName}</value>
+                                  <value class="value" valueClass="string">Set the Search_ Item field to {ip_ItemName}</value>
                                 </argument>
                                 <argument id="autoRetry"/>
                                 <argument id="interaction">
                                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                                 </argument>
-                                <argument id="value">
+                                <argument argId="97d671bf-0c26-414d-a134-f6e75049e1c4" id="value">
                                   <value class="variable">
-                                    <path element="ipItemName"/>
+                                    <path element="ip_ItemName"/>
                                   </value>
                                 </argument>
                                 <argument id="blur">
@@ -372,24 +372,24 @@
                                     <path element="ipFromProject"/>
                                   </value>
                                 </argument>
-                                <argument id="param_locationID">
+                                <argument argId="6b21776f-d99b-42a3-aba6-64a6acbf5b5c" id="param_locationID">
                                   <value class="variable">
-                                    <path element="ipFromLocationID"/>
+                                    <path element="ip_FromLocationID"/>
                                   </value>
                                 </argument>
-                                <argument id="param_locationNo">
+                                <argument argId="caba07e7-8d28-43bb-b161-2afb70886407" id="param_locationNo">
                                   <value class="variable">
-                                    <path element="ipFromLocationNumber"/>
+                                    <path element="ip_FromLocationNumber"/>
                                   </value>
                                 </argument>
-                                <argument id="param_lotNumber">
+                                <argument argId="aeaf5a5d-91bf-4765-b187-043ccab0e072" id="param_lotNumber">
                                   <value class="variable">
-                                    <path element="ipFromLotNumber"/>
+                                    <path element="ip_FromLotNumber"/>
                                   </value>
                                 </argument>
-                                <argument id="param_project">
+                                <argument argId="92e8d3f5-9765-4847-83eb-d25934e71327" id="param_project">
                                   <value class="variable">
-                                    <path element="ipFromProject"/>
+                                    <path element="ip_FromProject"/>
                                   </value>
                                 </argument>
                               </arguments>
@@ -492,7 +492,7 @@
                                   <value class="uiWait" uri="default"/>
                                 </argument>
                                 <argument id="afterWait">
-                                  <value class="uiWait" uri="default"/>
+                                  <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
                                 </argument>
                                 <argument id="interactionDescription">
                                   <value class="value" valueClass="string">Click the Display Loc Move Entries button</value>
@@ -522,7 +522,7 @@
                                 </apiParam>
                               </generatedParameters>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="68" title="With Inventory Details Table rows {toLocID = $ipToLocID AND toLocNum = $ipToLocationNumber}">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="68" title="With Inventory Details Table rows {toLocID = $ip_ToLocID AND toLocNum = $ip_ToLocationNumber}">
                               <arguments>
                                 <argument id="uiConnectionName">
                                   <value class="value" valueClass="string">QARSF_Admin</value>
@@ -531,7 +531,7 @@
                                   <value class="uiLocator" uri="sf:ui:locator:row?table=inventoryDetailsTable"/>
                                 </argument>
                                 <argument id="locatorDescription">
-                                  <value class="value" valueClass="string">With Inventory Details Table rows {toLocID = $ipToLocID AND toLocNum = $ipToLocationNumber}</value>
+                                  <value class="value" valueClass="string">With Inventory Details Table rows {toLocID = $ip_ToLocID AND toLocNum = $ip_ToLocationNumber}</value>
                                 </argument>
                                 <argument id="failIfNotFound">
                                   <value class="value" valueClass="boolean">true</value>
@@ -555,7 +555,7 @@
                                         <path element="toLocID"/>
                                       </lhs>
                                       <rhs class="variable" topLevel="true">
-                                        <path element="ipToLocID"/>
+                                        <path element="ip_ToLocID"/>
                                       </rhs>
                                     </lhs>
                                     <rhs class="eq">
@@ -563,7 +563,7 @@
                                         <path element="toLocNum"/>
                                       </lhs>
                                       <rhs class="variable" topLevel="true">
-                                        <path element="ipToLocationNumber"/>
+                                        <path element="ip_ToLocationNumber"/>
                                       </rhs>
                                     </rhs>
                                   </value>
@@ -614,7 +614,7 @@
                                         </apiParam>
                                       </generatedParameters>
                                     </apiCall>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="71" title="Set the Quantity field to {ipQty}">
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="71" title="Set the Quantity field to {ip_Qty}">
                                       <arguments>
                                         <argument id="locator">
                                           <value class="uiLocator" uri="ui:locator?name=quantity"/>
@@ -623,7 +623,7 @@
                                           <value class="uiInteraction" uri="ui:interaction?name=set"/>
                                         </argument>
                                         <argument id="interactionDescription">
-                                          <value class="value" valueClass="string">Set the Quantity field to {ipQty}</value>
+                                          <value class="value" valueClass="string">Set the Quantity field to {ip_Qty}</value>
                                         </argument>
                                         <argument id="beforeWait"/>
                                         <argument id="afterWait"/>
@@ -634,9 +634,9 @@
                                         <argument id="captureAfter">
                                           <value class="value" valueClass="string">false</value>
                                         </argument>
-                                        <argument id="value">
+                                        <argument argId="9e8a97da-c217-4407-b310-8bb57f020cd0" id="value">
                                           <value class="variable">
-                                            <path element="ipQty"/>
+                                            <path element="ip_Qty"/>
                                           </value>
                                         </argument>
                                         <argument id="blur"/>
@@ -667,7 +667,7 @@
                                         </apiParam>
                                       </generatedParameters>
                                     </apiCall>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="72" title="Set the Txn Comment field to {ipTxnComment}">
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="72" title="Set the Txn Comment field to {ip_TxnComment}">
                                       <arguments>
                                         <argument id="locator">
                                           <value class="uiLocator" uri="ui:locator?name=txnComment"/>
@@ -675,9 +675,9 @@
                                         <argument id="interaction">
                                           <value class="uiInteraction" uri="ui:interaction?name=set"/>
                                         </argument>
-                                        <argument id="value">
+                                        <argument argId="e16cb572-6e28-4777-a5ce-33100b81bd32" id="value">
                                           <value class="variable">
-                                            <path element="ipTxnComment"/>
+                                            <path element="ip_TxnComment"/>
                                           </value>
                                         </argument>
                                         <argument id="blur">
@@ -699,7 +699,7 @@
                                           <value class="uiWait" uri="default"/>
                                         </argument>
                                         <argument id="interactionDescription">
-                                          <value class="value" valueClass="string">Set the Txn Comment field to {ipTxnComment}</value>
+                                          <value class="value" valueClass="string">Set the Txn Comment field to {ip_TxnComment}</value>
                                         </argument>
                                         <argument id="autoRetry"/>
                                       </arguments>
@@ -814,7 +814,9 @@
                                       <namedValue name="isRegex">
                                         <value class="value" valueClass="boolean">false</value>
                                       </namedValue>
-                                      <namedValue name="beforeWait"/>
+                                      <namedValue name="beforeWait">
+                                        <value class="uiWait" uri="ui:wait:alert:timeout=60"/>
+                                      </namedValue>
                                       <namedValue name="afterWait"/>
                                       <namedValue name="autoRetry"/>
                                     </namedValues>
@@ -861,7 +863,29 @@
         </connectionType>
       </type>
     </param>
-    <param name="ipSite" title="From Site">
+    <param linkedToUrl="provar:hasvalue:6bf5e6ce-ef19-458c-aad4-e90ed8417804" name="ip_Site" title="From Site">
+      <summary>The value to be populated.</summary>
+      <type>
+        <choiceType/>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:97d671bf-0c26-414d-a134-f6e75049e1c4" name="ip_ItemName" title="Item Name">
+      <summary>The value to be populated.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="mimeType">text/plain</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:6b21776f-d99b-42a3-aba6-64a6acbf5b5c" name="ip_FromLocationID" title="From Location ID">
+      <summary/>
+      <type>
+        <textType/>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:caba07e7-8d28-43bb-b161-2afb70886407" name="ip_FromLocationNumber" title="From Location Number">
       <summary/>
       <type>
         <textType>
@@ -873,7 +897,7 @@
         </textType>
       </type>
     </param>
-    <param name="ipItemName" title="Item Name">
+    <param linkedToUrl="provar:hasvalue:92e8d3f5-9765-4847-83eb-d25934e71327" name="ip_FromProject" title="Project">
       <summary/>
       <type>
         <textType>
@@ -885,7 +909,13 @@
         </textType>
       </type>
     </param>
-    <param name="ipFromLocationID" title="From Location ID">
+    <param linkedToUrl="provar:hasvalue:aeaf5a5d-91bf-4765-b187-043ccab0e072" name="ip_FromLotNumber" title="From Lot Number">
+      <summary/>
+      <type>
+        <textType/>
+      </type>
+    </param>
+    <param name="ip_ToLocID" title="To Location ID">
       <summary/>
       <type>
         <textType>
@@ -897,7 +927,7 @@
         </textType>
       </type>
     </param>
-    <param name="ipFromLocationNumber" title="From Location Number">
+    <param name="ip_ToLocationNumber" title="To Location Number">
       <summary/>
       <type>
         <textType>
@@ -909,67 +939,17 @@
         </textType>
       </type>
     </param>
-    <param name="ipFromProject" title="Project">
-      <summary/>
+    <param linkedToUrl="provar:hasvalue:9e8a97da-c217-4407-b310-8bb57f020cd0" name="ip_Qty" title="Quantity">
+      <summary>The value to be populated.</summary>
       <type>
         <textType>
           <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
+            <valueConstraint name="mimeType">text/plain</valueConstraint>
           </constraints>
         </textType>
       </type>
     </param>
-    <param name="ipFromLotNumber" title="From Lot Number">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-    </param>
-    <param name="ipToLocID" title="To Location ID">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-    </param>
-    <param name="ipToLocationNumber" title="To Location Number">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-    </param>
-    <param name="ipQty" title="Quantity">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-    </param>
-    <param name="ipSerialNum" title="Serial Numbers">
+    <param name="ip_SerialNum" title="Serial Numbers">
       <summary>If item is serial track item provide serial numbers which needs to be selected.\r\nNote: Incase of multiple serial numbers, Use "," sign for seperation.\r\n\r\nEg. Serial-01,Serial-02,Serial-03</summary>
       <type>
         <textType>
@@ -981,14 +961,12 @@
         </textType>
       </type>
     </param>
-    <param name="ipTxnComment" title="Transaction Comment">
-      <summary/>
+    <param linkedToUrl="provar:hasvalue:e16cb572-6e28-4777-a5ce-33100b81bd32" name="ip_TxnComment" title="Transaction Comment">
+      <summary>The value to be populated.</summary>
       <type>
         <textType>
           <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
+            <valueConstraint name="mimeType">text/plain</valueConstraint>
           </constraints>
         </textType>
       </type>
@@ -1012,64 +990,64 @@
     </param>
   </outputParams>
   <args>
-    <argument id="ipItemName">
-      <value class="variable">
-        <path element="ipItemName"/>
-      </value>
-    </argument>
-    <argument id="ipQty">
-      <value class="variable">
-        <path element="ipQty"/>
-      </value>
-    </argument>
-    <argument id="ipSerialNum">
-      <value class="variable">
-        <path element="ipSerialNum"/>
-      </value>
-    </argument>
-    <argument id="ipTxnComment">
-      <value class="variable">
-        <path element="ipTxnComment"/>
-      </value>
-    </argument>
     <argument id="reuseConnectionName">
       <value class="variable">
         <path element="reuseConnectionName"/>
       </value>
     </argument>
-    <argument id="ipToLocationNumber">
+    <argument id="ip_Site">
       <value class="variable">
-        <path element="ipToLocationNumber"/>
+        <path element="ip_Site"/>
       </value>
     </argument>
-    <argument id="ipFromLocationNumber">
+    <argument id="ip_ItemName">
       <value class="variable">
-        <path element="ipFromLocationNumber"/>
+        <path element="ip_ItemName"/>
       </value>
     </argument>
-    <argument id="ipFromLocationID">
+    <argument id="ip_FromLocationID">
       <value class="variable">
-        <path element="ipFromLocationID"/>
+        <path element="ip_FromLocationID"/>
       </value>
     </argument>
-    <argument id="ipFromProject">
+    <argument id="ip_FromLocationNumber">
       <value class="variable">
-        <path element="ipFromProject"/>
+        <path element="ip_FromLocationNumber"/>
       </value>
     </argument>
-    <argument id="ipToLocID">
+    <argument id="ip_FromProject">
       <value class="variable">
-        <path element="ipToLocID"/>
+        <path element="ip_FromProject"/>
       </value>
     </argument>
-    <argument id="ipFromLotNumber">
+    <argument id="ip_FromLotNumber">
       <value class="variable">
-        <path element="ipFromLotNumber"/>
+        <path element="ip_FromLotNumber"/>
       </value>
     </argument>
-    <argument id="ipSite">
+    <argument id="ip_ToLocID">
       <value class="variable">
-        <path element="ipSite"/>
+        <path element="ip_ToLocID"/>
+      </value>
+    </argument>
+    <argument id="ip_ToLocationNumber">
+      <value class="variable">
+        <path element="ip_ToLocationNumber"/>
+      </value>
+    </argument>
+    <argument id="ip_Qty">
+      <value class="variable">
+        <path element="ip_Qty"/>
+      </value>
+    </argument>
+    <argument id="ip_SerialNum">
+      <value class="variable">
+        <path element="ip_SerialNum"/>
+      </value>
+    </argument>
+    <argument id="ip_TxnComment">
+      <value class="variable">
+        <path element="ip_TxnComment"/>
       </value>
     </argument>
   </args>
