@@ -79,9 +79,7 @@
             <caseCall testCaseId="82afd0f5-2599-497c-b4e0-7a8cfb8a24c3" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Verify Inventory Quantity.testcase" testItemId="74">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="variable">
-                    <path element="reuseConnectionName"/>
-                  </value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="SourceData_InventoryQuantity">
                   <value class="variable">
@@ -248,9 +246,7 @@
             <caseCall testCaseId="3a9ccbf3-8423-4754-9f15-5d4c2cb1c189" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Consolidated SO Fulfillment.testcase" testItemId="81">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="variable">
-                    <path element="reuseConnectionName"/>
-                  </value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="OrderNumber_SOFulfill">
                   <value class="variable">
@@ -285,9 +281,7 @@
             <caseCall testCaseId="c363a919-584d-4d15-afa1-120241e9e2b5" testCasePath="tests/Sales Order/Sales Order - CallableTesting/SO Invoice.testcase" testItemId="76">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="variable">
-                    <path element="reuseConnectionName"/>
-                  </value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="Invoice">
                   <value class="variable">
@@ -329,9 +323,7 @@
             <caseCall testCaseId="a4bb4e3b-cdfb-4488-92ca-b62a0a4360cf" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Requirements.testcase" testItemId="77">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="variable">
-                    <path element="reuseConnectionName"/>
-                  </value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="OrderNumber_Req">
                   <value class="variable">
@@ -379,9 +371,7 @@
                   </value>
                 </argument>
                 <argument id="reuseConnectionName">
-                  <value class="variable">
-                    <path element="reuseConnectionName"/>
-                  </value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="SourceData_SOORDDMD">
                   <value class="variable">
@@ -424,9 +414,7 @@
                   </value>
                 </argument>
                 <argument id="reuseConnectionName">
-                  <value class="variable">
-                    <path element="reuseConnectionName"/>
-                  </value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="SourceData_Dimensions">
                   <value class="variable">
@@ -465,9 +453,7 @@
             <caseCall testCaseId="82afd0f5-2599-497c-b4e0-7a8cfb8a24c3" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Verify Inventory Quantity.testcase" testItemId="80">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="variable">
-                    <path element="reuseConnectionName"/>
-                  </value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="SourceData_InventoryQuantity">
                   <value class="variable">
