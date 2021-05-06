@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="4" visibility="Internal">
+<testCase id="4" registryId="82afd0f5-2599-497c-b4e0-7a8cfb8a24c3" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="5" title="Salesforce Connect: Devqaff (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="5" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
-          <value class="value" valueClass="string">Devqaff</value>
+          <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">Devqaff</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -112,7 +112,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">rstkRows</value>
@@ -126,7 +126,7 @@
                       <tags/>
                       <arguments>
                         <argument id="uiConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="target">
                           <value class="uiTarget" uri="sf:ui:target?object=rstk__peitem__c&amp;action=View"/>
@@ -173,7 +173,7 @@
                       <tags/>
                       <arguments>
                         <argument id="uiConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="target">
                           <value class="uiTarget" uri="sf:ui:target?page=rstk__Peitem&amp;pageObject=pageobjects.rstk__peitem"/>

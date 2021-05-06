@@ -66,7 +66,7 @@ public class rstk__SalesOrderWorkbench {
 		@FindBy(xpath = "//tr[2]/td[12]/span")
 		public WebElement qtyIssued2;
 		@TextType()
-		@FindBy(xpath = ".//td[13]/span")
+		@FindBy(xpath = ".//td[13]/span/span")
 		public WebElement qtyPackaged;
 		@TextType()
 		@FindBy(xpath = "//tr[2]/td[13]/span")
@@ -78,7 +78,7 @@ public class rstk__SalesOrderWorkbench {
 		@FindBy(xpath = "//tr[2]/td[4]/span")
 		public WebElement Shipper2;
 		@TextType()
-		@FindBy(xpath = ".//td[14]/span")
+		@FindBy(xpath = ".//td[14]/span/span")
 		public WebElement qtyShipped;
 		
 		@TextType()

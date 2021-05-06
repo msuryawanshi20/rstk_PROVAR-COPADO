@@ -2,13 +2,13 @@
 <testCase id="11" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Devqaff (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
-          <value class="value" valueClass="string">Devqaff</value>
+          <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">Devqaff</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -46,7 +46,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="2" title="On SF Global Search">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Devqaff</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?action=GlobalSearch"/>
@@ -142,7 +142,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="6" title="On SF Global Search">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Devqaff</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?action=GlobalSearch"/>
@@ -214,7 +214,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="9" title="On SF Sales Order Header Search screen">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">Devqaff</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=rstk__sohdr__c&amp;action=Search"/>
@@ -245,7 +245,7 @@
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="11" title="With rstk__sohdr__c rows {RSTK__SOHDR__C_NAME = &quot;{OrderNumber}&quot;}">
               <arguments>
                 <argument id="uiConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="locator">
                   <value class="uiLocator" uri="sf:ui:locator:row?table=Search%2FsearchView%2FsearchTable"/>
