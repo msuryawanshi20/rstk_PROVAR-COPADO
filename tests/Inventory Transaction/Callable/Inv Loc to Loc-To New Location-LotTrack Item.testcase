@@ -1091,23 +1091,7 @@
       </type>
     </param>
   </params>
-  <outputParams>
-    <param name="opTotalSerialCount" title="Total Serial Count">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-      <sourceValue class="variable">
-        <path element="opTotalSerialCount"/>
-      </sourceValue>
-    </param>
-  </outputParams>
+  <outputParams/>
   <args>
     <argument id="ipItemName">
       <value class="value" valueClass="string">6644-6 (BC Lot 1)</value>
