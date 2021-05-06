@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Inherit" id="0" registryId="381b93b6-fa76-49de-a354-113949c26246" visibility="Internal">
+<testCase failureBehaviour="Inherit" id="2" registryId="381b93b6-fa76-49de-a354-113949c26246" visibility="Internal">
   <summary>Callable testcase-Can be used to perform Location to Location Transfer on Existing location</summary>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="2" title="Salesforce Connect: SFConnection (Test)">
@@ -361,7 +361,7 @@
                         <argument id="interaction">
                           <value class="uiInteraction" uri="ui:interaction?name=set"/>
                         </argument>
-                        <argument id="value">
+                        <argument argId="d931f99f-9b09-4441-9145-9d73f5b92ef6" id="value">
                           <value class="variable">
                             <path element="ip_ItemName"/>
                           </value>
@@ -380,6 +380,9 @@
                             <textType>
                               <constraints>
                                 <valueConstraint name="mimeType">text/plain</valueConstraint>
+                                <valueConstraint name="minLength">0</valueConstraint>
+                                <valueConstraint name="maxLength">9999</valueConstraint>
+                                <valueConstraint name="regex"/>
                               </constraints>
                             </textType>
                           </type>
@@ -460,22 +463,22 @@
                             <path element="ipFromProject"/>
                           </value>
                         </argument>
-                        <argument id="param_locationID">
+                        <argument argId="69fee998-add5-4e37-a93f-0c761ca19282" id="param_locationID">
                           <value class="variable">
                             <path element="ip_FromLocationID"/>
                           </value>
                         </argument>
-                        <argument id="param_locationNo">
+                        <argument argId="2356e1db-19d0-404a-b046-292026578ab8" id="param_locationNo">
                           <value class="variable">
                             <path element="ip_FromLocationNumber"/>
                           </value>
                         </argument>
-                        <argument id="param_lotNumber">
+                        <argument argId="eb1766ac-d6d1-4a52-8f1a-78ef5f62b0ed" id="param_lotNumber">
                           <value class="variable">
                             <path element="ip_FromLot"/>
                           </value>
                         </argument>
-                        <argument id="param_project">
+                        <argument argId="6211ab60-31c1-473a-932a-2cdc1d1b05a5" id="param_project">
                           <value class="variable">
                             <path element="ip_FromProject"/>
                           </value>
@@ -506,7 +509,7 @@
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.string.Split" name="Split" testItemId="100" title="Split: {ip_SerialNum}=&gt;,=&gt;op_SerialNumberList">
                       <arguments>
-                        <argument id="input">
+                        <argument argId="c36a9f9d-e9c3-44d6-a2bd-dd09c12b07dd" id="input">
                           <value class="variable">
                             <path element="ip_SerialNum"/>
                           </value>
@@ -823,6 +826,41 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="120" title="Read Selected Serial numbers">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">op_SelectedSerials</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="selectedSerialNumber">
+                              <fieldLocator uri="ui:locator?name=selectedSerialNumber"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="None"/>
+                                <uiAttributeAssertion attributeName="message" comparisonType="None"/>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="109" title="With Inventory Details Table rows {1}">
                       <arguments>
                         <argument id="uiConnectionName">
@@ -912,7 +950,7 @@
                                 <argument id="interaction">
                                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                                 </argument>
-                                <argument id="value">
+                                <argument argId="66ef6d6d-fd77-40c1-84ba-c0e9117e4c1a" id="value">
                                   <value class="variable">
                                     <path element="ip_ToLocID"/>
                                   </value>
@@ -969,7 +1007,7 @@
                                 <argument id="interaction">
                                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                                 </argument>
-                                <argument id="value">
+                                <argument argId="d0e470b2-4dd8-4431-96eb-9f0d4d825f56" id="value">
                                   <value class="variable">
                                     <path element="ip_ToLocationNumber"/>
                                   </value>
@@ -1004,6 +1042,9 @@
                                     <textType>
                                       <constraints>
                                         <valueConstraint name="mimeType">text/plain</valueConstraint>
+                                        <valueConstraint name="minLength">0</valueConstraint>
+                                        <valueConstraint name="maxLength">9999</valueConstraint>
+                                        <valueConstraint name="regex"/>
                                       </constraints>
                                     </textType>
                                   </type>
@@ -1068,7 +1109,7 @@
                                 <argument id="interaction">
                                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                                 </argument>
-                                <argument id="value">
+                                <argument argId="d7f0395a-afa0-47da-9a02-29ad5066dd1d" id="value">
                                   <value class="variable">
                                     <path element="ip_TxnComment"/>
                                   </value>
@@ -1233,6 +1274,83 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="127" title="Read location Type">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">Select Id, Name,\nrstk__iclocitem_site__c, \nrstk__iclocitem_icitem__c, \nrstk__iclocitem_proj__c, \nrstk__iclocitem_locqty__c, \nrstk__iclocitem_loctype_pl__c, \nrstk__iclocitem_locid__c, \nrstk__iclocitem_locnum__c, \nrstk__iclocitem_locsec__c, \nLastModifiedDate\nfrom rstk__iclocitem__c where name like '</value>
+                      <variable>
+                        <path element="ip_ItemName"/>
+                      </variable>
+                      <value valueClass="string">%' and rstk__iclocitem_locid__r.name like '</value>
+                      <variable>
+                        <path element="ip_ToLocID"/>
+                      </variable>
+                      <value valueClass="string">%' and rstk__iclocitem_locnum__c='</value>
+                      <variable>
+                        <path element="ip_ToLocationNumber"/>
+                      </variable>
+                      <value valueClass="string">' order by LastModifiedDate desc LIMIT 1</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">op_BeforeTransaction_ToLocation</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="124" title="Set Values: op_SerialCount">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">op_SerialCount</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="op_SerialCount"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="125" title="Set Values: op_SelectedSerials">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">op_SelectedSerials</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="op_SelectedSerials"/>
+                          <path element="fields"/>
+                          <path element="selectedSerialNumber"/>
+                          <path element="value"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
           </steps>
         </clause>
       </clauses>
@@ -1250,11 +1368,22 @@
         </connectionType>
       </type>
     </param>
-    <param name="ip_ItemName" title="Item Name">
-      <summary/>
+    <param linkedToUrl="provar:hasvalue:f1c51183-e4f6-4097-991b-ce4e0acefd9a" name="ip_Site" title="From Site">
+      <summary>The value to be populated.</summary>
+      <type>
+        <choiceType>
+          <constraints>
+            <valueConstraint name="unrestricted">false</valueConstraint>
+          </constraints>
+        </choiceType>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:d931f99f-9b09-4441-9145-9d73f5b92ef6" name="ip_ItemName" title="Item Name">
+      <summary>The value to be populated.</summary>
       <type>
         <textType>
           <constraints>
+            <valueConstraint name="mimeType">text/plain</valueConstraint>
             <valueConstraint name="minLength">0</valueConstraint>
             <valueConstraint name="maxLength">9999</valueConstraint>
             <valueConstraint name="regex"/>
@@ -1262,11 +1391,42 @@
         </textType>
       </type>
     </param>
-    <param name="ip_FromLocationID" title="From Location ID">
+    <param linkedToUrl="provar:hasvalue:69fee998-add5-4e37-a93f-0c761ca19282" name="ip_FromLocationID" title="From Location ID">
       <summary/>
+      <type>
+        <textType/>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:2356e1db-19d0-404a-b046-292026578ab8" name="ip_FromLocationNumber" title="From Location Number">
+      <summary/>
+      <type>
+        <textType/>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:eb1766ac-d6d1-4a52-8f1a-78ef5f62b0ed" name="ip_FromLot" title="From Lot Number">
+      <summary/>
+      <type>
+        <textType/>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:6211ab60-31c1-473a-932a-2cdc1d1b05a5" name="ip_FromProject" title="Project">
+      <summary/>
+      <type>
+        <textType/>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:66ef6d6d-fd77-40c1-84ba-c0e9117e4c1a" name="ip_ToLocID" title="To Location ID">
+      <summary>The value to be populated.</summary>
+      <type>
+        <choiceType/>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:d0e470b2-4dd8-4431-96eb-9f0d4d825f56" name="ip_ToLocationNumber" title="To Location Number">
+      <summary>The value to be populated.</summary>
       <type>
         <textType>
           <constraints>
+            <valueConstraint name="mimeType">text/plain</valueConstraint>
             <valueConstraint name="minLength">0</valueConstraint>
             <valueConstraint name="maxLength">9999</valueConstraint>
             <valueConstraint name="regex"/>
@@ -1274,71 +1434,12 @@
         </textType>
       </type>
     </param>
-    <param name="ip_FromLocationNumber" title="From Location Number">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-    </param>
-    <param name="ip_FromLot" title="From Lot Number">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-    </param>
-    <param name="ip_FromProject" title="Project">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-    </param>
-    <param name="ip_ToLocID" title="To Location ID">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-    </param>
-    <param name="ip_ToLocationNumber" title="To Location Number">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-    </param>
-    <param name="ip_SerialNum" title="Serial Numbers">
+    <param linkedToUrl="provar:hasvalue:c36a9f9d-e9c3-44d6-a2bd-dd09c12b07dd" name="ip_SerialNum" title="Serial Numbers">
       <summary>If item is serial track item provide serial numbers which needs to be selected.\r\nNote: Incase of multiple serial numbers, Use "," sign for seperation.\r\n\r\nEg. Serial-01,Serial-02,Serial-03</summary>
       <type>
         <textType>
           <constraints>
+            <valueConstraint name="mimeType">text/plain</valueConstraint>
             <valueConstraint name="minLength">0</valueConstraint>
             <valueConstraint name="maxLength">9999</valueConstraint>
             <valueConstraint name="regex"/>
@@ -1346,22 +1447,20 @@
         </textType>
       </type>
     </param>
-    <param name="ip_TxnComment" title="Transaction Comment">
-      <summary/>
+    <param linkedToUrl="provar:hasvalue:d7f0395a-afa0-47da-9a02-29ad5066dd1d" name="ip_TxnComment" title="Transaction Comment">
+      <summary>The value to be populated.</summary>
       <type>
         <textType>
           <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
+            <valueConstraint name="mimeType">text/plain</valueConstraint>
           </constraints>
         </textType>
       </type>
     </param>
   </params>
   <outputParams>
-    <param name="op_TotalSerialCount" title="Total Serial Count">
-      <summary/>
+    <param defaultScope="Test" name="op_SerialCount" title="Total Serial Numbers">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
       <type>
         <textType>
           <constraints>
@@ -1372,7 +1471,37 @@
         </textType>
       </type>
       <sourceValue class="variable">
-        <path element="opTotalSerialCount"/>
+        <path element="op_SerialCount"/>
+      </sourceValue>
+    </param>
+    <param name="op_SelectedSerials" title="Selected Serials">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="op_SelectedSerials"/>
+      </sourceValue>
+    </param>
+    <param defaultScope="Test" name="op_BeforeTransaction_ToLocation" title="op_BeforeTransaction_ToLocation">
+      <summary>The name under which the returned rows will be stored.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="op_BeforeTransaction_ToLocation"/>
       </sourceValue>
     </param>
   </outputParams>
@@ -1395,9 +1524,23 @@
       <value class="value" valueClass="string">Test Provar-Lot Track</value>
     </argument>
     <argument id="ip_SerialNum"/>
-    <argument id="ip_ToLocationNumber"/>
+    <argument id="ip_ToLocationNumber">
+      <value class="compound">
+        <parts>
+          <value valueClass="string">P-</value>
+          <funcCall id="UniqueId">
+            <argument id="length">
+              <value class="value" valueClass="decimal">4</value>
+            </argument>
+          </funcCall>
+        </parts>
+      </value>
+    </argument>
     <argument id="ip_ToLocID">
       <value class="value" valueClass="string">OH (On Hand Loc)</value>
+    </argument>
+    <argument id="ip_Site">
+      <value class="value" valueClass="string">10 (Denver)</value>
     </argument>
   </args>
   <outputArgs>
@@ -1406,13 +1549,14 @@
         <path element="ipToLocationNumber"/>
       </name>
     </outputArgument>
-    <outputArgument id="op_TotalSerialCount">
-      <name class="variable">
-        <path element="opSerialCount"/>
-        <path element="fields"/>
-        <path element="serialCount"/>
-        <path element="value"/>
-      </name>
+    <outputArgument id="op_SerialCount">
+      <name class="value" valueClass="string">op_SerialCount</name>
+    </outputArgument>
+    <outputArgument id="op_SelectedSerials">
+      <name class="value" valueClass="string">op_SelectedSerials</name>
+    </outputArgument>
+    <outputArgument id="op_BeforeTransaction_ToLocation">
+      <name class="value" valueClass="string">op_BeforeTransaction_ToLocation</name>
     </outputArgument>
   </outputArgs>
 </testCase>

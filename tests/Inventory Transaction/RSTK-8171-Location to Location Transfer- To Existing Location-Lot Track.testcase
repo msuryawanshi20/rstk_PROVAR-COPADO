@@ -52,7 +52,7 @@
       <expectedExceptions/>
       <parameterValueSources>
         <parameterValueSource variableName="op_InvLocLocExcelData" variableScope="Test">
-          <cacheToken>D:/provar/RS-QAAutomation/RS-QAAutomation/templates/LocationToLocation.xlsx;1616530417913</cacheToken>
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/LocationToLocation.xlsx;1620331693320</cacheToken>
           <cachedParameters>
             <apiParam name="RowNumber"/>
             <apiParam name="Site"/>
@@ -68,7 +68,7 @@
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/LocationToLocation.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">LotTrack_NoTrack</worksheetName>
+            <worksheetName class="value" valueClass="string">RSTK-8171-Existing loc</worksheetName>
             <valuesRange class="value" valueClass="string">A:J</valuesRange>
           </sourceValue>
         </parameterValueSource>
@@ -556,6 +556,36 @@
                 <argument id="ip_FromLotNumber">
                   <value class="variable">
                     <path element="ip_FromLotNumber"/>
+                  </value>
+                </argument>
+                <argument id="ip_FromProject">
+                  <value class="variable">
+                    <path element="ip_FromProject"/>
+                  </value>
+                </argument>
+                <argument id="ip_ToLocID">
+                  <value class="variable">
+                    <path element="ip_ToLocID"/>
+                  </value>
+                </argument>
+                <argument id="ip_ToLocationNumber">
+                  <value class="variable">
+                    <path element="ip_ToLocationNumber"/>
+                  </value>
+                </argument>
+                <argument id="ip_Qty">
+                  <value class="variable">
+                    <path element="ip_Qty"/>
+                  </value>
+                </argument>
+                <argument id="ip_SerialNum">
+                  <value class="variable">
+                    <path element="ip_SerialNum"/>
+                  </value>
+                </argument>
+                <argument id="ip_TxnComment">
+                  <value class="variable">
+                    <path element="ip_TxnComment"/>
                   </value>
                 </argument>
               </arguments>

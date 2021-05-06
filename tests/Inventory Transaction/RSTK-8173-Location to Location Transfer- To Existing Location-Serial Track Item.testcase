@@ -51,7 +51,7 @@
       </arguments>
       <parameterValueSources>
         <parameterValueSource variableName="op_InvLocLocExcelData" variableScope="Test">
-          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/LocationToLocation.xlsx;1617119004313</cacheToken>
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/LocationToLocation.xlsx;1620331693320</cacheToken>
           <cachedParameters>
             <apiParam name="RowNumber"/>
             <apiParam name="Site"/>
@@ -67,7 +67,7 @@
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/LocationToLocation.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">Serial Track</worksheetName>
+            <worksheetName class="value" valueClass="string">RSTK-8173-SRL-Existing loc</worksheetName>
             <valuesRange class="value" valueClass="string">A:J</valuesRange>
           </sourceValue>
         </parameterValueSource>
@@ -582,27 +582,6 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="861" title="Set Values: temp">
-              <arguments>
-                <argument id="values">
-                  <value class="valueList" mutable="Mutable">
-                    <namedValues mutable="Mutable">
-                      <namedValue name="valuePath">
-                        <value class="value" valueClass="string">temp</value>
-                      </namedValue>
-                      <namedValue name="value">
-                        <value class="variable">
-                          <path element="op_SelectedSerials"/>
-                        </value>
-                      </namedValue>
-                      <namedValue name="valueScope">
-                        <value class="value" valueClass="string">Test</value>
-                      </namedValue>
-                    </namedValues>
-                  </value>
-                </argument>
-              </arguments>
-            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="822" title="Verify Inventory by Location records">
               <arguments>
                 <argument id="description">
@@ -734,6 +713,7 @@
                                       <clauses>
                                         <clause name="then" testItemId="881">
                                           <steps>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="893" title="Break"/>
                                             <caseCall testCaseId="60ae13e1-bdeb-47ff-b5de-a70264ee96e0" testCasePath="tests/Inventory Management/Callable/SOQL-Inventory by Location-ICLOCITEM.testcase" testItemId="875">
                                               <tags/>
                                               <arguments>
@@ -791,7 +771,6 @@
                                                 </outputArgument>
                                               </outputArguments>
                                             </caseCall>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="893" title="Break"/>
                                           </steps>
                                         </clause>
                                         <clause name="else" testItemId="891">
