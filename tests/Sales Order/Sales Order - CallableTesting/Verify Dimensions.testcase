@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="0" visibility="Internal">
+<testCase failureBehaviour="Continue" id="0" registryId="6a80148c-7917-4cf7-8edf-eb0e7dfee6ea" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Devqaff (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
-          <value class="value" valueClass="string">Devqaff</value>
+          <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">Devqaff</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -192,7 +192,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">rstkRows_DivMaster</value>
@@ -238,7 +238,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">rstkRows_DimValueMaster_Division</value>
@@ -341,7 +341,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">rstkRows_CustMaster</value>
@@ -387,7 +387,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">rstkRows_DimValueMaster_Customer</value>
@@ -491,7 +491,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">rstkRows_ProjMaster</value>
@@ -537,7 +537,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">rstkRows_DimValueMaster_Project</value>
@@ -640,7 +640,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">rstkRows_ProdMaster</value>
@@ -686,7 +686,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">rstkRows_DimValueMaster_Product</value>
@@ -781,7 +781,7 @@
                                   </value>
                                 </argument>
                                 <argument id="apexConnectionName">
-                                  <value class="value" valueClass="string">Devqaff</value>
+                                  <value class="value" valueClass="string">SFConnection</value>
                                 </argument>
                                 <argument id="resultListName">
                                   <value class="value" valueClass="string">rstkRows_DimValueMaster_Product</value>
@@ -894,7 +894,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">rstkRows_InvItemMaster</value>
@@ -940,7 +940,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">rstkRows_DimValueMaster_ICItem</value>
@@ -1037,7 +1037,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">rstkRows_SOLIine</value>
@@ -1251,7 +1251,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">rstkRows_SOLIine</value>
@@ -1264,7 +1264,7 @@
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="141" title="On SF Dimension Values View screen">
                       <arguments>
                         <argument id="uiConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="target">
                           <value class="uiTarget" uri="sf:ui:target?object=rstk__dimvals__c&amp;action=View"/>
@@ -1357,7 +1357,7 @@
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="155" title="With rstk__solines__r rows {NAME = $SOLineNumber}">
                               <arguments>
                                 <argument id="uiConnectionName">
-                                  <value class="value" valueClass="string">Devqaff</value>
+                                  <value class="value" valueClass="string">SFConnection</value>
                                 </argument>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="sf:ui:locator:row?table=View%2Frstk__solines__r%2Frstk__solines__rTable"/>
@@ -1506,7 +1506,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">rstkRows_SOORDDMD</value>
@@ -1519,7 +1519,7 @@
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="128" title="On SF Sales Order Demand View screen">
                       <arguments>
                         <argument id="uiConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="target">
                           <value class="uiTarget" uri="sf:ui:target?object=rstk__soorddmd__c&amp;action=View"/>
@@ -1619,7 +1619,7 @@
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="133" title="On SF Dimension Values View screen">
                       <arguments>
                         <argument id="uiConnectionName">
-                          <value class="value" valueClass="string">Devqaff</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="target">
                           <value class="uiTarget" uri="sf:ui:target?object=rstk__dimvals__c&amp;action=View"/>
@@ -1728,7 +1728,7 @@
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="162" title="With rstk__soorddmds__r rows {NAME = $SOORDDMD_Name}">
                               <arguments>
                                 <argument id="uiConnectionName">
-                                  <value class="value" valueClass="string">Devqaff</value>
+                                  <value class="value" valueClass="string">SFConnection</value>
                                 </argument>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="sf:ui:locator:row?table=View%2Frstk__soorddmds__r%2Frstk__soorddmds__rTable"/>

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase visibility="Internal">
+<testCase registryId="d0c31666-0c7c-41ed-9af3-4208a966671f" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Devqaff (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
-          <value class="value" valueClass="string">Devqaff</value>
+          <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">Devqaff</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -143,7 +143,7 @@
                   </value>
                 </argument>
                 <argument id="apexConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="resultListName">
                   <value class="value" valueClass="string">rstkRows</value>
@@ -168,7 +168,7 @@
                   </value>
                 </argument>
                 <argument id="apexConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="Name">
                   <value class="value" valueClass="string">157-001 (Item_prod_stock)</value>
@@ -212,7 +212,7 @@
                 </resultAssertion>
               </resultAssertions>
               <parameterGeneratorProperties>
-                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">Devqaff</propertyValue>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">SFConnection</propertyValue>
                 <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">rstk__soorddmd__c</propertyValue>
               </parameterGeneratorProperties>
               <generatedParameters>
@@ -246,7 +246,7 @@
                   </value>
                 </argument>
                 <argument id="apexConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="rstk__soorddmd_qtyreq__c">
                   <value class="value" valueClass="decimal">1.0</value>
@@ -272,7 +272,7 @@
               </resultAssertions>
               <parameterValueSources/>
               <parameterGeneratorProperties>
-                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">Devqaff</propertyValue>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">SFConnection</propertyValue>
                 <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">rstk__soorddmd__c</propertyValue>
               </parameterGeneratorProperties>
               <generatedParameters>
@@ -299,7 +299,7 @@
               </tags>
               <arguments>
                 <argument id="uiConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="target">
                   <value class="uiTarget" uri="sf:ui:target?object=rstk__soorddmd__c&amp;action=View"/>

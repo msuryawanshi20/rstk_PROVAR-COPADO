@@ -11,13 +11,13 @@
       <clauses>
         <clause name="hidden" testItemId="18">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="19" title="Salesforce Connect: Devqaff (Test)">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="19" title="Salesforce Connect: SFConnection (Test)">
               <arguments>
                 <argument id="connectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">QARSF_Admin</value>
                 </argument>
                 <argument id="resultName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="resultScope">
                   <value class="value" valueClass="string">Test</value>
@@ -85,7 +85,7 @@
               </tags>
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
               </arguments>
               <outputArguments>
@@ -131,7 +131,7 @@
             <caseCall testCaseId="0984cba3-426d-4801-9d11-9d0c5411befe" testCasePath="tests/Sales Order - CallableTesting/SO Header.testcase" testItemId="176">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
               </arguments>
               <outputArguments>
@@ -204,7 +204,7 @@
                   </value>
                 </argument>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="Onum">
                   <value class="variable">
@@ -234,7 +234,7 @@
             <caseCall testCaseId="e030adcc-8761-45fa-b9e7-56172248d32f" testCasePath="tests/Sales Order - CallableTesting/SO Fulfillment.testcase" testItemId="21">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
               </arguments>
               <outputArguments>
@@ -303,7 +303,7 @@
               </tags>
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="InvNumber_var">
                   <value class="variable">
@@ -355,7 +355,7 @@
               </tags>
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="SONumber">
                   <value class="variable">
@@ -397,7 +397,7 @@
               </tags>
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="OrderNo">
                   <value class="variable">
@@ -444,7 +444,7 @@
                   </value>
                 </argument>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="value">
                   <value class="variable">
@@ -491,7 +491,7 @@
               </tags>
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
               </arguments>
               <outputArguments>
@@ -580,7 +580,7 @@
             <caseCall testCaseId="45108229-2a83-4c37-b97c-4a5547403749" testCasePath="tests/Sales Order - CallableTesting/Cost Transactions.testcase" testItemId="211">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="OrdNum">
                   <value class="variable">

@@ -12,13 +12,13 @@
         <clause name="hidden" testItemId="3"/>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: Devqaff (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
-          <value class="value" valueClass="string">Devqaff</value>
+          <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">Devqaff</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -76,11 +76,12 @@
       <clauses>
         <clause name="hidden" testItemId="48">
           <steps>
-            <caseCall testCaseId="7910dea4-5b6e-49d5-b77e-ac661332be17" testCasePath="tests/Sales Order - CallableTesting/Verify Inventory Quantity.testcase" testItemId="52">
-              <tags/>
+            <caseCall testCaseId="82afd0f5-2599-497c-b4e0-7a8cfb8a24c3" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Verify Inventory Quantity.testcase" testItemId="75">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="variable">
+                    <path element="reuseConnectionName"/>
+                  </value>
                 </argument>
                 <argument id="SourceData_InventoryQuantity">
                   <value class="variable">
@@ -89,9 +90,6 @@
                 </argument>
               </arguments>
               <outputArguments>
-                <outputArgument id="Qty">
-                  <name class="value" valueClass="string">Qty</name>
-                </outputArgument>
                 <outputArgument id="QtyOnHand">
                   <name class="value" valueClass="string">QtyOnHand</name>
                 </outputArgument>
@@ -145,10 +143,10 @@
       <clauses>
         <clause name="hidden" testItemId="5">
           <steps>
-            <caseCall testCaseId="c7a19b86-3b7c-4eaa-9b57-a48a242f0020" testCasePath="tests/Sales Order Multi Line/Create SO Header.testcase" testItemId="7">
+            <caseCall testCaseId="c7a19b86-3b7c-4eaa-9b57-a48a242f0020" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Create SO Header.testcase" testItemId="7">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="SourceData_SOHeader">
                   <value class="variable">
@@ -193,10 +191,10 @@
       <clauses>
         <clause name="hidden" testItemId="9">
           <steps>
-            <caseCall testCaseId="c8447ee1-8153-4b72-9ff9-b273ea2281d1" testCasePath="tests/Sales Order Multi Line/Add SO Line.testcase" testItemId="12">
+            <caseCall testCaseId="c8447ee1-8153-4b72-9ff9-b273ea2281d1" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Add SO Line.testcase" testItemId="12">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="OrderNumber">
                   <value class="variable">
@@ -247,12 +245,14 @@
       <clauses>
         <clause name="hidden" testItemId="68">
           <steps>
-            <caseCall testCaseId="8e73b3de-8146-44ef-81b7-a5405af1b5e3" testCasePath="tests/Sales Order - CallableTesting/Non-Consolidated SO Fulfillment.testcase" testItemId="74">
+            <caseCall testCaseId="06ab4c75-7469-452b-a667-842be08caade" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Non-Consolidated SO Fulfillment.testcase" testItemId="76">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="variable">
+                    <path element="reuseConnectionName"/>
+                  </value>
                 </argument>
-                <argument id="OrderNum">
+                <argument id="OrderNumber_SOFulfill">
                   <value class="variable">
                     <path element="OrderNumber"/>
                   </value>
@@ -262,16 +262,8 @@
                     <path element="SourceData_SOFulfillment"/>
                   </value>
                 </argument>
-                <argument id="OrderNumber_SOFulfill">
-                  <value class="variable">
-                    <path element="OrderNumber"/>
-                  </value>
-                </argument>
               </arguments>
               <outputArguments>
-                <outputArgument id="OrderNumber">
-                  <name class="value" valueClass="string">OrderNumber</name>
-                </outputArgument>
                 <outputArgument id="Invoice">
                   <name class="value" valueClass="string">Invoice</name>
                 </outputArgument>
@@ -290,14 +282,11 @@
       <clauses>
         <clause name="hidden" testItemId="71">
           <steps>
-            <caseCall testCaseId="edeaaaed-79e1-4b83-ab55-0c831a17af81" testCasePath="tests/Sales Order - CallableTesting/SO Invoice.testcase" testItemId="73">
+            <caseCall testCaseId="c363a919-584d-4d15-afa1-120241e9e2b5" testCasePath="tests/Sales Order/Sales Order - CallableTesting/SO Invoice.testcase" testItemId="77">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
-                </argument>
-                <argument id="Invoice3">
                   <value class="variable">
-                    <path element="Invoice2"/>
+                    <path element="reuseConnectionName"/>
                   </value>
                 </argument>
                 <argument id="Invoice">
@@ -337,12 +326,14 @@
       <clauses>
         <clause name="hidden" testItemId="32">
           <steps>
-            <caseCall testCaseId="1fec0be7-f9cc-4a27-9e17-2604b7a03404" testCasePath="tests/Sales Order - CallableTesting/Requirements.testcase" testItemId="33">
+            <caseCall testCaseId="a4bb4e3b-cdfb-4488-92ca-b62a0a4360cf" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Requirements.testcase" testItemId="78">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="variable">
+                    <path element="reuseConnectionName"/>
+                  </value>
                 </argument>
-                <argument id="OrderNo">
+                <argument id="OrderNumber_Req">
                   <value class="variable">
                     <path element="OrderNumber"/>
                   </value>
@@ -380,16 +371,17 @@
       <clauses>
         <clause name="hidden" testItemId="36">
           <steps>
-            <caseCall testCaseId="6e50202a-2bee-4076-9c54-131e12367b03" testCasePath="tests/Sales Order - CallableTesting/Sales Order DMD.testcase" testItemId="37">
-              <tags/>
+            <caseCall testCaseId="d0c31666-0c7c-41ed-9af3-4208a966671f" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Sales Order DMD.testcase" testItemId="79">
               <arguments>
-                <argument id="OrderNum">
+                <argument id="OrderNumber_DMD">
                   <value class="variable">
                     <path element="OrderNumber"/>
                   </value>
                 </argument>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="variable">
+                    <path element="reuseConnectionName"/>
+                  </value>
                 </argument>
                 <argument id="SourceData_SOORDDMD">
                   <value class="variable">
@@ -424,22 +416,23 @@
       <clauses>
         <clause name="hidden" testItemId="41">
           <steps>
-            <caseCall testCaseId="01637071-531b-4ac5-9ef9-a06c305e258b" testCasePath="tests/Sales Order - CallableTesting/Verify Dimensions.testcase" testItemId="39">
+            <caseCall testCaseId="6a80148c-7917-4cf7-8edf-eb0e7dfee6ea" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Verify Dimensions.testcase" testItemId="80">
               <arguments>
-                <argument id="SONumber">
+                <argument id="OrderNumber_Dim">
                   <value class="variable">
                     <path element="OrderNumber"/>
                   </value>
                 </argument>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="variable">
+                    <path element="reuseConnectionName"/>
+                  </value>
                 </argument>
                 <argument id="SourceData_Dimensions">
                   <value class="variable">
                     <path element="SourceData_Dimensions"/>
                   </value>
                 </argument>
-                <argument id="SONum"/>
               </arguments>
             </caseCall>
           </steps>
@@ -469,11 +462,12 @@
       <clauses>
         <clause name="hidden" testItemId="61">
           <steps>
-            <caseCall testCaseId="7910dea4-5b6e-49d5-b77e-ac661332be17" testCasePath="tests/Sales Order - CallableTesting/Verify Inventory Quantity.testcase" testItemId="62">
-              <tags/>
+            <caseCall testCaseId="82afd0f5-2599-497c-b4e0-7a8cfb8a24c3" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Verify Inventory Quantity.testcase" testItemId="81">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">Devqaff</value>
+                  <value class="variable">
+                    <path element="reuseConnectionName"/>
+                  </value>
                 </argument>
                 <argument id="SourceData_InventoryQuantity">
                   <value class="variable">
@@ -482,9 +476,6 @@
                 </argument>
               </arguments>
               <outputArguments>
-                <outputArgument id="Qty">
-                  <name class="value" valueClass="string">Qty</name>
-                </outputArgument>
                 <outputArgument id="QtyOnHand">
                   <name class="value" valueClass="string">QtyOnHand</name>
                 </outputArgument>
