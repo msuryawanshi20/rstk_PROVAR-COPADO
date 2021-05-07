@@ -120,7 +120,7 @@
     <caseCall testCaseId="bc86e6b2-9609-43e2-b616-d3e6d10407d7" testCasePath="tests/Purchase Order/Callable/PurchaseOrderReceipt.testcase" testItemId="6">
       <arguments>
         <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">QARSFAdmin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="OrdNo">
           <value class="variable">
@@ -137,7 +137,7 @@
     <caseCall testCaseId="973fb7a0-adb3-465a-a1ae-be47ca67f619" testCasePath="tests/Purchase Order/Callable/PurchaseOrderAuthorization.testcase" testItemId="7">
       <arguments>
         <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">QARSFAdmin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="OrderNumber">
           <value class="variable">

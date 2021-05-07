@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase>
+<testCase id="11">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -117,19 +117,6 @@
             <path element="SourceData"/>
           </value>
         </argument>
-      </arguments>
-    </caseCall>
-    <caseCall testCaseId="29846612-c501-4e3b-863b-1cd4c090c96b" testCasePath="tests/Purchase Order/Callable/POReceiptVerification.testcase" testItemId="12">
-      <arguments>
-        <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">SFConnection</value>
-        </argument>
-        <argument id="POHDRID">
-          <value class="variable">
-            <path element="POHDRID"/>
-          </value>
-        </argument>
-        <argument id="ExpectedResult"/>
       </arguments>
     </caseCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="7" title="SOQL Query: select Id,rstk__pohdr_ordsts__c from rstk__pohdr__c where Id ='{POHDRID}'=&gt;pohdr">
@@ -289,7 +276,7 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="15" title="Assert: {SourceData[rownum].ReceiptQuantity} EqualTo {poline.rstk__poline_qtyacc__c}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="15" title="Assert: {SourceData[rownum].ReceiptQuantity} EqualTo {lineiteration.rstk__poline_qtyacc__c}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
@@ -305,7 +292,7 @@
                 </argument>
                 <argument id="actualValue">
                   <value class="variable">
-                    <path element="poline"/>
+                    <path element="lineiteration"/>
                     <path element="rstk__poline_qtyacc__c"/>
                   </value>
                 </argument>

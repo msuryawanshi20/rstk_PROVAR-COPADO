@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="7">
+<testCase id="16">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -126,6 +126,21 @@
         <argument id="OrdNo">
           <value class="variable">
             <path element="OrderNumber"/>
+          </value>
+        </argument>
+        <argument id="ReverseQty">
+          <value class="variable">
+            <path element="ExcelData"/>
+          </value>
+        </argument>
+        <argument id="IPList">
+          <value class="variable">
+            <path element="ExcelData"/>
+          </value>
+        </argument>
+        <argument id="POHDRID">
+          <value class="variable">
+            <path element="POHDRID"/>
           </value>
         </argument>
       </arguments>

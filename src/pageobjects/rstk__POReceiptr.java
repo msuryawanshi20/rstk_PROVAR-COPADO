@@ -38,7 +38,7 @@ public class rstk__POReceiptr {
 		Thread.sleep(2000);
 
 		List <WebElement> option = driver.findElements(
-				By.xpath("//select/option[contains(text(),'" + Item + "')]"));
+				By.xpath("//select/option[contains(@value,'" + Item + "')]"));
  
 		for(int i=0;i<option.size();i++)
                 {

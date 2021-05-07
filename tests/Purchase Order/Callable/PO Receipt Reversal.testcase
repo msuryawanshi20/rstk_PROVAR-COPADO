@@ -157,277 +157,53 @@
       <clauses>
         <clause name="substeps" testItemId="6">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="7" title="Set the Porcptrponum field to {OrdNo}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="20" title="SOQL Query: select Name,Id,rstk__poline_ordno__c,rstk__poline_ordsts__c,rstk__poline_qtyreq__c, rstk__poline_qtyacc__c,rstk__poline_qtyrtv__c,rstk__poline_item__c from rstk__poline__c where rstk__poline_ordno__c = '{POHDRID}'=&gt;poline">
               <arguments>
-                <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=porcptrponum"/>
-                </argument>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Porcptrponum field to {OrdNo}</value>
-                </argument>
-                <argument id="autoRetry"/>
-                <argument id="interaction">
-                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                </argument>
-                <argument argId="cacc849a-2121-41a5-982e-54792fcc549f" id="value">
-                  <value class="variable">
-                    <path element="OrdNo"/>
+                <argument argId="137238fc-6f6a-4807-b8b7-4ba8faddacfc" id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select Name,Id,rstk__poline_ordno__c,rstk__poline_ordsts__c,rstk__poline_qtyreq__c, rstk__poline_qtyacc__c,rstk__poline_qtyrtv__c,rstk__poline_item__c from rstk__poline__c where rstk__poline_ordno__c = '</value>
+                      <variable>
+                        <path element="POHDRID"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
                   </value>
                 </argument>
-                <argument id="blur">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="pressEnter">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-              </arguments>
-              <generatedParameters>
-                <apiParam group="value" name="value" seq="10000" title="Value">
-                  <summary>The value to be populated.</summary>
-                  <type>
-                    <textType>
-                      <constraints>
-                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                      </constraints>
-                    </textType>
-                  </type>
-                </apiParam>
-                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                  <type>
-                    <booleanType/>
-                  </type>
-                </apiParam>
-                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                  <type>
-                    <booleanType/>
-                  </type>
-                </apiParam>
-              </generatedParameters>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="8" title="Click the Ponumlist field">
-              <arguments>
-                <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=ponumlist"/>
-                </argument>
-                <argument id="interaction">
-                  <value class="uiInteraction" uri="ui:interaction?name=action"/>
-                </argument>
-                <argument id="blur">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="pressEnter">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Click the Ponumlist field</value>
-                </argument>
-                <argument id="autoRetry"/>
-                <argument id="ieClickMethod">
-                  <value class="value" valueClass="string">Default</value>
-                </argument>
-                <argument id="hover"/>
-              </arguments>
-              <generatedParameters>
-                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
-                  <summary>Whether the mouse should hover over the field before it is clicked.</summary>
-                  <type>
-                    <booleanType/>
-                  </type>
-                </apiParam>
-                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
-                  <summary>How the click should be executed for Internet Explorer.</summary>
-                  <type>
-                    <choiceType>
-                      <constraints>
-                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
-                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
-                      </constraints>
-                    </choiceType>
-                  </type>
-                </apiParam>
-              </generatedParameters>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="9" title="Call the selectdropdown method">
-              <tags/>
-              <arguments>
-                <argument id="locator">
-                  <value class="uiLocator" uri="ui:pageobject:method?operation=selectdropdown&amp;pageId=pageobjects.rstk__POIssue"/>
-                </argument>
-                <argument id="interaction">
-                  <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
-                </argument>
-                <argument id="hover">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Call the selectdropdown method</value>
-                </argument>
-                <argument id="autoRetry"/>
-                <argument id="ieClickMethod">
-                  <value class="value" valueClass="string">Default</value>
-                </argument>
-                <argument id="param_Item">
-                  <value class="value" valueClass="string">NPAuto_Subcontract (NPAuto_Subcontract)</value>
-                </argument>
-              </arguments>
-              <generatedParameters>
-                <apiParam group="value" name="param_Item" title="Item">
-                  <type>
-                    <textType/>
-                  </type>
-                </apiParam>
-                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
-                  <summary>Whether the mouse should hover over the field before it is clicked.</summary>
-                  <type>
-                    <booleanType/>
-                  </type>
-                </apiParam>
-                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
-                  <summary>How the click should be executed for Internet Explorer.</summary>
-                  <type>
-                    <choiceType>
-                      <constraints>
-                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
-                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
-                      </constraints>
-                    </choiceType>
-                  </type>
-                </apiParam>
-              </generatedParameters>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="13" title="Check the R TV field">
-              <tags>
-                <string>disabled</string>
-              </tags>
-              <arguments>
-                <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=rTV"/>
-                </argument>
-                <argument id="interaction">
-                  <value class="uiInteraction" uri="ui:interaction?name=check"/>
-                </argument>
-                <argument id="blur">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="pressEnter">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Check the R TV field</value>
-                </argument>
-                <argument id="autoRetry"/>
-                <argument id="ieClickMethod">
-                  <value class="value" valueClass="string">Default</value>
-                </argument>
-              </arguments>
-              <generatedParameters>
-                <apiParam group="value" name="ieClickMethod" seq="10000" title="IE Click Method">
-                  <summary>How the click should be executed for Internet Explorer.</summary>
-                  <type>
-                    <choiceType>
-                      <constraints>
-                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
-                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
-                      </constraints>
-                    </choiceType>
-                  </type>
-                </apiParam>
-              </generatedParameters>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="14" title="With Table rows {1}">
-              <arguments>
-                <argument id="uiConnectionName">
+                <argument id="apexConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
-                <argument id="locator">
-                  <value class="uiLocator" uri="sf:ui:locator:row?table=table"/>
-                </argument>
-                <argument id="uiRowLocator">
-                  <value class="value" valueClass="decimal">1</value>
-                </argument>
-                <argument id="locatorDescription">
-                  <value class="value" valueClass="string">With Table rows {1}</value>
-                </argument>
-                <argument id="failIfNotFound">
-                  <value class="value" valueClass="boolean">true</value>
-                </argument>
-                <argument id="debugRowLocator"/>
-                <argument id="resultName">
-                  <value class="value" valueClass="string">Row</value>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">poline</value>
                 </argument>
                 <argument id="resultScope">
-                  <value class="value" valueClass="string">Local</value>
-                </argument>
-                <argument id="autoRetry">
-                  <value class="value" valueClass="boolean">true</value>
+                  <value class="value" valueClass="string">Test</value>
                 </argument>
               </arguments>
+              <parameterValueSources/>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="23" title="For Each: {poline}=&gt;reversercpt">
+              <arguments>
+                <argument id="list">
+                  <value class="variable">
+                    <path element="poline"/>
+                  </value>
+                </argument>
+                <argument id="fromItem">
+                  <value class="value" valueClass="decimal">1</value>
+                </argument>
+                <argument id="valueName">
+                  <value class="value" valueClass="string">reversercpt</value>
+                </argument>
+                <argument id="continueOnFailure"/>
+              </arguments>
               <clauses>
-                <clause name="substeps" testItemId="15">
+                <clause name="substeps" testItemId="24">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="16" title="Check the Selected field">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="36" title="Set the Porcptrponum field to {OrdNo}">
                       <arguments>
                         <argument id="locator">
-                          <value class="uiLocator" uri="ui:locator?name=selected"/>
-                        </argument>
-                        <argument id="interaction">
-                          <value class="uiInteraction" uri="ui:interaction?name=check"/>
-                        </argument>
-                        <argument id="blur">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="pressEnter">
-                          <value class="value" valueClass="boolean">false</value>
+                          <value class="uiLocator" uri="ui:locator?name=porcptrponum"/>
                         </argument>
                         <argument id="captureBefore">
                           <value class="value" valueClass="string">false</value>
@@ -442,37 +218,16 @@
                           <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Check the Selected field</value>
+                          <value class="value" valueClass="string">Set the Porcptrponum field to {OrdNo}</value>
                         </argument>
                         <argument id="autoRetry"/>
-                        <argument id="ieClickMethod">
-                          <value class="value" valueClass="string">Default</value>
-                        </argument>
-                      </arguments>
-                      <generatedParameters>
-                        <apiParam group="value" name="ieClickMethod" seq="10000" title="IE Click Method">
-                          <summary>How the click should be executed for Internet Explorer.</summary>
-                          <type>
-                            <choiceType>
-                              <constraints>
-                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
-                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
-                              </constraints>
-                            </choiceType>
-                          </type>
-                        </apiParam>
-                      </generatedParameters>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="17" title="Set the Reverse Qty field to 10">
-                      <arguments>
-                        <argument id="locator">
-                          <value class="uiLocator" uri="ui:locator?name=reverseQty"/>
-                        </argument>
                         <argument id="interaction">
                           <value class="uiInteraction" uri="ui:interaction?name=set"/>
                         </argument>
-                        <argument id="value">
-                          <value class="value" valueClass="string">10</value>
+                        <argument argId="cacc849a-2121-41a5-982e-54792fcc549f" id="value">
+                          <value class="variable">
+                            <path element="OrdNo"/>
+                          </value>
                         </argument>
                         <argument id="blur">
                           <value class="value" valueClass="boolean">false</value>
@@ -480,22 +235,6 @@
                         <argument id="pressEnter">
                           <value class="value" valueClass="boolean">false</value>
                         </argument>
-                        <argument id="captureBefore">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="beforeWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="afterWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Set the Reverse Qty field to 10</value>
-                        </argument>
-                        <argument id="autoRetry"/>
                       </arguments>
                       <generatedParameters>
                         <apiParam group="value" name="value" seq="10000" title="Value">
@@ -522,109 +261,428 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="37" title="Click the Ponumlist field">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=ponumlist"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                        </argument>
+                        <argument id="blur">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="pressEnter">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Click the Ponumlist field</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                        <argument id="ieClickMethod">
+                          <value class="value" valueClass="string">Default</value>
+                        </argument>
+                        <argument id="hover"/>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                          <summary>How the click should be executed for Internet Explorer.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="38" title="Call the selectdropdown method">
+                      <tags/>
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:pageobject:method?operation=selectdropdown&amp;pageId=pageobjects.rstk__POIssue"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Call the selectdropdown method</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                        <argument id="ieClickMethod">
+                          <value class="value" valueClass="string">Default</value>
+                        </argument>
+                        <argument id="param_Item">
+                          <value class="variable">
+                            <path element="reversercpt"/>
+                            <path element="Id"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="param_Item" title="Item">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                          <summary>How the click should be executed for Internet Explorer.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="39" title="Check the R TV field">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=rTV"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=check"/>
+                        </argument>
+                        <argument id="blur">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="pressEnter">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Check the R TV field</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                        <argument id="ieClickMethod">
+                          <value class="value" valueClass="string">Default</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="ieClickMethod" seq="10000" title="IE Click Method">
+                          <summary>How the click should be executed for Internet Explorer.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="40" title="With Table rows {1}">
+                      <arguments>
+                        <argument id="uiConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="sf:ui:locator:row?table=table"/>
+                        </argument>
+                        <argument id="uiRowLocator">
+                          <value class="value" valueClass="decimal">1</value>
+                        </argument>
+                        <argument id="locatorDescription">
+                          <value class="value" valueClass="string">With Table rows {1}</value>
+                        </argument>
+                        <argument id="failIfNotFound">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="debugRowLocator"/>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Row</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Local</value>
+                        </argument>
+                        <argument id="autoRetry">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="substeps" testItemId="41">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="42" title="Check the Selected field">
+                              <arguments>
+                                <argument id="locator">
+                                  <value class="uiLocator" uri="ui:locator?name=selected"/>
+                                </argument>
+                                <argument id="interaction">
+                                  <value class="uiInteraction" uri="ui:interaction?name=check"/>
+                                </argument>
+                                <argument id="blur">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="pressEnter">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="captureBefore">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="captureAfter">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="beforeWait">
+                                  <value class="uiWait" uri="default"/>
+                                </argument>
+                                <argument id="afterWait">
+                                  <value class="uiWait" uri="default"/>
+                                </argument>
+                                <argument id="interactionDescription">
+                                  <value class="value" valueClass="string">Check the Selected field</value>
+                                </argument>
+                                <argument id="autoRetry"/>
+                                <argument id="ieClickMethod">
+                                  <value class="value" valueClass="string">Default</value>
+                                </argument>
+                              </arguments>
+                              <generatedParameters>
+                                <apiParam group="value" name="ieClickMethod" seq="10000" title="IE Click Method">
+                                  <summary>How the click should be executed for Internet Explorer.</summary>
+                                  <type>
+                                    <choiceType>
+                                      <constraints>
+                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                                      </constraints>
+                                    </choiceType>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="43" title="Set the Reverse Qty field to {IPList}">
+                              <tags>
+                                <string>disabled</string>
+                              </tags>
+                              <arguments>
+                                <argument id="locator">
+                                  <value class="uiLocator" uri="ui:locator?name=reverseQty"/>
+                                </argument>
+                                <argument id="interaction">
+                                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                                </argument>
+                                <argument argId="8b2e2038-3c19-4029-ba51-5418f5b61db4" id="value">
+                                  <value class="variable">
+                                    <path element="IPList"/>
+                                  </value>
+                                </argument>
+                                <argument id="blur">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="pressEnter">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="captureBefore">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="captureAfter">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="beforeWait">
+                                  <value class="uiWait" uri="default"/>
+                                </argument>
+                                <argument id="afterWait">
+                                  <value class="uiWait" uri="default"/>
+                                </argument>
+                                <argument id="interactionDescription">
+                                  <value class="value" valueClass="string">Set the Reverse Qty field to {IPList}</value>
+                                </argument>
+                                <argument id="autoRetry"/>
+                              </arguments>
+                              <generatedParameters>
+                                <apiParam group="value" name="value" seq="10000" title="Value">
+                                  <summary>The value to be populated.</summary>
+                                  <type>
+                                    <textType>
+                                      <constraints>
+                                        <valueConstraint name="mimeType">text/plain</valueConstraint>
+                                        <valueConstraint name="minLength">0</valueConstraint>
+                                        <valueConstraint name="maxLength">9999</valueConstraint>
+                                        <valueConstraint name="regex"/>
+                                      </constraints>
+                                    </textType>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                                  <type>
+                                    <booleanType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                                  <type>
+                                    <booleanType/>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                      <generatedParameters>
+                        <apiParam group="options" name="autoRetry" title="Auto Retry">
+                          <summary>Whether to wait for the rows to be visible.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="44" title="Click the Perform Receipt Reversal button">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=performReceiptReversal"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Click the Perform Receipt Reversal button</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                        <argument id="ieClickMethod">
+                          <value class="value" valueClass="string">Default</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                          <summary>How the click should be executed for Internet Explorer.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiHandleAlert" name="UiHandleAlert" testItemId="45" title="Handle UI Alerts">
+                      <arguments>
+                        <argument id="alerts">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="expectedMessage">
+                                <value class="value" escapingDisabled="true" valueClass="string">Task completed successfully</value>
+                              </namedValue>
+                              <namedValue name="response">
+                                <value class="value" valueClass="string">OK</value>
+                              </namedValue>
+                              <namedValue name="comparisonType">
+                                <value class="value" valueClass="string">EqualTo</value>
+                              </namedValue>
+                              <namedValue name="caseSensitive">
+                                <value class="value" valueClass="boolean">true</value>
+                              </namedValue>
+                              <namedValue name="isNormalise">
+                                <value class="value" valueClass="boolean">false</value>
+                              </namedValue>
+                              <namedValue name="isRegex">
+                                <value class="value" valueClass="boolean">false</value>
+                              </namedValue>
+                              <namedValue name="beforeWait">
+                                <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                              </namedValue>
+                              <namedValue name="afterWait">
+                                <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                              </namedValue>
+                              <namedValue name="autoRetry"/>
+                            </namedValues>
+                          </value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                   </steps>
                 </clause>
               </clauses>
-              <generatedParameters>
-                <apiParam group="options" name="autoRetry" title="Auto Retry">
-                  <summary>Whether to wait for the rows to be visible.</summary>
-                  <type>
-                    <booleanType/>
-                  </type>
-                </apiParam>
-              </generatedParameters>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="18" title="Click the Perform Receipt Reversal button">
-              <arguments>
-                <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=performReceiptReversal"/>
-                </argument>
-                <argument id="interaction">
-                  <value class="uiInteraction" uri="ui:interaction?name=action"/>
-                </argument>
-                <argument id="hover">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
-                </argument>
-                <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Click the Perform Receipt Reversal button</value>
-                </argument>
-                <argument id="autoRetry"/>
-                <argument id="ieClickMethod">
-                  <value class="value" valueClass="string">Default</value>
-                </argument>
-              </arguments>
-              <generatedParameters>
-                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
-                  <summary>Whether the mouse should hover over the field before it is clicked.</summary>
-                  <type>
-                    <booleanType/>
-                  </type>
-                </apiParam>
-                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
-                  <summary>How the click should be executed for Internet Explorer.</summary>
-                  <type>
-                    <choiceType>
-                      <constraints>
-                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
-                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
-                      </constraints>
-                    </choiceType>
-                  </type>
-                </apiParam>
-              </generatedParameters>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiHandleAlert" name="UiHandleAlert" testItemId="19" title="Handle UI Alerts">
-              <arguments>
-                <argument id="alerts">
-                  <value class="valueList" mutable="Mutable">
-                    <namedValues mutable="Mutable">
-                      <namedValue name="expectedMessage">
-                        <value class="value" escapingDisabled="true" valueClass="string">Task completed successfully</value>
-                      </namedValue>
-                      <namedValue name="response">
-                        <value class="value" valueClass="string">OK</value>
-                      </namedValue>
-                      <namedValue name="comparisonType">
-                        <value class="value" valueClass="string">EqualTo</value>
-                      </namedValue>
-                      <namedValue name="caseSensitive">
-                        <value class="value" valueClass="boolean">true</value>
-                      </namedValue>
-                      <namedValue name="isNormalise">
-                        <value class="value" valueClass="boolean">false</value>
-                      </namedValue>
-                      <namedValue name="isRegex">
-                        <value class="value" valueClass="boolean">false</value>
-                      </namedValue>
-                      <namedValue name="beforeWait">
-                        <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
-                      </namedValue>
-                      <namedValue name="afterWait">
-                        <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
-                      </namedValue>
-                      <namedValue name="autoRetry"/>
-                    </namedValues>
-                  </value>
-                </argument>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-              </arguments>
             </apiCall>
           </steps>
         </clause>
@@ -637,57 +695,6 @@
           </type>
         </apiParam>
       </generatedParameters>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="20" title="SOQL Query: select Name,Id,rstk__poline_ordno__c,rstk__poline_ordsts__c,rstk__poline_qtyreq__c, rstk__poline_qtyacc__c,rstk__poline_qtyrtv__c,rstk__poline_item__c from rstk__poline__c where rstk__poline_item__c = 'a351K000000eQyN' and rstk__poline_ordno__c = 'a301K000001Xy1m'=&gt;poline">
-      <arguments>
-        <argument id="soqlQuery">
-          <value class="value" valueClass="string">select Name,Id,rstk__poline_ordno__c,rstk__poline_ordsts__c,rstk__poline_qtyreq__c, rstk__poline_qtyacc__c,rstk__poline_qtyrtv__c,rstk__poline_item__c from rstk__poline__c where rstk__poline_item__c = 'a351K000000eQyN' and rstk__poline_ordno__c = 'a301K000001Xy1m'</value>
-        </argument>
-        <argument id="apexConnectionName">
-          <value class="value" valueClass="string">SFConnection</value>
-        </argument>
-        <argument id="resultListName">
-          <value class="value" valueClass="string">poline</value>
-        </argument>
-        <argument id="resultScope">
-          <value class="value" valueClass="string">Test</value>
-        </argument>
-      </arguments>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="22" title="Assert: &quot;5-Vendor Notified&quot; EqualTo {poline.rstk__poline_ordsts__c}">
-      <arguments>
-        <argument id="expectedValue">
-          <value class="value" valueClass="string">"5-Vendor Notified"</value>
-        </argument>
-        <argument id="actualValue">
-          <value class="variable">
-            <path element="poline"/>
-            <path element="rstk__poline_ordsts__c"/>
-          </value>
-        </argument>
-        <argument id="comparisonType">
-          <value class="value" valueClass="string">EqualTo</value>
-        </argument>
-        <argument id="caseSensitive">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="numeric">
-          <value class="value" valueClass="boolean">false</value>
-        </argument>
-        <argument id="retainDecimals">
-          <value class="value" valueClass="boolean">false</value>
-        </argument>
-        <argument id="nullGreater">
-          <value class="value" valueClass="boolean">false</value>
-        </argument>
-        <argument id="matchMultiLine">
-          <value class="value" valueClass="boolean">false</value>
-        </argument>
-        <argument id="matchDotAll">
-          <value class="value" valueClass="boolean">false</value>
-        </argument>
-        <argument id="failureMessage"/>
-      </arguments>
     </apiCall>
   </steps>
   <params>
@@ -712,6 +719,31 @@
         </textType>
       </type>
     </param>
+    <param linkedToUrl="provar:hasvalue:8b2e2038-3c19-4029-ba51-5418f5b61db4" name="IPList" title="IPList">
+      <summary>The value to be populated.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="mimeType">text/plain</valueConstraint>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="POHDRID" title="POHDRID">
+      <summary>The Apex code to be executed.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
   </params>
   <args>
     <argument id="reuseConnectionName">
@@ -721,6 +753,14 @@
     </argument>
     <argument id="OrdNo">
       <value class="value" valueClass="string">1493</value>
+    </argument>
+    <argument id="IPList">
+      <value class="value" valueClass="string">10</value>
+    </argument>
+    <argument id="POHDRID">
+      <value class="variable">
+        <path element="POHDRID"/>
+      </value>
     </argument>
   </args>
 </testCase>
