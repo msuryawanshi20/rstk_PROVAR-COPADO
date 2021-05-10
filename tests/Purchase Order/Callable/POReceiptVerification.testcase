@@ -158,22 +158,15 @@
             <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="43" title="Assert: {Round(ExpectedResult[rownum].UnitPrice, 2)} EqualTo {porcptap.rstk__porcptap_upricercpt__c}">
               <arguments>
                 <argument id="expectedValue">
-                  <value class="funcCall" id="Round">
-                    <argument id="number">
-                      <value class="variable">
-                        <path element="ExpectedResult">
-                          <filter class="conditionFilter">
-                            <condition class="variable">
-                              <path element="rownum"/>
-                            </condition>
-                          </filter>
-                        </path>
-                        <path element="UnitPrice"/>
-                      </value>
-                    </argument>
-                    <argument id="toDecimalPlaces">
-                      <value class="value" valueClass="decimal">2</value>
-                    </argument>
+                  <value class="variable">
+                    <path element="ExpectedResult">
+                      <filter class="conditionFilter">
+                        <condition class="variable">
+                          <path element="rownum"/>
+                        </condition>
+                      </filter>
+                    </path>
+                    <path element="UnitPrice"/>
                   </value>
                 </argument>
                 <argument id="actualValue">
@@ -224,22 +217,15 @@
                           </path>
                           <path element="Quantity"/>
                         </lhs>
-                        <rhs class="funcCall" id="Round">
-                          <argument id="number">
-                            <value class="variable">
-                              <path element="ExpectedResult">
-                                <filter class="conditionFilter">
-                                  <condition class="variable">
-                                    <path element="rownum"/>
-                                  </condition>
-                                </filter>
-                              </path>
-                              <path element="UnitPrice"/>
-                            </value>
-                          </argument>
-                          <argument id="toDecimalPlaces">
-                            <value class="value" valueClass="decimal">1</value>
-                          </argument>
+                        <rhs class="variable">
+                          <path element="ExpectedResult">
+                            <filter class="conditionFilter">
+                              <condition class="variable">
+                                <path element="rownum"/>
+                              </condition>
+                            </filter>
+                          </path>
+                          <path element="UnitPrice"/>
                         </rhs>
                       </mult>
                       <value valueClass="string"> </value>

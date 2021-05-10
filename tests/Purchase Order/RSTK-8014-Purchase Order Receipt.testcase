@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="6">
+<testCase id="9">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -135,7 +135,11 @@
             <path element="POHDRID"/>
           </value>
         </argument>
-        <argument id="ExpectedResult"/>
+        <argument id="ExpectedResult">
+          <value class="variable">
+            <path element="SourceData"/>
+          </value>
+        </argument>
       </arguments>
     </caseCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="7" title="SOQL Query: select Id,rstk__pohdr_ordsts__c from rstk__pohdr__c where Id ='{POHDRID}'=&gt;pohdr">
@@ -295,7 +299,7 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="14" title="Assert: {SourceData[rownum].Quantity} EqualTo {poline.rstk__poline_qtyacc__c}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="14" title="Assert: {SourceData[rownum].Quantity} EqualTo {lineiteration.rstk__poline_qtyacc__c}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
@@ -311,7 +315,7 @@
                 </argument>
                 <argument id="actualValue">
                   <value class="variable">
-                    <path element="poline"/>
+                    <path element="lineiteration"/>
                     <path element="rstk__poline_qtyacc__c"/>
                   </value>
                 </argument>
