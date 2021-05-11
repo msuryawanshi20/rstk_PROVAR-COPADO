@@ -106,6 +106,10 @@ public class rstk__Manufacturing {
 
 	@FindBy(xpath = "//a[normalize-space(.)='PO Issue Reversal']")
 	public WebElement pOIssueReversal;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Division to Division Transfer']")
+	public WebElement divisionToDivisionTransfer;
   
  
 
