@@ -721,7 +721,7 @@
                                 <argument id="soqlQuery">
                                   <value class="compound">
                                     <parts>
-                                      <value valueClass="string">Select Name,\nID,\nrstk__iclocitem_site__c,\nrstk__iclocitem_icitem__c,\nrstk__iclocitem_proj__c,\nrstk__iclocitem_locqty__c,\nrstk__iclocitem_loctype_pl__c,\nrstk__iclocitem_locid__c,\nrstk__iclocitem_locid__r.name,\nrstk__iclocitem_locnum__c,\nrstk__iclocitem_locsec__c\nfrom rstk__iclocitem__c where name like '</value>
+                                      <value valueClass="string">Select Name,\nID,\nrstk__iclocitem_div__c,\nrstk__iclocitem_site__c,\nrstk__iclocitem_icitem__c,\nrstk__iclocitem_proj__c,\nrstk__iclocitem_locqty__c,\nrstk__iclocitem_loctype_pl__c,\nrstk__iclocitem_locid__c,\nrstk__iclocitem_locid__r.name,\nrstk__iclocitem_locnum__c,\nrstk__iclocitem_locsec__c\nfrom rstk__iclocitem__c where name like '</value>
                                       <variable>
                                         <path element="op_InvLocAddExcelRow"/>
                                         <path element="ItemName"/>
@@ -745,9 +745,7 @@
                               </arguments>
                             </apiCall>
                           </steps>
-                          <tags>
-                            <string>disabled</string>
-                          </tags>
+                          <tags/>
                         </clause>
                       </clauses>
                     </apiCall>
