@@ -949,18 +949,6 @@
         </textType>
       </type>
     </param>
-    <param name="ip_SerialNum" title="Serial Numbers">
-      <summary>If item is serial track item provide serial numbers which needs to be selected.\r\nNote: Incase of multiple serial numbers, Use "," sign for seperation.\r\n\r\nEg. Serial-01,Serial-02,Serial-03</summary>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-    </param>
     <param linkedToUrl="provar:hasvalue:e16cb572-6e28-4777-a5ce-33100b81bd32" name="ip_TxnComment" title="Transaction Comment">
       <summary>The value to be populated.</summary>
       <type>
@@ -972,23 +960,7 @@
       </type>
     </param>
   </params>
-  <outputParams>
-    <param name="opTotalSerialCount" title="Total Serial Count">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-      <sourceValue class="variable">
-        <path element="opTotalSerialCount"/>
-      </sourceValue>
-    </param>
-  </outputParams>
+  <outputParams/>
   <args>
     <argument id="reuseConnectionName">
       <value class="variable">
@@ -1038,11 +1010,6 @@
     <argument id="ip_Qty">
       <value class="variable">
         <path element="ip_Qty"/>
-      </value>
-    </argument>
-    <argument id="ip_SerialNum">
-      <value class="variable">
-        <path element="ip_SerialNum"/>
       </value>
     </argument>
     <argument id="ip_TxnComment">
