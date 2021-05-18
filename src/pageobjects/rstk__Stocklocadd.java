@@ -73,6 +73,10 @@ public class rstk__Stocklocadd {
 		@FindBy(xpath = ".//td[contains(@id,'tab_Details')]//table[@class='list']/tbody/tr//td[6]//input")
 		public WebElement QuantityToAdd;
 
+
+		@TextType
+		@FindBy(xpath = ".//td[contains(@id,'tab_Details')]//table[@class='list']/tbody/tr//td[6]//textarea")
+		public WebElement QuantityToAdd_Serials;
 		
 		@FindBy(xpath = ".//td[contains(@id,'tab_Details')]//table[@class='list']//input[contains(@id,'srlcount')]")
 		public WebElement SerialCount;
@@ -97,7 +101,6 @@ public class rstk__Stocklocadd {
 		@FindBy(xpath = ".//td[contains(@id,'tab_Details')]//table[@class='list']/tbody/tr//td[11]/input")
 		public WebElement LotNo;
 
-		@DateType
 		@FindBy(xpath = "//td[contains(@id,'tab_Details')]//table[@class='list']/tbody/tr//td[12]//input")
 		public WebElement LotExpirationDate;
 
