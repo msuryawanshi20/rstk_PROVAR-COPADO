@@ -1,10 +1,13 @@
 package pageobjects;
 
 import java.util.List;
+import java.util.logging.Logger;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
 import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
 import com.provar.core.testapi.annotations.ChoiceListType;
@@ -14,6 +17,7 @@ import com.provar.core.testapi.annotations.PageTable;
 import com.provar.core.testapi.annotations.PageWait;
 import com.provar.core.testapi.annotations.PageWaitAfter;
 import com.provar.core.testapi.annotations.SalesforcePage;
+import com.provar.core.testapi.annotations.TestLogger;
 import com.provar.core.testapi.annotations.TextType;
 
 @SalesforcePage( title="Rstk__ Stocklocdivsitemove"                                
@@ -72,16 +76,24 @@ public class rstk__Stocklocdivsitemove {
 
 	}
 	
-	public void selectSerialNumber(String serialNumber) throws InterruptedException {
+		
+	@TestLogger
+	public Logger testLogger;
+
+	public void selectSerialNumber(Integer NumberOfSerialTobeSelected) throws InterruptedException {
 
 		Thread.sleep(2000);
-		WebElement option = driver.findElement(By.xpath(
-				"//select[contains(@id,'available_serials__c')]/option[contains(text(),'" + serialNumber + "')]"));
-		option.click();
 
+		for (int i = 1; i <= NumberOfSerialTobeSelected; i++) {
+
+			WebElement element = driver
+					.findElement(By.xpath("//select[contains(@id,'available_serials__c')]/option[" + i + "]"));
+			testLogger.info("Serial Number:" + element.getText());
+			element.click();
+
+		}
 	}
-	
-	
+
 	@PageRow()
 	public static class InventoryDetailsTable {
 

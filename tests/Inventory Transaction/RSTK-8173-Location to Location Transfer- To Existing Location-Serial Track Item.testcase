@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="14">
+<testCase id="2">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -551,7 +551,7 @@
                 <argument id="ip_SerialNum">
                   <value class="variable">
                     <path element="op_InvLocLocExcelRow"/>
-                    <path element="SerialNumbers"/>
+                    <path element="TotalSerialsToBeTransferred"/>
                   </value>
                 </argument>
                 <argument id="ip_FromLotNumber">
@@ -596,7 +596,7 @@
                         <argument id="soqlQuery">
                           <value class="compound">
                             <parts>
-                              <value valueClass="string">Select Id,\nName,\nrstk__iclocitem__div__c,\nrstk__iclocitem_site__c,\nrstk__iclocitem_icitem__c,\nrstk__iclocitem_proj__c,\nrstk__iclocitem_locqty__c,\nrstk__iclocitem_loctype_pl__c,\nrstk__iclocitem_locid__c,\nrstk__iclocitem_locid__r.name,\nrstk__iclocitem_locnum__c,\nrstk__iclocitem_locsec__c\nfrom rstk__iclocitem__c where name like '</value>
+                              <value valueClass="string">Select Id,\nName,\nrstk__iclocitem_div__c,\nrstk__iclocitem_site__c,\nrstk__iclocitem_icitem__c,\nrstk__iclocitem_proj__c,\nrstk__iclocitem_locqty__c,\nrstk__iclocitem_loctype_pl__c,\nrstk__iclocitem_locid__c,\nrstk__iclocitem_locid__r.name,\nrstk__iclocitem_locnum__c,\nrstk__iclocitem_locsec__c\nfrom rstk__iclocitem__c where name like '</value>
                               <variable>
                                 <path element="op_InvLocLocExcelRow"/>
                                 <path element="ItemName"/>
@@ -766,7 +766,7 @@
                                                 <argument id="ip_Division">
                                                   <value class="variable">
                                                     <path element="ip_ICLOCITEMResult"/>
-                                                    <path element="rstk__iclocitem__div__c"/>
+                                                    <path element="rstk__iclocitem_div__c"/>
                                                   </value>
                                                 </argument>
                                               </arguments>

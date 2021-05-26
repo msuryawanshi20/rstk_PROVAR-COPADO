@@ -507,108 +507,46 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.string.Split" name="Split" testItemId="100" title="Split: {ip_SerialNum}=&gt;,=&gt;op_SerialNumberList">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="129" title="Call the selectSerialNumber method">
                       <arguments>
-                        <argument argId="c36a9f9d-e9c3-44d6-a2bd-dd09c12b07dd" id="input">
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:pageobject:method?operation=selectSerialNumber&amp;pageId=pageobjects.rstk__Stocklocmove"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Call the selectSerialNumber method</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="afterWait"/>
+                        <argument id="autoRetry"/>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument argId="e5d6a2cf-d7d8-4497-ad1c-d65f65d4b455" id="param_NumberOfSerialTobeSelected">
                           <value class="variable">
                             <path element="ip_SerialNum"/>
                           </value>
                         </argument>
-                        <argument id="separator">
-                          <value class="value" valueClass="string">,</value>
-                        </argument>
-                        <argument id="resultName">
-                          <value class="value" valueClass="string">op_SerialNumberList</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
                       </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="101" title="For Each: {op_SerialNumberList}=&gt;op_SRLNUM">
-                      <arguments>
-                        <argument id="list">
-                          <value class="variable">
-                            <path element="op_SerialNumberList"/>
-                          </value>
-                        </argument>
-                        <argument id="fromItem">
-                          <value class="value" valueClass="decimal">1</value>
-                        </argument>
-                        <argument id="valueName">
-                          <value class="value" valueClass="string">op_SRLNUM</value>
-                        </argument>
-                        <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="substeps" testItemId="102">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="103" title="Call the selectSerialNumber method">
-                              <tags/>
-                              <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:pageobject:method?operation=selectSerialNumber&amp;pageId=pageobjects.rstk__Stocklocdivsitemove"/>
-                                </argument>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Call the selectSerialNumber method</value>
-                                </argument>
-                                <argument id="beforeWait"/>
-                                <argument id="afterWait"/>
-                                <argument id="autoRetry"/>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="ieClickMethod">
-                                  <value class="value" valueClass="string">Default</value>
-                                </argument>
-                                <argument id="hover"/>
-                                <argument id="param_LocationID">
-                                  <value class="variable">
-                                    <path element="LcID"/>
-                                  </value>
-                                </argument>
-                                <argument id="param_serialNumber">
-                                  <value class="variable">
-                                    <path element="op_SRLNUM"/>
-                                  </value>
-                                </argument>
-                              </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="param_serialNumber" title="Serial Number">
-                                  <type>
-                                    <textType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
-                                  <summary>Whether the mouse should hover over the field before it is clicked.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
-                                  <summary>How the click should be executed for Internet Explorer.</summary>
-                                  <type>
-                                    <choiceType>
-                                      <constraints>
-                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
-                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
-                                      </constraints>
-                                    </choiceType>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
+                      <generatedParameters>
+                        <apiParam group="value" name="param_NumberOfSerialTobeSelected" title="Number Of Serial Tobe Selected">
+                          <type>
+                            <numericType>
+                              <constraints>
+                                <valueConstraint name="length">9</valueConstraint>
+                                <valueConstraint name="decimalPlaces">0</valueConstraint>
+                                <valueConstraint name="unsigned">false</valueConstraint>
+                                <valueConstraint name="showSeparator">false</valueConstraint>
+                              </constraints>
+                            </numericType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="104" title="Click the Select Serials button">
                       <arguments>
@@ -1434,17 +1372,17 @@
         </textType>
       </type>
     </param>
-    <param linkedToUrl="provar:hasvalue:c36a9f9d-e9c3-44d6-a2bd-dd09c12b07dd" name="ip_SerialNum" title="Serial Numbers">
+    <param linkedToUrl="provar:hasvalue:e5d6a2cf-d7d8-4497-ad1c-d65f65d4b455" name="ip_SerialNum" title="Total Number of Serials to be transferred">
       <summary>If item is serial track item provide serial numbers which needs to be selected.\r\nNote: Incase of multiple serial numbers, Use "," sign for seperation.\r\n\r\nEg. Serial-01,Serial-02,Serial-03</summary>
       <type>
-        <textType>
+        <numericType>
           <constraints>
-            <valueConstraint name="mimeType">text/plain</valueConstraint>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
+            <valueConstraint name="length">9</valueConstraint>
+            <valueConstraint name="decimalPlaces">0</valueConstraint>
+            <valueConstraint name="unsigned">false</valueConstraint>
+            <valueConstraint name="showSeparator">false</valueConstraint>
           </constraints>
-        </textType>
+        </numericType>
       </type>
     </param>
     <param linkedToUrl="provar:hasvalue:d7f0395a-afa0-47da-9a02-29ad5066dd1d" name="ip_TxnComment" title="Transaction Comment">
@@ -1523,7 +1461,9 @@
     <argument id="ip_TxnComment">
       <value class="value" valueClass="string">Test Provar-Lot Track</value>
     </argument>
-    <argument id="ip_SerialNum"/>
+    <argument id="ip_SerialNum">
+      <value class="value" valueClass="string">5</value>
+    </argument>
     <argument id="ip_ToLocationNumber">
       <value class="compound">
         <parts>
