@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="25" registryId="636bead0-9c25-4aba-9f3c-f866bb4fde03" visibility="Internal">
+<testCase failureBehaviour="Continue" id="7" registryId="636bead0-9c25-4aba-9f3c-f866bb4fde03" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: QARSF_Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -50,7 +50,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="2" title="On SF Rootstock Site Map tab">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?pageObject=pageobjects.rstk__Manufacturing&amp;tab=rstk__Rootstock_Site_Map&amp;application=rstk__Force_com"/>
@@ -140,7 +140,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="5" title="On SF Stocklocdivsitemove page with pageobject Rstk__ Stocklocdivsitemove">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?pageObject=pageobjects.rstk__Stocklocdivsitemove&amp;page=rstk__Stocklocdivsitemove"/>
@@ -801,7 +801,7 @@
                   </value>
                 </argument>
                 <argument id="apexConnectionName">
-                  <value class="value" valueClass="string">QARSF_Admin</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="resultListName">
                   <value class="value" valueClass="string">op_SiteMasterIsLocnumReq</value>
@@ -1243,7 +1243,7 @@
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="137" title="With Inventory Details Table rows {toLocID = $ip_ToLocId AND toLocNumText = $ip_ToLocNum}">
                               <arguments>
                                 <argument id="uiConnectionName">
-                                  <value class="value" valueClass="string">QARSF_Admin</value>
+                                  <value class="value" valueClass="string">SFConnection</value>
                                 </argument>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="sf:ui:locator:row?table=inventoryDetailsTable"/>
@@ -1320,18 +1320,20 @@
                                           <value class="value" valueClass="string">Check the Select Check Box field</value>
                                         </argument>
                                         <argument id="autoRetry"/>
+                                        <argument id="ieClickMethod">
+                                          <value class="value" valueClass="string">Default</value>
+                                        </argument>
                                       </arguments>
                                       <generatedParameters>
-                                        <apiParam group="value" name="blur" title="Tab off field">
-                                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                                        <apiParam group="value" name="ieClickMethod" seq="10000" title="IE Click Method">
+                                          <summary>How the click should be executed for Internet Explorer.</summary>
                                           <type>
-                                            <booleanType/>
-                                          </type>
-                                        </apiParam>
-                                        <apiParam group="value" name="pressEnter" title="Press Enter">
-                                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                          <type>
-                                            <booleanType/>
+                                            <choiceType>
+                                              <constraints>
+                                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                                              </constraints>
+                                            </choiceType>
                                           </type>
                                         </apiParam>
                                       </generatedParameters>
@@ -1474,10 +1476,10 @@
                         </clause>
                         <clause name="else" testItemId="142">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="143" title="With Inventory Details Table rows {1}">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="176" title="With Inventory Details Table rows {1}">
                               <arguments>
                                 <argument id="uiConnectionName">
-                                  <value class="value" valueClass="string">QARSF_Admin</value>
+                                  <value class="value" valueClass="string">SFConnection</value>
                                 </argument>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="sf:ui:locator:row?table=inventoryDetailsTable"/>
@@ -1491,7 +1493,9 @@
                                 <argument id="failIfNotFound">
                                   <value class="value" valueClass="boolean">true</value>
                                 </argument>
-                                <argument id="debugRowLocator"/>
+                                <argument id="debugRowLocator">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
                                 <argument id="resultName">
                                   <value class="value" valueClass="string">Row</value>
                                 </argument>
@@ -1503,9 +1507,9 @@
                                 </argument>
                               </arguments>
                               <clauses>
-                                <clause name="substeps" testItemId="144">
+                                <clause name="substeps" testItemId="177">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="145" title="Check the Select Check Box field">
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="178" title="Check the Select Check Box field">
                                       <arguments>
                                         <argument id="locator">
                                           <value class="uiLocator" uri="ui:locator?name=selectCheckBox"/>
@@ -1535,23 +1539,25 @@
                                           <value class="value" valueClass="string">Check the Select Check Box field</value>
                                         </argument>
                                         <argument id="autoRetry"/>
+                                        <argument id="ieClickMethod">
+                                          <value class="value" valueClass="string">Default</value>
+                                        </argument>
                                       </arguments>
                                       <generatedParameters>
-                                        <apiParam group="value" name="blur" title="Tab off field">
-                                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                                        <apiParam group="value" name="ieClickMethod" seq="10000" title="IE Click Method">
+                                          <summary>How the click should be executed for Internet Explorer.</summary>
                                           <type>
-                                            <booleanType/>
-                                          </type>
-                                        </apiParam>
-                                        <apiParam group="value" name="pressEnter" title="Press Enter">
-                                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                          <type>
-                                            <booleanType/>
+                                            <choiceType>
+                                              <constraints>
+                                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                                              </constraints>
+                                            </choiceType>
                                           </type>
                                         </apiParam>
                                       </generatedParameters>
                                     </apiCall>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="146" title="Set the To Loc ID select to {ip_ToLocId}">
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="179" title="Set the To Loc ID select to {ip_ToLocId}">
                                       <arguments>
                                         <argument id="locator">
                                           <value class="uiLocator" uri="ui:locator?name=toLocID"/>
@@ -1608,7 +1614,7 @@
                                         </apiParam>
                                       </generatedParameters>
                                     </apiCall>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="161" title="If: {op_SiteMasterIsLocnumReq.rstk__sysite_sylocnum_reqind__c = true}">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="180" title="If: {op_SiteMasterIsLocnumReq.rstk__sysite_sylocnum_reqind__c = true}">
                                       <arguments>
                                         <argument id="condition">
                                           <value class="eq">
@@ -1621,9 +1627,9 @@
                                         </argument>
                                       </arguments>
                                       <clauses>
-                                        <clause name="then" testItemId="162">
+                                        <clause name="then" testItemId="181">
                                           <steps>
-                                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="165" title="Set the To Loc Num Pick List field to {ip_ToLocNum}">
+                                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="182" title="Set the To Loc Num Pick List field to {ip_ToLocNum}">
                                               <arguments>
                                                 <argument id="locator">
                                                   <value class="uiLocator" uri="ui:locator?name=toLocNumPickList"/>
@@ -1686,9 +1692,9 @@
                                             </apiCall>
                                           </steps>
                                         </clause>
-                                        <clause name="else" testItemId="163">
+                                        <clause name="else" testItemId="183">
                                           <steps>
-                                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="147" title="Set the To Loc Num Text Box select to {ip_ToLocNum}">
+                                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="184" title="Set the To Loc Num Text Box select to {ip_ToLocNum}">
                                               <arguments>
                                                 <argument id="locator">
                                                   <value class="uiLocator" uri="ui:locator?name=toLocNumTextBox"/>
@@ -1749,7 +1755,14 @@
                                         </clause>
                                       </clauses>
                                     </apiCall>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="148" title="Set the Quantity field to {ip_Quantity}">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="185" title="Sleep for {10} seconds">
+                                      <arguments>
+                                        <argument id="sleepSecs">
+                                          <value class="value" valueClass="decimal">10</value>
+                                        </argument>
+                                      </arguments>
+                                    </apiCall>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="186" title="Set the Quantity field to {ip_Quantity}">
                                       <arguments>
                                         <argument id="locator">
                                           <value class="uiLocator" uri="ui:locator?name=quantity"/>
@@ -1775,7 +1788,7 @@
                                           <value class="value" valueClass="string">false</value>
                                         </argument>
                                         <argument id="beforeWait">
-                                          <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
+                                          <value class="uiWait" uri="default"/>
                                         </argument>
                                         <argument id="afterWait">
                                           <value class="uiWait" uri="default"/>
@@ -1810,7 +1823,7 @@
                                         </apiParam>
                                       </generatedParameters>
                                     </apiCall>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="149" title="Set the Txn Comment field to {ip_TxnComment}">
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="187" title="Set the Txn Comment field to {ip_TxnComment}">
                                       <arguments>
                                         <argument id="locator">
                                           <value class="uiLocator" uri="ui:locator?name=txnComment"/>

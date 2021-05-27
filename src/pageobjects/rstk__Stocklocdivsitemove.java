@@ -114,7 +114,7 @@ public class rstk__Stocklocdivsitemove {
 		public WebElement toLocNumPickList;
 		
 		@ChoiceListType()
-		@FindBy(xpath = ".//td[3]//span//span")
+		@FindBy(xpath = ".//td[3]//input")
 		public WebElement toLocNumText;
 			
 		@TextType
@@ -137,7 +137,7 @@ public class rstk__Stocklocdivsitemove {
 
 	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@PageWait.BackgroundActivity(timeoutSeconds = 60)
-	@FindBy(xpath = "//table[contains(@id,'pbt_locmoveentries')]//tbody//tr")
+	@FindBy(xpath = "	")
 	@PageTable(firstRowContainsHeaders = false, row = InventoryDetailsTable.class)
 	public List<InventoryDetailsTable> inventoryDetailsTable;
 

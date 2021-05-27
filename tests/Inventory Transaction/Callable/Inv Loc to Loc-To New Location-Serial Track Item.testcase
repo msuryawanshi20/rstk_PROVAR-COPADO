@@ -1217,7 +1217,7 @@
                 <argument id="soqlQuery">
                   <value class="compound">
                     <parts>
-                      <value valueClass="string">Select Id, Name,\nrstk__iclocitem_site__c, \nrstk__iclocitem_icitem__c, \nrstk__iclocitem_proj__c, \nrstk__iclocitem_locqty__c, \nrstk__iclocitem_loctype_pl__c, \nrstk__iclocitem_locid__c, \nrstk__iclocitem_locnum__c, \nrstk__iclocitem_locsec__c, \nLastModifiedDate\nfrom rstk__iclocitem__c where name like '</value>
+                      <value valueClass="string">Select rstk__iclocitem_locid__c, rstk__iclocitem_loctype_pl__c,rstk__iclocitem_locnum__c from rstk__iclocitem__c where name like '</value>
                       <variable>
                         <path element="ip_ItemName"/>
                       </variable>

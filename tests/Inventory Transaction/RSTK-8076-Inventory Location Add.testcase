@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="14">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -642,6 +642,15 @@
                 </outputArgument>
                 <outputArgument id="op_SerialCount">
                   <name class="value" valueClass="string">op_SerialCount</name>
+                </outputArgument>
+                <outputArgument id="op_Serials">
+                  <name class="value" valueClass="string">op_Serials</name>
+                </outputArgument>
+                <outputArgument id="op_LocationType">
+                  <name class="value" valueClass="string">op_ToLocationType</name>
+                </outputArgument>
+                <outputArgument id="op_EnteredSerials">
+                  <name class="value" valueClass="string">op_EnteredSerials</name>
                 </outputArgument>
               </outputArguments>
             </caseCall>
