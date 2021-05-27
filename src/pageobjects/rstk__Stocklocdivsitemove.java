@@ -137,7 +137,7 @@ public class rstk__Stocklocdivsitemove {
 
 	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@PageWait.BackgroundActivity(timeoutSeconds = 60)
-	@FindBy(xpath = "	")
+	@FindBy(xpath = "//table[contains(@id,'pbt_locmoveentries')]//tbody//tr")
 	@PageTable(firstRowContainsHeaders = false, row = InventoryDetailsTable.class)
 	public List<InventoryDetailsTable> inventoryDetailsTable;
 
