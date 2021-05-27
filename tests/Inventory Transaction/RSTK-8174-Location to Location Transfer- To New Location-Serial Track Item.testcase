@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="9">
+<testCase id="1">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -224,41 +224,6 @@
                           </steps>
                         </clause>
                       </clauses>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="413" title="Read Qty available on TO location--inventory by lot record before transaction">
-                      <arguments>
-                        <argument id="soqlQuery">
-                          <value class="compound">
-                            <parts>
-                              <value valueClass="string">Select Id, Name,\nrstk__iclocitem_site__c, \nrstk__iclocitem_icitem__c, \nrstk__iclocitem_proj__c, \nrstk__iclocitem_locqty__c, \nrstk__iclocitem_loctype_pl__c, \nrstk__iclocitem_locid__c, \nrstk__iclocitem_locnum__c, \nrstk__iclocitem_locsec__c, \nLastModifiedDate\nfrom rstk__iclocitem__c where name like '</value>
-                              <variable>
-                                <path element="op_InvLocLocExcelRow"/>
-                                <path element="ItemName"/>
-                              </variable>
-                              <value valueClass="string">%' and rstk__iclocitem_locid__r.name like '</value>
-                              <variable>
-                                <path element="op_InvLocLocExcelRow"/>
-                                <path element="ToLocID"/>
-                              </variable>
-                              <value valueClass="string">%' and rstk__iclocitem_locnum__c='</value>
-                              <variable>
-                                <path element="op_InvLocLocExcelRow"/>
-                                <path element="ToLocNo"/>
-                              </variable>
-                              <value valueClass="string">' order by LastModifiedDate desc</value>
-                            </parts>
-                          </value>
-                        </argument>
-                        <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">SFConnection</value>
-                        </argument>
-                        <argument id="resultListName">
-                          <value class="value" valueClass="string">op_BeforeTransaction_ToLocation</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                      </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="414" title="Read inventory by lot record before transaction">
                       <arguments>
@@ -786,8 +751,8 @@
                                                 </argument>
                                                 <argument id="ipLocNumber">
                                                   <value class="variable">
-                                                    <path element="op_BeforeTransaction_ToLocation"/>
-                                                    <path element="rstk__iclocitem_locnum__c"/>
+                                                    <path element="op_InvLocLocExcelRow"/>
+                                                    <path element="ToLocNo"/>
                                                   </value>
                                                 </argument>
                                                 <argument id="ipLotSerial">

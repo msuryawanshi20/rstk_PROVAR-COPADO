@@ -114,7 +114,7 @@ public class rstk__Stocklocdivsitemove {
 		public WebElement toLocNumPickList;
 		
 		@ChoiceListType()
-		@FindBy(xpath = ".//td[3]//span//span")
+		@FindBy(xpath = ".//td[3]//input")
 		public WebElement toLocNumText;
 			
 		@TextType
