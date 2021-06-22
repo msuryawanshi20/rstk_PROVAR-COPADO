@@ -16,14 +16,14 @@ import com.provar.core.testapi.annotations.PageTable;
 import com.provar.core.testapi.annotations.PageWait;
 import com.provar.core.testapi.annotations.PageWaitAfter;
 import com.provar.core.testapi.annotations.SalesforcePage;
+import com.provar.core.testapi.annotations.TestLogger;
 import com.provar.core.testapi.annotations.TextType;
 
 @SalesforcePage(title = "Rstk__ Stocklocmove", summary = "", page = "Stocklocmove", namespacePrefix = "rstk", object = "rstk__locadd__c", connection = "QARSF_Admin")
 public class rstk__Stocklocmove {
 
 	public WebDriver driver;
-    public Logger testLogger;
-
+  
 	public rstk__Stocklocmove(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -62,13 +62,33 @@ public class rstk__Stocklocmove {
 
 	}
 
-	public void selectSerialNumber(String serialNumber) throws InterruptedException {
+/*	public void selectSerialNumber(String serialNumber) throws InterruptedException {
 
 		Thread.sleep(2000);
 		WebElement option = driver.findElement(By.xpath(
 				"//select[contains(@id,'available_serials__c')]/option[contains(text(),'" + serialNumber + "')]"));
 		option.click();
 
+	}*/
+	
+		
+	@TestLogger
+    public Logger testLogger;
+    
+	public void selectSerialNumber(Integer NumberOfSerialTobeSelected) throws InterruptedException {
+
+		Thread.sleep(2000);
+
+		for (int i = 1; i <= NumberOfSerialTobeSelected; i++) {
+
+			WebElement element = driver
+					.findElement(By.xpath("//select[contains(@id,'available_serials__c')]/option[" + i + "]"));
+			testLogger.info("Xpath:" + element);
+			testLogger.info("Serial Number:" + element.getText());
+
+			element.click();
+
+		}
 	}
 
 	@ChoiceListType()

@@ -15,7 +15,7 @@
         </argument>
         <argument id="uiApplicationName"/>
         <argument id="quickUiLogin">
-          <value class="value" valueClass="boolean">true</value>
+          <value class="value" valueClass="boolean">false</value>
         </argument>
         <argument id="closeAllPrimaryTabs">
           <value class="value" valueClass="boolean">false</value>
@@ -47,10 +47,10 @@
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="4" title="Read Object: rstk__iclocitem__c = {recId}">
       <arguments>
-        <argument id="objectType">
+        <argument argId="918a7695-ccf1-44c6-afc5-b9ea6750f703" id="objectType">
           <value class="value" valueClass="string">rstk__iclocitem__c</value>
         </argument>
-        <argument id="resultName">
+        <argument argId="87633972-6f99-4f57-8284-7986d1699f84" id="resultName">
           <value class="value" valueClass="string">opICLOCITEM</value>
         </argument>
         <argument argId="8df71987-333b-4cd5-b9db-7f637fcc2508" id="objectId">
@@ -58,13 +58,13 @@
             <path element="recId"/>
           </value>
         </argument>
-        <argument id="apexConnectionName">
+        <argument argId="cf40bf42-d855-4001-bf58-6c34b1989007" id="apexConnectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
-        <argument id="Id">
+        <argument argId="8e5b777d-3578-4e57-8617-5caaa46ade3d" id="Id">
           <value class="value" valueClass="string">a1Y1K000001mWzKUAU</value>
         </argument>
-        <argument id="Name">
+        <argument argId="780ab49f-d311-434f-b1d1-a1c86a071de7" id="Name">
           <value class="value" valueClass="string">Child -1 (Test child 1) (RM)</value>
         </argument>
         <argument argId="34df6cd3-ba82-4fcc-825a-b460cd193769" id="rstk__iclocitem_site__c">
@@ -93,7 +93,7 @@
         <argument argId="e474dbaa-90c0-4519-8047-d6b5ac91208e" id="rstk__iclocitem_locsec__c">
           <value class="value" valueClass="string">78</value>
         </argument>
-        <argument id="resultScope">
+        <argument argId="931a1efe-1874-4ee9-b7b2-f69aadf1b1a7" id="resultScope">
           <value class="value" valueClass="string">Test</value>
         </argument>
       </arguments>
@@ -133,6 +133,11 @@
             <path element="ipLotSerial"/>
           </expected>
         </resultAssertion>
+        <resultAssertion resultName="rstk__iclocitem_div__c" title="Verify Division">
+          <expected class="variable">
+            <path element="ip_Division"/>
+          </expected>
+        </resultAssertion>
       </resultAssertions>
       <parameterGeneratorProperties>
         <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
@@ -149,6 +154,7 @@
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__iclocitem__c&amp;field=rstk__iclocitem_locid__c" name="rstk__iclocitem_locid__c" title="Location ID"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__iclocitem__c&amp;field=rstk__iclocitem_locnum__c" name="rstk__iclocitem_locnum__c" title="Location Number"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__iclocitem__c&amp;field=rstk__iclocitem_locsec__c" name="rstk__iclocitem_locsec__c" title="Lot / Serial Number"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__iclocitem__c&amp;field=rstk__iclocitem_div__c" name="rstk__iclocitem_div__c" title="Division"/>
       </generatedParameters>
     </apiCall>
   </steps>
@@ -251,6 +257,18 @@
         </textType>
       </type>
     </param>
+    <param name="ip_Division" title="Division">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
   </params>
   <outputParams>
     <param name="opToLocationType" title="opICLOCITEM">
@@ -300,6 +318,7 @@
     <argument id="ipLotSerial">
       <value class="value" valueClass="string">78</value>
     </argument>
+    <argument id="ip_Division"/>
   </args>
   <outputArgs>
     <outputArgument id="opToLocationType">

@@ -246,9 +246,7 @@
             <caseCall testCaseId="8d2bbc9d-fac3-47b0-81ef-3b309b9f2081" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Non-Consolidated SO Fulfillment without Invoice.testcase" testItemId="92">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="variable">
-                    <path element="reuseConnectionName"/>
-                  </value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="OrderNumber_SOFulfill">
                   <value class="variable">
