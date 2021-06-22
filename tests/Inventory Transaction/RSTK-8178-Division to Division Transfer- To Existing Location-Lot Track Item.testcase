@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="20">
+<testCase failureBehaviour="Continue" id="6">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -72,8 +72,8 @@
           </cachedParameters>
           <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/Division To division Transfer.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">8177-LOT-New</worksheetName>
-            <valuesRange class="value" valueClass="string">A:M</valuesRange>
+            <worksheetName class="value" valueClass="string">8178-LOT-Existing</worksheetName>
+            <valuesRange class="value" valueClass="string">A:N</valuesRange>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -232,7 +232,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="893" title="Before qty To division">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="903" title="Before qty To division">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -259,25 +259,6 @@
                         </argument>
                         <argument id="resultScope">
                           <value class="value" valueClass="string">Test</value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="863" title="Set Values: op_BeforeTransaction_ToLocation.rstk__iclocitem_locqty__c">
-                      <arguments>
-                        <argument id="values">
-                          <value class="valueList" mutable="Mutable">
-                            <namedValues mutable="Mutable">
-                              <namedValue name="valuePath">
-                                <value class="value" valueClass="string">op_BeforeTransaction_ToLocation.rstk__iclocitem_locqty__c</value>
-                              </namedValue>
-                              <namedValue name="value">
-                                <value class="value" valueClass="string">0</value>
-                              </namedValue>
-                              <namedValue name="valueScope">
-                                <value class="value" valueClass="string">Test</value>
-                              </namedValue>
-                            </namedValues>
-                          </value>
                         </argument>
                       </arguments>
                     </apiCall>
@@ -394,7 +375,7 @@
                           <value class="ne">
                             <lhs class="variable">
                               <path element="op_ExcelDataRow"/>
-                              <path element="LotNo"/>
+                              <path element="FromLotNo"/>
                             </lhs>
                           </value>
                         </argument>
@@ -402,7 +383,7 @@
                       <clauses>
                         <clause name="then" testItemId="415">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="416" title="Read inventory by lot record before transaction">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="900" title="Read inventory by lot record before transaction">
                               <arguments>
                                 <argument id="soqlQuery">
                                   <value class="compound">
@@ -425,7 +406,7 @@
                                   <value class="value" valueClass="string">SFConnection</value>
                                 </argument>
                                 <argument id="resultListName">
-                                  <value class="value" valueClass="string">op_BeforeTransaction_icitemlot</value>
+                                  <value class="value" valueClass="string">op_BeforeTransaction_icitemlot-FromDiv</value>
                                 </argument>
                                 <argument id="resultScope">
                                   <value class="value" valueClass="string">Test</value>
@@ -678,34 +659,6 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="888" title="Set Values: op_ExcelDataRow.ToLocNo">
-                      <arguments>
-                        <argument id="values">
-                          <value class="valueList" mutable="Mutable">
-                            <namedValues mutable="Mutable">
-                              <namedValue name="valuePath">
-                                <value class="value" valueClass="string">op_ExcelDataRow.ToLocNo</value>
-                              </namedValue>
-                              <namedValue name="value">
-                                <value class="compound">
-                                  <parts>
-                                    <value valueClass="string">P-</value>
-                                    <funcCall id="UniqueId">
-                                      <argument id="length">
-                                        <value class="value" valueClass="decimal">5</value>
-                                      </argument>
-                                    </funcCall>
-                                  </parts>
-                                </value>
-                              </namedValue>
-                              <namedValue name="valueScope">
-                                <value class="value" valueClass="string">Test</value>
-                              </namedValue>
-                            </namedValues>
-                          </value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
                   </steps>
                 </clause>
               </clauses>
@@ -813,7 +766,7 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="891" title="After qty To division">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="906" title="After qty To division">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -843,7 +796,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="892" title="Assert: {op_BeforeQtyToDiv.rstk__rollsumm_totalqty__c + op_ExcelDataRow.QuantityToTransfer} EqualTo {op_AfterQtyToDiv.rstk__rollsumm_totalqty__c}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="907" title="Assert: {op_BeforeQtyToDiv.rstk__rollsumm_totalqty__c + op_ExcelDataRow.QuantityToTransfer} EqualTo {op_AfterQtyToDiv.rstk__rollsumm_totalqty__c}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="add">
@@ -1340,89 +1293,27 @@
                                 </argument>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="427" title="OH to NN">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="888" title="For Each: {op_AfterTransaction_icitemlot}=&gt;op_AfterTransaction_icitemlot_record">
                               <arguments>
-                                <argument id="condition">
-                                  <value class="and">
-                                    <lhs class="eq">
-                                      <lhs class="variable">
-                                        <path element="op_BeforeTransaction_FromLocation"/>
-                                        <path element="rstk__iclocitem_loctype_pl__c"/>
-                                      </lhs>
-                                      <rhs class="value" valueClass="string">On Hand</rhs>
-                                    </lhs>
-                                    <rhs class="eq">
-                                      <lhs class="variable">
-                                        <path element="op_ToLocationType"/>
-                                      </lhs>
-                                      <rhs class="value" valueClass="string">Non-nettable</rhs>
-                                    </rhs>
+                                <argument id="list">
+                                  <value class="variable">
+                                    <path element="op_AfterTransaction_icitemlot"/>
                                   </value>
+                                </argument>
+                                <argument id="fromItem">
+                                  <value class="value" valueClass="decimal">1</value>
+                                </argument>
+                                <argument id="valueName">
+                                  <value class="value" valueClass="string">op_AfterTransaction_icitemlot_record</value>
+                                </argument>
+                                <argument id="continueOnFailure">
+                                  <value class="value" valueClass="boolean">true</value>
                                 </argument>
                               </arguments>
                               <clauses>
-                                <clause name="then" testItemId="428">
+                                <clause name="substeps" testItemId="889">
                                   <steps>
-                                    <caseCall testCaseId="9cba11c3-d644-4dfc-ba57-5c9370175e84" testCasePath="tests/Inventory Management/Callable/SOQL-Inventory by LOT-ICITEMLOT.testcase" testItemId="674">
-                                      <arguments>
-                                        <argument id="reuseConnectionName">
-                                          <value class="value" valueClass="string">SFConnection</value>
-                                        </argument>
-                                        <argument id="ipRecID">
-                                          <value class="variable">
-                                            <path element="op_AfterTransaction_icitemlot"/>
-                                            <path element="ID"/>
-                                          </value>
-                                        </argument>
-                                        <argument id="ipItemNumber">
-                                          <value class="variable">
-                                            <path element="op_BeforeTransaction_icitemlot"/>
-                                            <path element="rstk__icitemlot_item__c"/>
-                                          </value>
-                                        </argument>
-                                        <argument id="ipLotNumber">
-                                          <value class="variable">
-                                            <path element="op_ExcelDataRow"/>
-                                            <path element="FromLotNo"/>
-                                          </value>
-                                        </argument>
-                                        <argument id="ipQtyConsigned">
-                                          <value class="variable">
-                                            <path element="op_BeforeTransaction_icitemlot"/>
-                                            <path element="rstk__icitemlot_qtycons__c"/>
-                                          </value>
-                                        </argument>
-                                        <argument id="ipQtyOnHand">
-                                          <value class="sub">
-                                            <lhs class="variable">
-                                              <path element="op_BeforeTransaction_icitemlot"/>
-                                              <path element="rstk__icitemlot_qtyoh__c"/>
-                                            </lhs>
-                                            <rhs class="variable">
-                                              <path element="op_ExcelDataRow"/>
-                                              <path element="QuantityToTransfer"/>
-                                            </rhs>
-                                          </value>
-                                        </argument>
-                                        <argument id="ipQtyNonNettable">
-                                          <value class="add">
-                                            <lhs class="variable">
-                                              <path element="op_BeforeTransaction_icitemlot"/>
-                                              <path element="rstk__icitemlot_qtyohnn__c"/>
-                                            </lhs>
-                                            <rhs class="variable">
-                                              <path element="op_ExcelDataRow"/>
-                                              <path element="QuantityToTransfer"/>
-                                            </rhs>
-                                          </value>
-                                        </argument>
-                                      </arguments>
-                                    </caseCall>
-                                  </steps>
-                                </clause>
-                                <clause name="else" testItemId="430">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="870" title="NN to OH">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="427" title="OH to NN">
                                       <arguments>
                                         <argument id="condition">
                                           <value class="and">
@@ -1431,28 +1322,28 @@
                                                 <path element="op_BeforeTransaction_FromLocation"/>
                                                 <path element="rstk__iclocitem_loctype_pl__c"/>
                                               </lhs>
-                                              <rhs class="value" valueClass="string">Non-nettable</rhs>
+                                              <rhs class="value" valueClass="string">On Hand</rhs>
                                             </lhs>
                                             <rhs class="eq">
                                               <lhs class="variable">
                                                 <path element="op_ToLocationType"/>
                                               </lhs>
-                                              <rhs class="value" valueClass="string">On Hand</rhs>
+                                              <rhs class="value" valueClass="string">Non-nettable</rhs>
                                             </rhs>
                                           </value>
                                         </argument>
                                       </arguments>
                                       <clauses>
-                                        <clause name="then" testItemId="871">
+                                        <clause name="then" testItemId="428">
                                           <steps>
-                                            <caseCall testCaseId="9cba11c3-d644-4dfc-ba57-5c9370175e84" testCasePath="tests/Inventory Management/Callable/SOQL-Inventory by LOT-ICITEMLOT.testcase" testItemId="872">
+                                            <caseCall testCaseId="9cba11c3-d644-4dfc-ba57-5c9370175e84" testCasePath="tests/Inventory Management/Callable/SOQL-Inventory by LOT-ICITEMLOT.testcase" testItemId="674">
                                               <arguments>
                                                 <argument id="reuseConnectionName">
                                                   <value class="value" valueClass="string">SFConnection</value>
                                                 </argument>
                                                 <argument id="ipRecID">
                                                   <value class="variable">
-                                                    <path element="op_AfterTransaction_icitemlot"/>
+                                                    <path element="op_AfterTransaction_icitemlot_record"/>
                                                     <path element="ID"/>
                                                   </value>
                                                 </argument>
@@ -1475,7 +1366,7 @@
                                                   </value>
                                                 </argument>
                                                 <argument id="ipQtyOnHand">
-                                                  <value class="add">
+                                                  <value class="sub">
                                                     <lhs class="variable">
                                                       <path element="op_BeforeTransaction_icitemlot"/>
                                                       <path element="rstk__icitemlot_qtyoh__c"/>
@@ -1487,66 +1378,157 @@
                                                   </value>
                                                 </argument>
                                                 <argument id="ipQtyNonNettable">
-                                                  <value class="sub">
-                                                    <lhs class="variable">
-                                                      <path element="op_BeforeTransaction_icitemlot"/>
-                                                      <path element="rstk__icitemlot_qtyohnn__c"/>
-                                                    </lhs>
-                                                    <rhs class="variable">
-                                                      <path element="op_ExcelDataRow"/>
-                                                      <path element="QuantityToTransfer"/>
-                                                    </rhs>
+                                                  <value class="compound">
+                                                    <parts>
+                                                      <add>
+                                                        <lhs class="variable">
+                                                          <path element="op_BeforeTransaction_icitemlot"/>
+                                                          <path element="rstk__icitemlot_qtyohnn__c"/>
+                                                        </lhs>
+                                                        <rhs class="variable">
+                                                          <path element="op_ExcelDataRow"/>
+                                                          <path element="QuantityToTransfer"/>
+                                                        </rhs>
+                                                      </add>
+                                                      <value valueClass="string">\n</value>
+                                                    </parts>
                                                   </value>
                                                 </argument>
                                               </arguments>
                                             </caseCall>
                                           </steps>
                                         </clause>
-                                        <clause name="else" testItemId="873">
+                                        <clause name="else" testItemId="430">
                                           <steps>
-                                            <caseCall testCaseId="9cba11c3-d644-4dfc-ba57-5c9370175e84" testCasePath="tests/Inventory Management/Callable/SOQL-Inventory by LOT-ICITEMLOT.testcase" testItemId="887">
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="870" title="NN to OH">
                                               <arguments>
-                                                <argument id="reuseConnectionName">
-                                                  <value class="value" valueClass="string">SFConnection</value>
-                                                </argument>
-                                                <argument id="ipRecID">
-                                                  <value class="variable">
-                                                    <path element="op_AfterTransaction_icitemlot"/>
-                                                    <path element="ID"/>
-                                                  </value>
-                                                </argument>
-                                                <argument id="ipItemNumber">
-                                                  <value class="variable">
-                                                    <path element="op_BeforeTransaction_icitemlot"/>
-                                                    <path element="rstk__icitemlot_item__c"/>
-                                                  </value>
-                                                </argument>
-                                                <argument id="ipLotNumber">
-                                                  <value class="variable">
-                                                    <path element="op_ExcelDataRow"/>
-                                                    <path element="FromLotNo"/>
-                                                  </value>
-                                                </argument>
-                                                <argument id="ipQtyConsigned">
-                                                  <value class="variable">
-                                                    <path element="op_BeforeTransaction_icitemlot"/>
-                                                    <path element="rstk__icitemlot_qtycons__c"/>
-                                                  </value>
-                                                </argument>
-                                                <argument id="ipQtyOnHand">
-                                                  <value class="variable">
-                                                    <path element="op_BeforeTransaction_icitemlot"/>
-                                                    <path element="rstk__icitemlot_qtyoh__c"/>
-                                                  </value>
-                                                </argument>
-                                                <argument id="ipQtyNonNettable">
-                                                  <value class="variable">
-                                                    <path element="op_BeforeTransaction_icitemlot"/>
-                                                    <path element="rstk__icitemlot_qtyohnn__c"/>
+                                                <argument id="condition">
+                                                  <value class="and">
+                                                    <lhs class="eq">
+                                                      <lhs class="variable">
+                                                        <path element="op_BeforeTransaction_FromLocation"/>
+                                                        <path element="rstk__iclocitem_loctype_pl__c"/>
+                                                      </lhs>
+                                                      <rhs class="value" valueClass="string">Non-nettable</rhs>
+                                                    </lhs>
+                                                    <rhs class="eq">
+                                                      <lhs class="variable">
+                                                        <path element="op_ToLocationType"/>
+                                                      </lhs>
+                                                      <rhs class="value" valueClass="string">On Hand</rhs>
+                                                    </rhs>
                                                   </value>
                                                 </argument>
                                               </arguments>
-                                            </caseCall>
+                                              <clauses>
+                                                <clause name="then" testItemId="871">
+                                                  <steps>
+                                                    <caseCall testCaseId="9cba11c3-d644-4dfc-ba57-5c9370175e84" testCasePath="tests/Inventory Management/Callable/SOQL-Inventory by LOT-ICITEMLOT.testcase" testItemId="872">
+                                                      <arguments>
+                                                        <argument id="reuseConnectionName">
+                                                          <value class="value" valueClass="string">SFConnection</value>
+                                                        </argument>
+                                                        <argument id="ipRecID">
+                                                          <value class="variable">
+                                                            <path element="op_AfterTransaction_icitemlot_record"/>
+                                                            <path element="ID"/>
+                                                          </value>
+                                                        </argument>
+                                                        <argument id="ipItemNumber">
+                                                          <value class="variable">
+                                                            <path element="op_BeforeTransaction_icitemlot"/>
+                                                            <path element="rstk__icitemlot_item__c"/>
+                                                          </value>
+                                                        </argument>
+                                                        <argument id="ipLotNumber">
+                                                          <value class="variable">
+                                                            <path element="op_ExcelDataRow"/>
+                                                            <path element="FromLotNo"/>
+                                                          </value>
+                                                        </argument>
+                                                        <argument id="ipQtyConsigned">
+                                                          <value class="variable">
+                                                            <path element="op_BeforeTransaction_icitemlot"/>
+                                                            <path element="rstk__icitemlot_qtycons__c"/>
+                                                          </value>
+                                                        </argument>
+                                                        <argument id="ipQtyOnHand">
+                                                          <value class="add">
+                                                            <lhs class="variable">
+                                                              <path element="op_BeforeTransaction_icitemlot"/>
+                                                              <path element="rstk__icitemlot_qtyoh__c"/>
+                                                            </lhs>
+                                                            <rhs class="variable">
+                                                              <path element="op_ExcelDataRow"/>
+                                                              <path element="QuantityToTransfer"/>
+                                                            </rhs>
+                                                          </value>
+                                                        </argument>
+                                                        <argument id="ipQtyNonNettable">
+                                                          <value class="sub">
+                                                            <lhs class="variable">
+                                                              <path element="op_BeforeTransaction_icitemlot"/>
+                                                              <path element="rstk__icitemlot_qtyohnn__c"/>
+                                                            </lhs>
+                                                            <rhs class="variable">
+                                                              <path element="op_ExcelDataRow"/>
+                                                              <path element="QuantityToTransfer"/>
+                                                            </rhs>
+                                                          </value>
+                                                        </argument>
+                                                      </arguments>
+                                                    </caseCall>
+                                                  </steps>
+                                                </clause>
+                                                <clause name="else" testItemId="873">
+                                                  <steps>
+                                                    <caseCall testCaseId="9cba11c3-d644-4dfc-ba57-5c9370175e84" testCasePath="tests/Inventory Management/Callable/SOQL-Inventory by LOT-ICITEMLOT.testcase" testItemId="887">
+                                                      <arguments>
+                                                        <argument id="reuseConnectionName">
+                                                          <value class="value" valueClass="string">SFConnection</value>
+                                                        </argument>
+                                                        <argument id="ipRecID">
+                                                          <value class="variable">
+                                                            <path element="op_AfterTransaction_icitemlot_record"/>
+                                                            <path element="ID"/>
+                                                          </value>
+                                                        </argument>
+                                                        <argument id="ipItemNumber">
+                                                          <value class="variable">
+                                                            <path element="op_BeforeTransaction_icitemlot"/>
+                                                            <path element="rstk__icitemlot_item__c"/>
+                                                          </value>
+                                                        </argument>
+                                                        <argument id="ipLotNumber">
+                                                          <value class="variable">
+                                                            <path element="op_ExcelDataRow"/>
+                                                            <path element="FromLotNo"/>
+                                                          </value>
+                                                        </argument>
+                                                        <argument id="ipQtyConsigned">
+                                                          <value class="variable">
+                                                            <path element="op_BeforeTransaction_icitemlot"/>
+                                                            <path element="rstk__icitemlot_qtycons__c"/>
+                                                          </value>
+                                                        </argument>
+                                                        <argument id="ipQtyOnHand">
+                                                          <value class="variable">
+                                                            <path element="op_BeforeTransaction_icitemlot"/>
+                                                            <path element="rstk__icitemlot_qtyoh__c"/>
+                                                          </value>
+                                                        </argument>
+                                                        <argument id="ipQtyNonNettable">
+                                                          <value class="variable">
+                                                            <path element="op_BeforeTransaction_icitemlot"/>
+                                                            <path element="rstk__icitemlot_qtyohnn__c"/>
+                                                          </value>
+                                                        </argument>
+                                                      </arguments>
+                                                    </caseCall>
+                                                  </steps>
+                                                </clause>
+                                              </clauses>
+                                            </apiCall>
                                           </steps>
                                         </clause>
                                       </clauses>
