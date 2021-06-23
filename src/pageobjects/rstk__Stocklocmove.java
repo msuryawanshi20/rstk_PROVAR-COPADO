@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
@@ -23,7 +24,7 @@ import com.provar.core.testapi.annotations.TextType;
 public class rstk__Stocklocmove {
 
 	public WebDriver driver;
-  
+
 	public rstk__Stocklocmove(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -62,19 +63,20 @@ public class rstk__Stocklocmove {
 
 	}
 
-/*	public void selectSerialNumber(String serialNumber) throws InterruptedException {
+	/*
+	 * public void selectSerialNumber(String serialNumber) throws
+	 * InterruptedException {
+	 * 
+	 * Thread.sleep(2000); WebElement option = driver.findElement(By.xpath(
+	 * "//select[contains(@id,'available_serials__c')]/option[contains(text(),'" +
+	 * serialNumber + "')]")); option.click();
+	 * 
+	 * }
+	 */
 
-		Thread.sleep(2000);
-		WebElement option = driver.findElement(By.xpath(
-				"//select[contains(@id,'available_serials__c')]/option[contains(text(),'" + serialNumber + "')]"));
-		option.click();
-
-	}*/
-	
-		
 	@TestLogger
-    public Logger testLogger;
-    
+	public Logger testLogger;
+
 	public void selectSerialNumber(Integer NumberOfSerialTobeSelected) throws InterruptedException {
 
 		Thread.sleep(2000);
@@ -153,12 +155,106 @@ public class rstk__Stocklocmove {
 	@TextType()
 	@FindBy(xpath = "//span[normalize-space(.)='Serial Count:']/input[2]")
 	public WebElement serialCount;
+
 	@ChoiceListType()
 	@FindBy(xpath = "//label[normalize-space(.)='From Site']/parent::span/parent::th/following-sibling::td//select")
 	public WebElement FromSite;
-	
+
 	@TextType()
 	@FindBy(xpath = "//span[contains(@id,'locmoveentries')]//textarea")
 	public WebElement selectedSerialNumber;
+
+	public String readSelectedSerialNumber() throws InterruptedException {
+
+		Thread.sleep(2000);
+		WebElement ele = driver.findElement(By.xpath("//textarea[contains(@name,'pbs_locmoveentries')]"));
+		testLogger.info("serial Numbers" + ele.getAttribute("value"));
+
+		return ele.getText();
+
+	}
+
+	////////////////////////////////////////////////////////
+
+	public String locationId, locationNum;
+
+	public void setLocationDetails(String locId, String locNum) throws InterruptedException {
+		locationId = locId;
+		locationNum = locNum;
+
+		testLogger.info("LocationID::::" + locationId);
+
+		testLogger.info("LocationNum::::" + locationNum);
+
+		test1();
+
+	}
+
+	private void test1() {
+
+		String temp1 = "//*[a[contains(text(),'" + locationId + "')]/parent::span/parent::td | span[normalize-space()='"
+				+ locationNum + "']/parent::td]/parent::tr";
+		testLogger.info("xpath::::" + temp1);
+
+	}
+
+	public void setcheckbox() {
+		WebElement selectCheckBox11 = driver.findElement(By
+				.xpath("//*[a[contains(text(),'" + locationId + "')]/parent::span/parent::td | span[normalize-space()='"
+						+ locationNum + "']/parent::td]/parent::tr//td[1]//input"));
+		selectCheckBox11.click();
+	}
+
+	public void selectToLocID(String toLocID) {
+		WebElement toLocID11 = driver.findElement(By
+				.xpath("//*[a[contains(text(),'" + locationId + "')]/parent::span/parent::td | span[normalize-space()='"
+						+ locationNum + "']/parent::td]/parent::tr//td[2]//select|//*[a[contains(text(),'" + locationId
+						+ "')]/parent::span/parent::td | span[normalize-space()='" + locationNum
+						+ "']/parent::td]/parent::tr//td[2]//span"));
+		;
+		Select dropdown = new Select(toLocID11);
+		dropdown.selectByValue(toLocID);
+	}
+
+	public void selectToLocNumbe(String toLocNumber) {
+
+		WebElement toLocNum11 = driver.findElement(By
+				.xpath("//*[a[contains(text(),'" + locationId + "')]/parent::span/parent::td | span[normalize-space()='"
+						+ locationNum + "']/parent::td]/parent::tr//td[3]//span"));
+		Select dropdown = new Select(toLocNum11);
+		dropdown.selectByValue(toLocNumber);
+
+	}
+
+	public void setToLocNumbTxt(String toLocNum) {
+		WebElement toLocNumTextBox11 = driver.findElement(By
+				.xpath("//*[a[contains(text(),'" + locationId + "')]/parent::span/parent::td | span[normalize-space()='"
+						+ locationNum + "']/parent::td]/parent::tr//td[3]//input"));
+		toLocNumTextBox11.sendKeys(toLocNum);
+	}
+
+	public void setQty(String Qty) {
+		WebElement quantity11 = driver.findElement(By
+				.xpath("//*[a[contains(text(),'" + locationId + "')]/parent::span/parent::td | span[normalize-space()='"
+						+ locationNum + "']/parent::td]/parent::tr//td[4]//input|//*[a[contains(text(),'" + locationId
+						+ "')]/parent::span/parent::td | span[normalize-space()='" + locationNum
+						+ "']/parent::td]/parent::tr//td[4]//span"));
+		;
+		quantity11.sendKeys(Qty);
+	}
+
+	public void setTxnComments(String Comments) {
+		WebElement txnComment11 = driver.findElement(By
+				.xpath("//*[a[contains(text(),'" + locationId + "')]/parent::span/parent::td | span[normalize-space()='"
+						+ locationNum + "']/parent::td]/parent::tr//td[6]//input"));
+		txnComment11.sendKeys(Comments);
+	}
+
+	public void setToLocCommnet(String toLocComments) {
+		WebElement toLocComment11 = driver.findElement(By
+				.xpath("//*[a[contains(text(),'" + locationId + "')]/parent::span/parent::td | span[normalize-space()='"
+						+ locationNum + "']/parent::td]/parent::tr//td[7]//input"));
+		toLocComment11.sendKeys(toLocComments);
+	}
 
 }

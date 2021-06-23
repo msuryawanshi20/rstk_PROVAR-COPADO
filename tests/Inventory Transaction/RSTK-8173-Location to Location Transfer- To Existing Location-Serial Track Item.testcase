@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="2">
+<testCase id="76">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -603,7 +603,8 @@
                               </variable>
                               <value valueClass="string">%' and LastModifiedDate &gt;=yesterday order by LastModifiedDate desc Limit </value>
                               <variable>
-                                <path element="op_SerialCount"/>
+                                <path element="op_InvLocLocExcelRow"/>
+                                <path element="TotalSerialsToBeTransferred"/>
                               </variable>
                             </parts>
                           </value>
@@ -936,7 +937,7 @@
                                             </lhs>
                                             <rhs class="variable">
                                               <path element="op_InvLocLocExcelRow"/>
-                                              <path element="QuantityToTransfer"/>
+                                              <path element="TotalSerialsToBeTransferred"/>
                                             </rhs>
                                           </value>
                                         </argument>
@@ -948,7 +949,7 @@
                                             </lhs>
                                             <rhs class="variable">
                                               <path element="op_InvLocLocExcelRow"/>
-                                              <path element="QuantityToTransfer"/>
+                                              <path element="TotalSerialsToBeTransferred"/>
                                             </rhs>
                                           </value>
                                         </argument>
@@ -1019,7 +1020,7 @@
                                                     </lhs>
                                                     <rhs class="variable">
                                                       <path element="op_InvLocLocExcelRow"/>
-                                                      <path element="QuantityToTransfer"/>
+                                                      <path element="TotalSerialsToBeTransferred"/>
                                                     </rhs>
                                                   </value>
                                                 </argument>
@@ -1031,7 +1032,7 @@
                                                     </lhs>
                                                     <rhs class="variable">
                                                       <path element="op_InvLocLocExcelRow"/>
-                                                      <path element="QuantityToTransfer"/>
+                                                      <path element="TotalSerialsToBeTransferred"/>
                                                     </rhs>
                                                   </value>
                                                 </argument>
@@ -1201,7 +1202,7 @@
                                     </lhs>
                                     <rhs class="variable">
                                       <path element="op_InvLocLocExcelRow"/>
-                                      <path element="QuantityToTransfer"/>
+                                      <path element="TotalSerialsToBeTransferred"/>
                                     </rhs>
                                   </value>
                                 </argument>
@@ -1213,7 +1214,7 @@
                                     </lhs>
                                     <rhs class="variable">
                                       <path element="op_InvLocLocExcelRow"/>
-                                      <path element="QuantityToTransfer"/>
+                                      <path element="TotalSerialsToBeTransferred"/>
                                     </rhs>
                                   </value>
                                 </argument>
@@ -1290,7 +1291,7 @@
                                             </lhs>
                                             <rhs class="variable">
                                               <path element="op_InvLocLocExcelRow"/>
-                                              <path element="QuantityToTransfer"/>
+                                              <path element="TotalSerialsToBeTransferred"/>
                                             </rhs>
                                           </value>
                                         </argument>
@@ -1302,7 +1303,7 @@
                                             </lhs>
                                             <rhs class="variable">
                                               <path element="op_InvLocLocExcelRow"/>
-                                              <path element="QuantityToTransfer"/>
+                                              <path element="TotalSerialsToBeTransferred"/>
                                             </rhs>
                                           </value>
                                         </argument>
@@ -1487,7 +1488,7 @@
                                     </lhs>
                                     <rhs class="variable">
                                       <path element="op_InvLocLocExcelRow"/>
-                                      <path element="QuantityToTransfer"/>
+                                      <path element="TotalSerialsToBeTransferred"/>
                                     </rhs>
                                   </value>
                                 </argument>
@@ -1505,7 +1506,7 @@
                                     </lhs>
                                     <rhs class="variable">
                                       <path element="op_InvLocLocExcelRow"/>
-                                      <path element="QuantityToTransfer"/>
+                                      <path element="TotalSerialsToBeTransferred"/>
                                     </rhs>
                                   </value>
                                 </argument>
@@ -1523,7 +1524,7 @@
                                     </lhs>
                                     <rhs class="variable">
                                       <path element="op_InvLocLocExcelRow"/>
-                                      <path element="QuantityToTransfer"/>
+                                      <path element="TotalSerialsToBeTransferred"/>
                                     </rhs>
                                   </value>
                                 </argument>
@@ -1535,7 +1536,7 @@
                                     </lhs>
                                     <rhs class="variable">
                                       <path element="op_InvLocLocExcelRow"/>
-                                      <path element="QuantityToTransfer"/>
+                                      <path element="TotalSerialsToBeTransferred"/>
                                     </rhs>
                                   </value>
                                 </argument>
@@ -1606,7 +1607,7 @@
                                             </lhs>
                                             <rhs class="variable">
                                               <path element="op_InvLocLocExcelRow"/>
-                                              <path element="QuantityToTransfer"/>
+                                              <path element="TotalSerialsToBeTransferred"/>
                                             </rhs>
                                           </value>
                                         </argument>
@@ -1636,7 +1637,7 @@
                                             </lhs>
                                             <rhs class="variable">
                                               <path element="op_InvLocLocExcelRow"/>
-                                              <path element="QuantityToTransfer"/>
+                                              <path element="TotalSerialsToBeTransferred"/>
                                             </rhs>
                                           </value>
                                         </argument>
@@ -1826,7 +1827,7 @@
                                     </lhs>
                                     <rhs class="variable">
                                       <path element="op_InvLocLocExcelRow"/>
-                                      <path element="QuantityToTransfer"/>
+                                      <path element="TotalSerialsToBeTransferred"/>
                                     </rhs>
                                   </value>
                                 </argument>
@@ -1838,7 +1839,7 @@
                                     </lhs>
                                     <rhs class="variable">
                                       <path element="op_InvLocLocExcelRow"/>
-                                      <path element="QuantityToTransfer"/>
+                                      <path element="TotalSerialsToBeTransferred"/>
                                     </rhs>
                                   </value>
                                 </argument>
@@ -1915,7 +1916,7 @@
                                             </lhs>
                                             <rhs class="variable">
                                               <path element="op_InvLocLocExcelRow"/>
-                                              <path element="QuantityToTransfer"/>
+                                              <path element="TotalSerialsToBeTransferred"/>
                                             </rhs>
                                           </value>
                                         </argument>
@@ -1927,7 +1928,7 @@
                                             </lhs>
                                             <rhs class="variable">
                                               <path element="op_InvLocLocExcelRow"/>
-                                              <path element="QuantityToTransfer"/>
+                                              <path element="TotalSerialsToBeTransferred"/>
                                             </rhs>
                                           </value>
                                         </argument>
@@ -2031,7 +2032,8 @@
                               </variable>
                               <value valueClass="string">%' and LastModifiedDate &gt;=yesterday order by LastModifiedDate desc Limit </value>
                               <variable>
-                                <path element="op_SerialCount"/>
+                                <path element="op_InvLocLocExcelRow"/>
+                                <path element="TotalSerialsToBeTransferred"/>
                               </variable>
                             </parts>
                           </value>

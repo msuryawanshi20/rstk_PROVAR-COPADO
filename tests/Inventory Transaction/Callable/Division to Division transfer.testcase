@@ -509,10 +509,10 @@
               <clauses>
                 <clause name="then" testItemId="65">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="170" title="Call the selectSerialNumber method">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="209" title="Call the selectSerialNumber method">
                       <arguments>
                         <argument id="locator">
-                          <value class="uiLocator" uri="ui:pageobject:method?operation=selectSerialNumber&amp;pageId=pageobjects.rstk__Stocklocdivsitemove"/>
+                          <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.rstk__Stocklocdivsitemove&amp;operation=selectSerialNumber"/>
                         </argument>
                         <argument id="interaction">
                           <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
@@ -534,6 +534,12 @@
                             <path element="ip_Quantity"/>
                           </value>
                         </argument>
+                        <argument id="param_resultName">
+                          <value class="value" valueClass="string">op_selectedSerials</value>
+                        </argument>
+                        <argument id="param_resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
                       </arguments>
                       <generatedParameters>
                         <apiParam group="value" name="param_NumberOfSerialTobeSelected" title="Number Of Serial Tobe Selected">
@@ -544,6 +550,21 @@
                                 <valueConstraint name="decimalPlaces">0</valueConstraint>
                               </constraints>
                             </numericType>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="param_resultName" seq="1001" title="Result Name">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="param_resultScope" seq="1002" title="Result Scope">
+                          <defaultValue>Test</defaultValue>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="boundedValues">Global:Test Run|Folder:Test Folder|Test:Test Case|GroupStep:Group Step|Local:Test Step</valueConstraint>
+                              </constraints>
+                            </choiceType>
                           </type>
                         </apiParam>
                       </generatedParameters>
@@ -633,6 +654,51 @@
                           <value class="value" valueClass="string">false</value>
                         </argument>
                       </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="208" title="Call the readSelectedSerialNumber method">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.rstk__Stocklocdivsitemove&amp;operation=readSelectedSerialNumber"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Call the readSelectedSerialNumber method</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="afterWait"/>
+                        <argument id="autoRetry"/>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="param_resultName">
+                          <value class="value" valueClass="string">temp</value>
+                        </argument>
+                        <argument id="param_resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="param_resultName" seq="1001" title="Result Name">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="param_resultScope" seq="1002" title="Result Scope">
+                          <defaultValue>Test</defaultValue>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="boundedValues">Global:Test Run|Folder:Test Folder|Test:Test Case|GroupStep:Group Step|Local:Test Step</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="73" title="Read Selected serial numbers">
                       <arguments>
@@ -1942,9 +2008,6 @@
                       <namedValue name="value">
                         <value class="variable">
                           <path element="op_SelectedSerials"/>
-                          <path element="fields"/>
-                          <path element="selectedSerialsTextarea"/>
-                          <path element="value"/>
                         </value>
                       </namedValue>
                       <namedValue name="valueScope">

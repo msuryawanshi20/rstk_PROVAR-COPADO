@@ -80,18 +80,22 @@ public class rstk__Stocklocdivsitemove {
 	@TestLogger
 	public Logger testLogger;
 
-	public void selectSerialNumber(Integer NumberOfSerialTobeSelected) throws InterruptedException {
+	public String selectSerialNumber(Integer NumberOfSerialTobeSelected) throws InterruptedException {
 
 		Thread.sleep(2000);
+		String selectedSerial="";
 
 		for (int i = 1; i <= NumberOfSerialTobeSelected; i++) {
 
 			WebElement element = driver
 					.findElement(By.xpath("//select[contains(@id,'available_serials__c')]/option[" + i + "]"));
 			testLogger.info("Serial Number:" + element.getText());
+			selectedSerial+="\n"+element.getText();
+			
 			element.click();
 
 		}
+		return selectedSerial;
 	}
 
 	@PageRow()
@@ -192,4 +196,16 @@ public class rstk__Stocklocdivsitemove {
 	@TextType
 	@FindBy(xpath="//textarea[contains(@id,'locmove_selectedserials__c')]")
 	public WebElement selectedSerialsTextarea;
+
+	public String readSelectedSerialNumber() throws InterruptedException {
+
+		Thread.sleep(2000);
+		WebElement ele = driver.findElement(By.xpath("//textarea[contains(@id,'locmove_selectedserials__c')]"));
+		testLogger.info("serial Numbers"+ele.getAttribute("value"));
+		
+		return ele.getText();
+
+	}
 }
+
+

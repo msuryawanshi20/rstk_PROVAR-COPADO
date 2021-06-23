@@ -531,6 +531,7 @@
                               </generatedParameters>
                             </apiCall>
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="77" title="With Inventory Details Table rows {1}">
+                              <tags/>
                               <arguments>
                                 <argument id="uiConnectionName">
                                   <value class="value" valueClass="string">QARSF_Admin</value>
@@ -1007,7 +1008,9 @@
                                       <namedValue name="isRegex">
                                         <value class="value" valueClass="boolean">false</value>
                                       </namedValue>
-                                      <namedValue name="beforeWait"/>
+                                      <namedValue name="beforeWait">
+                                        <value class="uiWait" uri="ui:wait:alert:timeout=60"/>
+                                      </namedValue>
                                       <namedValue name="afterWait"/>
                                       <namedValue name="autoRetry"/>
                                     </namedValues>
