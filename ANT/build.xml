@@ -8,7 +8,7 @@
 	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
 	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
 
-	
+
 	<target name="HappyPath-All">
 		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
 		<Run-Test-Case provarHome="${provar.home}" 
@@ -31,16 +31,17 @@
 						invokeTestRunMonitor="true"
 						>
 
-			<fileset id="testplan" dir="../plans/HappyPath"></fileset>
+			<fileset id="testplan" dir="../plans/HappyPath">
+			</fileset>
 			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
 			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
 			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
 		</Run-Test-Case>
 	</target>
-	
+
 	<target name="HappyPath-PO">
-			<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
-			<Run-Test-Case provarHome="${provar.home}" 
+		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+		<Run-Test-Case provarHome="${provar.home}" 
 							projectPath="${testproject.home}" 
 							resultsPath="${testproject.results}" 
 							resultsPathDisposition="Increment" 
@@ -60,16 +61,17 @@
 							invokeTestRunMonitor="true"
 							>
 
-				<fileset id="testplan" dir="../plans/HappyPath/PO"></fileset>
-				<planFeature name="PDF" type="OUTPUT" enabled="true"/>
-				<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
-				<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
-			</Run-Test-Case>
-		</target>
-	
+			<fileset id="testplan" dir="../plans/HappyPath/PO">
+			</fileset>
+			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
+			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
+			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
+		</Run-Test-Case>
+	</target>
+
 	<target name="HappyPath-SO">
-			<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
-			<Run-Test-Case provarHome="${provar.home}" 
+		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+		<Run-Test-Case provarHome="${provar.home}" 
 							projectPath="${testproject.home}" 
 							resultsPath="${testproject.results}" 
 							resultsPathDisposition="Increment" 
@@ -89,16 +91,17 @@
 							invokeTestRunMonitor="true"
 							>
 
-				<fileset id="testplan" dir="../plans/HappyPath/SO"></fileset>
-				<planFeature name="PDF" type="OUTPUT" enabled="true"/>
-				<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
-				<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
-			</Run-Test-Case>
-		</target>
-	
+			<fileset id="testplan" dir="../plans/HappyPath/SO">
+			</fileset>
+			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
+			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
+			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
+		</Run-Test-Case>
+	</target>
+
 	<target name="HappyPath-WO">
-			<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
-			<Run-Test-Case provarHome="${provar.home}" 
+		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+		<Run-Test-Case provarHome="${provar.home}" 
 							projectPath="${testproject.home}" 
 							resultsPath="${testproject.results}" 
 							resultsPathDisposition="Increment" 
@@ -118,13 +121,14 @@
 							invokeTestRunMonitor="true"
 							>
 
-				<fileset id="testplan" dir="../plans/HappyPath/WO"></fileset>
-				<planFeature name="PDF" type="OUTPUT" enabled="true"/>
-				<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
-				<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
-			</Run-Test-Case>
-		</target>
-	
+			<fileset id="testplan" dir="../plans/HappyPath/WO">
+			</fileset>
+			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
+			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
+			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
+		</Run-Test-Case>
+	</target>
+
 	<target name="SalesOrder">
 		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
 		<Run-Test-Case provarHome="${provar.home}" 
@@ -147,7 +151,8 @@
 						invokeTestRunMonitor="true"
 						>
 
-			<fileset id="testplan" dir="../plans/Sales Order"></fileset>
+			<fileset id="testplan" dir="../plans/Sales Order">
+			</fileset>
 			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
 			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
 			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
@@ -177,19 +182,20 @@
 						invokeTestRunMonitor="true"
 						>
 
-			<fileset id="testplan" dir="../plans/Purchase Order"></fileset>
+			<fileset id="testplan" dir="../plans/Purchase Order">
+			</fileset>
 			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
 			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
 			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
 		</Run-Test-Case>
 
 	</target>
-	
+
 	<target name="LocationAdd">
 
-			<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
 
-			<Run-Test-Case provarHome="${provar.home}" 
+		<Run-Test-Case provarHome="${provar.home}" 
 							projectPath="${testproject.home}" 
 							resultsPath="${testproject.results}" 
 							resultsPathDisposition="Increment" 
@@ -209,10 +215,43 @@
 							invokeTestRunMonitor="true"
 							>
 
-				<fileset dir="../tests/Inventory Transaction">
-					<include name="RSTK-8076-Inventory Location Add.testcase"/>
-				</fileset>
-			</Run-Test-Case>
-		</target>
-	
+			<fileset dir="../tests/Inventory Transaction">
+				<include name="RSTK-8076-Inventory Location Add.testcase"/>
+			</fileset>
+		</Run-Test-Case>
+	</target>
+
+	<target name="Inventory Transactions">
+
+		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+
+		<Run-Test-Case provarHome="${provar.home}" 
+								projectPath="${testproject.home}" 
+								resultsPath="${testproject.results}" 
+								resultsPathDisposition="Increment" 
+								testEnvironment="" 
+								webBrowser="${Browser}" 
+								webBrowserConfiguration="Full Screen"
+								webBrowserProviderName="Desktop"
+								webBrowserDeviceName="Full Screen" 
+								excludeCallableTestCases="false" 
+								salesforceMetadataCache="Reuse" 
+								projectCachePath="../../.provarCaches"
+								testOutputlevel="BASIC" 
+								pluginOutputlevel="WARNING"
+								stopTestRunOnError="false"
+								secretsPassword="${secrets.password}"
+								testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+								invokeTestRunMonitor="true"
+								>
+
+			<fileset id="testplan" dir="../plans/Inventory Transactions">
+			</fileset>
+			<planFeature name="PDF" type="OUTPUT" enabled="true"/>
+			<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
+			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
+		</Run-Test-Case>
+	</target>
+
+
 </project>
