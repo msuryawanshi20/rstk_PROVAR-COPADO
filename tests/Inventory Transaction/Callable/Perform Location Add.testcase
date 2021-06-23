@@ -2210,7 +2210,9 @@
                       <namedValue name="response">
                         <value class="value" valueClass="string">OK</value>
                       </namedValue>
-                      <namedValue name="beforeWait"/>
+                      <namedValue name="beforeWait">
+                        <value class="uiWait" uri="ui:wait:alert:timeout=60"/>
+                      </namedValue>
                       <namedValue name="afterWait"/>
                       <namedValue name="autoRetry"/>
                     </namedValues>

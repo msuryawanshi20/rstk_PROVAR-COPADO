@@ -540,8 +540,6 @@
                               <constraints>
                                 <valueConstraint name="length">9</valueConstraint>
                                 <valueConstraint name="decimalPlaces">0</valueConstraint>
-                                <valueConstraint name="unsigned">false</valueConstraint>
-                                <valueConstraint name="showSeparator">false</valueConstraint>
                               </constraints>
                             </numericType>
                           </type>
@@ -613,7 +611,6 @@
                               <fieldLocator uri="ui:locator?name=serialCount"/>
                               <attributeAssertions>
                                 <uiAttributeAssertion attributeName="value" comparisonType="None"/>
-                                <uiAttributeAssertion attributeName="message" comparisonType="None"/>
                               </attributeAssertions>
                             </uiFieldAssertion>
                           </value>
@@ -764,40 +761,50 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="120" title="Read Selected Serial numbers">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="200" title="Call the readSelectedSerialNumber method">
                       <arguments>
-                        <argument id="resultName">
-                          <value class="value" valueClass="string">op_SelectedSerials</value>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.rstk__Stocklocmove&amp;operation=readSelectedSerialNumber"/>
                         </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
                         </argument>
-                        <argument id="fieldAssertions">
-                          <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="selectedSerialNumber">
-                              <fieldLocator uri="ui:locator?name=selectedSerialNumber"/>
-                              <attributeAssertions>
-                                <uiAttributeAssertion attributeName="value" comparisonType="None"/>
-                                <uiAttributeAssertion attributeName="message" comparisonType="None"/>
-                              </attributeAssertions>
-                            </uiFieldAssertion>
-                          </value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="columnAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="pageAssertions">
-                          <value class="valueList" mutable="Mutable"/>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Call the readSelectedSerialNumber method</value>
                         </argument>
                         <argument id="beforeWait"/>
+                        <argument id="afterWait"/>
                         <argument id="autoRetry"/>
                         <argument id="captureBefore">
                           <value class="value" valueClass="string">false</value>
                         </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="param_resultName">
+                          <value class="value" valueClass="string">op_SelectedSerials</value>
+                        </argument>
+                        <argument id="param_resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
                       </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="param_resultName" seq="1001" title="Result Name">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="param_resultScope" seq="1002" title="Result Scope">
+                          <defaultValue>Test</defaultValue>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="boundedValues">Global:Test Run|Folder:Test Folder|Test:Test Case|GroupStep:Group Step|Local:Test Step</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="109" title="With Inventory Details Table rows {1}">
                       <arguments>
@@ -1360,9 +1367,6 @@
                       <namedValue name="value">
                         <value class="variable">
                           <path element="op_SelectedSerials"/>
-                          <path element="fields"/>
-                          <path element="selectedSerialNumber"/>
-                          <path element="value"/>
                         </value>
                       </namedValue>
                       <namedValue name="valueScope">
