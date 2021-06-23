@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase>
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: QARSF_Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">Rootstock_Financials</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="93" title="Read Test Data">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Test Data</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="SourceData" variableScope="Test">
+          <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/RSTKF_AutomationData.xlsx;1624364287371</cacheToken>
+          <cachedParameters>
+            <apiParam name="APIMode"/>
+            <apiParam name="OverrideDimension"/>
+            <apiParam name="OverrideAddress"/>
+            <apiParam name="Name"/>
+            <apiParam name="Division"/>
+            <apiParam name="Vendor"/>
+            <apiParam name="Street"/>
+            <apiParam name="City"/>
+            <apiParam name="State"/>
+            <apiParam name="Zipcode"/>
+            <apiParam name="Country"/>
+            <apiParam name="Item"/>
+            <apiParam name="QtyReq"/>
+            <apiParam name="UnitPrice"/>
+            <apiParam name="Project"/>
+            <apiParam name="Dim1"/>
+            <apiParam name="Dim3"/>
+            <apiParam name="Dim4"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/POLOADER.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">AddLine</worksheetName>
+            <valuesRange class="value"/>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="53">
+          <steps/>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="102" title="Create Object: rstk__poloader__c=&gt;addheaderId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">rstk__poloader__c</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">addheaderId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="Name">
+          <value class="value" valueClass="string">NPAutomation_Testing</value>
+        </argument>
+        <argument id="rstk__poloader_process__c">
+          <value class="value" valueClass="string">Ready</value>
+        </argument>
+        <argument id="rstk__poloader_mode__c">
+          <value class="value" valueClass="string">AddBoth</value>
+        </argument>
+        <argument id="rstk__poloader_vendno__c">
+          <value class="value" valueClass="string">a3Z1K000000hsDz</value>
+        </argument>
+        <argument id="rstk__poloader_div__c">
+          <value class="value" valueClass="string">a7O410000004Nwj</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">rstk__poloader__c</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=Name" name="Name" title="Name"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_process__c" name="rstk__poloader_process__c" title="rstk__poloader_process__c">
+          <summary>This is an indicator for the status of the Load  process.</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_mode__c" name="rstk__poloader_mode__c" title="rstk__poloader_mode__c">
+          <summary>Mode/function for this transaction.  Options are\n\nAdd Header\nAdd Line\nAdd Both\nChange Header\nChange Line\nChange Both\nClose Line Short\nSubmit to Vendor</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_vendno__c" name="rstk__poloader_vendno__c" title="rstk__poloader_vendno__c">
+          <summary>Not Applicable</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_div__c" name="rstk__poloader_div__c" title="rstk__poloader_div__c">
+          <summary>Not Applicable</summary>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="103" title="SOQL Query: select Id,Name,rstk__poloader_pohdr__c,rstk__poloader_process__c from rstk__poloader__c where id = '{addheaderId}'=&gt;poloaderhdrapi">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">select Id,Name,rstk__poloader_pohdr__c,rstk__poloader_process__c from rstk__poloader__c where id = '</value>
+              <variable>
+                <path element="addheaderId"/>
+              </variable>
+              <value valueClass="string">'</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">poloaderhdrapi</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="98" title="Create Object: rstk__poloader__c=&gt;poloaderId">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">rstk__poloader__c</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">poloaderId</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="Name">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="Name"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_city__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="City"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_country__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="Country"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_poitem__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="Item"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_process__c">
+          <value class="value" valueClass="string">Ready</value>
+        </argument>
+        <argument id="rstk__poloader_proj__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="Project"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_qtyreq__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="QtyReq"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_schedrcptdte__c">
+          <value class="value" valueClass="date">1624320000000</value>
+        </argument>
+        <argument id="rstk__poloader_state__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="State"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_street__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="Street"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_unitprice__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="UnitPrice"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_vendno__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="Vendor"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_zip__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="Zipcode"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_async__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="Async"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_mode__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="APIMode"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_dimval1__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="Dim1"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_dimval2__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="Dim2"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_dimval4__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="Dim4"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_dimvalovr__c">
+          <value class="variable">
+            <path element="poloaderaddboth"/>
+            <path element="OverrideDimension"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_pohdr__c">
+          <value class="variable">
+            <path element="poloaderhdrapi"/>
+            <path element="rstk__poloader_pohdr__c"/>
+          </value>
+        </argument>
+        <argument id="rstk__poloader_lineaddressovr__c"/>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">rstk__poloader__c</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=Name" name="Name" title="Name"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_city__c" name="rstk__poloader_city__c" title="rstk__poloader_city__c">
+          <summary>Not Applicable</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_country__c" name="rstk__poloader_country__c" title="rstk__poloader_country__c">
+          <summary>Not Applicable</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_poitem__c" name="rstk__poloader_poitem__c" title="rstk__poloader_poitem__c">
+          <summary>Not Applicable</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_process__c" name="rstk__poloader_process__c" title="rstk__poloader_process__c">
+          <summary>This is an indicator for the status of the Load  process.</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_proj__c" name="rstk__poloader_proj__c" title="rstk__poloader_proj__c">
+          <summary>Not Applicable</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_qtyreq__c" name="rstk__poloader_qtyreq__c" title="rstk__poloader_qtyreq__c">
+          <summary>Not Applicable</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_schedrcptdte__c" name="rstk__poloader_schedrcptdte__c" title="rstk__poloader_schedrcptdte__c">
+          <summary>Not Applicable</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_state__c" name="rstk__poloader_state__c" title="rstk__poloader_state__c">
+          <summary>Not Applicable</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_street__c" name="rstk__poloader_street__c" title="rstk__poloader_street__c">
+          <summary>Not Applicable</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_unitprice__c" name="rstk__poloader_unitprice__c" title="rstk__poloader_unitprice__c">
+          <summary>Not Applicable</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_vendno__c" name="rstk__poloader_vendno__c" title="rstk__poloader_vendno__c">
+          <summary>Not Applicable</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_zip__c" name="rstk__poloader_zip__c" title="rstk__poloader_zip__c">
+          <summary>Not Applicable</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_async__c" name="rstk__poloader_async__c" title="rstk__poloader_async__c">
+          <summary>When checked, record will be processed "in background", meaning that it will process when Periodic Batch Processor cycles. Note that if field is set &amp; does not process within a few minutes, it may be that Periodic Batch Processor needs to be restarted.</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_mode__c" name="rstk__poloader_mode__c" title="rstk__poloader_mode__c">
+          <summary>Mode/function for this transaction.  Options are\n\nAdd Header\nAdd Line\nAdd Both\nChange Header\nChange Line\nChange Both\nClose Line Short\nSubmit to Vendor</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_dimval1__c" name="rstk__poloader_dimval1__c" title="rstk__poloader_dimval1__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_dimval2__c" name="rstk__poloader_dimval2__c" title="rstk__poloader_dimval2__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_dimval4__c" name="rstk__poloader_dimval4__c" title="rstk__poloader_dimval4__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_dimvalovr__c" name="rstk__poloader_dimvalovr__c" title="rstk__poloader_dimvalovr__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_pohdr__c" name="rstk__poloader_pohdr__c" title="rstk__poloader_pohdr__c">
+          <summary>Not Applicable</summary>
+        </apiParam>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_lineaddressovr__c" name="rstk__poloader_lineaddressovr__c" title="rstk__poloader_lineaddressovr__c"/>
+      </generatedParameters>
+    </apiCall>
+  </steps>
+</testCase>
