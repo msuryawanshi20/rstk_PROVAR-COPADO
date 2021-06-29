@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="7">
+<testCase id="1">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="4" title="Salesforce Connect: SFConnection (Test)">
@@ -206,12 +206,12 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soapi__c&amp;field=rstk__soapi_mode__c" name="rstk__soapi_mode__c" title="rstk__soapi_mode__c"/>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="31" title="SOQL Query: select Id,rstk__soapi_orderno__c from rstk__soapi__c where rstk__soapi_orderno__c='{OrderNumber}'=&gt;rstkRows_AddHeader">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="31" title="SOQL Query: select Id,rstk__soapi_orderno__c,rstk__soapi_processed__c from rstk__soapi__c where rstk__soapi_orderno__c='{OrderNumber}'=&gt;rstkRows_AddHeader">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
                     <parts>
-                      <value valueClass="string">select Id,rstk__soapi_orderno__c from rstk__soapi__c where rstk__soapi_orderno__c='</value>
+                      <value valueClass="string">select Id,rstk__soapi_orderno__c,rstk__soapi_processed__c from rstk__soapi__c where rstk__soapi_orderno__c='</value>
                       <variable>
                         <path element="OrderNumber"/>
                       </variable>
@@ -229,6 +229,57 @@
                   <value class="value" valueClass="string">Test</value>
                 </argument>
               </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.DoWhile" name="DoWhile" testItemId="100" title="While: {rstkRows_AddHeader.rstk__soapi_processed__c = &quot;false&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="variable">
+                      <path element="rstkRows_AddHeader"/>
+                      <path element="rstk__soapi_processed__c"/>
+                    </lhs>
+                    <rhs class="value" valueClass="string">false</rhs>
+                  </value>
+                </argument>
+                <argument id="counterName">
+                  <value class="value" valueClass="string">LoopCounter</value>
+                </argument>
+                <argument id="counterStart">
+                  <value class="value" valueClass="decimal">1</value>
+                </argument>
+                <argument id="counterEnd"/>
+                <argument id="continueOnFailure"/>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="99">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="74" title="SOQL Query: select Id,rstk__soapi_orderno__c,rstk__soapi_processed__c from rstk__soapi__c where rstk__soapi_orderno__c='{OrderNumber}'=&gt;rstkRows_AddHeader">
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">select Id,rstk__soapi_orderno__c,rstk__soapi_processed__c from rstk__soapi__c where rstk__soapi_orderno__c='</value>
+                              <variable>
+                                <path element="OrderNumber"/>
+                              </variable>
+                              <value valueClass="string">'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">rstkRows_AddHeader</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="64" title="SOQL Query: select Id\n    ,rstk__sohdr_order__c from rstk__sohdr__c where rstk__sohdr_order__c='{OrderNumber}'=&gt;rstkRows_SOHeader">
               <arguments>
@@ -251,16 +302,6 @@
                 </argument>
                 <argument id="resultScope">
                   <value class="value" valueClass="string">Test</value>
-                </argument>
-              </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="35" title="Sleep for {30} seconds">
-              <tags>
-                <string>disabled</string>
-              </tags>
-              <arguments>
-                <argument id="sleepSecs">
-                  <value class="value" valueClass="decimal">30</value>
                 </argument>
               </arguments>
             </apiCall>
@@ -314,7 +355,7 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soapi__c&amp;field=rstk__soapi_processed__c" name="rstk__soapi_processed__c" title="Record Processed"/>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="99" title="SOQL Query: select Id,rstk__sohdr_order__c from rstk__sohdr__c where rstk__sohdr_order__c='{OrderNumber}'=&gt;rstkRows_SOHDR">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="101" title="SOQL Query: select Id,rstk__sohdr_order__c from rstk__sohdr__c where rstk__sohdr_order__c='{OrderNumber}'=&gt;rstkRows_SOHDR">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -534,12 +575,12 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soapi__c&amp;field=rstk__soapi_sohdr__c" name="rstk__soapi_sohdr__c" title="rstk__soapi_sohdr__c"/>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="83" title="SOQL Query: select Id,rstk__soapi_orderno__c from rstk__soapi__c where Name='{SOAPI_Name}'=&gt;rstkRows_AddLine">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="83" title="SOQL Query: select Id,rstk__soapi_orderno__c,rstk__soapi_processed__c from rstk__soapi__c where Name='{SOAPI_Name}'=&gt;rstkRows_AddLine">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
                     <parts>
-                      <value valueClass="string">select Id,rstk__soapi_orderno__c from rstk__soapi__c where Name='</value>
+                      <value valueClass="string">select Id,rstk__soapi_orderno__c,rstk__soapi_processed__c from rstk__soapi__c where Name='</value>
                       <variable>
                         <path element="SOAPI_Name"/>
                       </variable>
@@ -557,6 +598,57 @@
                   <value class="value" valueClass="string">Test</value>
                 </argument>
               </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.DoWhile" name="DoWhile" testItemId="102" title="While: {rstkRows_AddLine.rstk__soapi_processed__c = &quot;false&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="variable">
+                      <path element="rstkRows_AddLine"/>
+                      <path element="rstk__soapi_processed__c"/>
+                    </lhs>
+                    <rhs class="value" valueClass="string">false</rhs>
+                  </value>
+                </argument>
+                <argument id="counterName">
+                  <value class="value" valueClass="string">LoopCounter</value>
+                </argument>
+                <argument id="counterStart">
+                  <value class="value" valueClass="decimal">1</value>
+                </argument>
+                <argument id="counterEnd"/>
+                <argument id="continueOnFailure"/>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="103">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="104" title="SOQL Query: select Id,rstk__soapi_orderno__c,rstk__soapi_processed__c from rstk__soapi__c where rstk__soapi_orderno__c='{OrderNumber}'=&gt;rstkRows_AddLine">
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">select Id,rstk__soapi_orderno__c,rstk__soapi_processed__c from rstk__soapi__c where rstk__soapi_orderno__c='</value>
+                              <variable>
+                                <path element="OrderNumber"/>
+                              </variable>
+                              <value valueClass="string">'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">rstkRows_AddLine</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="84" title="Read Object: rstk__soapi__c = {rstkRows_AddLine.Id}">
               <arguments>
