@@ -110,6 +110,10 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Division to Division Transfer']")
 	public WebElement divisionToDivisionTransfer;
+
+	@LinkType()
+	@FindBy(linkText = "Project to Project Transfer")
+	public WebElement projectToProjectTransfer;
   
  
 

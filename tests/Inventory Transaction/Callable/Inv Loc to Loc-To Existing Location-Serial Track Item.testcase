@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="3" registryId="47c843fa-30ce-4507-b3a0-cbdc9a8c54ca" visibility="Internal">
+<testCase failureBehaviour="Continue" id="6" registryId="47c843fa-30ce-4507-b3a0-cbdc9a8c54ca" visibility="Internal">
   <summary>Callable testcase-Can be used to perform Location to Location Transfer on Existing location</summary>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="2" title="Salesforce Connect: SFConnection (Test)">
@@ -294,25 +294,6 @@
                                         </argument>
                                       </arguments>
                                     </apiCall>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="105" title="Set Values: test">
-                                      <arguments>
-                                        <argument id="values">
-                                          <value class="valueList" mutable="Mutable">
-                                            <namedValues mutable="Mutable">
-                                              <namedValue name="valuePath">
-                                                <value class="value" valueClass="string">test</value>
-                                              </namedValue>
-                                              <namedValue name="value">
-                                                <value class="value" valueClass="string">1</value>
-                                              </namedValue>
-                                              <namedValue name="valueScope">
-                                                <value class="value" valueClass="string">Test</value>
-                                              </namedValue>
-                                            </namedValues>
-                                          </value>
-                                        </argument>
-                                      </arguments>
-                                    </apiCall>
                                   </steps>
                                 </clause>
                               </clauses>
@@ -377,7 +358,7 @@
                                   <value class="value" valueClass="string">false</value>
                                 </argument>
                                 <argument id="beforeWait">
-                                  <value class="uiWait" uri="default"/>
+                                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
                                 </argument>
                                 <argument id="afterWait">
                                   <value class="uiWait" uri="default"/>
@@ -438,7 +419,7 @@
                                   <value class="value" valueClass="string">false</value>
                                 </argument>
                                 <argument id="beforeWait">
-                                  <value class="uiWait" uri="default"/>
+                                  <value class="uiWait" uri="ui:wait:timed?seconds=2"/>
                                 </argument>
                                 <argument id="afterWait">
                                   <value class="uiWait" uri="default"/>
@@ -498,11 +479,7 @@
                                     <path element="ip_FromLocationNumber"/>
                                   </value>
                                 </argument>
-                                <argument id="param_lotNumber">
-                                  <value class="variable">
-                                    <path element="ip_FromLotNumber"/>
-                                  </value>
-                                </argument>
+                                <argument id="param_lotNumber"/>
                                 <argument id="param_project">
                                   <value class="variable">
                                     <path element="ip_FromProject"/>
@@ -735,7 +712,7 @@
                                   <value class="uiWait" uri="default"/>
                                 </argument>
                                 <argument id="afterWait">
-                                  <value class="uiWait" uri="default"/>
+                                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
                                 </argument>
                                 <argument id="interactionDescription">
                                   <value class="value" valueClass="string">Click the Display Loc Move Entries button</value>
@@ -776,7 +753,9 @@
                                 <argument id="interactionDescription">
                                   <value class="value" valueClass="string">Call the readSelectedSerialNumber method</value>
                                 </argument>
-                                <argument id="beforeWait"/>
+                                <argument id="beforeWait">
+                                  <value class="uiWait" uri="ui:wait:timed?seconds=3"/>
+                                </argument>
                                 <argument id="afterWait"/>
                                 <argument id="autoRetry"/>
                                 <argument id="captureBefore">
@@ -892,201 +871,54 @@
                                 </apiParam>
                               </generatedParameters>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="119" title="Call the setTxnComments method">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="120" title="If: {ip_TxnComment != null}">
                               <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.rstk__Stocklocmove&amp;operation=setTxnComments"/>
-                                </argument>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Call the setTxnComments method</value>
-                                </argument>
-                                <argument id="beforeWait"/>
-                                <argument id="afterWait"/>
-                                <argument id="autoRetry"/>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="pressEnter"/>
-                                <argument id="param_Comments">
-                                  <value class="variable">
-                                    <path element="ip_TxnComment"/>
-                                  </value>
-                                </argument>
-                                <argument id="value"/>
-                                <argument id="blur"/>
-                              </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="param_Comments" title="Comments">
-                                  <type>
-                                    <textType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
-                                  <summary>The value to be populated.</summary>
-                                  <type>
-                                    <textType>
-                                      <constraints>
-                                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                                      </constraints>
-                                    </textType>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
-                            </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="76" title="With Inventory Details Table rows {toLocID = $ip_ToLocID AND toLocNum = $ip_ToLocationNumber}">
-                              <tags>
-                                <string>disabled</string>
-                              </tags>
-                              <arguments>
-                                <argument id="uiConnectionName">
-                                  <value class="value" valueClass="string">SFConnection</value>
-                                </argument>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="sf:ui:locator:row?table=inventoryDetailsTable"/>
-                                </argument>
-                                <argument id="uiRowLocator">
-                                  <value class="and">
-                                    <lhs class="eq">
-                                      <lhs class="variable">
-                                        <path element="toLocID"/>
-                                      </lhs>
-                                      <rhs class="variable" topLevel="true">
-                                        <path element="ip_ToLocID"/>
-                                      </rhs>
+                                <argument id="condition">
+                                  <value class="ne">
+                                    <lhs class="variable">
+                                      <path element="ip_TxnComment"/>
                                     </lhs>
-                                    <rhs class="eq">
-                                      <lhs class="variable">
-                                        <path element="toLocNum"/>
-                                      </lhs>
-                                      <rhs class="variable" topLevel="true">
-                                        <path element="ip_ToLocationNumber"/>
-                                      </rhs>
-                                    </rhs>
                                   </value>
-                                </argument>
-                                <argument id="locatorDescription">
-                                  <value class="value" valueClass="string">With Inventory Details Table rows {toLocID = $ip_ToLocID AND toLocNum = $ip_ToLocationNumber}</value>
-                                </argument>
-                                <argument id="failIfNotFound">
-                                  <value class="value" valueClass="boolean">true</value>
-                                </argument>
-                                <argument id="debugRowLocator"/>
-                                <argument id="resultName">
-                                  <value class="value" valueClass="string">Row</value>
-                                </argument>
-                                <argument id="resultScope">
-                                  <value class="value" valueClass="string">Local</value>
-                                </argument>
-                                <argument id="autoRetry">
-                                  <value class="value" valueClass="boolean">true</value>
                                 </argument>
                               </arguments>
                               <clauses>
-                                <clause name="substeps" testItemId="77">
+                                <clause name="then" testItemId="121">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="78" title="Check the Select Check Box field">
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="119" title="Call the setTxnComments method">
                                       <arguments>
                                         <argument id="locator">
-                                          <value class="uiLocator" uri="ui:locator?name=selectCheckBox"/>
+                                          <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.rstk__Stocklocmove&amp;operation=setTxnComments"/>
                                         </argument>
                                         <argument id="interaction">
-                                          <value class="uiInteraction" uri="ui:interaction?name=check"/>
+                                          <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
                                         </argument>
-                                        <argument id="blur">
-                                          <value class="value" valueClass="boolean">false</value>
+                                        <argument id="interactionDescription">
+                                          <value class="value" valueClass="string">Call the setTxnComments method</value>
                                         </argument>
-                                        <argument id="pressEnter">
-                                          <value class="value" valueClass="boolean">false</value>
-                                        </argument>
+                                        <argument id="beforeWait"/>
+                                        <argument id="afterWait"/>
+                                        <argument id="autoRetry"/>
                                         <argument id="captureBefore">
                                           <value class="value" valueClass="string">false</value>
                                         </argument>
                                         <argument id="captureAfter">
                                           <value class="value" valueClass="string">false</value>
                                         </argument>
-                                        <argument id="beforeWait">
-                                          <value class="uiWait" uri="default"/>
-                                        </argument>
-                                        <argument id="afterWait">
-                                          <value class="uiWait" uri="default"/>
-                                        </argument>
-                                        <argument id="interactionDescription">
-                                          <value class="value" valueClass="string">Check the Select Check Box field</value>
-                                        </argument>
-                                        <argument id="autoRetry"/>
-                                        <argument id="ieClickMethod">
-                                          <value class="value" valueClass="string">Default</value>
-                                        </argument>
-                                      </arguments>
-                                      <generatedParameters>
-                                        <apiParam group="value" name="ieClickMethod" seq="10000" title="IE Click Method">
-                                          <summary>How the click should be executed for Internet Explorer.</summary>
-                                          <type>
-                                            <choiceType>
-                                              <constraints>
-                                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
-                                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
-                                              </constraints>
-                                            </choiceType>
-                                          </type>
-                                        </apiParam>
-                                      </generatedParameters>
-                                    </apiCall>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="79" title="Set the Txn Comment field to {ip_TxnComment}">
-                                      <arguments>
-                                        <argument id="locator">
-                                          <value class="uiLocator" uri="ui:locator?name=txnComment"/>
-                                        </argument>
-                                        <argument id="interaction">
-                                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                                        </argument>
-                                        <argument id="value">
+                                        <argument id="pressEnter"/>
+                                        <argument id="param_Comments">
                                           <value class="variable">
                                             <path element="ip_TxnComment"/>
                                           </value>
                                         </argument>
-                                        <argument id="blur">
-                                          <value class="value" valueClass="boolean">false</value>
-                                        </argument>
-                                        <argument id="pressEnter">
-                                          <value class="value" valueClass="boolean">false</value>
-                                        </argument>
-                                        <argument id="captureBefore">
-                                          <value class="value" valueClass="string">false</value>
-                                        </argument>
-                                        <argument id="captureAfter">
-                                          <value class="value" valueClass="string">false</value>
-                                        </argument>
-                                        <argument id="beforeWait">
-                                          <value class="uiWait" uri="default"/>
-                                        </argument>
-                                        <argument id="afterWait">
-                                          <value class="uiWait" uri="default"/>
-                                        </argument>
-                                        <argument id="interactionDescription">
-                                          <value class="value" valueClass="string">Set the Txn Comment field to {ip_TxnComment}</value>
-                                        </argument>
-                                        <argument id="autoRetry"/>
+                                        <argument id="value"/>
+                                        <argument id="blur"/>
                                       </arguments>
                                       <generatedParameters>
+                                        <apiParam group="value" name="param_Comments" title="Comments">
+                                          <type>
+                                            <textType/>
+                                          </type>
+                                        </apiParam>
                                         <apiParam group="value" name="value" seq="10000" title="Value">
                                           <summary>The value to be populated.</summary>
                                           <type>
@@ -1114,14 +946,6 @@
                                   </steps>
                                 </clause>
                               </clauses>
-                              <generatedParameters>
-                                <apiParam group="options" name="autoRetry" title="Auto Retry">
-                                  <summary>Whether to wait for the rows to be visible.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
                             </apiCall>
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="85" title="Click the Move Selected Items button">
                               <arguments>

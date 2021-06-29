@@ -108,14 +108,41 @@
               <clauses>
                 <clause name="hidden" testItemId="360">
                   <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="999" title="Read Lot track status">
+                      <tags/>
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">select rstk__peitem_tracklot_pl__c from rstk__peitem__c where name like '</value>
+                              <variable>
+                                <path element="op_InvLocLocExcelRow"/>
+                                <path element="ItemName"/>
+                              </variable>
+                              <value valueClass="string">%'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">op_lotstatus</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="484" title="Read Qty available on From location--inventory by lot record before transaction">
                       <arguments>
                         <argument id="condition">
-                          <value class="ne">
+                          <value class="eq">
                             <lhs class="variable">
-                              <path element="op_InvLocLocExcelRow"/>
-                              <path element="LotNo"/>
+                              <path element="op_lotstatus"/>
+                              <path element="rstk__peitem_tracklot_pl__c"/>
                             </lhs>
+                            <rhs class="value" valueClass="string">Yes</rhs>
                           </value>
                         </argument>
                       </arguments>
@@ -127,7 +154,7 @@
                                 <argument id="soqlQuery">
                                   <value class="compound">
                                     <parts>
-                                      <value valueClass="string">Select Id, Name,\nrstk__iclocitem_site__c, \nrstk__iclocitem_icitem__c, \nrstk__iclocitem_proj__c, \nrstk__iclocitem_locqty__c, \nrstk__iclocitem_loctype_pl__c, \nrstk__iclocitem_locid__r.name, \nrstk__iclocitem_locid__c,\nrstk__iclocitem_locnum__c, \nrstk__iclocitem_locsec__c, \nLastModifiedDate\nfrom rstk__iclocitem__c \nwhere name like '</value>
+                                      <value valueClass="string">Select Id, Name,\nrstk__iclocitem_site__c, \nrstk__iclocitem_icitem__c, \nrstk__iclocitem_proj__c, \nrstk__iclocitem_locqty__c, \nrstk__iclocitem_loctype_pl__c, \nrstk__iclocitem_locid__r.name, \nrstk__iclocitem_locid__c,\nrstk__iclocitem_locnum__c, \nrstk__iclocitem_locsec__c, \nrstk__iclocitem_icitemlot__r.rstk__icitemlot_lotno__c,\nLastModifiedDate\nfrom rstk__iclocitem__c \nwhere name like '</value>
                                       <variable>
                                         <path element="op_InvLocLocExcelRow"/>
                                         <path element="ItemName"/>
@@ -142,12 +169,12 @@
                                         <path element="op_InvLocLocExcelRow"/>
                                         <path element="LocationNumber"/>
                                       </variable>
-                                      <value valueClass="string">' and rstk__iclocitem_locsec__c='</value>
+                                      <value valueClass="string">' and rstk__iclocitem_icitemlot__r.rstk__icitemlot_lotno__c='</value>
                                       <variable>
                                         <path element="op_InvLocLocExcelRow"/>
                                         <path element="LotNo"/>
                                       </variable>
-                                      <value valueClass="string">' order by LastModifiedDate desc</value>
+                                      <value valueClass="string">' order by LastModifiedDate desc limit 1</value>
                                     </parts>
                                   </value>
                                 </argument>
@@ -243,11 +270,12 @@
                     <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="414" title="Read inventory by lot record before transaction">
                       <arguments>
                         <argument id="condition">
-                          <value class="ne">
+                          <value class="eq">
                             <lhs class="variable">
-                              <path element="op_InvLocLocExcelRow"/>
-                              <path element="LotNo"/>
+                              <path element="op_lotstatus"/>
+                              <path element="rstk__peitem_tracklot_pl__c"/>
                             </lhs>
+                            <rhs class="value" valueClass="string">Yes</rhs>
                           </value>
                         </argument>
                       </arguments>
@@ -987,11 +1015,12 @@
                     <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="411" title="Is LOT track item?">
                       <arguments>
                         <argument id="condition">
-                          <value class="ne">
+                          <value class="eq">
                             <lhs class="variable">
-                              <path element="op_InvLocLocExcelRow"/>
-                              <path element="LotNo"/>
+                              <path element="op_lotstatus"/>
+                              <path element="rstk__peitem_tracklot_pl__c"/>
                             </lhs>
+                            <rhs class="value" valueClass="string">Yes</rhs>
                           </value>
                         </argument>
                       </arguments>
