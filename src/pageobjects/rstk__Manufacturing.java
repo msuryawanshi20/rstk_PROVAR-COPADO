@@ -114,8 +114,10 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='POLOADER']")
 	public WebElement pOLOADER;
+   
+  @LinkType()
+	@FindBy(linkText = "Project to Project Transfer")
+	public WebElement projectToProjectTransfer;
   
- 
-
 }
 

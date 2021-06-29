@@ -186,8 +186,6 @@ public class rstk__Stocklocmove {
 
 		testLogger.info("LocationNum::::" + locationNum);
 
-		test1();
-
 	}
 
 	private void test1() {
@@ -211,7 +209,7 @@ public class rstk__Stocklocmove {
 						+ locationNum + "']/parent::td]/parent::tr//td[2]//select|//*[a[contains(text(),'" + locationId
 						+ "')]/parent::span/parent::td | span[normalize-space()='" + locationNum
 						+ "']/parent::td]/parent::tr//td[2]//span"));
-		;
+		
 		Select dropdown = new Select(toLocID11);
 		dropdown.selectByValue(toLocID);
 	}
