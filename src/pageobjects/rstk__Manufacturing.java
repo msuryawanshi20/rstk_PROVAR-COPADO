@@ -52,8 +52,8 @@ public class rstk__Manufacturing {
 	public WebElement workOrders;
 
 	@LinkType()
-	@FindBy(linkText = "Sales Order Entry")
-	public WebElement salesOrderEntry1;
+	@FindBy(linkText = "Sales Order Header")
+	public WebElement salesOrderEntry;
 
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Inventory Location Add']")
