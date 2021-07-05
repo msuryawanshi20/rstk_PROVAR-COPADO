@@ -52,10 +52,6 @@ public class rstk__Stocklocprojmove {
 	@FindByLabel(label = "Display Proj Move Entries")
 	public WebElement displayProjMoveEntries;
 
-	@ChoiceListType()
-	@FindBy(xpath = "//*[normalize-space(.)='From Project Charge Code']//following::td[1]//select")
-	public WebElement fromChargeCode;
-
 	public void setToProject(String locationID, String locationNumber, String LotNumber, String toProject)
 			throws InterruptedException {
 
@@ -82,9 +78,9 @@ public class rstk__Stocklocprojmove {
 					+ "')]/parent::td/parent::tr//td[6]//select";
 			testLogger.info("Dropdownvalues::::" + xpath);
 		}
-		
+
 		Thread.sleep(2000);
-		
+
 		WebElement element = driver.findElement(By.xpath(xpath));
 		Select dropdown = new Select(element);
 		dropdown.selectByVisibleText(toProject);
@@ -174,6 +170,27 @@ public class rstk__Stocklocprojmove {
 		}
 	}
 
+	public void setFromChargeCode(String chargeCode) throws InterruptedException {
+		Thread.sleep(2000);
+
+		WebElement ele;
+		if (Lot != null) {
+			ele = driver.findElement(By.xpath("//*[contains(text(),'" + locID
+					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
+					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
+					+ "')]/parent::td/parent::tr/parent::tbody/parent::table/preceding-sibling::div/descendant::table[4]//td[2]//select"));
+
+		} else {
+			ele = driver.findElement(By.xpath("//*[contains(text(),'" + locID
+					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
+					+ "')]/parent::td/parent::tr/parent::tbody/parent::table/preceding-sibling::div/descendant::table[4]//td[2]//select"));
+		}
+
+		Select dropdown = new Select(ele);
+		dropdown.selectByVisibleText(chargeCode);
+
+	}
+
 	@ButtonType()
 	@FindByLabel(label = "Move Selected Items")
 	public WebElement moveSelectedItems;
@@ -212,5 +229,4 @@ public class rstk__Stocklocprojmove {
 		}
 		return selectedSerial;
 	}
-
 }

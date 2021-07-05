@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="23">
+<testCase failureBehaviour="Continue" id="8">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="8" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
@@ -51,7 +51,7 @@
       </arguments>
       <parameterValueSources>
         <parameterValueSource variableName="op_excelData" variableScope="Test">
-          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Project To Project Ttransfer.xlsx;1624972562000</cacheToken>
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Project To Project Transfer.xlsx;1625395134420</cacheToken>
           <cachedParameters>
             <apiParam name="RowNumber"/>
             <apiParam name="ItemName"/>
@@ -60,6 +60,8 @@
             <apiParam name="ToProject"/>
             <apiParam name="FromLocID"/>
             <apiParam name="FromLocationNumber"/>
+            <apiParam name="FromLot"/>
+            <apiParam name="FromChargeCode"/>
             <apiParam name="ChargeCode"/>
             <apiParam name="QuantityToTransfer"/>
             <apiParam name="TxnComment"/>
@@ -67,7 +69,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/Project To Project Transfer.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Sheet1</worksheetName>
-            <valuesRange class="value" valueClass="string">A:J</valuesRange>
+            <valuesRange class="value" valueClass="string">A:K</valuesRange>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -136,7 +138,12 @@
                     <path element="FromLocationNumber"/>
                   </value>
                 </argument>
-                <argument id="ip_toChargeCode"/>
+                <argument id="ip_toChargeCode">
+                  <value class="variable">
+                    <path element="op_excelDataRow"/>
+                    <path element="ToChargeCode"/>
+                  </value>
+                </argument>
                 <argument id="ip_moveQty">
                   <value class="variable">
                     <path element="op_excelDataRow"/>
@@ -153,6 +160,12 @@
                   <value class="variable">
                     <path element="op_excelDataRow"/>
                     <path element="FromLot"/>
+                  </value>
+                </argument>
+                <argument id="ip_chargeCode">
+                  <value class="variable">
+                    <path element="op_excelDataRow"/>
+                    <path element="FromChargeCode"/>
                   </value>
                 </argument>
               </arguments>
