@@ -115,9 +115,16 @@ public class rstk__Manufacturing {
 	@FindBy(xpath = "//a[normalize-space(.)='POLOADER']")
 	public WebElement pOLOADER;
    
-  @LinkType()
+	@LinkType()
 	@FindBy(linkText = "Project to Project Transfer")
 	public WebElement projectToProjectTransfer;
   
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Inventory Location Adjust']")
+	public WebElement inventoryLocationAdjust;
+	
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Inventory Unit Cost Adjust']")
+	public WebElement inventoryUnitCostAdjust;
 }
 

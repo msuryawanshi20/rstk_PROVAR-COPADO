@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="38">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">rstk__Force_com</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="13" title="Read Excel Data">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Excel Data</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="op_ItemDeatils" variableScope="Test">
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Inventory Location Adjustment.xlsx;1625423405584</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="Site"/>
+            <apiParam name="ItemNo"/>
+            <apiParam name="Project"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/Inventory Location Adjustment.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Inventory Item</worksheetName>
+            <valuesRange class="value" valueClass="string">A:C</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="14"/>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="15" title="For Each: {op_ItemDeatils}=&gt;op_ItemDetailsRow">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="op_ItemDeatils"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">op_ItemDetailsRow</value>
+        </argument>
+        <argument id="continueOnFailure">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="16">
+          <steps>
+            <caseCall testCaseId="5040f9c1-cbc5-4d0d-b08e-f9c5993ff468" testCasePath="tests/Inventory Transaction/Callable/Inventory Location Adjustment.testcase" testItemId="97">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="ip_ItemNo">
+                  <value class="variable">
+                    <path element="op_ItemDetailsRow"/>
+                    <path element="ItemNo"/>
+                  </value>
+                </argument>
+                <argument id="ip_site">
+                  <value class="variable">
+                    <path element="op_ItemDetailsRow"/>
+                    <path element="Site"/>
+                  </value>
+                </argument>
+                <argument id="ip_project">
+                  <value class="variable">
+                    <path element="op_ItemDetailsRow"/>
+                    <path element="Project"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>
