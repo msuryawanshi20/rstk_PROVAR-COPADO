@@ -55,7 +55,7 @@
             <apiParam name="OrganizationalDepartment"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/AutomationData.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">PurchaseRequisition</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -772,7 +772,7 @@
                                     <apiParam name="UnitPrice"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/AutomationData.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">InventoryRequisition</worksheetName>
                                     <valuesRange class="value"/>
                                   </sourceValue>
@@ -1459,7 +1459,7 @@
                             <apiParam name="UnitPrice"/>
                           </cachedParameters>
                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/AutomationData.xlsx</workbookPath>
+                            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
                             <worksheetName class="value" valueClass="string">IndirectRequisition</worksheetName>
                             <valuesRange class="value"/>
                           </sourceValue>

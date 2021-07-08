@@ -114,6 +114,22 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='POLOADER']")
 	public WebElement pOLOADER;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Inventory Requisitions']")
+	public WebElement inventoryRequisitions;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Inventory Requisition Workbench']")
+	public WebElement inventoryRequisitionWorkbench;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Purchase Item Master']")
+	public WebElement purchaseItemMaster;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Vendor Class']")
+	public WebElement vendorClass;
   
  
 

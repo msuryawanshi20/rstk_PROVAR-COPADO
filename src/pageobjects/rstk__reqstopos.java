@@ -7,19 +7,17 @@ import org.openqa.selenium.support.FindBy;
 
 import com.provar.core.testapi.annotations.*;
 
-@SalesforcePage( title="Rstk__ Notify"                                
+@SalesforcePage( title="Rstk__reqstopos"                                
                , summary=""
-               , page="Notify"
+               , page="ReqsToPOs"
                , namespacePrefix="rstk"
-               , object=""
+               , object="rstk__poitemvend__c"
                , connection="QARSF_Admin"
      )             
-public class rstk__Notify {
+public class rstk__reqstopos {
 
-	@TextType()
-	@FindBy(xpath = "//td[@class='messageCell']//div")
-	public WebElement SO_Header_Deleted;
-
-
+	@ButtonType()
+	@FindBy(xpath = "//div[1]/table//td[2]/input")
+	public WebElement convertRequisitionSToPO;
 	
 }

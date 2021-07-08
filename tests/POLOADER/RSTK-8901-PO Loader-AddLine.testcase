@@ -2,13 +2,13 @@
 <testCase id="14">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: QARSF_Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -103,7 +103,7 @@
                   <value class="value" valueClass="string">addheaderId</value>
                 </argument>
                 <argument id="apexConnectionName">
-                  <value class="value" valueClass="string">QARSF_Admin</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="assignmentRuleId"/>
                 <argument id="resultScope">
@@ -159,7 +159,7 @@
                   </value>
                 </argument>
                 <argument id="apexConnectionName">
-                  <value class="value" valueClass="string">QARSF_Admin</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="resultListName">
                   <value class="value" valueClass="string">poloaderhdrapi</value>
@@ -209,7 +209,7 @@
                           <value class="value" valueClass="string">addlineId</value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">QARSF_Admin</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="assignmentRuleId"/>
                         <argument id="resultScope">
@@ -408,7 +408,7 @@
                           </value>
                         </argument>
                         <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">QARSF_Admin</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
                           <value class="value" valueClass="string">addlineapi</value>
@@ -455,7 +455,7 @@
                                   </value>
                                 </argument>
                                 <argument id="apexConnectionName">
-                                  <value class="value" valueClass="string">QARSF_Admin</value>
+                                  <value class="value" valueClass="string">SFConnection</value>
                                 </argument>
                                 <argument id="resultListName">
                                   <value class="value" valueClass="string">addlineapi</value>
@@ -508,7 +508,7 @@
                                   </value>
                                 </argument>
                                 <argument id="apexConnectionName">
-                                  <value class="value" valueClass="string">QARSF_Admin</value>
+                                  <value class="value" valueClass="string">SFConnection</value>
                                 </argument>
                                 <argument id="resultListName">
                                   <value class="value" valueClass="string">addlineapi</value>
@@ -546,7 +546,7 @@
                                   </value>
                                 </argument>
                                 <argument id="apexConnectionName">
-                                  <value class="value" valueClass="string">QARSF_Admin</value>
+                                  <value class="value" valueClass="string">SFConnection</value>
                                 </argument>
                                 <argument id="resultListName">
                                   <value class="value" valueClass="string">poline</value>
@@ -705,7 +705,7 @@
                                   </value>
                                 </argument>
                                 <argument id="apexConnectionName">
-                                  <value class="value" valueClass="string">QARSF_Admin</value>
+                                  <value class="value" valueClass="string">SFConnection</value>
                                 </argument>
                                 <argument id="resultListName">
                                   <value class="value" valueClass="string">polineaddr</value>
