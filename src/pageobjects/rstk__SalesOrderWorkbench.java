@@ -86,7 +86,7 @@ public class rstk__SalesOrderWorkbench {
 		public WebElement InvoiceNum;
 		
 		@TextType()
-		@FindBy(xpath = "//td[2]/input")
+		@FindBy(xpath = "//td[2]/input[contains(@id,'procqty')]")
 		public WebElement processQty;
 		@ChoiceListType()
 		@FindBy(xpath = "//tbody[contains(@id,'allocationTable')]//tr[1]//select[@class='serials']//option[1]")
