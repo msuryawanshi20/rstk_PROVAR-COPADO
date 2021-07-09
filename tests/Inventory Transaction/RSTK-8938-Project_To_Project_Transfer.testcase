@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase failureBehaviour="Continue" id="8">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="8" title="Salesforce Connect: SFConnection (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">rstk__Force_com</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="Read Excel data">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Excel data</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="op_excelData" variableScope="Test">
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Project To Project Transfer.xlsx;1625395134420</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="ItemName"/>
+            <apiParam name="TransactionDate"/>
+            <apiParam name="FromProject"/>
+            <apiParam name="ToProject"/>
+            <apiParam name="FromLocID"/>
+            <apiParam name="FromLocationNumber"/>
+            <apiParam name="FromLot"/>
+            <apiParam name="FromChargeCode"/>
+            <apiParam name="ChargeCode"/>
+            <apiParam name="QuantityToTransfer"/>
+            <apiParam name="TxnComment"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/Project To Project Transfer.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Sheet1</worksheetName>
+            <valuesRange class="value" valueClass="string">A:K</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="3"/>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="4" title="For Each: {op_excelData}=&gt;op_excelDataRow">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="op_excelData"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">op_excelDataRow</value>
+        </argument>
+        <argument id="continueOnFailure">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="5">
+          <steps>
+            <caseCall testCaseId="09401e38-6766-4357-8503-f176de4fe0fa" testCasePath="tests/Inventory Transaction/Callable/Project to Project Transfer.testcase" testItemId="7">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="ip_itemName">
+                  <value class="variable">
+                    <path element="op_excelDataRow"/>
+                    <path element="ItemName"/>
+                  </value>
+                </argument>
+                <argument id="ip_fromProject">
+                  <value class="variable">
+                    <path element="op_excelDataRow"/>
+                    <path element="FromProject"/>
+                  </value>
+                </argument>
+                <argument id="ip_toProject">
+                  <value class="variable">
+                    <path element="op_excelDataRow"/>
+                    <path element="ToProject"/>
+                  </value>
+                </argument>
+                <argument id="ip_transactionDate">
+                  <value class="variable">
+                    <path element="op_excelDataRow"/>
+                    <path element="TransactionDate"/>
+                  </value>
+                </argument>
+                <argument id="ip_fromLoc">
+                  <value class="variable">
+                    <path element="op_excelDataRow"/>
+                    <path element="FromLocID"/>
+                  </value>
+                </argument>
+                <argument id="ip_fromLocNo">
+                  <value class="variable">
+                    <path element="op_excelDataRow"/>
+                    <path element="FromLocationNumber"/>
+                  </value>
+                </argument>
+                <argument id="ip_toChargeCode">
+                  <value class="variable">
+                    <path element="op_excelDataRow"/>
+                    <path element="ToChargeCode"/>
+                  </value>
+                </argument>
+                <argument id="ip_moveQty">
+                  <value class="variable">
+                    <path element="op_excelDataRow"/>
+                    <path element="QuantityToTransfer"/>
+                  </value>
+                </argument>
+                <argument id="ip_txnComment">
+                  <value class="variable">
+                    <path element="op_excelDataRow"/>
+                    <path element="TxnComment"/>
+                  </value>
+                </argument>
+                <argument id="ip_LotNumber">
+                  <value class="variable">
+                    <path element="op_excelDataRow"/>
+                    <path element="FromLot"/>
+                  </value>
+                </argument>
+                <argument id="ip_chargeCode">
+                  <value class="variable">
+                    <path element="op_excelDataRow"/>
+                    <path element="FromChargeCode"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>

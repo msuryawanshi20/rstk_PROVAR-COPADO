@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Inherit" id="2" registryId="381b93b6-fa76-49de-a354-113949c26246" visibility="Internal">
+<testCase failureBehaviour="Continue" id="2" registryId="381b93b6-fa76-49de-a354-113949c26246" visibility="Internal">
   <summary>Callable testcase-Can be used to perform Location to Location Transfer on Existing location</summary>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="2" title="Salesforce Connect: SFConnection (Test)">
@@ -728,10 +728,10 @@
                           <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="beforeWait">
-                          <value class="uiWait" uri="default"/>
+                          <value class="uiWait" uri="ui:wait:timed?seconds=4"/>
                         </argument>
                         <argument id="afterWait">
-                          <value class="uiWait" uri="default"/>
+                          <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
                         </argument>
                         <argument id="interactionDescription">
                           <value class="value" valueClass="string">Click the Display Loc Move Entries button</value>
@@ -761,6 +761,13 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="201" title="Sleep for {3} seconds">
+                      <arguments>
+                        <argument id="sleepSecs">
+                          <value class="value" valueClass="decimal">3</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="200" title="Call the readSelectedSerialNumber method">
                       <arguments>
                         <argument id="locator">
@@ -772,7 +779,9 @@
                         <argument id="interactionDescription">
                           <value class="value" valueClass="string">Call the readSelectedSerialNumber method</value>
                         </argument>
-                        <argument id="beforeWait"/>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                        </argument>
                         <argument id="afterWait"/>
                         <argument id="autoRetry"/>
                         <argument id="captureBefore">
