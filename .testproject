@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
+<testProject selectedBrowserProviderDeviceName="LINUX Chrome" selectedBrowserProviderName="SeleniumGrid">
   <title>/rsqasampleproj/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -13,6 +13,23 @@
       <summary/>
     </environment>
   </environments>
+  <variables>
+    <testVariable name="_chromeOptions">
+      <valueType class="textType">
+        <constraints>
+          <valueConstraint name="minLength">0</valueConstraint>
+          <valueConstraint name="maxLength">9999</valueConstraint>
+          <valueConstraint name="regex"/>
+        </constraints>
+      </valueType>
+      <summary/>
+      <values>
+        <testVariableValue>
+          <value class="value" valueClass="string">--no-sandbox</value>
+        </testVariableValue>
+      </values>
+    </testVariable>
+  </variables>
   <connectionClasses>
     <connectionClass name="sf">
       <connections>
@@ -21,7 +38,6 @@
           <connectionUrls>
             <connectionUrl secureStorageNodeId="bb7da988-9015-4a99-8263-0794fd9137ce" url="sf:user=msuryawanshi@rootstock.com.qarsf;password={password};securityToken={securityToken};environment=PRERELEASE"/>
             <connectionUrl envName="PDE5" secureStorageNodeId="03d6ef83-22bf-4b92-a0ea-0ee396e23e2f" url="sf:user=msuryawanshi@rootstock.com.pde5;password={password};securityToken={securityToken};environment=PROD_DEV;nsPrefixOverride=-rstk"/>
-   Test-Branch
           </connectionUrls>
         </connection>
       </connections>
@@ -106,6 +122,19 @@
           </properties>
         </browserProviderDevice>
       </devices>
+    </browserProvider>
+    <browserProvider name="SeleniumGrid" type="SeleniumGrid">
+      <devices>
+        <browserProviderDevice name="LINUX Chrome" platform="LINUX">
+          <properties>
+            <browserPlatformProperty name="browserName" type="DesiredCapability" value="Chrome"/>
+            <browserPlatformProperty name="version" type="DesiredCapability" value=""/>
+          </properties>
+        </browserProviderDevice>
+      </devices>
+      <properties>
+        <browserPlatformProperty name="gridUrl" value="http://173.230.152.103:4444/wd/hub"/>
+      </properties>
     </browserProvider>
   </browserProviders>
 </testProject>
