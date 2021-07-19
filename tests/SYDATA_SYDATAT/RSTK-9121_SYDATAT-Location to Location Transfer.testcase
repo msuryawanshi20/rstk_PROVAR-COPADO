@@ -932,7 +932,9 @@
                       </arguments>
                       <clauses>
                         <clause name="then" testItemId="191">
-                          <steps/>
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="232" title="Break"/>
+                          </steps>
                         </clause>
                         <clause name="else" testItemId="216">
                           <steps>

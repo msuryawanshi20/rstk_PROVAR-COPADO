@@ -1048,7 +1048,7 @@
                       <clauses>
                         <clause name="then" testItemId="191">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="288" title="Verify total Qty">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="288" title="Verify total Qty-From Div">
                               <arguments>
                                 <argument id="expectedValue">
                                   <value class="sub">
@@ -1094,7 +1094,7 @@
                                 </argument>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="287" title="Verify total Qty">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" isTitleUpdated="true" name="AssertValues" testItemId="287" title="Verify total Qty-To Div">
                               <arguments>
                                 <argument id="expectedValue">
                                   <value class="add">
@@ -1136,7 +1136,7 @@
                                   <value class="value" valueClass="boolean">false</value>
                                 </argument>
                                 <argument id="failureMessage">
-                                  <value class="value" valueClass="string">From Div after Transaction Qty mismatch</value>
+                                  <value class="value" valueClass="string">To Div after Transaction Qty mismatch</value>
                                 </argument>
                               </arguments>
                             </apiCall>

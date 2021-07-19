@@ -827,6 +827,7 @@
                                         </argument>
                                       </arguments>
                                     </apiCall>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="222" title="Break"/>
                                   </steps>
                                 </clause>
                                 <clause name="else" testItemId="27">
@@ -906,6 +907,7 @@
                                                         </argument>
                                                       </arguments>
                                                     </apiCall>
+                                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="220" title="Break"/>
                                                   </steps>
                                                 </clause>
                                               </clauses>
@@ -975,10 +977,8 @@
                                                         </argument>
                                                       </arguments>
                                                     </apiCall>
+                                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="217" title="Break"/>
                                                   </steps>
-                                                </clause>
-                                                <clause name="else" testItemId="53">
-                                                  <steps/>
                                                 </clause>
                                               </clauses>
                                             </apiCall>
