@@ -646,39 +646,6 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="102" title="Read Object: rstk__poline__c = ">
-                      <tags>
-                        <string>disabled</string>
-                      </tags>
-                      <arguments>
-                        <argument id="objectType">
-                          <value class="value" valueClass="string">rstk__poline__c</value>
-                        </argument>
-                        <argument id="resultName">
-                          <value class="value" valueClass="string">rstkRead</value>
-                        </argument>
-                        <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">QARSF_Admin</value>
-                        </argument>
-                        <argument id="objectId"/>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                      </arguments>
-                      <resultAssertions>
-                        <resultAssertion comparisonType="IsPresent" negative="true" resultName="rstk__poline_ordno__c" title="Check rstk__poline_ordno__c"/>
-                        <resultAssertion comparisonType="IsPresent" negative="true" resultName="Id" title="Check Id"/>
-                        <resultAssertion comparisonType="IsPresent" negative="true" resultName="Name" title="Check Name"/>
-                        <resultAssertion comparisonType="IsPresent" negative="true" resultName="rstk__poline_proj__c" title="Check rstk__poline_proj__c"/>
-                        <resultAssertion comparisonType="IsPresent" negative="true" resultName="rstk__poline_schedrcptdte__c" title="Check rstk__poline_schedrcptdte__c"/>
-                        <resultAssertion comparisonType="IsPresent" negative="true" resultName="rstk__poline_qtyreq__c" title="Check rstk__poline_qtyreq__c"/>
-                        <resultAssertion comparisonType="IsPresent" negative="true" resultName="rstk__poline_unitprice__c" title="Check rstk__poline_unitprice__c"/>
-                      </resultAssertions>
-                      <parameterGeneratorProperties>
-                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
-                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">rstk__poline__c</propertyValue>
-                      </parameterGeneratorProperties>
-                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="108" title="PO Line Verification">
                       <arguments>
                         <argument id="description">

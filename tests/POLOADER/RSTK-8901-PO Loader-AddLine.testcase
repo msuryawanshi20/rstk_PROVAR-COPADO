@@ -255,7 +255,20 @@
                           </value>
                         </argument>
                         <argument id="rstk__poloader_schedrcptdte__c">
-                          <value class="value" valueClass="date">1624320000000</value>
+                          <value class="funcCall" id="DateFormat">
+                            <argument id="date">
+                              <value class="funcCall" id="DateAdd">
+                                <argument id="date">
+                                  <value class="variable">
+                                    <path element="TODAY"/>
+                                  </value>
+                                </argument>
+                              </value>
+                            </argument>
+                            <argument id="outputFormat">
+                              <value class="value" valueClass="string">YYYY-MM-dd</value>
+                            </argument>
+                          </value>
                         </argument>
                         <argument id="rstk__poloader_state__c">
                           <value class="variable">
