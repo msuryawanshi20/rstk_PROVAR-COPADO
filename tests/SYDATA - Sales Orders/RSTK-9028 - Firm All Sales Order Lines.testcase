@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="12">
+<testCase id="2">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -62,9 +62,9 @@
             <apiParam name="RecordProcessed"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">AddHeader</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -104,9 +104,9 @@
       <parameterValueSources>
         <parameterValueSource variableName="SourceData_SOLine" variableScope="Test">
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">AddLine</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -154,7 +154,7 @@
             <apiParam name="BackgroundProcessing"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">FirmAllLines</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>

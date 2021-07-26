@@ -44,7 +44,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="47" title="Read On Hand Qty Before SO Shipment">
-      <tags/>
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read On Hand Qty Before SO Shipment</value>
@@ -57,9 +59,9 @@
             <apiParam name="ItemNumber"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">InventoryQuantity</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -130,9 +132,9 @@
             <apiParam name="RecordProcessed"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">AddHeader</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -187,9 +189,9 @@
             <apiParam name="FirmLines"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">AddLine</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -237,9 +239,9 @@
             <apiParam name="IsSerial"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">AddLine</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -316,9 +318,9 @@
             <apiParam name="QtyRemaining"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Requirements</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -364,9 +366,9 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOORDDMD</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -412,9 +414,9 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Dimensions</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -463,9 +465,9 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">InventoryQuantity</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>

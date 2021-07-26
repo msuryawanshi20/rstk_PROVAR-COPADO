@@ -62,7 +62,7 @@
             <apiParam name="RecordProcessed"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">AddHeader</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -104,7 +104,7 @@
       <parameterValueSources>
         <parameterValueSource variableName="SourceData_SOLine" variableScope="Test">
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">AddLine</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -154,7 +154,7 @@
             <apiParam name="BackgroundProcessing"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">FirmAllLines</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -198,7 +198,7 @@
       <parameterValueSources>
         <parameterValueSource variableName="SourceData_Allocate" variableScope="Test">
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Allocate</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -253,7 +253,7 @@
             <apiParam name="TransactionQuantity"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">PickPackShip</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -318,7 +318,7 @@
             <apiParam name="ProcessAllLines"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">CreateInvoice</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -373,6 +373,11 @@
                   </value>
                 </argument>
               </arguments>
+              <outputArguments>
+                <outputArgument id="rstkRows_Invoice">
+                  <name class="value" valueClass="string">rstkRows_Invoice</name>
+                </outputArgument>
+              </outputArguments>
             </caseCall>
           </steps>
         </clause>

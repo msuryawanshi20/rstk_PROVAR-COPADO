@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="5">
+<testCase id="7">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -62,7 +62,7 @@
             <apiParam name="RecordProcessed"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">AddHeader</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -104,7 +104,7 @@
       <parameterValueSources>
         <parameterValueSource variableName="SourceData_SOLine" variableScope="Test">
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">AddLine</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -154,7 +154,7 @@
             <apiParam name="BackgroundProcessing"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">FirmAllLines</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -198,7 +198,7 @@
       <parameterValueSources>
         <parameterValueSource variableName="SourceData_Allocate" variableScope="Test">
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Allocate</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -238,14 +238,14 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="23" title="Pick-Pack SO Lines">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="23" title="Pick-Pack-Ship SO Lines">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">Pick-Pack SO Lines</value>
+          <value class="value" valueClass="string">Pick-Pack-Ship SO Lines</value>
         </argument>
       </arguments>
       <parameterValueSources>
-        <parameterValueSource variableName="SourceData_PickPack" variableScope="Test">
+        <parameterValueSource variableName="SourceData_PickPackShip" variableScope="Test">
           <cacheToken>C:/Users/Ashok/Automation_1Updated/rsqasampleproj/templates/SYDATA.xlsx;1626082606652</cacheToken>
           <cachedParameters>
             <apiParam name="TransactionType"/>
@@ -253,8 +253,8 @@
             <apiParam name="TransactionQuantity"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">PickPack</worksheetName>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">PickPackShip</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
@@ -262,7 +262,7 @@
       <clauses>
         <clause name="hidden" testItemId="24">
           <steps>
-            <caseCall testCaseId="7a615887-df14-47cd-9db5-93bda29aad8c" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Pick-Pack Sales Order Lines.testcase" testItemId="26">
+            <caseCall testCaseId="4275be32-6028-485b-a6f6-b75d8ffbc0ad" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Pick-Pack-Ship Sales Order Lines.testcase" testItemId="27">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
@@ -290,6 +290,11 @@
                 <argument id="SourceData_PickPack">
                   <value class="variable">
                     <path element="SourceData_PickPack"/>
+                  </value>
+                </argument>
+                <argument id="SourceData_PickPackShip">
+                  <value class="variable">
+                    <path element="SourceData_PickPackShip"/>
                   </value>
                 </argument>
               </arguments>
@@ -298,31 +303,35 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="27" title="Reverse Pick-Pack SO Lines">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="28" title="Reverse Pick-Pack-Ship SO Lines">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">Reverse Pick-Pack SO Lines</value>
+          <value class="value" valueClass="string">Reverse Pick-Pack-Ship SO Lines</value>
         </argument>
       </arguments>
       <parameterValueSources>
-        <parameterValueSource variableName="SourceData_ReversePickPack" variableScope="Test">
-          <cacheToken>C:/Users/Ashok/Automation_1Updated/rsqasampleproj/templates/SYDATA.xlsx;1626091157515</cacheToken>
+        <parameterValueSource variableName="SourceData_ReversePickPackShip" variableScope="Test">
+          <cacheToken>C:/Users/Ashok/Automation_1Updated/rsqasampleproj/templates/QARSF/SYDATA.xlsx;1626974145132</cacheToken>
           <cachedParameters>
-            <apiParam name="TransactionType"/>
-            <apiParam name="BackgroundProcessing"/>
-            <apiParam name="ProcessAllLines"/>
+            <apiParam name="APIMode"/>
+            <apiParam name="AsynchronousProcessing"/>
+            <apiParam name="InventoryDivision"/>
+            <apiParam name="SalesDivision"/>
+            <apiParam name="Customer"/>
+            <apiParam name="ManufacturingUser"/>
+            <apiParam name="RecordProcessed"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">ReversePickPack</worksheetName>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">ReversePickPackShip</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
       <clauses>
-        <clause name="hidden" testItemId="28">
+        <clause name="hidden" testItemId="29">
           <steps>
-            <caseCall testCaseId="744100c4-a71a-4ee3-b3ba-d3eee9a7764b" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Reverse Pick-Pack Sales Order Lines.testcase" testItemId="30">
+            <caseCall testCaseId="b259b999-e580-4e33-b34b-6eb914f3a0bf" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Reverse Pick-Pack-Ship Sales Order Lines.testcase" testItemId="31">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
@@ -342,19 +351,14 @@
                     <path element="SourceData_Allocate"/>
                   </value>
                 </argument>
-                <argument id="SourceData_Pick">
+                <argument id="SourceData_PickPackShip">
                   <value class="variable">
-                    <path element="SourceData_Pick"/>
+                    <path element="SourceData_PickPackShip"/>
                   </value>
                 </argument>
-                <argument id="SourceData_PickPack">
+                <argument id="SourceData_ReversePickPackShip">
                   <value class="variable">
-                    <path element="SourceData_PickPack"/>
-                  </value>
-                </argument>
-                <argument id="SourceData_ReversePickPack">
-                  <value class="variable">
-                    <path element="SourceData_ReversePickPack"/>
+                    <path element="SourceData_ReversePickPackShip"/>
                   </value>
                 </argument>
               </arguments>
@@ -393,7 +397,7 @@
         <path element="SourceData_Allocate"/>
       </sourceValue>
     </param>
-    <param name="SourceData_Pick" title="SourceData_Pick">
+    <param name="SourceData_PickPackShip" title="SourceData_PickPackShip">
       <summary/>
       <type>
         <textType>
@@ -404,11 +408,9 @@
           </constraints>
         </textType>
       </type>
-      <sourceValue class="variable">
-        <path element="SourceData_Pick"/>
-      </sourceValue>
+      <sourceValue class="value" valueClass="string">SourceData_PickPackShip</sourceValue>
     </param>
-    <param name="SourceData_PickPack" title="SourceData_PickPack">
+    <param name="SourceData_ReversePickPackShip" title="SourceData_ReversePickPackShip">
       <summary/>
       <type>
         <textType>
@@ -419,20 +421,7 @@
           </constraints>
         </textType>
       </type>
-      <sourceValue class="value" valueClass="string">SourceData_PickPack</sourceValue>
-    </param>
-    <param name="SourceData_ReversePickPack" title="SourceData_ReversePickPack">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-      <sourceValue class="value" valueClass="string">SourceData_ReversePickPack</sourceValue>
+      <sourceValue class="value" valueClass="string">SourceData_ReversePickPackShip</sourceValue>
     </param>
   </outputParams>
   <outputArgs>
@@ -445,11 +434,11 @@
     <outputArgument id="SourceData_Pick">
       <name class="value" valueClass="string">SourceData_Pick</name>
     </outputArgument>
-    <outputArgument id="SourceData_PickPack">
-      <name class="value" valueClass="string">SourceData_PickPack</name>
+    <outputArgument id="SourceData_PickPackShip">
+      <name class="value" valueClass="string">SourceData_PickPackShip</name>
     </outputArgument>
-    <outputArgument id="SourceData_ReversePickPack">
-      <name class="value" valueClass="string">SourceData_ReversePickPack</name>
+    <outputArgument id="SourceData_ReversePickPackShip">
+      <name class="value" valueClass="string">SourceData_ReversePickPackShip</name>
     </outputArgument>
   </outputArgs>
 </testCase>

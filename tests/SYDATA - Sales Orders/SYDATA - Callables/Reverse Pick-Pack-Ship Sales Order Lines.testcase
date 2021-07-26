@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="5" registryId="744100c4-a71a-4ee3-b3ba-d3eee9a7764b" visibility="Internal">
+<testCase id="5" registryId="b259b999-e580-4e33-b34b-6eb914f3a0bf" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -47,18 +47,18 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="26" title="For Each: {SourceData_ReversePickPack}=&gt;varReversePickPack">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="26" title="For Each: {SourceData_ReversePickPackShip}=&gt;varReversePickPackShip">
       <arguments>
         <argument id="list">
           <value class="variable">
-            <path element="SourceData_ReversePickPack"/>
+            <path element="SourceData_ReversePickPackShip"/>
           </value>
         </argument>
         <argument id="fromItem">
           <value class="value" valueClass="decimal">1</value>
         </argument>
         <argument id="valueName">
-          <value class="value" valueClass="string">varReversePickPack</value>
+          <value class="value" valueClass="string">varReversePickPackShip</value>
         </argument>
         <argument id="continueOnFailure"/>
       </arguments>
@@ -88,13 +88,13 @@
                 </argument>
                 <argument id="rstk__sydata_txntype__c">
                   <value class="variable">
-                    <path element="varReversePickPack"/>
+                    <path element="varReversePickPackShip"/>
                     <path element="TransactionType"/>
                   </value>
                 </argument>
                 <argument id="rstk__sydata_backgroundprocessing__c">
                   <value class="variable">
-                    <path element="varReversePickPack"/>
+                    <path element="varReversePickPackShip"/>
                     <path element="BackgroundProcessing"/>
                   </value>
                 </argument>
@@ -110,7 +110,7 @@
                 </argument>
                 <argument id="rstk__sydata_alllines__c">
                   <value class="variable">
-                    <path element="varReversePickPack"/>
+                    <path element="varReversePickPackShip"/>
                     <path element="ProcessAllLines"/>
                   </value>
                 </argument>
@@ -127,7 +127,7 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_alllines__c" name="rstk__sydata_alllines__c" title="rstk__sydata_alllines__c"/>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="37" title="SOQL Query: SELECT Id,rstk__sydata_process__c FROM rstk__sydata__c WHERE rstk__sydata_sohdr__c = '{rstkRows_SOHeader.Id}' AND rstk__sydata_txntype__c='{varReversePickPack.TransactionType}'=&gt;rstkRows_SYDATA">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="37" title="SOQL Query: SELECT Id,rstk__sydata_process__c FROM rstk__sydata__c WHERE rstk__sydata_sohdr__c = '{rstkRows_SOHeader.Id}' AND rstk__sydata_txntype__c='{varReversePickPackShip.TransactionType}'=&gt;rstkRows_SYDATA">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -139,7 +139,7 @@
                       </variable>
                       <value valueClass="string">' AND rstk__sydata_txntype__c='</value>
                       <variable>
-                        <path element="varReversePickPack"/>
+                        <path element="varReversePickPackShip"/>
                         <path element="TransactionType"/>
                       </variable>
                       <value valueClass="string">'</value>
@@ -180,7 +180,7 @@
               <clauses>
                 <clause name="substeps" testItemId="99">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="41" title="SOQL Query: SELECT Id,rstk__sydata_process__c FROM rstk__sydata__c WHERE rstk__sydata_sohdr__c = '{rstkRows_SOHeader.Id}' AND rstk__sydata_txntype__c='{varReversePickPack.TransactionType}'=&gt;rstkRows_SYDATA">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="41" title="SOQL Query: SELECT Id,rstk__sydata_process__c FROM rstk__sydata__c WHERE rstk__sydata_sohdr__c = '{rstkRows_SOHeader.Id}' AND rstk__sydata_txntype__c='{varReversePickPackShip.TransactionType}'=&gt;rstkRows_SYDATA">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -192,7 +192,7 @@
                               </variable>
                               <value valueClass="string">' AND rstk__sydata_txntype__c='</value>
                               <variable>
-                                <path element="varReversePickPack"/>
+                                <path element="varReversePickPackShip"/>
                                 <path element="TransactionType"/>
                               </variable>
                               <value valueClass="string">'</value>
@@ -329,10 +329,10 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="24" title="Assert: 4.0 EqualTo {rstkRows_SOLine.rstk__soline_status__c}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="24" title="Assert: 10.0 EqualTo {rstkRows_SOLine.rstk__soline_status__c}">
               <arguments>
                 <argument id="expectedValue">
-                  <value class="value" valueClass="string">4.0</value>
+                  <value class="value" valueClass="string">10.0</value>
                 </argument>
                 <argument id="actualValue">
                   <value class="variable">
@@ -417,7 +417,7 @@
         </textType>
       </type>
     </param>
-    <param name="SourceData_Pick" title="SourceData_Pick">
+    <param name="SourceData_PickPackShip" title="SourceData_PickPackShip">
       <summary/>
       <type>
         <textType>
@@ -429,19 +429,7 @@
         </textType>
       </type>
     </param>
-    <param name="SourceData_PickPack" title="SourceData_PickPack">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-    </param>
-    <param name="SourceData_ReversePickPack" title="SourceData_ReversePickPack">
+    <param name="SourceData_ReversePickPackShip" title="SourceData_ReversePickPackShip">
       <summary/>
       <type>
         <textType>
@@ -475,19 +463,14 @@
         <path element="SourceData_Allocate"/>
       </value>
     </argument>
-    <argument id="SourceData_Pick">
+    <argument id="SourceData_PickPackShip">
       <value class="variable">
-        <path element="SourceData_Pick"/>
+        <path element="SourceData_PickPackShip"/>
       </value>
     </argument>
-    <argument id="SourceData_PickPack">
+    <argument id="SourceData_ReversePickPackShip">
       <value class="variable">
-        <path element="SourceData_PickPack"/>
-      </value>
-    </argument>
-    <argument id="SourceData_ReversePickPack">
-      <value class="variable">
-        <path element="SourceData_ReversePickPack"/>
+        <path element="SourceData_ReversePickPackShip"/>
       </value>
     </argument>
   </args>
