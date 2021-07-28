@@ -64,7 +64,7 @@ public class rstk__Manufacturing {
 	public WebElement rootstockSiteMap;
 	
 	@LinkType()
-	@FindBy(xpath = "//a[normalize-space(.)='Purchase Order Entry']")
+	@FindBy(xpath = "//a[normalize-space(.)='Purchase Order Header']")
 	public WebElement purchaseOrderEntry;
 	
 	@LinkType()

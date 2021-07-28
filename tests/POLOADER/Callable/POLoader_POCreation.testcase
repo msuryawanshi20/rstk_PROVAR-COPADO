@@ -486,6 +486,52 @@
                 </clause>
               </clauses>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="244" title="SOQL Query: select Id,rstk__pohdr_ordsts__c,rstk__pohdr_totamt__c,CreatedDate from rstk__pohdr__c where Id ='{POHDRID}'=&gt;pohdr">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select Id,rstk__pohdr_ordsts__c,rstk__pohdr_totamt__c,CreatedDate from rstk__pohdr__c where Id ='</value>
+                      <variable>
+                        <path element="POHDRID"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">pohdr</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="246" title="Set Values: POTotal">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">POTotal</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="pohdr"/>
+                          <path element="rstk__pohdr_totamt__c"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
           </steps>
         </clause>
       </clauses>
@@ -536,6 +582,21 @@
         <path element="POLINEID"/>
       </sourceValue>
     </param>
+    <param name="POTotal" title="POTotal">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="POTotal"/>
+      </sourceValue>
+    </param>
   </outputParams>
   <args>
     <argument id="List">
@@ -555,6 +616,9 @@
     </outputArgument>
     <outputArgument id="POLINEID">
       <name class="value" valueClass="string">POLINEID</name>
+    </outputArgument>
+    <outputArgument id="POTotal">
+      <name class="value" valueClass="string">POTotal</name>
     </outputArgument>
   </outputArgs>
 </testCase>
