@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="14" registryId="d4ff90f1-71ea-4aa1-8f61-645f492f4904" visibility="Internal">
+<testCase id="14" registryId="f8653311-2e1f-445e-9169-7875a02298e9" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,61 +43,18 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="27" title="SOQL Query: SELECT Id,rstk__poline_item__c,rstk__poline_ordno__c FROM rstk__poline__c WHERE rstk__poline_ordno__c = '{POHDRID}' and rstk__poline_potype__c in ('Service','Indirect Material')=&gt;poline">
-      <arguments>
-        <argument id="soqlQuery">
-          <value class="compound">
-            <parts>
-              <value valueClass="string">SELECT Id,rstk__poline_item__c,rstk__poline_ordno__c FROM rstk__poline__c WHERE rstk__poline_ordno__c = '</value>
-              <variable>
-                <path element="POHDRID"/>
-              </variable>
-              <value valueClass="string">' and rstk__poline_potype__c in ('Service','Indirect Material')</value>
-            </parts>
-          </value>
-        </argument>
-        <argument id="apexConnectionName">
-          <value class="value" valueClass="string">SFConnection</value>
-        </argument>
-        <argument id="resultListName">
-          <value class="value" valueClass="string">poline</value>
-        </argument>
-        <argument id="resultScope">
-          <value class="value" valueClass="string">Test</value>
-        </argument>
-      </arguments>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="28" title="Set Values: rownum">
-      <arguments>
-        <argument id="values">
-          <value class="valueList" mutable="Mutable">
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">rownum</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="value" valueClass="string">1</value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
-          </value>
-        </argument>
-      </arguments>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="4" title="For Each: {poline}=&gt;poauth">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="4" title="For Each: {SourceData}=&gt;poclose">
       <arguments>
         <argument argId="7d284dc8-a80f-400c-9eb7-8172c88efe58" id="list">
           <value class="variable">
-            <path element="poline"/>
+            <path element="SourceData"/>
           </value>
         </argument>
         <argument id="fromItem">
           <value class="value" valueClass="decimal">1</value>
         </argument>
         <argument id="valueName">
-          <value class="value" valueClass="string">poauth</value>
+          <value class="value" valueClass="string">poclose</value>
         </argument>
         <argument id="continueOnFailure"/>
       </arguments>
@@ -120,122 +77,38 @@
                   <value class="value" valueClass="string">Test</value>
                 </argument>
                 <argument id="Name">
-                  <value class="value" valueClass="string">NPAUTOMATION</value>
+                  <value class="variable">
+                    <path element="poclose"/>
+                    <path element="Name"/>
+                  </value>
                 </argument>
                 <argument id="rstk__sydata_txntype__c">
                   <value class="variable">
-                    <path element="SourceData">
-                      <filter class="conditionFilter">
-                        <condition class="variable">
-                          <path element="rownum"/>
-                        </condition>
-                      </filter>
-                    </path>
+                    <path element="poclose"/>
                     <path element="TransactionType"/>
                   </value>
                 </argument>
                 <argument id="rstk__sydata_process__c">
                   <value class="variable">
-                    <path element="SourceData">
-                      <filter class="conditionFilter">
-                        <condition class="variable">
-                          <path element="rownum"/>
-                        </condition>
-                      </filter>
-                    </path>
+                    <path element="poclose"/>
                     <path element="Process"/>
                   </value>
                 </argument>
                 <argument id="rstk__sydata_backgroundprocessing__c">
                   <value class="variable">
-                    <path element="SourceData">
-                      <filter class="conditionFilter">
-                        <condition class="variable">
-                          <path element="rownum"/>
-                        </condition>
-                      </filter>
-                    </path>
+                    <path element="poclose"/>
                     <path element="BackgroundProcessing"/>
-                  </value>
-                </argument>
-                <argument id="rstk__sydata_txnqty__c">
-                  <value class="variable">
-                    <path element="SourceData">
-                      <filter class="conditionFilter">
-                        <condition class="variable">
-                          <path element="rownum"/>
-                        </condition>
-                      </filter>
-                    </path>
-                    <path element="TransactionQTY"/>
                   </value>
                 </argument>
                 <argument id="rstk__sydata_sydiv__c">
                   <value class="variable">
-                    <path element="SourceData">
-                      <filter class="conditionFilter">
-                        <condition class="variable">
-                          <path element="rownum"/>
-                        </condition>
-                      </filter>
-                    </path>
+                    <path element="poclose"/>
                     <path element="Division"/>
                   </value>
                 </argument>
-                <argument argId="03240d7b-4711-485c-9ddb-8d85f3e462d3" id="rstk__sydata_poline__c">
+                <argument argId="13dc5e57-c13d-4867-b3e2-9705ae595cf6" id="rstk__sydata_pohdr__c">
                   <value class="variable">
-                    <path element="poauth"/>
-                    <path element="Id"/>
-                  </value>
-                </argument>
-                <argument id="rstk__sydata_srlnos__c">
-                  <value class="compound">
-                    <parts>
-                      <value valueClass="string">NP#</value>
-                      <funcCall id="UniqueId">
-                        <argument id="length">
-                          <value class="value" valueClass="decimal">2</value>
-                        </argument>
-                      </funcCall>
-                      <value valueClass="decimal">26</value>
-                    </parts>
-                  </value>
-                </argument>
-                <argument id="rstk__sydata_lotno__c">
-                  <value class="compound">
-                    <parts>
-                      <value valueClass="string">NP#LotUn</value>
-                      <funcCall id="UniqueId">
-                        <argument id="length">
-                          <value class="value" valueClass="decimal">1</value>
-                        </argument>
-                      </funcCall>
-                      <value valueClass="decimal">26</value>
-                    </parts>
-                  </value>
-                </argument>
-                <argument id="rstk__sydata_authorize__c">
-                  <value class="variable">
-                    <path element="SourceData">
-                      <filter class="conditionFilter">
-                        <condition class="variable">
-                          <path element="rownum"/>
-                        </condition>
-                      </filter>
-                    </path>
-                    <path element="Auth"/>
-                  </value>
-                </argument>
-                <argument id="rstk__sydata_txnamt__c">
-                  <value class="variable">
-                    <path element="SourceData">
-                      <filter class="conditionFilter">
-                        <condition class="variable">
-                          <path element="rownum"/>
-                        </condition>
-                      </filter>
-                    </path>
-                    <path element="TransactionAmt"/>
+                    <path element="POHDRID"/>
                   </value>
                 </argument>
               </arguments>
@@ -248,16 +121,11 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_txntype__c" name="rstk__sydata_txntype__c" title="rstk__sydata_txntype__c"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_process__c" name="rstk__sydata_process__c" title="rstk__sydata_process__c"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_backgroundprocessing__c" name="rstk__sydata_backgroundprocessing__c" title="rstk__sydata_backgroundprocessing__c"/>
-                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_txnqty__c" name="rstk__sydata_txnqty__c" title="rstk__sydata_txnqty__c"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_sydiv__c" name="rstk__sydata_sydiv__c" title="rstk__sydata_sydiv__c"/>
-                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_poline__c" name="rstk__sydata_poline__c" title="rstk__sydata_poline__c"/>
-                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_srlnos__c" name="rstk__sydata_srlnos__c" title="rstk__sydata_srlnos__c"/>
-                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_lotno__c" name="rstk__sydata_lotno__c" title="rstk__sydata_lotno__c"/>
-                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_authorize__c" name="rstk__sydata_authorize__c" title="rstk__sydata_authorize__c"/>
-                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_txnamt__c" name="rstk__sydata_txnamt__c" title="rstk__sydata_txnamt__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_pohdr__c" name="rstk__sydata_pohdr__c" title="rstk__sydata_pohdr__c"/>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="17" title="SOQL Query: select Id,Name,rstk__sydata_process__c from rstk__sydata__c where Id = '{sydataId}'=&gt;poreceiptapi">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="17" title="SOQL Query: select Id,Name,rstk__sydata_process__c from rstk__sydata__c where Id = '{sydataId}'=&gt;pocloseapi">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -274,19 +142,19 @@
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="resultListName">
-                  <value class="value" valueClass="string">poreceiptapi</value>
+                  <value class="value" valueClass="string">pocloseapi</value>
                 </argument>
                 <argument id="resultScope">
                   <value class="value" valueClass="string">Test</value>
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.DoWhile" name="DoWhile" testItemId="18" title="While: {poreceiptapi.rstk__sydata_process__c = &quot;Ready&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.DoWhile" name="DoWhile" testItemId="18" title="While: {pocloseapi.rstk__sydata_process__c = &quot;Ready&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
                     <lhs class="variable">
-                      <path element="poreceiptapi"/>
+                      <path element="pocloseapi"/>
                       <path element="rstk__sydata_process__c"/>
                     </lhs>
                     <rhs class="value" valueClass="string">Ready</rhs>
@@ -304,7 +172,7 @@
               <clauses>
                 <clause name="substeps" testItemId="19">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="23" title="SOQL Query: select Id,Name,rstk__sydata_process__c from rstk__sydata__c where Id = '{sydataId}'=&gt;poreceiptapi">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="23" title="SOQL Query: select Id,Name,rstk__sydata_process__c from rstk__sydata__c where Id = '{sydataId}'=&gt;pocloseapi">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -321,7 +189,7 @@
                           <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
-                          <value class="value" valueClass="string">poreceiptapi</value>
+                          <value class="value" valueClass="string">pocloseapi</value>
                         </argument>
                         <argument id="resultScope">
                           <value class="value" valueClass="string">Test</value>
@@ -332,14 +200,14 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="24" title="Assert: ProcessingComplete EqualTo {poreceiptapi.rstk__sydata_process__c}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="24" title="Assert: ProcessingComplete EqualTo {pocloseapi.rstk__sydata_process__c}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="value" valueClass="string">ProcessingComplete</value>
                 </argument>
                 <argument id="actualValue">
                   <value class="variable">
-                    <path element="poreceiptapi"/>
+                    <path element="pocloseapi"/>
                     <path element="rstk__sydata_process__c"/>
                   </value>
                 </argument>
@@ -367,37 +235,13 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="30" title="Set Values: rownum">
-              <arguments>
-                <argument id="values">
-                  <value class="valueList" mutable="Mutable">
-                    <namedValues mutable="Mutable">
-                      <namedValue name="valuePath">
-                        <value class="value" valueClass="string">rownum</value>
-                      </namedValue>
-                      <namedValue name="value">
-                        <value class="add">
-                          <lhs class="variable">
-                            <path element="rownum"/>
-                          </lhs>
-                          <rhs class="value" valueClass="decimal">1</rhs>
-                        </value>
-                      </namedValue>
-                      <namedValue name="valueScope">
-                        <value class="value" valueClass="string">Test</value>
-                      </namedValue>
-                    </namedValues>
-                  </value>
-                </argument>
-              </arguments>
-            </apiCall>
           </steps>
         </clause>
       </clauses>
     </apiCall>
   </steps>
   <params>
-    <param linkedToUrl="provar:hasvalue:03240d7b-4711-485c-9ddb-8d85f3e462d3" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_poline__c" name="POHDRID" title="POHDRID">
+    <param linkedToUrl="provar:hasvalue:13dc5e57-c13d-4867-b3e2-9705ae595cf6" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_poline__c" name="POHDRID" title="POHDRID">
       <summary/>
     </param>
     <param linkedToUrl="provar:hasvalue:7d284dc8-a80f-400c-9eb7-8172c88efe58" name="SourceData" title="SourceData">

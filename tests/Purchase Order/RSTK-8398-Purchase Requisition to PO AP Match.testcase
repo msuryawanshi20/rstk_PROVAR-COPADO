@@ -60,7 +60,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">InventoryRequisition</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
         <parameterValueSource variableName="NonInvData" variableScope="Test">
@@ -238,6 +238,11 @@
         <argument id="BatchNo">
           <value class="variable">
             <path element="BatchNo"/>
+          </value>
+        </argument>
+        <argument id="POTotal">
+          <value class="variable">
+            <path element="POTotal"/>
           </value>
         </argument>
       </arguments>

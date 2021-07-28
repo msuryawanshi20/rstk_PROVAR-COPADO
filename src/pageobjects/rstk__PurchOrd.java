@@ -51,6 +51,12 @@ public class rstk__PurchOrd {
 		@TextType()
 		@VisualforceBy(componentXPath = "apex:inputText[@id='poline_unitpricemcurr__c']")
 		public WebElement unitPrice;
+		@BooleanType()
+		@FindBy(xpath = "//td[1]/input")
+		public WebElement select;
+		@ButtonType()
+		@FindBy(xpath = "//button[@id='revBtn']")
+		public WebElement revisions;
 	}
 	@TextType()
 	@FindBy(id = "li-0")
@@ -76,7 +82,7 @@ public class rstk__PurchOrd {
 	@FindBy(xpath = "//label[contains(text(),'Order Number')]/following::td//span[contains(@id,'pohdr_ordno__c')]//div/input")
 	public WebElement orderNumber;
 	@TextType()
-	@FindBy(xpath = "//h3[normalize-space(.)='Advanced']")
+	@FindBy(xpath = "//img[@name='Advanced']")
 	public WebElement Advanced;
 	@TextType()
 	@FindBy(id = "img_pg:fm:pb:j_id739")
@@ -112,5 +118,69 @@ public class rstk__PurchOrd {
 		option.click();
 
 	}
+
+		@ButtonType()
+		@FindBy(xpath = "//input[@value='Add New Item']")
+		public WebElement addNewItem;
+		@ChoiceListType()
+		@FindBy(xpath = "//label[normalize-space(.)='Item Type']/parent::th/following-sibling::td//select")
+		public WebElement poitem_type__c;
+		@ChoiceListType()
+		@FindBy(xpath = "//label[contains(text(),'PO Commodity Code')]/parent::th/following-sibling::td//select")
+		public WebElement pocommcod;
+		@TextType()
+		@FindBy(xpath = "//label[normalize-space(.)='Item Number']/parent::th/following-sibling::td//input")
+		public WebElement itemNumber;
+		@TextType()
+		@FindBy(xpath = "//label[normalize-space(.)='Item Description']/parent::th/following-sibling::td//input")
+		public WebElement itemDescription;
+		@ChoiceListType()
+		@FindBy(xpath = "//label[normalize-space(.)='Purchasing UOM']/parent::th/following-sibling::td//select")
+		public WebElement poitem_puruom__c;
+		@ChoiceListType()
+		@FindBy(xpath = "//label[normalize-space(.)='ODC ID']/parent::th/following-sibling::td//select")
+		public WebElement poitem_odcid__c;
+		@ButtonType()
+		@FindBy(xpath = "//div[@class='modal']//button[@onclick='newItem_ok()']")
+		public WebElement add1;
+		@ButtonType()
+		@FindBy(xpath = "//input[@value='Clone']")
+		public WebElement clone;
+		@TextType()
+		@FindBy(xpath = "//td/table//table/tbody/tr/td/table/tbody/tr/td[normalize-space(.)='Dates & Indicators']")
+		public WebElement dateindicatortab;
+		@BooleanType()
+		@FindBy(name = "pg:fm:ovr_pb:modal_polinerev_closeshortind__c")
+		public WebElement polinerev_closeshortind;
+		@ButtonType()
+		@FindBy(xpath = "//div[@id='revision']/button[normalize-space(.)='OK']")
+		public WebElement oK;
+		@TextType()
+		@FindBy(xpath = "//td/table//table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td[normalize-space(.)='Line Update Values']")
+		public WebElement lineUpdates_tab;
+		@ButtonType()
+		@FindBy(xpath = "//td[10]//tr[1]/td[2]/input")
+		public WebElement closeAllLinesShort;
+		@ChoiceListType()
+		@FindBy(xpath = "//label[normalize-space(.)='Default Receipt Site']/parent::span/parent::th/following-sibling::td[1]//select")
+		public WebElement defaultreceiptsite;
+		@ChoiceListType()
+		@FindBy(xpath = "//label[normalize-space(.)='Receipt Location ID (Line Update)']/parent::span/parent::th/following-sibling::td[1]//select")
+		public WebElement receiptlocid;
+		@TextType()
+		@FindBy(xpath = "//label[normalize-space(.)='Receipt Location Number (Line Update)']/parent::span/parent::th/following-sibling::td[1]//input")
+		public WebElement receiptLocationNumberLineUpdate;
+		@TextType()
+		@FindBy(xpath = "//label[normalize-space(.)='Due Date (Line Update)']/parent::span/parent::th/following-sibling::td[1]//input")
+		public WebElement dueDateLineUpdate;
+		@TextType()
+		@FindBy(xpath = "//label[normalize-space(.)='Dock Date (Line Update)']/parent::span/parent::th/following-sibling::td[1]//input")
+		public WebElement dockDateLineUpdate;
+		@ChoiceListType()
+		@FindBy(xpath = "//label[normalize-space(.)='Organizational Dept. (Line Update)']/parent::span/parent::th/following-sibling::td[1]//select")
+		public WebElement orgdeptlineupdate;
+		@ButtonType()
+		@FindBy(xpath = "//td[10]//tr[8]/td[1]/input")
+		public WebElement updateLineValues;
 	
 }

@@ -43,11 +43,54 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="4" title="For Each: {SourceData}=&gt;poreceipt">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="25" title="SOQL Query: SELECT Id,rstk__poline_item__c,rstk__poline_ordno__c FROM rstk__poline__c WHERE rstk__poline_ordno__c = '{POHDRID}'  and rstk__poline_potype__c in ('Purchased','Subcontract')=&gt;poline">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">SELECT Id,rstk__poline_item__c,rstk__poline_ordno__c FROM rstk__poline__c WHERE rstk__poline_ordno__c = '</value>
+              <variable>
+                <path element="POHDRID"/>
+              </variable>
+              <value valueClass="string">'  and rstk__poline_potype__c in ('Purchased','Subcontract')</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">poline</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="26" title="Set Values: rownum">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">rownum</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="value" valueClass="string">1</value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="4" title="For Each: {poline}=&gt;poreceipt">
       <arguments>
         <argument argId="7d284dc8-a80f-400c-9eb7-8172c88efe58" id="list">
           <value class="variable">
-            <path element="SourceData"/>
+            <path element="poline"/>
           </value>
         </argument>
         <argument id="fromItem">
@@ -81,49 +124,92 @@
                 </argument>
                 <argument id="rstk__sydata_txntype__c">
                   <value class="variable">
-                    <path element="poreceipt"/>
+                    <path element="SourceData">
+                      <filter class="conditionFilter">
+                        <condition class="variable">
+                          <path element="rownum"/>
+                        </condition>
+                      </filter>
+                    </path>
                     <path element="TransactionType"/>
                   </value>
                 </argument>
                 <argument id="rstk__sydata_process__c">
                   <value class="variable">
-                    <path element="poreceipt"/>
+                    <path element="SourceData">
+                      <filter class="conditionFilter">
+                        <condition class="variable">
+                          <path element="rownum"/>
+                        </condition>
+                      </filter>
+                    </path>
                     <path element="Process"/>
                   </value>
                 </argument>
                 <argument id="rstk__sydata_backgroundprocessing__c">
                   <value class="variable">
-                    <path element="poreceipt"/>
+                    <path element="SourceData">
+                      <filter class="conditionFilter">
+                        <condition class="variable">
+                          <path element="rownum"/>
+                        </condition>
+                      </filter>
+                    </path>
                     <path element="BackgroundProcessing"/>
                   </value>
                 </argument>
                 <argument id="rstk__sydata_txnqty__c">
                   <value class="variable">
-                    <path element="poreceipt"/>
+                    <path element="SourceData">
+                      <filter class="conditionFilter">
+                        <condition class="variable">
+                          <path element="rownum"/>
+                        </condition>
+                      </filter>
+                    </path>
                     <path element="Quantity"/>
                   </value>
                 </argument>
                 <argument id="rstk__sydata_sydiv__c">
                   <value class="variable">
-                    <path element="poreceipt"/>
+                    <path element="SourceData">
+                      <filter class="conditionFilter">
+                        <condition class="variable">
+                          <path element="rownum"/>
+                        </condition>
+                      </filter>
+                    </path>
                     <path element="Division"/>
                   </value>
                 </argument>
                 <argument id="rstk__sydata_sylocid__c">
                   <value class="variable">
-                    <path element="poreceipt"/>
+                    <path element="SourceData">
+                      <filter class="conditionFilter">
+                        <condition class="variable">
+                          <path element="rownum"/>
+                        </condition>
+                      </filter>
+                    </path>
                     <path element="InvLocID"/>
                   </value>
                 </argument>
                 <argument id="rstk__sydata_locnum__c">
                   <value class="variable">
-                    <path element="poreceipt"/>
+                    <path element="SourceData">
+                      <filter class="conditionFilter">
+                        <condition class="variable">
+                          <path element="rownum"/>
+                        </condition>
+                      </filter>
+                    </path>
                     <path element="LocNum"/>
                   </value>
                 </argument>
                 <argument argId="03240d7b-4711-485c-9ddb-8d85f3e462d3" id="rstk__sydata_poline__c">
                   <value class="variable">
-                    <path element="POlineId"/>
+                    <path element="poreceipt"/>
+                    <path element="Id"/>
                   </value>
                 </argument>
                 <argument id="rstk__sydata_packslip__c">
@@ -295,6 +381,30 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="29" title="Set Values: rownum">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">rownum</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="add">
+                          <lhs class="variable">
+                            <path element="rownum"/>
+                          </lhs>
+                          <rhs class="value" valueClass="decimal">1</rhs>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
           </steps>
         </clause>
       </clauses>
@@ -310,6 +420,18 @@
         <textType/>
       </type>
     </param>
+    <param name="POHDRID" title="POHDRID">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
   </params>
   <args>
     <argument id="POlineId">
@@ -320,6 +442,11 @@
     <argument id="SourceData">
       <value class="variable">
         <path element="SourceData"/>
+      </value>
+    </argument>
+    <argument id="POHDRID">
+      <value class="variable">
+        <path element="POHDRID"/>
       </value>
     </argument>
   </args>
