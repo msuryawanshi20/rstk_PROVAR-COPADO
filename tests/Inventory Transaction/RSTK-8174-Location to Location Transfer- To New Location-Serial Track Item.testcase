@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="1">
+<testCase failureBehaviour="Continue" id="167">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -51,18 +51,18 @@
       </arguments>
       <parameterValueSources>
         <parameterValueSource variableName="op_InvLocLocExcelData" variableScope="Test">
-          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/LocationToLocation.xlsx;1620331693320</cacheToken>
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/LocationToLocation.xlsx;1626769060203</cacheToken>
           <cachedParameters>
             <apiParam name="RowNumber"/>
+            <apiParam name="TransactionDate"/>
             <apiParam name="Site"/>
             <apiParam name="ItemName"/>
             <apiParam name="LocID"/>
             <apiParam name="LocationNumber"/>
             <apiParam name="LotNo"/>
             <apiParam name="Project"/>
-            <apiParam name="SerialNumbers"/>
+            <apiParam name="TotalSerialsToBeTransferred"/>
             <apiParam name="ToLocID"/>
-            <apiParam name="ToLocNo"/>
             <apiParam name="TxnComment"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
@@ -199,7 +199,12 @@
                                         <path element="op_InvLocLocExcelRow"/>
                                         <path element="LotNo"/>
                                       </variable>
-                                      <value valueClass="string">' order by LastModifiedDate desc limit 1</value>
+                                      <value valueClass="string">' and rstk__iclocitem_proj__r.name like '%</value>
+                                      <variable>
+                                        <path element="op_InvLocLocExcelRow"/>
+                                        <path element="Project"/>
+                                      </variable>
+                                      <value valueClass="string">%' order by LastModifiedDate desc limit 1</value>
                                     </parts>
                                   </value>
                                 </argument>
@@ -238,7 +243,12 @@
                                         <path element="op_InvLocLocExcelRow"/>
                                         <path element="LocationNumber"/>
                                       </variable>
-                                      <value valueClass="string">' order by LastModifiedDate desc</value>
+                                      <value valueClass="string">' and rstk__iclocitem_proj__r.name like '%</value>
+                                      <variable>
+                                        <path element="op_InvLocLocExcelRow"/>
+                                        <path element="Project"/>
+                                      </variable>
+                                      <value valueClass="string">%' order by LastModifiedDate desc</value>
                                     </parts>
                                   </value>
                                 </argument>
@@ -575,6 +585,12 @@
                   <value class="variable">
                     <path element="op_InvLocLocExcelRow"/>
                     <path element="Site"/>
+                  </value>
+                </argument>
+                <argument id="ip_TransactionDate">
+                  <value class="variable">
+                    <path element="op_InvLocLocExcelRow"/>
+                    <path element="TransactionDate"/>
                   </value>
                 </argument>
               </arguments>

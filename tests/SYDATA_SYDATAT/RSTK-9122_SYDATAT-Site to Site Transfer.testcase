@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="7">
+<testCase failureBehaviour="Continue" id="9">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -334,11 +334,17 @@
                                         <path element="op_ExcelDataRow"/>
                                         <path element="FromLotNo"/>
                                       </variable>
-                                      <value valueClass="string">' limit </value>
+                                      <value valueClass="string">' and rstk__iclocitem_proj__c\t='</value>
+                                      <variable>
+                                        <path element="op_ExcelDataRow"/>
+                                        <path element="FromProject"/>
+                                      </variable>
+                                      <value valueClass="string">' order by lastmodifiedDate DESC limit </value>
                                       <variable>
                                         <path element="op_ExcelDataRow"/>
                                         <path element="TransactionQty"/>
                                       </variable>
+                                      <value valueClass="string"> </value>
                                     </parts>
                                   </value>
                                 </argument>
