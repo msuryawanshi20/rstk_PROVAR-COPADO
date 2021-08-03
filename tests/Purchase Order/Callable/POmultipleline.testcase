@@ -97,7 +97,7 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">true</value>
+                  <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="beforeWait">
                   <value class="uiWait" uri="default"/>
@@ -138,19 +138,19 @@
       </clauses>
       <generatedParameters/>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="73" title="On SF Purchase Order Header Namrata PO Header list view">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="73" title="On SF Purchase Order Header All list view">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?object=rstk__pohdr__c&amp;action=List&amp;listView=Namrata_PO_Header"/>
+          <value class="uiTarget" uri="sf:ui:target?object=rstk__pohdr__c&amp;action=List&amp;listView=rstk__All_4"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Dont</value>
         </argument>
         <argument id="targetDescription">
-          <value class="value" valueClass="string">On SF Purchase Order Header Namrata PO Header list view</value>
+          <value class="value" valueClass="string">On SF Purchase Order Header All list view</value>
         </argument>
         <argument id="windowSelection">
           <value class="value" valueClass="string">Default</value>
@@ -633,7 +633,7 @@
                                   <value class="uiWait" uri="default"/>
                                 </argument>
                                 <argument id="afterWait">
-                                  <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                                  <value class="uiWait" uri="default"/>
                                 </argument>
                                 <argument id="interactionDescription">
                                   <value class="value" valueClass="string">Set the Qty Req field to {POData.Quantity}</value>
@@ -692,10 +692,10 @@
                                   <value class="value" valueClass="string">false</value>
                                 </argument>
                                 <argument id="beforeWait">
-                                  <value class="uiWait" uri="default"/>
+                                  <value class="uiWait" uri="ui:wait:timed?seconds=5"/>
                                 </argument>
                                 <argument id="afterWait">
-                                  <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                                  <value class="uiWait" uri="ui:wait:timed?seconds=5"/>
                                 </argument>
                                 <argument id="interactionDescription">
                                   <value class="value" valueClass="string">Set the Unit Price field to {POData.UnitPrice}</value>
@@ -833,7 +833,7 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">true</value>
+                  <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="beforeWait">
                   <value class="uiWait" uri="default"/>

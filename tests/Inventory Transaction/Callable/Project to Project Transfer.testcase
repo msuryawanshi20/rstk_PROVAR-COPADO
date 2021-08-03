@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="22" registryId="09401e38-6766-4357-8503-f176de4fe0fa" visibility="Internal">
+<testCase failureBehaviour="Continue" id="11" registryId="09401e38-6766-4357-8503-f176de4fe0fa" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="82" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
-        <argument argId="b23367fa-7b04-4c33-94d9-d9be3397b027" id="connectionName">
+        <argument id="connectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
         <argument id="resultName">
@@ -22,11 +22,7 @@
         <argument id="closeAllPrimaryTabs">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument argId="f00b2179-1176-4ad5-a322-1607adaece8d" id="reuseConnectionName">
-          <value class="variable">
-            <path element="reuseConnectionName"/>
-          </value>
-        </argument>
+        <argument id="reuseConnectionName"/>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Reuse</value>
         </argument>
@@ -157,13 +153,13 @@
       <clauses>
         <clause name="substeps" testItemId="6">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="32" title="Read Lot track status">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="68" title="Read serial track status">
               <tags/>
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
                     <parts>
-                      <value valueClass="string">select rstk__peitem_tracksrl_pl__c\t from rstk__peitem__c where name like '</value>
+                      <value valueClass="string">select rstk__peitem_tracksrl_pl__c from rstk__peitem__c where name like '</value>
                       <variable>
                         <path element="ip_itemName"/>
                       </variable>
@@ -572,6 +568,31 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="75" title="Read To Project Charge Code Status">
+              <tags/>
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select rstk__pjproj_wbsact__c from rstk__pjproj__c where name like '</value>
+                      <variable>
+                        <path element="ip_toProject"/>
+                      </variable>
+                      <value valueClass="string">%'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">op_toProjChargeCodeStatus</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="60" title="Call the setToProject method">
               <arguments>
                 <argument id="locator">
@@ -640,7 +661,156 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="35" title="If: {op_lotstatus.rstk__peitem_tracksrl_pl__c = &quot;Yes&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="77" title="If: {op_toProjChargeCodeStatus.rstk__pjproj_wbsact__c = true OR op_toProjChargeCodeStatus.rstk__pjproj_wbsact__c = &quot;TRUE&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="or">
+                    <lhs class="eq">
+                      <lhs class="variable">
+                        <path element="op_toProjChargeCodeStatus"/>
+                        <path element="rstk__pjproj_wbsact__c"/>
+                      </lhs>
+                      <rhs class="value" valueClass="boolean">true</rhs>
+                    </lhs>
+                    <rhs class="eq">
+                      <lhs class="variable">
+                        <path element="op_toProjChargeCodeStatus"/>
+                        <path element="rstk__pjproj_wbsact__c"/>
+                      </lhs>
+                      <rhs class="value" valueClass="string">TRUE</rhs>
+                    </rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="78">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="79" title="Call the setToChargeCode method">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:pageobject:method?operation=setToChargeCode&amp;pageId=pageobjects.rstk__Stocklocprojmove"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Call the setToChargeCode method</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="afterWait"/>
+                        <argument id="autoRetry"/>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="param_chargeCode">
+                          <value class="variable">
+                            <path element="ip_toChargeCode"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="param_chargeCode" title="Charge Code">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="73" title="Read From Project Charge Code Status">
+              <tags/>
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select rstk__pjproj_wbsact__c from rstk__pjproj__c where name like '</value>
+                      <variable>
+                        <path element="ip_fromProject"/>
+                      </variable>
+                      <value valueClass="string">%'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">op_fromProjChargeCodeStatus</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="71" title="Verify project charge code status">
+              <arguments>
+                <argument id="condition">
+                  <value class="or">
+                    <lhs class="eq">
+                      <lhs class="variable">
+                        <path element="op_fromProjChargeCodeStatus"/>
+                        <path element="rstk__pjproj_wbsact__c"/>
+                      </lhs>
+                      <rhs class="value" valueClass="boolean">true</rhs>
+                    </lhs>
+                    <rhs class="eq">
+                      <lhs class="variable">
+                        <path element="op_fromProjChargeCodeStatus"/>
+                        <path element="rstk__pjproj_wbsact__c"/>
+                      </lhs>
+                      <rhs class="value" valueClass="string">TRUE</rhs>
+                    </rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="72">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="70" title="Call the setFromChargeCode method">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:pageobject:method?operation=setFromChargeCode&amp;pageId=pageobjects.rstk__Stocklocprojmove"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Call the setFromChargeCode method</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="afterWait"/>
+                        <argument id="autoRetry"/>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument argId="9a3c8149-fb7e-40c9-a479-f9913b9b6228" id="param_chargeCode">
+                          <value class="variable">
+                            <path element="ip_chargeCode"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="param_chargeCode" title="Charge Code">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="35" title="Verify status of Serial Track flag">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
@@ -688,7 +858,7 @@
                           <value class="value" valueClass="string">op_SelectedSerials</value>
                         </argument>
                         <argument id="param_resultScope">
-                          <value class="value" valueClass="string">Test</value>
+                          <value class="value" valueClass="string">Global</value>
                         </argument>
                       </arguments>
                       <generatedParameters>
@@ -765,48 +935,65 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="59" title="Call the setTxnComment method">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="80" title="If: {ip_txnComment != null}">
               <arguments>
-                <argument id="locator">
-                  <value class="uiLocator" uri="ui:pageobject:method?operation=setTxnComment&amp;pageId=pageobjects.rstk__Stocklocprojmove"/>
-                </argument>
-                <argument id="interaction">
-                  <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
-                </argument>
-                <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Call the setTxnComment method</value>
-                </argument>
-                <argument id="beforeWait">
-                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
-                </argument>
-                <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
-                </argument>
-                <argument id="autoRetry"/>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="param_qty">
-                  <value class="variable">
-                    <path element="ip_moveQty"/>
-                  </value>
-                </argument>
-                <argument id="param_txnComment">
-                  <value class="variable">
-                    <path element="ip_txnComment"/>
+                <argument id="condition">
+                  <value class="ne">
+                    <lhs class="variable">
+                      <path element="ip_txnComment"/>
+                    </lhs>
                   </value>
                 </argument>
               </arguments>
-              <generatedParameters>
-                <apiParam group="value" name="param_txnComment" title="Txn Comment">
-                  <type>
-                    <textType/>
-                  </type>
-                </apiParam>
-              </generatedParameters>
+              <clauses>
+                <clause name="then" testItemId="81">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="59" title="Call the setTxnComment method">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:pageobject:method?operation=setTxnComment&amp;pageId=pageobjects.rstk__Stocklocprojmove"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Call the setTxnComment method</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                        </argument>
+                        <argument id="autoRetry"/>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="param_qty">
+                          <value class="variable">
+                            <path element="ip_moveQty"/>
+                          </value>
+                        </argument>
+                        <argument id="param_txnComment">
+                          <value class="variable">
+                            <path element="ip_txnComment"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="param_txnComment" title="Txn Comment">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="42" title="Set Values: {op_SelectedSerials}">
               <arguments>
@@ -841,7 +1028,7 @@
                   <value class="value" valueClass="string">full</value>
                 </argument>
                 <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
+                  <value class="uiWait" uri="ui:wait:timed?seconds=2"/>
                 </argument>
                 <argument id="afterWait">
                   <value class="uiWait" uri="ui:wait:alert:timeout=60"/>
@@ -881,7 +1068,9 @@
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="67" title="Sleep for {3} seconds">
-              <tags/>
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="sleepSecs">
                   <value class="value" valueClass="decimal">3</value>
@@ -923,7 +1112,7 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">full</value>
+                  <value class="value" valueClass="string">true</value>
                 </argument>
               </arguments>
             </apiCall>
@@ -1022,6 +1211,12 @@
         <textType/>
       </type>
     </param>
+    <param linkedToUrl="provar:hasvalue:9a3c8149-fb7e-40c9-a479-f9913b9b6228" name="ip_chargeCode" title="From Charge Code">
+      <summary/>
+      <type>
+        <textType/>
+      </type>
+    </param>
     <param name="ip_toChargeCode" title="To Charge Code">
       <summary/>
       <type>
@@ -1056,9 +1251,7 @@
     </param>
   </params>
   <args>
-    <argument id="reuseConnectionName">
-      <value class="value" valueClass="string">QARSF_Admin</value>
-    </argument>
+    <argument id="reuseConnectionName"/>
     <argument id="ip_itemName">
       <value class="value" valueClass="string">multidiv LOT (Lot track)</value>
     </argument>
@@ -1087,5 +1280,6 @@
     <argument id="ip_LotNumber">
       <value class="value" valueClass="string">LT2206</value>
     </argument>
+    <argument id="ip_chargeCode"/>
   </args>
 </testCase>

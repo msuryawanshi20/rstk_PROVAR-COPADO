@@ -55,5 +55,11 @@ public class rstk__POAPMatch2 {
 	@TextType()
 	@FindBy(xpath = "//label[contains(text(),'Batch Number')]/parent::span/parent::th/following-sibling::td//span")
 	public WebElement batchNumber;
+	@ChoiceListType()
+	@FindBy(xpath = "//label[normalize-space(.)='Batch Number']/parent::span/parent::th/following-sibling::td//select")
+	public WebElement batchNumber1;
+	@TextType()
+	@FindBy(xpath = "//span[normalize-space(.)='Batch 579 closed successfully.']//td/div")
+	public WebElement batchclosests;
 	
 }

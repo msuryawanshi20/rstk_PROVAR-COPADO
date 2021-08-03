@@ -58,7 +58,7 @@
             <apiParam name="Podmddimval"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/AutomationData.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">MultiplePOLine</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -596,7 +596,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="14" title="Set the Total Invoice Amount field to 772.26">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="14" title="Set the Total Invoice Amount field to 2061.81">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=totalInvoiceAmount"/>
@@ -605,7 +605,7 @@
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
                 <argument id="value">
-                  <value class="value" valueClass="string">772.26</value>
+                  <value class="value" valueClass="string">2061.81</value>
                 </argument>
                 <argument id="blur">
                   <value class="value" valueClass="boolean">false</value>
@@ -626,7 +626,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Total Invoice Amount field to 772.26</value>
+                  <value class="value" valueClass="string">Set the Total Invoice Amount field to 2061.81</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
@@ -902,6 +902,9 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="17" title="Set the A P Match Indicator select to Close Batch">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=aPMatchIndicator"/>
@@ -957,6 +960,9 @@
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="18" title="Click the Close Batch button">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=closeBatch"/>

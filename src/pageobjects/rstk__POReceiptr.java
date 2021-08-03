@@ -62,7 +62,7 @@ public class rstk__POReceiptr {
 				public WebElement reverseQty;
 			}
 
-			@FindBy(id = "pg:fm:pb_locs:pbs_locs:j_id178:j_id210:tb")
+			@FindBy(xpath = "//table[contains(@id,'pg:fm:pb_locs:pbs_locs')]")
 			@PageTable(firstRowContainsHeaders = false, row = Table.class)
 			public List<Table> table;
 			@ButtonType()

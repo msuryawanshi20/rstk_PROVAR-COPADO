@@ -19,5 +19,7 @@ public class rstk__Notify {
 	@TextType()
 	@FindBy(xpath = "//td[@class='messageCell']//div")
 	public WebElement SO_Header_Deleted;
+
+
 	
 }

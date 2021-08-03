@@ -25,5 +25,20 @@ public class rstk__Povend {
 	@ButtonType()
 	@FindByLabel(label = "Save")
 	public WebElement save;
+	@ChoiceListType()
+	@FindBy(xpath = "//label[normalize-space(.)='Resp Buyer']/parent::span/parent::th/following-sibling::td//select")
+	public WebElement povend_buyusrno__c;
+	@TextType()
+	@FindBy(xpath = "//h2[@class='pageDescription']")
+	public WebElement pageTitle;
+	@ButtonType()
+	@FindBy(xpath = "//div[1]/table//td[2]/span/input[1]")
+	public WebElement edit;
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='New Vendor Address']")
+	public WebElement newVendorAddress;
+	@ButtonType()
+	@FindBy(xpath = "//div[1]/table//td[2]/span/input[2]")
+	public WebElement delete;
 	
 }

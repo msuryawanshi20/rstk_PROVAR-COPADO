@@ -71,6 +71,28 @@
         </argument>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="50" title="Set Values: porcptid">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">porcptid</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="porcpt"/>
+                  <path element="Id"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="46" title="Set Values: rownum">
       <arguments>
         <argument id="values">
@@ -202,6 +224,9 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="45" title="Assert: {ExpectedResult[rownum].Quantity * Round(ExpectedResult[rownum].UnitPrice, 1)}  EqualTo {porcptap.rstk__porcptap_amtcomp__c}">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="expectedValue">
                   <value class="compound">
@@ -330,6 +355,23 @@
       </type>
     </param>
   </params>
+  <outputParams>
+    <param name="porcptid" title="porcptid">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="porcptid"/>
+      </sourceValue>
+    </param>
+  </outputParams>
   <args>
     <argument id="reuseConnectionName">
       <value class="variable">
@@ -343,4 +385,9 @@
     </argument>
     <argument id="ExpectedResult"/>
   </args>
+  <outputArgs>
+    <outputArgument id="porcptid">
+      <name class="value" valueClass="string">porcptid</name>
+    </outputArgument>
+  </outputArgs>
 </testCase>

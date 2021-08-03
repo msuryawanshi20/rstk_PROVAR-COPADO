@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="7">
+<testCase id="6">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="39" title="Salesforce Connect: SFConnection (Test)">
@@ -66,9 +66,9 @@
             <apiParam name="RecordProcessed"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Change Both</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -827,7 +827,7 @@
                     <path element="OrderNumber"/>
                   </expected>
                 </resultAssertion>
-                <resultAssertion resultName="rstk__sohdr_proj__c" title="Check rstk__sohdr_proj__c">
+                <resultAssertion comparisonType="Contains" resultName="rstk__sohdr_proj__c" title="Check rstk__sohdr_proj__c">
                   <expected class="variable">
                     <path element="Row_ChangeBoth"/>
                     <path element="DefaultProject_Change"/>

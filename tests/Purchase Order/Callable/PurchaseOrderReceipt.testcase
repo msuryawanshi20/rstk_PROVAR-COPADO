@@ -596,7 +596,7 @@
                                         </apiParam>
                                       </generatedParameters>
                                     </apiCall>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="60" title="Set the Start_srlno__c field to NP#{UniqueId(3)}1">
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="60" title="Set the Start_srlno__c field to NP#{UniqueId(3)}26">
                                       <arguments>
                                         <argument id="locator">
                                           <value class="uiLocator" uri="ui:locator?name=start_srlno__c"/>
@@ -613,7 +613,7 @@
                                                   <value class="value" valueClass="decimal">3</value>
                                                 </argument>
                                               </funcCall>
-                                              <value valueClass="string">1</value>
+                                              <value valueClass="string">26</value>
                                             </parts>
                                           </value>
                                         </argument>
@@ -636,7 +636,7 @@
                                           <value class="uiWait" uri="default"/>
                                         </argument>
                                         <argument id="interactionDescription">
-                                          <value class="value" valueClass="string">Set the Start_srlno__c field to NP#{UniqueId(3)}1</value>
+                                          <value class="value" valueClass="string">Set the Start_srlno__c field to NP#{UniqueId(3)}26</value>
                                         </argument>
                                         <argument id="autoRetry"/>
                                       </arguments>

@@ -63,7 +63,7 @@ public class rstk__Manufacturing {
 	public WebElement rootstockSiteMap;
 	
 	@LinkType()
-	@FindBy(xpath = "//a[normalize-space(.)='Purchase Order Entry']")
+	@FindBy(xpath = "//a[normalize-space(.)='Purchase Order Header']")
 	public WebElement purchaseOrderEntry;
 	
 	@LinkType()
@@ -113,22 +113,45 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='POLOADER']")
 	public WebElement pOLOADER;
-   
-  @LinkType()
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Inventory Requisitions']")
+	public WebElement inventoryRequisitions;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Inventory Requisition Workbench']")
+	public WebElement inventoryRequisitionWorkbench;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Purchase Item Master']")
+	public WebElement purchaseItemMaster;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Vendor Class']")
+	public WebElement vendorClass;
+ 
+	@LinkType()
 	@FindBy(linkText = "Project to Project Transfer")
 	public WebElement projectToProjectTransfer;
-
-@LinkType()
-@FindBy(xpath = "//a[normalize-space(.)='Inspection Order']")
-public WebElement inspectionOrder;
-
-@LinkType()
-@FindBy(xpath = "//a[normalize-space(.)='Inventory Location Adjust']")
-public WebElement inventoryLocationAdjust;
-
-@LinkType()
-@FindBy(xpath = "//a[normalize-space(.)='Cost Transaction Query']")
-public WebElement costTransactionQuery;
   
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Inventory Location Adjust']")
+	public WebElement inventoryLocationAdjust;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Inventory Unit Cost Adjust']")
+	public WebElement inventoryUnitCostAdjust;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Purchase Order Agreement']")
+	public WebElement purchaseOrderAgreement;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Inspection Order']")
+	public WebElement inspectionOrder;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Cost Transaction Query']")
+	public WebElement costTransactionQuery;
 }
 
