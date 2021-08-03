@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="4">
+<testCase id="9">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,15 +43,15 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="22" title="ReadExcel">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="Read Excel">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">ReadExcel</value>
+          <value class="value" valueClass="string">Read Excel</value>
         </argument>
       </arguments>
       <parameterValueSources>
         <parameterValueSource variableName="ExcelData" variableScope="Test">
-          <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/RSTKF_AutomationData.xlsx;1613563176466</cacheToken>
+          <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/RSTKF_AutomationData.xlsx;1619690449455</cacheToken>
           <cachedParameters>
             <apiParam name="Vendor"/>
             <apiParam name="Item"/>
@@ -59,19 +59,17 @@
             <apiParam name="UnitPrice"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="variable">
-              <path element="POUIExcelPath"/>
-            </workbookPath>
-            <worksheetName class="value" valueClass="string">POIssue</worksheetName>
+            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">POReceipt</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
       <clauses>
-        <clause name="hidden" testItemId="23"/>
+        <clause name="hidden" testItemId="3"/>
       </clauses>
     </apiCall>
-    <caseCall testCaseId="8f010250-9f93-4d50-8117-a6f51aefe852" testCasePath="tests/Purchase Order/Callable/POmultipleline.testcase" testItemId="24">
+    <caseCall testCaseId="8f010250-9f93-4d50-8117-a6f51aefe852" testCasePath="tests/Purchase Order/Callable/POmultipleline.testcase" testItemId="7">
       <arguments>
         <argument id="reuseConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
@@ -103,53 +101,44 @@
         </outputArgument>
       </outputArguments>
     </caseCall>
-    <caseCall testCaseId="e595cd7f-483e-48a8-b028-4dfcd2cb52c3" testCasePath="tests/Purchase Order/Callable/PurchaseOrderIssue.testcase" testItemId="25">
+    <caseCall testCaseId="bc86e6b2-9609-43e2-b616-d3e6d10407d7" testCasePath="tests/Purchase Order/Callable/PurchaseOrderReceipt.testcase" testItemId="8">
       <arguments>
         <argument id="reuseConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
         </argument>
-        <argument id="PONumber">
+        <argument id="OrdNo">
           <value class="variable">
-            <path element="PONumber"/>
+            <path element="OrderNumber"/>
           </value>
         </argument>
-        <argument id="POLINEITEM">
-          <value class="variable">
-            <path element="ExcelData"/>
-            <path element="Item"/>
-          </value>
-        </argument>
-        <argument id="POIssuedata">
+        <argument id="IPList">
           <value class="variable">
             <path element="ExcelData"/>
           </value>
         </argument>
       </arguments>
     </caseCall>
-    <caseCall testCaseId="98f49f3a-7453-430c-90fb-e55914fe6081" testCasePath="tests/Purchase Order/Callable/PODMDVerification.testcase" testItemId="26">
+    <caseCall testCaseId="4ff809de-2c46-49ad-864a-21e5b9e42604" testCasePath="tests/Purchase Order/Callable/POReceiptReversalRTV.testcase" testItemId="10">
       <arguments>
         <argument id="reuseConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="OrdNo">
+          <value class="variable">
+            <path element="OrderNumber"/>
+          </value>
         </argument>
         <argument id="POHDRID">
           <value class="variable">
             <path element="POHDRID"/>
           </value>
         </argument>
-        <argument id="Item">
+        <argument id="SourceData_RTV">
           <value class="variable">
             <path element="ExcelData"/>
-            <path element="Item"/>
-          </value>
-        </argument>
-        <argument id="ExpQty">
-          <value class="variable">
-            <path element="ExcelData"/>
-            <path element="Quantity"/>
           </value>
         </argument>
       </arguments>
     </caseCall>
   </steps>
-  <parameterValueSources/>
 </testCase>
