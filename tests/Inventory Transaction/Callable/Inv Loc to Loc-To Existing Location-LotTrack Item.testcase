@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="4" registryId="3d7a234f-3773-46be-9738-a9f0a97ccb37" visibility="Internal">
+<testCase failureBehaviour="Continue" id="155" registryId="3d7a234f-3773-46be-9738-a9f0a97ccb37" visibility="Internal">
   <summary>Callable testcase-Can be used to perform Location to Location Transfer on Existing location</summary>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="2" title="Salesforce Connect: QARSF_Admin (Test)">
@@ -335,6 +335,78 @@
                                   <value class="uiInteraction" uri="ui:interaction?name=sfLookup"/>
                                 </argument>
                               </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="124" title="If: {ip_TransactionDate != null}">
+                              <arguments>
+                                <argument id="condition">
+                                  <value class="ne">
+                                    <lhs class="variable">
+                                      <path element="ip_TransactionDate"/>
+                                    </lhs>
+                                  </value>
+                                </argument>
+                              </arguments>
+                              <clauses>
+                                <clause name="then" testItemId="125">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="126" title="Set the Transaction Date date to {ip_TransactionDate}">
+                                      <arguments>
+                                        <argument id="locator">
+                                          <value class="uiLocator" uri="ui:locator?name=transactionDate"/>
+                                        </argument>
+                                        <argument id="interaction">
+                                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                                        </argument>
+                                        <argument id="pressEnter">
+                                          <value class="value" valueClass="boolean">false</value>
+                                        </argument>
+                                        <argument id="captureBefore">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="beforeWait">
+                                          <value class="uiWait" uri="default"/>
+                                        </argument>
+                                        <argument id="afterWait">
+                                          <value class="uiWait" uri="default"/>
+                                        </argument>
+                                        <argument id="interactionDescription">
+                                          <value class="value" valueClass="string">Set the Transaction Date date to {ip_TransactionDate}</value>
+                                        </argument>
+                                        <argument id="autoRetry"/>
+                                        <argument id="value">
+                                          <value class="variable">
+                                            <path element="ip_TransactionDate"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="blur"/>
+                                      </arguments>
+                                      <generatedParameters>
+                                        <apiParam group="value" name="value" seq="10000" title="Value">
+                                          <summary>The value to be populated.</summary>
+                                          <type>
+                                            <dateType/>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                      </generatedParameters>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
                             </apiCall>
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="65" title="Call the selectLocationIDfromPicklist method">
                               <tags/>
@@ -1119,6 +1191,16 @@
         </textType>
       </type>
     </param>
+    <param linkedToUrl="provar:hasvalue:10cea06c-4960-480f-a62a-35267ff6a84f" name="ip_TransactionDate" title="Transaction Date">
+      <summary>The value to be populated.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="mimeType">text/plain</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+    </param>
   </params>
   <outputParams/>
   <args>
@@ -1176,6 +1258,9 @@
       <value class="variable">
         <path element="ip_TxnComment"/>
       </value>
+    </argument>
+    <argument id="ip_TransactionDate">
+      <value class="value" valueClass="string">7/20/2021</value>
     </argument>
   </args>
   <outputArgs>

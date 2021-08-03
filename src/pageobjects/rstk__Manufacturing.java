@@ -5,7 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 import com.provar.core.testapi.annotations.LinkType;
 import com.provar.core.testapi.annotations.SalesforcePage;
-import com.provar.core.testapi.annotations.VisualforceBy;
 
 @SalesforcePage(title = "Rstk__ Manufacturing",
 				summary = "", 
@@ -134,12 +133,11 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(linkText = "Project to Project Transfer")
 	public WebElement projectToProjectTransfer;
-
   
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Inventory Location Adjust']")
 	public WebElement inventoryLocationAdjust;
-	
+
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Inventory Unit Cost Adjust']")
 	public WebElement inventoryUnitCostAdjust;
@@ -147,5 +145,13 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Purchase Order Agreement']")
 	public WebElement purchaseOrderAgreement;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Inspection Order']")
+	public WebElement inspectionOrder;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Cost Transaction Query']")
+	public WebElement costTransactionQuery;
 }
 

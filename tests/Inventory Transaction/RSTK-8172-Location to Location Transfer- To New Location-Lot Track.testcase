@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="74">
+<testCase failureBehaviour="Continue" id="164">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -52,9 +52,10 @@
       <expectedExceptions/>
       <parameterValueSources>
         <parameterValueSource variableName="op_InvLocLocExcelData" variableScope="Test">
-          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/LocationToLocation.xlsx;1620331693320</cacheToken>
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/LocationToLocation.xlsx;1626769060203</cacheToken>
           <cachedParameters>
             <apiParam name="RowNumber"/>
+            <apiParam name="TransactionDate"/>
             <apiParam name="Site"/>
             <apiParam name="ItemName"/>
             <apiParam name="LocID"/>
@@ -69,7 +70,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/LocationToLocation.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">RSTK-8172-New loc</worksheetName>
-            <valuesRange class="value" valueClass="string">A:J</valuesRange>
+            <valuesRange class="value" valueClass="string">A:K</valuesRange>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -134,6 +135,34 @@
                         </argument>
                       </arguments>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="709" title="Set Values: op_InvLocLocExcelRow.ToLocNo">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">op_InvLocLocExcelRow.ToLocNo</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="compound">
+                                  <parts>
+                                    <value valueClass="string">P-</value>
+                                    <funcCall id="UniqueId">
+                                      <argument id="length">
+                                        <value class="value" valueClass="decimal">4</value>
+                                      </argument>
+                                    </funcCall>
+                                  </parts>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="484" title="Read Qty available on From location--inventory by lot record before transaction">
                       <arguments>
                         <argument id="condition">
@@ -174,7 +203,12 @@
                                         <path element="op_InvLocLocExcelRow"/>
                                         <path element="LotNo"/>
                                       </variable>
-                                      <value valueClass="string">' order by LastModifiedDate desc limit 1</value>
+                                      <value valueClass="string">' and rstk__iclocitem_proj__r.name like '%</value>
+                                      <variable>
+                                        <path element="op_InvLocLocExcelRow"/>
+                                        <path element="Project"/>
+                                      </variable>
+                                      <value valueClass="string">%' order by LastModifiedDate desc limit 1</value>
                                     </parts>
                                   </value>
                                 </argument>
@@ -193,27 +227,32 @@
                         </clause>
                         <clause name="else" testItemId="487">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="997" title="Read Qty available on TO location--inventory by lot record before transaction">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="1002" title="Read Qty available on From location--inventory by lot record before transaction">
                               <arguments>
                                 <argument id="soqlQuery">
                                   <value class="compound">
                                     <parts>
-                                      <value valueClass="string">Select Id, Name,\nrstk__iclocitem_site__c, \nrstk__iclocitem_icitem__c, \nrstk__iclocitem_proj__c, \nrstk__iclocitem_locqty__c, \nrstk__iclocitem_loctype_pl__c, \nrstk__iclocitem_locid__c, \nrstk__iclocitem_locnum__c, \nrstk__iclocitem_locsec__c, \nLastModifiedDate\nfrom rstk__iclocitem__c where name like '</value>
+                                      <value valueClass="string">Select Id, Name,\nrstk__iclocitem_site__c, \nrstk__iclocitem_icitem__c, \nrstk__iclocitem_proj__c, \nrstk__iclocitem_locqty__c, \nrstk__iclocitem_loctype_pl__c, \nrstk__iclocitem_locid__c, \nrstk__iclocitem_locnum__c, \nrstk__iclocitem_locsec__c, \nLastModifiedDate\nfrom rstk__iclocitem__c \nwhere name like '</value>
                                       <variable>
                                         <path element="op_InvLocLocExcelRow"/>
                                         <path element="ItemName"/>
                                       </variable>
-                                      <value valueClass="string">%' and rstk__iclocitem_locid__r.name like '</value>
+                                      <value valueClass="string">%' and \nrstk__iclocitem_locid__r.name like '</value>
                                       <variable>
                                         <path element="op_InvLocLocExcelRow"/>
-                                        <path element="ToLocID"/>
+                                        <path element="LocID"/>
                                       </variable>
                                       <value valueClass="string">%' and rstk__iclocitem_locnum__c='</value>
                                       <variable>
                                         <path element="op_InvLocLocExcelRow"/>
-                                        <path element="ToLocNo"/>
+                                        <path element="LocationNumber"/>
                                       </variable>
-                                      <value valueClass="string">' order by LastModifiedDate desc</value>
+                                      <value valueClass="string">' and rstk__iclocitem_proj__r.name like '%</value>
+                                      <variable>
+                                        <path element="op_InvLocLocExcelRow"/>
+                                        <path element="Project"/>
+                                      </variable>
+                                      <value valueClass="string">%' order by LastModifiedDate desc</value>
                                     </parts>
                                   </value>
                                 </argument>
@@ -221,7 +260,7 @@
                                   <value class="value" valueClass="string">SFConnection</value>
                                 </argument>
                                 <argument id="resultListName">
-                                  <value class="value" valueClass="string">op_BeforeTransaction_ToLocation</value>
+                                  <value class="value" valueClass="string">op_BeforeTransaction_FromLocation</value>
                                 </argument>
                                 <argument id="resultScope">
                                   <value class="value" valueClass="string">Test</value>
@@ -231,6 +270,41 @@
                           </steps>
                         </clause>
                       </clauses>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="1001" title="Read Qty available on TO location--inventory by lot record before transaction">
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">Select Id, Name,\nrstk__iclocitem_site__c, \nrstk__iclocitem_icitem__c, \nrstk__iclocitem_proj__c, \nrstk__iclocitem_locqty__c, \nrstk__iclocitem_loctype_pl__c, \nrstk__iclocitem_locid__c, \nrstk__iclocitem_locnum__c, \nrstk__iclocitem_locsec__c, \nLastModifiedDate\nfrom rstk__iclocitem__c where name like '</value>
+                              <variable>
+                                <path element="op_InvLocLocExcelRow"/>
+                                <path element="ItemName"/>
+                              </variable>
+                              <value valueClass="string">%' and rstk__iclocitem_locid__r.name like '</value>
+                              <variable>
+                                <path element="op_InvLocLocExcelRow"/>
+                                <path element="ToLocID"/>
+                              </variable>
+                              <value valueClass="string">%' and rstk__iclocitem_locnum__c='</value>
+                              <variable>
+                                <path element="op_InvLocLocExcelRow"/>
+                                <path element="ToLocNo"/>
+                              </variable>
+                              <value valueClass="string">' order by LastModifiedDate desc</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">op_BeforeTransaction_ToLocation</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="414" title="Read inventory by lot record before transaction">
                       <arguments>
@@ -432,34 +506,6 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="709" title="Set Values: op_InvLocLocExcelRow.ToLocNo">
-              <arguments>
-                <argument id="values">
-                  <value class="valueList" mutable="Mutable">
-                    <namedValues mutable="Mutable">
-                      <namedValue name="valuePath">
-                        <value class="value" valueClass="string">op_InvLocLocExcelRow.ToLocNo</value>
-                      </namedValue>
-                      <namedValue name="value">
-                        <value class="compound">
-                          <parts>
-                            <value valueClass="string">P-</value>
-                            <funcCall id="UniqueId">
-                              <argument id="length">
-                                <value class="value" valueClass="decimal">4</value>
-                              </argument>
-                            </funcCall>
-                          </parts>
-                        </value>
-                      </namedValue>
-                      <namedValue name="valueScope">
-                        <value class="value" valueClass="string">Test</value>
-                      </namedValue>
-                    </namedValues>
-                  </value>
-                </argument>
-              </arguments>
-            </apiCall>
             <caseCall testCaseId="14b500d2-1ed4-4581-a050-83537d9b031a" testCasePath="tests/Inventory Transaction/Callable/Inv Loc to Loc-To New Location-LotTrack Item.testcase" testItemId="669">
               <arguments>
                 <argument id="reuseConnectionName">
@@ -523,6 +569,12 @@
                   <value class="variable">
                     <path element="op_InvLocLocExcelRow"/>
                     <path element="Site"/>
+                  </value>
+                </argument>
+                <argument id="ip_TransactionDate">
+                  <value class="variable">
+                    <path element="op_InvLocLocExcelRow"/>
+                    <path element="TransactionDate"/>
                   </value>
                 </argument>
               </arguments>

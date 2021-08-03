@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
 import com.provar.core.testapi.annotations.ChoiceListType;
+import com.provar.core.testapi.annotations.DateType;
 import com.provar.core.testapi.annotations.FindByLabel;
 import com.provar.core.testapi.annotations.PageRow;
 import com.provar.core.testapi.annotations.PageTable;
@@ -174,8 +175,6 @@ public class rstk__Stocklocmove {
 
 	}
 
-	////////////////////////////////////////////////////////
-
 	public String locationId, locationNum;
 
 	public void setLocationDetails(String locId, String locNum) throws InterruptedException {
@@ -185,14 +184,6 @@ public class rstk__Stocklocmove {
 		testLogger.info("LocationID::::" + locationId);
 
 		testLogger.info("LocationNum::::" + locationNum);
-
-	}
-
-	private void test1() {
-
-		String temp1 = "//*[a[contains(text(),'" + locationId + "')]/parent::span/parent::td | span[normalize-space()='"
-				+ locationNum + "']/parent::td]/parent::tr";
-		testLogger.info("xpath::::" + temp1);
 
 	}
 
@@ -209,7 +200,7 @@ public class rstk__Stocklocmove {
 						+ locationNum + "']/parent::td]/parent::tr//td[2]//select|//*[a[contains(text(),'" + locationId
 						+ "')]/parent::span/parent::td | span[normalize-space()='" + locationNum
 						+ "']/parent::td]/parent::tr//td[2]//span"));
-		
+
 		Select dropdown = new Select(toLocID11);
 		dropdown.selectByValue(toLocID);
 	}
@@ -254,5 +245,9 @@ public class rstk__Stocklocmove {
 						+ locationNum + "']/parent::td]/parent::tr//td[7]//input"));
 		toLocComment11.sendKeys(toLocComments);
 	}
+
+	@DateType
+	@FindBy(xpath = "//label[normalize-space(.)='Transaction Date']/parent::span/parent::th/following-sibling::td//input")
+	public WebElement transactionDate;
 
 }

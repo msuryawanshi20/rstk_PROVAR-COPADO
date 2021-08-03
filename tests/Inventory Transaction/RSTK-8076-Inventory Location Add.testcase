@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="56">
+<testCase failureBehaviour="Continue" id="0">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -20,13 +20,13 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument id="closeAllPrimaryTabs">
-          <value class="value" valueClass="boolean">true</value>
+          <value class="value" valueClass="boolean">false</value>
         </argument>
         <argument id="reuseConnectionName">
           <value class="value"/>
         </argument>
         <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Fail</value>
+          <value class="value" valueClass="string">Reuse</value>
         </argument>
         <argument id="privateBrowsingMode"/>
         <argument id="enableObjectIdLogging">
@@ -54,14 +54,14 @@
       <expectedExceptions/>
       <parameterValueSources>
         <parameterValueSource variableName="op_InvLocAddExcelData" variableScope="Test">
-          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/LOCAdd.xlsx;1625411369978</cacheToken>
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/LOCAdd.xlsx;1626986530433</cacheToken>
           <cachedParameters>
             <apiParam name="RowNumber"/>
             <apiParam name="Site"/>
             <apiParam name="ItemName"/>
             <apiParam name="Project"/>
             <apiParam name="StockLOCID"/>
-            <apiParam name="StockLocNo"/>
+            <apiParam name="LocationNumber"/>
             <apiParam name="Quantity_SerialNos"/>
             <apiParam name="TransactionDate"/>
             <apiParam name="AdjustmentAccount"/>
@@ -125,7 +125,7 @@
                         <argument id="soqlQuery">
                           <value class="compound">
                             <parts>
-                              <value valueClass="string">Select ID,Name,rstk__rollsumm_totalqty__c,rstk__icitem_item__c from rstk__icitem__c where Name like '</value>
+                              <value valueClass="string">Select ID, Name, rstk__rollsumm_totalqty__c, rstk__icitem_item__c, rstk__icitem_item__r.rstk__peitem_item__c from rstk__icitem__c where rstk__icitem_item__r.rstk__peitem_item__c like '</value>
                               <variable>
                                 <path element="op_InvLocAddExcelRow"/>
                                 <path element="ItemName"/>
@@ -194,30 +194,21 @@
                         </clause>
                       </clauses>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="902" title="If: {op_InvLocAddExcelRow.StockLocNo = null OR op_InvLocAddExcelRow.StockLocNo = &quot;&quot;}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="902" title="If: {op_InvLocAddExcelRow.StockLocNo = null}">
                       <arguments>
                         <argument id="condition">
-                          <value class="or">
-                            <lhs class="eq">
-                              <lhs class="variable">
-                                <path element="op_InvLocAddExcelRow"/>
-                                <path element="StockLocNo"/>
-                              </lhs>
+                          <value class="eq">
+                            <lhs class="variable">
+                              <path element="op_InvLocAddExcelRow"/>
+                              <path element="StockLocNo"/>
                             </lhs>
-                            <rhs class="eq">
-                              <lhs class="variable">
-                                <path element="op_InvLocAddExcelRow"/>
-                                <path element="StockLocNo"/>
-                              </lhs>
-                              <rhs class="value" valueClass="string"/>
-                            </rhs>
                           </value>
                         </argument>
                       </arguments>
                       <clauses>
                         <clause name="then" testItemId="903">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="904" title="Set Values: op_InvLocAddExcelRow.StockLocNo">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="550" title="Set Values: op_InvLocAddExcelRow.StockLocNo">
                               <arguments>
                                 <argument id="values">
                                   <value class="valueList" mutable="Mutable">
