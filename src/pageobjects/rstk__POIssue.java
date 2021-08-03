@@ -58,14 +58,30 @@ public class rstk__POIssue {
 	@ChoiceListType()
 	@FindBy(xpath = "//label[normalize-space(.)='PO Line']/parent::span/parent::th/following-sibling::td//select/option")
 	public WebElement dropdownpoline;
+	
+		@PageTable(row = Table.class)
+		@FindBy(xpath = "//table[contains(@id,'pb_components2')]/tbody/tr")
+		public List<Table> table;
+		
+		@PageRow(byColumn = true)
+		public static class Table {
 
+		@BooleanType()
+		@FindBy(xpath = ".//td[1]/input[1]")
+		public WebElement selected;
+		
+		@TextType()
+		@FindBy(xpath = ".//td[7]/span/input[contains(@name,'issueQty__c')]")
+		public WebElement issueqty;
+		}
+			
 		public void selectdropdown(String Item) throws InterruptedException {
 
 		Thread.sleep(2000);
 
-		List <WebElement> option = driver.findElements(
-				By.xpath("//select/option[contains(text(),'" + Item + "')]"));
- 
+		List <WebElement> option = driver.findElements(By.xpath("//select/option[@value='" + Item + "')]"));
+//				By.xpath("//select/option[contains(text(),'" + Item + "')]"));
+				
 		for(int i=0;i<option.size();i++)
                 {
                     option.get(i).click();

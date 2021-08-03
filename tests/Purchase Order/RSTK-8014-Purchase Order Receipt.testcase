@@ -59,7 +59,9 @@
             <apiParam name="UnitPrice"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
+            <workbookPath class="variable">
+              <path element="POUIExcelPath"/>
+            </workbookPath>
             <worksheetName class="value" valueClass="string">POReceipt</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>

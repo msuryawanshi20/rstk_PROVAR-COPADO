@@ -46,21 +46,7 @@
         </argument>
         <argument id="webBrowser"/>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="PRData" variableScope="Test">
-          <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/RSTKF_AutomationData.xlsx;1614238419238</cacheToken>
-          <cachedParameters>
-            <apiParam name="Vendor"/>
-            <apiParam name="Project"/>
-            <apiParam name="OrganizationalDepartment"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">PurchaseRequisition</worksheetName>
-            <valuesRange class="value"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="2" title="On SF Rootstock Site Map tab">
       <arguments>
@@ -748,11 +734,11 @@
                                 </apiParam>
                               </generatedParameters>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="152" title="For Each: {ICREQData}=&gt;reqdata">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="152" title="For Each: {ICREQDataSrcData}=&gt;reqdata">
                               <arguments>
-                                <argument id="list">
+                                <argument argId="4f341a4b-a32a-49d5-b643-8ca4983dec76" id="list">
                                   <value class="variable">
-                                    <path element="ICREQData"/>
+                                    <path element="ICREQDataSrcData"/>
                                   </value>
                                 </argument>
                                 <argument id="fromItem">
@@ -763,21 +749,7 @@
                                 </argument>
                                 <argument id="continueOnFailure"/>
                               </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="ICREQData" variableScope="Test">
-                                  <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/RSTKF_AutomationData.xlsx;1614246439328</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="Item"/>
-                                    <apiParam name="Quantity"/>
-                                    <apiParam name="UnitPrice"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">InventoryRequisition</worksheetName>
-                                    <valuesRange class="value"/>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
+                              <parameterValueSources/>
                               <clauses>
                                 <clause name="substeps" testItemId="153">
                                   <steps>
@@ -1435,11 +1407,11 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="182" title="For Each: {SYREQData}=&gt;syreq">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="182" title="For Each: {SYREQSrcData}=&gt;syreq">
                       <arguments>
-                        <argument id="list">
+                        <argument argId="6dba2d48-950c-4c07-9064-679aaa5286b4" id="list">
                           <value class="variable">
-                            <path element="SYREQData"/>
+                            <path element="SYREQSrcData"/>
                           </value>
                         </argument>
                         <argument id="fromItem">
@@ -1450,21 +1422,7 @@
                         </argument>
                         <argument id="continueOnFailure"/>
                       </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="SYREQData" variableScope="Test">
-                          <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/RSTKF_AutomationData.xlsx;1614247397483</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="Item"/>
-                            <apiParam name="Quantity"/>
-                            <apiParam name="UnitPrice"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">IndirectRequisition</worksheetName>
-                            <valuesRange class="value"/>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
+                      <parameterValueSources/>
                       <clauses>
                         <clause name="substeps" testItemId="183">
                           <steps>
@@ -2955,6 +2913,30 @@
         </connectionType>
       </type>
     </param>
+    <param name="PRData" title="PRData">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:4f341a4b-a32a-49d5-b643-8ca4983dec76" name="ICREQDataSrcData" title="ICREQDataSrcData">
+      <summary>The list to be processed.</summary>
+      <type>
+        <textType/>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:6dba2d48-950c-4c07-9064-679aaa5286b4" name="SYREQSrcData" title="SYREQSrcData">
+      <summary>The list to be processed.</summary>
+      <type>
+        <textType/>
+      </type>
+    </param>
   </params>
   <outputParams>
     <param name="PONumber" title="PONumber">
@@ -3022,6 +3004,21 @@
     <argument id="reuseConnectionName">
       <value class="variable">
         <path element="reuseConnectionName"/>
+      </value>
+    </argument>
+    <argument id="PRData">
+      <value class="variable">
+        <path element="PRData"/>
+      </value>
+    </argument>
+    <argument id="ICREQDataSrcData">
+      <value class="variable">
+        <path element="ICREQData"/>
+      </value>
+    </argument>
+    <argument id="SYREQSrcData">
+      <value class="variable">
+        <path element="SYREQData"/>
       </value>
     </argument>
   </args>

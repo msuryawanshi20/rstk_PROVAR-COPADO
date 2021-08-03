@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="19">
+<testCase id="10">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -58,7 +58,9 @@
             <apiParam name="OrganizationalDepartment"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
+            <workbookPath class="variable">
+              <path element="POUIExcelPath"/>
+            </workbookPath>
             <worksheetName class="value" valueClass="string">InventoryRequisition</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -71,9 +73,19 @@
             <apiParam name="UnitPrice"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
+            <workbookPath class="variable">
+              <path element="POUIExcelPath"/>
+            </workbookPath>
             <worksheetName class="value" valueClass="string">IndirectRequisition</worksheetName>
             <valuesRange class="value"/>
+          </sourceValue>
+        </parameterValueSource>
+        <parameterValueSource variableName="PurReqData" variableScope="Test">
+          <sourceValue class="excelTarget" namesLocation="FirstColumnOfRange" whereComparison="EqualTo">
+            <workbookPath class="variable">
+              <path element="POUIExcelPath"/>
+            </workbookPath>
+            <worksheetName class="value" valueClass="string">PurchaseRequisition</worksheetName>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -85,6 +97,21 @@
       <arguments>
         <argument id="reuseConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="PRData">
+          <value class="variable">
+            <path element="PurReqData"/>
+          </value>
+        </argument>
+        <argument id="ICREQDataSrcData">
+          <value class="variable">
+            <path element="InventoryData"/>
+          </value>
+        </argument>
+        <argument id="SYREQSrcData">
+          <value class="variable">
+            <path element="NonInvData"/>
+          </value>
         </argument>
       </arguments>
       <outputArguments>
@@ -114,6 +141,16 @@
         </argument>
         <argument id="POLINEITEM">
           <value class="value" valueClass="string">NPAuto_Subcontract (NPAuto_Subcontract)</value>
+        </argument>
+        <argument id="POIssuedata">
+          <value class="variable">
+            <path element="POIssuedata"/>
+          </value>
+        </argument>
+        <argument id="POHDRID">
+          <value class="variable">
+            <path element="POHDRID"/>
+          </value>
         </argument>
       </arguments>
     </caseCall>
@@ -158,6 +195,37 @@
         </argument>
         <argument id="Vendor">
           <value class="value" valueClass="string">SB-24808 (1103)</value>
+        </argument>
+      </arguments>
+      <outputArguments>
+        <outputArgument id="InvoiceNum">
+          <name class="value" valueClass="string">InvoiceNum</name>
+        </outputArgument>
+        <outputArgument id="BatchNo">
+          <name class="value" valueClass="string">BatchNo</name>
+        </outputArgument>
+      </outputArguments>
+    </caseCall>
+    <caseCall testCaseId="e6161651-1af7-4c3f-bbd6-38fc83094ca1" testCasePath="tests/Purchase Order/Callable/Close PO AP Batch.testcase" testItemId="14">
+      <arguments>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="OrderNumber">
+          <value class="variable">
+            <path element="OrderNumber"/>
+          </value>
+        </argument>
+        <argument id="Vendor">
+          <value class="variable">
+            <path element="TestData"/>
+            <path element="Vendor"/>
+          </value>
+        </argument>
+        <argument id="BatchNum">
+          <value class="variable">
+            <path element="BatchNo"/>
+          </value>
         </argument>
       </arguments>
       <outputArguments>

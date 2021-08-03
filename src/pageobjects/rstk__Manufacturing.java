@@ -143,5 +143,9 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Inventory Unit Cost Adjust']")
 	public WebElement inventoryUnitCostAdjust;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Purchase Order Agreement']")
+	public WebElement purchaseOrderAgreement;
 }
 

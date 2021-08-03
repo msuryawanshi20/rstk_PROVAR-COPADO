@@ -59,7 +59,9 @@
             <apiParam name="UnitPrice"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
+            <workbookPath class="variable">
+              <path element="POUIExcelPath"/>
+            </workbookPath>
             <worksheetName class="value" valueClass="string">POAuthorization</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -109,26 +111,6 @@
         <argument id="OrderNumber">
           <value class="variable">
             <path element="OrderNumber"/>
-          </value>
-        </argument>
-      </arguments>
-    </caseCall>
-    <caseCall testCaseId="29846612-c501-4e3b-863b-1cd4c090c96b" testCasePath="tests/Purchase Order/Callable/POReceiptVerification.testcase" testItemId="20">
-      <tags>
-        <string>disabled</string>
-      </tags>
-      <arguments>
-        <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">SFConnection</value>
-        </argument>
-        <argument id="POHDRID">
-          <value class="variable">
-            <path element="POHDRID"/>
-          </value>
-        </argument>
-        <argument id="ExpectedResult">
-          <value class="variable">
-            <path element="ExcelData"/>
           </value>
         </argument>
       </arguments>
