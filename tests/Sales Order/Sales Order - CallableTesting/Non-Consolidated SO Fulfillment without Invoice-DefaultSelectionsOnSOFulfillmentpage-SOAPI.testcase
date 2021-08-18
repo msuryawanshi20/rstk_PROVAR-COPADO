@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="8" visibility="Internal">
+<testCase id="8" registryId="f0a70b54-b587-4ce1-a820-943c455a5c3b" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -4411,6 +4411,9 @@
                                       </arguments>
                                     </apiCall>
                                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiHandleAlert" name="UiHandleAlert" testItemId="751" title="Handle UI Alerts">
+                                      <tags>
+                                        <string>disabled</string>
+                                      </tags>
                                       <arguments>
                                         <argument id="alerts">
                                           <value class="valueList" mutable="Mutable">

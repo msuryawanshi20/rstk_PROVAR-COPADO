@@ -80,7 +80,7 @@
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="6" title="Click the Sales Order Entry link on sitemap">
               <arguments>
                 <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=salesOrderEntry1"/>
+                  <value class="uiLocator" uri="ui:locator?name=salesOrderEntry"/>
                 </argument>
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=action"/>
@@ -101,7 +101,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Click the Sales Order Entry 1 button</value>
+                  <value class="value" valueClass="string">Click the Sales Order Entry button</value>
                 </argument>
                 <argument id="autoRetry"/>
                 <argument id="ieClickMethod">
@@ -232,9 +232,9 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8122-Verify 'Add New Order' functionality on SO Header.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8122-Verify 'Add New Order' functionality on SO Header.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOHeader</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>

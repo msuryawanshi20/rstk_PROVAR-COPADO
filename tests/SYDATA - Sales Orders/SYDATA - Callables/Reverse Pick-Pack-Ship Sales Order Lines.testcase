@@ -65,6 +65,31 @@
       <clauses>
         <clause name="substeps" testItemId="27">
           <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="100" title="SOQL Query: SELECT Id FROM rstk__soship__c WHERE rstk__soship_order__c = '{rstkRows_SOHeader.Id}'=&gt;rstkRows_Shipper">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">SELECT Id FROM rstk__soship__c WHERE rstk__soship_order__c = '</value>
+                      <variable>
+                        <path element="rstkRows_SOHeader"/>
+                        <path element="Id"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">rstkRows_Shipper</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="38" title="Create Object: rstk__sydata__c=&gt;sydataId">
               <arguments>
                 <argument id="objectType">
@@ -114,6 +139,12 @@
                     <path element="ProcessAllLines"/>
                   </value>
                 </argument>
+                <argument id="rstk__sydata_soship__c">
+                  <value class="variable">
+                    <path element="rstkRows_Shipper"/>
+                    <path element="Id"/>
+                  </value>
+                </argument>
               </arguments>
               <parameterGeneratorProperties>
                 <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
@@ -125,6 +156,7 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_backgroundprocessing__c" name="rstk__sydata_backgroundprocessing__c" title="rstk__sydata_backgroundprocessing__c"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_sohdr__c" name="rstk__sydata_sohdr__c" title="rstk__sydata_sohdr__c"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_alllines__c" name="rstk__sydata_alllines__c" title="rstk__sydata_alllines__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_soship__c" name="rstk__sydata_soship__c" title="rstk__sydata_soship__c"/>
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="37" title="SOQL Query: SELECT Id,rstk__sydata_process__c FROM rstk__sydata__c WHERE rstk__sydata_sohdr__c = '{rstkRows_SOHeader.Id}' AND rstk__sydata_txntype__c='{varReversePickPackShip.TransactionType}'=&gt;rstkRows_SYDATA">
@@ -329,10 +361,10 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="24" title="Assert: 10.0 EqualTo {rstkRows_SOLine.rstk__soline_status__c}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="24" title="Assert: 4.0 EqualTo {rstkRows_SOLine.rstk__soline_status__c}">
               <arguments>
                 <argument id="expectedValue">
-                  <value class="value" valueClass="string">10.0</value>
+                  <value class="value" valueClass="string">4.0</value>
                 </argument>
                 <argument id="actualValue">
                   <value class="variable">
