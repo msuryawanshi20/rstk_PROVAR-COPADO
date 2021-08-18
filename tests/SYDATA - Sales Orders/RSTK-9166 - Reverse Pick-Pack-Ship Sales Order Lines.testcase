@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="7">
+<testCase id="2">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -62,7 +62,7 @@
             <apiParam name="RecordProcessed"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">AddHeader</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -104,7 +104,7 @@
       <parameterValueSources>
         <parameterValueSource variableName="SourceData_SOLine" variableScope="Test">
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">AddLine</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -154,7 +154,7 @@
             <apiParam name="BackgroundProcessing"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">FirmAllLines</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -198,7 +198,7 @@
       <parameterValueSources>
         <parameterValueSource variableName="SourceData_Allocate" variableScope="Test">
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Allocate</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -253,7 +253,7 @@
             <apiParam name="TransactionQuantity"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">PickPackShip</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -303,15 +303,15 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="36" title="Create SO Invoice">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="28" title="Reverse Pick-Pack-Ship SO Lines">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">Create SO Invoice</value>
+          <value class="value" valueClass="string">Reverse Pick-Pack-Ship SO Lines</value>
         </argument>
       </arguments>
       <parameterValueSources>
-        <parameterValueSource variableName="SourceData_CreateInvoice" variableScope="Test">
-          <cacheToken>C:/Users/Ashok/Automation_1Updated/rsqasampleproj/templates/SYDATA.xlsx;1626286972654</cacheToken>
+        <parameterValueSource variableName="SourceData_ReversePickPackShip" variableScope="Test">
+          <cacheToken>C:/Users/Ashok/Automation_1Updated/rsqasampleproj/templates/QARSF/SYDATA.xlsx;1626974145132</cacheToken>
           <cachedParameters>
             <apiParam name="APIMode"/>
             <apiParam name="AsynchronousProcessing"/>
@@ -322,99 +322,8 @@
             <apiParam name="RecordProcessed"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">CreateInvoice</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
-      <clauses>
-        <clause name="hidden" testItemId="37">
-          <steps>
-            <caseCall testCaseId="b22fe2b8-4548-41a3-b6b5-bd339b9781a2" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Create Sales Order Invoice.testcase" testItemId="35">
-              <arguments>
-                <argument id="rstkRows_SOHeader">
-                  <value class="variable">
-                    <path element="rstkRows_SOHeader"/>
-                  </value>
-                </argument>
-                <argument id="OrderNumber">
-                  <value class="variable">
-                    <path element="OrderNumber"/>
-                  </value>
-                </argument>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
-                </argument>
-                <argument id="SourceData_Allocate">
-                  <value class="variable">
-                    <path element="SourceData_Allocate"/>
-                  </value>
-                </argument>
-                <argument id="SourceData_PickPackShip">
-                  <value class="variable">
-                    <path element="SourceData_PickPackShip"/>
-                  </value>
-                </argument>
-                <argument id="SourceData_CreateInvoice">
-                  <value class="variable">
-                    <path element="SourceData_CreateInvoice"/>
-                  </value>
-                </argument>
-              </arguments>
-              <outputArguments>
-                <outputArgument id="rstkRows_Invoice">
-                  <name class="value" valueClass="string">rstkRows_Invoice</name>
-                </outputArgument>
-              </outputArguments>
-            </caseCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="31" title="Create SO Invoice Batch">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Create SO Invoice Batch</value>
-        </argument>
-      </arguments>
-      <parameterValueSources/>
-      <clauses>
-        <clause name="hidden" testItemId="32">
-          <steps>
-            <caseCall testCaseId="40c6fc00-89cb-4eb3-8fd6-34c04997550a" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Create SO Invoice Batch.testcase" testItemId="33">
-              <arguments>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
-                </argument>
-              </arguments>
-              <outputArguments>
-                <outputArgument id="InvBatchNumber">
-                  <name class="value" valueClass="string">InvBatchNumber</name>
-                </outputArgument>
-              </outputArguments>
-            </caseCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="28" title="Create SO Invoice and Add to Batch">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Create SO Invoice and Add to Batch</value>
-        </argument>
-      </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData_ApproveInvoiceBatch" variableScope="Test">
-          <cacheToken>C:/Users/Ashok/Automation_1Updated/rsqasampleproj/templates/SYDATA.xlsx;1626154092383</cacheToken>
-          <cachedParameters>
-            <apiParam name="TransactionType"/>
-            <apiParam name="BackgroundProcessing"/>
-            <apiParam name="ProcessAllLines"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">ApproveInvoiceBatch</worksheetName>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">ReversePickPackShip</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
@@ -422,7 +331,7 @@
       <clauses>
         <clause name="hidden" testItemId="29">
           <steps>
-            <caseCall testCaseId="2f39fb1e-53ca-4639-bcd4-a4901b31009d" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Create Sales Order Invoice and Add to Batch.testcase" testItemId="34">
+            <caseCall testCaseId="b259b999-e580-4e33-b34b-6eb914f3a0bf" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Reverse Pick-Pack-Ship Sales Order Lines.testcase" testItemId="31">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
@@ -447,32 +356,12 @@
                     <path element="SourceData_PickPackShip"/>
                   </value>
                 </argument>
-                <argument id="SourceData_CreateInvoice">
+                <argument id="SourceData_ReversePickPackShip">
                   <value class="variable">
-                    <path element="SourceData_CreateInvoice"/>
-                  </value>
-                </argument>
-                <argument id="InvBatchNumber">
-                  <value class="variable">
-                    <path element="InvBatchNumber"/>
-                  </value>
-                </argument>
-                <argument id="SourceData_ApproveInvoiceBatch">
-                  <value class="variable">
-                    <path element="SourceData_ApproveInvoiceBatch"/>
-                  </value>
-                </argument>
-                <argument id="rstkRows_Invoice">
-                  <value class="variable">
-                    <path element="rstkRows_Invoice"/>
+                    <path element="SourceData_ReversePickPackShip"/>
                   </value>
                 </argument>
               </arguments>
-              <outputArguments>
-                <outputArgument id="rstkRows_Invoice">
-                  <name class="value" valueClass="string">rstkRows_Invoice</name>
-                </outputArgument>
-              </outputArguments>
             </caseCall>
           </steps>
         </clause>
@@ -521,7 +410,7 @@
       </type>
       <sourceValue class="value" valueClass="string">SourceData_PickPackShip</sourceValue>
     </param>
-    <param name="SourceData_CreateInvoice" title="SourceData_CreateInvoice">
+    <param name="SourceData_ReversePickPackShip" title="SourceData_ReversePickPackShip">
       <summary/>
       <type>
         <textType>
@@ -532,22 +421,7 @@
           </constraints>
         </textType>
       </type>
-      <sourceValue class="value" valueClass="string">SourceData_CreateInvoice</sourceValue>
-    </param>
-    <param name="SourceData_ApproveInvoiceBatch" title="SourceData_ApproveInvoiceBatch">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-      <sourceValue class="variable">
-        <path element="SourceData_ApproveInvoiceBatch"/>
-      </sourceValue>
+      <sourceValue class="value" valueClass="string">SourceData_ReversePickPackShip</sourceValue>
     </param>
   </outputParams>
   <outputArgs>
@@ -563,11 +437,8 @@
     <outputArgument id="SourceData_PickPackShip">
       <name class="value" valueClass="string">SourceData_PickPackShip</name>
     </outputArgument>
-    <outputArgument id="SourceData_CreateInvoice">
-      <name class="value" valueClass="string">SourceData_CreateInvoice</name>
-    </outputArgument>
-    <outputArgument id="SourceData_ApproveInvoiceBatch">
-      <name class="value" valueClass="string">SourceData_ApproveInvoiceBatch</name>
+    <outputArgument id="SourceData_ReversePickPackShip">
+      <name class="value" valueClass="string">SourceData_ReversePickPackShip</name>
     </outputArgument>
   </outputArgs>
 </testCase>

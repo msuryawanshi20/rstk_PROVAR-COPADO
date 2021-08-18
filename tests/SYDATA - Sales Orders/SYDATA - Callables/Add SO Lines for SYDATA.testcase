@@ -201,6 +201,24 @@
                     <path element="Id"/>
                   </value>
                 </argument>
+                <argument id="rstk__soapi_freightamt__c">
+                  <value class="variable">
+                    <path element="Row_AddLine"/>
+                    <path element="FreightAmount"/>
+                  </value>
+                </argument>
+                <argument id="rstk__soapi_handlingamt__c">
+                  <value class="variable">
+                    <path element="Row_AddLine"/>
+                    <path element="HandlingAmount"/>
+                  </value>
+                </argument>
+                <argument id="rstk__soapi_packageamt__c">
+                  <value class="variable">
+                    <path element="Row_AddLine"/>
+                    <path element="PackagingAmount"/>
+                  </value>
+                </argument>
               </arguments>
               <parameterGeneratorProperties>
                 <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Devqaff</propertyValue>
@@ -220,6 +238,15 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soapi__c&amp;field=rstk__soapi_price__c" name="rstk__soapi_price__c" title="rstk__soapi_price__c"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soapi__c&amp;field=rstk__soapi_line__c" name="rstk__soapi_line__c" title="rstk__soapi_line__c"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soapi__c&amp;field=rstk__soapi_sohdr__c" name="rstk__soapi_sohdr__c" title="rstk__soapi_sohdr__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soapi__c&amp;field=rstk__soapi_freightamt__c" name="rstk__soapi_freightamt__c" title="rstk__soapi_freightamt__c">
+                  <summary>Not Applicable</summary>
+                </apiParam>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soapi__c&amp;field=rstk__soapi_handlingamt__c" name="rstk__soapi_handlingamt__c" title="rstk__soapi_handlingamt__c">
+                  <summary>Not Applicable</summary>
+                </apiParam>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soapi__c&amp;field=rstk__soapi_packageamt__c" name="rstk__soapi_packageamt__c" title="rstk__soapi_packageamt__c">
+                  <summary>Not Applicable</summary>
+                </apiParam>
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="83" title="SOQL Query: select Id,rstk__soapi_orderno__c,rstk__soapi_processed__c from rstk__soapi__c where Name='{SOAPI_Name}'=&gt;rstkRows_AddLine">

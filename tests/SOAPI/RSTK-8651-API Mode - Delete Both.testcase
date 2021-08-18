@@ -68,7 +68,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/QARSF/SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Delete Both</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -839,19 +839,19 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="147" title="On SF Sales Order Line View screen">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="147" title="On Rstk__soline page">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="target">
-                  <value class="uiTarget" uri="sf:ui:target?object=rstk__soline__c&amp;action=View"/>
+                  <value class="uiTarget" uri="ui:pageobject:target?pageId=pageobjects.rstk__soline"/>
                 </argument>
                 <argument id="targetDescription">
-                  <value class="value" valueClass="string">On SF Sales Order Line View screen</value>
+                  <value class="value" valueClass="string">On Rstk__soline page</value>
                 </argument>
                 <argument id="navigate">
-                  <value class="value" valueClass="string">IfNeccessary</value>
+                  <value class="value" valueClass="string">Always</value>
                 </argument>
                 <argument id="windowSelection">
                   <value class="value" valueClass="string">Default</value>
@@ -872,13 +872,24 @@
                     <path element="Id"/>
                   </value>
                 </argument>
+                <argument id="uiTargetUrl">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">https://rstk-qa-rsf--rstk.na75.visual.force.com/apex/soline?id=</value>
+                      <variable>
+                        <path element="rstkRows_SOLINE"/>
+                        <path element="Id"/>
+                      </variable>
+                      <value valueClass="string">&amp;sfdc.override=1</value>
+                    </parts>
+                  </value>
+                </argument>
               </arguments>
               <clauses>
                 <clause name="substeps" testItemId="148"/>
               </clauses>
               <generatedParameters>
-                <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
-                  <summary>The Id of the SF Object to be Viewed or Edited.</summary>
+                <apiParam group="target" name="uiTargetUrl" title="Web Page">
                   <type>
                     <textType/>
                   </type>

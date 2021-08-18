@@ -47,18 +47,18 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="26" title="For Each: {SourceData_ApproveInvoiceBatch}=&gt;varApproveInvoiceBatch">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="26" title="For Each: {SourceData_InvoiceShipper}=&gt;varInvoiceShipper">
       <arguments>
         <argument id="list">
           <value class="variable">
-            <path element="SourceData_ApproveInvoiceBatch"/>
+            <path element="SourceData_InvoiceShipper"/>
           </value>
         </argument>
         <argument id="fromItem">
           <value class="value" valueClass="decimal">1</value>
         </argument>
         <argument id="valueName">
-          <value class="value" valueClass="string">varApproveInvoiceBatch</value>
+          <value class="value" valueClass="string">varInvoiceShipper</value>
         </argument>
         <argument id="continueOnFailure"/>
       </arguments>
@@ -113,13 +113,13 @@
                 </argument>
                 <argument id="rstk__sydata_txntype__c">
                   <value class="variable">
-                    <path element="varApproveInvoiceBatch"/>
+                    <path element="varInvoiceShipper"/>
                     <path element="TransactionType"/>
                   </value>
                 </argument>
                 <argument id="rstk__sydata_backgroundprocessing__c">
                   <value class="variable">
-                    <path element="varApproveInvoiceBatch"/>
+                    <path element="varInvoiceShipper"/>
                     <path element="BackgroundProcessing"/>
                   </value>
                 </argument>
@@ -135,7 +135,7 @@
                 </argument>
                 <argument id="rstk__sydata_alllines__c">
                   <value class="variable">
-                    <path element="varApproveInvoiceBatch"/>
+                    <path element="varInvoiceShipper"/>
                     <path element="ProcessAllLines"/>
                   </value>
                 </argument>
@@ -177,7 +177,7 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_soinv__c" name="rstk__sydata_soinv__c" title="rstk__sydata_soinv__c"/>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="37" title="SOQL Query: SELECT Id,rstk__sydata_process__c FROM rstk__sydata__c WHERE rstk__sydata_sohdr__c = '{rstkRows_SOHeader.Id}' AND rstk__sydata_txntype__c='{varApproveInvoiceBatch.TransactionType}'=&gt;rstkRows_SYDATA">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="37" title="SOQL Query: SELECT Id,rstk__sydata_process__c FROM rstk__sydata__c WHERE rstk__sydata_sohdr__c = '{rstkRows_SOHeader.Id}' AND rstk__sydata_txntype__c='{varInvoiceShipper.TransactionType}'=&gt;rstkRows_SYDATA">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -189,7 +189,7 @@
                       </variable>
                       <value valueClass="string">' AND rstk__sydata_txntype__c='</value>
                       <variable>
-                        <path element="varApproveInvoiceBatch"/>
+                        <path element="varInvoiceShipper"/>
                         <path element="TransactionType"/>
                       </variable>
                       <value valueClass="string">'</value>
@@ -230,7 +230,7 @@
               <clauses>
                 <clause name="substeps" testItemId="99">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="41" title="SOQL Query: SELECT Id,rstk__sydata_process__c FROM rstk__sydata__c WHERE rstk__sydata_sohdr__c = '{rstkRows_SOHeader.Id}' AND rstk__sydata_txntype__c='{varApproveInvoiceBatch.TransactionType}'=&gt;rstkRows_SYDATA">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="41" title="SOQL Query: SELECT Id,rstk__sydata_process__c FROM rstk__sydata__c WHERE rstk__sydata_sohdr__c = '{rstkRows_SOHeader.Id}' AND rstk__sydata_txntype__c='{varInvoiceShipper.TransactionType}'=&gt;rstkRows_SYDATA">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -242,7 +242,7 @@
                               </variable>
                               <value valueClass="string">' AND rstk__sydata_txntype__c='</value>
                               <variable>
-                                <path element="varApproveInvoiceBatch"/>
+                                <path element="varInvoiceShipper"/>
                                 <path element="TransactionType"/>
                               </variable>
                               <value valueClass="string">'</value>
@@ -570,6 +570,65 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soship__c&amp;field=rstk__soship_closed__c" name="rstk__soship_closed__c" title="Closed"/>
               </generatedParameters>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="114" title="SOQL Query: SELECT count() FROM rstk__soinv__c WHERE rstk__soinv_invbatch__c = '{InvBatchNumber.Id}'=&gt;rstkRows_InvoiceCount">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">SELECT count() FROM rstk__soinv__c WHERE rstk__soinv_invbatch__c = '</value>
+                      <variable>
+                        <path element="InvBatchNumber"/>
+                        <path element="Id"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">rstkRows_InvoiceCount</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="115" title="Assert: 1 EqualTo {rstkRows_InvoiceCount}">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="value" valueClass="string">1</value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="rstkRows_InvoiceCount"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
           </steps>
         </clause>
       </clauses>
@@ -635,18 +694,6 @@
         </textType>
       </type>
     </param>
-    <param name="SourceData_CreateInvoice" title="SourceData_CreateInvoice">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-    </param>
     <param name="InvBatchNumber" title="InvBatchNumber">
       <summary/>
       <type>
@@ -659,7 +706,7 @@
         </textType>
       </type>
     </param>
-    <param name="SourceData_ApproveInvoiceBatch" title="SourceData_ApproveInvoiceBatch">
+    <param name="SourceData_InvoiceShipper" title="SourceData_InvoiceShipper">
       <summary/>
       <type>
         <textType>
@@ -711,24 +758,19 @@
         <path element="SourceData_PickPackShip"/>
       </value>
     </argument>
-    <argument id="SourceData_CreateInvoice">
-      <value class="variable">
-        <path element="SourceData_CreateInvoice"/>
-      </value>
-    </argument>
     <argument id="InvBatchNumber">
       <value class="variable">
         <path element="InvBatchNumber"/>
       </value>
     </argument>
-    <argument id="SourceData_ApproveInvoiceBatch">
-      <value class="variable">
-        <path element="SourceData_ApproveInvoiceBatch"/>
-      </value>
-    </argument>
     <argument id="rstkRows_Invoice">
       <value class="variable">
         <path element="rstkRows_Invoice"/>
+      </value>
+    </argument>
+    <argument id="SourceData_InvoiceShipper">
+      <value class="variable">
+        <path element="SourceData_InvoiceShipper"/>
       </value>
     </argument>
   </args>

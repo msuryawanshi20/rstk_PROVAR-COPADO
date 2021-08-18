@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="1">
+<testCase id="13">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="Connection Step">
@@ -134,7 +134,7 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">AddHeader</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -185,7 +185,7 @@
             <apiParam name="DiscountPct"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">AddLine</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -234,7 +234,7 @@
             <apiParam name="ProcessQuantity"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOFulfillment</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -243,12 +243,12 @@
       <clauses>
         <clause name="hidden" testItemId="68">
           <steps>
-            <caseCall testCaseId="9efc50b9-cf5f-4e8c-9a83-415e921cf855" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Non-Consolidated SO Fulfillment without Invoice-DefaultSelectionsOnSOFulfillmentpage-SOAPI.testcase" testItemId="111">
+            <caseCall testCaseId="f0a70b54-b587-4ce1-a820-943c455a5c3b" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Non-Consolidated SO Fulfillment without Invoice-DefaultSelectionsOnSOFulfillmentpage-SOAPI.testcase" testItemId="114">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
-                <argument id="OrderNumber_SOFulfill">
+                <argument id="OrderNumber">
                   <value class="variable">
                     <path element="OrderNumber"/>
                   </value>
@@ -256,11 +256,6 @@
                 <argument id="SourceData_SOFulfillment">
                   <value class="variable">
                     <path element="SourceData_SOFulfillment"/>
-                  </value>
-                </argument>
-                <argument id="OrderNumber">
-                  <value class="variable">
-                    <path element="OrderNumber"/>
                   </value>
                 </argument>
               </arguments>
@@ -291,7 +286,7 @@
             <apiParam name="QtyRemaining"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Requirements</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -334,7 +329,7 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOORDDMD</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -377,7 +372,7 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Dimensions</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -425,7 +420,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">InventoryQuantity</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -535,8 +530,8 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">SOFulfillReverse</worksheetName>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string"/>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
@@ -544,12 +539,12 @@
       <clauses>
         <clause name="hidden" testItemId="78">
           <steps>
-            <caseCall testCaseId="43da7ced-dc4c-4db7-81b0-7c6a59c030d2" testCasePath="tests/Sales Order/Sales Order - CallableTesting/SO Fulfillment Reversal (Set Process Qty)-DefaultSelectionsOnSOFulfillmentpage-SOAPI.testcase" testItemId="112">
+            <caseCall testCaseId="05f6eca1-29a7-4fa8-89eb-2c20d1b0fc14" testCasePath="tests/Sales Order/Sales Order - CallableTesting/SO Fulfillment Reversal (Set Process Qty)-DefaultSelectionsOnSOFulfillmentpage-SOAPI.testcase" testItemId="115">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
-                <argument id="OrderNumber_SOFulfill">
+                <argument id="OrderNumber">
                   <value class="variable">
                     <path element="OrderNumber"/>
                   </value>
@@ -562,11 +557,6 @@
                 <argument id="SourceData_SOFulfillReverse">
                   <value class="variable">
                     <path element="SourceData_SOFulfillReverse"/>
-                  </value>
-                </argument>
-                <argument id="OrderNumber">
-                  <value class="variable">
-                    <path element="OrderNumber"/>
                   </value>
                 </argument>
               </arguments>
@@ -592,7 +582,7 @@
             <apiParam name="QtyRemaining"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">RequirementsAfterReversal</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -639,7 +629,7 @@
             <apiParam name="QtyRemaining"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8068-Sales Order Fulfillment Partial Reversal-AllProductTypes - SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOORDDMDAfterReversal</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>

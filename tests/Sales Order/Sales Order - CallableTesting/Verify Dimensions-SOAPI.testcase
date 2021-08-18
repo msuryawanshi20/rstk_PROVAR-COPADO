@@ -1144,6 +1144,9 @@
                               </arguments>
                             </apiCall>
                             <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="115" title="Assert: {AccDimValueName_ICItem} Contains {rstkRows_SOLIine.rstk__formula_dimval2__c}">
+                              <tags>
+                                <string>disabled</string>
+                              </tags>
                               <arguments>
                                 <argument id="expectedValue">
                                   <value class="variable">
@@ -1180,7 +1183,7 @@
                                 <argument id="failureMessage"/>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="116" title="Assert: {AccDimValueName_Customer} Contains {rstkRows_SOLIine.rstk__formula_dimval3__c}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="116" title="Assert: {AccDimValueName_Customer} Contains {rstkRows_SOLIine.rstk__formula_dimval2__c}">
                               <arguments>
                                 <argument id="expectedValue">
                                   <value class="variable">
@@ -1190,7 +1193,7 @@
                                 <argument id="actualValue">
                                   <value class="variable">
                                     <path element="rstkRows_SOLIine"/>
-                                    <path element="rstk__formula_dimval3__c"/>
+                                    <path element="rstk__formula_dimval2__c"/>
                                   </value>
                                 </argument>
                                 <argument id="comparisonType">
@@ -1217,7 +1220,7 @@
                                 <argument id="failureMessage"/>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="151" title="Assert: {AccDimValueName_Project} Contains {rstkRows_SOLIine.rstk__formula_dimval6__c}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="151" title="Assert: {AccDimValueName_Project} Contains {rstkRows_SOLIine.rstk__formula_dimval4__c}">
                               <arguments>
                                 <argument id="expectedValue">
                                   <value class="variable">
@@ -1227,7 +1230,7 @@
                                 <argument id="actualValue">
                                   <value class="variable">
                                     <path element="rstkRows_SOLIine"/>
-                                    <path element="rstk__formula_dimval6__c"/>
+                                    <path element="rstk__formula_dimval4__c"/>
                                   </value>
                                 </argument>
                                 <argument id="comparisonType">
@@ -1254,7 +1257,7 @@
                                 <argument id="failureMessage"/>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="117" title="Assert: {AccDimValueName_Product} Contains {rstkRows_SOLIine.rstk__formula_dimval4__c}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="117" title="Assert: {AccDimValueName_Product} Contains {rstkRows_SOLIine.rstk__formula_dimval3__c}">
                               <arguments>
                                 <argument id="expectedValue">
                                   <value class="variable">
@@ -1264,7 +1267,7 @@
                                 <argument id="actualValue">
                                   <value class="variable">
                                     <path element="rstkRows_SOLIine"/>
-                                    <path element="rstk__formula_dimval4__c"/>
+                                    <path element="rstk__formula_dimval3__c"/>
                                   </value>
                                 </argument>
                                 <argument id="comparisonType">

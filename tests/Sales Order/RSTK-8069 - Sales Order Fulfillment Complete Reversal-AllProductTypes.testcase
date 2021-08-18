@@ -54,7 +54,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="47" title="Read On Hand Qty Before SO Shipment">
-      <tags/>
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read On Hand Qty Before SO Shipment</value>
@@ -69,7 +71,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">InventoryQuantity</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -132,7 +134,7 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOHeader</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -180,7 +182,7 @@
             <apiParam name="DiscountPct"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOLine</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -234,7 +236,7 @@
             <apiParam name="ProcessQuantity"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOFulfillment</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -311,7 +313,7 @@
             <apiParam name="QtyRemaining"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Requirements</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -354,7 +356,7 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOORDDMD</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -397,7 +399,7 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Dimensions</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -428,7 +430,9 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="60" title="Read On Hand Qty After SO Shipment">
-      <tags/>
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read On Hand Qty Before SO Shipment</value>
@@ -443,7 +447,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">InventoryQuantity</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -494,7 +498,9 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="66" title="Assert: {QtyBefore - SourceData_SOLine.QtyOrdered} EqualTo {QtyAfter}">
-      <tags/>
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="expectedValue">
           <value class="sub">
@@ -551,7 +557,7 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOFulfillReverse</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -628,7 +634,7 @@
             <apiParam name="QtyRemaining"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">RequirementsAfterReversal</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
@@ -675,7 +681,7 @@
             <apiParam name="QtyRemaining"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8069-Sales Order Fulfillment Complete Reversal-AllproductTypes.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOORDDMDAfterReversal</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>

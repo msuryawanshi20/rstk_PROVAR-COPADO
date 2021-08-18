@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="9">
+<testCase id="0">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="39" title="Salesforce Connect: SFConnection (Test)">
@@ -14,7 +14,7 @@
           <value class="value" valueClass="string">Test</value>
         </argument>
         <argument id="uiApplicationName">
-          <value class="value" valueClass="string">Force_com</value>
+          <value class="value" valueClass="string">rstkf__Rootstock_Financials</value>
         </argument>
         <argument id="quickUiLogin">
           <value class="value" valueClass="boolean">true</value>
@@ -68,7 +68,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/QARSF/SOAPI.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Delete Header</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
