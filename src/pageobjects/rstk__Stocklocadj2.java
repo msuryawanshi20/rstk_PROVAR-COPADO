@@ -90,7 +90,7 @@ public class rstk__Stocklocadj2 {
 		@FindBy(xpath = ".//td[1]//input")
 		public WebElement select;
 
-		@FindBy(xpath = ".//td[2]//span")
+		@FindBy(xpath = ".//td[2]//a|.//td[2]//span")
 		public WebElement locationID;
 
 		@FindBy(xpath = ".//td[3]//span")
@@ -389,4 +389,30 @@ public class rstk__Stocklocadj2 {
 		}
 
 	}
+	
+	
+	public void selectLocationRowCheckbox(String locationID, String locationNumber, String LotNumber)
+			throws InterruptedException {
+
+		Thread.sleep(2000);
+
+		locID = locationID;
+		locNum = locationNumber;
+		Lot = LotNumber;
+
+		if (Lot != null) {
+			driver.findElement(By.xpath("//*[starts-with(text(),'" + locID
+					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
+					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
+					+ "')]/parent::td/parent::tr//td[1]//input")).click();
+
+		} else {
+
+			driver.findElement(By.xpath("//*[starts-with(text(),'" + locID
+					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
+					+ "')]/parent::td/parent::tr//td[1]//input")).click();
+		}
+
+	}
+	
 }

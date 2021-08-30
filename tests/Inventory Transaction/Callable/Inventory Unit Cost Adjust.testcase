@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" visibility="Internal">
+<testCase failureBehaviour="Continue" registryId="6cbcfe10-b6f2-458f-bcf5-ca7538593ca6" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -448,16 +448,16 @@
                   <value class="value" valueClass="boolean">false</value>
                 </argument>
                 <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
+                  <value class="value" valueClass="string">true</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
+                  <value class="value" valueClass="string">true</value>
                 </argument>
                 <argument id="beforeWait">
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:timed?seconds=3"/>
+                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Adjust Inventory Costs button</value>
