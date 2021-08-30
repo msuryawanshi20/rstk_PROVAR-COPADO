@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="0">
+<testCase failureBehaviour="Continue" id="6">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -23,7 +23,7 @@
           <value class="value" valueClass="boolean">false</value>
         </argument>
         <argument id="reuseConnectionName">
-          <value class="value"/>
+          <value class="value" valueClass="string">SFConn</value>
         </argument>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Reuse</value>
@@ -45,49 +45,114 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="375" title="Read excel data:InvLocAdd">
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="904" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
       <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">InvLocAdd</value>
+        <argument id="condition">
+          <value class="eq">
+            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+            <rhs class="value" valueClass="string">PDE5</rhs>
+          </value>
         </argument>
       </arguments>
-      <expectedExceptions/>
-      <parameterValueSources>
-        <parameterValueSource variableName="op_InvLocAddExcelData" variableScope="Test">
-          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/LOCAdd.xlsx;1626986530433</cacheToken>
-          <cachedParameters>
-            <apiParam name="RowNumber"/>
-            <apiParam name="Site"/>
-            <apiParam name="ItemName"/>
-            <apiParam name="Project"/>
-            <apiParam name="StockLOCID"/>
-            <apiParam name="LocationNumber"/>
-            <apiParam name="Quantity_SerialNos"/>
-            <apiParam name="TransactionDate"/>
-            <apiParam name="AdjustmentAccount"/>
-            <apiParam name="Comments"/>
-            <apiParam name="LotNo"/>
-            <apiParam name="LotExpirationDate"/>
-            <apiParam name="UnitCostMaterial"/>
-            <apiParam name="UnitCostLabor"/>
-            <apiParam name="UnitCostMtlOhd"/>
-            <apiParam name="UnitCostLaborOhd"/>
-            <apiParam name="UnitCostFringeOhd"/>
-            <apiParam name="UnitCostMachOhd"/>
-            <apiParam name="UnitCostSubMtl"/>
-            <apiParam name="UnitCostSubLab"/>
-            <apiParam name="UnitCostFreight"/>
-            <apiParam name="UnitCostLanding"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/LOCAdd.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">Location Add</worksheetName>
-            <valuesRange class="value" valueClass="string">A:U</valuesRange>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
       <clauses>
-        <clause name="hidden" testItemId="376"/>
+        <clause name="then" testItemId="905">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="909" title="Read excel data:InvLocAdd">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">InvLocAdd</value>
+                </argument>
+              </arguments>
+              <expectedExceptions/>
+              <parameterValueSources>
+                <parameterValueSource variableName="op_InvLocAddExcelData" variableScope="Test">
+                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/PDE5/LOCAdd.xlsx;1628189221160</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="Site"/>
+                    <apiParam name="ItemName"/>
+                    <apiParam name="Project"/>
+                    <apiParam name="StockLOCID"/>
+                    <apiParam name="StockLocNo"/>
+                    <apiParam name="Quantity_SerialNos"/>
+                    <apiParam name="TransactionDate"/>
+                    <apiParam name="AdjustmentAccount"/>
+                    <apiParam name="Comments"/>
+                    <apiParam name="LotNo"/>
+                    <apiParam name="LotExpirationDate"/>
+                    <apiParam name="UnitCostMaterial"/>
+                    <apiParam name="UnitCostLabor"/>
+                    <apiParam name="UnitCostMtlOhd"/>
+                    <apiParam name="UnitCostLaborOhd"/>
+                    <apiParam name="UnitCostFringeOhd"/>
+                    <apiParam name="UnitCostMachOhd"/>
+                    <apiParam name="UnitCostSubMtl"/>
+                    <apiParam name="UnitCostSubLab"/>
+                    <apiParam name="UnitCostFreight"/>
+                    <apiParam name="UnitCostLanding"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="value" valueClass="string">templates/PDE5/LOCAdd.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Location Add</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:U</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+              <clauses>
+                <clause name="hidden" testItemId="376"/>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="906">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="375" title="Read excel data:InvLocAdd">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">InvLocAdd</value>
+                </argument>
+              </arguments>
+              <expectedExceptions/>
+              <parameterValueSources>
+                <parameterValueSource variableName="op_InvLocAddExcelData" variableScope="Test">
+                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/LOCAdd.xlsx;1626986530433</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="Site"/>
+                    <apiParam name="ItemName"/>
+                    <apiParam name="Project"/>
+                    <apiParam name="StockLOCID"/>
+                    <apiParam name="LocationNumber"/>
+                    <apiParam name="Quantity_SerialNos"/>
+                    <apiParam name="TransactionDate"/>
+                    <apiParam name="AdjustmentAccount"/>
+                    <apiParam name="Comments"/>
+                    <apiParam name="LotNo"/>
+                    <apiParam name="LotExpirationDate"/>
+                    <apiParam name="UnitCostMaterial"/>
+                    <apiParam name="UnitCostLabor"/>
+                    <apiParam name="UnitCostMtlOhd"/>
+                    <apiParam name="UnitCostLaborOhd"/>
+                    <apiParam name="UnitCostFringeOhd"/>
+                    <apiParam name="UnitCostMachOhd"/>
+                    <apiParam name="UnitCostSubMtl"/>
+                    <apiParam name="UnitCostSubLab"/>
+                    <apiParam name="UnitCostFreight"/>
+                    <apiParam name="UnitCostLanding"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="value" valueClass="string">templates/LOCAdd.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Location Add</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:U</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+              <clauses>
+                <clause name="hidden" testItemId="910"/>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="377" title="For Each: {op_InvLocAddExcelData}=&gt;op_InvLocAddExcelRow">
@@ -111,6 +176,7 @@
         <clause name="substeps" testItemId="378">
           <steps>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="522" title="Read Before Transaction Qty">
+              <tags/>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Verify Before Transaction Qty</value>
@@ -125,12 +191,21 @@
                         <argument id="soqlQuery">
                           <value class="compound">
                             <parts>
-                              <value valueClass="string">Select ID, Name, rstk__rollsumm_totalqty__c, rstk__icitem_item__c, rstk__icitem_item__r.rstk__peitem_item__c from rstk__icitem__c where rstk__icitem_item__r.rstk__peitem_item__c like '</value>
+                              <value valueClass="string">Select ID,Name,rstk__rollsumm_totalqty__c,rstk__icitem_item__c from rstk__icitem__c where rstk__icitem_div__r.name like '</value>
+                              <variable>
+                                <path element="op_currentInventoryDivision"/>
+                              </variable>
+                              <value valueClass="string">' and ( rstk__icitem_item__r.rstk__peitem_item__c='</value>
                               <variable>
                                 <path element="op_InvLocAddExcelRow"/>
                                 <path element="ItemName"/>
                               </variable>
-                              <value valueClass="string">%'</value>
+                              <value valueClass="string">' or Name like '</value>
+                              <variable>
+                                <path element="op_InvLocAddExcelRow"/>
+                                <path element="ItemName"/>
+                              </variable>
+                              <value valueClass="string">%')</value>
                             </parts>
                           </value>
                         </argument>
@@ -236,6 +311,7 @@
                       </clauses>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="894" title="Flags on Location ID">
+                      <tags/>
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -266,6 +342,7 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="572" title="Read inventory by site record before transaction">
+                      <tags/>
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -296,6 +373,7 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="600" title="Check if item is serial Track">
+                      <tags/>
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -305,7 +383,11 @@
                                 <path element="op_InvLocAddExcelRow"/>
                                 <path element="ItemName"/>
                               </variable>
-                              <value valueClass="string">%'</value>
+                              <value valueClass="string">%' and rstk__icitem_div__r.name like '</value>
+                              <variable>
+                                <path element="op_currentInventoryDivision"/>
+                              </variable>
+                              <value valueClass="string">'</value>
                             </parts>
                           </value>
                         </argument>
@@ -321,6 +403,7 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="618" title="Read Inventory by Item/Site/Project record before transaction">
+                      <tags/>
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -356,6 +439,7 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="659" title="Read Inventory by Item/Project record before transaction">
+                      <tags/>
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -674,6 +758,7 @@
               </outputArguments>
             </caseCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="525" title="Assert after transaction Total Qty">
+              <tags/>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Verify Qty</value>
@@ -688,12 +773,21 @@
                         <argument id="soqlQuery">
                           <value class="compound">
                             <parts>
-                              <value valueClass="string">Select ID,Name,rstk__rollsumm_totalqty__c,rstk__icitem_item__c from rstk__icitem__c where Name like '</value>
+                              <value valueClass="string">Select ID,Name,rstk__rollsumm_totalqty__c,rstk__icitem_item__c from rstk__icitem__c where\n(rstk__icitem_item__r.rstk__peitem_item__c='</value>
                               <variable>
                                 <path element="op_InvLocAddExcelRow"/>
                                 <path element="ItemName"/>
                               </variable>
-                              <value valueClass="string">%' order by lastmodifiedDate desc limit 1</value>
+                              <value valueClass="string">' OR Name like '</value>
+                              <variable>
+                                <path element="op_InvLocAddExcelRow"/>
+                                <path element="ItemName"/>
+                              </variable>
+                              <value valueClass="string">%') and rstk__icitem_div__r.name like '</value>
+                              <variable>
+                                <path element="op_currentInventoryDivision"/>
+                              </variable>
+                              <value valueClass="string">' order by lastmodifiedDate desc limit 1</value>
                             </parts>
                           </value>
                         </argument>
@@ -829,6 +923,7 @@
               </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="534" title="Verify Inventory by Location records">
+              <tags/>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Verify Inventory by Location records</value>
@@ -1209,6 +1304,7 @@
               </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="554" title="Verify Inventory By Lot">
+              <tags/>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Verify Inventory By Lot</value>
@@ -1461,6 +1557,7 @@
               </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="588" title="Verify Inventory By Site Record">
+              <tags/>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Verify Inventory By Site Record</value>
@@ -1713,6 +1810,7 @@
               </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="612" title="Verify Inventory by Item/Site/Project">
+              <tags/>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Verify Inventory by Item/Site/Project</value>
@@ -2144,6 +2242,7 @@
               </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="644" title="Verify Inventory by Item/Project">
+              <tags/>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Verify Inventory by Item/Project</value>

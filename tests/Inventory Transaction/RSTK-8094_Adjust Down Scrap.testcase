@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="6">
+<testCase failureBehaviour="Continue" id="45">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -22,7 +22,9 @@
         <argument id="closeAllPrimaryTabs">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="reuseConnectionName"/>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">SFConn</value>
+        </argument>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Reuse</value>
         </argument>
@@ -221,10 +223,16 @@
                 </clause>
               </clauses>
             </apiCall>
-            <caseCall testCaseId="578d395f-8380-43ef-9fbc-f8602014fa62" testCasePath="tests/Inventory Transaction/Callable/Inventory Location Adjust.testcase" testItemId="2">
+            <caseCall testCaseId="5040f9c1-cbc5-4d0d-b08e-f9c5993ff468" testCasePath="tests/Inventory Transaction/Callable/Inventory Location Adjustment.testcase" testItemId="76">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="ip_ItemNo">
+                  <value class="variable">
+                    <path element="op_ExcelRowData"/>
+                    <path element="ItemName"/>
+                  </value>
                 </argument>
                 <argument id="ip_site">
                   <value class="variable">
@@ -232,58 +240,115 @@
                     <path element="Site"/>
                   </value>
                 </argument>
-                <argument id="ip_InventoryItemName">
-                  <value class="variable">
-                    <path element="op_ExcelRowData"/>
-                    <path element="ItemName"/>
-                  </value>
-                </argument>
-                <argument id="ip_projectName">
+                <argument id="ip_project">
                   <value class="variable">
                     <path element="op_ExcelRowData"/>
                     <path element="Project"/>
                   </value>
                 </argument>
-                <argument id="ip_LocID">
+                <argument id="ip_stockLocID">
                   <value class="variable">
                     <path element="op_ExcelRowData"/>
                     <path element="LocationID"/>
                   </value>
                 </argument>
-                <argument id="ip_LocNum">
+                <argument id="ip_stockLocNo">
                   <value class="variable">
                     <path element="op_ExcelRowData"/>
                     <path element="LocationNumber"/>
                   </value>
                 </argument>
-                <argument id="ip_LotNo">
+              </arguments>
+              <outputArguments>
+                <outputArgument id="op_serialStatus">
+                  <name class="value" valueClass="string">op_serialStatus</name>
+                </outputArgument>
+                <outputArgument id="op_overrideDateStatus">
+                  <name class="value" valueClass="string">op_overrideDateStatus</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+            <caseCall testCaseId="75beb494-c089-4793-9227-6cb5ef6f6e85" testCasePath="tests/Inventory Transaction/Callable/select record for Location adjustment.testcase" testItemId="77">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="ip_locID">
+                  <value class="variable">
+                    <path element="op_ExcelRowData"/>
+                    <path element="LocationID"/>
+                  </value>
+                </argument>
+                <argument id="ip_locationNumber">
+                  <value class="variable">
+                    <path element="op_ExcelRowData"/>
+                    <path element="LocationNumber"/>
+                  </value>
+                </argument>
+                <argument id="ip_LotNumber">
                   <value class="variable">
                     <path element="op_ExcelRowData"/>
                     <path element="LotNumber"/>
                   </value>
                 </argument>
-                <argument id="ip_adjustOption">
+              </arguments>
+            </caseCall>
+            <caseCall testCaseId="7d81422b-2d0d-4234-961a-eac3d828cff6" testCasePath="tests/Inventory Transaction/Callable/Click on Process Selected Inventory Locations button.testcase" testItemId="78">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+              </arguments>
+            </caseCall>
+            <caseCall testCaseId="0df56bb1-270f-4c60-b741-32d249ba58af" testCasePath="tests/Inventory Transaction/Callable/Fill required Data for location adjustment.testcase" testItemId="79">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="ip_locationID">
+                  <value class="variable">
+                    <path element="op_ExcelRowData"/>
+                    <path element="LocationID"/>
+                  </value>
+                </argument>
+                <argument id="ip_locationNumber">
+                  <value class="variable">
+                    <path element="op_ExcelRowData"/>
+                    <path element="LocationNumber"/>
+                  </value>
+                </argument>
+                <argument id="ip_LotNumber">
+                  <value class="variable">
+                    <path element="op_ExcelRowData"/>
+                    <path element="LotNumber"/>
+                  </value>
+                </argument>
+                <argument id="ip_adjustmentOption">
                   <value class="variable">
                     <path element="op_ExcelRowData"/>
                     <path element="AdjustOption"/>
                   </value>
                 </argument>
-                <argument id="ip_processQtySerials">
+                <argument id="op_serialStatus">
+                  <value class="variable">
+                    <path element="op_serialStatus"/>
+                  </value>
+                </argument>
+                <argument id="ip_qty">
                   <value class="variable">
                     <path element="op_ExcelRowData"/>
                     <path element="TransactionQuantity"/>
                   </value>
                 </argument>
-                <argument id="ip_transactionDate">
+                <argument id="op_overrideDateStatus">
+                  <value class="variable">
+                    <path element="op_overrideDateStatus"/>
+                  </value>
+                </argument>
+                <argument id="ip_TransactionDate">
                   <value class="variable">
                     <path element="op_ExcelRowData"/>
                     <path element="TransactionDate"/>
-                  </value>
-                </argument>
-                <argument id="ip_adjustmentAccount">
-                  <value class="variable">
-                    <path element="op_ExcelRowData"/>
-                    <path element="AdjustmentAccount"/>
                   </value>
                 </argument>
                 <argument id="ip_comments">
@@ -292,11 +357,18 @@
                     <path element="Comments"/>
                   </value>
                 </argument>
-                <argument id="ip_cycleCount">
+                <argument id="ip_CycleCount">
                   <value class="variable">
                     <path element="op_ExcelRowData"/>
                     <path element="CycleCount"/>
                   </value>
+                </argument>
+              </arguments>
+            </caseCall>
+            <caseCall testCaseId="5d915400-aed5-4173-9a99-c48709f41402" testCasePath="tests/Inventory Transaction/Callable/Perform location adjustment transaction and handle alert.testcase" testItemId="80">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
               </arguments>
             </caseCall>

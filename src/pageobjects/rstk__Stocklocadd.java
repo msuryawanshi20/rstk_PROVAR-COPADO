@@ -169,4 +169,8 @@ public class rstk__Stocklocadd {
 	@FindBy(xpath = "//label[normalize-space(.)='Site']/parent::span/parent::th/following-sibling::td//select")
 	public WebElement Site;
 
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='Division']/parent::span/parent::th/following-sibling::td")
+	public WebElement division;
+
 }

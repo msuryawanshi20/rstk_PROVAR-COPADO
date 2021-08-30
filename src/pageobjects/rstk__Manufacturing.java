@@ -153,5 +153,28 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Cost Transaction Query']")
 	public WebElement costTransactionQuery;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Time and Qty Booking']")
+	public WebElement timeAndQtyBooking;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='WO Receipt']")
+	public WebElement wOReceipt;
+	
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='WO Receipt Reversal']")
+	public WebElement wOReceiptReversal;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Time and Qty Booking Reversal']")
+	public WebElement timeAndQtyBookingReversal;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='WO Issue Reversal']")
+	public WebElement wOIssueReversal;
+	
+	
+	
 }
 
