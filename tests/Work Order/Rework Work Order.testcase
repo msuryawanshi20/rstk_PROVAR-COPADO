@@ -329,54 +329,6 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="115" title="Set Serial Details">
-              <tags>
-                <string>disabled</string>
-              </tags>
-              <arguments>
-                <argument id="description">
-                  <value class="value" valueClass="string">Set Serial Details</value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="hidden" testItemId="116">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="117" title="If: {op_IsSerialTrack.rstk__icitem_srlcontrol__c = true}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="variable">
-                              <path element="op_IsSerialTrack"/>
-                              <path element="rstk__icitem_srlcontrol__c"/>
-                            </lhs>
-                            <rhs class="value" valueClass="boolean">true</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="118">
-                          <steps>
-                            <caseCall testCaseId="e8b7f5b4-0b8b-4063-ad58-7d7536da6e16" testCasePath="tests/Work Order/Callable/Generate and Assign Serials.testcase" testItemId="119">
-                              <arguments>
-                                <argument id="reuseConnectionName">
-                                  <value class="value" valueClass="string">SFConnection</value>
-                                </argument>
-                                <argument id="ip_RecordID">
-                                  <value class="variable">
-                                    <path element="op_WORecID"/>
-                                    <path element="ID"/>
-                                  </value>
-                                </argument>
-                              </arguments>
-                            </caseCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="48" title="Allocate Component and &quot;Extract Components And operation&quot;">
               <arguments>
                 <argument id="description">

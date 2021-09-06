@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
 import com.provar.core.testapi.annotations.ChoiceListType;
 import com.provar.core.testapi.annotations.FindByLabel;
@@ -45,4 +46,7 @@ public class rstk__Woissue {
 	@FindBy(linkText = "Rootstock Site Map")
 	public WebElement rootstockSiteMap;
 
+	@BooleanType
+	@FindBy(xpath = "//label[normalize-space(.)='Select All']/parent::span/input")
+	public WebElement selectAllCheckBox;
 }
