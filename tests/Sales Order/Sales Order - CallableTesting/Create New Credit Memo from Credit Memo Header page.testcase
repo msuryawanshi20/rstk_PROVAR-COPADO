@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase registryId="4422f6d9-7978-4c0d-ae69-f40a305e29ba" visibility="Internal">
+<testCase registryId="506a61b2-e332-444c-b45b-30842e560491" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -47,11 +47,11 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="13" title="For Each: {SourceData_NewInvoice}=&gt;Row_AddHeader">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="13" title="For Each: {SourceData_CreditMemo}=&gt;Row_AddHeader">
       <arguments>
         <argument id="list">
           <value class="variable">
-            <path element="SourceData_NewInvoice"/>
+            <path element="SourceData_CreditMemo"/>
           </value>
         </argument>
         <argument id="fromItem">
@@ -94,7 +94,7 @@
                 </argument>
                 <argument id="sfUiTargetObjectId">
                   <value class="variable">
-                    <path element="rstkRows_Invoice"/>
+                    <path element="CreditMemoNumberID"/>
                     <path element="Id"/>
                   </value>
                 </argument>
@@ -145,16 +145,16 @@
               <clauses>
                 <clause name="substeps" testItemId="5">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="6" title="Click the Create New Invoice button">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="6" title="Click the Create Credit Memo button">
                       <arguments>
                         <argument id="locator">
-                          <value class="uiLocator" uri="ui:locator?name=CreateNewInvoice"/>
+                          <value class="uiLocator" uri="ui:locator?name=CreateCreditMemo"/>
                         </argument>
                         <argument id="interaction">
                           <value class="uiInteraction" uri="ui:interaction?name=action"/>
                         </argument>
                         <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Click the Create New Invoice button</value>
+                          <value class="value" valueClass="string">Click the Create Credit Memo button</value>
                         </argument>
                         <argument id="beforeWait"/>
                         <argument id="afterWait">
@@ -194,7 +194,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="11" title="UI Assert-Verify Create New Invoice popup Title">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="11" title="UI Assert-Verify Create New Credit Memo popup Title">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -204,11 +204,11 @@
                         </argument>
                         <argument id="fieldAssertions">
                           <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="CreateNewInvoiceTitle">
-                              <fieldLocator uri="ui:locator?name=CreateNewInvoiceTitle"/>
+                            <uiFieldAssertion resultName="CreateaNewCreditMemoTitle">
+                              <fieldLocator uri="ui:locator?name=CreateaNewCreditMemoTitle"/>
                               <attributeAssertions>
                                 <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                                  <value class="value" valueClass="string">Create a New Invoice</value>
+                                  <value class="value" valueClass="string">Create a New Credit Memo</value>
                                 </uiAttributeAssertion>
                               </attributeAssertions>
                             </uiFieldAssertion>
@@ -374,55 +374,10 @@
                                 </apiParam>
                               </generatedParameters>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="43" title="Check the Manual Invoicechkbox field">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="44" title="Click the Create Credit Memo button">
                               <arguments>
                                 <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=ManualInvoicechkbox"/>
-                                </argument>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="beforeWait">
-                                  <value class="uiWait" uri="default"/>
-                                </argument>
-                                <argument id="afterWait">
-                                  <value class="uiWait" uri="ui:wait:timed?seconds=5"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Check the Manual Invoicechkbox field</value>
-                                </argument>
-                                <argument id="autoRetry"/>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=check"/>
-                                </argument>
-                                <argument id="hover">
-                                  <value class="value" valueClass="boolean">false</value>
-                                </argument>
-                                <argument id="ieClickMethod">
-                                  <value class="value" valueClass="string">Default</value>
-                                </argument>
-                              </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="ieClickMethod" seq="10000" title="IE Click Method">
-                                  <summary>How the click should be executed for Internet Explorer.</summary>
-                                  <type>
-                                    <choiceType>
-                                      <constraints>
-                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
-                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
-                                      </constraints>
-                                    </choiceType>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
-                            </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="44" title="Click the Create Invoice button">
-                              <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=CreateInvoice"/>
+                                  <value class="uiLocator" uri="ui:locator?name=createCreditMemo"/>
                                 </argument>
                                 <argument id="captureBefore">
                                   <value class="value" valueClass="string">false</value>
@@ -437,7 +392,7 @@
                                   <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
                                 </argument>
                                 <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Click the Create Invoice button</value>
+                                  <value class="value" valueClass="string">Click the Create Credit Memo button</value>
                                 </argument>
                                 <argument id="autoRetry"/>
                                 <argument id="interaction">
@@ -482,22 +437,22 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="28" title="UI Assert-Verify Invoice Number created">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="54" title="UI Assert-Verify if Credit Memo Number is created">
                       <tags/>
                       <arguments>
                         <argument id="resultName">
-                          <value class="value" valueClass="string">Values_InvNum</value>
+                          <value class="value" valueClass="string">Values_CreditMemoNum</value>
                         </argument>
                         <argument id="resultScope">
                           <value class="value" valueClass="string">Test</value>
                         </argument>
                         <argument id="fieldAssertions">
                           <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="InvoiceNumber">
-                              <fieldLocator uri="ui:locator?name=InvoiceNumber"/>
+                            <uiFieldAssertion resultName="CreditMemoNumber">
+                              <fieldLocator uri="ui:locator?name=CreditMemoNumber"/>
                               <attributeAssertions>
                                 <uiAttributeAssertion attributeName="value" comparisonType="Contains" normalize="true">
-                                  <value class="value" valueClass="string">INV</value>
+                                  <value class="value" valueClass="string">CM</value>
                                 </uiAttributeAssertion>
                               </attributeAssertions>
                             </uiFieldAssertion>
@@ -516,21 +471,22 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="29" title="UI Assert-Verify Invoice Total">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="28" title="UI Assert-Read the new Credit Memo Number generated">
+                      <tags/>
                       <arguments>
                         <argument id="resultName">
-                          <value class="value" valueClass="string">Values</value>
+                          <value class="value" valueClass="string">Values_CreditMemoNum</value>
                         </argument>
                         <argument id="resultScope">
                           <value class="value" valueClass="string">Test</value>
                         </argument>
                         <argument id="fieldAssertions">
                           <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="InvoiceTotal">
-                              <fieldLocator uri="ui:locator?name=InvoiceTotal"/>
+                            <uiFieldAssertion resultName="CreditMemoNumber">
+                              <fieldLocator uri="ui:locator?name=CreditMemoNumber"/>
                               <attributeAssertions>
-                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                                  <value class="value" valueClass="string">0</value>
+                                <uiAttributeAssertion attributeName="value" comparisonType="None" normalize="true">
+                                  <value class="value" valueClass="string">CM</value>
                                 </uiAttributeAssertion>
                               </attributeAssertions>
                             </uiFieldAssertion>
@@ -549,16 +505,16 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="31" title="SOQL Query: SELECT Id FROM rstk__soinv__c WHERE rstk__soinv_invoiceno__c = '{Values_InvNum.fields.InvoiceNumber.value}'=&gt;rstkRows_NewInvoice">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="31" title="SOQL Query: SELECT Id FROM rstk__soinv__c WHERE rstk__soinv_invoiceno__c = '{Values_CreditMemoNum.fields.CreditMemoNumber.value}'=&gt;rstkRows_NewCreditMemoNumber">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
                             <parts>
                               <value valueClass="string">SELECT Id FROM rstk__soinv__c WHERE rstk__soinv_invoiceno__c = '</value>
                               <variable>
-                                <path element="Values_InvNum"/>
+                                <path element="Values_CreditMemoNum"/>
                                 <path element="fields"/>
-                                <path element="InvoiceNumber"/>
+                                <path element="CreditMemoNumber"/>
                                 <path element="value"/>
                               </variable>
                               <value valueClass="string">'</value>
@@ -569,21 +525,21 @@
                           <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
-                          <value class="value" valueClass="string">rstkRows_NewInvoice</value>
+                          <value class="value" valueClass="string">rstkRows_NewCreditMemoNumber</value>
                         </argument>
                         <argument id="resultScope">
                           <value class="value" valueClass="string">Test</value>
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="34" title="SOQL Query: SELECT count() FROM rstk__soinvline__c WHERE rstk__soinvline_invoice__c = '{rstkRows_NewInvoice.Id}'=&gt;rstkRows_SOINVLines">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="34" title="SOQL Query: SELECT count() FROM rstk__soinvline__c WHERE rstk__soinvline_invoice__c = '{rstkRows_NewCreditMemoNumber.Id}'=&gt;rstkRows_CreditMemoLines">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
                             <parts>
                               <value valueClass="string">SELECT count() FROM rstk__soinvline__c WHERE rstk__soinvline_invoice__c = '</value>
                               <variable>
-                                <path element="rstkRows_NewInvoice"/>
+                                <path element="rstkRows_NewCreditMemoNumber"/>
                                 <path element="Id"/>
                               </variable>
                               <value valueClass="string">'</value>
@@ -594,21 +550,21 @@
                           <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
-                          <value class="value" valueClass="string">rstkRows_SOINVLines</value>
+                          <value class="value" valueClass="string">rstkRows_CreditMemoLines</value>
                         </argument>
                         <argument id="resultScope">
                           <value class="value" valueClass="string">Test</value>
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="36" title="Assert: 0 EqualTo {rstkRows_SOINVLines}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="36" title="Assert: 0 EqualTo {rstkRows_CreditMemoLines}">
                       <arguments>
                         <argument id="expectedValue">
                           <value class="value" valueClass="string">0</value>
                         </argument>
                         <argument id="actualValue">
                           <value class="variable">
-                            <path element="rstkRows_SOINVLines"/>
+                            <path element="rstkRows_CreditMemoLines"/>
                           </value>
                         </argument>
                         <argument id="comparisonType">
@@ -962,7 +918,7 @@
         </connectionType>
       </type>
     </param>
-    <param name="rstkRows_Invoice" title="rstkRows_Invoice">
+    <param name="CreditMemoNumberID" title="CreditMemoNumberID">
       <summary/>
       <type>
         <textType>
@@ -974,7 +930,7 @@
         </textType>
       </type>
     </param>
-    <param name="SourceData_NewInvoice" title="SourceData_NewInvoice">
+    <param name="SourceData_CreditMemo" title="SourceData_CreditMemo">
       <summary>\t\t</summary>
       <type>
         <textType>
@@ -988,7 +944,7 @@
     </param>
   </params>
   <outputParams>
-    <param name="rstkRows_NewInvoice" title="rstkRows_NewInvoice">
+    <param name="rstkRows_NewCreditMemoNumber" title="rstkRows_NewCreditMemoNumber">
       <summary>The name that the current entry will be made available to the sub-Test Steps as.</summary>
       <type>
         <textType>
@@ -1000,7 +956,7 @@
         </textType>
       </type>
       <sourceValue class="variable">
-        <path element="rstkRows_NewInvoice"/>
+        <path element="rstkRows_NewCreditMemoNumber"/>
       </sourceValue>
     </param>
   </outputParams>
@@ -1010,20 +966,20 @@
         <path element="reuseConnectionName"/>
       </value>
     </argument>
-    <argument id="rstkRows_Invoice">
+    <argument id="CreditMemoNumberID">
       <value class="variable">
-        <path element="rstkRows_Invoice"/>
+        <path element="CreditMemoNumberID"/>
       </value>
     </argument>
-    <argument id="SourceData_NewInvoice">
+    <argument id="SourceData_CreditMemo">
       <value class="variable">
-        <path element="SourceData_NewInvoice"/>
+        <path element="SourceData_CreditMemo"/>
       </value>
     </argument>
   </args>
   <outputArgs>
-    <outputArgument id="rstkRows_NewInvoice">
-      <name class="value" valueClass="string">rstkRows_NewInvoice</name>
+    <outputArgument id="rstkRows_NewCreditMemoNumber">
+      <name class="value" valueClass="string">rstkRows_NewCreditMemoNumber</name>
     </outputArgument>
   </outputArgs>
 </testCase>
