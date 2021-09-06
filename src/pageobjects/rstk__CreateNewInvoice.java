@@ -31,5 +31,13 @@ public class rstk__CreateNewInvoice {
 	@TextType()
 	@FindBy(id = "li-0")
 	public WebElement Customer_Select;
+
+	@ButtonType()
+	@FindByLabel(label = "Create Credit Memo")
+	public WebElement createCreditMemo;
+	
+	@TextType()
+	@FindBy(xpath = "//h2[contains(text(),'New Credit Memo')]")
+	public WebElement NewCreditMemoTitle;
 	
 }
