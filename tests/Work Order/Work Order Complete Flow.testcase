@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="6">
+<testCase failureBehaviour="Continue" id="1">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -577,6 +577,9 @@
                                                     <path element="Comments"/>
                                                   </value>
                                                 </argument>
+                                                <argument id="ip_isDisassemblyWO">
+                                                  <value class="value" valueClass="string">false</value>
+                                                </argument>
                                               </arguments>
                                             </caseCall>
                                           </steps>
@@ -730,6 +733,9 @@
                     <path element="op_WORecID"/>
                     <path element="ID"/>
                   </value>
+                </argument>
+                <argument id="ip_isDisassemblyWO">
+                  <value class="value" valueClass="string">false</value>
                 </argument>
               </arguments>
             </caseCall>
