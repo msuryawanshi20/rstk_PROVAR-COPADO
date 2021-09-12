@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="5" registryId="28efb160-42d3-40d0-9250-1aaf3d61fe70" visibility="Internal">
+<testCase failureBehaviour="Continue" registryId="249200dd-49ec-4a09-b63b-7243c848b615" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -14,13 +14,13 @@
           <value class="value" valueClass="string">Test</value>
         </argument>
         <argument id="uiApplicationName"/>
-        <argument argId="39189395-b434-4d55-961d-bc43ef57876a" id="quickUiLogin">
+        <argument id="quickUiLogin">
           <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument id="closeAllPrimaryTabs">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument argId="f19dc080-fcca-47fb-bd54-dde848d12900" id="reuseConnectionName">
+        <argument argId="cd1f0f62-3270-4181-a6ca-c173364ea445" id="reuseConnectionName">
           <value class="variable">
             <path element="reuseConnectionName"/>
           </value>
@@ -45,32 +45,32 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="19" title="If: {ip_RecordID != null}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="59" title="If: {ip_recordID != null}">
       <arguments>
         <argument id="condition">
           <value class="ne">
             <lhs class="variable">
-              <path element="ip_RecordID"/>
+              <path element="ip_recordID"/>
             </lhs>
           </value>
         </argument>
       </arguments>
       <clauses>
-        <clause name="then" testItemId="12">
+        <clause name="then" testItemId="13">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="17" title="On SF Work Order View screen">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="4" title="On SF Work Order View screen">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="target">
-                  <value class="uiTarget" uri="sf:ui:target?object=rstk__wocst__c&amp;action=View&amp;noOverride=true&amp;recordType=Regular"/>
-                </argument>
-                <argument id="targetDescription">
-                  <value class="value" valueClass="string">On SF Work Order View screen</value>
+                  <value class="uiTarget" uri="sf:ui:target?object=rstk__wocst__c&amp;action=View&amp;recordType=Regular&amp;noOverride=true"/>
                 </argument>
                 <argument id="navigate">
                   <value class="value" valueClass="string">Always</value>
+                </argument>
+                <argument id="targetDescription">
+                  <value class="value" valueClass="string">On SF Work Order View screen</value>
                 </argument>
                 <argument id="windowSelection">
                   <value class="value" valueClass="string">Default</value>
@@ -85,14 +85,16 @@
                 <argument id="captureAfter">
                   <value class="value" valueClass="string">false</value>
                 </argument>
-                <argument argId="073b5412-dadd-495b-ad8a-e233860ca327" id="sfUiTargetObjectId">
+                <argument argId="d3e7c02e-46d0-4eb8-8102-a272a501de5c" id="sfUiTargetObjectId">
                   <value class="variable">
-                    <path element="ip_RecordID"/>
+                    <path element="ip_recordID"/>
                   </value>
                 </argument>
               </arguments>
               <clauses>
-                <clause name="substeps" testItemId="18"/>
+                <clause name="substeps" testItemId="3">
+                  <steps/>
+                </clause>
               </clauses>
               <generatedParameters>
                 <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
@@ -107,19 +109,19 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="72" title="On SF rstk__Wocst page with pageobject Rstk__ Wocst">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="60" title="On SF rstk__LWocstNew page with pageobject Rstk__ L Wocst New">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?pageObject=pageobjects.rstk__Wocst&amp;page=rstk__Wocst"/>
+          <value class="uiTarget" uri="sf:ui:target?page=rstk__LWocstNew&amp;pageObject=pageobjects.rstk__LWocstNew"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Dont</value>
         </argument>
         <argument id="targetDescription">
-          <value class="value" valueClass="string">On SF rstk__Wocst page with pageobject Rstk__ Wocst</value>
+          <value class="value" valueClass="string">On SF rstk__LWocstNew page with pageobject Rstk__ L Wocst New</value>
         </argument>
         <argument id="windowSelection">
           <value class="value" valueClass="string">Default</value>
@@ -134,68 +136,14 @@
         <argument id="captureAfter">
           <value class="value" valueClass="string">false</value>
         </argument>
-        <argument id="sfUiTargetObjectId">
-          <value class="value" valueClass="string">a8F1K000000PJY9</value>
-        </argument>
         <argument id="sfUiTargetVfIndex">
           <value class="value" valueClass="string">1</value>
         </argument>
       </arguments>
       <clauses>
-        <clause name="substeps" testItemId="73">
+        <clause name="substeps" testItemId="54">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="74" title="Click the Related Lists field">
-              <arguments>
-                <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=relatedLists"/>
-                </argument>
-                <argument id="interaction">
-                  <value class="uiInteraction" uri="ui:interaction?name=action"/>
-                </argument>
-                <argument id="hover">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Click the Related Lists field</value>
-                </argument>
-                <argument id="autoRetry"/>
-                <argument id="ieClickMethod">
-                  <value class="value" valueClass="string">Default</value>
-                </argument>
-              </arguments>
-              <generatedParameters>
-                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
-                  <summary>Whether the mouse should hover over the field before it is clicked.</summary>
-                  <type>
-                    <booleanType/>
-                  </type>
-                </apiParam>
-                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
-                  <summary>How the click should be executed for Internet Explorer.</summary>
-                  <type>
-                    <choiceType>
-                      <constraints>
-                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
-                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
-                      </constraints>
-                    </choiceType>
-                  </type>
-                </apiParam>
-              </generatedParameters>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="104" title="Click the Tab_ Operations_lbl field">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="61" title="Click the Tab_ Operations_lbl field">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=tab_Operations_lbl"/>
@@ -203,28 +151,24 @@
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=action"/>
                 </argument>
-                <argument id="hover">
-                  <value class="value" valueClass="boolean">false</value>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Click the Tab_ Operations_lbl field</value>
                 </argument>
+                <argument id="beforeWait"/>
+                <argument id="afterWait">
+                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                </argument>
+                <argument id="autoRetry"/>
                 <argument id="captureBefore">
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
                   <value class="value" valueClass="string">false</value>
                 </argument>
-                <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Click the Tab_ Operations_lbl field</value>
-                </argument>
-                <argument id="autoRetry"/>
                 <argument id="ieClickMethod">
                   <value class="value" valueClass="string">Default</value>
                 </argument>
+                <argument id="hover"/>
               </arguments>
               <generatedParameters>
                 <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
@@ -246,7 +190,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.Switch" name="Switch" testItemId="100" title="Switch: {ip_operationType}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.Switch" name="Switch" testItemId="62" title="Switch: {ip_operationType}">
               <arguments>
                 <argument id="value">
                   <value class="variable">
@@ -271,10 +215,10 @@
                       <clauses>
                         <clause name="steps" testItemId="103">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="76" title="Click the Add Standard Operation button">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="76" title="Click the Add Operation button">
                               <arguments>
                                 <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=addStandardOperation"/>
+                                  <value class="uiLocator" uri="ui:locator?name=addOperation"/>
                                 </argument>
                                 <argument id="interaction">
                                   <value class="uiInteraction" uri="ui:interaction?name=action"/>
@@ -295,80 +239,7 @@
                                   <value class="uiWait" uri="default"/>
                                 </argument>
                                 <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Click the Add Standard Operation button</value>
-                                </argument>
-                                <argument id="autoRetry"/>
-                                <argument id="ieClickMethod">
-                                  <value class="value" valueClass="string">Default</value>
-                                </argument>
-                              </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
-                                  <summary>Whether the mouse should hover over the field before it is clicked.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
-                                  <summary>How the click should be executed for Internet Explorer.</summary>
-                                  <type>
-                                    <choiceType>
-                                      <constraints>
-                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
-                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
-                                      </constraints>
-                                    </choiceType>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="case" testItemId="106">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="107" title="Case: Subcontract Operation">
-                      <arguments>
-                        <argument id="value">
-                          <value class="value" valueClass="string">Subcontract Operation</value>
-                        </argument>
-                        <argument id="caseSensitive">
-                          <value class="value" valueClass="string">No</value>
-                        </argument>
-                        <argument id="alreadyMatched"/>
-                        <argument id="switchValue"/>
-                      </arguments>
-                      <clauses>
-                        <clause name="steps" testItemId="108">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="77" title="Click the Add Subcontract Operation button">
-                              <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=addSubcontractOperation"/>
-                                </argument>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=action"/>
-                                </argument>
-                                <argument id="hover">
-                                  <value class="value" valueClass="boolean">false</value>
-                                </argument>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="beforeWait">
-                                  <value class="uiWait" uri="default"/>
-                                </argument>
-                                <argument id="afterWait">
-                                  <value class="uiWait" uri="default"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Click the Add Subcontract Operation button</value>
+                                  <value class="value" valueClass="string">Click the Add Operation button</value>
                                 </argument>
                                 <argument id="autoRetry"/>
                                 <argument id="ieClickMethod">
@@ -488,7 +359,7 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="79" title="On SF rstk__Woordop page with pageobject Rstk__ Woordop">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="63" title="On SF rstk__Woordop page with pageobject Rstk__ Woordop">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
@@ -815,7 +686,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="134" title="Set Concurrent Seq number">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="65" title="Set Concurrent Seq number">
               <arguments>
                 <argument id="condition">
                   <value class="ne">
@@ -826,9 +697,9 @@
                 </argument>
               </arguments>
               <clauses>
-                <clause name="then" testItemId="135">
+                <clause name="then" testItemId="66">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="136" title="Set the Concurrent Seq field to {ip_concurrentSeq}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="67" title="Set the Concurrent Seq field to {ip_concurrentSeq}">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=concurrentSeq"/>
@@ -1161,10 +1032,10 @@
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="90" title="Set the Run Type select to {ip_runType}">
                       <arguments>
-                        <argument id="locator">
+                        <argument argId="cc51e1d1-a3f2-4185-994a-97789dc9f2b1" id="locator">
                           <value class="uiLocator" uri="ui:locator?name=runType"/>
                         </argument>
-                        <argument id="interaction">
+                        <argument argId="0699acf3-8553-48d5-84d7-2a042b1622ed" id="interaction">
                           <value class="uiInteraction" uri="ui:interaction?name=set"/>
                         </argument>
                         <argument argId="2080e544-80f5-4b45-8b15-5fee95789a68" id="value">
@@ -1256,11 +1127,7 @@
                         <apiParam group="value" name="value" seq="10000" title="Value">
                           <summary>The value to be populated.</summary>
                           <type>
-                            <choiceType>
-                              <constraints>
-                                <valueConstraint name="unrestricted">false</valueConstraint>
-                              </constraints>
-                            </choiceType>
+                            <choiceType/>
                           </type>
                         </apiParam>
                         <apiParam group="value" name="blur" seq="10001" title="Tab off field">
@@ -1310,267 +1177,6 @@
                         </argument>
                         <argument id="interactionDescription">
                           <value class="value" valueClass="string">Set the Run Standard Hours field to {ip_runStandardHours}</value>
-                        </argument>
-                        <argument id="autoRetry"/>
-                      </arguments>
-                      <generatedParameters>
-                        <apiParam group="value" name="value" seq="10000" title="Value">
-                          <summary>The value to be populated.</summary>
-                          <type>
-                            <textType>
-                              <constraints>
-                                <valueConstraint name="mimeType">text/plain</valueConstraint>
-                              </constraints>
-                            </textType>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                          <type>
-                            <booleanType/>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                          <type>
-                            <booleanType/>
-                          </type>
-                        </apiParam>
-                      </generatedParameters>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="128" title="Enter &quot;Machine Stds&quot; Tab details">
-              <arguments>
-                <argument id="condition">
-                  <value class="and">
-                    <lhs class="and">
-                      <lhs class="ne">
-                        <lhs class="variable">
-                          <path element="ip_machineType"/>
-                        </lhs>
-                      </lhs>
-                      <rhs class="ne">
-                        <lhs class="variable">
-                          <path element="ip_machineNumber"/>
-                        </lhs>
-                      </rhs>
-                    </lhs>
-                    <rhs class="ne">
-                      <lhs class="variable">
-                        <path element="ip_standardMachineHours"/>
-                      </lhs>
-                    </rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="129">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="93" title="Click the Machine_ Stds_tab button">
-                      <arguments>
-                        <argument id="locator">
-                          <value class="uiLocator" uri="ui:locator?name=machine_Stds_tab"/>
-                        </argument>
-                        <argument id="interaction">
-                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
-                        </argument>
-                        <argument id="hover">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="captureBefore">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="beforeWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="afterWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Click the Machine_ Stds_tab button</value>
-                        </argument>
-                        <argument id="autoRetry"/>
-                        <argument id="ieClickMethod">
-                          <value class="value" valueClass="string">Default</value>
-                        </argument>
-                      </arguments>
-                      <generatedParameters>
-                        <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
-                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
-                          <type>
-                            <booleanType/>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
-                          <summary>How the click should be executed for Internet Explorer.</summary>
-                          <type>
-                            <choiceType>
-                              <constraints>
-                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
-                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
-                              </constraints>
-                            </choiceType>
-                          </type>
-                        </apiParam>
-                      </generatedParameters>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="94" title="Set the Machine Type select to {ip_machineType}">
-                      <arguments>
-                        <argument id="locator">
-                          <value class="uiLocator" uri="ui:locator?name=machineType"/>
-                        </argument>
-                        <argument id="interaction">
-                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                        </argument>
-                        <argument argId="6a0006a5-b15a-490d-96c4-55a6b51c3848" id="value">
-                          <value class="variable">
-                            <path element="ip_machineType"/>
-                          </value>
-                        </argument>
-                        <argument id="blur">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="pressEnter">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="captureBefore">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="beforeWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="afterWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Set the Machine Type select to {ip_machineType}</value>
-                        </argument>
-                        <argument id="autoRetry"/>
-                      </arguments>
-                      <generatedParameters>
-                        <apiParam group="value" name="value" seq="10000" title="Value">
-                          <summary>The value to be populated.</summary>
-                          <type>
-                            <choiceType>
-                              <constraints>
-                                <valueConstraint name="unrestricted">false</valueConstraint>
-                              </constraints>
-                            </choiceType>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                          <type>
-                            <booleanType/>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                          <type>
-                            <booleanType/>
-                          </type>
-                        </apiParam>
-                      </generatedParameters>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="95" title="Set the Machine Number select to {ip_machineNumber}">
-                      <arguments>
-                        <argument id="locator">
-                          <value class="uiLocator" uri="ui:locator?name=machineNumber"/>
-                        </argument>
-                        <argument id="interaction">
-                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                        </argument>
-                        <argument id="value">
-                          <value class="variable">
-                            <path element="ip_machineNumber"/>
-                          </value>
-                        </argument>
-                        <argument id="blur">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="pressEnter">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="captureBefore">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="beforeWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="afterWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Set the Machine Number select to {ip_machineNumber}</value>
-                        </argument>
-                        <argument id="autoRetry"/>
-                      </arguments>
-                      <generatedParameters>
-                        <apiParam group="value" name="value" seq="10000" title="Value">
-                          <summary>The value to be populated.</summary>
-                          <type>
-                            <choiceType/>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                          <type>
-                            <booleanType/>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                          <type>
-                            <booleanType/>
-                          </type>
-                        </apiParam>
-                      </generatedParameters>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="96" title="Set the Standard Machine Hours field to {ip_standardMachineHours}">
-                      <arguments>
-                        <argument id="locator">
-                          <value class="uiLocator" uri="ui:locator?name=standardMachineHours"/>
-                        </argument>
-                        <argument id="interaction">
-                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                        </argument>
-                        <argument argId="a0d6873b-32b7-484e-ac7a-dd87759f8b4e" id="value">
-                          <value class="variable">
-                            <path element="ip_standardMachineHours"/>
-                          </value>
-                        </argument>
-                        <argument id="blur">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="pressEnter">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="captureBefore">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="beforeWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="afterWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Set the Standard Machine Hours field to {ip_standardMachineHours}</value>
                         </argument>
                         <argument id="autoRetry"/>
                       </arguments>
@@ -1705,6 +1311,8 @@
                         <argument id="ieClickMethod">
                           <value class="value" valueClass="string">Default</value>
                         </argument>
+                        <argument id="blur"/>
+                        <argument id="pressEnter"/>
                       </arguments>
                       <generatedParameters>
                         <apiParam group="value" name="ieClickMethod" seq="10000" title="IE Click Method">
@@ -1789,7 +1397,7 @@
     </apiCall>
   </steps>
   <params>
-    <param linkedToUrl="provar:hasvalue:f19dc080-fcca-47fb-bd54-dde848d12900" name="reuseConnectionName" title="Override Connection">
+    <param linkedToUrl="provar:hasvalue:cd1f0f62-3270-4181-a6ca-c173364ea445" name="reuseConnectionName" title="Override Connection">
       <summary>The name of an already opened connect to re-use.</summary>
       <type>
         <connectionType>
@@ -1800,16 +1408,10 @@
         </connectionType>
       </type>
     </param>
-    <param linkedToUrl="provar:hasvalue:073b5412-dadd-495b-ad8a-e233860ca327" name="ip_RecordID" title="Record Id">
+    <param linkedToUrl="provar:hasvalue:d3e7c02e-46d0-4eb8-8102-a272a501de5c" name="ip_recordID" title="Record ID">
       <summary>The Id of the SF Object to be Viewed or Edited.</summary>
       <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
+        <textType/>
       </type>
     </param>
     <param name="ip_operationType" title="Operation Type">
@@ -1920,7 +1522,7 @@
         </textType>
       </type>
     </param>
-    <param linkedToUrl="provar:hasvalue:6a0006a5-b15a-490d-96c4-55a6b51c3848" name="ip_machineType" title="MachineType">
+    <param linkedToUrl="provar:hasvalue:6a0006a5-b15a-490d-96c4-55a6b51c3848" name="ip_machineType" title="Machine Type">
       <summary>The value to be populated.</summary>
       <type>
         <choiceType>
@@ -1930,14 +1532,10 @@
         </choiceType>
       </type>
     </param>
-    <param linkedToUrl="provar:hasvalue:6a0006a5-b15a-490d-96c4-55a6b51c3848" name="ip_machineNumber" title="Machine Number">
+    <param linkedToUrl="provar:hasvalue:e0a2ebf5-1fdd-4d07-86df-dfaabe89d0b2" name="ip_machineNumber" title="Machine Number">
       <summary>The value to be populated.</summary>
       <type>
-        <choiceType>
-          <constraints>
-            <valueConstraint name="unrestricted">false</valueConstraint>
-          </constraints>
-        </choiceType>
+        <choiceType/>
       </type>
     </param>
     <param linkedToUrl="provar:hasvalue:a0d6873b-32b7-484e-ac7a-dd87759f8b4e" name="ip_standardMachineHours" title="Standard Machine Hours">
@@ -1950,70 +1548,98 @@
         </textType>
       </type>
     </param>
-    <param linkedToUrl="provar:hasvalue:1af622d3-7fec-46cc-9eff-56381954f821" name="ip_allowAcceptFlagStatus" title="Allow Accept">
-      <summary>The control to be set.</summary>
+    <param name="ip_allowAcceptFlagStatus" title="Allow Accept Flag Status">
+      <summary/>
       <type>
-        <uiInteractionType>
-          <constraints>
-            <valueConstraint name="operations"/>
-          </constraints>
-        </uiInteractionType>
+        <booleanType/>
       </type>
     </param>
   </params>
   <args>
     <argument id="reuseConnectionName"/>
-    <argument id="ip_RecordID">
-      <value class="value" valueClass="string">a8F1K000000PJY9</value>
+    <argument id="ip_recordID">
+      <value class="variable">
+        <path element="ip_recordID"/>
+      </value>
     </argument>
     <argument id="ip_operationType">
       <value class="value" valueClass="string">Standard Operation</value>
     </argument>
     <argument id="ip_operationNumber">
-      <value class="value" valueClass="string">10</value>
+      <value class="variable">
+        <path element="ip_operationNumber"/>
+      </value>
     </argument>
     <argument id="ip_description">
-      <value class="value" valueClass="string">Test</value>
+      <value class="variable">
+        <path element="ip_description"/>
+      </value>
     </argument>
     <argument id="ip_process">
-      <value class="value" valueClass="string">PK_PR21.98 (21.98)</value>
+      <value class="variable">
+        <path element="ip_process"/>
+      </value>
     </argument>
     <argument id="ip_workCenter">
-      <value class="value" valueClass="string">PK_WC21.98 (WC 21.98)</value>
+      <value class="variable">
+        <path element="ip_workCenter"/>
+      </value>
     </argument>
     <argument id="ip_assignedTo">
-      <value class="value" valueClass="string">Mayur Suryawanshi</value>
+      <value class="variable">
+        <path element="ip_assignedTo"/>
+      </value>
     </argument>
     <argument id="ip_setupType">
-      <value class="value" valueClass="string">Per Batch</value>
+      <value class="variable">
+        <path element="ip_setupType"/>
+      </value>
     </argument>
     <argument id="ip_setupLaborGrade">
-      <value class="value" valueClass="string">LG 25</value>
+      <value class="variable">
+        <path element="ip_setupLaborGrade"/>
+      </value>
     </argument>
     <argument id="ip_setupStandardHours">
-      <value class="value" valueClass="string">1</value>
+      <value class="variable">
+        <path element="ip_setupStandardHours"/>
+      </value>
     </argument>
     <argument id="ip_runType">
-      <value class="value" valueClass="string">Per Batch</value>
+      <value class="variable">
+        <path element="ip_runType"/>
+      </value>
+    </argument>
+    <argument id="ip_concurrentSeq">
+      <value class="variable">
+        <path element="ip_concurrentSeq"/>
+      </value>
     </argument>
     <argument id="ip_runLaborGrade">
-      <value class="value" valueClass="string">LG 25</value>
+      <value class="variable">
+        <path element="ip_runLaborGrade"/>
+      </value>
     </argument>
     <argument id="ip_runStandardHours">
-      <value class="value" valueClass="string">1</value>
-    </argument>
-    <argument id="ip_machineNumber">
-      <value class="value" valueClass="string">Per Batch</value>
+      <value class="variable">
+        <path element="ip_runStandardHours"/>
+      </value>
     </argument>
     <argument id="ip_machineType">
-      <value class="value" valueClass="string">Per Batch</value>
+      <value class="variable">
+        <path element="ip_machineType"/>
+      </value>
+    </argument>
+    <argument id="ip_machineNumber">
+      <value class="variable">
+        <path element="ip_machineNumber"/>
+      </value>
     </argument>
     <argument id="ip_standardMachineHours">
-      <value class="value" valueClass="string">1</value>
+      <value class="variable">
+        <path element="ip_standardMachineHours"/>
+      </value>
     </argument>
-    <argument id="ip_allowAcceptFlagStatus">
-      <value class="value" valueClass="string">false</value>
-    </argument>
-    <argument id="ip_concurrentSeq"/>
+    <argument id="ip_allowAcceptFlagStatus"/>
   </args>
 </testCase>

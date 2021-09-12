@@ -164,7 +164,7 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
+                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
                 </argument>
                 <argument id="afterWait">
                   <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
@@ -244,7 +244,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="44" title="Set the Lot Number field to P-LOT_{UniqueId(6, NUMERIC)}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="44" title="Set the Lot Number field to P-LOT_{DateFormat(TODAY, &quot;DDMMYYYY&quot;)}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=lotNumber"/>
@@ -262,7 +262,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Lot Number field to P-LOT_{UniqueId(6, NUMERIC)}</value>
+                  <value class="value" valueClass="string">Set the Lot Number field to P-LOT_{DateFormat(TODAY, "DDMMYYYY")}</value>
                 </argument>
                 <argument id="autoRetry"/>
                 <argument id="interaction">
@@ -272,14 +272,14 @@
                   <value class="compound">
                     <parts>
                       <value valueClass="string">P-LOT_</value>
-                      <funcCall id="UniqueId">
-                        <argument id="length">
-                          <value class="value" valueClass="decimal">6</value>
-                        </argument>
-                        <argument id="format">
+                      <funcCall id="DateFormat">
+                        <argument id="date">
                           <value class="variable">
-                            <path element="NUMERIC"/>
+                            <path element="TODAY"/>
                           </value>
+                        </argument>
+                        <argument id="outputFormat">
+                          <value class="value" valueClass="string">DDMMYYYY</value>
                         </argument>
                       </funcCall>
                     </parts>
@@ -391,7 +391,7 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
+                  <value class="value" valueClass="string">true</value>
                 </argument>
                 <argument id="beforeWait">
                   <value class="uiWait" uri="default"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="8">
+<testCase id="23">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="62" title="Salesforce Connect: SFConnection (Test)">
@@ -121,6 +121,18 @@
                   <value class="variable">
                     <path element="op_DisassemblyExcelRow"/>
                     <path element="ProjectName"/>
+                  </value>
+                </argument>
+                <argument id="ip_DWONumber">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">Pro-DWO_</value>
+                      <funcCall id="UniqueId">
+                        <argument id="length">
+                          <value class="value" valueClass="decimal">5</value>
+                        </argument>
+                      </funcCall>
+                    </parts>
                   </value>
                 </argument>
               </arguments>
@@ -430,11 +442,7 @@
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConn</value>
                 </argument>
-                <argument id="ip_RecordID">
-                  <value class="variable">
-                    <path element="ip_RecordID"/>
-                  </value>
-                </argument>
+                <argument id="ip_RecordID"/>
                 <argument id="ip_isDisassemblyWO">
                   <value class="value" valueClass="string">true</value>
                 </argument>
@@ -511,7 +519,15 @@
                 <argument id="ip_isDisassemblyWO">
                   <value class="value" valueClass="string">true</value>
                 </argument>
+                <argument id="ip_laborWO">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
               </arguments>
+              <outputArguments>
+                <outputArgument id="op_orderStatus">
+                  <name class="value" valueClass="string">op_orderStatus</name>
+                </outputArgument>
+              </outputArguments>
             </caseCall>
             <caseCall testCaseId="2d0f3878-f0c7-4d41-812c-cced049759c7" testCasePath="tests/Work Order/Callable/Reverse WO Close.testcase" testItemId="143">
               <arguments>
@@ -522,7 +538,15 @@
                 <argument id="ip_isDisassemblyWO">
                   <value class="value" valueClass="string">true</value>
                 </argument>
+                <argument id="ip_laborWO">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
               </arguments>
+              <outputArguments>
+                <outputArgument id="op_orderStatus">
+                  <name class="value" valueClass="string">op_orderStatus</name>
+                </outputArgument>
+              </outputArguments>
             </caseCall>
             <caseCall testCaseId="859b933d-a05c-4af5-930e-c273849b1d49" testCasePath="tests/Work Order/Callable/Reverse Derived Components.testcase" testItemId="144">
               <arguments>

@@ -170,7 +170,7 @@
       <clauses>
         <clause name="substeps" testItemId="20">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="21" title="Set the Order Number field to Pro-DWO{UniqueId(5)}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="21" title="Set the Order Number field to {ip_DWONumber}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=orderNumber"/>
@@ -178,16 +178,9 @@
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
-                <argument id="value">
-                  <value class="compound">
-                    <parts>
-                      <value valueClass="string">Pro-DWO</value>
-                      <funcCall id="UniqueId">
-                        <argument id="length">
-                          <value class="value" valueClass="decimal">5</value>
-                        </argument>
-                      </funcCall>
-                    </parts>
+                <argument argId="befbf4e9-eed9-44d7-a748-24301a2f6430" id="value">
+                  <value class="variable">
+                    <path element="ip_DWONumber"/>
                   </value>
                 </argument>
                 <argument id="blur">
@@ -209,7 +202,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Order Number field to Pro-DWO{UniqueId(5)}</value>
+                  <value class="value" valueClass="string">Set the Order Number field to {ip_DWONumber}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
@@ -488,7 +481,7 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
+                  <value class="value" valueClass="string">true</value>
                 </argument>
                 <argument id="beforeWait">
                   <value class="uiWait" uri="default"/>
@@ -639,6 +632,16 @@
         </connectionType>
       </type>
     </param>
+    <param linkedToUrl="provar:hasvalue:befbf4e9-eed9-44d7-a748-24301a2f6430" name="ip_DWONumber" title="WO number">
+      <summary>The value to be populated.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="mimeType">text/plain</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+    </param>
     <param name="ipDisItem" title="Disassembly Item Name">
       <summary/>
       <type>
@@ -723,6 +726,18 @@
     <argument id="ipProject">
       <value class="variable">
         <path element="ipProject"/>
+      </value>
+    </argument>
+    <argument id="ip_DWONumber">
+      <value class="compound">
+        <parts>
+          <value valueClass="string">Pro-DWO_</value>
+          <funcCall id="UniqueId">
+            <argument id="length">
+              <value class="value" valueClass="decimal">5</value>
+            </argument>
+          </funcCall>
+        </parts>
       </value>
     </argument>
   </args>
