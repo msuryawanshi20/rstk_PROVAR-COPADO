@@ -7,10 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
 import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
 import com.provar.core.testapi.annotations.ChoiceListType;
 import com.provar.core.testapi.annotations.FindByLabel;
+import com.provar.core.testapi.annotations.PageWait;
 import com.provar.core.testapi.annotations.PageWaitAfter;
 import com.provar.core.testapi.annotations.SalesforcePage;
 import com.provar.core.testapi.annotations.TextType;
@@ -226,6 +228,8 @@ public class rstk__Wocst {
 	@FindBy(xpath = "//label[normalize-space(.)='Rework']/parent::span/parent::th/following-sibling::td//input")
 	public WebElement rework;
 	
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@PageWait.Field(timeoutSeconds = 10)
 	@BooleanType()
 	@FindBy(xpath = "//label[normalize-space(.)='Refurb']/parent::span/parent::th/following-sibling::td//input")
 	public WebElement refurb;
@@ -252,6 +256,18 @@ public class rstk__Wocst {
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Extract Components']")
 	public WebElement extractComponets1	;
+
+public void selectComponent(String Component) {
+	
+	driver.findElement(By.xpath("//div[@id='selectRefurb']//table[@class='list']//tbody//tr/td[contains(text(),'"+Component+"')]/parent::tr//td[1]/input[1]")).click();
+	
+	
+}
+
+@ButtonType()
+@FindBy(xpath = "//div[@id='selectRefurb']/div[@id='issueBtns']/p/input")
+public WebElement oK;	
+
 	
 }
 

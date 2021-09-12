@@ -26,6 +26,7 @@ public class rstk__Woordop {
 	@TextType()
 	@FindBy(xpath = "//label[normalize-space(.)='Description']/parent::span/parent::th/following-sibling::td[1]//input")
 	public WebElement description;
+	
 
 	@ChoiceListType()
 	@FindBy(xpath = "//label[normalize-space(.)='Process']/parent::span/parent::th/following-sibling::td[1]//select")
@@ -38,6 +39,11 @@ public class rstk__Woordop {
 	@ChoiceListType()
 	@FindBy(xpath = "//label[normalize-space(.)='Assigned To']/parent::span/parent::th/following-sibling::td[1]//select")
 	public WebElement assignedTo;
+
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='Concurrent Seq']/parent::span/parent::th/following-sibling::td[1]//input")
+	public WebElement concurrentSeq;
+
 
 	@ButtonType
 	@FindBy(xpath = "//*[contains(@id,'tab_Labor_Stds_lbl')]")
@@ -92,6 +98,7 @@ public class rstk__Woordop {
 	public WebElement options_Tab;
 
 
+	@BooleanType
 	@FindBy(xpath = "//*[contains(@name,'allowaccind')]")
 	public WebElement allowAcceptFlag;
 

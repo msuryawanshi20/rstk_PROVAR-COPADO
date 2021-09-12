@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="1">
+<testCase failureBehaviour="Continue" id="26">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -179,10 +179,10 @@
                                       <namedValue name="value">
                                         <value class="compound">
                                           <parts>
-                                            <value valueClass="string">Pro-</value>
+                                            <value valueClass="string">Pro-Reg_</value>
                                             <funcCall id="UniqueId">
                                               <argument id="length">
-                                                <value class="value" valueClass="decimal">4</value>
+                                                <value class="value" valueClass="decimal">5</value>
                                               </argument>
                                             </funcCall>
                                           </parts>
@@ -317,12 +317,7 @@
                         <argument id="reuseConnectionName">
                           <value class="value" valueClass="string">SFConnection</value>
                         </argument>
-                        <argument id="ip_RecordID">
-                          <value class="variable">
-                            <path element="op_WORecID"/>
-                            <path element="ID"/>
-                          </value>
-                        </argument>
+                        <argument id="ip_RecordID"/>
                       </arguments>
                     </caseCall>
                   </steps>
@@ -705,6 +700,12 @@
                                                 <argument id="ip_allowAcceptFlagStatus">
                                                   <value class="value" valueClass="string">false</value>
                                                 </argument>
+                                                <argument id="ip_concurrentSeq">
+                                                  <value class="variable">
+                                                    <path element="op_operationExcelDataRow"/>
+                                                    <path element="ConcurrentSeq"/>
+                                                  </value>
+                                                </argument>
                                               </arguments>
                                             </caseCall>
                                           </steps>
@@ -738,6 +739,11 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
               </arguments>
+              <outputArguments>
+                <outputArgument id="op_orderStatus">
+                  <name class="value" valueClass="string">op_orderStatus</name>
+                </outputArgument>
+              </outputArguments>
             </caseCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="103" title="Generate Picklist">
               <arguments>
@@ -758,6 +764,9 @@
                             <path element="op_WORecID"/>
                             <path element="ID"/>
                           </value>
+                        </argument>
+                        <argument id="ip_isDisassemblyWO">
+                          <value class="value" valueClass="string">false</value>
                         </argument>
                       </arguments>
                     </caseCall>
@@ -783,6 +792,9 @@
                           <value class="variable">
                             <path element="op_OrderNumber"/>
                           </value>
+                        </argument>
+                        <argument id="ip_isDisassemblyWO">
+                          <value class="value" valueClass="string">false</value>
                         </argument>
                       </arguments>
                     </caseCall>
@@ -1148,7 +1160,18 @@
                             <path element="ID"/>
                           </value>
                         </argument>
+                        <argument id="ip_isDisassemblyWO">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="ip_laborWO">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
                       </arguments>
+                      <outputArguments>
+                        <outputArgument id="op_orderStatus">
+                          <name class="value" valueClass="string">op_orderStatus</name>
+                        </outputArgument>
+                      </outputArguments>
                     </caseCall>
                   </steps>
                 </clause>
@@ -1174,7 +1197,18 @@
                             <path element="ID"/>
                           </value>
                         </argument>
+                        <argument id="ip_isDisassemblyWO">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="ip_laborWO">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
                       </arguments>
+                      <outputArguments>
+                        <outputArgument id="op_orderStatus">
+                          <name class="value" valueClass="string">op_orderStatus</name>
+                        </outputArgument>
+                      </outputArguments>
                     </caseCall>
                   </steps>
                 </clause>
