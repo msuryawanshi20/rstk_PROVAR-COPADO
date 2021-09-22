@@ -170,7 +170,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="32" title="Set the Packing Slip Number field to NP-{UniqueId(3)}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="32" title="Set the Packing Slip Number field to NP-{OrdNo}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=packingSlipNumber"/>
@@ -182,11 +182,9 @@
                   <value class="compound">
                     <parts>
                       <value valueClass="string">NP-</value>
-                      <funcCall id="UniqueId">
-                        <argument id="length">
-                          <value class="value" valueClass="decimal">3</value>
-                        </argument>
-                      </funcCall>
+                      <variable>
+                        <path element="OrdNo"/>
+                      </variable>
                     </parts>
                   </value>
                 </argument>
@@ -209,7 +207,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Packing Slip Number field to NP-{UniqueId(3)}</value>
+                  <value class="value" valueClass="string">Set the Packing Slip Number field to NP-{OrdNo}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>

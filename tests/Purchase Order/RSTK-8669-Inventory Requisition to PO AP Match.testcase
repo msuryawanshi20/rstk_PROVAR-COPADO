@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="22">
+<testCase id="41">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -23,7 +23,7 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument id="reuseConnectionName">
-          <value class="value" valueClass="string"/>
+          <value class="value"/>
         </argument>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Fail</value>
@@ -62,7 +62,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">InventoryRequisition</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -73,9 +73,7 @@
     <caseCall testCaseId="3bfbbbb1-be95-4aad-8109-3df71120f165" testCasePath="tests/Purchase Order/Callable/InventoryRequistion.testcase" testItemId="4">
       <arguments>
         <argument id="reuseConnectionName">
-          <value class="variable">
-            <path element="reuseConnectionName"/>
-          </value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="List">
           <value class="variable">
@@ -87,9 +85,7 @@
     <caseCall testCaseId="5d5640c7-1f23-4912-aa26-454d5d98c583" testCasePath="tests/Purchase Order/Callable/ICREQWorkbench.testcase" testItemId="5">
       <arguments>
         <argument id="reuseConnectionName">
-          <value class="variable">
-            <path element="reuseConnectionName"/>
-          </value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="List">
           <value class="variable">
@@ -106,6 +102,9 @@
         </outputArgument>
         <outputArgument id="OrderNumber">
           <name class="value" valueClass="string">OrderNumber</name>
+        </outputArgument>
+        <outputArgument id="POTotal">
+          <name class="value" valueClass="string">POTotal</name>
         </outputArgument>
       </outputArguments>
     </caseCall>
@@ -138,6 +137,11 @@
         </argument>
         <argument id="Vendor">
           <value class="value" valueClass="string">SB-24808 (1103)</value>
+        </argument>
+        <argument id="INVAmt">
+          <value class="variable">
+            <path element="POTotal"/>
+          </value>
         </argument>
       </arguments>
       <outputArguments>

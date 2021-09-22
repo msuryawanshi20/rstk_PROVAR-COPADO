@@ -2,6 +2,8 @@ package pageobjects;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -15,6 +17,14 @@ import com.provar.core.testapi.annotations.*;
                , connection="QARSFAdmin"
      )             
 public class rstkf__paysession {
+
+	public WebDriver driver;
+	
+		public rstkf__paysession(WebDriver driver) {
+
+		this.driver = driver;
+		// TODO Auto-generated constructor stub
+	}
 
 	@TextType()
 	@FindBy(xpath = "//label[normalize-space(.)='Payment Date']/parent::th/following-sibling::td//input")
@@ -92,4 +102,38 @@ public class rstkf__paysession {
 	@FindBy(xpath = "//th[contains(text(),'Session Status')]/parent::tr//preceding-sibling::td/span")
 	public WebElement sessionStatus;
 	
-}
+	public void chkbox(String Inv) throws InterruptedException
+		{
+			
+			//String Inv1=Inv;
+			//driver.findElement(By.xpath("//input[@value='Select for Payment by Invoice']")).click();
+			Thread.sleep(15000);
+				
+				int count=0;
+				
+				while(true){
+					
+					count++;
+					List<WebElement> namesInvoices=driver.findElements(By.xpath("//a[contains(text(),'"+Inv+"')]/ancestor::tr[1]//input"));
+					if(namesInvoices.size()==0){
+						Boolean buttonvisible=driver.findElement(By.xpath("(//a[text()='Next'])[last()]")).isDisplayed();
+						if(buttonvisible){
+							driver.findElement(By.xpath("(//a[text()='Next'])[last()]")).click();
+							Thread.sleep(10000);
+						}
+						else{
+							System.out.println("Text not found");
+							break;
+							}
+					}
+					else
+					{
+						driver.findElement(By.xpath("//a[contains(text(),'"+Inv+"')]/ancestor::tr[1]//input")).click();
+						break;
+					}
+					}
+	
+	}
+	}
+	
+

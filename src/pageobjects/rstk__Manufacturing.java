@@ -153,5 +153,9 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Cost Transaction Query']")
 	public WebElement costTransactionQuery;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Time and Qty Booking Reversal']")
+	public WebElement timeAndQtyBookingReversal;
 }
 

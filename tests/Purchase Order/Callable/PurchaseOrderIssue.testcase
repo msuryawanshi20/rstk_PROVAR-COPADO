@@ -350,12 +350,12 @@
               <clauses>
                 <clause name="then" testItemId="47">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="48" title="SOQL Query: SELECT Id,rstk__poline_item__c,rstk__poline_ordno__c FROM rstk__poline__c WHERE rstk__poline_ordno__c = '{POHDRID}'  and rstk__poline_potype__c = 'Subcontract'=&gt;poline">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="48" title="SOQL Query: SELECT Id,rstk__poline_item__c,rstk__poline_ordno__c,rstk__poline_qtyreq__c FROM rstk__poline__c WHERE rstk__poline_ordno__c = '{POHDRID}'  and rstk__poline_potype__c = 'Subcontract'=&gt;poline">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
                             <parts>
-                              <value valueClass="string">SELECT Id,rstk__poline_item__c,rstk__poline_ordno__c FROM rstk__poline__c WHERE rstk__poline_ordno__c = '</value>
+                              <value valueClass="string">SELECT Id,rstk__poline_item__c,rstk__poline_ordno__c,rstk__poline_qtyreq__c FROM rstk__poline__c WHERE rstk__poline_ordno__c = '</value>
                               <variable>
                                 <path element="POHDRID"/>
                               </variable>
@@ -615,7 +615,7 @@
                           <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="beforeWait">
-                          <value class="uiWait" uri="default"/>
+                          <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
                         </argument>
                         <argument id="afterWait">
                           <value class="uiWait" uri="default"/>
@@ -687,7 +687,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="38" title="Set the Issueqty field to {POIssuedata.Quantity}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="38" title="Set the Issueqty field to {poline.rstk__poline_qtyreq__c}">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=issueqty"/>
@@ -697,8 +697,8 @@
                         </argument>
                         <argument argId="dc4a8d5c-1a84-436a-a54a-5929781ffa01" id="value">
                           <value class="variable">
-                            <path element="POIssuedata"/>
-                            <path element="Quantity"/>
+                            <path element="poline"/>
+                            <path element="rstk__poline_qtyreq__c"/>
                           </value>
                         </argument>
                         <argument id="blur">
@@ -720,7 +720,7 @@
                           <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Set the Issueqty field to {POIssuedata.Quantity}</value>
+                          <value class="value" valueClass="string">Set the Issueqty field to {poline.rstk__poline_qtyreq__c}</value>
                         </argument>
                         <argument id="autoRetry"/>
                       </arguments>
