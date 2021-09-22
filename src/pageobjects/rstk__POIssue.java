@@ -79,7 +79,7 @@ public class rstk__POIssue {
 
 		Thread.sleep(2000);
 
-		List <WebElement> option = driver.findElements(By.xpath("//select/option[@value='" + Item + "')]"));
+		List <WebElement> option = driver.findElements(By.xpath("//select/option[@value='" + Item + "']"));
 //				By.xpath("//select/option[contains(text(),'" + Item + "')]"));
 				
 		for(int i=0;i<option.size();i++)

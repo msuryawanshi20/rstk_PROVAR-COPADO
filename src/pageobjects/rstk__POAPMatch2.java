@@ -61,5 +61,11 @@ public class rstk__POAPMatch2 {
 	@TextType()
 	@FindBy(xpath = "//span[normalize-space(.)='Batch 579 closed successfully.']//td/div")
 	public WebElement batchclosests;
+	@TextType()
+	@FindBy(xpath = "//input[@id='addGLLine']")
+	public WebElement addGLLine;
+	@TextType()
+	@FindBy(xpath = "//label[contains(text(),'Amount Remaining')]/parent::th/following::td/span")
+	public WebElement amountRemaining;
 	
 }

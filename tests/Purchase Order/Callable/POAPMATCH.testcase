@@ -189,7 +189,7 @@
       <clauses>
         <clause name="substeps" testItemId="6">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="7" title="Set the POAP Vendor field to {TestData.Vendor}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="7" title="Set the POAP Vendor field to {Vendor}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=POAPVendor"/>
@@ -199,7 +199,6 @@
                 </argument>
                 <argument argId="9a7acee4-bf18-471d-abaa-62a357c3edcc" id="value">
                   <value class="variable">
-                    <path element="TestData"/>
                     <path element="Vendor"/>
                   </value>
                 </argument>
@@ -222,7 +221,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the POAP Vendor field to {TestData.Vendor}</value>
+                  <value class="value" valueClass="string">Set the POAP Vendor field to {Vendor}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
@@ -451,7 +450,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="12" title="Set the Vendor Invoice Number field to NPAuto-{UniqueId(2, NUMERIC)}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="12" title="Set the Vendor Invoice Number field to NPAuto-{OrderNumber}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=vendorInvoiceNumber"/>
@@ -463,16 +462,9 @@
                   <value class="compound">
                     <parts>
                       <value valueClass="string">NPAuto-</value>
-                      <funcCall id="UniqueId">
-                        <argument id="length">
-                          <value class="value" valueClass="decimal">2</value>
-                        </argument>
-                        <argument id="format">
-                          <value class="variable">
-                            <path element="NUMERIC"/>
-                          </value>
-                        </argument>
-                      </funcCall>
+                      <variable>
+                        <path element="OrderNumber"/>
+                      </variable>
                     </parts>
                   </value>
                 </argument>
@@ -495,7 +487,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Vendor Invoice Number field to NPAuto-{UniqueId(2, NUMERIC)}</value>
+                  <value class="value" valueClass="string">Set the Vendor Invoice Number field to NPAuto-{OrderNumber}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
@@ -596,7 +588,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="14" title="Set the Total Invoice Amount field to 2061.81">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="14" title="Set the Total Invoice Amount field to {INVAmt}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=totalInvoiceAmount"/>
@@ -604,8 +596,10 @@
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
-                <argument id="value">
-                  <value class="value" valueClass="string">2061.81</value>
+                <argument argId="b18e11c1-420d-42f7-b703-fe2268c739d5" id="value">
+                  <value class="variable">
+                    <path element="INVAmt"/>
+                  </value>
                 </argument>
                 <argument id="blur">
                   <value class="value" valueClass="boolean">false</value>
@@ -626,7 +620,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Total Invoice Amount field to 2061.81</value>
+                  <value class="value" valueClass="string">Set the Total Invoice Amount field to {INVAmt}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
@@ -637,6 +631,9 @@
                     <textType>
                       <constraints>
                         <valueConstraint name="mimeType">text/plain</valueConstraint>
+                        <valueConstraint name="minLength">0</valueConstraint>
+                        <valueConstraint name="maxLength">9999</valueConstraint>
+                        <valueConstraint name="regex"/>
                       </constraints>
                     </textType>
                   </type>
@@ -812,6 +809,131 @@
                   </value>
                 </argument>
               </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="25" title="Read Amount Remaining">
+              <arguments>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">amtrem</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="fieldAssertions">
+                  <value class="valueList" mutable="Mutable">
+                    <uiFieldAssertion resultName="amountRemaining">
+                      <fieldLocator uri="ui:locator?name=amountRemaining"/>
+                      <attributeAssertions>
+                        <uiAttributeAssertion attributeName="value" comparisonType="None"/>
+                      </attributeAssertions>
+                    </uiFieldAssertion>
+                  </value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="columnAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="pageAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="autoRetry"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="26" title="Set Values: AmtRemaining">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">AmtRemaining</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="amtrem"/>
+                          <path element="fields"/>
+                          <path element="amountRemaining"/>
+                          <path element="value"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="27" title="If: {AmtRemaining &gt; 0}">
+              <arguments>
+                <argument id="condition">
+                  <value class="gt">
+                    <lhs class="variable">
+                      <path element="AmtRemaining"/>
+                    </lhs>
+                    <rhs class="value" valueClass="decimal">0</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="33">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="29" title="Click the Add GL Line field">
+                      <tags/>
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=addGLLine"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Click the Add GL Line field</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                        <argument id="ieClickMethod">
+                          <value class="value" valueClass="string">Default</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                          <summary>How the click should be executed for Internet Explorer.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="16" title="Click the Submit button">
               <arguments>
@@ -1038,12 +1160,15 @@
         </connectionType>
       </type>
     </param>
-    <param linkedToUrl="provar:hasvalue:d56fc30c-1516-4bc0-9545-7ce1b71e6698" name="OrderNumber" title="Value">
+    <param linkedToUrl="provar:hasvalue:d56fc30c-1516-4bc0-9545-7ce1b71e6698" name="OrderNumber" title="OrderNumber">
       <summary>The value to be populated.</summary>
       <type>
         <textType>
           <constraints>
             <valueConstraint name="mimeType">text/plain</valueConstraint>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
           </constraints>
         </textType>
       </type>
@@ -1054,6 +1179,19 @@
         <textType>
           <constraints>
             <valueConstraint name="mimeType">text/plain</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param linkedToUrl="provar:hasvalue:b18e11c1-420d-42f7-b703-fe2268c739d5" name="INVAmt" title="INVAmt">
+      <summary>The value to be populated.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="mimeType">text/plain</valueConstraint>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
           </constraints>
         </textType>
       </type>
@@ -1106,6 +1244,11 @@
       <value class="variable">
         <path element="TestData"/>
         <path element="Vendor"/>
+      </value>
+    </argument>
+    <argument id="INVAmt">
+      <value class="variable">
+        <path element="POTotal"/>
       </value>
     </argument>
   </args>

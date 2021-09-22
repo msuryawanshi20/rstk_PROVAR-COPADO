@@ -61,7 +61,9 @@
             <apiParam name="Podmddimval"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
+            <workbookPath class="variable">
+              <path element="POUIExcelPath"/>
+            </workbookPath>
             <worksheetName class="value" valueClass="string">MultiplePOLine</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>

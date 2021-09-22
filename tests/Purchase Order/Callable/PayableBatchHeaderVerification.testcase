@@ -47,6 +47,32 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="4" title="Set Values: INVNO">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">INVNO</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="compound">
+                  <parts>
+                    <value valueClass="string">NPAuto-</value>
+                    <variable>
+                      <path element="ORDNO"/>
+                    </variable>
+                  </parts>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="2" title="SOQL Query: select Id,Name,rstk__ttaphdr_batchno__c,rstk__ttaphdr_dimvals__c,rstk__ttaphdr_invoice_status__c ,rstk__ttaphdr_invtotalmcurr__c,rstk__ttaphdr_glperiod__c from rstk__ttaphdr__c where Name like '{INVNO}%'=&gt;ttaphdr">
       <arguments>
         <argument argId="d73a0fa6-8bef-490d-85af-469fe8643cec" id="soqlQuery">
@@ -121,7 +147,7 @@
         </connectionType>
       </type>
     </param>
-    <param name="INVNO" title="INVNO">
+    <param name="ORDNO" title="ORDNO">
       <summary>The Apex code to be executed.</summary>
       <type>
         <textType>
@@ -162,12 +188,12 @@
         <path element="reuseConnectionName"/>
       </value>
     </argument>
-    <argument id="INVNO"/>
     <argument id="BatchNo"/>
     <argument id="POTotal">
       <value class="variable">
         <path element="POTotal"/>
       </value>
     </argument>
+    <argument id="ORDNO"/>
   </args>
 </testCase>

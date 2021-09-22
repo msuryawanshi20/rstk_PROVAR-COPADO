@@ -178,6 +178,9 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="43" title="Assert: {Round(ExpectedResult[rownum].UnitPrice, 2)} EqualTo {porcptap.rstk__porcptap_upricercpt__c}">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">

@@ -2,9 +2,10 @@ package pageobjects;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
+import com.provar.core.testapi.annotations.ButtonType;
 import com.provar.core.testapi.annotations.LinkType;
 import com.provar.core.testapi.annotations.Page;
+import com.provar.core.testapi.annotations.PageFrame;
 import com.provar.core.testapi.annotations.TextType;
 
 @Page( title="rstk__icitemsiteproj_item_c"                                
@@ -41,6 +42,30 @@ public class Rstk__icitemsiteproj_item_c {
 	@TextType()
 	@FindBy(xpath = "//*[text()='Net Qty Available']//following::td[1]")
 	public WebElement netQtyAvailable;
+	@PageFrame()
+	public static class Frame {
+
+		@TextType()
+		@FindBy(xpath = "//input[@id='input-5']")
+		public WebElement invnumber;
+		@TextType()
+		@FindBy(xpath = "//input[@id='input-9']")
+		public WebElement invdate;
+		@TextType()
+		@FindBy(xpath = "//input[@id='input-14']")
+		public WebElement invamt;
+		@ButtonType()
+		@FindBy(xpath = "//button[normalize-space(.)='Next']")
+		public WebElement next;
+		@TextType()
+		@FindBy(xpath = "//span[normalize-space(.)='ProcessingComplete']")
+		public WebElement displayValue;
+		@LinkType()
+		@FindBy(xpath = "//a[normalize-space(.)='Check Match Status']")
+		public WebElement displayValue1;
+	}
+	@FindBy(xpath = "//iframe[contains(@id,'itarget')]")
+	public Frame frame;
 
 	
 }
