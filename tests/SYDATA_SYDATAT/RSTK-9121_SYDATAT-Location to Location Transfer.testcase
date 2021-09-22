@@ -274,6 +274,11 @@
                                         <path element="op_ExcelDataRow"/>
                                         <path element="FromLotNo"/>
                                       </variable>
+                                      <value valueClass="string">' and rstk__iclocitem_proj__c='</value>
+                                      <variable>
+                                        <path element="op_ExcelDataRow"/>
+                                        <path element="FromProject"/>
+                                      </variable>
                                       <value valueClass="string">' limit </value>
                                       <variable>
                                         <path element="op_ExcelDataRow"/>
@@ -321,6 +326,11 @@
                                       <variable>
                                         <path element="op_ExcelDataRow"/>
                                         <path element="FromLocNo"/>
+                                      </variable>
+                                      <value valueClass="string">' and rstk__iclocitem_proj__c='</value>
+                                      <variable>
+                                        <path element="op_ExcelDataRow"/>
+                                        <path element="FromProject"/>
                                       </variable>
                                       <value valueClass="string">' limit </value>
                                       <variable>

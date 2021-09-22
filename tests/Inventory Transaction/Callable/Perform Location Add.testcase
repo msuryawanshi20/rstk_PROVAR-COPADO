@@ -354,7 +354,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="130" title="SOQL Query: Select Name,rstk__icitem_srlcontrol__c from rstk__icitem__c where Name like '{ip_ItemName}%'=&gt;op_IsSerialTrack">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="130" title="SOQL Query: Select Name,rstk__icitem_srlcontrol__c from rstk__icitem__c where Name like '{ip_ItemName}%' and rstk__icitem_div__r.name like '{op_currentInventoryDivision}'=&gt;op_IsSerialTrack">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -363,7 +363,11 @@
                       <variable>
                         <path element="ip_ItemName"/>
                       </variable>
-                      <value valueClass="string">%'</value>
+                      <value valueClass="string">%' and rstk__icitem_div__r.name like '</value>
+                      <variable>
+                        <path element="op_currentInventoryDivision"/>
+                      </variable>
+                      <value valueClass="string">'</value>
                     </parts>
                   </value>
                 </argument>
@@ -1477,531 +1481,701 @@
                                 </apiParam>
                               </generatedParameters>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="106" title="Enter Unit Cost, Material">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="167" title="If: {ip_UnitCostMaterial != null}">
                               <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=UnitCostMaterial"/>
-                                </argument>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Unit Cost Material field to {ip_UnitCostMaterial}</value>
-                                </argument>
-                                <argument id="beforeWait"/>
-                                <argument id="afterWait"/>
-                                <argument id="autoRetry"/>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument argId="2428972d-edbe-4ce3-b4e6-b6b9ddbb9965" id="value">
-                                  <value class="variable">
-                                    <path element="ip_UnitCostMaterial"/>
+                                <argument id="condition">
+                                  <value class="ne">
+                                    <lhs class="variable">
+                                      <path element="ip_UnitCostMaterial"/>
+                                    </lhs>
                                   </value>
                                 </argument>
-                                <argument id="blur"/>
-                                <argument id="pressEnter"/>
                               </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
-                                  <summary>The value to be populated.</summary>
-                                  <type>
-                                    <textType>
-                                      <constraints>
-                                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                                      </constraints>
-                                    </textType>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
+                              <clauses>
+                                <clause name="then" testItemId="168">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="106" title="Enter Unit Cost, Material">
+                                      <arguments>
+                                        <argument id="locator">
+                                          <value class="uiLocator" uri="ui:locator?name=UnitCostMaterial"/>
+                                        </argument>
+                                        <argument id="interaction">
+                                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                                        </argument>
+                                        <argument id="interactionDescription">
+                                          <value class="value" valueClass="string">Set the Unit Cost Material field to {ip_UnitCostMaterial}</value>
+                                        </argument>
+                                        <argument id="beforeWait"/>
+                                        <argument id="afterWait"/>
+                                        <argument id="autoRetry"/>
+                                        <argument id="captureBefore">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument argId="2428972d-edbe-4ce3-b4e6-b6b9ddbb9965" id="value">
+                                          <value class="variable">
+                                            <path element="ip_UnitCostMaterial"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="blur"/>
+                                        <argument id="pressEnter"/>
+                                      </arguments>
+                                      <generatedParameters>
+                                        <apiParam group="value" name="value" seq="10000" title="Value">
+                                          <summary>The value to be populated.</summary>
+                                          <type>
+                                            <textType>
+                                              <constraints>
+                                                <valueConstraint name="mimeType">text/plain</valueConstraint>
+                                              </constraints>
+                                            </textType>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                      </generatedParameters>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="71" title="Enter Unit Cost,Labor">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="169" title="If: {ip_UnitCostLabor != null}">
                               <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=UnitCostLabor"/>
-                                </argument>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Unit Cost Labor field to {ip_UnitCostLabor}</value>
-                                </argument>
-                                <argument id="beforeWait"/>
-                                <argument id="afterWait"/>
-                                <argument id="autoRetry"/>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument argId="2428972d-edbe-4ce3-b4e6-b6b9ddbb9965" id="value">
-                                  <value class="variable">
-                                    <path element="ip_UnitCostLabor"/>
+                                <argument id="condition">
+                                  <value class="ne">
+                                    <lhs class="variable">
+                                      <path element="ip_UnitCostLabor"/>
+                                    </lhs>
                                   </value>
                                 </argument>
-                                <argument id="blur"/>
-                                <argument id="pressEnter"/>
                               </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
-                                  <summary>The value to be populated.</summary>
-                                  <type>
-                                    <textType>
-                                      <constraints>
-                                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                                      </constraints>
-                                    </textType>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
+                              <clauses>
+                                <clause name="then" testItemId="170">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="71" title="Enter Unit Cost,Labor">
+                                      <arguments>
+                                        <argument id="locator">
+                                          <value class="uiLocator" uri="ui:locator?name=UnitCostLabor"/>
+                                        </argument>
+                                        <argument id="interaction">
+                                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                                        </argument>
+                                        <argument id="interactionDescription">
+                                          <value class="value" valueClass="string">Set the Unit Cost Labor field to {ip_UnitCostLabor}</value>
+                                        </argument>
+                                        <argument id="beforeWait"/>
+                                        <argument id="afterWait"/>
+                                        <argument id="autoRetry"/>
+                                        <argument id="captureBefore">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument argId="2428972d-edbe-4ce3-b4e6-b6b9ddbb9965" id="value">
+                                          <value class="variable">
+                                            <path element="ip_UnitCostLabor"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="blur"/>
+                                        <argument id="pressEnter"/>
+                                      </arguments>
+                                      <generatedParameters>
+                                        <apiParam group="value" name="value" seq="10000" title="Value">
+                                          <summary>The value to be populated.</summary>
+                                          <type>
+                                            <textType>
+                                              <constraints>
+                                                <valueConstraint name="mimeType">text/plain</valueConstraint>
+                                              </constraints>
+                                            </textType>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                      </generatedParameters>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="72" title="Enter Unit Cost, Mtl Ohd\r\n">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="171" title="If: {ip_UnitCostMtlOhd != null}">
                               <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=UnitCostMtlOhd"/>
-                                </argument>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Unit Cost Mtl Ohd field to {ip_UnitCostMtlOhd}</value>
-                                </argument>
-                                <argument id="beforeWait">
-                                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
-                                </argument>
-                                <argument id="afterWait"/>
-                                <argument id="autoRetry"/>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument argId="69da597b-871e-4255-93a4-cfd63422eb6b" id="value">
-                                  <value class="variable">
-                                    <path element="ip_UnitCostMtlOhd"/>
+                                <argument id="condition">
+                                  <value class="ne">
+                                    <lhs class="variable">
+                                      <path element="ip_UnitCostMtlOhd"/>
+                                    </lhs>
                                   </value>
                                 </argument>
-                                <argument id="blur"/>
-                                <argument id="pressEnter"/>
                               </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
-                                  <summary>The value to be populated.</summary>
-                                  <type>
-                                    <textType>
-                                      <constraints>
-                                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                                      </constraints>
-                                    </textType>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
+                              <clauses>
+                                <clause name="then" testItemId="172">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="72" title="Enter Unit Cost, Mtl Ohd\r\n">
+                                      <arguments>
+                                        <argument id="locator">
+                                          <value class="uiLocator" uri="ui:locator?name=UnitCostMtlOhd"/>
+                                        </argument>
+                                        <argument id="interaction">
+                                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                                        </argument>
+                                        <argument id="interactionDescription">
+                                          <value class="value" valueClass="string">Set the Unit Cost Mtl Ohd field to {ip_UnitCostMtlOhd}</value>
+                                        </argument>
+                                        <argument id="beforeWait">
+                                          <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                                        </argument>
+                                        <argument id="afterWait"/>
+                                        <argument id="autoRetry"/>
+                                        <argument id="captureBefore">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument argId="69da597b-871e-4255-93a4-cfd63422eb6b" id="value">
+                                          <value class="variable">
+                                            <path element="ip_UnitCostMtlOhd"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="blur"/>
+                                        <argument id="pressEnter"/>
+                                      </arguments>
+                                      <generatedParameters>
+                                        <apiParam group="value" name="value" seq="10000" title="Value">
+                                          <summary>The value to be populated.</summary>
+                                          <type>
+                                            <textType>
+                                              <constraints>
+                                                <valueConstraint name="mimeType">text/plain</valueConstraint>
+                                              </constraints>
+                                            </textType>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                      </generatedParameters>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="108" title="Enter the Unit Cost Labor Ohd field">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="173" title="If: {ip_UnitCostLaborOhd != null}">
                               <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=UnitCostLaborOhd"/>
-                                </argument>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Unit Cost Labor Ohd field to {ip_UnitCostLaborOhd}</value>
-                                </argument>
-                                <argument id="beforeWait"/>
-                                <argument id="afterWait"/>
-                                <argument id="autoRetry"/>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument argId="da83c3b8-6ad6-47b8-b42a-01aa9d820460" id="value">
-                                  <value class="variable">
-                                    <path element="ip_UnitCostLaborOhd"/>
+                                <argument id="condition">
+                                  <value class="ne">
+                                    <lhs class="variable">
+                                      <path element="ip_UnitCostLaborOhd"/>
+                                    </lhs>
                                   </value>
                                 </argument>
-                                <argument id="blur"/>
-                                <argument id="pressEnter"/>
                               </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
-                                  <summary>The value to be populated.</summary>
-                                  <type>
-                                    <textType>
-                                      <constraints>
-                                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                                      </constraints>
-                                    </textType>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
+                              <clauses>
+                                <clause name="then" testItemId="174">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="108" title="Enter the Unit Cost Labor Ohd field">
+                                      <arguments>
+                                        <argument id="locator">
+                                          <value class="uiLocator" uri="ui:locator?name=UnitCostLaborOhd"/>
+                                        </argument>
+                                        <argument id="interaction">
+                                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                                        </argument>
+                                        <argument id="interactionDescription">
+                                          <value class="value" valueClass="string">Set the Unit Cost Labor Ohd field to {ip_UnitCostLaborOhd}</value>
+                                        </argument>
+                                        <argument id="beforeWait"/>
+                                        <argument id="afterWait"/>
+                                        <argument id="autoRetry"/>
+                                        <argument id="captureBefore">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument argId="da83c3b8-6ad6-47b8-b42a-01aa9d820460" id="value">
+                                          <value class="variable">
+                                            <path element="ip_UnitCostLaborOhd"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="blur"/>
+                                        <argument id="pressEnter"/>
+                                      </arguments>
+                                      <generatedParameters>
+                                        <apiParam group="value" name="value" seq="10000" title="Value">
+                                          <summary>The value to be populated.</summary>
+                                          <type>
+                                            <textType>
+                                              <constraints>
+                                                <valueConstraint name="mimeType">text/plain</valueConstraint>
+                                              </constraints>
+                                            </textType>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                      </generatedParameters>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="109" title="Set the Unit Cost Fringe Ohd field to {ip_UnitCostFringeOhd}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="175" title="If: {ip_UnitCostFringeOhd != null}">
                               <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=UnitCostFringeOhd"/>
-                                </argument>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Unit Cost Fringe Ohd field to {ip_UnitCostFringeOhd}</value>
-                                </argument>
-                                <argument id="beforeWait"/>
-                                <argument id="afterWait"/>
-                                <argument id="autoRetry"/>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument argId="9feb8cbc-119d-463f-bae5-3fbc43e7fd4b" id="value">
-                                  <value class="variable">
-                                    <path element="ip_UnitCostFringeOhd"/>
+                                <argument id="condition">
+                                  <value class="ne">
+                                    <lhs class="variable">
+                                      <path element="ip_UnitCostFringeOhd"/>
+                                    </lhs>
                                   </value>
                                 </argument>
-                                <argument id="blur"/>
-                                <argument id="pressEnter"/>
                               </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
-                                  <summary>The value to be populated.</summary>
-                                  <type/>
-                                </apiParam>
-                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
+                              <clauses>
+                                <clause name="then" testItemId="176">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="109" title="Set the Unit Cost Fringe Ohd field to {ip_UnitCostFringeOhd}">
+                                      <arguments>
+                                        <argument id="locator">
+                                          <value class="uiLocator" uri="ui:locator?name=UnitCostFringeOhd"/>
+                                        </argument>
+                                        <argument id="interaction">
+                                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                                        </argument>
+                                        <argument id="interactionDescription">
+                                          <value class="value" valueClass="string">Set the Unit Cost Fringe Ohd field to {ip_UnitCostFringeOhd}</value>
+                                        </argument>
+                                        <argument id="beforeWait"/>
+                                        <argument id="afterWait"/>
+                                        <argument id="autoRetry"/>
+                                        <argument id="captureBefore">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument argId="9feb8cbc-119d-463f-bae5-3fbc43e7fd4b" id="value">
+                                          <value class="variable">
+                                            <path element="ip_UnitCostFringeOhd"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="blur"/>
+                                        <argument id="pressEnter"/>
+                                      </arguments>
+                                      <generatedParameters>
+                                        <apiParam group="value" name="value" seq="10000" title="Value">
+                                          <summary>The value to be populated.</summary>
+                                          <type/>
+                                        </apiParam>
+                                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                      </generatedParameters>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="107" title="Set the Unit Cost Mach Ohd field to {ip_UnitCostMachOhd}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="177" title="If: {ip_UnitCostMachOhd != null}">
                               <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=UnitCostMachOhd"/>
-                                </argument>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Unit Cost Mach Ohd field to {ip_UnitCostMachOhd}</value>
-                                </argument>
-                                <argument id="beforeWait"/>
-                                <argument id="afterWait"/>
-                                <argument id="autoRetry"/>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument argId="a85a794f-2b88-435d-b65a-0bf339fd2844" id="value">
-                                  <value class="variable">
-                                    <path element="ip_UnitCostMachOhd"/>
+                                <argument id="condition">
+                                  <value class="ne">
+                                    <lhs class="variable">
+                                      <path element="ip_UnitCostMachOhd"/>
+                                    </lhs>
                                   </value>
                                 </argument>
-                                <argument id="blur"/>
-                                <argument id="pressEnter"/>
                               </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
-                                  <summary>The value to be populated.</summary>
-                                  <type>
-                                    <textType>
-                                      <constraints>
-                                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                                      </constraints>
-                                    </textType>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
+                              <clauses>
+                                <clause name="then" testItemId="178">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="107" title="Set the Unit Cost Mach Ohd field to {ip_UnitCostMachOhd}">
+                                      <arguments>
+                                        <argument id="locator">
+                                          <value class="uiLocator" uri="ui:locator?name=UnitCostMachOhd"/>
+                                        </argument>
+                                        <argument id="interaction">
+                                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                                        </argument>
+                                        <argument id="interactionDescription">
+                                          <value class="value" valueClass="string">Set the Unit Cost Mach Ohd field to {ip_UnitCostMachOhd}</value>
+                                        </argument>
+                                        <argument id="beforeWait"/>
+                                        <argument id="afterWait"/>
+                                        <argument id="autoRetry"/>
+                                        <argument id="captureBefore">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument argId="a85a794f-2b88-435d-b65a-0bf339fd2844" id="value">
+                                          <value class="variable">
+                                            <path element="ip_UnitCostMachOhd"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="blur"/>
+                                        <argument id="pressEnter"/>
+                                      </arguments>
+                                      <generatedParameters>
+                                        <apiParam group="value" name="value" seq="10000" title="Value">
+                                          <summary>The value to be populated.</summary>
+                                          <type>
+                                            <textType>
+                                              <constraints>
+                                                <valueConstraint name="mimeType">text/plain</valueConstraint>
+                                              </constraints>
+                                            </textType>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                      </generatedParameters>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="113" title="Set the Unit Cost Sub Mtl field to {ip_UnitCostSubMtl}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="164" title="If: {ip_UnitCostSubMtl != null}">
                               <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=UnitCostSubMtl"/>
-                                </argument>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Unit Cost Sub Mtl field to {ip_UnitCostSubMtl}</value>
-                                </argument>
-                                <argument id="beforeWait"/>
-                                <argument id="afterWait"/>
-                                <argument id="autoRetry"/>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument argId="5b0a0621-3bda-4b33-9402-9f836cf26e7d" id="value">
-                                  <value class="variable">
-                                    <path element="ip_UnitCostSubMtl"/>
+                                <argument id="condition">
+                                  <value class="ne">
+                                    <lhs class="variable">
+                                      <path element="ip_UnitCostSubMtl"/>
+                                    </lhs>
                                   </value>
                                 </argument>
-                                <argument id="blur"/>
-                                <argument id="pressEnter"/>
                               </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
-                                  <summary>The value to be populated.</summary>
-                                  <type>
-                                    <textType>
-                                      <constraints>
-                                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                                      </constraints>
-                                    </textType>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
+                              <clauses>
+                                <clause name="then" testItemId="165">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="113" title="Set the Unit Cost Sub Mtl field to {ip_UnitCostSubMtl}">
+                                      <arguments>
+                                        <argument id="locator">
+                                          <value class="uiLocator" uri="ui:locator?name=UnitCostSubMtl"/>
+                                        </argument>
+                                        <argument id="interaction">
+                                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                                        </argument>
+                                        <argument id="interactionDescription">
+                                          <value class="value" valueClass="string">Set the Unit Cost Sub Mtl field to {ip_UnitCostSubMtl}</value>
+                                        </argument>
+                                        <argument id="beforeWait"/>
+                                        <argument id="afterWait"/>
+                                        <argument id="autoRetry"/>
+                                        <argument id="captureBefore">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument argId="5b0a0621-3bda-4b33-9402-9f836cf26e7d" id="value">
+                                          <value class="variable">
+                                            <path element="ip_UnitCostSubMtl"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="blur"/>
+                                        <argument id="pressEnter"/>
+                                      </arguments>
+                                      <generatedParameters>
+                                        <apiParam group="value" name="value" seq="10000" title="Value">
+                                          <summary>The value to be populated.</summary>
+                                          <type>
+                                            <textType>
+                                              <constraints>
+                                                <valueConstraint name="mimeType">text/plain</valueConstraint>
+                                              </constraints>
+                                            </textType>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                      </generatedParameters>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="114" title="Set the Unit Cost Sub Lab field to {ip_UnitCostSubLab}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="191" title="If: {ip_UnitCostSubLab != null}">
                               <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=UnitCostSubLab"/>
-                                </argument>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Unit Cost Sub Lab field to {ip_UnitCostSubLab}</value>
-                                </argument>
-                                <argument id="beforeWait"/>
-                                <argument id="afterWait"/>
-                                <argument id="autoRetry"/>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument argId="3ee01c66-6b8a-4292-9cba-ca60a75f7363" id="value">
-                                  <value class="variable">
-                                    <path element="ip_UnitCostSubLab"/>
+                                <argument id="condition">
+                                  <value class="ne">
+                                    <lhs class="variable">
+                                      <path element="ip_UnitCostSubLab"/>
+                                    </lhs>
                                   </value>
                                 </argument>
-                                <argument id="blur"/>
-                                <argument id="pressEnter"/>
                               </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
-                                  <summary>The value to be populated.</summary>
-                                  <type>
-                                    <textType>
-                                      <constraints>
-                                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                                      </constraints>
-                                    </textType>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
+                              <clauses>
+                                <clause name="then" testItemId="192">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="114" title="Set the Unit Cost Sub Lab field to {ip_UnitCostSubLab}">
+                                      <arguments>
+                                        <argument id="locator">
+                                          <value class="uiLocator" uri="ui:locator?name=UnitCostSubLab"/>
+                                        </argument>
+                                        <argument id="interaction">
+                                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                                        </argument>
+                                        <argument id="interactionDescription">
+                                          <value class="value" valueClass="string">Set the Unit Cost Sub Lab field to {ip_UnitCostSubLab}</value>
+                                        </argument>
+                                        <argument id="beforeWait"/>
+                                        <argument id="afterWait"/>
+                                        <argument id="autoRetry"/>
+                                        <argument id="captureBefore">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument argId="3ee01c66-6b8a-4292-9cba-ca60a75f7363" id="value">
+                                          <value class="variable">
+                                            <path element="ip_UnitCostSubLab"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="blur"/>
+                                        <argument id="pressEnter"/>
+                                      </arguments>
+                                      <generatedParameters>
+                                        <apiParam group="value" name="value" seq="10000" title="Value">
+                                          <summary>The value to be populated.</summary>
+                                          <type>
+                                            <textType>
+                                              <constraints>
+                                                <valueConstraint name="mimeType">text/plain</valueConstraint>
+                                              </constraints>
+                                            </textType>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                      </generatedParameters>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="111" title="Set the Unit Cost Freight field to {ip_UnitCostFreight}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="181" title="If: {ip_UnitCostFreight != null}">
                               <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=UnitCostFreight"/>
-                                </argument>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Unit Cost Freight field to {ip_UnitCostFreight}</value>
-                                </argument>
-                                <argument id="beforeWait"/>
-                                <argument id="afterWait"/>
-                                <argument id="autoRetry"/>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument argId="0821626f-0fca-488d-8958-dc294a2bb0c9" id="value">
-                                  <value class="variable">
-                                    <path element="ip_UnitCostFreight"/>
+                                <argument id="condition">
+                                  <value class="ne">
+                                    <lhs class="variable">
+                                      <path element="ip_UnitCostFreight"/>
+                                    </lhs>
                                   </value>
                                 </argument>
-                                <argument id="blur"/>
-                                <argument id="pressEnter"/>
                               </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
-                                  <summary>The value to be populated.</summary>
-                                  <type>
-                                    <textType>
-                                      <constraints>
-                                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                                      </constraints>
-                                    </textType>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
+                              <clauses>
+                                <clause name="then" testItemId="182">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="111" title="Set the Unit Cost Freight field to {ip_UnitCostFreight}">
+                                      <arguments>
+                                        <argument id="locator">
+                                          <value class="uiLocator" uri="ui:locator?name=UnitCostFreight"/>
+                                        </argument>
+                                        <argument id="interaction">
+                                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                                        </argument>
+                                        <argument id="interactionDescription">
+                                          <value class="value" valueClass="string">Set the Unit Cost Freight field to {ip_UnitCostFreight}</value>
+                                        </argument>
+                                        <argument id="beforeWait"/>
+                                        <argument id="afterWait"/>
+                                        <argument id="autoRetry"/>
+                                        <argument id="captureBefore">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument argId="0821626f-0fca-488d-8958-dc294a2bb0c9" id="value">
+                                          <value class="variable">
+                                            <path element="ip_UnitCostFreight"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="blur"/>
+                                        <argument id="pressEnter"/>
+                                      </arguments>
+                                      <generatedParameters>
+                                        <apiParam group="value" name="value" seq="10000" title="Value">
+                                          <summary>The value to be populated.</summary>
+                                          <type>
+                                            <textType>
+                                              <constraints>
+                                                <valueConstraint name="mimeType">text/plain</valueConstraint>
+                                              </constraints>
+                                            </textType>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                      </generatedParameters>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="115" title="Set the Unit Cost Landing field to {ip_UnitCostLanding}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="179" title="If: {ip_UnitCostLanding != null}">
                               <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=UnitCostLanding"/>
-                                </argument>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Unit Cost Landing field to {ip_UnitCostLanding}</value>
-                                </argument>
-                                <argument id="beforeWait"/>
-                                <argument id="afterWait"/>
-                                <argument id="autoRetry"/>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument argId="a1b795da-d6e5-49e6-b030-7f90e403429a" id="value">
-                                  <value class="variable">
-                                    <path element="ip_UnitCostLanding"/>
+                                <argument id="condition">
+                                  <value class="ne">
+                                    <lhs class="variable">
+                                      <path element="ip_UnitCostLanding"/>
+                                    </lhs>
                                   </value>
                                 </argument>
-                                <argument id="blur"/>
-                                <argument id="pressEnter"/>
                               </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
-                                  <summary>The value to be populated.</summary>
-                                  <type>
-                                    <textType>
-                                      <constraints>
-                                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                                      </constraints>
-                                    </textType>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
+                              <clauses>
+                                <clause name="then" testItemId="180">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="115" title="Set the Unit Cost Landing field to {ip_UnitCostLanding}">
+                                      <arguments>
+                                        <argument id="locator">
+                                          <value class="uiLocator" uri="ui:locator?name=UnitCostLanding"/>
+                                        </argument>
+                                        <argument id="interaction">
+                                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                                        </argument>
+                                        <argument id="interactionDescription">
+                                          <value class="value" valueClass="string">Set the Unit Cost Landing field to {ip_UnitCostLanding}</value>
+                                        </argument>
+                                        <argument id="beforeWait"/>
+                                        <argument id="afterWait"/>
+                                        <argument id="autoRetry"/>
+                                        <argument id="captureBefore">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument argId="a1b795da-d6e5-49e6-b030-7f90e403429a" id="value">
+                                          <value class="variable">
+                                            <path element="ip_UnitCostLanding"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="blur"/>
+                                        <argument id="pressEnter"/>
+                                      </arguments>
+                                      <generatedParameters>
+                                        <apiParam group="value" name="value" seq="10000" title="Value">
+                                          <summary>The value to be populated.</summary>
+                                          <type>
+                                            <textType>
+                                              <constraints>
+                                                <valueConstraint name="mimeType">text/plain</valueConstraint>
+                                              </constraints>
+                                            </textType>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                                          <type>
+                                            <booleanType/>
+                                          </type>
+                                        </apiParam>
+                                      </generatedParameters>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
                             </apiCall>
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="73" title="Click the Loc Add Details Tab">
                               <tags/>
@@ -2132,7 +2306,7 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
+                  <value class="value" valueClass="string">true</value>
                 </argument>
                 <argument id="ieClickMethod">
                   <value class="value" valueClass="string">Default</value>

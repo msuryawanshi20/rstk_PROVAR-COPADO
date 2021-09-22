@@ -36,7 +36,7 @@ public class rstk__dwocst {
 	public WebElement disassemblyItemQuantity;
 
 	@DateType
-	@FindBy(xpath = "	//input[contains(@id,'wocst_duedte__c')]")
+	@FindBy(xpath = "//input[contains(@id,'wocst_duedte__c')]")
 	public WebElement dueDate;
 		
 	@TextType()
@@ -56,7 +56,6 @@ public class rstk__dwocst {
 	@FindBy(xpath = "//input[@value='Add Component']")
 	public WebElement addComponent;
 
-	@TextType()
 	@FindBy(xpath = "//*[contains(text(),' Status')]//following::td//span[contains(@id,'wocst_ordsts_pl__c')]")
 	public WebElement status;
 	
@@ -73,6 +72,11 @@ public class rstk__dwocst {
 	@ButtonType()
 	@FindBy(xpath = "//*[@value='Generate Picklist']")
 	public WebElement generatePicklist;
+
+	@ButtonType()
+	@FindBy(xpath = "//*[@value='Allocate']")
+	public WebElement allocate;
+
 
 	@LinkType()
 	@FindBy(linkText = "Rootstock Site Map")
@@ -93,8 +97,22 @@ public class rstk__dwocst {
 	@PageRow(byColumn = true)
 	public static class DerivedComponents {
 
+		@LinkType
+		@FindBy(xpath = ".//td[1]//a[text()='Edit']")
+		public WebElement edit;	
+	
 		@TextType()
-		@FindBy(xpath = ".//td[6]//input")
+		@FindBy(xpath = ".//td[3]")
+		public WebElement derivedComponent;	
+			
+		@TextType()
+		@FindBy(xpath = ".//td[5]//input")
+		public WebElement expected;	
+
+		
+		
+		@TextType()
+		@FindBy(xpath = ".//td[7]//input")
 		public WebElement actualYield;
 		
 		@ChoiceListType
@@ -119,5 +137,29 @@ public class rstk__dwocst {
 	@ButtonType()
 	@FindByLabel(label = "Close Work Order")
 	public WebElement closeWorkOrder;
+	
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Add Derived Component']")
+	public WebElement addDerivedComponent;
+	
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Component Issue']")
+	public WebElement componentIssue;
+	
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Complete Disassembly Order']")
+	public WebElement completeDisassemblyOrder;
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Reverse Derived Components']")
+	public WebElement reverseDerivedComponents;
+	
+	@ButtonType()
+	@FindByLabel(label = "Reverse WO Close")
+	public WebElement reverseWOClose;
+	
 	
 }

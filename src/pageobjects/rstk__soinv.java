@@ -22,6 +22,10 @@ public class rstk__soinv {
 	@ButtonType()
 	@FindByLabel(label = "Approve Invoice")
 	public WebElement approveInvoice;
+	
+	@ButtonType()
+	@FindByLabel(label = "Approve Credit Memo")
+	public WebElement approveCreditMemo;
 	@TextType()
 	@VisualforceBy(componentXPath = "c:standardHeader//h2[contains(@class, \"pageDescription\")]")
 	public WebElement pageTitle;
@@ -39,6 +43,14 @@ public class rstk__soinv {
 	@FindBy(xpath = "//input[@value='Preapprove Invoice']")
 	public WebElement preapproveInvoice;
 	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Apply Prepayments']")
+	public WebElement ApplyPrepayments;
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Preapprove Credit Memo']")
+	public WebElement preapproveCreditMemo;
+	
 	@BooleanType()
 	@FindBy(xpath = "//label[normalize-space(.)='Pre-Approved']/parent::span/parent::th/following-sibling::td[1]//img")
 	public WebElement preapproved;
@@ -48,12 +60,24 @@ public class rstk__soinv {
 	public WebElement depreapproveInvoice;
 	
 	@ButtonType()
+	@FindBy(xpath = "//input[@value='De-Preapprove Credit Memo']")
+	public WebElement depreapproveCreditMemo;
+	
+	@ButtonType()
 	@FindBy(xpath = "//input[@value='De-approve Invoice']")
 	public WebElement deapproveInvoice;
 	
 	@ButtonType()
+	@FindBy(xpath = "//input[@value='De-approve Credit Memo']")
+	public WebElement deapproveCreditMemo;
+	
+	@ButtonType()
 	@FindBy(xpath = "//input[@value='Print Invoice']")
 	public WebElement printInvoice;
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Print Credit Memo']")
+	public WebElement printCreditMemo;
 	
 	@BooleanType()
 	@FindBy(xpath = "//label[normalize-space(.)='Printed']/parent::span/parent::th/following-sibling::td[1]//img")
@@ -64,8 +88,12 @@ public class rstk__soinv {
 	public WebElement OK;
 	
 	@ButtonType()
-	@FindBy(xpath = "//input[@value='Transfer to A/R']")
+	@FindBy(xpath = "//input[@value='Transfer to A/R']")     
 	public WebElement TransferToAR;
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Reverse A/R Transfer']")
+	public WebElement ReverseARTransfer;
 	
 	@BooleanType()
 	@FindBy(xpath = "//label[normalize-space(.)='Transferred']/parent::span/parent::th/following-sibling::td[1]//img")
@@ -83,7 +111,7 @@ public class rstk__soinv {
 	@FindBy(xpath = "//input[@value='Account Distribution']")
 	public WebElement AccountDistribution;
 	
-		@ButtonType()
+	@ButtonType()
 	@FindBy(xpath = "//input[@value='Line Formatting']")
 	public WebElement LineFormatting;
 	
@@ -99,6 +127,10 @@ public class rstk__soinv {
 	@TextType()
 	@FindBy(xpath = "//h3[text()='Account Distribution Detail']")
 	public WebElement AccountDistributionDetail;
+	
+	@TextType()
+	@FindBy(xpath = "//span[contains(@id,'soinv_totalppya')]")
+	public WebElement PrepaymentsApplied;
 	
 	@ButtonType()
 	@FindBy(xpath = "//button[text()='Done']")
@@ -184,16 +216,108 @@ public class rstk__soinv {
 	@FindBy(xpath = "//h2[text()='Line Details']")
 	public WebElement LineDetailsTitle;
 	
-	@TextType()
-	@FindBy(xpath = "//input[@class='amount predisc']")
-	public WebElement Price_Details;
-	
-	@ButtonType()
-	@FindBy(xpath = "//input[@value='Save Details']")
-	public WebElement SaveDetails;
-	
 	@ButtonType()
 	@FindBy(xpath = "//h2[text()='Line Details']/following::button[@onclick='component_close()']")
 	public WebElement Close_Details;
+	
+	@ButtonType()
+	@FindBy(xpath = "//h2[text()='Apply Prepayments']/following::button[@onclick='component_close()']")
+	public WebElement Close_ApplyPrepayments;
+	
+	@ButtonType()
+	@FindBy(xpath = "//h2[text()='Line Account Distribution']/following::button[@onclick='component_close()']")
+	public WebElement Close_LineAccDist;
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Distribution']")
+	public WebElement Distribution;
+	
+	@TextType()
+	@FindBy(xpath = "//h2[text()='Line Account Distribution']")
+	public WebElement LineAccountDistributionTitle;
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Credit This Invoice']")
+	public WebElement CreditThisInvoice;
+	
+	@BooleanType()
+	@FindBy(xpath = "//input[@id='allowReinvoicing']")
+	public WebElement AllowReinvoicing;
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Ok']")
+	public WebElement Ok;
+	
+	@TextType()
+	@FindBy(xpath = "//h3[text()='Create Credit Memo']")
+	public WebElement CreateCreditMemoTitle;
+	
+	@TextType()
+	@FindBy(xpath = "//label[contains(text(),'Credit Memo Number')]/following::td//span[contains(text(),'CM-')]")
+	public WebElement CreditMemoNumber;
+	
+	@TextType()
+	@FindBy(xpath = "//label[contains(text(),'Customer')]/following::td//a")
+	public WebElement Customer;
+	
+	@TextType()
+	@FindBy(xpath = "//span[contains(@id,'soinv_grandtotal__c')]")
+	public WebElement CreditMemoTotal;
+	
+	@ButtonType()
+	@FindBy(xpath = "//img[@alt='Show Section - Additional']")
+	public WebElement Additional;
+	
+	@ButtonType()
+	@FindBy(xpath = "//td[text()='Reference']")
+	public WebElement Reference;
+	
+	@TextType()
+	@FindBy(xpath = "//label[contains(text(),'Invoice Credited by this CR Memo')]/following::td//a")
+	public WebElement InvoiceCreditedbythisCRMemo;
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Edit']")
+	public WebElement Edit;
+	
+	@TextType()
+	@FindBy(xpath = "//input[contains(@id,'soinv_discpct__c')]")
+	public WebElement DiscountPct;
+	
+	@TextType()
+	@FindBy(xpath = "//label[contains(text(),'Discount Pct')]/following::td//span//span")
+	public WebElement DiscountPctLabel;
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Save']")
+	public WebElement Save_AdditionalSection;
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Delete Credit Memo']")
+	public WebElement DeleteCreditMemo;
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Create Credit Memo']")
+	public WebElement CreateCreditMemo;
+	
+	@TextType()
+	@FindBy(xpath = "//h2[text()='Create a New Credit Memo']")
+	public WebElement CreateaNewCreditMemoTitle;
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Add & Delete Credit Memo Lines']")
+	public WebElement AddandDeleteCreditMemoLines;
+	
+	@TextType()
+	@FindBy(xpath = "//h3[text()='Add & Delete Credit Memo Lines']")
+	public WebElement AddandDeleteCreditMemoLinesTitle;
+	
+	@TextType()
+	@FindBy(xpath = "//a[@class='savereturl']")
+	public WebElement AccountsReceivableSession;
+	@TextType()
+	@FindBy(xpath = "//h2[normalize-space(.)='Apply Prepayments']")
+	public WebElement ApplyPrepaymentsTitle;
+		
 	
 }

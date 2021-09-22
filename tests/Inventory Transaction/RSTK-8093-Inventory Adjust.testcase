@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="38">
+<testCase failureBehaviour="Continue" id="12">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -22,7 +22,9 @@
         <argument id="closeAllPrimaryTabs">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="reuseConnectionName"/>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">SFConn</value>
+        </argument>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Reuse</value>
         </argument>
@@ -59,7 +61,7 @@
             <apiParam name="Project"/>
           </cachedParameters>
           <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/Inventory Location Adjustment.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/RSTK-8093-Inventory Location Adjustment.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Inventory Item</worksheetName>
             <valuesRange class="value" valueClass="string">A:C</valuesRange>
           </sourceValue>
@@ -89,7 +91,91 @@
       <clauses>
         <clause name="substeps" testItemId="16">
           <steps>
-            <caseCall testCaseId="5040f9c1-cbc5-4d0d-b08e-f9c5993ff468" testCasePath="tests/Inventory Transaction/Callable/Inventory Location Adjustment.testcase" testItemId="97">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="129" title="Read location details">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Read location details</value>
+                </argument>
+              </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="op_LocationDetails" variableScope="Test">
+                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Inventory Location Adjustment.xlsx;1625432364634</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="ItemName"/>
+                    <apiParam name="LocationID"/>
+                    <apiParam name="LocationNumber"/>
+                    <apiParam name="LotSerialNumber"/>
+                    <apiParam name="AdjustOption"/>
+                    <apiParam name="ProcessQtySerials"/>
+                    <apiParam name="TransactionDate"/>
+                    <apiParam name="AdjustmentAccount"/>
+                    <apiParam name="Comments"/>
+                    <apiParam name="CycleCount"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ItemName" whereValue="{op_ItemDetailsRow.ItemNo}">
+                    <workbookPath class="value" valueClass="string">templates/RSTK-8093-Inventory Location Adjustment.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Inventory Location details</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:J</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+              <clauses>
+                <clause name="hidden" testItemId="130">
+                  <steps/>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="99" title="Read Before Transaction Qty">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Read before transaction qty</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="100">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="101" title="Before transaction Total Qty">
+                      <tags/>
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">Select ID,Name,rstk__rollsumm_totalqty__c,rstk__icitem_item__c from rstk__icitem__c where (rstk__icitem_item__r.rstk__peitem_item__c='</value>
+                              <variable>
+                                <path element="op_ItemDetailsRow"/>
+                                <path element="ItemNo"/>
+                              </variable>
+                              <value valueClass="string">' OR Name like '</value>
+                              <variable>
+                                <path element="op_ItemDetailsRow"/>
+                                <path element="ItemNo"/>
+                              </variable>
+                              <value valueClass="string">%') and rstk__icitem_div__r.name like '</value>
+                              <variable>
+                                <path element="op_currentInventoryDivision"/>
+                              </variable>
+                              <value valueClass="string">'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">op_LocationQuantityBeforeTxn</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                      <expectedExceptions/>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <caseCall testCaseId="5040f9c1-cbc5-4d0d-b08e-f9c5993ff468" testCasePath="tests/Inventory Transaction/Callable/Inventory Location Adjustment.testcase" testItemId="116">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -111,6 +197,180 @@
                     <path element="op_ItemDetailsRow"/>
                     <path element="Project"/>
                   </value>
+                </argument>
+                <argument id="ip_stockLocID">
+                  <value class="variable">
+                    <path element="op_LocationDetails"/>
+                    <path element="LocationID"/>
+                  </value>
+                </argument>
+                <argument id="ip_stockLocNo">
+                  <value class="variable">
+                    <path element="op_LocationDetails"/>
+                    <path element="LocationNumber"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="op_serialStatus">
+                  <name class="value" valueClass="string">op_serialStatus</name>
+                </outputArgument>
+                <outputArgument id="op_overrideDateStatus">
+                  <name class="value" valueClass="string">op_overrideDateStatus</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="118" title="For Each: {op_LocationDetails}=&gt;op_LocationDetailsRow">
+              <arguments>
+                <argument id="list">
+                  <value class="variable">
+                    <path element="op_LocationDetails"/>
+                  </value>
+                </argument>
+                <argument id="fromItem"/>
+                <argument id="valueName">
+                  <value class="value" valueClass="string">op_LocationDetailsRow</value>
+                </argument>
+                <argument id="continueOnFailure">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="119">
+                  <steps>
+                    <caseCall testCaseId="75beb494-c089-4793-9227-6cb5ef6f6e85" testCasePath="tests/Inventory Transaction/Callable/select record for Location adjustment.testcase" testItemId="120">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="ip_locationID">
+                          <value class="variable">
+                            <path element="op_LocationDetailsRow"/>
+                            <path element="LocationID"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_locationNumber">
+                          <value class="variable">
+                            <path element="op_LocationDetailsRow"/>
+                            <path element="LocationNumber"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_LotNumber">
+                          <value class="variable">
+                            <path element="op_LocationDetailsRow"/>
+                            <path element="LotSerialNumber"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_locID">
+                          <value class="variable">
+                            <path element="op_LocationDetailsRow"/>
+                            <path element="LocationID"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <caseCall testCaseId="7d81422b-2d0d-4234-961a-eac3d828cff6" testCasePath="tests/Inventory Transaction/Callable/Click on Process Selected Inventory Locations button.testcase" testItemId="126">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+              </arguments>
+            </caseCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="113" title="For Each: {op_LocationDetails}=&gt;op_LocationDetailsRow">
+              <arguments>
+                <argument id="list">
+                  <value class="variable">
+                    <path element="op_LocationDetails"/>
+                  </value>
+                </argument>
+                <argument id="fromItem"/>
+                <argument id="valueName">
+                  <value class="value" valueClass="string">op_LocationDetailsRow</value>
+                </argument>
+                <argument id="continueOnFailure">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="114">
+                  <steps>
+                    <caseCall testCaseId="0df56bb1-270f-4c60-b741-32d249ba58af" testCasePath="tests/Inventory Transaction/Callable/Fill required Data for location adjustment.testcase" testItemId="124">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="ip_locationID">
+                          <value class="variable">
+                            <path element="op_LocationDetailsRow"/>
+                            <path element="LocationID"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_locationNumber">
+                          <value class="variable">
+                            <path element="op_LocationDetailsRow"/>
+                            <path element="LocationNumber"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_LotNumber">
+                          <value class="variable">
+                            <path element="op_LocationDetailsRow"/>
+                            <path element="LotSerialNumber"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_adjustmentOption">
+                          <value class="variable">
+                            <path element="op_LocationDetailsRow"/>
+                            <path element="AdjustOption"/>
+                          </value>
+                        </argument>
+                        <argument id="op_serialStatus">
+                          <value class="variable">
+                            <path element="op_serialStatus"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_qty">
+                          <value class="variable">
+                            <path element="op_LocationDetailsRow"/>
+                            <path element="ProcessQtySerials"/>
+                          </value>
+                        </argument>
+                        <argument id="op_overrideDateStatus">
+                          <value class="variable">
+                            <path element="op_overrideDateStatus"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_TransactionDate">
+                          <value class="variable">
+                            <path element="op_LocationDetailsRow"/>
+                            <path element="TransactionDate"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_comments">
+                          <value class="variable">
+                            <path element="op_LocationDetailsRow"/>
+                            <path element="Comments"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_CycleCount">
+                          <value class="variable">
+                            <path element="op_LocationDetailsRow"/>
+                            <path element="CycleCount"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <caseCall testCaseId="5d915400-aed5-4173-9a99-c48709f41402" testCasePath="tests/Inventory Transaction/Callable/Perform location adjustment transaction and handle alert.testcase" testItemId="125">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
               </arguments>
             </caseCall>

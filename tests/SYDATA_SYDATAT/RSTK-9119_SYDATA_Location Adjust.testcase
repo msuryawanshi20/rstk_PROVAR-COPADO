@@ -204,7 +204,7 @@
               <clauses>
                 <clause name="then" testItemId="33">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="38" title="Read serial Numbers">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="223" title="Read serial Numbers">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -228,6 +228,11 @@
                               <variable>
                                 <path element="op_excelDataRow"/>
                                 <path element="LocationNumber"/>
+                              </variable>
+                              <value valueClass="string">' and rstk__iclocitem_proj__c='</value>
+                              <variable>
+                                <path element="op_excelDataRow"/>
+                                <path element="Project"/>
                               </variable>
                               <value valueClass="string">' limit </value>
                               <variable>

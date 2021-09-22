@@ -22,7 +22,9 @@
         <argument id="closeAllPrimaryTabs">
           <value class="value" valueClass="boolean">false</value>
         </argument>
-        <argument id="reuseConnectionName"/>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">SFConn</value>
+        </argument>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Reuse</value>
         </argument>
@@ -643,36 +645,18 @@
                       <clauses>
                         <clause name="substeps" testItemId="894">
                           <steps>
-                            <apiCall apiId="customapis.StringContains" name="StringContains" testItemId="895" title="String Contains: ⇒ op_StringContainsResult">
-                              <arguments>
-                                <argument id="param1">
-                                  <value class="variable">
-                                    <path element="op_ICLOCITEMRecord"/>
-                                    <path element="Name"/>
-                                  </value>
-                                </argument>
-                                <argument id="param2">
-                                  <value class="variable">
-                                    <path element="op_InvLocLocExcelRow"/>
-                                    <path element="LocID"/>
-                                  </value>
-                                </argument>
-                                <argument id="resultName">
-                                  <value class="value" valueClass="string">op_StringContainsResult</value>
-                                </argument>
-                                <argument id="resultScope">
-                                  <value class="value" valueClass="string">Test</value>
-                                </argument>
-                              </arguments>
-                            </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="896" title="If: {op_StringContainsResult = true}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="896" title="If: {op_BeforeTransaction_FromLocation.rstk__iclocitem_locid__c = op_ICLOCITEMRecord.rstk__iclocitem_locid__c}">
                               <arguments>
                                 <argument id="condition">
                                   <value class="eq">
                                     <lhs class="variable">
-                                      <path element="op_StringContainsResult"/>
+                                      <path element="op_BeforeTransaction_FromLocation"/>
+                                      <path element="rstk__iclocitem_locid__c"/>
                                     </lhs>
-                                    <rhs class="value" valueClass="boolean">true</rhs>
+                                    <rhs class="variable">
+                                      <path element="op_ICLOCITEMRecord"/>
+                                      <path element="rstk__iclocitem_locid__c"/>
+                                    </rhs>
                                   </value>
                                 </argument>
                               </arguments>

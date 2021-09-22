@@ -133,6 +133,72 @@
       <clauses>
         <clause name="substeps" testItemId="3">
           <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="80" title="UI Assert-Read Invoice Number">
+              <arguments>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">InvoiceNumber</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="fieldAssertions">
+                  <value class="valueList" mutable="Mutable">
+                    <uiFieldAssertion resultName="invoiceNumber">
+                      <fieldLocator uri="ui:locator?name=invoiceNumber"/>
+                      <attributeAssertions>
+                        <uiAttributeAssertion attributeName="value" comparisonType="None" normalize="true">
+                          <value class="value" valueClass="string">false</value>
+                        </uiAttributeAssertion>
+                      </attributeAssertions>
+                    </uiFieldAssertion>
+                  </value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="columnAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="pageAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="autoRetry"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="79" title="UI Assert-Read Invoice Total">
+              <arguments>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">InvoiceTotal</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="fieldAssertions">
+                  <value class="valueList" mutable="Mutable">
+                    <uiFieldAssertion resultName="InvoiceTotal">
+                      <fieldLocator uri="ui:locator?name=InvoiceTotal"/>
+                      <attributeAssertions>
+                        <uiAttributeAssertion attributeName="value" comparisonType="None" normalize="true">
+                          <value class="value" valueClass="string">false</value>
+                        </uiAttributeAssertion>
+                      </attributeAssertions>
+                    </uiFieldAssertion>
+                  </value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="columnAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="pageAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="autoRetry"/>
+              </arguments>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="24" title="Click the Preapprove Invoice button">
               <arguments>
                 <argument id="locator">
@@ -947,6 +1013,39 @@
               <clauses>
                 <clause name="substeps" testItemId="41">
                   <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="84" title="UI Assert-Verify if Invoice Transferred to AR">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="transferred">
+                              <fieldLocator uri="ui:locator?name=transferred"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="value" valueClass="string">true</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="50" title="UI Assert-Verify if Invoice Posted in AR">
                       <arguments>
                         <argument id="resultName">
@@ -1367,7 +1466,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="60" title="Click the Cancel button">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="65" title="Click the Cancel button">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=Cancel"/>
@@ -1417,6 +1516,407 @@
                           </type>
                         </apiParam>
                       </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="81" title="Credit the Invoice and create Credit Memo">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Credit the Invoice and create Credit Memo</value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="hidden" testItemId="82"/>
+                      </clauses>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="60" title="Click the Credit This Invoice button">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=CreditThisInvoice"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Click the Credit This Invoice button</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                        <argument id="ieClickMethod">
+                          <value class="value" valueClass="string">Default</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                          <summary>How the click should be executed for Internet Explorer.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="71" title="UI Assert-Verify Create Credit Memo Title">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="CreateCreditMemoTitle">
+                              <fieldLocator uri="ui:locator?name=CreateCreditMemoTitle"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="value" valueClass="string">Create Credit Memo</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="66" title="Check the Allow Reinvoicing field">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=AllowReinvoicing"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=check"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Check the Allow Reinvoicing field</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                        <argument id="ieClickMethod">
+                          <value class="value" valueClass="string">Default</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="ieClickMethod" seq="10000" title="IE Click Method">
+                          <summary>How the click should be executed for Internet Explorer.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="68" title="Click the Ok button">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=Ok"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Click the Ok button</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                        <argument id="ieClickMethod">
+                          <value class="value" valueClass="string">Default</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                          <summary>How the click should be executed for Internet Explorer.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="74" title="UI Assert-Verify Credit Memo Number Exists">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="CreditMemoNumber">
+                              <fieldLocator uri="ui:locator?name=CreditMemoNumber"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="Contains" normalize="true">
+                                  <value class="value" valueClass="string">CM-</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="72" title="UI Assert-Verify Credit Memo Total">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="CreditMemoTotal">
+                              <fieldLocator uri="ui:locator?name=CreditMemoTotal"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="variable">
+                                    <path element="InvoiceTotal"/>
+                                    <path element="fields"/>
+                                    <path element="InvoiceTotal"/>
+                                    <path element="value"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="83" title="Click the Additional button">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=Additional"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="NoWait"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Click the Additional button</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                        <argument id="ieClickMethod">
+                          <value class="value" valueClass="string">Default</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                          <summary>How the click should be executed for Internet Explorer.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="75" title="Click the Reference button">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=Reference"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                        </argument>
+                        <argument id="hover">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="NoWait"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Click the Reference button</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                        <argument id="ieClickMethod">
+                          <value class="value" valueClass="string">Default</value>
+                        </argument>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                          <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                          <summary>How the click should be executed for Internet Explorer.</summary>
+                          <type>
+                            <choiceType>
+                              <constraints>
+                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                              </constraints>
+                            </choiceType>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="77" title="UI Assert-Verify Invoice Credited by this CR Memo">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Values</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="InvoiceCreditedbythisCRMemo">
+                              <fieldLocator uri="ui:locator?name=InvoiceCreditedbythisCRMemo"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                  <value class="variable">
+                                    <path element="InvoiceNumber"/>
+                                    <path element="fields"/>
+                                    <path element="invoiceNumber"/>
+                                    <path element="value"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
                     </apiCall>
                   </steps>
                 </clause>

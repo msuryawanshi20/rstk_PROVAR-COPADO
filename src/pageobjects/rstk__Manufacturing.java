@@ -39,8 +39,8 @@ public class rstk__Manufacturing {
 	public WebElement inventoryBySerialNumber;
 
 	@LinkType()
-	@FindBy(xpath = "//a[normalize-space(.)='New Disassembly Order']")
-	public WebElement newDisassemblyOrder;
+	@FindBy(xpath = "//a[normalize-space(.)='Disassembly Order']")
+	public WebElement disassemblyOrder;
 
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='WO Issue']")
@@ -155,7 +155,24 @@ public class rstk__Manufacturing {
 	public WebElement costTransactionQuery;
 
 	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Time and Qty Booking']")
+	public WebElement timeAndQtyBooking;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='WO Receipt']")
+	public WebElement wOReceipt;
+	
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='WO Receipt Reversal']")
+	public WebElement wOReceiptReversal;
+
+	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Time and Qty Booking Reversal']")
 	public WebElement timeAndQtyBookingReversal;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='WO Issue Reversal']")
+	public WebElement wOIssueReversal;
+
 }
 

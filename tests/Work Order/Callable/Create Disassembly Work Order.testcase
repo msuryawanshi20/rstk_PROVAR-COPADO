@@ -79,10 +79,10 @@
       <clauses>
         <clause name="substeps" testItemId="6">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="7" title="Click the New Disassembly Order button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="7" title="Click the Disassembly Order button">
               <arguments>
                 <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=newDisassemblyOrder"/>
+                  <value class="uiLocator" uri="ui:locator?name=disassemblyOrder"/>
                 </argument>
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=action"/>
@@ -103,7 +103,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Click the New Disassembly Order button</value>
+                  <value class="value" valueClass="string">Click the Disassembly Order button</value>
                 </argument>
                 <argument id="autoRetry"/>
                 <argument id="ieClickMethod">
@@ -170,52 +170,7 @@
       <clauses>
         <clause name="substeps" testItemId="20">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="117" title="If: {ipWONumber = null}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="variable">
-                      <path element="ipWONumber"/>
-                    </lhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="118">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="61" title="Set Values: ipWONumber">
-                      <arguments>
-                        <argument id="values">
-                          <value class="valueList" mutable="Mutable">
-                            <namedValues mutable="Mutable">
-                              <namedValue name="valuePath">
-                                <value class="value" valueClass="string">ipWONumber</value>
-                              </namedValue>
-                              <namedValue name="value">
-                                <value class="compound">
-                                  <parts>
-                                    <value valueClass="string">MS-DWO</value>
-                                    <funcCall id="UniqueId">
-                                      <argument id="length">
-                                        <value class="value" valueClass="decimal">3</value>
-                                      </argument>
-                                    </funcCall>
-                                  </parts>
-                                </value>
-                              </namedValue>
-                              <namedValue name="valueScope">
-                                <value class="value" valueClass="string">Test</value>
-                              </namedValue>
-                            </namedValues>
-                          </value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="21" title="Set the Order Number field to {ipWONumber}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="21" title="Set the Order Number field to {ip_DWONumber}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=orderNumber"/>
@@ -223,9 +178,9 @@
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
-                <argument id="value">
+                <argument argId="befbf4e9-eed9-44d7-a748-24301a2f6430" id="value">
                   <value class="variable">
-                    <path element="ipWONumber"/>
+                    <path element="ip_DWONumber"/>
                   </value>
                 </argument>
                 <argument id="blur">
@@ -247,7 +202,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Order Number field to {ipWONumber}</value>
+                  <value class="value" valueClass="string">Set the Order Number field to {ip_DWONumber}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
@@ -526,7 +481,7 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
+                  <value class="value" valueClass="string">true</value>
                 </argument>
                 <argument id="beforeWait">
                   <value class="uiWait" uri="default"/>
@@ -620,7 +575,7 @@
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="40" title="Verify Order Status">
               <arguments>
                 <argument id="resultName">
-                  <value class="value" valueClass="string">Values</value>
+                  <value class="value" valueClass="string">op_status</value>
                 </argument>
                 <argument id="resultScope">
                   <value class="value" valueClass="string">Test</value>
@@ -677,14 +632,14 @@
         </connectionType>
       </type>
     </param>
-    <param name="ipWONumber" title="Work order Number">
-      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+    <param linkedToUrl="provar:hasvalue:befbf4e9-eed9-44d7-a748-24301a2f6430" name="ip_DWONumber" title="WO number">
+      <summary>The value to be populated.</summary>
       <type>
-        <choiceType>
+        <textType>
           <constraints>
-            <valueConstraint name="unrestricted">false</valueConstraint>
+            <valueConstraint name="mimeType">text/plain</valueConstraint>
           </constraints>
-        </choiceType>
+        </textType>
       </type>
     </param>
     <param name="ipDisItem" title="Disassembly Item Name">
@@ -740,13 +695,23 @@
         <path element="opWONum"/>
       </sourceValue>
     </param>
+    <param name="op_status" title="op_WOStatus">
+      <summary>The name under which the resulting values will be stored.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="op_status"/>
+      </sourceValue>
+    </param>
   </outputParams>
   <args>
-    <argument id="ipWONumber">
-      <value class="variable">
-        <path element="ipWONumber"/>
-      </value>
-    </argument>
     <argument id="reuseConnectionName"/>
     <argument id="ipDisItem">
       <value class="variable">
@@ -763,10 +728,25 @@
         <path element="ipProject"/>
       </value>
     </argument>
+    <argument id="ip_DWONumber">
+      <value class="compound">
+        <parts>
+          <value valueClass="string">Pro-DWO_</value>
+          <funcCall id="UniqueId">
+            <argument id="length">
+              <value class="value" valueClass="decimal">5</value>
+            </argument>
+          </funcCall>
+        </parts>
+      </value>
+    </argument>
   </args>
   <outputArgs>
     <outputArgument id="opWONum">
       <name class="value" valueClass="string">opWONum</name>
+    </outputArgument>
+    <outputArgument id="op_status">
+      <name class="value" valueClass="string">op_status</name>
     </outputArgument>
   </outputArgs>
 </testCase>

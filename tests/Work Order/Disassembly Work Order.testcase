@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="23">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="62" title="Salesforce Connect: QARSF_Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="62" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -22,7 +22,9 @@
         <argument id="closeAllPrimaryTabs">
           <value class="value" valueClass="boolean">false</value>
         </argument>
-        <argument id="reuseConnectionName"/>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">SFConn</value>
+        </argument>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Reuse</value>
         </argument>
@@ -52,18 +54,19 @@
       <expectedExceptions/>
       <parameterValueSources>
         <parameterValueSource variableName="ExcelData" variableScope="Test">
-          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Disassembly Work Order.xlsx;1617557316178</cacheToken>
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Disassembly Work Order.xlsx;1630606719954</cacheToken>
           <cachedParameters>
             <apiParam name="RowNumber"/>
-            <apiParam name="WorkOrderNumber"/>
             <apiParam name="DisassemblyItemName"/>
             <apiParam name="Quantity"/>
             <apiParam name="ProjectName"/>
+            <apiParam name="AddDerivedComponent"/>
+            <apiParam name="AddConsumableComponents"/>
           </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/Disassembly Work Order.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Create Disassembly WO</worksheetName>
-            <valuesRange class="value" valueClass="string">A:D</valuesRange>
+            <valuesRange class="value" valueClass="string">A:E</valuesRange>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -71,7 +74,7 @@
         <clause name="hidden" testItemId="75"/>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="76" title="For Each: {ExcelData}=&gt;opDisassemblyExcelRow">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="76" title="For Each: {ExcelData}=&gt;op_DisassemblyExcelRow">
       <arguments>
         <argument id="list">
           <value class="variable">
@@ -82,7 +85,7 @@
           <value class="value" valueClass="decimal">1</value>
         </argument>
         <argument id="valueName">
-          <value class="value" valueClass="string">opDisassemblyExcelRow</value>
+          <value class="value" valueClass="string">op_DisassemblyExcelRow</value>
         </argument>
         <argument id="continueOnFailure">
           <value class="value" valueClass="boolean">true</value>
@@ -94,7 +97,7 @@
             <caseCall testCaseId="cec332b5-85b4-40b1-a5f4-fb4361f1e698" testCasePath="tests/Work Order/Callable/Create Disassembly Work Order.testcase" testItemId="73">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">QARSF_Admin</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="ipWONumber">
                   <value class="variable">
@@ -104,20 +107,32 @@
                 </argument>
                 <argument id="ipDisItem">
                   <value class="variable">
-                    <path element="opDisassemblyExcelRow"/>
+                    <path element="op_DisassemblyExcelRow"/>
                     <path element="DisassemblyItemName"/>
                   </value>
                 </argument>
                 <argument id="ipQty">
                   <value class="variable">
-                    <path element="opDisassemblyExcelRow"/>
+                    <path element="op_DisassemblyExcelRow"/>
                     <path element="Quantity"/>
                   </value>
                 </argument>
                 <argument id="ipProject">
                   <value class="variable">
-                    <path element="opDisassemblyExcelRow"/>
+                    <path element="op_DisassemblyExcelRow"/>
                     <path element="ProjectName"/>
+                  </value>
+                </argument>
+                <argument id="ip_DWONumber">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">Pro-DWO_</value>
+                      <funcCall id="UniqueId">
+                        <argument id="length">
+                          <value class="value" valueClass="decimal">5</value>
+                        </argument>
+                      </funcCall>
+                    </parts>
                   </value>
                 </argument>
               </arguments>
@@ -126,131 +141,439 @@
                   <name class="value" valueClass="string">opWONumber</name>
                 </outputArgument>
                 <outputArgument id="opWONum">
-                  <name class="value" valueClass="string">opWONum</name>
+                  <name class="value" valueClass="string">op_WONum</name>
+                </outputArgument>
+                <outputArgument id="op_status">
+                  <name class="value" valueClass="string">op_status</name>
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="86" title="read consumable component from excel">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="120" title="REad order number ID">
+              <tags/>
               <arguments>
-                <argument id="description">
-                  <value class="value" valueClass="string">read consumable component from excel</value>
-                </argument>
-              </arguments>
-              <expectedExceptions/>
-              <parameterValueSources>
-                <parameterValueSource variableName="opConsumableCompExcelData" variableScope="Test">
-                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Disassembly Work Order.xlsx;1617557484047</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="RowNumber"/>
-                    <apiParam name="WorkOrderNumber"/>
-                    <apiParam name="ComponentItem"/>
-                    <apiParam name="QtyPer"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="WorkOrderNumber" whereValue="{opDisassemblyExcelRow.WorkOrderNumber}">
-                    <workbookPath class="value" valueClass="string">templates/Disassembly Work Order.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">Consumable Components</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:C</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
-              <clauses>
-                <clause name="hidden" testItemId="87"/>
-              </clauses>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="104" title="For Each: {opConsumableCompExcelData}=&gt;opConsumableCompExcelRow">
-              <arguments>
-                <argument id="list">
-                  <value class="variable">
-                    <path element="opConsumableCompExcelData"/>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select ID,Name from rstk__wocst__c where Name='</value>
+                      <variable>
+                        <path element="op_WONum"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
                   </value>
                 </argument>
-                <argument id="fromItem">
-                  <value class="value" valueClass="decimal">1</value>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
-                <argument id="valueName">
-                  <value class="value" valueClass="string">opConsumableCompExcelRow</value>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">op_WORecID</value>
                 </argument>
-                <argument id="continueOnFailure">
-                  <value class="value" valueClass="boolean">true</value>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="123" title="Add Derived Components">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="variable">
+                      <path element="op_DisassemblyExcelRow"/>
+                      <path element="AddDerivedComponent"/>
+                    </lhs>
+                    <rhs class="value" valueClass="boolean">true</rhs>
+                  </value>
                 </argument>
               </arguments>
               <clauses>
-                <clause name="substeps" testItemId="105">
+                <clause name="then" testItemId="124">
                   <steps>
-                    <caseCall testCaseId="47406122-fc62-4390-8aa8-e3659ba1c15f" testCasePath="tests/Work Order/Callable/Add consumable component.testcase" testItemId="119">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="130" title="For Each: {op_derivedComponet}=&gt;op_derivedComponetRow">
                       <arguments>
-                        <argument id="reuseConnectionName">
-                          <value class="value" valueClass="string">QARSF_Admin</value>
-                        </argument>
-                        <argument id="ipWONumber">
+                        <argument id="list">
                           <value class="variable">
-                            <path element="opWONum"/>
+                            <path element="op_derivedComponet"/>
                           </value>
                         </argument>
-                        <argument id="ipQty">
-                          <value class="variable">
-                            <path element="opConsumableCompExcelRow"/>
-                            <path element="QtyPer"/>
-                          </value>
+                        <argument id="fromItem">
+                          <value class="value" valueClass="decimal">1</value>
                         </argument>
-                        <argument id="ipCompItem">
-                          <value class="variable">
-                            <path element="opConsumableCompExcelRow"/>
-                            <path element="ComponentItem"/>
-                          </value>
+                        <argument id="valueName">
+                          <value class="value" valueClass="string">op_derivedComponetRow</value>
+                        </argument>
+                        <argument id="continueOnFailure">
+                          <value class="value" valueClass="boolean">true</value>
                         </argument>
                       </arguments>
-                    </caseCall>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="op_derivedComponet" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Disassembly Work Order.xlsx;1630606719954</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="DisassemblyItemName"/>
+                            <apiParam name="DerivedComponentItem"/>
+                            <apiParam name="ExpectedQty"/>
+                            <apiParam name="ActualYieldQty"/>
+                            <apiParam name="CostAllocationPct"/>
+                            <apiParam name="DisassyGoodLocID"/>
+                            <apiParam name="DisassyGoodLocNo"/>
+                            <apiParam name="ResponsibleUser"/>
+                            <apiParam name="LotNumber"/>
+                            <apiParam name="LotExpDate"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
+                            <workbookPath class="value" valueClass="string">templates/Disassembly Work Order.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Derived Components</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:J</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="substeps" testItemId="131">
+                          <steps>
+                            <caseCall testCaseId="1455336a-ad0d-4d79-af51-7e19cea3bc15" testCasePath="tests/Work Order/Callable/Add Derived Compnent.testcase" testItemId="122">
+                              <arguments>
+                                <argument id="reuseConnectionName">
+                                  <value class="value" valueClass="string">SFConnection</value>
+                                </argument>
+                                <argument id="ip_recordID"/>
+                                <argument id="ip_derivedComponent">
+                                  <value class="variable">
+                                    <path element="op_derivedComponetRow"/>
+                                    <path element="DerivedComponentItem"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_expectedQty">
+                                  <value class="variable">
+                                    <path element="op_derivedComponetRow"/>
+                                    <path element="ExpectedQty"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_actualYieldQty">
+                                  <value class="variable">
+                                    <path element="op_derivedComponetRow"/>
+                                    <path element="ActualYieldQty"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_costAllocationPct">
+                                  <value class="variable">
+                                    <path element="op_derivedComponetRow"/>
+                                    <path element="CostAllocationPct"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_responsibleUser">
+                                  <value class="variable">
+                                    <path element="op_derivedComponetRow"/>
+                                    <path element="ResponsibleUser"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_lotNumber">
+                                  <value class="variable">
+                                    <path element="op_derivedComponetRow"/>
+                                    <path element="LotNumber"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_lotExpDate">
+                                  <value class="variable">
+                                    <path element="op_derivedComponetRow"/>
+                                    <path element="LotExpDate"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_disassyGoodLocID">
+                                  <value class="variable">
+                                    <path element="op_derivedComponetRow"/>
+                                    <path element="DisassyGoodLocID"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_disassyGoodLocNo">
+                                  <value class="variable">
+                                    <path element="op_derivedComponetRow"/>
+                                    <path element="DisassyGoodLocNo"/>
+                                  </value>
+                                </argument>
+                              </arguments>
+                              <outputArguments>
+                                <outputArgument id="op_orderStatus">
+                                  <name class="value" valueClass="string">op_orderStatus</name>
+                                </outputArgument>
+                              </outputArguments>
+                            </caseCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
                   </steps>
                 </clause>
               </clauses>
             </apiCall>
-            <caseCall testCaseId="2906c36c-9c70-4c6b-92c7-3976c63c3267" testCasePath="tests/Work Order/Callable/Issue Disassembly Item.testcase" testItemId="116">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="136" title="Add Consumable components">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="variable">
+                      <path element="op_DisassemblyExcelRow"/>
+                      <path element="AddConsumableComponents"/>
+                    </lhs>
+                    <rhs class="value" valueClass="boolean">true</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <parameterValueSources/>
+              <clauses>
+                <clause name="then" testItemId="137">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="126" title="Add consumable components">
+                      <arguments>
+                        <argument id="list">
+                          <value class="variable">
+                            <path element="op_ConsumableCompExcelData"/>
+                          </value>
+                        </argument>
+                        <argument id="fromItem">
+                          <value class="value" valueClass="decimal">1</value>
+                        </argument>
+                        <argument id="valueName">
+                          <value class="value" valueClass="string">op_ConsumableCompExcelRow</value>
+                        </argument>
+                        <argument id="continueOnFailure">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="op_ConsumableCompExcelData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Disassembly Work Order.xlsx;1630591751830</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="DisassemblyItemName"/>
+                            <apiParam name="ComponentItem"/>
+                            <apiParam name="EnterQtyPerFlag"/>
+                            <apiParam name="EnterComponentQtyFlag"/>
+                            <apiParam name="FixedComponentQtyFlag"/>
+                            <apiParam name="ComponentQty"/>
+                            <apiParam name="ScrapFactor"/>
+                            <apiParam name="SetupQty"/>
+                            <apiParam name="Comments"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereCaseInsensitive="true" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
+                            <workbookPath class="value" valueClass="string">templates/Disassembly Work Order.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Consumable Components</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:I</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="substeps" testItemId="127">
+                          <steps>
+                            <caseCall testCaseId="0183980e-6527-46e5-928a-273cf63e83b1" testCasePath="tests/Work Order/Callable/Add Component.testcase" testItemId="128">
+                              <arguments>
+                                <argument id="reuseConnectionName">
+                                  <value class="value" valueClass="string">SFConnection</value>
+                                </argument>
+                                <argument id="ip_RecordID"/>
+                                <argument id="ip_componentItem">
+                                  <value class="variable">
+                                    <path element="op_ConsumableCompExcelRow"/>
+                                    <path element="ComponentItem"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_enterQtyPerFlag">
+                                  <value class="variable">
+                                    <path element="op_ConsumableCompExcelRow"/>
+                                    <path element="EnterQtyPerFlag"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_enterComponentQtyFlag">
+                                  <value class="variable">
+                                    <path element="op_ConsumableCompExcelRow"/>
+                                    <path element="EnterComponentQtyFlag"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_fixedComponentQtyFlag">
+                                  <value class="variable">
+                                    <path element="op_ConsumableCompExcelRow"/>
+                                    <path element="FixedComponentQtyFlag"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_qtyPer">
+                                  <value class="variable">
+                                    <path element="op_ConsumableCompExcelRow"/>
+                                    <path element="ComponentQty"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_componentQty">
+                                  <value class="variable">
+                                    <path element="op_ConsumableCompExcelRow"/>
+                                    <path element="ComponentQty"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_scrapFactor">
+                                  <value class="variable">
+                                    <path element="op_ConsumableCompExcelRow"/>
+                                    <path element="ScrapFactor"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_setupQty">
+                                  <value class="variable">
+                                    <path element="op_ConsumableCompExcelRow"/>
+                                    <path element="SetupQty"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_Comments">
+                                  <value class="variable">
+                                    <path element="op_ConsumableCompExcelRow"/>
+                                    <path element="Comments"/>
+                                  </value>
+                                </argument>
+                                <argument id="ip_isDisassemblyWO">
+                                  <value class="value" valueClass="string">true</value>
+                                </argument>
+                              </arguments>
+                            </caseCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <caseCall testCaseId="67d0bf5a-7454-4613-8787-81cdcd1b4c8d" testCasePath="tests/Work Order/Callable/Allocate Qty.testcase" testItemId="135">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">QARSF_Admin</value>
+                  <value class="value" valueClass="string">SFConn</value>
+                </argument>
+                <argument id="ip_RecordID"/>
+                <argument id="ip_isDisassemblyWO">
+                  <value class="value" valueClass="string">true</value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="op_orderStatus">
+                  <name class="value" valueClass="string">op_orderStatus</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+            <caseCall testCaseId="300548ab-18f6-41ce-a0ce-d43fdbc774e5" testCasePath="tests/Work Order/Callable/Generate Picklist.testcase" testItemId="147">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="ip_RecordID">
+                  <value class="variable">
+                    <path element="op_WORecID"/>
+                    <path element="ID"/>
+                  </value>
+                </argument>
+                <argument id="ip_isDisassemblyWO">
+                  <value class="value" valueClass="string">true</value>
                 </argument>
               </arguments>
             </caseCall>
-            <caseCall testCaseId="ef96f90c-09f7-4ce0-bcbc-58c2920225f9" testCasePath="tests/Work Order/Callable/Generate PickList.testcase" testItemId="96">
+            <caseCall testCaseId="2906c36c-9c70-4c6b-92c7-3976c63c3267" testCasePath="tests/Work Order/Callable/Issue Disassembly Item.testcase" testItemId="142">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">QARSF_Admin</value>
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="ip_recordID">
+                  <value class="variable">
+                    <path element="op_WORecID"/>
+                    <path element="ID"/>
+                  </value>
                 </argument>
               </arguments>
+              <outputArguments>
+                <outputArgument id="op_Status">
+                  <name class="value" valueClass="string">op_Status</name>
+                </outputArgument>
+              </outputArguments>
             </caseCall>
-            <caseCall testCaseId="25013522-514e-4511-b2ef-d975d77c12d8" testCasePath="tests/Work Order/Callable/Issue Components.testcase" testItemId="97">
+            <caseCall testCaseId="ffc86958-dcfe-4bc4-9eb5-0a2bb0cd8fff" testCasePath="tests/Work Order/Callable/Receive Derived Component and complete Work Order.testcase" testItemId="99">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">QARSF_Admin</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="ipWONumber">
                   <value class="variable">
                     <path element="opWONum"/>
                   </value>
                 </argument>
-              </arguments>
-            </caseCall>
-            <caseCall testCaseId="f4a3f780-9694-4a3d-afca-a6b61a6766b1" testCasePath="tests/Work Order/Callable/Set Yield Value.testcase" testItemId="98">
-              <arguments>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">QARSF_Admin</value>
-                </argument>
-                <argument id="ipWONumber">
+                <argument id="ip_recordID"/>
+                <argument id="ip_WONum">
                   <value class="variable">
-                    <path element="opWONum"/>
+                    <path element="op_WONum"/>
                   </value>
                 </argument>
               </arguments>
             </caseCall>
-            <caseCall testCaseId="ffc86958-dcfe-4bc4-9eb5-0a2bb0cd8fff" testCasePath="tests/Work Order/Callable/Receive Derived Component and close Work Order.testcase" testItemId="99">
+            <caseCall testCaseId="c4221d41-a871-414b-bfc0-fff70f8c15be" testCasePath="tests/Work Order/Callable/Close Work Order.testcase" testItemId="146">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">QARSF_Admin</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
-                <argument id="ipWONumber">
+                <argument id="ip_recordID">
                   <value class="variable">
-                    <path element="opWONum"/>
+                    <path element="op_WORecID"/>
+                    <path element="ID"/>
+                  </value>
+                </argument>
+                <argument id="ip_isDisassemblyWO">
+                  <value class="value" valueClass="string">true</value>
+                </argument>
+                <argument id="ip_laborWO">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="op_orderStatus">
+                  <name class="value" valueClass="string">op_orderStatus</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+            <caseCall testCaseId="2d0f3878-f0c7-4d41-812c-cced049759c7" testCasePath="tests/Work Order/Callable/Reverse WO Close.testcase" testItemId="143">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="ip_recordID"/>
+                <argument id="ip_isDisassemblyWO">
+                  <value class="value" valueClass="string">true</value>
+                </argument>
+                <argument id="ip_laborWO">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="op_orderStatus">
+                  <name class="value" valueClass="string">op_orderStatus</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+            <caseCall testCaseId="859b933d-a05c-4af5-930e-c273849b1d49" testCasePath="tests/Work Order/Callable/Reverse Derived Components.testcase" testItemId="144">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="ip_recordID"/>
+                <argument id="ip_WONum">
+                  <value class="variable">
+                    <path element="op_WONum"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="op_orderStatus">
+                  <name class="value" valueClass="string">op_orderStatus</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+            <caseCall testCaseId="a849ebb4-8b78-44a6-a17e-aa5e7901bbd4" testCasePath="tests/Work Order/Callable/WO Issue Reversal.testcase" testItemId="145">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="ip_workOrder">
+                  <value class="variable">
+                    <path element="op_WONum"/>
                   </value>
                 </argument>
               </arguments>

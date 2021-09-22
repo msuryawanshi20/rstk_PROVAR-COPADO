@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject selectedBrowserProviderDeviceName="LINUX Chrome" selectedBrowserProviderName="SeleniumGrid">
+<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop">
   <title>/rsqasampleproj/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -60,6 +60,7 @@
       <summary>Fixed 1920x1080</summary>
     </browserConfiguration>
   </browserConfigurations>
+  <testCyclePath>TestCycle</testCyclePath>
   <browserApplications>
     <browserApplication connectionTypes="sf" name="Salesforce1">
       <properties>
@@ -133,7 +134,7 @@
         </browserProviderDevice>
       </devices>
       <properties>
-        <browserPlatformProperty name="gridUrl" value="http://173.230.152.103:4444/wd/hub"/>
+        <browserPlatformProperty name="gridUrl" value="http://oracle.mayur.ml:4444/wd/hub"/>
       </properties>
     </browserProvider>
   </browserProviders>

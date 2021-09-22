@@ -58,7 +58,9 @@ public class rstk__createInspectionOrder {
 
 	public void selectInventoryItem(String InventoryItemName) throws InterruptedException {
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//input[@name='inspord_icitem__c_autocomplete']")).sendKeys(InventoryItemName);
+		WebElement ele=driver.findElement(By.xpath("//input[@name='inspord_icitem__c_autocomplete']"));
+		ele.clear();
+		ele.sendKeys(InventoryItemName);
 		Actions actions = new Actions(driver);
 		Thread.sleep(2000);
 		List<WebElement> autoCompleteList = driver
@@ -75,10 +77,13 @@ public class rstk__createInspectionOrder {
 
 	public void selectOriginatingLocationID(String OriginalLocID) throws InterruptedException {
 		Thread.sleep(1000);
-		
-		driver.findElement(By.xpath("//input[@id='inspord_frlocid__c_autocomplete']")).sendKeys(OriginalLocID);
-		Actions actions = new Actions(driver);
+		WebElement ele=driver.findElement(By.xpath("//input[@id='inspord_frlocid__c_autocomplete']"));
+		ele.clear();
+		ele.sendKeys(OriginalLocID);	
 		Thread.sleep(2500);
+		
+		Actions actions = new Actions(driver);
+		
 		List<WebElement> autoCompleteList = driver
 				.findElements(By.xpath("//div[@class='ac_results'][2]/ul[@id='IDREF']/li"));
 

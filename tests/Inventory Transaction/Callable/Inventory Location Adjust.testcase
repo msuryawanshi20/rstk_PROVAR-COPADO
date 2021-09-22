@@ -110,6 +110,31 @@
                 <argument id="autoRetry"/>
               </arguments>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="66" title="Read Allow Date Override to Inv Adjustments Flag from Cost Accounting Control Record">
+              <tags/>
+              <arguments>
+                <argument argId="7810d3ee-1f4f-42d2-b09b-6118a6fcafba" id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">Select rstk__csacctcntl_invadjdateovr__c from rstk__csacctcntl__c where rstk__csacctcntl_div__c in (select rstk__sysite_div__c from rstk__sysite__c where name='</value>
+                      <variable>
+                        <path element="ip_site"/>
+                      </variable>
+                      <value valueClass="string">')</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">op_overrideDateStatus</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="53" title="Check Serial status of item">
               <arguments>
                 <argument id="soqlQuery">
@@ -910,77 +935,80 @@
                         </clause>
                       </clauses>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="39" title="If: {ip_transactionDate != null}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="68" title="Set Transaction date based on Cost Accounting Control Record flags">
                       <arguments>
                         <argument id="condition">
-                          <value class="ne">
+                          <value class="eq">
                             <lhs class="variable">
-                              <path element="ip_transactionDate"/>
+                              <path element="op_overrideDateStatus"/>
+                              <path element="rstk__csacctcntl_invadjdateovr__c"/>
                             </lhs>
+                            <rhs class="value" valueClass="boolean">true</rhs>
                           </value>
                         </argument>
                       </arguments>
                       <clauses>
-                        <clause name="then" testItemId="40">
+                        <clause name="then" testItemId="69">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="31" title="Set the Transaction Date field to 6/1/2021">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="70" title="Set Transaction Date">
                               <arguments>
-                                <argument id="locator">
-                                  <value class="uiLocator" uri="ui:locator?name=transactionDate&amp;rowLocator=%7B1%7D"/>
-                                </argument>
-                                <argument id="captureBefore">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="captureAfter">
-                                  <value class="value" valueClass="string">false</value>
-                                </argument>
-                                <argument id="beforeWait">
-                                  <value class="uiWait" uri="default"/>
-                                </argument>
-                                <argument id="afterWait">
-                                  <value class="uiWait" uri="default"/>
-                                </argument>
-                                <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Transaction Date field to 6/1/2021</value>
-                                </argument>
-                                <argument id="autoRetry"/>
-                                <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                                </argument>
-                                <argument id="value">
-                                  <value class="value" valueClass="string">6/1/2021</value>
-                                </argument>
-                                <argument id="blur">
-                                  <value class="value" valueClass="boolean">false</value>
-                                </argument>
-                                <argument id="pressEnter">
-                                  <value class="value" valueClass="boolean">false</value>
+                                <argument id="condition">
+                                  <value class="ne">
+                                    <lhs class="variable">
+                                      <path element="op_LocationDetailsRow"/>
+                                      <path element="TransactionDate"/>
+                                    </lhs>
+                                  </value>
                                 </argument>
                               </arguments>
-                              <generatedParameters>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
-                                  <summary>The value to be populated.</summary>
-                                  <type>
-                                    <textType>
-                                      <constraints>
-                                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                                      </constraints>
-                                    </textType>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                              </generatedParameters>
+                              <clauses>
+                                <clause name="then" testItemId="71">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="72" title="Call the setTransactionDate method">
+                                      <arguments>
+                                        <argument id="locator">
+                                          <value class="uiLocator" uri="ui:pageobject:method?operation=setTransactionDate&amp;pageId=pageobjects.rstk__Stocklocadj2"/>
+                                        </argument>
+                                        <argument id="interaction">
+                                          <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
+                                        </argument>
+                                        <argument id="interactionDescription">
+                                          <value class="value" valueClass="string">Call the setTransactionDate method</value>
+                                        </argument>
+                                        <argument id="beforeWait"/>
+                                        <argument id="afterWait"/>
+                                        <argument id="autoRetry"/>
+                                        <argument id="captureBefore">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="param_date">
+                                          <value class="funcCall" id="DateFormat">
+                                            <argument id="date">
+                                              <value class="variable" topLevel="true">
+                                                <path element="op_LocationDetailsRow"/>
+                                                <path element="TransactionDate"/>
+                                              </value>
+                                            </argument>
+                                            <argument id="outputFormat">
+                                              <value class="value" valueClass="string">MM/dd/yyyy</value>
+                                            </argument>
+                                          </value>
+                                        </argument>
+                                      </arguments>
+                                      <generatedParameters>
+                                        <apiParam group="value" name="param_date" title="Date">
+                                          <type>
+                                            <textType/>
+                                          </type>
+                                        </apiParam>
+                                      </generatedParameters>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
                             </apiCall>
                           </steps>
                         </clause>
@@ -1465,4 +1493,7 @@
     </argument>
     <argument id="ip_adjustmentAccount"/>
   </args>
+  <tags>
+    <string>disabled</string>
+  </tags>
 </testCase>
