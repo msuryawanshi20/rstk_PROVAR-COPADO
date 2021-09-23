@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="23">
+<testCase id="16">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="62" title="Salesforce Connect: SFConnection (Test)">
@@ -54,19 +54,20 @@
       <expectedExceptions/>
       <parameterValueSources>
         <parameterValueSource variableName="ExcelData" variableScope="Test">
-          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Disassembly Work Order.xlsx;1630606719954</cacheToken>
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9519-Disassembly Work Order.xlsx;1632235865218</cacheToken>
           <cachedParameters>
             <apiParam name="RowNumber"/>
             <apiParam name="DisassemblyItemName"/>
             <apiParam name="Quantity"/>
             <apiParam name="ProjectName"/>
+            <apiParam name="ProjectChargeCode"/>
             <apiParam name="AddDerivedComponent"/>
             <apiParam name="AddConsumableComponents"/>
           </cachedParameters>
           <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/Disassembly Work Order.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9519-Disassembly Work Order.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Create Disassembly WO</worksheetName>
-            <valuesRange class="value" valueClass="string">A:E</valuesRange>
+            <valuesRange class="value" valueClass="string">A:F</valuesRange>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -135,6 +136,30 @@
                     </parts>
                   </value>
                 </argument>
+                <argument id="ip_DisItem">
+                  <value class="variable">
+                    <path element="op_DisassemblyExcelRow"/>
+                    <path element="DisassemblyItemName"/>
+                  </value>
+                </argument>
+                <argument id="ip_Qty">
+                  <value class="variable">
+                    <path element="op_DisassemblyExcelRow"/>
+                    <path element="Quantity"/>
+                  </value>
+                </argument>
+                <argument id="ip_ProjectName">
+                  <value class="variable">
+                    <path element="op_DisassemblyExcelRow"/>
+                    <path element="ProjectName"/>
+                  </value>
+                </argument>
+                <argument id="ip_ProjectChargeCode">
+                  <value class="variable">
+                    <path element="op_DisassemblyExcelRow"/>
+                    <path element="ProjectChargeCode"/>
+                  </value>
+                </argument>
               </arguments>
               <outputArguments>
                 <outputArgument id="opWONumber">
@@ -146,6 +171,9 @@
                 <outputArgument id="op_status">
                   <name class="value" valueClass="string">op_status</name>
                 </outputArgument>
+                <outputArgument id="op_OrderNumber">
+                  <name class="value" valueClass="string">op_OrderNumber</name>
+                </outputArgument>
               </outputArguments>
             </caseCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="120" title="REad order number ID">
@@ -154,9 +182,9 @@
                 <argument id="soqlQuery">
                   <value class="compound">
                     <parts>
-                      <value valueClass="string">select ID,Name from rstk__wocst__c where Name='</value>
+                      <value valueClass="string">select ID,Name,rstk__wocst_item__c,rstk__wocst_div__c from rstk__wocst__c where Name='</value>
                       <variable>
-                        <path element="op_WONum"/>
+                        <path element="op_OrderNumber"/>
                       </variable>
                       <value valueClass="string">'</value>
                     </parts>
@@ -188,7 +216,7 @@
               <clauses>
                 <clause name="then" testItemId="124">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="130" title="For Each: {op_derivedComponet}=&gt;op_derivedComponetRow">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="130" title="Add derived Component">
                       <arguments>
                         <argument id="list">
                           <value class="variable">
@@ -222,7 +250,7 @@
                             <apiParam name="LotExpDate"/>
                           </cachedParameters>
                           <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
-                            <workbookPath class="value" valueClass="string">templates/Disassembly Work Order.xlsx</workbookPath>
+                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9519-Disassembly Work Order.xlsx</workbookPath>
                             <worksheetName class="value" valueClass="string">Derived Components</worksheetName>
                             <valuesRange class="value" valueClass="string">A:J</valuesRange>
                           </sourceValue>
@@ -355,7 +383,7 @@
                             <apiParam name="Comments"/>
                           </cachedParameters>
                           <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereCaseInsensitive="true" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
-                            <workbookPath class="value" valueClass="string">templates/Disassembly Work Order.xlsx</workbookPath>
+                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9519-Disassembly Work Order.xlsx</workbookPath>
                             <worksheetName class="value" valueClass="string">Consumable Components</worksheetName>
                             <valuesRange class="value" valueClass="string">A:I</valuesRange>
                           </sourceValue>
@@ -500,7 +528,7 @@
                 <argument id="ip_recordID"/>
                 <argument id="ip_WONum">
                   <value class="variable">
-                    <path element="op_WONum"/>
+                    <path element="op_OrderNumber"/>
                   </value>
                 </argument>
               </arguments>
@@ -556,7 +584,7 @@
                 <argument id="ip_recordID"/>
                 <argument id="ip_WONum">
                   <value class="variable">
-                    <path element="op_WONum"/>
+                    <path element="op_OrderNumber"/>
                   </value>
                 </argument>
               </arguments>
@@ -573,7 +601,7 @@
                 </argument>
                 <argument id="ip_workOrder">
                   <value class="variable">
-                    <path element="op_WONum"/>
+                    <path element="op_OrderNumber"/>
                   </value>
                 </argument>
               </arguments>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="8">
+<testCase failureBehaviour="Continue" id="23">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -296,7 +296,7 @@
                       <clauses>
                         <clause name="then" testItemId="57">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="58" title="Set the Start Date field to {DateFormat(DateAdd(TODAY, &quot;-3&quot;, MONTH), &quot;MM/dd/YYYY&quot;)}">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="58" title="Set the Start Date field to {DateFormat(DateAdd(TODAY, &quot;-15&quot;, Days), &quot;MM/dd/YYYY&quot;)}">
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=startDate"/>
@@ -314,11 +314,11 @@
                                           </value>
                                         </argument>
                                         <argument id="amount">
-                                          <value class="value" valueClass="string">-3</value>
+                                          <value class="value" valueClass="string">-15</value>
                                         </argument>
                                         <argument id="unit">
                                           <value class="variable">
-                                            <path element="MONTH"/>
+                                            <path element="Days"/>
                                           </value>
                                         </argument>
                                       </value>
@@ -347,7 +347,7 @@
                                   <value class="uiWait" uri="default"/>
                                 </argument>
                                 <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Start Date field to {DateFormat(DateAdd(TODAY, "-3", MONTH), "MM/dd/YYYY")}</value>
+                                  <value class="value" valueClass="string">Set the Start Date field to {DateFormat(DateAdd(TODAY, "-15", Days), "MM/dd/YYYY")}</value>
                                 </argument>
                                 <argument id="autoRetry"/>
                               </arguments>
