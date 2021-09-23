@@ -2,7 +2,10 @@ package pageobjects;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import com.provar.core.testapi.annotations.BooleanType;
@@ -13,11 +16,18 @@ import com.provar.core.testapi.annotations.FindByLabel;
 import com.provar.core.testapi.annotations.LinkType;
 import com.provar.core.testapi.annotations.PageRow;
 import com.provar.core.testapi.annotations.PageTable;
+import com.provar.core.testapi.annotations.PageWaitAfter;
 import com.provar.core.testapi.annotations.SalesforcePage;
 import com.provar.core.testapi.annotations.TextType;
 
 @SalesforcePage(title = "Rstk__dwocst", summary = "", page = "DWocst", namespacePrefix = "rstk", object = "rstk__wocst__c", connection = "QARSF_Admin")
 public class rstk__dwocst {
+public WebDriver driver;
+
+	public rstk__dwocst(WebDriver driver) {
+		this.driver = driver;
+	}
+
 
 	@TextType()
 	@FindBy(xpath = "//*[contains(@id,'wocst_ordno__c')]//input")
@@ -40,9 +50,35 @@ public class rstk__dwocst {
 	public WebElement dueDate;
 		
 	@TextType()
-	@FindBy(xpath = "//*[contains(@id,'wocst_proj__c_autocomplete')]")
+	@FindBy(xpath = "//label[normalize-space(.)='Project']/parent::span/parent::th/following-sibling::td//input")
 	public WebElement project;
+
 	
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@ChoiceListType()
+	@FindBy(xpath = "//label[normalize-space(.)='Project Charge Code']/parent::th/following-sibling::td//select")
+	public WebElement projectChargeCode;
+	
+	public void selectProject(String ProjectName) throws InterruptedException {
+		Thread.sleep(1000);
+		WebElement ele = driver.findElement(By.xpath("//input[@name='wocst_proj__c_autocomplete']"));
+		ele.clear();
+		ele.sendKeys(ProjectName);
+		Thread.sleep(1500);
+		
+		Actions actions = new Actions(driver);
+		Thread.sleep(1000);
+		List<WebElement> autoCompleteList = driver
+				.findElements(By.xpath("//div[@class='ac_results'][2]/ul[@id='IDREF']/li"));
+		for (int i = 0; i < autoCompleteList.size(); i++) {
+			Thread.sleep(500);
+			actions.moveToElement(autoCompleteList.get(i)).build().perform();
+			if (autoCompleteList.get(i).getText().equalsIgnoreCase(ProjectName)) {
+				actions.moveToElement(autoCompleteList.get(i)).click().build().perform();
+				break;
+			}
+		}
+	}
 	
 	@ButtonType()
 	@FindByLabel(label = "Save")

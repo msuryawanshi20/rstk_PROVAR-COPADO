@@ -294,7 +294,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="52" title="Check the Select All Check Box field">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="54" title="Check the Select All Check Box field">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=selectAllCheckBox"/>
@@ -305,7 +305,9 @@
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Check the Select All Check Box field</value>
                 </argument>
-                <argument id="beforeWait"/>
+                <argument id="beforeWait">
+                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                </argument>
                 <argument id="afterWait"/>
                 <argument id="autoRetry"/>
                 <argument id="captureBefore">

@@ -62,7 +62,7 @@
       </arguments>
       <parameterValueSources>
         <parameterValueSource variableName="op_excelData" variableScope="Test">
-          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Labor WO.xlsx;1631399196350</cacheToken>
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9522-Labor WO.xlsx;1631618974078</cacheToken>
           <cachedParameters>
             <apiParam name="RowNumber"/>
             <apiParam name="Site"/>
@@ -75,7 +75,7 @@
             <apiParam name="AddOperations"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/Labor WO.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9522-Labor WO.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Create WO</worksheetName>
             <valuesRange class="value" valueClass="string">A:H</valuesRange>
           </sourceValue>
@@ -290,7 +290,7 @@
                             <apiParam name="AllowAcceptIndicator"/>
                           </cachedParameters>
                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                            <workbookPath class="value" valueClass="string">templates/Labor WO.xlsx</workbookPath>
+                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9522-Labor WO.xlsx</workbookPath>
                             <worksheetName class="value" valueClass="string">Add Operation</worksheetName>
                             <valuesRange class="value" valueClass="string">A:O</valuesRange>
                           </sourceValue>
@@ -467,7 +467,7 @@
                     <apiParam name="TxnComments"/>
                   </cachedParameters>
                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                    <workbookPath class="value" valueClass="string">templates/Labor WO.xlsx</workbookPath>
+                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9522-Labor WO.xlsx</workbookPath>
                     <worksheetName class="value" valueClass="string">Time and Qty Booking</worksheetName>
                     <valuesRange class="value" valueClass="string">A:O</valuesRange>
                   </sourceValue>
@@ -676,7 +676,7 @@
                     <apiParam name="Operation"/>
                   </cachedParameters>
                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                    <workbookPath class="value" valueClass="string">templates/Labor WO.xlsx</workbookPath>
+                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9522-Labor WO.xlsx</workbookPath>
                     <worksheetName class="value" valueClass="string">Time and Qty Booking Reversal</worksheetName>
                     <valuesRange class="value" valueClass="string">A:D</valuesRange>
                   </sourceValue>
