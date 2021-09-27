@@ -212,7 +212,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="43" title="On SF rstk__Woissue page with pageobject Rstk__ Woissue">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">SFConn</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?page=rstk__Woissue&amp;pageObject=pageobjects.rstk__Woissue"/>
