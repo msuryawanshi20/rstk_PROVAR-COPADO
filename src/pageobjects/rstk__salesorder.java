@@ -7,13 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 import com.provar.core.testapi.annotations.*;
 
-@SalesforcePage( title="Rstk__salesorder"                                
-               , summary=""
-               , page="SalesOrder"
-               , namespacePrefix="rstk"
-               , object="rstk__sohdr__c"
-               , connection="Devqaff"
-     )             
+@SalesforcePage(title = "Rstk__salesorder",summary="",page = "SalesOrder",namespacePrefix = "rstk", object = "rstk__sohdr__c", connection = "QARSF_Admin")
 public class rstk__salesorder {
 
 	@TextType()
@@ -28,6 +22,9 @@ public class rstk__salesorder {
 	@TextType()
 	@FindBy(id = "li-0")
 	public WebElement Customer_Select;
+	/*@TextType()
+	@FindBy(xpath = "//span[@name='SOtotal']")
+	public WebElement SOtotal;*/
 	@PageTable(row = LineItems.class)
 	@VisualforceBy(componentXPath = "apex:pageBlockTable[@id='pbt_lineitems']")
 	public List<LineItems> lineItems;
@@ -59,7 +56,8 @@ public class rstk__salesorder {
 		public WebElement discountPct;
 		@TextType()
 		@FindBy(xpath = "//input[contains(@id,'soline_duedate__c')]")
-		public WebElement dueDate;		
+		public WebElement dueDate;	
+				
 	}
 	@TextType()
 	@FindBy(id = "li-0")
@@ -104,6 +102,23 @@ public class rstk__salesorder {
 	@FindBy(xpath = "//h3[text()='Due Date Override']/following::div//table[@class='detailList']//input[@name='popupOkButton' and @value='Continue']")
 	public WebElement continue_;
 	
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Process Authorizations and Payments']")
+	public WebElement ProcessAuthorizationsandPayments;
+	
+	@TextType()
+	@FindBy(xpath = "//h3[text()='Process Authorizations and Payments']")
+	public WebElement ProcessAuthorizationsandPaymentsTitle;
+	@ButtonType()
+	@FindByLabel(label = "Commit")
+	public WebElement commit;
+	
+	@TextType()
+	@FindBy(xpath = "//div[contains(@id,'sohdrpays')]//table[@class='list']//tr[2]//td[6]")
+	public WebElement PaymentStatus;
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='Order Lines Total:']/following-sibling::span[1]")
+	public WebElement SOtotal;
 	
 	
 }

@@ -662,7 +662,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="107" title="Set Values: PrepayNumber">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="113" title="Set Values: PrepayNumber">
                       <arguments>
                         <argument id="values">
                           <value class="valueList" mutable="Mutable">
@@ -671,11 +671,16 @@
                                 <value class="value" valueClass="string">PrepayNumber</value>
                               </namedValue>
                               <namedValue name="value">
-                                <value class="variable">
-                                  <path element="PrepaymentNumber"/>
-                                  <path element="fields"/>
-                                  <path element="PrepaymentNumber"/>
-                                  <path element="value"/>
+                                <value class="compound">
+                                  <parts>
+                                    <variable>
+                                      <path element="PrepaymentNumber"/>
+                                      <path element="fields"/>
+                                      <path element="PrepaymentNumber"/>
+                                      <path element="value"/>
+                                    </variable>
+                                    <value valueClass="string"> </value>
+                                  </parts>
                                 </value>
                               </namedValue>
                               <namedValue name="valueScope">
@@ -686,17 +691,42 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="82" title="SOQL Query: SELECT Id FROM rstk__soppy__c WHERE rstk__soppy_ppynumber__c = {PrepaymentNumber.fields.PrepaymentNumber.value} AND rstk__soppy_div__c = '{SourceData_Prepayment.Division}'=&gt;rstkRows_PrepaymentID">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="107" title="Set Values: PrepayNumber">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">PrepayNumber</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="funcCall" id="NumberFormat">
+                                  <argument id="numberToFormat">
+                                    <value class="variable">
+                                      <path element="PrepayNumber"/>
+                                    </value>
+                                  </argument>
+                                  <argument id="outputFormat">
+                                    <value class="value" valueClass="string">#</value>
+                                  </argument>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="82" title="SOQL Query: SELECT Id FROM rstk__soppy__c WHERE rstk__soppy_ppynumber__c = {PrepayNumber} AND rstk__soppy_div__c = '{SourceData_Prepayment.Division}'=&gt;rstkRows_PrepaymentID">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
                             <parts>
                               <value valueClass="string">SELECT Id FROM rstk__soppy__c WHERE rstk__soppy_ppynumber__c = </value>
                               <variable>
-                                <path element="PrepaymentNumber"/>
-                                <path element="fields"/>
-                                <path element="PrepaymentNumber"/>
-                                <path element="value"/>
+                                <path element="PrepayNumber"/>
                               </variable>
                               <value valueClass="string"> AND rstk__soppy_div__c = '</value>
                               <variable>

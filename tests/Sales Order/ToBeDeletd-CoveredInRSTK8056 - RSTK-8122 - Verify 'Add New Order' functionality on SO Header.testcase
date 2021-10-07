@@ -232,8 +232,8 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8122-Verify 'Add New Order' functionality on SO Header.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">SOHeader</worksheetName>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SalesOrder_BaseData.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">AddHeader</worksheetName>
             <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
@@ -920,14 +920,14 @@
         </apiParam>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="66" title="End">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="68" title="End">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">End</value>
         </argument>
       </arguments>
       <clauses>
-        <clause name="hidden" testItemId="67"/>
+        <clause name="hidden" testItemId="69"/>
       </clauses>
     </apiCall>
   </steps>

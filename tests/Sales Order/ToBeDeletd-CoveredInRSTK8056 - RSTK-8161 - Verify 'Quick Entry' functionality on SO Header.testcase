@@ -232,9 +232,9 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8161-Verify 'Quick Entry' functionality on SO Header.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">SOHeader</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <workbookPath class="value" valueClass="string">templates/QARSF/SalesOrder_BaseData.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">AddHeader</worksheetName>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -664,9 +664,9 @@
                     <apiParam name="Customer"/>
                   </cachedParameters>
                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8161-Verify 'Quick Entry' functionality on SO Header.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">SOLine</worksheetName>
-                    <valuesRange class="value" valueClass="string"/>
+                    <workbookPath class="value" valueClass="string">templates/QARSF/SalesOrder_BaseData.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">AddLine</worksheetName>
+                    <valuesRange class="value"/>
                   </sourceValue>
                 </parameterValueSource>
               </parameterValueSources>
