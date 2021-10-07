@@ -68,6 +68,10 @@ public class rstk__soinv {
 	public WebElement deapproveInvoice;
 	
 	@ButtonType()
+	@FindBy(xpath = "//input[@value='Process Payments & Credits']")
+	public WebElement ProcessPaymentsAndCredits;
+	
+	@ButtonType()
 	@FindBy(xpath = "//input[@value='De-approve Credit Memo']")
 	public WebElement deapproveCreditMemo;
 	
@@ -123,6 +127,10 @@ public class rstk__soinv {
 	@TextType()
 	@FindBy(xpath = "//h3[text()='Account Distribution Summary']")
 	public WebElement AccountDistributionSummary;
+	
+	@TextType()
+	@FindBy(xpath = "//div[@id='PaymentAndCreditsPopup']//span[1]//h3[text()='Process Payments & Credits']")
+	public WebElement ProcessPaymentsCreditsTitle;
 	
 	@TextType()
 	@FindBy(xpath = "//h3[text()='Account Distribution Detail']")
@@ -318,6 +326,9 @@ public class rstk__soinv {
 	@TextType()
 	@FindBy(xpath = "//h2[normalize-space(.)='Apply Prepayments']")
 	public WebElement ApplyPrepaymentsTitle;
+	@ButtonType()
+	@FindByLabel(label = "Commit")
+	public WebElement commit;
 		
 	
 }

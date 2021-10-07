@@ -19,6 +19,22 @@ public class HomePage {
 	public WebElement rootstockSiteMap;
 	
 	@LinkType()
+	@FindBy(xpath = "//span[text()='Quick Cash Receipts']")
+	public WebElement QuickCashReceipts;
+	
+	@LinkType()
+	@FindBy(xpath = "//span[text()='Cash Receipts']")
+	public WebElement CashReceipts;
+	
+	@LinkType()
+	@FindBy(xpath = "//span[text()='Cash Receipts Journal']")
+	public WebElement CashReceiptsJournal;
+	
+	@ButtonType()
+	@FindBy(xpath = "//input[@name='new']")
+	public WebElement New_Cash_Receipt;
+	
+	@LinkType()
 	@FindBy(xpath = "//span[text()='SO Invoice']")
 	public WebElement SOInvoice;
 	
@@ -29,5 +45,7 @@ public class HomePage {
 	@ButtonType()
 	@FindBy(xpath = "//input[@name='new']")
 	public WebElement New_Prepayment_Detail;
+	
+	
 
 }

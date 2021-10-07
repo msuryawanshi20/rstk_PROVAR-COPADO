@@ -379,13 +379,13 @@
                         <resultAssertion resultName="rstk__soppy_completed__c" title="Check rstk__soppy_completed__c">
                           <expected class="value" valueClass="string">true</expected>
                         </resultAssertion>
-                        <resultAssertion comparisonType="IsPresent" resultName="rstk__soppy_creditno__c" title="Check rstk__soppy_creditno__c"/>
                         <resultAssertion resultName="rstk__soppy_amtappl__c" title="Check rstk__soppy_amtappl__c">
                           <expected class="variable">
                             <path element="SourceData_Prepayment"/>
                             <path element="Amount"/>
                           </expected>
                         </resultAssertion>
+                        <resultAssertion comparisonType="IsPresent" resultName="rstk__soppy_crmemo__c" title="Check rstk__soppy_crmemo__c"/>
                       </resultAssertions>
                       <parameterGeneratorProperties>
                         <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
@@ -401,12 +401,10 @@
                         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soppy__c&amp;field=rstk__soppy_completed__c" name="rstk__soppy_completed__c" title="Fully Applied">
                           <summary>Indicates whether Prepayment has been fully applied or not.</summary>
                         </apiParam>
-                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soppy__c&amp;field=rstk__soppy_creditno__c" name="rstk__soppy_creditno__c" title="Credit Memo Number">
-                          <summary>Not Applicable</summary>
-                        </apiParam>
                         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soppy__c&amp;field=rstk__soppy_amtappl__c" name="rstk__soppy_amtappl__c" title="Amount Applied">
                           <summary>Amount applied of the Prepayment.</summary>
                         </apiParam>
+                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soppy__c&amp;field=rstk__soppy_crmemo__c" name="rstk__soppy_crmemo__c" title="Credit Memo"/>
                       </generatedParameters>
                     </apiCall>
                   </steps>

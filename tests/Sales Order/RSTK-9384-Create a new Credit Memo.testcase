@@ -58,7 +58,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/QARSF/Credit Memo.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">CreditMemo</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -70,7 +70,17 @@
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
+                <argument id="SourceData_CreditMemo">
+                  <value class="variable">
+                    <path element="SourceData_CreditMemo"/>
+                  </value>
+                </argument>
               </arguments>
+              <outputArguments>
+                <outputArgument id="CreditMemoNumberID">
+                  <name class="value" valueClass="string">CreditMemoNumberID</name>
+                </outputArgument>
+              </outputArguments>
             </caseCall>
           </steps>
         </clause>
