@@ -12,6 +12,12 @@
     <environment name="PDE5">
       <summary/>
     </environment>
+    <environment name="Env2">
+      <summary/>
+    </environment>
+    <environment name="Env1">
+      <summary/>
+    </environment>
   </environments>
   <variables>
     <testVariable name="_chromeOptions">
@@ -36,8 +42,9 @@
         <connection id="9d2f70ad-289c-4fc3-8be5-d6959877335e" name="QARSF_Admin">
           <summary/>
           <connectionUrls>
-            <connectionUrl secureStorageNodeId="bb7da988-9015-4a99-8263-0794fd9137ce" url="sf:user=msuryawanshi@rootstock.com.qarsf;password={password};securityToken={securityToken};environment=PRERELEASE"/>
-            <connectionUrl envName="PDE5" secureStorageNodeId="03d6ef83-22bf-4b92-a0ea-0ee396e23e2f" url="sf:user=msuryawanshi@rootstock.com.pde5;password={password};securityToken={securityToken};environment=PROD_DEV;nsPrefixOverride=-rstk"/>
+            <connectionUrl secureStorageNodeId="bb7da988-9015-4a99-8263-0794fd9137ce" url="sf:user=achoudhary@rootstock.com.qa-rsf;password={password};securityToken={securityToken};environment=PRERELEASE"/>
+            <connectionUrl envName="Env1" secureStorageNodeId="ffc177df-b94c-4ac9-8e53-6eafefafac51" url="sf:user=djha@rootstock.com.qarsf-admin;password={password};securityToken={securityToken};environment=PRERELEASE"/>
+            <connectionUrl envName="Env2" secureStorageNodeId="7145d567-7c68-474b-9322-1daf39034203" url="sf:user=npatil@rootstock.com.qarsf-admin;password={password};securityToken={securityToken};environment=PRERELEASE"/>
           </connectionUrls>
         </connection>
       </connections>

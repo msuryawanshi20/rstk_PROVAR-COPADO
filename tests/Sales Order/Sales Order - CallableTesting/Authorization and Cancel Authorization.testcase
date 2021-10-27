@@ -65,16 +65,16 @@
       <clauses>
         <clause name="substeps" testItemId="14">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="2" title="On SF Sales Order Header View screen">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="2" title="On SF Sales Order Invoice Header Edit screen">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="target">
-                  <value class="uiTarget" uri="sf:ui:target?object=rstk__sohdr__c&amp;action=View"/>
+                  <value class="uiTarget" uri="sf:ui:target?object=rstk__soinv__c&amp;action=Edit"/>
                 </argument>
                 <argument id="targetDescription">
-                  <value class="value" valueClass="string">On SF Sales Order Header View screen</value>
+                  <value class="value" valueClass="string">On SF Sales Order Invoice Header Edit screen</value>
                 </argument>
                 <argument id="navigate">
                   <value class="value" valueClass="string">IfNeccessary</value>

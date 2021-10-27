@@ -152,6 +152,9 @@ public class rstk__SalesOrderWorkbench {
 	@FindBy(xpath = "//table[@class='list']//tbody[contains(@id,'componentsData:allocationTable')]//tr")
 	@PageTable(firstRowContainsHeaders = false, row = Table1.class)
 	public List<Table1> table1;
+	@TextType()
+	@FindBy(xpath = "//div[@class='messageText']")
+	public WebElement ErrorMsg;
 	
 	/*@PageRow()
 	public static class Table_sof {
