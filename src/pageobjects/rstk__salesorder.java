@@ -86,6 +86,9 @@ public class rstk__salesorder {
 	@ButtonType()
 	@FindByLabel(label = "Quick Entry")
 	public WebElement quickEntry;
+	@ButtonType()
+	@FindByLabel(label = "Addresses")
+	public WebElement Addresses;
 	@TextType()
 	@FindBy(xpath = "//div[@id='quickEntryGridPopup']/span//div/h3")
 	public WebElement Sales_Order_Line_Quick_Entry_Header;
@@ -119,6 +122,39 @@ public class rstk__salesorder {
 	@TextType()
 	@FindBy(xpath = "//label[normalize-space(.)='Order Lines Total:']/following-sibling::span[1]")
 	public WebElement SOtotal;
+	@TextType()
+	@FindBy(xpath = "//td/table//table/tbody/tr/td/table/tbody/tr/td[normalize-space(.)='Ship-To']")
+	public WebElement tabShipTo_lbl;
+	@BooleanType()
+	@FindBy(xpath = "//td[2]//td/span//th[1]/span/input")
+	public WebElement Override_Ship_To;
+	@TextType()
+	@FindBy(id = "pg:fm:j_id246:j_id318:j_id321:shipto_soaddr_name__c")
+	public WebElement Name_CustomerShipToTab;
+	@ButtonType()
+	@FindByLabel(label = "Select Related Customer Address")
+	public WebElement selectRelatedCustomerAddress;
+	@TextType()
+	@FindBy(xpath = "//h3[normalize-space(.)='Related Customer Addresses']")
+	public WebElement Related_Customer_Addresses_popup;
+	@TextType()
+	@FindBy(xpath = "//table[@id='relatedCustomerAddressTable']//tr[2]//td[1]//span")
+	public WebElement CustomerNumber_Related;
+	@ButtonType()
+	@FindBy(xpath = "//div[@id='popupAddresses']//button[text()='OK']")
+	public WebElement OK;
+	@ButtonType()
+	@FindBy(xpath = "//button[@id='lineDetailBtn']")
+	public WebElement Additional;
+	@TextType()
+	@FindBy(xpath = "//input[contains(@id,'soline_soaddr_name__c')]")
+	public WebElement Name_Customer_SOLine;
+	@ButtonType()
+	@FindBy(xpath = "//div[@id='popupLineDetails']//button[text()='OK']")
+	public WebElement OK_SOLine;
+	@ButtonType()
+	@FindBy(xpath = "//div[contains(@id,'lineAddress')]//input[@name='SelectRelatedCustomerAddress']")
+	public WebElement SelectRelatedCustomerAddress_SOLine;
 	
 	
 }
