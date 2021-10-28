@@ -2731,6 +2731,9 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="173" title="UI Assert-Verify Document Amount - Document Currency">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="fieldAssertions">
                           <value class="valueList" mutable="Mutable">

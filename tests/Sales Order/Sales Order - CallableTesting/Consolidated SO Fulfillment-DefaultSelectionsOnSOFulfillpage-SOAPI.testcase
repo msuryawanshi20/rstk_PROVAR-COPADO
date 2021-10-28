@@ -47,33 +47,6 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="351" title="Set Values: OrderNumber">
-      <tags>
-        <string>disabled</string>
-      </tags>
-      <arguments>
-        <argument id="values">
-          <value class="valueList" mutable="Mutable">
-            <namedValues mutable="Mutable">
-              <namedValue name="valuePath">
-                <value class="value" valueClass="string">OrderNumber</value>
-              </namedValue>
-              <namedValue name="value">
-                <value class="variable">
-                  <path element="OrderNumber_SOFulfill"/>
-                  <path element="fields"/>
-                  <path element="orderNumber"/>
-                  <path element="value"/>
-                </value>
-              </namedValue>
-              <namedValue name="valueScope">
-                <value class="value" valueClass="string">Test</value>
-              </namedValue>
-            </namedValues>
-          </value>
-        </argument>
-      </arguments>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="3" title="On SF rstk__SalesOrder page with pageobject Rstk__salesorder">
       <arguments>
         <argument id="uiConnectionName">
@@ -163,6 +136,9 @@
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiNavigate" name="UiNavigate" testItemId="349" title="Navigate: Refresh">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="navigate">
                   <value class="value" valueClass="string">Refresh</value>
@@ -176,6 +152,9 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="350" title="Sleep for {10} seconds">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="sleepSecs">
                   <value class="value" valueClass="decimal">10</value>
@@ -297,7 +276,7 @@
                   <value class="uiWait" uri="NoWait"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:timed?seconds=60"/>
+                  <value class="uiWait" uri="ui:wait:timed?seconds=30"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Process Selected Lines button</value>
@@ -327,13 +306,6 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="352" title="Sleep for {5} seconds">
-              <arguments>
-                <argument id="sleepSecs">
-                  <value class="value" valueClass="decimal">5</value>
-                </argument>
-              </arguments>
-            </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="353" title="Click the Process Selected Lines button">
               <arguments>
                 <argument id="locator">
@@ -349,7 +321,7 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
+                  <value class="value" valueClass="string">full</value>
                 </argument>
                 <argument id="beforeWait">
                   <value class="uiWait" uri="NoWait"/>
@@ -384,53 +356,6 @@
                   </type>
                 </apiParam>
               </generatedParameters>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="366" title="Sleep for {10} seconds">
-              <arguments>
-                <argument id="sleepSecs">
-                  <value class="value" valueClass="decimal">10</value>
-                </argument>
-              </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiHandleAlert" name="UiHandleAlert" testItemId="365" title="Handle UI Alerts">
-              <tags>
-                <string>disabled</string>
-              </tags>
-              <arguments>
-                <argument id="alerts">
-                  <value class="valueList" mutable="Mutable">
-                    <namedValues mutable="Mutable">
-                      <namedValue name="expectedMessage">
-                        <value class="value" valueClass="string">Task completed successfully</value>
-                      </namedValue>
-                      <namedValue name="comparisonType">
-                        <value class="value" valueClass="string">Contains</value>
-                      </namedValue>
-                      <namedValue name="caseSensitive">
-                        <value class="value" valueClass="boolean">true</value>
-                      </namedValue>
-                      <namedValue name="isNormalise">
-                        <value class="value" valueClass="boolean">false</value>
-                      </namedValue>
-                      <namedValue name="isRegex">
-                        <value class="value" valueClass="boolean">false</value>
-                      </namedValue>
-                      <namedValue name="response">
-                        <value class="value" valueClass="string">OK</value>
-                      </namedValue>
-                      <namedValue name="beforeWait"/>
-                      <namedValue name="afterWait"/>
-                      <namedValue name="autoRetry"/>
-                    </namedValues>
-                  </value>
-                </argument>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-              </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="354" title="Set Values: RowNum">
               <arguments>

@@ -941,6 +941,9 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="171" title="UI Assert-Verify Transaction Date">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values_Date</value>
@@ -1188,6 +1191,9 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="302" title="UI Assert-Verify Date Posted">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values_Date</value>
@@ -1432,6 +1438,9 @@
                       </generatedParameters>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="299" title="Hover the Notes And Attachments button">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=NotesAndAttachments"/>
