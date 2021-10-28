@@ -444,23 +444,32 @@
                                 </clause>
                                 <clause name="else" testItemId="216">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="200" title="If: {op_sydata.rstk__sydata_process__c = &quot;Validation Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Batch Processing Failure&quot;}">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="200" title="If: {op_sydata.rstk__sydata_process__c = &quot;Validation Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Batch Processing Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Processing Failure&quot;}">
                                       <arguments>
                                         <argument id="condition">
                                           <value class="or">
-                                            <lhs class="eq">
-                                              <lhs class="variable">
-                                                <path element="op_sydata"/>
-                                                <path element="rstk__sydata_process__c"/>
+                                            <lhs class="or">
+                                              <lhs class="eq">
+                                                <lhs class="variable">
+                                                  <path element="op_sydata"/>
+                                                  <path element="rstk__sydata_process__c"/>
+                                                </lhs>
+                                                <rhs class="value" valueClass="string">Validation Failure</rhs>
                                               </lhs>
-                                              <rhs class="value" valueClass="string">Validation Failure</rhs>
+                                              <rhs class="eq">
+                                                <lhs class="variable">
+                                                  <path element="op_sydata"/>
+                                                  <path element="rstk__sydata_process__c"/>
+                                                </lhs>
+                                                <rhs class="value" valueClass="string">Batch Processing Failure</rhs>
+                                              </rhs>
                                             </lhs>
                                             <rhs class="eq">
                                               <lhs class="variable">
                                                 <path element="op_sydata"/>
                                                 <path element="rstk__sydata_process__c"/>
                                               </lhs>
-                                              <rhs class="value" valueClass="string">Batch Processing Failure</rhs>
+                                              <rhs class="value" valueClass="string">Processing Failure</rhs>
                                             </rhs>
                                           </value>
                                         </argument>
@@ -773,23 +782,32 @@
                                 </clause>
                                 <clause name="else" testItemId="309">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="310" title="If: {op_sydata.rstk__sydata_process__c = &quot;Validation Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Batch Processing Failure&quot;}">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="310" title="If: {op_sydata.rstk__sydata_process__c = &quot;Validation Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Batch Processing Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Processing Failure&quot;}">
                                       <arguments>
                                         <argument id="condition">
                                           <value class="or">
-                                            <lhs class="eq">
-                                              <lhs class="variable">
-                                                <path element="op_sydata"/>
-                                                <path element="rstk__sydata_process__c"/>
+                                            <lhs class="or">
+                                              <lhs class="eq">
+                                                <lhs class="variable">
+                                                  <path element="op_sydata"/>
+                                                  <path element="rstk__sydata_process__c"/>
+                                                </lhs>
+                                                <rhs class="value" valueClass="string">Validation Failure</rhs>
                                               </lhs>
-                                              <rhs class="value" valueClass="string">Validation Failure</rhs>
+                                              <rhs class="eq">
+                                                <lhs class="variable">
+                                                  <path element="op_sydata"/>
+                                                  <path element="rstk__sydata_process__c"/>
+                                                </lhs>
+                                                <rhs class="value" valueClass="string">Batch Processing Failure</rhs>
+                                              </rhs>
                                             </lhs>
                                             <rhs class="eq">
                                               <lhs class="variable">
                                                 <path element="op_sydata"/>
                                                 <path element="rstk__sydata_process__c"/>
                                               </lhs>
-                                              <rhs class="value" valueClass="string">Batch Processing Failure</rhs>
+                                              <rhs class="value" valueClass="string">Processing Failure</rhs>
                                             </rhs>
                                           </value>
                                         </argument>

@@ -174,5 +174,41 @@ public class rstk__Manufacturing {
 	@FindBy(xpath = "//a[normalize-space(.)='WO Issue Reversal']")
 	public WebElement wOIssueReversal;
 
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Routing Master']")
+	public WebElement routingMaster;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Manufacturing Department']")
+	public WebElement manufacturingDepartment;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Manufacturing Work Center']")
+	public WebElement manufacturingWorkCenter;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Manufacturing Processes']")
+	public WebElement manufacturingProcesses;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Manufacturing Labor Grade']")
+	public WebElement manufacturingLaborGrade;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Manufacturing Machine Master']")
+	public WebElement manufacturingMachineMaster;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Labor Pay Type']")
+	public WebElement laborPayType;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Work Center Group']")
+	public WebElement workCenterGroup;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Independent Operations']")
+	public WebElement independentOperations;
+
 }
 

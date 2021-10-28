@@ -26,7 +26,6 @@ public class rstk__Woordop {
 	@TextType()
 	@FindBy(xpath = "//label[normalize-space(.)='Description']/parent::span/parent::th/following-sibling::td[1]//input")
 	public WebElement description;
-	
 
 	@ChoiceListType()
 	@FindBy(xpath = "//label[normalize-space(.)='Process']/parent::span/parent::th/following-sibling::td[1]//select")
@@ -43,7 +42,6 @@ public class rstk__Woordop {
 	@TextType()
 	@FindBy(xpath = "//label[normalize-space(.)='Concurrent Seq']/parent::span/parent::th/following-sibling::td[1]//input")
 	public WebElement concurrentSeq;
-
 
 	@ButtonType
 	@FindBy(xpath = "//*[contains(@id,'tab_Labor_Stds_lbl')]")
@@ -97,10 +95,16 @@ public class rstk__Woordop {
 	@FindBy(xpath = "//*[contains(@id,'tab_Options_lbl')]|//*[contains(@id,'tab_Qty_Reporting_Options_lbl')]")
 	public WebElement options_Tab;
 
-
 	@BooleanType
 	@FindBy(xpath = "//*[contains(@name,'allowaccind')]")
 	public WebElement allowAcceptFlag;
 
+	@ButtonType()
+	@FindBy(xpath = "//*[contains(@id,'tab_Move_Lead_Times_lbl')]|//*[contains(@id,'tab_Subcontract_lbl')]")
+	public WebElement subConMoveLeadTimeTab;
+
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='Subcontract Lead Time']/parent::span/parent::th/following-sibling::td//input")
+	public WebElement subcontractLeadTime;
 
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase registryId="313c7d02-16e9-4d3c-bcf3-2eff636852ec" visibility="Internal">
+<testCase failureBehaviour="Continue" registryId="313c7d02-16e9-4d3c-bcf3-2eff636852ec" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -106,7 +106,7 @@
                     <apiParam name="ComponentItem"/>
                   </cachedParameters>
                   <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{ip_parentComponent}">
-                    <workbookPath class="value" valueClass="string">templates/Refurb Work Order.xlsx</workbookPath>
+                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9520-Refurb Work Order.xlsx</workbookPath>
                     <worksheetName class="value" valueClass="string">Extract Componet</worksheetName>
                     <valuesRange class="value" valueClass="string">A:B</valuesRange>
                   </sourceValue>
