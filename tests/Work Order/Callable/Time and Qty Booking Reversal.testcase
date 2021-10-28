@@ -21,7 +21,7 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument argId="10aafab3-a4c5-4541-bb2d-6ef792eac00a" id="reuseConnectionName">
-          <value class="value" valueClass="string">SFConn</value>
+          <value class="value" valueClass="string"/>
         </argument>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Reuse</value>
@@ -528,9 +528,7 @@
     </param>
   </params>
   <args>
-    <argument id="reuseConnectionName">
-      <value class="value" valueClass="string">SFConn</value>
-    </argument>
+    <argument id="reuseConnectionName"/>
     <argument id="ip_workOrder">
       <value class="value" valueClass="string">PRO-7PBX</value>
     </argument>

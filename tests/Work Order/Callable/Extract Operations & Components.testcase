@@ -26,7 +26,7 @@
           </value>
         </argument>
         <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Reopen</value>
+          <value class="value" valueClass="string">Reuse</value>
         </argument>
         <argument id="privateBrowsingMode"/>
         <argument id="enableObjectIdLogging">
@@ -660,9 +660,7 @@
     </param>
   </outputParams>
   <args>
-    <argument id="reuseConnectionName">
-      <value class="value" valueClass="string">SFConn</value>
-    </argument>
+    <argument id="reuseConnectionName"/>
     <argument id="ip_RecordID">
       <value class="value" valueClass="string">a8F1K000000PK4AUAW</value>
     </argument>
