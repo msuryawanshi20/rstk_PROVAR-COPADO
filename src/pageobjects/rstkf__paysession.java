@@ -36,7 +36,7 @@ public class rstkf__paysession {
 	@FindBy(xpath = "//input[@value='Select for Payment by Invoice']")
 	public WebElement selectForPaymentByInvoice;
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Filter By Vendor:']/following-sibling::select")
+	@FindBy(xpath = "//td/select[contains(@id,'filteredVendors__c')]")
 	public WebElement filteredVendors__c;
 	
 	@PageRow()
@@ -134,6 +134,10 @@ public class rstkf__paysession {
 					}
 	
 	}
+
+	@ButtonType()
+	@FindBy(xpath = "//span[contains(@id,'op_btns_paymRevAndProcessing')]/input[@value='Close']")
+	public WebElement reviewclose;
 	}
 	
 

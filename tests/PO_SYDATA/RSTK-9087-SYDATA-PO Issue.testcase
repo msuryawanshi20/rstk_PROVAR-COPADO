@@ -50,7 +50,7 @@
         </argument>
       </arguments>
       <parameterValueSources>
-        <parameterValueSource variableName="AddPOCreationData" variableScope="Test">
+        <parameterValueSource variableName="AddPOData" variableScope="Test">
           <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/RSTKF_AutomationData.xlsx;1624364287371</cacheToken>
           <cachedParameters>
             <apiParam name="APIMode"/>
@@ -100,169 +100,192 @@
         <clause name="hidden" testItemId="53"/>
       </clauses>
     </apiCall>
-    <caseCall testCaseId="bf68b852-4f80-489c-b812-ecc3b72db4cc" testCasePath="tests/POLOADER/Callable/POLoader_POCreation.testcase" testItemId="67">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="75" title="For Each: {AddPOData}=&gt;AddPOCreationData">
       <arguments>
-        <argument id="List">
+        <argument id="list">
           <value class="variable">
-            <path element="AddPOCreationData"/>
+            <path element="AddPOData"/>
           </value>
         </argument>
-        <argument id="AddLineData">
-          <value class="variable">
-            <path element="POIssueData"/>
-          </value>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
         </argument>
-      </arguments>
-      <outputArguments>
-        <outputArgument id="POHDRID">
-          <name class="value" valueClass="string">POHDRID</name>
-        </outputArgument>
-        <outputArgument id="POLINEID">
-          <name class="value" valueClass="string">POLINEID</name>
-        </outputArgument>
-      </outputArguments>
-    </caseCall>
-    <caseCall testCaseId="10433476-827a-48a2-8363-d620a3a0c434" testCasePath="tests/POLOADER/Callable/SubmittoVendor.testcase" testItemId="65">
-      <arguments>
-        <argument id="POHDRID">
-          <value class="variable">
-            <path element="POHDRID"/>
-          </value>
+        <argument id="valueName">
+          <value class="value" valueClass="string">AddPOCreationData</value>
         </argument>
-        <argument id="POData">
-          <value class="variable">
-            <path element="AddPOCreationData"/>
-          </value>
-        </argument>
-      </arguments>
-    </caseCall>
-    <caseCall testCaseId="ffd746ab-677f-47e2-a2ae-3199d16cff69" testCasePath="tests/PO_SYDATA/SYDATAPOIssue.testcase" testItemId="68">
-      <arguments>
-        <argument id="POHDRID">
-          <value class="variable">
-            <path element="POHDRID"/>
-          </value>
-        </argument>
-        <argument id="SourceData">
-          <value class="variable">
-            <path element="POIssueData"/>
-          </value>
-        </argument>
-      </arguments>
-    </caseCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="71" title="Get PeItem">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Get PeItem</value>
-        </argument>
+        <argument id="continueOnFailure"/>
       </arguments>
       <clauses>
-        <clause name="hidden" testItemId="72">
+        <clause name="substeps" testItemId="76">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="73" title="SOQL Query: select Id,Name,IsDeleted from rstk__poitem__c where Id = '{POIssueData.Item}'=&gt;purchaseitem">
-              <tags/>
+            <caseCall testCaseId="bf68b852-4f80-489c-b812-ecc3b72db4cc" testCasePath="tests/POLOADER/Callable/POLoader_POCreation.testcase" testItemId="67">
               <arguments>
-                <argument id="soqlQuery">
-                  <value class="compound">
-                    <parts>
-                      <value valueClass="string">select Id,Name,IsDeleted from rstk__poitem__c where Id = '</value>
-                      <variable>
-                        <path element="POIssueData"/>
-                        <path element="Item"/>
-                      </variable>
-                      <value valueClass="string">'</value>
-                    </parts>
+                <argument id="List">
+                  <value class="variable">
+                    <path element="AddPOCreationData"/>
                   </value>
                 </argument>
-                <argument id="apexConnectionName">
+                <argument id="AddLineData">
+                  <value class="variable">
+                    <path element="POIssueData"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="POHDRID">
+                  <name class="value" valueClass="string">POHDRID</name>
+                </outputArgument>
+                <outputArgument id="POLINEID">
+                  <name class="value" valueClass="string">POLINEID</name>
+                </outputArgument>
+                <outputArgument id="POTotal">
+                  <name class="value" valueClass="string">POTotal</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+            <caseCall testCaseId="10433476-827a-48a2-8363-d620a3a0c434" testCasePath="tests/POLOADER/Callable/SubmittoVendor.testcase" testItemId="65">
+              <arguments>
+                <argument id="POHDRID">
+                  <value class="variable">
+                    <path element="POHDRID"/>
+                  </value>
+                </argument>
+                <argument id="POData">
+                  <value class="variable">
+                    <path element="AddPOCreationData"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
+            <caseCall testCaseId="ffd746ab-677f-47e2-a2ae-3199d16cff69" testCasePath="tests/PO_SYDATA/Callable/SYDATAPOIssue.testcase" testItemId="68">
+              <arguments>
+                <argument id="POHDRID">
+                  <value class="variable">
+                    <path element="POHDRID"/>
+                  </value>
+                </argument>
+                <argument id="SourceData">
+                  <value class="variable">
+                    <path element="POIssueData"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="71" title="Get PeItem">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Get PeItem</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="72">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="73" title="SOQL Query: select Id,Name,IsDeleted from rstk__poitem__c where Id = '{POIssueData.Item}'=&gt;purchaseitem">
+                      <tags/>
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">select Id,Name,IsDeleted from rstk__poitem__c where Id = '</value>
+                              <variable>
+                                <path element="POIssueData"/>
+                                <path element="Item"/>
+                              </variable>
+                              <value valueClass="string">'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">purchaseitem</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="74" title="SOQL Query: SELECT Id,Name FROM rstk__peitem__c where Name = '{purchaseitem.Name}'=&gt;peitem">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">SELECT Id,Name FROM rstk__peitem__c where Name = '</value>
+                              <variable>
+                                <path element="purchaseitem"/>
+                                <path element="Name"/>
+                              </variable>
+                              <value valueClass="string">'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">peitem</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="70" title="Set Values: ItemName">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">ItemName</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="purchaseitem"/>
+                                  <path element="Name"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <caseCall testCaseId="98f49f3a-7453-430c-90fb-e55914fe6081" testCasePath="tests/Purchase Order/Callable/PODMDVerification.testcase" testItemId="69">
+              <arguments>
+                <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
-                <argument id="resultListName">
-                  <value class="value" valueClass="string">purchaseitem</value>
-                </argument>
-                <argument id="resultScope">
-                  <value class="value" valueClass="string">Test</value>
-                </argument>
-              </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="74" title="SOQL Query: SELECT Id,Name FROM rstk__peitem__c where Name = '{purchaseitem.Name}'=&gt;peitem">
-              <tags>
-                <string>disabled</string>
-              </tags>
-              <arguments>
-                <argument id="soqlQuery">
-                  <value class="compound">
-                    <parts>
-                      <value valueClass="string">SELECT Id,Name FROM rstk__peitem__c where Name = '</value>
-                      <variable>
-                        <path element="purchaseitem"/>
-                        <path element="Name"/>
-                      </variable>
-                      <value valueClass="string">'</value>
-                    </parts>
+                <argument id="POHDRID">
+                  <value class="variable">
+                    <path element="POHDRID"/>
                   </value>
                 </argument>
-                <argument id="apexConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
+                <argument id="Item">
+                  <value class="variable">
+                    <path element="ItemName"/>
+                  </value>
                 </argument>
-                <argument id="resultListName">
-                  <value class="value" valueClass="string">peitem</value>
-                </argument>
-                <argument id="resultScope">
-                  <value class="value" valueClass="string">Test</value>
-                </argument>
-              </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="70" title="Set Values: ItemName">
-              <arguments>
-                <argument id="values">
-                  <value class="valueList" mutable="Mutable">
-                    <namedValues mutable="Mutable">
-                      <namedValue name="valuePath">
-                        <value class="value" valueClass="string">ItemName</value>
-                      </namedValue>
-                      <namedValue name="value">
-                        <value class="variable">
-                          <path element="purchaseitem"/>
-                          <path element="Name"/>
-                        </value>
-                      </namedValue>
-                      <namedValue name="valueScope">
-                        <value class="value" valueClass="string">Test</value>
-                      </namedValue>
-                    </namedValues>
+                <argument id="ExpQty">
+                  <value class="variable">
+                    <path element="POIssueData"/>
+                    <path element="Quantity"/>
                   </value>
                 </argument>
               </arguments>
-            </apiCall>
+            </caseCall>
           </steps>
         </clause>
       </clauses>
     </apiCall>
-    <caseCall testCaseId="98f49f3a-7453-430c-90fb-e55914fe6081" testCasePath="tests/Purchase Order/Callable/PODMDVerification.testcase" testItemId="69">
-      <arguments>
-        <argument id="reuseConnectionName">
-          <value class="variable">
-            <path element="reuseConnectionName"/>
-          </value>
-        </argument>
-        <argument id="POHDRID">
-          <value class="variable">
-            <path element="POHDRID"/>
-          </value>
-        </argument>
-        <argument id="Item">
-          <value class="variable">
-            <path element="ItemName"/>
-          </value>
-        </argument>
-        <argument id="ExpQty">
-          <value class="variable">
-            <path element="POIssueData"/>
-            <path element="Quantity"/>
-          </value>
-        </argument>
-      </arguments>
-    </caseCall>
   </steps>
 </testCase>
