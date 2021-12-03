@@ -61,51 +61,31 @@
         </argument>
       </arguments>
       <parameterValueSources>
-        <parameterValueSource variableName="SourceData_InventoryQuantity" variableScope="Test">
+        <parameterValueSource variableName="SrcData_InvyQty" variableScope="Test">
           <cacheToken>C:/Users/Ashok/Provar/WorkspaceMy1/Test_RSTK_1/templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx;1617815186466</cacheToken>
           <cachedParameters>
             <apiParam name="ItemNumber"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">InventoryQuantity</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
       <clauses>
         <clause name="hidden" testItemId="48">
           <steps>
-            <caseCall testCaseId="82afd0f5-2599-497c-b4e0-7a8cfb8a24c3" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Verify Inventory Quantity.testcase" testItemId="74">
-              <arguments>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
-                </argument>
-                <argument id="SourceData_InventoryQuantity">
-                  <value class="variable">
-                    <path element="SourceData_InventoryQuantity"/>
-                  </value>
-                </argument>
-              </arguments>
-              <outputArguments>
-                <outputArgument id="QtyOnHand">
-                  <name class="value" valueClass="string">QtyOnHand</name>
-                </outputArgument>
-              </outputArguments>
-            </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="54" title="Set Values: QtyBefore">
-              <tags/>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="82" title="Set Values: wb_Quantitypath">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
                     <namedValues mutable="Mutable">
                       <namedValue name="valuePath">
-                        <value class="value" valueClass="string">QtyBefore</value>
+                        <value class="value" valueClass="string">wb_Quantitypath</value>
                       </namedValue>
                       <namedValue name="value">
-                        <value class="variable">
-                          <path element="QtyOnHand"/>
-                        </value>
+                        <value class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</value>
                       </namedValue>
                       <namedValue name="valueScope">
                         <value class="value" valueClass="string">Test</value>
@@ -115,6 +95,55 @@
                 </argument>
               </arguments>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="83" title="Set Values: ws_quantity">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ws_quantity</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">InventoryQuantity</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <caseCall testCaseId="fb25e9f2-c38a-44b3-90f8-52830d59d796" testCasePath="tests/PO_SYDATA/Callable/Inventory QuantityOnHand.testcase" testItemId="84">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="SrcData_InvyQty">
+                  <value class="variable">
+                    <path element="SrcData_InvyQty"/>
+                  </value>
+                </argument>
+                <argument id="wb_Quantitypath">
+                  <value class="variable">
+                    <path element="wb_Quantitypath"/>
+                  </value>
+                </argument>
+                <argument id="ws_quantity">
+                  <value class="variable">
+                    <path element="ws_quantity"/>
+                  </value>
+                </argument>
+                <argument id="Quantity">
+                  <value class="value" valueClass="string">QuantityBefore</value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="QtyOnHand">
+                  <name class="value" valueClass="string">QtyOnHand</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
           </steps>
         </clause>
       </clauses>
@@ -132,9 +161,9 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOHeader</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -180,9 +209,9 @@
             <apiParam name="DiscountPct"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOLine</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -234,9 +263,9 @@
             <apiParam name="IsSerial"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOFulfillment</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -311,9 +340,9 @@
             <apiParam name="QtyRemaining"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Requirements</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -354,9 +383,9 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOORDDMD</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -385,6 +414,9 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="40" title="Verify Dimensions">
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Verify Dimensions</value>
@@ -397,9 +429,9 @@
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Dimensions</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -431,34 +463,47 @@
       <tags/>
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">Read On Hand Qty Before SO Shipment</value>
+          <value class="value" valueClass="string">Read On Hand Qty After SO Shipment</value>
         </argument>
       </arguments>
       <parameterValueSources>
-        <parameterValueSource variableName="SourceData_InventoryQuantity" variableScope="Test">
+        <parameterValueSource variableName="SrcData_InvyQty" variableScope="Test">
           <cacheToken>C:/Users/Ashok/Provar/WorkspaceMy1/Test_RSTK_1/templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx;1617815186466</cacheToken>
           <cachedParameters>
             <apiParam name="Customer"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">InventoryQuantity</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
       <clauses>
         <clause name="hidden" testItemId="61">
           <steps>
-            <caseCall testCaseId="82afd0f5-2599-497c-b4e0-7a8cfb8a24c3" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Verify Inventory Quantity.testcase" testItemId="80">
+            <caseCall testCaseId="fb25e9f2-c38a-44b3-90f8-52830d59d796" testCasePath="tests/PO_SYDATA/Callable/Inventory QuantityOnHand.testcase" testItemId="85">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
-                <argument id="SourceData_InventoryQuantity">
+                <argument id="SrcData_InvyQty">
                   <value class="variable">
-                    <path element="SourceData_InventoryQuantity"/>
+                    <path element="SrcData_InvyQty"/>
                   </value>
+                </argument>
+                <argument id="wb_Quantitypath">
+                  <value class="variable">
+                    <path element="wb_Quantitypath"/>
+                  </value>
+                </argument>
+                <argument id="ws_quantity">
+                  <value class="variable">
+                    <path element="ws_quantity"/>
+                  </value>
+                </argument>
+                <argument id="Quantity">
+                  <value class="value" valueClass="string">QuantityAfter</value>
                 </argument>
               </arguments>
               <outputArguments>
@@ -467,76 +512,54 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="63" title="Set Values: QtyAfter">
-              <tags/>
-              <arguments>
-                <argument id="values">
-                  <value class="valueList" mutable="Mutable">
-                    <namedValues mutable="Mutable">
-                      <namedValue name="valuePath">
-                        <value class="value" valueClass="string">QtyAfter</value>
-                      </namedValue>
-                      <namedValue name="value">
-                        <value class="variable">
-                          <path element="QtyOnHand"/>
-                        </value>
-                      </namedValue>
-                      <namedValue name="valueScope">
-                        <value class="value" valueClass="string">Test</value>
-                      </namedValue>
-                    </namedValues>
-                  </value>
-                </argument>
-              </arguments>
-            </apiCall>
           </steps>
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="66" title="Assert: {QtyBefore - SourceData_SOLine.QtyOrdered} EqualTo {QtyAfter}">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="86" title="Verify Inventory Quantity ">
       <tags/>
       <arguments>
-        <argument id="expectedValue">
-          <value class="sub">
-            <lhs class="variable">
-              <path element="QtyBefore"/>
-            </lhs>
-            <rhs class="variable">
-              <path element="SourceData_SOLine"/>
-              <path element="QtyOrdered"/>
-            </rhs>
-          </value>
-        </argument>
-        <argument id="actualValue">
-          <value class="variable">
-            <path element="QtyAfter"/>
-          </value>
-        </argument>
-        <argument id="comparisonType">
-          <value class="value" valueClass="string">EqualTo</value>
-        </argument>
-        <argument id="caseSensitive">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="numeric">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="retainDecimals">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="nullGreater">
-          <value class="value" valueClass="boolean">false</value>
-        </argument>
-        <argument id="matchMultiLine">
-          <value class="value" valueClass="boolean">false</value>
-        </argument>
-        <argument id="matchDotAll">
-          <value class="value" valueClass="boolean">false</value>
-        </argument>
-        <argument id="failureMessage">
-          <value class="value" valueClass="string">Quantity On hand Not Updated</value>
+        <argument id="description">
+          <value class="value" valueClass="string">Verify Inventory Quantity </value>
         </argument>
       </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="SrcData_InvyQty" variableScope="Test">
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">InventoryQuantity</worksheetName>
+            <valuesRange class="value" valueClass="string"/>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="110">
+          <steps>
+            <caseCall testCaseId="2bc0d01b-e3a4-4df8-b29c-45ad10f11532" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Verify Inventory Quantity After Transaction .testcase" testItemId="111">
+              <arguments>
+                <argument id="SrcData_InvyQty">
+                  <value class="variable">
+                    <path element="SrcData_InvyQty"/>
+                  </value>
+                </argument>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="87" title="End">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">End</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="113"/>
+      </clauses>
     </apiCall>
   </steps>
   <outputParams>
@@ -583,7 +606,7 @@
         <path element="SourceData_SOORDDMD"/>
       </sourceValue>
     </param>
-    <param name="SourceData_InventoryQuantity" title="SourceData_InventoryQuantity">
+    <param name="SrcData_InvyQty" title="SrcData_InvyQty">
       <summary/>
       <type>
         <textType>
@@ -595,7 +618,7 @@
         </textType>
       </type>
       <sourceValue class="variable">
-        <path element="SourceData_InventoryQuantity"/>
+        <path element="SrcData_InvyQty"/>
       </sourceValue>
     </param>
     <param name="SourceData_SOHeader" title="SourceData_SOHeader">
@@ -654,9 +677,6 @@
     <outputArgument id="SourceData_SOORDDMD">
       <name class="value" valueClass="string">SourceData_SOORDDMD</name>
     </outputArgument>
-    <outputArgument id="SourceData_InventoryQuantity">
-      <name class="value" valueClass="string">SourceData_InventoryQuantity</name>
-    </outputArgument>
     <outputArgument id="SourceData_SOHeader">
       <name class="value" valueClass="string">SourceData_SOHeader</name>
     </outputArgument>
@@ -665,6 +685,9 @@
     </outputArgument>
     <outputArgument id="SourceData_SOFulfillment">
       <name class="value" valueClass="string">SourceData_SOFulfillment</name>
+    </outputArgument>
+    <outputArgument id="SrcData_InvyQty">
+      <name class="value" valueClass="string">SrcData_InvyQty</name>
     </outputArgument>
   </outputArgs>
 </testCase>

@@ -11,6 +11,8 @@
 	<target name="runtests">
 	
 		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
+		
+		
 	
 		<Run-Test-Case provarHome="${provar.home}" 
 				projectPath="${testproject.home}" 
@@ -36,117 +38,29 @@
 		</Run-Test-Case>
 		
 		<parallel>
-		
-			<Run-Test-Case provarHome="${provar.home}" 
-							projectPath="${testproject.home}" 
-							resultsPath="${testproject.results}" 
-							resultsPathDisposition="Increment" 
-							testEnvironment="" 
-							webBrowser="Chrome" 
-							webBrowserConfiguration="Full Screen"
-							webBrowserProviderName="Desktop"
-							webBrowserDeviceName="Full Screen" 
-							salesforceMetadataCache="Reuse" 
-							projectCachePath="../.provarCaches"
-							testOutputlevel="BASIC" 
-							pluginOutputlevel="WARNING"
-							stopTestRunOnError="false"
-					>
-				<fileset id="testplan" dir="../plans/Parallel/Allocate"><include name="WIP - Allocate Sales Order Lines 1.testinstance"/></fileset>
-						<planFeature name="PDF" type="OUTPUT" enabled="true"/>
-						<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
-						<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
-
-					</Run-Test-Case>
 			
 			<Run-Test-Case provarHome="${provar.home}" 
-							projectPath="${testproject.home}" 
-							resultsPath="${testproject.results}" 
-							resultsPathDisposition="Increment" 
-							testEnvironment="" 
-							webBrowser="Chrome" 
-							webBrowserConfiguration="Full Screen"
-							webBrowserProviderName="Desktop"
-							webBrowserDeviceName="Full Screen" 
-							salesforceMetadataCache="Reuse" 
-							projectCachePath="../.provarCaches"
-							testOutputlevel="BASIC" 
-							pluginOutputlevel="WARNING"
-							stopTestRunOnError="false"
-					>
-				<fileset id="testplan" dir="../plans/Parallel/Allocate"><include name="WIP - Allocate Sales Order Lines 2.testinstance"/></fileset>
-						<planFeature name="PDF" type="OUTPUT" enabled="true"/>
-						<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
-						<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
+																			projectPath="${testproject.home}" 
+																			resultsPath="${testproject.results}" 
+																			resultsPathDisposition="Increment" 
+																			testEnvironment="" 
+																			webBrowser="Chrome" 
+																			webBrowserConfiguration="Full Screen"
+																			webBrowserProviderName="Desktop"
+																			webBrowserDeviceName="Full Screen" 
+																			salesforceMetadataCache="Reuse" 
+																			projectCachePath="../.provarCaches"
+																			testOutputlevel="BASIC" 
+																			pluginOutputlevel="WARNING"
+																			stopTestRunOnError="false"
+																	>
+																<fileset id="testplan" dir="../plans/Parallel"><include name="SYDATA-Location add.testinstance"/></fileset>
+																		<planFeature name="PDF" type="OUTPUT" enabled="true"/>
+																		<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
+																		<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
 
-					</Run-Test-Case>
+																	</Run-Test-Case>
 			
-			<Run-Test-Case provarHome="${provar.home}" 
-										projectPath="${testproject.home}" 
-										resultsPath="${testproject.results}" 
-										resultsPathDisposition="Increment" 
-										testEnvironment="" 
-										webBrowser="Chrome" 
-										webBrowserConfiguration="Full Screen"
-										webBrowserProviderName="Desktop"
-										webBrowserDeviceName="Full Screen" 
-										salesforceMetadataCache="Reuse" 
-										projectCachePath="../.provarCaches"
-										testOutputlevel="BASIC" 
-										pluginOutputlevel="WARNING"
-										stopTestRunOnError="false"
-								>
-							<fileset id="testplan" dir="../plans/Parallel/Allocate"><include name="WIP - Allocate Sales Order Lines 3.testinstance"/></fileset>
-									<planFeature name="PDF" type="OUTPUT" enabled="true"/>
-									<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
-									<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
-
-								</Run-Test-Case>
-						
-						<Run-Test-Case provarHome="${provar.home}" 
-										projectPath="${testproject.home}" 
-										resultsPath="${testproject.results}" 
-										resultsPathDisposition="Increment" 
-										testEnvironment="" 
-										webBrowser="Chrome" 
-										webBrowserConfiguration="Full Screen"
-										webBrowserProviderName="Desktop"
-										webBrowserDeviceName="Full Screen" 
-										salesforceMetadataCache="Reuse" 
-										projectCachePath="../.provarCaches"
-										testOutputlevel="BASIC" 
-										pluginOutputlevel="WARNING"
-										stopTestRunOnError="false"
-								>
-							<fileset id="testplan" dir="../plans/Parallel/Allocate"><include name="WIP - Allocate Sales Order Lines 4.testinstance"/></fileset>
-									<planFeature name="PDF" type="OUTPUT" enabled="true"/>
-									<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
-									<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
-
-								</Run-Test-Case>
-			
-			<Run-Test-Case provarHome="${provar.home}" 
-									projectPath="${testproject.home}" 
-									resultsPath="${testproject.results}" 
-									resultsPathDisposition="Increment" 
-									testEnvironment="" 
-									webBrowser="Chrome" 
-									webBrowserConfiguration="Full Screen"
-									webBrowserProviderName="Desktop"
-									webBrowserDeviceName="Full Screen" 
-									salesforceMetadataCache="Reuse" 
-									projectCachePath="../.provarCaches"
-									testOutputlevel="BASIC" 
-									pluginOutputlevel="WARNING"
-									stopTestRunOnError="false"
-							>
-						<fileset id="testplan" dir="../plans/Parallel/Allocate"><include name="WIP - Allocate Sales Order Lines 5.testinstance"/></fileset>
-								<planFeature name="PDF" type="OUTPUT" enabled="true"/>
-								<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
-								<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
-
-							</Run-Test-Case>
-					
 					<Run-Test-Case provarHome="${provar.home}" 
 									projectPath="${testproject.home}" 
 									resultsPath="${testproject.results}" 
@@ -206,7 +120,7 @@
 												pluginOutputlevel="WARNING"
 												stopTestRunOnError="false"
 										>
-									<fileset id="testplan" dir="../plans/Parallel/Allocate"><include name="WIP - Allocate Sales Order Lines 8.testinstance"/></fileset>
+									<fileset id="testplan" dir="../plans/Parallel"><include name="WIP - Allocate Sales Order Lines 8.testinstance"/></fileset>
 											<planFeature name="PDF" type="OUTPUT" enabled="true"/>
 											<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
 											<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
@@ -215,48 +129,27 @@
 			
 			
 			<Run-Test-Case provarHome="${provar.home}" 
-															projectPath="${testproject.home}" 
-															resultsPath="${testproject.results}" 
-															resultsPathDisposition="Increment" 
-															testEnvironment="" 
-															webBrowser="Chrome" 
-															webBrowserConfiguration="Full Screen"
-															webBrowserProviderName="Desktop"
-															webBrowserDeviceName="Full Screen" 
-															salesforceMetadataCache="Reuse" 
-															projectCachePath="../.provarCaches"
-															testOutputlevel="BASIC" 
-															pluginOutputlevel="WARNING"
-															stopTestRunOnError="false"
-													>
-												<fileset id="testplan" dir="../plans/Parallel/Allocate"><include name="WIP - Allocate Sales Order Lines 9.testinstance"/></fileset>
-														<planFeature name="PDF" type="OUTPUT" enabled="true"/>
-														<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
-														<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
+																		projectPath="${testproject.home}" 
+																		resultsPath="${testproject.results}" 
+																		resultsPathDisposition="Increment" 
+																		testEnvironment="" 
+																		webBrowser="Chrome" 
+																		webBrowserConfiguration="Full Screen"
+																		webBrowserProviderName="Desktop"
+																		webBrowserDeviceName="Full Screen" 
+																		salesforceMetadataCache="Reuse" 
+																		projectCachePath="../.provarCaches"
+																		testOutputlevel="BASIC" 
+																		pluginOutputlevel="WARNING"
+																		stopTestRunOnError="false"
+																>
+															<fileset id="testplan" dir="../plans/Parallel/Allocate"><include name="SYDATA_Location Adjust.testinstance"/></fileset>
+																	<planFeature name="PDF" type="OUTPUT" enabled="true"/>
+																	<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
+																	<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
 
-													</Run-Test-Case>
-											
-											<Run-Test-Case provarHome="${provar.home}" 
-															projectPath="${testproject.home}" 
-															resultsPath="${testproject.results}" 
-															resultsPathDisposition="Increment" 
-															testEnvironment="" 
-															webBrowser="Chrome" 
-															webBrowserConfiguration="Full Screen"
-															webBrowserProviderName="Desktop"
-															webBrowserDeviceName="Full Screen" 
-															salesforceMetadataCache="Reuse" 
-															projectCachePath="../.provarCaches"
-															testOutputlevel="BASIC" 
-															pluginOutputlevel="WARNING"
-															stopTestRunOnError="false"
-													>
-												<fileset id="testplan" dir="../plans/Parallel/Allocate"><include name="WIP - Allocate Sales Order Lines 10.testinstance"/></fileset>
-														<planFeature name="PDF" type="OUTPUT" enabled="true"/>
-														<planFeature name="PIECHART" type="OUTPUT" enabled="true"/>
-														<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
-
-													</Run-Test-Case>
+																</Run-Test-Case>
+			
 			
 			
 		</parallel>
