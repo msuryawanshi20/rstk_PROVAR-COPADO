@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="3">
+<testCase id="9">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -399,10 +399,10 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="38" title="Add to Batch">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="38" title="Invoice Batch Processing">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">Add to Batch</value>
+          <value class="value" valueClass="string">Invoice Batch Processing</value>
         </argument>
       </arguments>
       <clauses>

@@ -52,7 +52,9 @@
 						</Run-Test-Case>
 		
 	<parallel>
-	<!--	<Run-Test-Case provarHome="${provar.home}" 
+		
+		
+		<Run-Test-Case provarHome="${provar.home}" 
 						projectPath="${testproject.home}" 
 						resultsPath="${testproject.results2}" 
 						resultsPathDisposition="Replace" 
@@ -167,7 +169,176 @@
 										
 											<fileset id="testcases" dir="../tests/Parallel Tests"><include name="WIP - Allocate Sales Order Lines 5.testcase"/></fileset>
 
-										</Run-Test-Case> -->
+										</Run-Test-Case> 
+		
+		<!--<Run-Test-Case provarHome="${provar.home}" 
+										projectPath="${testproject.home}" 
+										resultsPath="${testproject.results7}" 
+										resultsPathDisposition="Replace" 
+										testEnvironment="" 
+										webBrowser="Chrome" 
+										webBrowserConfiguration="Full Screen"
+										webBrowserProviderName="Desktop"
+										webBrowserDeviceName="Full Screen" 
+										excludeCallableTestCases="false" 
+										salesforceMetadataCache="Reuse" 
+										projectCachePath="../../.provarCaches"
+										testOutputlevel="BASIC" 
+										pluginOutputlevel="WARNING"
+										stopTestRunOnError="false"
+										secretsPassword="${secrets.password}"
+										testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+										invokeTestRunMonitor="true"
+										>
+								
+									<fileset id="testcases" dir="../tests/Parallel Tests"><include name="SYDATA_Location Adjust.testcase"/></fileset>
+
+								</Run-Test-Case>
+		
+		<Run-Test-Case provarHome="${provar.home}" 
+									projectPath="${testproject.home}" 
+									resultsPath="${testproject.results2}" 
+									resultsPathDisposition="Replace" 
+									testEnvironment="" 
+									webBrowser="Chrome" 
+									webBrowserConfiguration="Full Screen"
+									webBrowserProviderName="Desktop"
+									webBrowserDeviceName="Full Screen" 
+									excludeCallableTestCases="false" 
+									salesforceMetadataCache="Reuse" 
+									projectCachePath="../../.provarCaches"
+									testOutputlevel="BASIC" 
+									pluginOutputlevel="WARNING"
+									stopTestRunOnError="false"
+									secretsPassword="${secrets.password}"
+									testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+									invokeTestRunMonitor="true"
+									>
+							
+								<fileset id="testcases" dir="../tests/Parallel Tests"><include name="SYDATA-Location add.testcase"/></fileset>
+
+							</Run-Test-Case>
+		
+		
+		
+		
+		
+		<Run-Test-Case provarHome="${provar.home}" 
+								projectPath="${testproject.home}" 
+								resultsPath="${testproject.results7}" 
+								resultsPathDisposition="Replace" 
+								testEnvironment="" 
+								webBrowser="Chrome" 
+								webBrowserConfiguration="Full Screen"
+								webBrowserProviderName="Desktop"
+								webBrowserDeviceName="Full Screen" 
+								excludeCallableTestCases="false" 
+								salesforceMetadataCache="Reuse" 
+								projectCachePath="../../.provarCaches"
+								testOutputlevel="BASIC" 
+								pluginOutputlevel="WARNING"
+								stopTestRunOnError="false"
+								secretsPassword="${secrets.password}"
+								testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+								invokeTestRunMonitor="true"
+								>
+						
+							<fileset id="testcases" dir="../tests/Parallel Tests"><include name="WIP - Allocate Sales Order Lines 6.testcase"/></fileset>
+
+						</Run-Test-Case>
+				<Run-Test-Case provarHome="${provar.home}" 
+										projectPath="${testproject.home}" 
+										resultsPath="${testproject.results8}" 
+										resultsPathDisposition="Replace" 
+										testEnvironment="" 
+										webBrowser="Chrome" 
+										webBrowserConfiguration="Full Screen"
+										webBrowserProviderName="Desktop"
+										webBrowserDeviceName="Full Screen" 
+										excludeCallableTestCases="false" 
+										salesforceMetadataCache="Reuse" 
+										projectCachePath="../../.provarCaches"
+										testOutputlevel="BASIC" 
+										pluginOutputlevel="WARNING"
+										stopTestRunOnError="false"
+										secretsPassword="${secrets.password}"
+										testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+										invokeTestRunMonitor="true"
+										>
+								
+									<fileset id="testcases" dir="../tests/Parallel Tests"><include name="WIP - Allocate Sales Order Lines 7.testcase"/></fileset>
+
+								</Run-Test-Case>
+				
+				<Run-Test-Case provarHome="${provar.home}" 
+												projectPath="${testproject.home}" 
+												resultsPath="${testproject.results9}" 
+												resultsPathDisposition="Replace" 
+												testEnvironment="" 
+												webBrowser="Chrome" 
+												webBrowserConfiguration="Full Screen"
+												webBrowserProviderName="Desktop"
+												webBrowserDeviceName="Full Screen" 
+												excludeCallableTestCases="false" 
+												salesforceMetadataCache="Reuse" 
+												projectCachePath="../../.provarCaches"
+												testOutputlevel="BASIC" 
+												pluginOutputlevel="WARNING"
+												stopTestRunOnError="false"
+												secretsPassword="${secrets.password}"
+												testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+												invokeTestRunMonitor="true"
+												>
+										
+											<fileset id="testcases" dir="../tests/Parallel Tests"><include name="WIP - Allocate Sales Order Lines 8.testcase"/></fileset>
+
+										</Run-Test-Case>
+				<Run-Test-Case provarHome="${provar.home}" 
+														projectPath="${testproject.home}" 
+														resultsPath="${testproject.results10}" 
+														resultsPathDisposition="Replace" 
+														testEnvironment="" 
+														webBrowser="Chrome" 
+														webBrowserConfiguration="Full Screen"
+														webBrowserProviderName="Desktop"
+														webBrowserDeviceName="Full Screen" 
+														excludeCallableTestCases="false" 
+														salesforceMetadataCache="Reuse" 
+														projectCachePath="../../.provarCaches"
+														testOutputlevel="BASIC" 
+														pluginOutputlevel="WARNING"
+														stopTestRunOnError="false"
+														secretsPassword="${secrets.password}"
+														testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+														invokeTestRunMonitor="true"
+														>
+												
+													<fileset id="testcases" dir="../tests/Parallel Tests"><include name="WIP - Allocate Sales Order Lines 9.testcase"/></fileset>
+
+												</Run-Test-Case>
+				<Run-Test-Case provarHome="${provar.home}" 
+														projectPath="${testproject.home}" 
+														resultsPath="${testproject.results11}" 
+														resultsPathDisposition="Replace" 
+														testEnvironment="" 
+														webBrowser="Chrome" 
+														webBrowserConfiguration="Full Screen"
+														webBrowserProviderName="Desktop"
+														webBrowserDeviceName="Full Screen" 
+														excludeCallableTestCases="false" 
+														salesforceMetadataCache="Reuse" 
+														projectCachePath="../../.provarCaches"
+														testOutputlevel="BASIC" 
+														pluginOutputlevel="WARNING"
+														stopTestRunOnError="false"
+														secretsPassword="${secrets.password}"
+														testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
+														invokeTestRunMonitor="true"
+														>
+												
+													<fileset id="testcases" dir="../tests/Parallel Tests"><include name="WIP - Allocate Sales Order Lines 10.testcase"/></fileset>
+
+												</Run-Test-Case> 
 		
 
 		<Run-Test-Case provarHome="${provar.home}" 
@@ -285,14 +456,14 @@
 										
 											<fileset id="testcases" dir="../tests/Parallel Tests"><include name="WIP - Pick Pack Ship Sales Order Lines 5.testcase"/></fileset>
 
-										</Run-Test-Case>
+										</Run-Test-Case> -->
 		
 
 	</parallel>
 		
 		<Run-Test-Case provarHome="${provar.home}" 
 								projectPath="${testproject.home}" 
-								resultsPath="${testproject.results12}" 
+								resultsPath="${testproject.results8}" 
 								resultsPathDisposition="Replace" 
 								testEnvironment="" 
 								webBrowser="Chrome" 
@@ -312,7 +483,7 @@
 						
 							<fileset id="testcases" dir="../tests/Parallel Tests"><include name="Inventory Quantity After.testcase"/></fileset>
 
-						</Run-Test-Case>
+						</Run-Test-Case> 
 		
 	</target>
 </project>
