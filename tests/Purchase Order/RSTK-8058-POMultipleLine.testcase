@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="2">
+<testCase id="3">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,7 +43,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="3" title="ReadExcel">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="8" title="ReadExcel">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">ReadExcel</value>
@@ -61,73 +61,106 @@
             <apiParam name="Podmddimval"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="variable">
-              <path element="POUIExcelPath"/>
-            </workbookPath>
+            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">MultiplePOLine</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
+        <parameterValueSource variableName="VendorData" variableScope="Test">
+          <cacheToken>C:/Users/dellDevonforce/Provar/ErpFinalProject/rsqasampleproj/rsqasampleproj/templates/RSTKF_AutomationData.xlsx;1639477685624</cacheToken>
+          <cachedParameters>
+            <apiParam name="Vendor"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">POVendor</worksheetName>
+          </sourceValue>
+        </parameterValueSource>
       </parameterValueSources>
       <clauses>
-        <clause name="hidden" testItemId="4"/>
+        <clause name="hidden" testItemId="240"/>
       </clauses>
     </apiCall>
-    <caseCall testCaseId="8f010250-9f93-4d50-8117-a6f51aefe852" testCasePath="tests/Purchase Order/Callable/POmultipleline.testcase" testItemId="5">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="6" title="For Each: {VendorData}=&gt;Testdata">
+      <tags/>
       <arguments>
-        <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">SFConnection</value>
-        </argument>
-        <argument id="Vendor">
+        <argument argId="3262e946-6564-47ee-98f2-d638f6263c7f" id="list">
           <value class="variable">
-            <path element="SourceData"/>
-            <path element="Vendor"/>
+            <path element="VendorData"/>
           </value>
         </argument>
-        <argument id="POItem">
-          <value class="variable">
-            <path element="SourceData"/>
-            <path element="Item"/>
-          </value>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
         </argument>
-        <argument id="Quantity">
-          <value class="variable">
-            <path element="SourceData"/>
-            <path element="Quantity"/>
-          </value>
+        <argument id="valueName">
+          <value class="value" valueClass="string">Testdata</value>
         </argument>
-        <argument id="UnitPrice">
-          <value class="variable">
-            <path element="SourceData"/>
-            <path element="UnitPrice"/>
-          </value>
-        </argument>
-        <argument id="list">
-          <value class="variable">
-            <path element="SourceData"/>
-          </value>
-        </argument>
-        <argument id="IPVendor">
-          <value class="variable">
-            <path element="SourceData"/>
-            <path element="Vendor"/>
-          </value>
-        </argument>
+        <argument id="continueOnFailure"/>
       </arguments>
-      <outputArguments>
-        <outputArgument id="PONumber">
-          <name class="value" valueClass="string">PONumber</name>
-        </outputArgument>
-        <outputArgument id="POHDRID">
-          <name class="value" valueClass="string">POHDRID</name>
-        </outputArgument>
-        <outputArgument id="OrderNumber">
-          <name class="value" valueClass="string">OrderNumber</name>
-        </outputArgument>
-        <outputArgument id="CreatedDate">
-          <name class="value" valueClass="string">CreatedDate</name>
-        </outputArgument>
-      </outputArguments>
-    </caseCall>
+      <clauses>
+        <clause name="substeps" testItemId="237">
+          <steps>
+            <caseCall testCaseId="8f010250-9f93-4d50-8117-a6f51aefe852" testCasePath="tests/Purchase Order/Callable/POmultipleline.testcase" testItemId="5">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="Vendor">
+                  <value class="variable">
+                    <path element="SourceData"/>
+                    <path element="Vendor"/>
+                  </value>
+                </argument>
+                <argument id="POItem">
+                  <value class="variable">
+                    <path element="SourceData"/>
+                    <path element="Item"/>
+                  </value>
+                </argument>
+                <argument id="Quantity">
+                  <value class="variable">
+                    <path element="SourceData"/>
+                    <path element="Quantity"/>
+                  </value>
+                </argument>
+                <argument id="UnitPrice">
+                  <value class="variable">
+                    <path element="SourceData"/>
+                    <path element="UnitPrice"/>
+                  </value>
+                </argument>
+                <argument id="list">
+                  <value class="variable">
+                    <path element="SourceData"/>
+                  </value>
+                </argument>
+                <argument id="IPVendor">
+                  <value class="variable">
+                    <path element="Testdata"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="PONumber">
+                  <name class="value" valueClass="string">PONumber</name>
+                </outputArgument>
+                <outputArgument id="POHDRID">
+                  <name class="value" valueClass="string">POHDRID</name>
+                </outputArgument>
+                <outputArgument id="OrderNumber">
+                  <name class="value" valueClass="string">OrderNumber</name>
+                </outputArgument>
+                <outputArgument id="CreatedDate">
+                  <name class="value" valueClass="string">CreatedDate</name>
+                </outputArgument>
+                <outputArgument id="POTotal">
+                  <name class="value" valueClass="string">POTotal</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
   </steps>
 </testCase>

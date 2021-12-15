@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase registryId="2bc0d01b-e3a4-4df8-b29c-45ad10f11532" visibility="Internal">
+<testCase registryId="42083eb4-9214-406d-b3f5-e27688e5700e" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -65,18 +65,18 @@
       <clauses>
         <clause name="substeps" testItemId="3">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="5" title="Assert: {InvyQty.QuantityBefore - InvyQty.ProcessQuantity} EqualTo {InvyQty.QuantityAfter}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="4" title="Assert: {InvyQty.QuantityBefore + InvyQty.Quantity} EqualTo {InvyQty.QuantityAfter}">
               <tags/>
               <arguments>
                 <argument id="expectedValue">
-                  <value class="sub">
+                  <value class="add">
                     <lhs class="variable">
                       <path element="InvyQty"/>
                       <path element="QuantityBefore"/>
                     </lhs>
                     <rhs class="variable">
                       <path element="InvyQty"/>
-                      <path element="ProcessQuantity"/>
+                      <path element="Quantity"/>
                     </rhs>
                   </value>
                 </argument>

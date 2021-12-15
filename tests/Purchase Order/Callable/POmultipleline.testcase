@@ -317,7 +317,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="12" title="Set the Vendor select to {IPVendor}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="12" title="Set the Vendor select to {IPVendor.Vendor}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=Vendor"/>
@@ -328,6 +328,7 @@
                 <argument argId="6959fc10-c884-461c-8537-8e01c776e976" id="value">
                   <value class="variable">
                     <path element="IPVendor"/>
+                    <path element="Vendor"/>
                   </value>
                 </argument>
                 <argument id="blur">
@@ -349,7 +350,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Vendor select to {IPVendor}</value>
+                  <value class="value" valueClass="string">Set the Vendor select to {IPVendor.Vendor}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
@@ -947,7 +948,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="208" title="SOQL Query: select Id,\trstk__pohdr_totamt__c,CreatedDate from rstk__pohdr__c where Name = '{PONumber}'=&gt;op_pohdr">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="208" title="SOQL Query: select Id,\trstk__pohdr_totamt__c,CreatedDate from rstk__pohdr__c where Name = '{PONumber}' and rstk__pohdr_div__c  = 'a7O410000004NwjEAE' =&gt;op_pohdr">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -956,7 +957,7 @@
                       <variable>
                         <path element="PONumber"/>
                       </variable>
-                      <value valueClass="string">'</value>
+                      <value valueClass="string">' and rstk__pohdr_div__c  = 'a7O410000004NwjEAE' </value>
                     </parts>
                   </value>
                 </argument>

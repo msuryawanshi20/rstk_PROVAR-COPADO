@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="5">
+<testCase id="4">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -276,7 +276,9 @@
                       </arguments>
                     </apiCall>
                     <caseCall testCaseId="fb25e9f2-c38a-44b3-90f8-52830d59d796" testCasePath="tests/PO_SYDATA/Callable/Inventory QuantityOnHand.testcase" testItemId="78">
-                      <tags/>
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="reuseConnectionName">
                           <value class="variable">
@@ -360,7 +362,9 @@
                 <clause name="hidden" testItemId="83">
                   <steps>
                     <caseCall testCaseId="fb25e9f2-c38a-44b3-90f8-52830d59d796" testCasePath="tests/PO_SYDATA/Callable/Inventory QuantityOnHand.testcase" testItemId="89">
-                      <tags/>
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="reuseConnectionName">
                           <value class="variable">
