@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0" registryId="c04b5e1a-2e99-4976-bf04-aa6160ff4efd" visibility="Internal">
+<testCase failureBehaviour="Continue" id="0" registryId="c04b5e1a-2e99-4976-bf04-aa6160ff4efd" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -220,6 +220,13 @@
                 </argument>
                 <argument id="captureAfter">
                   <value class="value" valueClass="string">false</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="15" title="Sleep for {10} seconds">
+              <arguments>
+                <argument id="sleepSecs">
+                  <value class="value" valueClass="decimal">10</value>
                 </argument>
               </arguments>
             </apiCall>

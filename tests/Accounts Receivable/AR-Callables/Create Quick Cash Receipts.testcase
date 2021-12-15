@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0" registryId="ef48622e-d378-4f31-bca8-81362f786044" visibility="Internal">
+<testCase failureBehaviour="Continue" id="0" registryId="ef48622e-d378-4f31-bca8-81362f786044" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -398,6 +398,9 @@
                       </generatedParameters>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="115" title="SOQL Query: select Id from rstk__socust__c where Name='{QCR.Customer}'=&gt;varCustomerID">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -1385,8 +1388,8 @@
                         </resultAssertion>
                         <resultAssertion resultName="rstkf__arcashd_paycust__c" title="Check rstkf__arcashd_paycust__c">
                           <expected class="variable">
-                            <path element="varCustomerID"/>
-                            <path element="Id"/>
+                            <path element="QCR"/>
+                            <path element="CustomerID"/>
                           </expected>
                         </resultAssertion>
                         <resultAssertion resultName="rstkf__arcashd_arcashh__c" title="Check rstkf__arcashd_arcashh__c">
@@ -1478,8 +1481,8 @@
                       <resultAssertions>
                         <resultAssertion resultName="rstkf__arapplic_invcust__c" title="Check rstkf__arapplic_invcust__c">
                           <expected class="variable">
-                            <path element="varCustomerID"/>
-                            <path element="Id"/>
+                            <path element="QCR"/>
+                            <path element="CustomerID"/>
                           </expected>
                         </resultAssertion>
                         <resultAssertion resultName="rstkf__arapplic_arcashd__c" title="Check rstkf__arapplic_arcashd__c">
@@ -2621,6 +2624,13 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="237" title="Sleep for {5} seconds">
+                      <arguments>
+                        <argument id="sleepSecs">
+                          <value class="value" valueClass="decimal">5</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="224" title="Assert: Yes EqualTo {PostedStatus.fields.PostedStatus.value}">
                       <arguments>
                         <argument id="expectedValue">
@@ -2644,7 +2654,7 @@
                           <value class="value" valueClass="boolean">false</value>
                         </argument>
                         <argument id="retainDecimals">
-                          <value class="value" valueClass="boolean">false</value>
+                          <value class="value" valueClass="boolean">true</value>
                         </argument>
                         <argument id="nullGreater">
                           <value class="value" valueClass="boolean">false</value>
