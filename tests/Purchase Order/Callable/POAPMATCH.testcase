@@ -631,9 +631,6 @@
                     <textType>
                       <constraints>
                         <valueConstraint name="mimeType">text/plain</valueConstraint>
-                        <valueConstraint name="minLength">0</valueConstraint>
-                        <valueConstraint name="maxLength">9999</valueConstraint>
-                        <valueConstraint name="regex"/>
                       </constraints>
                     </textType>
                   </type>
@@ -865,10 +862,10 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="27" title="If: {AmtRemaining &gt; 0}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="27" title="If: {AmtRemaining != 0}">
               <arguments>
                 <argument id="condition">
-                  <value class="gt">
+                  <value class="ne">
                     <lhs class="variable">
                       <path element="AmtRemaining"/>
                     </lhs>
@@ -1019,7 +1016,7 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
+                  <value class="value" valueClass="string">full</value>
                 </argument>
               </arguments>
             </apiCall>
