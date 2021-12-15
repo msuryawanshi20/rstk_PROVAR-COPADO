@@ -25,7 +25,7 @@ public class rstkf__arcashd {
 	public WebElement CustomerPayAmountPayCurr;
 	
 	@TextType()
-	@FindBy(xpath = "//th[text()='Customer Pay Amount - Pay Curr']/following::td//span[1]")
+	@FindBy(xpath = "//*[text()='Customer Pay Amount - Pay Curr']/following::td//span[1]")
 	public WebElement CustomerPayAmountPayCurrLabel;
 	
 	@TextType()
