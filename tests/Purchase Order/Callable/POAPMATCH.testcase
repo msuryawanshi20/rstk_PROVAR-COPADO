@@ -46,24 +46,7 @@
         </argument>
         <argument id="webBrowser"/>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="TestData" variableScope="Test">
-          <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/RSTKF_AutomationData.xlsx;1614064369597</cacheToken>
-          <cachedParameters>
-            <apiParam name="Vendor"/>
-            <apiParam name="Item"/>
-            <apiParam name="Quantity"/>
-            <apiParam name="UnitPrice"/>
-            <apiParam name="PolineDimval"/>
-            <apiParam name="Podmddimval"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">MultiplePOLine</worksheetName>
-            <valuesRange class="value"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="2" title="On SF Rootstock Site Map tab">
       <arguments>
