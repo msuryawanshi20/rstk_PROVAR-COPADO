@@ -22,7 +22,11 @@
         <argument id="closeAllPrimaryTabs">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="reuseConnectionName"/>
+        <argument argId="d82e3dae-00f9-4c3a-8882-9809968cfaf5" id="reuseConnectionName">
+          <value class="variable">
+            <path element="reuseConnectionName"/>
+          </value>
+        </argument>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Fail</value>
         </argument>
@@ -538,6 +542,17 @@
     </apiCall>
   </steps>
   <params>
+    <param linkedToUrl="provar:hasvalue:d82e3dae-00f9-4c3a-8882-9809968cfaf5" name="reuseConnectionName" title="Override Connection">
+      <summary>The name of an already opened connect to re-use.</summary>
+      <type>
+        <connectionType>
+          <constraints>
+            <valueConstraint name="variableName">true</valueConstraint>
+            <valueConstraint name="requiredCapabilities">sfSoapConnect</valueConstraint>
+          </constraints>
+        </connectionType>
+      </type>
+    </param>
     <param linkedToUrl="provar:hasvalue:b583ea69-5b01-4e1d-b0a7-85c0742cb824" name="List" title="List">
       <summary>The list to be processed.</summary>
       <type>
@@ -607,6 +622,11 @@
     <argument id="AddLineData">
       <value class="variable">
         <path element="SourceData"/>
+      </value>
+    </argument>
+    <argument id="reuseConnectionName">
+      <value class="variable">
+        <path element="reuseConnectionName"/>
       </value>
     </argument>
   </args>

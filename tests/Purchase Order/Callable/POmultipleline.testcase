@@ -948,7 +948,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="208" title="SOQL Query: select Id,\trstk__pohdr_totamt__c,CreatedDate from rstk__pohdr__c where Name = '{PONumber}' and rstk__pohdr_div__c  = 'a7O410000004NwjEAE' =&gt;op_pohdr">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="208" title="SOQL Query: select Id,\trstk__pohdr_totamt__c,CreatedDate from rstk__pohdr__c where Name = '{PONumber}'=&gt;op_pohdr">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -957,7 +957,7 @@
                       <variable>
                         <path element="PONumber"/>
                       </variable>
-                      <value valueClass="string">' and rstk__pohdr_div__c  = 'a7O410000004NwjEAE' </value>
+                      <value valueClass="string">'</value>
                     </parts>
                   </value>
                 </argument>

@@ -26,8 +26,11 @@ public class rstkf__paysession {
 		// TODO Auto-generated constructor stub
 	}
 
+//	@TextType()
+//	@FindBy(xpath = "//label[normalize-space(.)='Payment Date']/parent::th/following-sibling::td//input")
+//	public WebElement paymentDate;
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Payment Date']/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Payment Date']/preceding::th[1]/following-sibling::td[2]//input")
 	public WebElement paymentDate;
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Save Session']")
@@ -98,10 +101,12 @@ public class rstkf__paysession {
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Post Payments']")
 	public WebElement postPayments;
+//	@TextType()
+//	@FindBy(xpath = "//th[contains(text(),'Session Status')]/parent::tr//preceding-sibling::td/span")
+//	public WebElement sessionStatus;
 	@TextType()
-	@FindBy(xpath = "//th[contains(text(),'Session Status')]/parent::tr//preceding-sibling::td/span")
+	@FindBy(xpath = "//label[contains(text(),'Starting Check Number')]/parent::th/parent::tr/td[@class='dataCol '][1]/span")
 	public WebElement sessionStatus;
-	
 	public void chkbox(String Inv) throws InterruptedException
 		{
 			
