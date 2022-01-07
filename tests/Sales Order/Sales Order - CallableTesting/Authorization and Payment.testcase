@@ -1841,7 +1841,10 @@
                                   </expected>
                                 </resultAssertion>
                                 <resultAssertion resultName="rstk__sohdrpay_payamount__c" title="Check rstk__sohdrpay_payamount__c">
-                                  <expected class="value" valueClass="string">250</expected>
+                                  <expected class="variable">
+                                    <path element="varPayments"/>
+                                    <path element="Amount"/>
+                                  </expected>
                                 </resultAssertion>
                                 <resultAssertion resultName="rstk__sohdrpay_status__c" title="Check rstk__sohdrpay_status__c">
                                   <expected class="value" valueClass="string">Payment Completed</expected>

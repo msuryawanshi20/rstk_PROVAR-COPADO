@@ -18,7 +18,7 @@ public class JournalEntryHeader {
 	@FindBy(xpath = "//input[@name='new']")
 	public WebElement New;
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='JE Reference Number']/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//input[contains(@id,'gljh_jeno')]")
 	public WebElement jEReferenceNumber;
 	@ChoiceListType()
 	@FindBy(xpath = "//label[normalize-space(.)='Originating Template']/parent::th/following-sibling::td//select")
@@ -39,7 +39,7 @@ public class JournalEntryHeader {
 	@FindBy(xpath = "//span[contains(@id,'period')]")
 	public WebElement period;
 	@TextType()
-	@FindBy(xpath = "//span[contains(@id,'gjno_view')]")
+	@FindBy(xpath = "//span[@class='helpButton']/following::td//span[contains(@id,'gjno_view')]")
 	public WebElement jEReferenceNumber1;
 	@TextType()
 	@FindBy(xpath = "//span[contains(@id,'gljhStatus_of')]")
