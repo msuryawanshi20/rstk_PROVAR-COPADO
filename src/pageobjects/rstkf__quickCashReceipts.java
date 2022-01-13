@@ -69,4 +69,8 @@ public class rstkf__quickCashReceipts {
 	@FindBy(xpath = "//span[@class='dateFormat']//a")
 	public WebElement TransactionDate;
 	
+	@ChoiceListType()
+	@FindBy(xpath = "//select[contains(@id,'crato_bankacct')]")
+	public WebElement BankAccount;
+	
 }

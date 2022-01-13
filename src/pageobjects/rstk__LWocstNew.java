@@ -30,7 +30,7 @@ public class rstk__LWocstNew {
 	}
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Order Number']/ancestor::span/ancestor::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Order Number']/parent::span/parent::th/following-sibling::td[1]//input")
 	public WebElement orderNumber;
 
 	@TextType()
@@ -83,19 +83,19 @@ public class rstk__LWocstNew {
 	}
 
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Project Charge Code']/ancestor::th/following-sibling::td//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Project Charge Code']/parent::th/following-sibling::td//select")
 	public WebElement ProjectChargeCode;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Quantity']/ancestor::span/ancestor::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Quantity']/parent::span/parent::th/following-sibling::td[1]//input")
 	public WebElement quantity;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Due Date']/ancestor::span/ancestor::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Due Date']/parent::span/parent::th/following-sibling::td[1]//input")
 	public WebElement dueDate;
 
 	@BooleanType()
-	@FindBy(xpath = "//label[normalize-space(.)='Extract Routing']/ancestor::span/ancestor::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Extract Routing']/parent::span/parent::th/following-sibling::td[1]//input")
 	public WebElement extractRouting;
 
 	@ButtonType()
@@ -103,11 +103,11 @@ public class rstk__LWocstNew {
 	public WebElement save;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Order Number']/ancestor::span/ancestor::th/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Order Number']/parent::span/parent::th/following-sibling::td[1]//span")
 	public WebElement orderNumber1;
 
 	@TextType()
-	@FindBy(xpath = "//span[contains(@id,'lwocst_ordsts')]")
+	@FindBy(xpath = "//label[normalize-space(.)='Status']/parent::span/parent::th/following-sibling::td//span")
 	public WebElement status;
 	
 	

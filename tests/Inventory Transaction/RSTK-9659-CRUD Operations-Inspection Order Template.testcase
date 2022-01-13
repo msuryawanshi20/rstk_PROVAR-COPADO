@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="75">
+<testCase failureBehaviour="Continue" id="22">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -23,7 +23,7 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument id="reuseConnectionName">
-          <value class="value"/>
+          <value class="value" valueClass="string"/>
         </argument>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Reuse</value>
@@ -45,148 +45,6 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="189" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-      <arguments>
-        <argument id="condition">
-          <value class="eq">
-            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-            <rhs class="value" valueClass="string">PDE5</rhs>
-          </value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="then" testItemId="905">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="191" title="Read Excel Data">
-              <arguments>
-                <argument id="description">
-                  <value class="value" valueClass="string">Read Excel Data</value>
-                </argument>
-              </arguments>
-              <parameterValueSources>
-                <parameterValueSource variableName="SourceData" variableScope="Test">
-                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9659-CRUD operations on Inspection Order Template.xlsx;1635422765377</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="RowNumber"/>
-                    <apiParam name="TemplateReference"/>
-                    <apiParam name="MethodForDerivingInspectionQty"/>
-                    <apiParam name="FixedQtyToInspectionOrder"/>
-                    <apiParam name="PercentageForInspectionOrderQty"/>
-                    <apiParam name="InspectionOrderSite"/>
-                    <apiParam name="InspectionOrderLocationID"/>
-                    <apiParam name="InspectionOrderLocationNumber"/>
-                    <apiParam name="LocationIDForScrappedDisposition"/>
-                    <apiParam name="LocationNumberForScrappedDisposition"/>
-                    <apiParam name="LocationIDForOtherDisposition"/>
-                    <apiParam name="LocationNumberForOtherDisposition"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9659-CRUD operations on Inspection Order Template.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">Inspectio Order Template</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:K</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
-              <clauses>
-                <clause name="hidden" testItemId="192"/>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
-        <clause name="else" testItemId="906">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">Automation</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="919">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="193" title="Read Excel Data">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="SourceData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9659-CRUD operations on Inspection Order Template.xlsx;1635422765377</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="RowNumber"/>
-                            <apiParam name="TemplateReference"/>
-                            <apiParam name="MethodForDerivingInspectionQty"/>
-                            <apiParam name="FixedQtyToInspectionOrder"/>
-                            <apiParam name="PercentageForInspectionOrderQty"/>
-                            <apiParam name="InspectionOrderSite"/>
-                            <apiParam name="InspectionOrderLocationID"/>
-                            <apiParam name="InspectionOrderLocationNumber"/>
-                            <apiParam name="LocationIDForScrappedDisposition"/>
-                            <apiParam name="LocationNumberForScrappedDisposition"/>
-                            <apiParam name="LocationIDForOtherDisposition"/>
-                            <apiParam name="LocationNumberForOtherDisposition"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9659-CRUD operations on Inspection Order Template.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Inspectio Order Template</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:K</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="194"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="922">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="195" title="Read Excel Data">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="SourceData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9659-CRUD operations on Inspection Order Template.xlsx;1635422765377</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="RowNumber"/>
-                            <apiParam name="TemplateReference"/>
-                            <apiParam name="MethodForDerivingInspectionQty"/>
-                            <apiParam name="FixedQtyToInspectionOrder"/>
-                            <apiParam name="PercentageForInspectionOrderQty"/>
-                            <apiParam name="InspectionOrderSite"/>
-                            <apiParam name="InspectionOrderLocationID"/>
-                            <apiParam name="InspectionOrderLocationNumber"/>
-                            <apiParam name="LocationIDForScrappedDisposition"/>
-                            <apiParam name="LocationNumberForScrappedDisposition"/>
-                            <apiParam name="LocationIDForOtherDisposition"/>
-                            <apiParam name="LocationNumberForOtherDisposition"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9659-CRUD operations on Inspection Order Template.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Inspectio Order Template</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:K</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="196"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="124" title="Perform Crud Operation">
       <arguments>
         <argument id="list">
@@ -204,7 +62,30 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
       </arguments>
-      <parameterValueSources/>
+      <parameterValueSources>
+        <parameterValueSource variableName="SourceData" variableScope="Test">
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9659-CRUD operations on Inspection Order Template.xlsx;1632904585289</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="TemplateReference"/>
+            <apiParam name="MethodForDerivingInspectionQty"/>
+            <apiParam name="FixedQtyToInspectionOrder"/>
+            <apiParam name="PercentageForInspectionOrderQty"/>
+            <apiParam name="InspectionOrderSite"/>
+            <apiParam name="InspectionOrderLocationID"/>
+            <apiParam name="InspectionOrderLocationNumber"/>
+            <apiParam name="LocationIDForScrappedDisposition"/>
+            <apiParam name="LocationNumberForScrappedDisposition"/>
+            <apiParam name="LocationIDForOtherDisposition"/>
+            <apiParam name="LocationNumberForOtherDisposition"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9659-CRUD operations on Inspection Order Template.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Inspectio Order Template</worksheetName>
+            <valuesRange class="value" valueClass="string">A:K</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
       <clauses>
         <clause name="substeps" testItemId="125">
           <steps>

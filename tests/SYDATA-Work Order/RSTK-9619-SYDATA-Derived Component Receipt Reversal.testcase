@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="33">
+<testCase id="5">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="793" title="Salesforce Connect: SFConnection (Test)">
@@ -45,158 +45,6 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="824" title="Read Excel Data based on selected Environment">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Read Excel Data based on selected Environment</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="hidden" testItemId="297">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="298" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">PDE5</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="140">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="886" title="Read Excel Data-Create Disassembly WO">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data-Create Disassembly WO</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="ExcelData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="RowNumber"/>
-                            <apiParam name="Site"/>
-                            <apiParam name="ItemNumber"/>
-                            <apiParam name="QtyRequired"/>
-                            <apiParam name="DueDate"/>
-                            <apiParam name="Project"/>
-                            <apiParam name="ProjectChargeCode"/>
-                            <apiParam name="ExtractComponent"/>
-                            <apiParam name="ExtractOperations"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Create Disassembly WO</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:F</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="670">
-                          <steps/>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="143">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="144" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="145">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="884" title="Read Excel Data-Create Disassembly WO">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data-Create Disassembly WO</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="ExcelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="Site"/>
-                                    <apiParam name="ItemNumber"/>
-                                    <apiParam name="QtyRequired"/>
-                                    <apiParam name="DueDate"/>
-                                    <apiParam name="Project"/>
-                                    <apiParam name="ProjectChargeCode"/>
-                                    <apiParam name="ExtractComponent"/>
-                                    <apiParam name="ExtractOperations"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Create Disassembly WO</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:F</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="887">
-                                  <steps/>
-                                </clause>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="148">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="669" title="Read Excel Data-Create Disassembly WO">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data-Create Disassembly WO</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="ExcelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="Site"/>
-                                    <apiParam name="ItemNumber"/>
-                                    <apiParam name="QtyRequired"/>
-                                    <apiParam name="DueDate"/>
-                                    <apiParam name="Project"/>
-                                    <apiParam name="ProjectChargeCode"/>
-                                    <apiParam name="ExtractComponent"/>
-                                    <apiParam name="ExtractOperations"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Create Disassembly WO</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:F</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="885">
-                                  <steps/>
-                                </clause>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="794" title="Receipt Derived Component Reversal using SYDATA">
       <arguments>
         <argument id="list">
@@ -214,7 +62,25 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
       </arguments>
-      <parameterValueSources/>
+      <parameterValueSources>
+        <parameterValueSource variableName="ExcelData" variableScope="Test">
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9618-Derived Component Receipt.xlsx;1632426769597</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="DisassemblyItemName"/>
+            <apiParam name="Quantity"/>
+            <apiParam name="ProjectName"/>
+            <apiParam name="ProjectChargeCode"/>
+            <apiParam name="AddDerivedComponent"/>
+            <apiParam name="AddConsumableComponents"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Create Disassembly WO</worksheetName>
+            <valuesRange class="value" valueClass="string">A:F</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
       <clauses>
         <clause name="substeps" testItemId="77">
           <steps>
@@ -339,158 +205,6 @@
               <clauses>
                 <clause name="then" testItemId="124">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="854" title="Read Excel Data based on selected Environment">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data based on selected Environment</value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="hidden" testItemId="827">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="828" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-                              <arguments>
-                                <argument id="condition">
-                                  <value class="eq">
-                                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                    <rhs class="value" valueClass="string">PDE5</rhs>
-                                  </value>
-                                </argument>
-                              </arguments>
-                              <clauses>
-                                <clause name="then" testItemId="829">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="876" title="Read Excel Data-Derived Componets">
-                                      <arguments>
-                                        <argument id="description">
-                                          <value class="value" valueClass="string">Read Excel Data-Derived Componets</value>
-                                        </argument>
-                                      </arguments>
-                                      <parameterValueSources>
-                                        <parameterValueSource variableName="op_derivedComponet" variableScope="Test">
-                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                                          <cachedParameters>
-                                            <apiParam name="RowNumber"/>
-                                            <apiParam name="Site"/>
-                                            <apiParam name="ItemNumber"/>
-                                            <apiParam name="QtyRequired"/>
-                                            <apiParam name="DueDate"/>
-                                            <apiParam name="Project"/>
-                                            <apiParam name="ProjectChargeCode"/>
-                                            <apiParam name="ExtractComponent"/>
-                                            <apiParam name="ExtractOperations"/>
-                                          </cachedParameters>
-                                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
-                                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
-                                            <worksheetName class="value" valueClass="string">Derived Components</worksheetName>
-                                            <valuesRange class="value" valueClass="string">A:J</valuesRange>
-                                          </sourceValue>
-                                        </parameterValueSource>
-                                      </parameterValueSources>
-                                      <clauses>
-                                        <clause name="hidden" testItemId="839">
-                                          <steps/>
-                                        </clause>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                                <clause name="else" testItemId="832">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="833" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                                      <arguments>
-                                        <argument id="condition">
-                                          <value class="eq">
-                                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                            <rhs class="value" valueClass="string">Automation</rhs>
-                                          </value>
-                                        </argument>
-                                      </arguments>
-                                      <clauses>
-                                        <clause name="then" testItemId="834">
-                                          <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="874" title="Read Excel Data-Derived Componets">
-                                              <arguments>
-                                                <argument id="description">
-                                                  <value class="value" valueClass="string">Read Excel Data-Derived Componets</value>
-                                                </argument>
-                                              </arguments>
-                                              <parameterValueSources>
-                                                <parameterValueSource variableName="op_derivedComponet" variableScope="Test">
-                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                                                  <cachedParameters>
-                                                    <apiParam name="RowNumber"/>
-                                                    <apiParam name="Site"/>
-                                                    <apiParam name="ItemNumber"/>
-                                                    <apiParam name="QtyRequired"/>
-                                                    <apiParam name="DueDate"/>
-                                                    <apiParam name="Project"/>
-                                                    <apiParam name="ProjectChargeCode"/>
-                                                    <apiParam name="ExtractComponent"/>
-                                                    <apiParam name="ExtractOperations"/>
-                                                  </cachedParameters>
-                                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
-                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
-                                                    <worksheetName class="value" valueClass="string">Derived Components</worksheetName>
-                                                    <valuesRange class="value" valueClass="string">A:J</valuesRange>
-                                                  </sourceValue>
-                                                </parameterValueSource>
-                                              </parameterValueSources>
-                                              <clauses>
-                                                <clause name="hidden" testItemId="877">
-                                                  <steps/>
-                                                </clause>
-                                              </clauses>
-                                            </apiCall>
-                                          </steps>
-                                        </clause>
-                                        <clause name="else" testItemId="837">
-                                          <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="838" title="Read Excel Data-Derived Componets">
-                                              <arguments>
-                                                <argument id="description">
-                                                  <value class="value" valueClass="string">Read Excel Data-Derived Componets</value>
-                                                </argument>
-                                              </arguments>
-                                              <parameterValueSources>
-                                                <parameterValueSource variableName="op_derivedComponet" variableScope="Test">
-                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                                                  <cachedParameters>
-                                                    <apiParam name="RowNumber"/>
-                                                    <apiParam name="Site"/>
-                                                    <apiParam name="ItemNumber"/>
-                                                    <apiParam name="QtyRequired"/>
-                                                    <apiParam name="DueDate"/>
-                                                    <apiParam name="Project"/>
-                                                    <apiParam name="ProjectChargeCode"/>
-                                                    <apiParam name="ExtractComponent"/>
-                                                    <apiParam name="ExtractOperations"/>
-                                                  </cachedParameters>
-                                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
-                                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
-                                                    <worksheetName class="value" valueClass="string">Derived Components</worksheetName>
-                                                    <valuesRange class="value" valueClass="string">A:J</valuesRange>
-                                                  </sourceValue>
-                                                </parameterValueSource>
-                                              </parameterValueSources>
-                                              <clauses>
-                                                <clause name="hidden" testItemId="875">
-                                                  <steps/>
-                                                </clause>
-                                              </clauses>
-                                            </apiCall>
-                                          </steps>
-                                        </clause>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="130" title="Add derived Component">
                       <arguments>
                         <argument id="list">
@@ -508,7 +222,29 @@
                           <value class="value" valueClass="boolean">true</value>
                         </argument>
                       </arguments>
-                      <parameterValueSources/>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="op_derivedComponet" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9618-Derived Component Receipt.xlsx;1632426769597</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="DisassemblyItemName"/>
+                            <apiParam name="DerivedComponentItem"/>
+                            <apiParam name="ExpectedQty"/>
+                            <apiParam name="ActualYieldQty"/>
+                            <apiParam name="CostAllocationPct"/>
+                            <apiParam name="DisassyGoodLocID"/>
+                            <apiParam name="DisassyGoodLocNo"/>
+                            <apiParam name="ResponsibleUser"/>
+                            <apiParam name="LotNumber"/>
+                            <apiParam name="LotExpDate"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
+                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Derived Components</worksheetName>
+                            <valuesRange class="value" valueClass="string">A1:J10</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
                       <clauses>
                         <clause name="substeps" testItemId="131">
                           <steps>
@@ -603,158 +339,6 @@
               <clauses>
                 <clause name="then" testItemId="137">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="826" title="Read Excel Data based on selected Environment">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data based on selected Environment</value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="hidden" testItemId="855">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="856" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-                              <arguments>
-                                <argument id="condition">
-                                  <value class="eq">
-                                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                    <rhs class="value" valueClass="string">PDE5</rhs>
-                                  </value>
-                                </argument>
-                              </arguments>
-                              <clauses>
-                                <clause name="then" testItemId="857">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="882" title="Read Excel Data-Derived Componets">
-                                      <arguments>
-                                        <argument id="description">
-                                          <value class="value" valueClass="string">Read Excel Data-Derived Componets</value>
-                                        </argument>
-                                      </arguments>
-                                      <parameterValueSources>
-                                        <parameterValueSource variableName="op_ConsumableCompExcelData" variableScope="Test">
-                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                                          <cachedParameters>
-                                            <apiParam name="RowNumber"/>
-                                            <apiParam name="Site"/>
-                                            <apiParam name="ItemNumber"/>
-                                            <apiParam name="QtyRequired"/>
-                                            <apiParam name="DueDate"/>
-                                            <apiParam name="Project"/>
-                                            <apiParam name="ProjectChargeCode"/>
-                                            <apiParam name="ExtractComponent"/>
-                                            <apiParam name="ExtractOperations"/>
-                                          </cachedParameters>
-                                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
-                                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
-                                            <worksheetName class="value" valueClass="string">Consumable Components</worksheetName>
-                                            <valuesRange class="value" valueClass="string">A:I</valuesRange>
-                                          </sourceValue>
-                                        </parameterValueSource>
-                                      </parameterValueSources>
-                                      <clauses>
-                                        <clause name="hidden" testItemId="879">
-                                          <steps/>
-                                        </clause>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                                <clause name="else" testItemId="858">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="859" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                                      <arguments>
-                                        <argument id="condition">
-                                          <value class="eq">
-                                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                            <rhs class="value" valueClass="string">Automation</rhs>
-                                          </value>
-                                        </argument>
-                                      </arguments>
-                                      <clauses>
-                                        <clause name="then" testItemId="860">
-                                          <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="880" title="Read Excel Data-Derived Componets">
-                                              <arguments>
-                                                <argument id="description">
-                                                  <value class="value" valueClass="string">Read Excel Data-Derived Componets</value>
-                                                </argument>
-                                              </arguments>
-                                              <parameterValueSources>
-                                                <parameterValueSource variableName="op_ConsumableCompExcelData" variableScope="Test">
-                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                                                  <cachedParameters>
-                                                    <apiParam name="RowNumber"/>
-                                                    <apiParam name="Site"/>
-                                                    <apiParam name="ItemNumber"/>
-                                                    <apiParam name="QtyRequired"/>
-                                                    <apiParam name="DueDate"/>
-                                                    <apiParam name="Project"/>
-                                                    <apiParam name="ProjectChargeCode"/>
-                                                    <apiParam name="ExtractComponent"/>
-                                                    <apiParam name="ExtractOperations"/>
-                                                  </cachedParameters>
-                                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
-                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
-                                                    <worksheetName class="value" valueClass="string">Consumable Components</worksheetName>
-                                                    <valuesRange class="value" valueClass="string">A:I</valuesRange>
-                                                  </sourceValue>
-                                                </parameterValueSource>
-                                              </parameterValueSources>
-                                              <clauses>
-                                                <clause name="hidden" testItemId="883">
-                                                  <steps/>
-                                                </clause>
-                                              </clauses>
-                                            </apiCall>
-                                          </steps>
-                                        </clause>
-                                        <clause name="else" testItemId="861">
-                                          <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="878" title="Read Excel Data-Derived Componets">
-                                              <arguments>
-                                                <argument id="description">
-                                                  <value class="value" valueClass="string">Read Excel Data-Derived Componets</value>
-                                                </argument>
-                                              </arguments>
-                                              <parameterValueSources>
-                                                <parameterValueSource variableName="op_ConsumableCompExcelData" variableScope="Test">
-                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                                                  <cachedParameters>
-                                                    <apiParam name="RowNumber"/>
-                                                    <apiParam name="Site"/>
-                                                    <apiParam name="ItemNumber"/>
-                                                    <apiParam name="QtyRequired"/>
-                                                    <apiParam name="DueDate"/>
-                                                    <apiParam name="Project"/>
-                                                    <apiParam name="ProjectChargeCode"/>
-                                                    <apiParam name="ExtractComponent"/>
-                                                    <apiParam name="ExtractOperations"/>
-                                                  </cachedParameters>
-                                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
-                                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
-                                                    <worksheetName class="value" valueClass="string">Consumable Components</worksheetName>
-                                                    <valuesRange class="value" valueClass="string">A:I</valuesRange>
-                                                  </sourceValue>
-                                                </parameterValueSource>
-                                              </parameterValueSources>
-                                              <clauses>
-                                                <clause name="hidden" testItemId="881">
-                                                  <steps/>
-                                                </clause>
-                                              </clauses>
-                                            </apiCall>
-                                          </steps>
-                                        </clause>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="126" title="Add consumable components">
                       <arguments>
                         <argument id="list">
@@ -772,7 +356,28 @@
                           <value class="value" valueClass="boolean">true</value>
                         </argument>
                       </arguments>
-                      <parameterValueSources/>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="op_ConsumableCompExcelData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Disassembly Work Order.xlsx;1630591751830</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="DisassemblyItemName"/>
+                            <apiParam name="ComponentItem"/>
+                            <apiParam name="EnterQtyPerFlag"/>
+                            <apiParam name="EnterComponentQtyFlag"/>
+                            <apiParam name="FixedComponentQtyFlag"/>
+                            <apiParam name="ComponentQty"/>
+                            <apiParam name="ScrapFactor"/>
+                            <apiParam name="SetupQty"/>
+                            <apiParam name="Comments"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereCaseInsensitive="true" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
+                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Consumable Components</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:I</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
                       <clauses>
                         <clause name="substeps" testItemId="127">
                           <steps>

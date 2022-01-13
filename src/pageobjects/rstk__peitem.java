@@ -98,7 +98,7 @@ public class rstk__peitem {
 	
 
 	@BooleanType()
-	@FindBy(xpath = "//label[normalize-space(.)='Disassembly Item']/ancestor::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Disassembly Item']/parent::th/following-sibling::td//input")
 	public WebElement disassemblyItem;
 
 	@ButtonType()

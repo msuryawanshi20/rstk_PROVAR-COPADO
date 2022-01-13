@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="30">
+<testCase id="9">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="135" title="Salesforce Connect: SFConnection (Test)">
@@ -23,7 +23,7 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument id="reuseConnectionName">
-          <value class="value"/>
+          <value class="value" valueClass="string"/>
         </argument>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Reuse</value>
@@ -45,158 +45,6 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="823" title="Read Excel Data based on selected Environment">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Read Excel Data based on selected Environment</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="hidden" testItemId="297">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="298" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">PDE5</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="140">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="315" title="Read Excel Data-Create WO">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data-Create WO</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_excelData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="RowNumber"/>
-                            <apiParam name="Site"/>
-                            <apiParam name="ItemNumber"/>
-                            <apiParam name="QtyRequired"/>
-                            <apiParam name="DueDate"/>
-                            <apiParam name="Project"/>
-                            <apiParam name="ProjectChargeCode"/>
-                            <apiParam name="ExtractComponent"/>
-                            <apiParam name="ExtractOperations"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9616-WO auto serialize from primary component.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Create WO</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:G</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="301">
-                          <steps/>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="143">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="144" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="145">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="312" title="Read Excel Data-Create WO">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data-Create WO</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_excelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="Site"/>
-                                    <apiParam name="ItemNumber"/>
-                                    <apiParam name="QtyRequired"/>
-                                    <apiParam name="DueDate"/>
-                                    <apiParam name="Project"/>
-                                    <apiParam name="ProjectChargeCode"/>
-                                    <apiParam name="ExtractComponent"/>
-                                    <apiParam name="ExtractOperations"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9616-WO auto serialize from primary component.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Create WO</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:G</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="316">
-                                  <steps/>
-                                </clause>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="148">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="669" title="Read Excel Data-Create WO">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data-Create WO</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_excelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="Site"/>
-                                    <apiParam name="ItemNumber"/>
-                                    <apiParam name="QtyRequired"/>
-                                    <apiParam name="DueDate"/>
-                                    <apiParam name="Project"/>
-                                    <apiParam name="ProjectChargeCode"/>
-                                    <apiParam name="ExtractComponent"/>
-                                    <apiParam name="ExtractOperations"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9616-WO auto serialize from primary component.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Create WO</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:G</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="670">
-                                  <steps/>
-                                </clause>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="136" title="Read excel data and create WO">
       <arguments>
         <argument id="list">
@@ -214,7 +62,26 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
       </arguments>
-      <parameterValueSources/>
+      <parameterValueSources>
+        <parameterValueSource variableName="op_excelData" variableScope="Test">
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9616-WO auto serialize from primary component.xlsx;1632753413780</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="Site"/>
+            <apiParam name="ItemNumber"/>
+            <apiParam name="QtyRequired"/>
+            <apiParam name="DueDate"/>
+            <apiParam name="Project"/>
+            <apiParam name="ProjectChargeCode"/>
+            <apiParam name="ExtractComponent"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9616-WO auto serialize from primary component.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Create WO</worksheetName>
+            <valuesRange class="value" valueClass="string">A:G</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
       <clauses>
         <clause name="substeps" testItemId="137">
           <steps>
@@ -227,7 +94,7 @@
               <clauses>
                 <clause name="hidden" testItemId="139">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="824" title="Check Serial status of item">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="140" title="Check Serial status of item">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -289,9 +156,9 @@
                         </argument>
                       </arguments>
                       <clauses>
-                        <clause name="then" testItemId="825">
+                        <clause name="then" testItemId="143">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="826" title="Set Values: ip_orderNumber">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="144" title="Set Values: ip_orderNumber">
                               <arguments>
                                 <argument id="values">
                                   <value class="valueList" mutable="Mutable">
@@ -323,7 +190,7 @@
                         </clause>
                       </clauses>
                     </apiCall>
-                    <caseCall testCaseId="77b534bc-0823-462a-aedb-59f401dde9b6" testCasePath="tests/Work Order/Callable/Create Work Order.testcase" testItemId="827">
+                    <caseCall testCaseId="77b534bc-0823-462a-aedb-59f401dde9b6" testCasePath="tests/Work Order/Callable/Create Work Order.testcase" testItemId="145">
                       <arguments>
                         <argument id="reuseConnectionName">
                           <value class="value" valueClass="string">SFConnection</value>
@@ -335,15 +202,8 @@
                           </value>
                         </argument>
                         <argument id="ip_OrderNumber">
-                          <value class="compound">
-                            <parts>
-                              <value valueClass="string">Pro-Reg_</value>
-                              <funcCall id="UniqueId">
-                                <argument id="length">
-                                  <value class="value" valueClass="decimal">5</value>
-                                </argument>
-                              </funcCall>
-                            </parts>
+                          <value class="variable">
+                            <path element="ip_orderNumber"/>
                           </value>
                         </argument>
                         <argument id="ip_InventoryItemName">
@@ -440,7 +300,7 @@
                 </argument>
               </arguments>
               <clauses>
-                <clause name="then" testItemId="828">
+                <clause name="then" testItemId="148">
                   <steps>
                     <caseCall testCaseId="73d915a8-5080-41fd-af4b-6a1d96e08d4c" testCasePath="tests/Work Order/Callable/Set Lot details.testcase" testItemId="149">
                       <arguments>
@@ -566,158 +426,6 @@
                         </clause>
                         <clause name="else" testItemId="160">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="829" title="Read Excel Data based on selected Environment">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data based on selected Environment</value>
-                                </argument>
-                              </arguments>
-                              <clauses>
-                                <clause name="hidden" testItemId="830">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="831" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-                                      <arguments>
-                                        <argument id="condition">
-                                          <value class="eq">
-                                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                            <rhs class="value" valueClass="string">PDE5</rhs>
-                                          </value>
-                                        </argument>
-                                      </arguments>
-                                      <clauses>
-                                        <clause name="then" testItemId="832">
-                                          <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="859" title="Read Excel Data-Add Components">
-                                              <arguments>
-                                                <argument id="description">
-                                                  <value class="value" valueClass="string">Read Excel Data-Add Components</value>
-                                                </argument>
-                                              </arguments>
-                                              <parameterValueSources>
-                                                <parameterValueSource variableName="op_componentExcelData" variableScope="Test">
-                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                                                  <cachedParameters>
-                                                    <apiParam name="RowNumber"/>
-                                                    <apiParam name="Site"/>
-                                                    <apiParam name="ItemNumber"/>
-                                                    <apiParam name="QtyRequired"/>
-                                                    <apiParam name="DueDate"/>
-                                                    <apiParam name="Project"/>
-                                                    <apiParam name="ProjectChargeCode"/>
-                                                    <apiParam name="ExtractComponent"/>
-                                                    <apiParam name="ExtractOperations"/>
-                                                  </cachedParameters>
-                                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9616-WO auto serialize from primary component.xlsx</workbookPath>
-                                                    <worksheetName class="value" valueClass="string">ItemNumber</worksheetName>
-                                                    <valuesRange class="value" valueClass="string">A:I</valuesRange>
-                                                  </sourceValue>
-                                                </parameterValueSource>
-                                              </parameterValueSources>
-                                              <clauses>
-                                                <clause name="hidden" testItemId="842">
-                                                  <steps/>
-                                                </clause>
-                                              </clauses>
-                                            </apiCall>
-                                          </steps>
-                                        </clause>
-                                        <clause name="else" testItemId="835">
-                                          <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="836" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                                              <arguments>
-                                                <argument id="condition">
-                                                  <value class="eq">
-                                                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                                    <rhs class="value" valueClass="string">Automation</rhs>
-                                                  </value>
-                                                </argument>
-                                              </arguments>
-                                              <clauses>
-                                                <clause name="then" testItemId="837">
-                                                  <steps>
-                                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="857" title="Read Excel Data-Add Components">
-                                                      <arguments>
-                                                        <argument id="description">
-                                                          <value class="value" valueClass="string">Read Excel Data-Add Components</value>
-                                                        </argument>
-                                                      </arguments>
-                                                      <parameterValueSources>
-                                                        <parameterValueSource variableName="op_componentExcelData" variableScope="Test">
-                                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                                                          <cachedParameters>
-                                                            <apiParam name="RowNumber"/>
-                                                            <apiParam name="Site"/>
-                                                            <apiParam name="ItemNumber"/>
-                                                            <apiParam name="QtyRequired"/>
-                                                            <apiParam name="DueDate"/>
-                                                            <apiParam name="Project"/>
-                                                            <apiParam name="ProjectChargeCode"/>
-                                                            <apiParam name="ExtractComponent"/>
-                                                            <apiParam name="ExtractOperations"/>
-                                                          </cachedParameters>
-                                                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9616-WO auto serialize from primary component.xlsx</workbookPath>
-                                                            <worksheetName class="value" valueClass="string">Add Component</worksheetName>
-                                                            <valuesRange class="value" valueClass="string">A:I</valuesRange>
-                                                          </sourceValue>
-                                                        </parameterValueSource>
-                                                      </parameterValueSources>
-                                                      <clauses>
-                                                        <clause name="hidden" testItemId="860">
-                                                          <steps/>
-                                                        </clause>
-                                                      </clauses>
-                                                    </apiCall>
-                                                  </steps>
-                                                </clause>
-                                                <clause name="else" testItemId="840">
-                                                  <steps>
-                                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="841" title="Read Excel Data-Add Components">
-                                                      <arguments>
-                                                        <argument id="description">
-                                                          <value class="value" valueClass="string">Read Excel Data-Add Components</value>
-                                                        </argument>
-                                                      </arguments>
-                                                      <parameterValueSources>
-                                                        <parameterValueSource variableName="op_componentExcelData" variableScope="Test">
-                                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
-                                                          <cachedParameters>
-                                                            <apiParam name="RowNumber"/>
-                                                            <apiParam name="Site"/>
-                                                            <apiParam name="ItemNumber"/>
-                                                            <apiParam name="QtyRequired"/>
-                                                            <apiParam name="DueDate"/>
-                                                            <apiParam name="Project"/>
-                                                            <apiParam name="ProjectChargeCode"/>
-                                                            <apiParam name="ExtractComponent"/>
-                                                            <apiParam name="ExtractOperations"/>
-                                                          </cachedParameters>
-                                                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9616-WO auto serialize from primary component.xlsx</workbookPath>
-                                                            <worksheetName class="value" valueClass="string">ItemNumber</worksheetName>
-                                                            <valuesRange class="value" valueClass="string">A:I</valuesRange>
-                                                          </sourceValue>
-                                                        </parameterValueSource>
-                                                      </parameterValueSources>
-                                                      <clauses>
-                                                        <clause name="hidden" testItemId="858">
-                                                          <steps/>
-                                                        </clause>
-                                                      </clauses>
-                                                    </apiCall>
-                                                  </steps>
-                                                </clause>
-                                              </clauses>
-                                            </apiCall>
-                                          </steps>
-                                        </clause>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                              </clauses>
-                            </apiCall>
                             <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="215" title="Add components">
                               <arguments>
                                 <argument id="list">
@@ -735,7 +443,28 @@
                                   <value class="value" valueClass="boolean">true</value>
                                 </argument>
                               </arguments>
-                              <parameterValueSources/>
+                              <parameterValueSources>
+                                <parameterValueSource variableName="op_componentExcelData" variableScope="Test">
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9616-WO auto serialize from primary component.xlsx;1632753413780</cacheToken>
+                                  <cachedParameters>
+                                    <apiParam name="RowNumber"/>
+                                    <apiParam name="ItemNumber"/>
+                                    <apiParam name="ComponentItem"/>
+                                    <apiParam name="EnterQtyPerFlag"/>
+                                    <apiParam name="EnterComponentQtyFlag"/>
+                                    <apiParam name="FixedComponentQtyFlag"/>
+                                    <apiParam name="ComponentQty"/>
+                                    <apiParam name="ScrapFactor"/>
+                                    <apiParam name="SetupQty"/>
+                                    <apiParam name="Comments"/>
+                                  </cachedParameters>
+                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9616-WO auto serialize from primary component.xlsx</workbookPath>
+                                    <worksheetName class="value" valueClass="string">Add Component</worksheetName>
+                                    <valuesRange class="value" valueClass="string">A:I</valuesRange>
+                                  </sourceValue>
+                                </parameterValueSource>
+                              </parameterValueSources>
                               <clauses>
                                 <clause name="substeps" testItemId="216">
                                   <steps>
@@ -872,7 +601,21 @@
                   <value class="value" valueClass="string">Issue Components</value>
                 </argument>
               </arguments>
-              <parameterValueSources/>
+              <parameterValueSources>
+                <parameterValueSource variableName="op_parentCompontExcelData" variableScope="Test">
+                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9616-WO auto serialize from primary component.xlsx;1632754958132</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="ItemNumber"/>
+                    <apiParam name="ComponentItem"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber">
+                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9616-WO auto serialize from primary component.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Parent Comp For SRL generation</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:B</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
               <clauses>
                 <clause name="hidden" testItemId="174">
                   <steps>
@@ -895,149 +638,30 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="875" title="Create SYDATA-WO auto serialize from primary component">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="222" title="Create SYDATA-WO auto serialize from primary component">
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Create SYDATA-WO auto serialize from primary component</value>
                 </argument>
               </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="op_parentCompontExcelData" variableScope="Test">
+                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9616-WO auto serialize from primary component.xlsx;1632755526132</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="ItemNumber"/>
+                    <apiParam name="ParentComponet"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9616-WO auto serialize from primary component.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Parent Comp For SRL generation</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:B</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
               <clauses>
-                <clause name="hidden" testItemId="876">
+                <clause name="hidden" testItemId="223">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="861" title="Read Excel Data based on selected Environment">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data based on selected Environment</value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="hidden" testItemId="862">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="863" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-                              <arguments>
-                                <argument id="condition">
-                                  <value class="eq">
-                                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                    <rhs class="value" valueClass="string">PDE5</rhs>
-                                  </value>
-                                </argument>
-                              </arguments>
-                              <clauses>
-                                <clause name="then" testItemId="864">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="917" title="Create SYDATA-WO auto serialize from primary component">
-                                      <arguments>
-                                        <argument id="description">
-                                          <value class="value" valueClass="string">Create SYDATA-WO auto serialize from primary component</value>
-                                        </argument>
-                                      </arguments>
-                                      <parameterValueSources>
-                                        <parameterValueSource variableName="op_parentCompontExcelData" variableScope="Test">
-                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9616-WO auto serialize from primary component.xlsx;1632755526132</cacheToken>
-                                          <cachedParameters>
-                                            <apiParam name="RowNumber"/>
-                                            <apiParam name="ItemNumber"/>
-                                            <apiParam name="ParentComponet"/>
-                                          </cachedParameters>
-                                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9616-WO auto serialize from primary component.xlsx</workbookPath>
-                                            <worksheetName class="value" valueClass="string">Parent Comp For SRL generation</worksheetName>
-                                            <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                                          </sourceValue>
-                                        </parameterValueSource>
-                                      </parameterValueSources>
-                                      <clauses>
-                                        <clause name="hidden" testItemId="223">
-                                          <steps/>
-                                        </clause>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                                <clause name="else" testItemId="867">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="868" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                                      <arguments>
-                                        <argument id="condition">
-                                          <value class="eq">
-                                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                            <rhs class="value" valueClass="string">Automation</rhs>
-                                          </value>
-                                        </argument>
-                                      </arguments>
-                                      <clauses>
-                                        <clause name="then" testItemId="869">
-                                          <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="915" title="Create SYDATA-WO auto serialize from primary component">
-                                              <arguments>
-                                                <argument id="description">
-                                                  <value class="value" valueClass="string">Create SYDATA-WO auto serialize from primary component</value>
-                                                </argument>
-                                              </arguments>
-                                              <parameterValueSources>
-                                                <parameterValueSource variableName="op_parentCompontExcelData" variableScope="Test">
-                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9616-WO auto serialize from primary component.xlsx;1632755526132</cacheToken>
-                                                  <cachedParameters>
-                                                    <apiParam name="RowNumber"/>
-                                                    <apiParam name="ItemNumber"/>
-                                                    <apiParam name="ParentComponet"/>
-                                                  </cachedParameters>
-                                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9616-WO auto serialize from primary component.xlsx</workbookPath>
-                                                    <worksheetName class="value" valueClass="string">Parent Comp For SRL generation</worksheetName>
-                                                    <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                                                  </sourceValue>
-                                                </parameterValueSource>
-                                              </parameterValueSources>
-                                              <clauses>
-                                                <clause name="hidden" testItemId="918">
-                                                  <steps/>
-                                                </clause>
-                                              </clauses>
-                                            </apiCall>
-                                          </steps>
-                                        </clause>
-                                        <clause name="else" testItemId="872">
-                                          <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="222" title="Create SYDATA-WO auto serialize from primary component">
-                                              <arguments>
-                                                <argument id="description">
-                                                  <value class="value" valueClass="string">Create SYDATA-WO auto serialize from primary component</value>
-                                                </argument>
-                                              </arguments>
-                                              <parameterValueSources>
-                                                <parameterValueSource variableName="op_parentCompontExcelData" variableScope="Test">
-                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9616-WO auto serialize from primary component.xlsx;1632755526132</cacheToken>
-                                                  <cachedParameters>
-                                                    <apiParam name="RowNumber"/>
-                                                    <apiParam name="ItemNumber"/>
-                                                    <apiParam name="ParentComponet"/>
-                                                  </cachedParameters>
-                                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9616-WO auto serialize from primary component.xlsx</workbookPath>
-                                                    <worksheetName class="value" valueClass="string">Parent Comp For SRL generation</worksheetName>
-                                                    <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                                                  </sourceValue>
-                                                </parameterValueSource>
-                                              </parameterValueSources>
-                                              <clauses>
-                                                <clause name="hidden" testItemId="916">
-                                                  <steps/>
-                                                </clause>
-                                              </clauses>
-                                            </apiCall>
-                                          </steps>
-                                        </clause>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="219" title="Count WOORDDMD Extracted for WO">
                       <tags/>
                       <arguments>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="433">
+<testCase failureBehaviour="Continue" id="27">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,148 +43,6 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="251" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-      <arguments>
-        <argument id="condition">
-          <value class="eq">
-            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-            <rhs class="value" valueClass="string">PDE5</rhs>
-          </value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="then" testItemId="905">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="928" title="Read Excel Data">
-              <arguments>
-                <argument id="description">
-                  <value class="value" valueClass="string">Read Excel Data</value>
-                </argument>
-              </arguments>
-              <parameterValueSources>
-                <parameterValueSource variableName="op_excelData" variableScope="Test">
-                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx;1635422764727</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="ManufacturingDepartmentNumber"/>
-                    <apiParam name="Description"/>
-                    <apiParam name="InventorySite"/>
-                    <apiParam name="ResponsibleManager"/>
-                    <apiParam name="ResponsiblePlanner"/>
-                    <apiParam name="OrganizationalDepartment"/>
-                    <apiParam name="AccountingDimensionValue"/>
-                    <apiParam name="LaborOhdOption"/>
-                    <apiParam name="SimOhdRateLabor"/>
-                    <apiParam name="StdOhdRateLabor"/>
-                    <apiParam name="FringeOhdOption"/>
-                    <apiParam name="SimOhdRateFringe"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">Create Mfg Dept</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:M</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
-              <clauses>
-                <clause name="hidden" testItemId="925"/>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
-        <clause name="else" testItemId="906">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">Automation</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="919">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="926" title="Read Excel Data">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_excelData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx;1635422764727</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="ManufacturingDepartmentNumber"/>
-                            <apiParam name="Description"/>
-                            <apiParam name="InventorySite"/>
-                            <apiParam name="ResponsibleManager"/>
-                            <apiParam name="ResponsiblePlanner"/>
-                            <apiParam name="OrganizationalDepartment"/>
-                            <apiParam name="AccountingDimensionValue"/>
-                            <apiParam name="LaborOhdOption"/>
-                            <apiParam name="SimOhdRateLabor"/>
-                            <apiParam name="StdOhdRateLabor"/>
-                            <apiParam name="FringeOhdOption"/>
-                            <apiParam name="SimOhdRateFringe"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Create Mfg Dept</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:M</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="929"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="922">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="924" title="Read Excel Data">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_excelData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx;1635422764727</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="ManufacturingDepartmentNumber"/>
-                            <apiParam name="Description"/>
-                            <apiParam name="InventorySite"/>
-                            <apiParam name="ResponsibleManager"/>
-                            <apiParam name="ResponsiblePlanner"/>
-                            <apiParam name="OrganizationalDepartment"/>
-                            <apiParam name="AccountingDimensionValue"/>
-                            <apiParam name="LaborOhdOption"/>
-                            <apiParam name="SimOhdRateLabor"/>
-                            <apiParam name="StdOhdRateLabor"/>
-                            <apiParam name="FringeOhdOption"/>
-                            <apiParam name="SimOhdRateFringe"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Create Mfg Dept</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:M</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="927"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="32" title="Read Excel Data and Perform CRUD operation on MFG Department">
       <arguments>
         <argument id="list">
@@ -202,7 +60,32 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
       </arguments>
-      <parameterValueSources/>
+      <parameterValueSources>
+        <parameterValueSource variableName="op_excelData" variableScope="Test">
+          <cacheToken>D:\\provar\\rsqasampleproj\\rsqasampleproj\\templates\\QARSF\\MFg Dept.xlsx;1633406519105</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="ManufacturingDepartmentNumber"/>
+            <apiParam name="Description"/>
+            <apiParam name="InventorySite"/>
+            <apiParam name="ResponsibleManager"/>
+            <apiParam name="ResponsiblePlanner"/>
+            <apiParam name="OrganizationalDepartment"/>
+            <apiParam name="AccountingDimensionValue"/>
+            <apiParam name="LaborOhdOption"/>
+            <apiParam name="SimOhdRateLabor"/>
+            <apiParam name="StdOhdRateLabor"/>
+            <apiParam name="FringeOhdOption"/>
+            <apiParam name="SimOhdRateFringe"/>
+            <apiParam name="StdOhdRateFringe"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Create Mfg Dept</worksheetName>
+            <valuesRange class="value" valueClass="string">A:M</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
       <clauses>
         <clause name="substeps" testItemId="33">
           <steps>
@@ -1332,148 +1215,6 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="930" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">PDE5</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="931">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="956" title="Read Excel Data">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="SourceData2" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx;1635422764727</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="ManufacturingDepartmentNumber"/>
-                            <apiParam name="Description"/>
-                            <apiParam name="InventorySite"/>
-                            <apiParam name="ResponsibleManager"/>
-                            <apiParam name="ResponsiblePlanner"/>
-                            <apiParam name="OrganizationalDepartment"/>
-                            <apiParam name="AccountingDimensionValue"/>
-                            <apiParam name="LaborOhdOption"/>
-                            <apiParam name="SimOhdRateLabor"/>
-                            <apiParam name="StdOhdRateLabor"/>
-                            <apiParam name="FringeOhdOption"/>
-                            <apiParam name="SimOhdRateFringe"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ManufacturingDepartmentNumber" whereValue="{op_mfgDeptName.fields.manufacturingDepartmentNumber1.value}">
-                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Update</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:M</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="941"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="934">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="935" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="936">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="954" title="Read Excel Data">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="SourceData2" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx;1635422764727</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="ManufacturingDepartmentNumber"/>
-                                    <apiParam name="Description"/>
-                                    <apiParam name="InventorySite"/>
-                                    <apiParam name="ResponsibleManager"/>
-                                    <apiParam name="ResponsiblePlanner"/>
-                                    <apiParam name="OrganizationalDepartment"/>
-                                    <apiParam name="AccountingDimensionValue"/>
-                                    <apiParam name="LaborOhdOption"/>
-                                    <apiParam name="SimOhdRateLabor"/>
-                                    <apiParam name="StdOhdRateLabor"/>
-                                    <apiParam name="FringeOhdOption"/>
-                                    <apiParam name="SimOhdRateFringe"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ManufacturingDepartmentNumber" whereValue="{op_mfgDeptName.fields.manufacturingDepartmentNumber1.value}">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Update</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:M</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="957"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="939">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="940" title="Read Excel Data">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="SourceData2" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx;1635422764727</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="ManufacturingDepartmentNumber"/>
-                                    <apiParam name="Description"/>
-                                    <apiParam name="InventorySite"/>
-                                    <apiParam name="ResponsibleManager"/>
-                                    <apiParam name="ResponsiblePlanner"/>
-                                    <apiParam name="OrganizationalDepartment"/>
-                                    <apiParam name="AccountingDimensionValue"/>
-                                    <apiParam name="LaborOhdOption"/>
-                                    <apiParam name="SimOhdRateLabor"/>
-                                    <apiParam name="StdOhdRateLabor"/>
-                                    <apiParam name="FringeOhdOption"/>
-                                    <apiParam name="SimOhdRateFringe"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ManufacturingDepartmentNumber" whereValue="{op_mfgDeptName.fields.manufacturingDepartmentNumber1.value}">
-                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Update</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:M</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="955"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="155" title="Update record">
               <arguments>
                 <argument id="list">
@@ -1491,7 +1232,32 @@
                   <value class="value" valueClass="boolean">true</value>
                 </argument>
               </arguments>
-              <parameterValueSources/>
+              <parameterValueSources>
+                <parameterValueSource variableName="SourceData2" variableScope="Test">
+                  <cacheToken>D:\\provar\\rsqasampleproj\\rsqasampleproj\\templates\\QARSF\\MFg Dept.xlsx;1633406519105</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="ManufacturingDepartmentNumber"/>
+                    <apiParam name="Description"/>
+                    <apiParam name="InventorySite"/>
+                    <apiParam name="ResponsibleManager"/>
+                    <apiParam name="ResponsiblePlanner"/>
+                    <apiParam name="OrganizationalDepartment"/>
+                    <apiParam name="AccountingDimensionValue"/>
+                    <apiParam name="LaborOhdOption"/>
+                    <apiParam name="SimOhdRateLabor"/>
+                    <apiParam name="StdOhdRateLabor"/>
+                    <apiParam name="FringeOhdOption"/>
+                    <apiParam name="SimOhdRateFringe"/>
+                    <apiParam name="StdOhdRateFringe"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ManufacturingDepartmentNumber" whereValue="{op_mfgDeptName.fields.manufacturingDepartmentNumber1.value}">
+                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Update</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:M</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
               <clauses>
                 <clause name="substeps" testItemId="156">
                   <steps>

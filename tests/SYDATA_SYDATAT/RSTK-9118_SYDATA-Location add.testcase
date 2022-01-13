@@ -45,195 +45,50 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="244" title="Read Excel Data based on selected Environment">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="8" title="Read Excel Data">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">Read Excel Data based on selected Environment</value>
+          <value class="value" valueClass="string">Read Excel Data</value>
         </argument>
       </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="op_excelData" variableScope="Test">
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9118_SYDATA-LocAdd.xlsx;1631618976583</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="TransactionType"/>
+            <apiParam name="ProcessingIndicator"/>
+            <apiParam name="Async"/>
+            <apiParam name="InventoryItem"/>
+            <apiParam name="ProjectNumber"/>
+            <apiParam name="Division"/>
+            <apiParam name="Site"/>
+            <apiParam name="InventoryLocation"/>
+            <apiParam name="LocationNumber"/>
+            <apiParam name="LotNumber"/>
+            <apiParam name="LotExpirationDate"/>
+            <apiParam name="TransactionQuantity"/>
+            <apiParam name="TxnComments"/>
+            <apiParam name="UnitCostMaterial"/>
+            <apiParam name="UnitCostLabor"/>
+            <apiParam name="UnitCostMtlOhd"/>
+            <apiParam name="UnitCostLaborOhd"/>
+            <apiParam name="UnitCostFringeOhd"/>
+            <apiParam name="UnitCostMachOhd"/>
+            <apiParam name="UnitCostSubMtl"/>
+            <apiParam name="UnitCostSubLab"/>
+            <apiParam name="UnitCostFreight"/>
+            <apiParam name="UnitCostLanding"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/RSTK-9118_SYDATA-LocAdd.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Location Add</worksheetName>
+            <valuesRange class="value" valueClass="string">A:W</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
       <clauses>
-        <clause name="hidden" testItemId="297">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="298" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">PDE5</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="140">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="267" title="Read Excel Data">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_excelData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9118_SYDATA-LocAdd.xlsx;1631618976583</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="RowNumber"/>
-                            <apiParam name="TransactionType"/>
-                            <apiParam name="ProcessingIndicator"/>
-                            <apiParam name="Async"/>
-                            <apiParam name="InventoryItem"/>
-                            <apiParam name="ProjectNumber"/>
-                            <apiParam name="Division"/>
-                            <apiParam name="Site"/>
-                            <apiParam name="InventoryLocation"/>
-                            <apiParam name="LocationNumber"/>
-                            <apiParam name="LotNumber"/>
-                            <apiParam name="LotExpirationDate"/>
-                            <apiParam name="TransactionQuantity"/>
-                            <apiParam name="TxnComments"/>
-                            <apiParam name="UnitCostMaterial"/>
-                            <apiParam name="UnitCostLabor"/>
-                            <apiParam name="UnitCostMtlOhd"/>
-                            <apiParam name="UnitCostLaborOhd"/>
-                            <apiParam name="UnitCostFringeOhd"/>
-                            <apiParam name="UnitCostMachOhd"/>
-                            <apiParam name="UnitCostSubMtl"/>
-                            <apiParam name="UnitCostSubLab"/>
-                            <apiParam name="UnitCostFreight"/>
-                            <apiParam name="UnitCostLanding"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9118_SYDATA-LocAdd.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Location Add</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:W</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="9"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="261">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="262" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="263">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="265" title="Read Excel Data">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_excelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9118_SYDATA-LocAdd.xlsx;1631618976583</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="TransactionType"/>
-                                    <apiParam name="ProcessingIndicator"/>
-                                    <apiParam name="Async"/>
-                                    <apiParam name="InventoryItem"/>
-                                    <apiParam name="ProjectNumber"/>
-                                    <apiParam name="Division"/>
-                                    <apiParam name="Site"/>
-                                    <apiParam name="InventoryLocation"/>
-                                    <apiParam name="LocationNumber"/>
-                                    <apiParam name="LotNumber"/>
-                                    <apiParam name="LotExpirationDate"/>
-                                    <apiParam name="TransactionQuantity"/>
-                                    <apiParam name="TxnComments"/>
-                                    <apiParam name="UnitCostMaterial"/>
-                                    <apiParam name="UnitCostLabor"/>
-                                    <apiParam name="UnitCostMtlOhd"/>
-                                    <apiParam name="UnitCostLaborOhd"/>
-                                    <apiParam name="UnitCostFringeOhd"/>
-                                    <apiParam name="UnitCostMachOhd"/>
-                                    <apiParam name="UnitCostSubMtl"/>
-                                    <apiParam name="UnitCostSubLab"/>
-                                    <apiParam name="UnitCostFreight"/>
-                                    <apiParam name="UnitCostLanding"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9118_SYDATA-LocAdd.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Location Add</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:W</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="268"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="256">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="8" title="Read Excel Data">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_excelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9118_SYDATA-LocAdd.xlsx;1631618976583</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="TransactionType"/>
-                                    <apiParam name="ProcessingIndicator"/>
-                                    <apiParam name="Async"/>
-                                    <apiParam name="InventoryItem"/>
-                                    <apiParam name="ProjectNumber"/>
-                                    <apiParam name="Division"/>
-                                    <apiParam name="Site"/>
-                                    <apiParam name="InventoryLocation"/>
-                                    <apiParam name="LocationNumber"/>
-                                    <apiParam name="LotNumber"/>
-                                    <apiParam name="LotExpirationDate"/>
-                                    <apiParam name="TransactionQuantity"/>
-                                    <apiParam name="TxnComments"/>
-                                    <apiParam name="UnitCostMaterial"/>
-                                    <apiParam name="UnitCostLabor"/>
-                                    <apiParam name="UnitCostMtlOhd"/>
-                                    <apiParam name="UnitCostLaborOhd"/>
-                                    <apiParam name="UnitCostFringeOhd"/>
-                                    <apiParam name="UnitCostMachOhd"/>
-                                    <apiParam name="UnitCostSubMtl"/>
-                                    <apiParam name="UnitCostSubLab"/>
-                                    <apiParam name="UnitCostFreight"/>
-                                    <apiParam name="UnitCostLanding"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9118_SYDATA-LocAdd.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Location Add</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:W</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="266"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
+        <clause name="hidden" testItemId="9"/>
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="6" title="For Each: {op_excelData}=&gt;op_excelDataRow">
@@ -414,7 +269,7 @@
                         </argument>
                       </arguments>
                       <clauses>
-                        <clause name="then" testItemId="245">
+                        <clause name="then" testItemId="140">
                           <steps>
                             <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="152" title="Generate Serials">
                               <arguments>

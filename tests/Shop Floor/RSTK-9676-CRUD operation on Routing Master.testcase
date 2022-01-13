@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="431">
+<testCase id="2">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,118 +43,6 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="54" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-      <arguments>
-        <argument id="condition">
-          <value class="eq">
-            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-            <rhs class="value" valueClass="string">PDE5</rhs>
-          </value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="then" testItemId="905">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="74" title="Read Excel Data">
-              <arguments>
-                <argument id="description">
-                  <value class="value" valueClass="string">Read Excel Data</value>
-                </argument>
-              </arguments>
-              <parameterValueSources>
-                <parameterValueSource variableName="op_excelData" variableScope="Test">
-                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="Site"/>
-                    <apiParam name="ItemNumber"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9676-CRUD operation on Routing Master.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">Create Routing Master</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
-              <clauses>
-                <clause name="hidden" testItemId="58"/>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
-        <clause name="else" testItemId="906">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">Automation</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="919">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="72" title="Read Excel Data">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_excelData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="Site"/>
-                            <apiParam name="ItemNumber"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9676-CRUD operation on Routing Master.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Create Routing Master</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="75"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="922">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="57" title="Read Excel Data">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_excelData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="Site"/>
-                            <apiParam name="ItemNumber"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Create Routing Master</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="73"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="49" title="Read Excel Data and perform Operation">
       <arguments>
         <argument id="list">
@@ -172,7 +60,21 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
       </arguments>
-      <parameterValueSources/>
+      <parameterValueSources>
+        <parameterValueSource variableName="op_excelData" variableScope="Test">
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1633012204510</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="Site"/>
+            <apiParam name="ItemNumber"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Create Routing Master</worksheetName>
+            <valuesRange class="value" valueClass="string">A:B</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
       <clauses>
         <clause name="substeps" testItemId="50">
           <steps>
@@ -200,118 +102,6 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="59" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">PDE5</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="60">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="70" title="Read Excel Data">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_excelDataUpdate" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="Site"/>
-                            <apiParam name="ItemNumber"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9676-CRUD operation on Routing Master.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Update Routing Master</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:C</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="66"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="61">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="62" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="63">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="68" title="Read Excel Data">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_excelDataUpdate" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="Site"/>
-                                    <apiParam name="ItemNumber"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9676-CRUD operation on Routing Master.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Update Routing Master</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:C</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="71"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="64">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="65" title="Read Excel Data">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_excelDataUpdate" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="Site"/>
-                                    <apiParam name="ItemNumber"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Update Routing Master</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:C</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="69"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="51" title="For Each: {op_excelDataUpdate}=&gt;op_excelDataUpdateRow">
               <arguments>
                 <argument id="list">
@@ -329,7 +119,22 @@
                   <value class="value" valueClass="boolean">true</value>
                 </argument>
               </arguments>
-              <parameterValueSources/>
+              <parameterValueSources>
+                <parameterValueSource variableName="op_excelDataUpdate" variableScope="Test">
+                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1633012204510</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="ItemNumber"/>
+                    <apiParam name="ResponsibleEngineer"/>
+                    <apiParam name="ResponsiblePlanner"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Update Routing Master</worksheetName>
+                    <valuesRange class="value" valueClass="string">A1:C2</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
               <clauses>
                 <clause name="substeps" testItemId="52">
                   <steps>
@@ -369,7 +174,7 @@
                       </arguments>
                       <parameterValueSources/>
                       <clauses>
-                        <clause name="substeps" testItemId="55">
+                        <clause name="substeps" testItemId="13">
                           <steps>
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="15" title="Click the Edit button">
                               <arguments>

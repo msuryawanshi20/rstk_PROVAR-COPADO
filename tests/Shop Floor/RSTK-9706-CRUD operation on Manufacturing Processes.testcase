@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="66">
+<testCase failureBehaviour="Continue" id="2">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,135 +43,6 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="948" title="Read excel data for selected environment">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Read excel data for selected environment</value>
-        </argument>
-      </arguments>
-      <parameterValueSources/>
-      <clauses>
-        <clause name="hidden" testItemId="949">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="64" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">PDE5</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="905">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="966" title="Read excel data for selected environment">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read excel data for selected environment</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="SourceData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9706-CRUD operation on Manufacturing Processes.xlsx;1635422765524</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="RowNumber"/>
-                            <apiParam name="ProcessNumber"/>
-                            <apiParam name="Description"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9706-CRUD operation on Manufacturing Processes.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Create</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="937"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="906">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="919">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="964" title="Read excel data for selected environment">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read excel data for selected environment</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="SourceData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9706-CRUD operation on Manufacturing Processes.xlsx;1635422765524</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="ProcessNumber"/>
-                                    <apiParam name="Description"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9706-CRUD operation on Manufacturing Processes.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Create</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="967"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="922">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="936" title="Read excel data for selected environment">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read excel data for selected environment</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="SourceData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9706-CRUD operation on Manufacturing Processes.xlsx;1635422765524</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="ProcessNumber"/>
-                                    <apiParam name="Description"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9706-CRUD operation on Manufacturing Processes.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Create</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="965"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="34" title="Read Excel Data and process record">
       <arguments>
         <argument id="list">
@@ -189,7 +60,21 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
       </arguments>
-      <parameterValueSources/>
+      <parameterValueSources>
+        <parameterValueSource variableName="SourceData" variableScope="Test">
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/Manufacturing Processes.xlsx;1633528674229</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="ProcessNumber"/>
+            <apiParam name="Description"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9706-CRUD operation on Manufacturing Processes.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Create</worksheetName>
+            <valuesRange class="value" valueClass="string">A:B</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
       <clauses>
         <clause name="substeps" testItemId="35">
           <steps>
@@ -254,26 +139,12 @@
                           <value class="value" valueClass="string">Click the Manufacturing Processes button</value>
                         </argument>
                         <argument id="autoRetry"/>
-                        <argument id="ieClickMethod">
-                          <value class="value" valueClass="string">Default</value>
-                        </argument>
                       </arguments>
                       <generatedParameters>
-                        <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                        <apiParam group="value" name="hover" title="Hover before Clicking">
                           <summary>Whether the mouse should hover over the field before it is clicked.</summary>
                           <type>
                             <booleanType/>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
-                          <summary>How the click should be executed for Internet Explorer.</summary>
-                          <type>
-                            <choiceType>
-                              <constraints>
-                                <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
-                                <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
-                              </constraints>
-                            </choiceType>
                           </type>
                         </apiParam>
                       </generatedParameters>
@@ -592,118 +463,6 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="929" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">PDE5</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="930">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="942" title="Read excel data for selected environment">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read excel data for selected environment</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="SourceData2" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9706-CRUD operation on Manufacturing Processes.xlsx;1635422765524</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="ProcessNumber"/>
-                            <apiParam name="Description"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ProcessNumber" whereValue="{op_excelData.ProcessNumber}">
-                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9706-CRUD operation on Manufacturing Processes.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Update</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="945"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="931">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="932" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="933">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="940" title="Read excel data for selected environment">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read excel data for selected environment</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="SourceData2" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9706-CRUD operation on Manufacturing Processes.xlsx;1635422765524</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="ProcessNumber"/>
-                                    <apiParam name="Description"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ProcessNumber" whereValue="{op_excelData.ProcessNumber}">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9706-CRUD operation on Manufacturing Processes.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Update</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="943"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="934">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="938" title="Read excel data for selected environment">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read excel data for selected environment</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="SourceData2" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9706-CRUD operation on Manufacturing Processes.xlsx;1635422765524</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="ProcessNumber"/>
-                                    <apiParam name="Description"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ProcessNumber" whereValue="{op_excelData.ProcessNumber}">
-                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9706-CRUD operation on Manufacturing Processes.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Update</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="941"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="62" title="Update Record">
               <arguments>
                 <argument id="list">
@@ -717,11 +476,23 @@
                 <argument id="valueName">
                   <value class="value" valueClass="string">op_update</value>
                 </argument>
-                <argument id="continueOnFailure">
-                  <value class="value" valueClass="boolean">true</value>
-                </argument>
+                <argument id="continueOnFailure"/>
               </arguments>
-              <parameterValueSources/>
+              <parameterValueSources>
+                <parameterValueSource variableName="SourceData2" variableScope="Test">
+                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/Manufacturing Processes.xlsx;1633528674229</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="ProcessNumber"/>
+                    <apiParam name="Description"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ProcessNumber" whereValue="{op_excelData.ProcessNumber}">
+                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9706-CRUD operation on Manufacturing Processes.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Update</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:B</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
               <clauses>
                 <clause name="substeps" testItemId="63">
                   <steps>

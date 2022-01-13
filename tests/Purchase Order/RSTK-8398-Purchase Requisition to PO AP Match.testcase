@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="3">
+<testCase id="55">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -58,11 +58,9 @@
             <apiParam name="OrganizationalDepartment"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="variable">
-              <path element="POUIExcelPath"/>
-            </workbookPath>
+            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">InventoryRequisition</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
         <parameterValueSource variableName="NonInvData" variableScope="Test">
@@ -73,18 +71,14 @@
             <apiParam name="UnitPrice"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="variable">
-              <path element="POUIExcelPath"/>
-            </workbookPath>
+            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">IndirectRequisition</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
         <parameterValueSource variableName="PurReqData" variableScope="Test">
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="variable">
-              <path element="POUIExcelPath"/>
-            </workbookPath>
+            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">PurchaseRequisition</worksheetName>
           </sourceValue>
         </parameterValueSource>
@@ -151,7 +145,9 @@
               </outputArguments>
             </caseCall>
             <caseCall testCaseId="e595cd7f-483e-48a8-b028-4dfcd2cb52c3" testCasePath="tests/Purchase Order/Callable/PurchaseOrderIssue.testcase" testItemId="5">
-              <tags/>
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -176,6 +172,94 @@
                 </argument>
               </arguments>
             </caseCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="19" title="Fetch Quantity on Hand Before Receipt">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Fetch Quantity on Hand Before Receipt</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="73">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="80" title="Set Values: wb_Quantitypath">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">wb_Quantitypath</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="81" title="Set Values: ws_quantity">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">ws_quantity</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">InventoryRequisition</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <caseCall testCaseId="fb25e9f2-c38a-44b3-90f8-52830d59d796" testCasePath="tests/PO_SYDATA/Callable/Inventory QuantityOnHand.testcase" testItemId="78">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="variable">
+                            <path element="reuseConnectionName"/>
+                          </value>
+                        </argument>
+                        <argument id="SourceData_InventoryQuantity">
+                          <value class="variable">
+                            <path element="POReceiptData"/>
+                          </value>
+                        </argument>
+                        <argument id="SrcData_InvyQty">
+                          <value class="variable">
+                            <path element="InventoryData"/>
+                          </value>
+                        </argument>
+                        <argument id="wb_Quantitypath">
+                          <value class="variable">
+                            <path element="wb_Quantitypath"/>
+                          </value>
+                        </argument>
+                        <argument id="ws_quantity">
+                          <value class="variable">
+                            <path element="ws_quantity"/>
+                          </value>
+                        </argument>
+                        <argument id="Quantity">
+                          <value class="value" valueClass="string">QuantityBefore</value>
+                        </argument>
+                      </arguments>
+                      <outputArguments>
+                        <outputArgument id="QtyOnHand">
+                          <name class="value" valueClass="string">QtyOnHand</name>
+                        </outputArgument>
+                      </outputArguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
             <caseCall testCaseId="bc86e6b2-9609-43e2-b616-d3e6d10407d7" testCasePath="tests/Purchase Order/Callable/PurchaseOrderReceipt.testcase" testItemId="6">
               <arguments>
                 <argument id="reuseConnectionName">
@@ -193,6 +277,56 @@
                 </argument>
               </arguments>
             </caseCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="20" title="Fetch Quantity on Hand After Receipt">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Fetch Quantity on Hand After Receipt</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="83">
+                  <steps>
+                    <caseCall testCaseId="fb25e9f2-c38a-44b3-90f8-52830d59d796" testCasePath="tests/PO_SYDATA/Callable/Inventory QuantityOnHand.testcase" testItemId="89">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="variable">
+                            <path element="reuseConnectionName"/>
+                          </value>
+                        </argument>
+                        <argument id="SourceData_InventoryQuantity">
+                          <value class="variable">
+                            <path element="POReceiptData"/>
+                          </value>
+                        </argument>
+                        <argument id="SrcData_InvyQty">
+                          <value class="variable">
+                            <path element="InventoryData"/>
+                          </value>
+                        </argument>
+                        <argument id="wb_Quantitypath">
+                          <value class="variable">
+                            <path element="wb_Quantitypath"/>
+                          </value>
+                        </argument>
+                        <argument id="ws_quantity">
+                          <value class="variable">
+                            <path element="ws_quantity"/>
+                          </value>
+                        </argument>
+                        <argument id="Quantity">
+                          <value class="value" valueClass="string">QuantityAfter</value>
+                        </argument>
+                      </arguments>
+                      <outputArguments>
+                        <outputArgument id="QtyOnHand">
+                          <name class="value" valueClass="string">QtyOnHand</name>
+                        </outputArgument>
+                      </outputArguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
             <caseCall testCaseId="973fb7a0-adb3-465a-a1ae-be47ca67f619" testCasePath="tests/Purchase Order/Callable/PurchaseOrderAuthorization.testcase" testItemId="7">
               <arguments>
                 <argument id="reuseConnectionName">
@@ -241,6 +375,18 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
+            <caseCall testCaseId="9fbb5ad6-ebaf-4ac1-8094-a84360c63ba3" testCasePath="tests/Purchase Order/Callable/CloseBatch.testcase" testItemId="21">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="BatchNumber">
+                  <value class="variable">
+                    <path element="BatchNo"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
             <caseCall testCaseId="29846612-c501-4e3b-863b-1cd4c090c96b" testCasePath="tests/Purchase Order/Callable/POReceiptVerification.testcase" testItemId="15">
               <tags>
                 <string>disabled</string>
@@ -280,7 +426,9 @@
               </arguments>
             </caseCall>
             <caseCall testCaseId="77316cb1-877c-44bd-ae52-84ab20b0758f" testCasePath="tests/Purchase Order/Callable/PODimValVerification.testcase" testItemId="9">
-              <tags/>
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>

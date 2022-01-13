@@ -23,11 +23,11 @@ public class rstkf__cashreceiptsjournal {
 	public WebElement query;
 	
 	@LinkType()
-	@FindBy(xpath = "//label[normalize-space(.)='From Session Date']/parent::th/following-sibling::td//a")
+	@FindBy(xpath = "//input[contains(@id,'frombatchdate__c')]/following::span//a")
 	public WebElement fromSessionDate;
 	
 	@LinkType()
-	@FindBy(xpath = "//label[normalize-space(.)='Through Session Date']/parent::th/following-sibling::td//a")
+	@FindBy(xpath = "//input[contains(@id,'throughbatchdate__c')]/following::span//a[1]")
 	public WebElement throughSessionDate;
 	
 	@ButtonType()
