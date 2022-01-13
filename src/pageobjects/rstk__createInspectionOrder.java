@@ -30,11 +30,11 @@ public class rstk__createInspectionOrder {
 	public WebElement inventoryItem;
 
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Inspection Order Template']/parent::th/following-sibling::td[1]//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Inspection Order Template']/ancestor::th/following-sibling::td[1]//select")
 	public WebElement inspord_insptempl__c;
 
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Originating Inventory Site']/parent::th/following-sibling::td//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Originating Inventory Site']/ancestor::th/following-sibling::td//select")
 	public WebElement Originating_Inventory_Site;
 
 	@TextType()
@@ -46,7 +46,7 @@ public class rstk__createInspectionOrder {
 	public WebElement list;
 
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Originating Location Number']/parent::th/following-sibling::td//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Originating Location Number']/ancestor::th/following-sibling::td//select")
 	public WebElement OriginatingLocationNumber;
 
 	@ButtonType()
@@ -100,15 +100,16 @@ public class rstk__createInspectionOrder {
 	}
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Inspection Quantity']/parent::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Inspection Quantity']/ancestor::th/following-sibling::td[1]//input")
 	public WebElement inspectionQuantity;
 
 	
-	@FindBy(xpath = "//label[normalize-space(.)='Serial Numbers']/parent::span/parent::th/following-sibling::td//textarea")
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='Serial Numbers']/ancestor::span/parent::th/following-sibling::td//textarea")
 	public WebElement serialNumbers;
 
 	@LinkType()
-	@FindBy(xpath = "//label[normalize-space(.)='Division']/parent::th/following-sibling::td[1]//a")
+	@FindBy(xpath = "//label[normalize-space(.)='Division']/ancestor::th/following-sibling::td[1]//a")
 	public WebElement division;
 
 	public static String serialList = "";

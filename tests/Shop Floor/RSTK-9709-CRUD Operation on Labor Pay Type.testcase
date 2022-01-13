@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="5">
+<testCase failureBehaviour="Continue" id="34">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,6 +43,119 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="48" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+      <arguments>
+        <argument id="condition">
+          <value class="eq">
+            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+            <rhs class="value" valueClass="string">PDE5</rhs>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="905">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="948" title="Read Excel data based on selected Enviornment">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Read Excel data based on selected Enviornment</value>
+                </argument>
+              </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="SourceData" variableScope="Test">
+                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9709-CRUD Operation on Labor Pay Type.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Create</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:D</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+              <clauses>
+                <clause name="hidden" testItemId="925"/>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="906">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                    <rhs class="value" valueClass="string">Automation</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="919">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="946" title="Read Excel data based on selected Enviornment">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read Excel data based on selected Enviornment</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="SourceData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9709-CRUD Operation on Labor Pay Type.xlsx;1635422766879</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="LaborPayType"/>
+                            <apiParam name="Description"/>
+                            <apiParam name="HourlyAddAmount"/>
+                            <apiParam name="RateFactor"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9709-CRUD Operation on Labor Pay Type.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Create</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:D</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="949"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="922">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="924" title="Read Excel data based on selected Enviornment">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read Excel data based on selected Enviornment</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="SourceData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9709-CRUD Operation on Labor Pay Type.xlsx;1635422766879</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="LaborPayType"/>
+                            <apiParam name="Description"/>
+                            <apiParam name="HourlyAddAmount"/>
+                            <apiParam name="RateFactor"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9709-CRUD Operation on Labor Pay Type.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Create</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:D</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="947"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="2" title="Read excel data and process record">
       <arguments>
         <argument id="list">
@@ -60,23 +173,7 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData" variableScope="Test">
-          <cacheToken>D:\\provar\\rsqasampleproj\\rsqasampleproj\\templates\\QARSF\\RSTK-9709-CRUD Operation on Labor Pay Type.xlsx;1633539110547</cacheToken>
-          <cachedParameters>
-            <apiParam name="RowNumber"/>
-            <apiParam name="LaborPayType"/>
-            <apiParam name="Description"/>
-            <apiParam name="HourlyAddAmount"/>
-            <apiParam name="RateFactor"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9709-CRUD Operation on Labor Pay Type.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">Create</worksheetName>
-            <valuesRange class="value" valueClass="string">A1:D2</valuesRange>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
       <clauses>
         <clause name="substeps" testItemId="3">
           <steps>
@@ -286,19 +383,23 @@
                         <argument id="autoRetry"/>
                       </arguments>
                       <generatedParameters>
-                        <apiParam group="value" name="value" title="Value">
+                        <apiParam group="value" name="value" seq="10000" title="Value">
                           <summary>The value to be populated.</summary>
                           <type>
-                            <textType/>
+                            <textType>
+                              <constraints>
+                                <valueConstraint name="mimeType">text/plain</valueConstraint>
+                              </constraints>
+                            </textType>
                           </type>
                         </apiParam>
-                        <apiParam group="value" name="blur" title="Tab off field">
+                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
                           <summary>Whether the tab key should be pressed after the value is populated.</summary>
                           <type>
                             <booleanType/>
                           </type>
                         </apiParam>
-                        <apiParam group="value" name="pressEnter" title="Press Enter">
+                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
                           <summary>Whether the Enter key should be pressed after the value is populated.</summary>
                           <type>
                             <booleanType/>
@@ -597,6 +698,106 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="934" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                    <rhs class="value" valueClass="string">PDE5</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="935">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="944" title="Read Excel data based on selected Enviornment">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read Excel data based on selected Enviornment</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="SourceData1" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9709-CRUD Operation on Labor Pay Type.xlsx;1635422766879</cacheToken>
+                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="LaborPayType" whereValue="{op_create.LaborPayType}">
+                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9709-CRUD Operation on Labor Pay Type.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Update</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:D</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="941"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="936">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="937" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="eq">
+                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                            <rhs class="value" valueClass="string">Automation</rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="938">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="942" title="Read Excel data based on selected Enviornment">
+                              <arguments>
+                                <argument id="description">
+                                  <value class="value" valueClass="string">Read Excel data based on selected Enviornment</value>
+                                </argument>
+                              </arguments>
+                              <parameterValueSources>
+                                <parameterValueSource variableName="SourceData1" variableScope="Test">
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9709-CRUD Operation on Labor Pay Type.xlsx;1635422766879</cacheToken>
+                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="LaborPayType" whereValue="{op_create.LaborPayType}">
+                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9709-CRUD Operation on Labor Pay Type.xlsx</workbookPath>
+                                    <worksheetName class="value" valueClass="string">Update</worksheetName>
+                                    <valuesRange class="value" valueClass="string">A:D</valuesRange>
+                                  </sourceValue>
+                                </parameterValueSource>
+                              </parameterValueSources>
+                              <clauses>
+                                <clause name="hidden" testItemId="945"/>
+                              </clauses>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="939">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="940" title="Read Excel data based on selected Enviornment">
+                              <arguments>
+                                <argument id="description">
+                                  <value class="value" valueClass="string">Read Excel data based on selected Enviornment</value>
+                                </argument>
+                              </arguments>
+                              <parameterValueSources>
+                                <parameterValueSource variableName="SourceData1" variableScope="Test">
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9709-CRUD Operation on Labor Pay Type.xlsx;1635422766879</cacheToken>
+                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="LaborPayType" whereValue="{op_create.LaborPayType}">
+                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9709-CRUD Operation on Labor Pay Type.xlsx</workbookPath>
+                                    <worksheetName class="value" valueClass="string">Update</worksheetName>
+                                    <valuesRange class="value" valueClass="string">A:D</valuesRange>
+                                  </sourceValue>
+                                </parameterValueSource>
+                              </parameterValueSources>
+                              <clauses>
+                                <clause name="hidden" testItemId="943"/>
+                              </clauses>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="24" title="Update Record">
               <arguments>
                 <argument id="list">
@@ -614,23 +815,7 @@
                   <value class="value" valueClass="boolean">true</value>
                 </argument>
               </arguments>
-              <parameterValueSources>
-                <parameterValueSource variableName="SourceData1" variableScope="Test">
-                  <cacheToken>D:\\provar\\rsqasampleproj\\rsqasampleproj\\templates\\QARSF\\RSTK-9709-CRUD Operation on Labor Pay Type.xlsx;1633539110547</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="RowNumber"/>
-                    <apiParam name="LaborPayType"/>
-                    <apiParam name="Description"/>
-                    <apiParam name="HourlyAddAmount"/>
-                    <apiParam name="RateFactor"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="None" whereName="LaborPayType" whereValue="{op_create.LaborPayType}">
-                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9709-CRUD Operation on Labor Pay Type.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">Update</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:D</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
+              <parameterValueSources/>
               <clauses>
                 <clause name="substeps" testItemId="25">
                   <steps>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="17">
+<testCase failureBehaviour="Continue" id="502">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -23,7 +23,7 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument id="reuseConnectionName">
-          <value class="value" valueClass="string"/>
+          <value class="value"/>
         </argument>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Reuse</value>
@@ -45,34 +45,134 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="Read Excel Data">
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="17" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
       <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Read Excel Data</value>
+        <argument id="condition">
+          <value class="eq">
+            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+            <rhs class="value" valueClass="string">PDE5</rhs>
+          </value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="op_excelData" variableScope="Test">
-          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9221_Inspection Order.xlsx;1627914312037</cacheToken>
-          <cachedParameters>
-            <apiParam name="RowNumber"/>
-            <apiParam name="InventoryItem"/>
-            <apiParam name="InspectionQuantity"/>
-            <apiParam name="InspectionOrderTemplate"/>
-            <apiParam name="OriginatingInventorySite"/>
-            <apiParam name="OriginatingLocationID"/>
-            <apiParam name="OriginatingLocationNumber"/>
-            <apiParam name="LotNumber"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK-9221_Inspection Order.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">Create Insp Order</worksheetName>
-            <valuesRange class="value" valueClass="string">A:G</valuesRange>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
       <clauses>
-        <clause name="hidden" testItemId="3"/>
+        <clause name="then" testItemId="905">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="25" title="Read Excel Data">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Read Excel Data</value>
+                </argument>
+              </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="op_excelData" variableScope="Test">
+                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9221_Inspection Order.xlsx;1627914312037</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="InventoryItem"/>
+                    <apiParam name="InspectionQuantity"/>
+                    <apiParam name="InspectionOrderTemplate"/>
+                    <apiParam name="OriginatingInventorySite"/>
+                    <apiParam name="OriginatingLocationID"/>
+                    <apiParam name="OriginatingLocationNumber"/>
+                    <apiParam name="LotNumber"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9221_Inspection Order.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Create Insp Order</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:G</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+              <clauses>
+                <clause name="hidden" testItemId="3"/>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="906">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                    <rhs class="value" valueClass="string">Automation</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="919">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="23" title="Read Excel Data">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read Excel Data</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="op_excelData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9221_Inspection Order.xlsx;1627914312037</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="InventoryItem"/>
+                            <apiParam name="InspectionQuantity"/>
+                            <apiParam name="InspectionOrderTemplate"/>
+                            <apiParam name="OriginatingInventorySite"/>
+                            <apiParam name="OriginatingLocationID"/>
+                            <apiParam name="OriginatingLocationNumber"/>
+                            <apiParam name="LotNumber"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9221_Inspection Order.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Create Insp Order</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:G</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="26"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="922">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="21" title="Read Excel Data">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read Excel Data</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="op_excelData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9221_Inspection Order.xlsx;1627914312037</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="InventoryItem"/>
+                            <apiParam name="InspectionQuantity"/>
+                            <apiParam name="InspectionOrderTemplate"/>
+                            <apiParam name="OriginatingInventorySite"/>
+                            <apiParam name="OriginatingLocationID"/>
+                            <apiParam name="OriginatingLocationNumber"/>
+                            <apiParam name="LotNumber"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9221_Inspection Order.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Create Insp Order</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:G</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="24"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="4" title="For Each: {op_excelData}=&gt;op_excelDataRow">
@@ -88,7 +188,9 @@
         <argument id="valueName">
           <value class="value" valueClass="string">op_excelDataRow</value>
         </argument>
-        <argument id="continueOnFailure"/>
+        <argument id="continueOnFailure">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
       </arguments>
       <clauses>
         <clause name="substeps" testItemId="5">
@@ -180,9 +282,9 @@
                 </argument>
               </arguments>
               <clauses>
-                <clause name="then" testItemId="13">
+                <clause name="then" testItemId="18">
                   <steps>
-                    <caseCall testCaseId="8a90ac57-5d55-4444-8500-b4c02b24749b" testCasePath="tests/Inventory Transaction/Callable/Set Inspection Quantities Non Serial.testcase" testItemId="14">
+                    <caseCall testCaseId="8a90ac57-5d55-4444-8500-b4c02b24749b" testCasePath="tests/Inventory Transaction/Callable/Set Inspection Quantities Non Serial.testcase" testItemId="19">
                       <arguments>
                         <argument id="reuseConnectionName">
                           <value class="value" valueClass="string">SFConnection</value>
