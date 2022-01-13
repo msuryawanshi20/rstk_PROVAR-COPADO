@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="91">
+<testCase failureBehaviour="Continue" id="7">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1004" title="Salesforce Connect: SFConnection (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="2" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
@@ -14,7 +14,7 @@
           <value class="value" valueClass="string">Test</value>
         </argument>
         <argument id="uiApplicationName">
-          <value class="value" valueClass="string">Force_com</value>
+          <value class="value" valueClass="string">rstk__Force_com</value>
         </argument>
         <argument id="quickUiLogin">
           <value class="value" valueClass="boolean">true</value>
@@ -43,178 +43,6 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="192" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-      <arguments>
-        <argument id="condition">
-          <value class="eq">
-            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-            <rhs class="value" valueClass="string">PDE5</rhs>
-          </value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="then" testItemId="905">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="923" title="Read Excel data">
-              <arguments>
-                <argument id="description">
-                  <value class="value" valueClass="string">Read Excel data</value>
-                </argument>
-              </arguments>
-              <parameterValueSources>
-                <parameterValueSource variableName="op_create" variableScope="Test">
-                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx;1635422765367</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="RowNumber"/>
-                    <apiParam name="IndependentOperationID"/>
-                    <apiParam name="Description"/>
-                    <apiParam name="InventorySite"/>
-                    <apiParam name="WorkCenter"/>
-                    <apiParam name="ProcessID"/>
-                    <apiParam name="OutsideOperation"/>
-                    <apiParam name="PricePerHour"/>
-                    <apiParam name="Alt1LaborPricePerHour"/>
-                    <apiParam name="Alt2LaborPricePerHour"/>
-                    <apiParam name="EmployeeAssignedTo"/>
-                    <apiParam name="InspectionOrderTemplate"/>
-                    <apiParam name="SetupTimeType"/>
-                    <apiParam name="SetupLaborGrade"/>
-                    <apiParam name="SetupHours"/>
-                    <apiParam name="RunTimeType"/>
-                    <apiParam name="RunLaborGrade"/>
-                    <apiParam name="RunHours"/>
-                    <apiParam name="MachineTimeType"/>
-                    <apiParam name="MachineNumber"/>
-                    <apiParam name="MachineHours"/>
-                    <apiParam name="MachinePricePerHour"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">Create operation</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:U</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
-              <clauses>
-                <clause name="hidden" testItemId="195"/>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
-        <clause name="else" testItemId="906">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">Automation</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="919">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="196" title="Read Excel data">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel data</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_create" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx;1635422765367</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="RowNumber"/>
-                            <apiParam name="IndependentOperationID"/>
-                            <apiParam name="Description"/>
-                            <apiParam name="InventorySite"/>
-                            <apiParam name="WorkCenter"/>
-                            <apiParam name="ProcessID"/>
-                            <apiParam name="OutsideOperation"/>
-                            <apiParam name="PricePerHour"/>
-                            <apiParam name="Alt1LaborPricePerHour"/>
-                            <apiParam name="Alt2LaborPricePerHour"/>
-                            <apiParam name="EmployeeAssignedTo"/>
-                            <apiParam name="InspectionOrderTemplate"/>
-                            <apiParam name="SetupTimeType"/>
-                            <apiParam name="SetupLaborGrade"/>
-                            <apiParam name="SetupHours"/>
-                            <apiParam name="RunTimeType"/>
-                            <apiParam name="RunLaborGrade"/>
-                            <apiParam name="RunHours"/>
-                            <apiParam name="MachineTimeType"/>
-                            <apiParam name="MachineNumber"/>
-                            <apiParam name="MachineHours"/>
-                            <apiParam name="MachinePricePerHour"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Create operation</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:U</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="924"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="922">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="194" title="Read Excel data">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel data</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_create" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx;1635422765367</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="RowNumber"/>
-                            <apiParam name="IndependentOperationID"/>
-                            <apiParam name="Description"/>
-                            <apiParam name="InventorySite"/>
-                            <apiParam name="WorkCenter"/>
-                            <apiParam name="ProcessID"/>
-                            <apiParam name="OutsideOperation"/>
-                            <apiParam name="PricePerHour"/>
-                            <apiParam name="Alt1LaborPricePerHour"/>
-                            <apiParam name="Alt2LaborPricePerHour"/>
-                            <apiParam name="EmployeeAssignedTo"/>
-                            <apiParam name="InspectionOrderTemplate"/>
-                            <apiParam name="SetupTimeType"/>
-                            <apiParam name="SetupLaborGrade"/>
-                            <apiParam name="SetupHours"/>
-                            <apiParam name="RunTimeType"/>
-                            <apiParam name="RunLaborGrade"/>
-                            <apiParam name="RunHours"/>
-                            <apiParam name="MachineTimeType"/>
-                            <apiParam name="MachineNumber"/>
-                            <apiParam name="MachineHours"/>
-                            <apiParam name="MachinePricePerHour"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Create operation</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:U</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="197"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="3" title="Read Data and process record">
       <arguments>
         <argument id="list">
@@ -232,128 +60,43 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
       </arguments>
-      <parameterValueSources/>
+      <parameterValueSources>
+        <parameterValueSource variableName="op_create" variableScope="Test">
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx;1634051662197</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="IndependentOperationID"/>
+            <apiParam name="Description"/>
+            <apiParam name="InventorySite"/>
+            <apiParam name="WorkCenter"/>
+            <apiParam name="ProcessID"/>
+            <apiParam name="OutsideOperation"/>
+            <apiParam name="PricePerHour"/>
+            <apiParam name="Alt1LaborPricePerHour"/>
+            <apiParam name="Alt2LaborPricePerHour"/>
+            <apiParam name="EmployeeAssignedTo"/>
+            <apiParam name="InspectionOrderTemplate"/>
+            <apiParam name="SetupTimeType"/>
+            <apiParam name="SetupLaborGrade"/>
+            <apiParam name="SetupHours"/>
+            <apiParam name="RunTimeType"/>
+            <apiParam name="RunLaborGrade"/>
+            <apiParam name="RunHours"/>
+            <apiParam name="MachineTimeType"/>
+            <apiParam name="MachineNumber"/>
+            <apiParam name="MachineHours"/>
+            <apiParam name="MachinePricePerHour"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Create operation</worksheetName>
+            <valuesRange class="value" valueClass="string">A:U</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
       <clauses>
         <clause name="substeps" testItemId="88">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="1007" title="Delete Existing Data">
-              <arguments>
-                <argument id="description">
-                  <value class="value" valueClass="string">Delete Existing Data</value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="hidden" testItemId="1008">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="992" title="SOQL Query: select count() from rstk__rtindoper__c where name like '{op_createRow.IndependentOperationID}'=&gt;op_operCount">
-                      <arguments>
-                        <argument id="soqlQuery">
-                          <value class="compound">
-                            <parts>
-                              <value valueClass="string">select count() from rstk__rtindoper__c where name like '</value>
-                              <variable>
-                                <path element="op_createRow"/>
-                                <path element="IndependentOperationID"/>
-                              </variable>
-                              <value valueClass="string">'</value>
-                            </parts>
-                          </value>
-                        </argument>
-                        <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">SFConnection</value>
-                        </argument>
-                        <argument id="resultListName">
-                          <value class="value" valueClass="string">op_operCount</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="996" title="If: {op_operCount &gt; 0}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="gt">
-                            <lhs class="variable">
-                              <path element="op_operCount"/>
-                            </lhs>
-                            <rhs class="value" valueClass="decimal">0</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="997">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="1002" title="SOQL Query: select ID from rstk__rtindoper__c where name like '{op_createRow.IndependentOperationID}'=&gt;op_operCount">
-                              <arguments>
-                                <argument id="soqlQuery">
-                                  <value class="compound">
-                                    <parts>
-                                      <value valueClass="string">select ID from rstk__rtindoper__c where name like '</value>
-                                      <variable>
-                                        <path element="op_createRow"/>
-                                        <path element="IndependentOperationID"/>
-                                      </variable>
-                                      <value valueClass="string">'</value>
-                                    </parts>
-                                  </value>
-                                </argument>
-                                <argument id="apexConnectionName">
-                                  <value class="value" valueClass="string">SFConnection</value>
-                                </argument>
-                                <argument id="resultListName">
-                                  <value class="value" valueClass="string">op_operCount</value>
-                                </argument>
-                                <argument id="resultScope">
-                                  <value class="value" valueClass="string">Test</value>
-                                </argument>
-                              </arguments>
-                            </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="994" title="For Each: {op_operCount}=&gt;op_operCountD">
-                              <arguments>
-                                <argument id="list">
-                                  <value class="variable">
-                                    <path element="op_operCount"/>
-                                  </value>
-                                </argument>
-                                <argument id="fromItem">
-                                  <value class="value" valueClass="decimal">1</value>
-                                </argument>
-                                <argument id="valueName">
-                                  <value class="value" valueClass="string">op_operCountD</value>
-                                </argument>
-                                <argument id="continueOnFailure">
-                                  <value class="value" valueClass="boolean">true</value>
-                                </argument>
-                              </arguments>
-                              <clauses>
-                                <clause name="substeps" testItemId="995">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="993" title="Delete Object: {op_operCountD.ID}">
-                                      <arguments>
-                                        <argument id="objectId">
-                                          <value class="variable">
-                                            <path element="op_operCountD"/>
-                                            <path element="ID"/>
-                                          </value>
-                                        </argument>
-                                        <argument id="apexConnectionName">
-                                          <value class="value" valueClass="string">SFConnection</value>
-                                        </argument>
-                                      </arguments>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="35" title="Create Independent Operation">
               <arguments>
                 <argument id="description">
@@ -2171,178 +1914,6 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="925" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">PDE5</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="926">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="951" title="Read Excel data">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel data</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_update" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx;1635422765367</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="RowNumber"/>
-                            <apiParam name="IndependentOperationID"/>
-                            <apiParam name="Description"/>
-                            <apiParam name="InventorySite"/>
-                            <apiParam name="WorkCenter"/>
-                            <apiParam name="ProcessID"/>
-                            <apiParam name="OutsideOperation"/>
-                            <apiParam name="PricePerHour"/>
-                            <apiParam name="Alt1LaborPricePerHour"/>
-                            <apiParam name="Alt2LaborPricePerHour"/>
-                            <apiParam name="EmployeeAssignedTo"/>
-                            <apiParam name="InspectionOrderTemplate"/>
-                            <apiParam name="SetupTimeType"/>
-                            <apiParam name="SetupLaborGrade"/>
-                            <apiParam name="SetupHours"/>
-                            <apiParam name="RunTimeType"/>
-                            <apiParam name="RunLaborGrade"/>
-                            <apiParam name="RunHours"/>
-                            <apiParam name="MachineTimeType"/>
-                            <apiParam name="MachineNumber"/>
-                            <apiParam name="MachineHours"/>
-                            <apiParam name="MachinePricePerHour"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="IndependentOperationID" whereValue="{op_createRow.IndependentOperationID}">
-                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Update operation</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:U</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="936"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="929">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="930" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="931">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="949" title="Read Excel data">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel data</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_update" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx;1635422765367</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="IndependentOperationID"/>
-                                    <apiParam name="Description"/>
-                                    <apiParam name="InventorySite"/>
-                                    <apiParam name="WorkCenter"/>
-                                    <apiParam name="ProcessID"/>
-                                    <apiParam name="OutsideOperation"/>
-                                    <apiParam name="PricePerHour"/>
-                                    <apiParam name="Alt1LaborPricePerHour"/>
-                                    <apiParam name="Alt2LaborPricePerHour"/>
-                                    <apiParam name="EmployeeAssignedTo"/>
-                                    <apiParam name="InspectionOrderTemplate"/>
-                                    <apiParam name="SetupTimeType"/>
-                                    <apiParam name="SetupLaborGrade"/>
-                                    <apiParam name="SetupHours"/>
-                                    <apiParam name="RunTimeType"/>
-                                    <apiParam name="RunLaborGrade"/>
-                                    <apiParam name="RunHours"/>
-                                    <apiParam name="MachineTimeType"/>
-                                    <apiParam name="MachineNumber"/>
-                                    <apiParam name="MachineHours"/>
-                                    <apiParam name="MachinePricePerHour"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="IndependentOperationID" whereValue="{op_createRow.IndependentOperationID}">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Update operation</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:U</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="952"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="934">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="935" title="Read Excel data">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel data</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_update" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx;1635422765367</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="IndependentOperationID"/>
-                                    <apiParam name="Description"/>
-                                    <apiParam name="InventorySite"/>
-                                    <apiParam name="WorkCenter"/>
-                                    <apiParam name="ProcessID"/>
-                                    <apiParam name="OutsideOperation"/>
-                                    <apiParam name="PricePerHour"/>
-                                    <apiParam name="Alt1LaborPricePerHour"/>
-                                    <apiParam name="Alt2LaborPricePerHour"/>
-                                    <apiParam name="EmployeeAssignedTo"/>
-                                    <apiParam name="InspectionOrderTemplate"/>
-                                    <apiParam name="SetupTimeType"/>
-                                    <apiParam name="SetupLaborGrade"/>
-                                    <apiParam name="SetupHours"/>
-                                    <apiParam name="RunTimeType"/>
-                                    <apiParam name="RunLaborGrade"/>
-                                    <apiParam name="RunHours"/>
-                                    <apiParam name="MachineTimeType"/>
-                                    <apiParam name="MachineNumber"/>
-                                    <apiParam name="MachineHours"/>
-                                    <apiParam name="MachinePricePerHour"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="IndependentOperationID" whereValue="{op_createRow.IndependentOperationID}">
-                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Update operation</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:U</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="950"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="52" title="Update Record">
               <tags/>
               <arguments>
@@ -2359,7 +1930,40 @@
                 </argument>
                 <argument id="continueOnFailure"/>
               </arguments>
-              <parameterValueSources/>
+              <parameterValueSources>
+                <parameterValueSource variableName="op_update" variableScope="Test">
+                  <cacheToken>D:\\provar\\rsqasampleproj\\rsqasampleproj\\templates\\QARSF\\Independent Operation.xlsx;1634036284944</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="IndependentOperationID"/>
+                    <apiParam name="Description"/>
+                    <apiParam name="InventorySite"/>
+                    <apiParam name="WorkCenter"/>
+                    <apiParam name="ProcessID"/>
+                    <apiParam name="OutsideOperation"/>
+                    <apiParam name="PricePerHour"/>
+                    <apiParam name="Alt1LaborPricePerHour"/>
+                    <apiParam name="Alt2LaborPricePerHour"/>
+                    <apiParam name="EmployeeAssignedTo"/>
+                    <apiParam name="InspectionOrderTemplate"/>
+                    <apiParam name="SetupTimeType"/>
+                    <apiParam name="SetupLaborGrade"/>
+                    <apiParam name="SetupHours"/>
+                    <apiParam name="RunTimeType"/>
+                    <apiParam name="RunLaborGrade"/>
+                    <apiParam name="RunHours"/>
+                    <apiParam name="MachineTimeType"/>
+                    <apiParam name="MachineNumber"/>
+                    <apiParam name="MachineHours"/>
+                    <apiParam name="MachinePricePerHour"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="IndependentOperationID" whereValue="{op_createRow.IndependentOperationID}">
+                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Update operation</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:U</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
               <clauses>
                 <clause name="substeps" testItemId="53">
                   <steps>
@@ -4026,175 +3630,6 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="953" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">PDE5</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="954">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="970" title="Read Excel Data">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="SourceData2" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx;1635422765367</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="IndependentOperationID"/>
-                                    <apiParam name="Description"/>
-                                    <apiParam name="InventorySite"/>
-                                    <apiParam name="WorkCenter"/>
-                                    <apiParam name="ProcessID"/>
-                                    <apiParam name="OutsideOperation"/>
-                                    <apiParam name="PricePerHour"/>
-                                    <apiParam name="Alt1LaborPricePerHour"/>
-                                    <apiParam name="Alt2LaborPricePerHour"/>
-                                    <apiParam name="EmployeeAssignedTo"/>
-                                    <apiParam name="InspectionOrderTemplate"/>
-                                    <apiParam name="SetupTimeType"/>
-                                    <apiParam name="SetupLaborGrade"/>
-                                    <apiParam name="SetupHours"/>
-                                    <apiParam name="RunTimeType"/>
-                                    <apiParam name="RunLaborGrade"/>
-                                    <apiParam name="RunHours"/>
-                                    <apiParam name="MachineTimeType"/>
-                                    <apiParam name="MachineNumber"/>
-                                    <apiParam name="MachineHours"/>
-                                    <apiParam name="MachinePricePerHour"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="IndependentOperationID" whereValue="{op_createRow.IndependentOperationID}">
-                                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Add Material</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:D</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="967"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="957">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="958" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                              <arguments>
-                                <argument id="condition">
-                                  <value class="eq">
-                                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                    <rhs class="value" valueClass="string">Automation</rhs>
-                                  </value>
-                                </argument>
-                              </arguments>
-                              <clauses>
-                                <clause name="then" testItemId="959">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="968" title="Read Excel Data">
-                                      <arguments>
-                                        <argument id="description">
-                                          <value class="value" valueClass="string">Read Excel Data</value>
-                                        </argument>
-                                      </arguments>
-                                      <parameterValueSources>
-                                        <parameterValueSource variableName="SourceData2" variableScope="Test">
-                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx;1635422765367</cacheToken>
-                                          <cachedParameters>
-                                            <apiParam name="IndependentOperationID"/>
-                                            <apiParam name="Description"/>
-                                            <apiParam name="InventorySite"/>
-                                            <apiParam name="WorkCenter"/>
-                                            <apiParam name="ProcessID"/>
-                                            <apiParam name="OutsideOperation"/>
-                                            <apiParam name="PricePerHour"/>
-                                            <apiParam name="Alt1LaborPricePerHour"/>
-                                            <apiParam name="Alt2LaborPricePerHour"/>
-                                            <apiParam name="EmployeeAssignedTo"/>
-                                            <apiParam name="InspectionOrderTemplate"/>
-                                            <apiParam name="SetupTimeType"/>
-                                            <apiParam name="SetupLaborGrade"/>
-                                            <apiParam name="SetupHours"/>
-                                            <apiParam name="RunTimeType"/>
-                                            <apiParam name="RunLaborGrade"/>
-                                            <apiParam name="RunHours"/>
-                                            <apiParam name="MachineTimeType"/>
-                                            <apiParam name="MachineNumber"/>
-                                            <apiParam name="MachineHours"/>
-                                            <apiParam name="MachinePricePerHour"/>
-                                          </cachedParameters>
-                                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="IndependentOperationID" whereValue="{op_createRow.IndependentOperationID}">
-                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
-                                            <worksheetName class="value" valueClass="string">Add Material</worksheetName>
-                                            <valuesRange class="value" valueClass="string">A:D</valuesRange>
-                                          </sourceValue>
-                                        </parameterValueSource>
-                                      </parameterValueSources>
-                                      <clauses>
-                                        <clause name="hidden" testItemId="971"/>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                                <clause name="else" testItemId="962">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="966" title="Read Excel Data">
-                                      <arguments>
-                                        <argument id="description">
-                                          <value class="value" valueClass="string">Read Excel Data</value>
-                                        </argument>
-                                      </arguments>
-                                      <parameterValueSources>
-                                        <parameterValueSource variableName="SourceData2" variableScope="Test">
-                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx;1635422765367</cacheToken>
-                                          <cachedParameters>
-                                            <apiParam name="IndependentOperationID"/>
-                                            <apiParam name="Description"/>
-                                            <apiParam name="InventorySite"/>
-                                            <apiParam name="WorkCenter"/>
-                                            <apiParam name="ProcessID"/>
-                                            <apiParam name="OutsideOperation"/>
-                                            <apiParam name="PricePerHour"/>
-                                            <apiParam name="Alt1LaborPricePerHour"/>
-                                            <apiParam name="Alt2LaborPricePerHour"/>
-                                            <apiParam name="EmployeeAssignedTo"/>
-                                            <apiParam name="InspectionOrderTemplate"/>
-                                            <apiParam name="SetupTimeType"/>
-                                            <apiParam name="SetupLaborGrade"/>
-                                            <apiParam name="SetupHours"/>
-                                            <apiParam name="RunTimeType"/>
-                                            <apiParam name="RunLaborGrade"/>
-                                            <apiParam name="RunHours"/>
-                                            <apiParam name="MachineTimeType"/>
-                                            <apiParam name="MachineNumber"/>
-                                            <apiParam name="MachineHours"/>
-                                            <apiParam name="MachinePricePerHour"/>
-                                          </cachedParameters>
-                                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="IndependentOperationID" whereValue="{op_createRow.IndependentOperationID}">
-                                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
-                                            <worksheetName class="value" valueClass="string">Add Material</worksheetName>
-                                            <valuesRange class="value" valueClass="string">A:D</valuesRange>
-                                          </sourceValue>
-                                        </parameterValueSource>
-                                      </parameterValueSources>
-                                      <clauses>
-                                        <clause name="hidden" testItemId="969"/>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="98" title="Read excel data">
                       <arguments>
                         <argument id="list">
@@ -4212,7 +3647,22 @@
                           <value class="value" valueClass="boolean">true</value>
                         </argument>
                       </arguments>
-                      <parameterValueSources/>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="SourceData2" variableScope="Test">
+                          <cacheToken>D:\\provar\\rsqasampleproj\\rsqasampleproj\\templates\\QARSF\\Independent Operation.xlsx;1634038092467</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="IndependentOperationID"/>
+                            <apiParam name="QuantityPer"/>
+                            <apiParam name="FixedQty"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="IndependentOperationID" whereValue="{op_createRow.IndependentOperationID}">
+                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Add Material</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:D</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
                       <clauses>
                         <clause name="substeps" testItemId="99">
                           <steps>
@@ -4761,175 +4211,6 @@
               <clauses>
                 <clause name="hidden" testItemId="143">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="972" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">PDE5</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="973">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="988" title="Read Excel Data">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="SourceData3" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx;1635422765367</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="IndependentOperationID"/>
-                                    <apiParam name="Description"/>
-                                    <apiParam name="InventorySite"/>
-                                    <apiParam name="WorkCenter"/>
-                                    <apiParam name="ProcessID"/>
-                                    <apiParam name="OutsideOperation"/>
-                                    <apiParam name="PricePerHour"/>
-                                    <apiParam name="Alt1LaborPricePerHour"/>
-                                    <apiParam name="Alt2LaborPricePerHour"/>
-                                    <apiParam name="EmployeeAssignedTo"/>
-                                    <apiParam name="InspectionOrderTemplate"/>
-                                    <apiParam name="SetupTimeType"/>
-                                    <apiParam name="SetupLaborGrade"/>
-                                    <apiParam name="SetupHours"/>
-                                    <apiParam name="RunTimeType"/>
-                                    <apiParam name="RunLaborGrade"/>
-                                    <apiParam name="RunHours"/>
-                                    <apiParam name="MachineTimeType"/>
-                                    <apiParam name="MachineNumber"/>
-                                    <apiParam name="MachineHours"/>
-                                    <apiParam name="MachinePricePerHour"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="IndependentOperationID" whereValue="{op_createRow.IndependentOperationID}">
-                                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Add Task</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:D</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="985"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="976">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="977" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                              <arguments>
-                                <argument id="condition">
-                                  <value class="eq">
-                                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                    <rhs class="value" valueClass="string">Automation</rhs>
-                                  </value>
-                                </argument>
-                              </arguments>
-                              <clauses>
-                                <clause name="then" testItemId="978">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="986" title="Read Excel Data">
-                                      <arguments>
-                                        <argument id="description">
-                                          <value class="value" valueClass="string">Read Excel Data</value>
-                                        </argument>
-                                      </arguments>
-                                      <parameterValueSources>
-                                        <parameterValueSource variableName="SourceData3" variableScope="Test">
-                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx;1635422765367</cacheToken>
-                                          <cachedParameters>
-                                            <apiParam name="IndependentOperationID"/>
-                                            <apiParam name="Description"/>
-                                            <apiParam name="InventorySite"/>
-                                            <apiParam name="WorkCenter"/>
-                                            <apiParam name="ProcessID"/>
-                                            <apiParam name="OutsideOperation"/>
-                                            <apiParam name="PricePerHour"/>
-                                            <apiParam name="Alt1LaborPricePerHour"/>
-                                            <apiParam name="Alt2LaborPricePerHour"/>
-                                            <apiParam name="EmployeeAssignedTo"/>
-                                            <apiParam name="InspectionOrderTemplate"/>
-                                            <apiParam name="SetupTimeType"/>
-                                            <apiParam name="SetupLaborGrade"/>
-                                            <apiParam name="SetupHours"/>
-                                            <apiParam name="RunTimeType"/>
-                                            <apiParam name="RunLaborGrade"/>
-                                            <apiParam name="RunHours"/>
-                                            <apiParam name="MachineTimeType"/>
-                                            <apiParam name="MachineNumber"/>
-                                            <apiParam name="MachineHours"/>
-                                            <apiParam name="MachinePricePerHour"/>
-                                          </cachedParameters>
-                                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="IndependentOperationID" whereValue="{op_createRow.IndependentOperationID}">
-                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
-                                            <worksheetName class="value" valueClass="string">Add Task</worksheetName>
-                                            <valuesRange class="value" valueClass="string">A:D</valuesRange>
-                                          </sourceValue>
-                                        </parameterValueSource>
-                                      </parameterValueSources>
-                                      <clauses>
-                                        <clause name="hidden" testItemId="989"/>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                                <clause name="else" testItemId="981">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="984" title="Read Excel Data">
-                                      <arguments>
-                                        <argument id="description">
-                                          <value class="value" valueClass="string">Read Excel Data</value>
-                                        </argument>
-                                      </arguments>
-                                      <parameterValueSources>
-                                        <parameterValueSource variableName="SourceData3" variableScope="Test">
-                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx;1635422765367</cacheToken>
-                                          <cachedParameters>
-                                            <apiParam name="IndependentOperationID"/>
-                                            <apiParam name="Description"/>
-                                            <apiParam name="InventorySite"/>
-                                            <apiParam name="WorkCenter"/>
-                                            <apiParam name="ProcessID"/>
-                                            <apiParam name="OutsideOperation"/>
-                                            <apiParam name="PricePerHour"/>
-                                            <apiParam name="Alt1LaborPricePerHour"/>
-                                            <apiParam name="Alt2LaborPricePerHour"/>
-                                            <apiParam name="EmployeeAssignedTo"/>
-                                            <apiParam name="InspectionOrderTemplate"/>
-                                            <apiParam name="SetupTimeType"/>
-                                            <apiParam name="SetupLaborGrade"/>
-                                            <apiParam name="SetupHours"/>
-                                            <apiParam name="RunTimeType"/>
-                                            <apiParam name="RunLaborGrade"/>
-                                            <apiParam name="RunHours"/>
-                                            <apiParam name="MachineTimeType"/>
-                                            <apiParam name="MachineNumber"/>
-                                            <apiParam name="MachineHours"/>
-                                            <apiParam name="MachinePricePerHour"/>
-                                          </cachedParameters>
-                                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="IndependentOperationID" whereValue="{op_createRow.IndependentOperationID}">
-                                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
-                                            <worksheetName class="value" valueClass="string">Add Task</worksheetName>
-                                            <valuesRange class="value" valueClass="string">A:D</valuesRange>
-                                          </sourceValue>
-                                        </parameterValueSource>
-                                      </parameterValueSources>
-                                      <clauses>
-                                        <clause name="hidden" testItemId="987"/>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="144" title="Set Values: rowCount">
                       <arguments>
                         <argument id="values">
@@ -4966,7 +4247,23 @@
                           <value class="value" valueClass="boolean">true</value>
                         </argument>
                       </arguments>
-                      <parameterValueSources/>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="SourceData3" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/Independent Operation.xlsx;1634040474833</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="IndependentOperationID"/>
+                            <apiParam name="TaskID"/>
+                            <apiParam name="Description"/>
+                            <apiParam name="AssignTo"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="IndependentOperationID" whereValue="{op_createRow.IndependentOperationID}">
+                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9716-CRUD operation on Independent Operations.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Add Task</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:D</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
                       <clauses>
                         <clause name="substeps" testItemId="146">
                           <steps>

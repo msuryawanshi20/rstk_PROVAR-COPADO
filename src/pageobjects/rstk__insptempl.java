@@ -29,23 +29,23 @@ public class rstk__insptempl {
 	}
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Template Reference']/ancestor::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Template Reference']/parent::th/following-sibling::td[1]//input")
 	public WebElement templateReference;
 
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Method for Deriving Inspection Qty']/ancestor::th/following-sibling::td[1]//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Method for Deriving Inspection Qty']/parent::th/following-sibling::td[1]//select")
 	public WebElement methodForDerivingInspectionQty;
 
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Inspection Order Site']/ancestor::th/following-sibling::td[1]//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Inspection Order Site']/parent::th/following-sibling::td[1]//select")
 	public WebElement inspectionOrderSite;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Fixed Qty to Inspection Order']/ancestor::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Fixed Qty to Inspection Order']/parent::th/following-sibling::td[1]//input")
 	public WebElement fixedQtyToInspectionOrder;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Percentage for Inspection Order Qty']/ancestor::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Percentage for Inspection Order Qty']/parent::th/following-sibling::td[1]//input")
 	public WebElement percentageForInspectionOrderQty;
 
 	public void setInspectionOrderLocationID(String LocationID) throws InterruptedException {
@@ -112,15 +112,15 @@ public class rstk__insptempl {
 	}
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Inspection Order Location Number']/ancestor::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Inspection Order Location Number']/parent::th/following-sibling::td//input")
 	public WebElement inspectionOrderLocationNumber;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Location Number for Scrapped Disposition']/ancestor::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Location Number for Scrapped Disposition']/parent::th/following-sibling::td//input")
 	public WebElement locationNumberForScrappedDisposition;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Location Number for Other Disposition']/ancestor::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Location Number for Other Disposition']/parent::th/following-sibling::td//input")
 	public WebElement locationNumberForOtherDisposition;
 	
 	
@@ -129,7 +129,7 @@ public class rstk__insptempl {
 	public WebElement save;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Template Reference']/ancestor::th/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Template Reference']/parent::th/following-sibling::td[1]//span")
 	public WebElement templateReference1;
 
 	@ButtonType()

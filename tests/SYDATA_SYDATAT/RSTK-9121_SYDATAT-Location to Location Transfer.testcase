@@ -43,177 +43,44 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="233" title="Read Excel Data based on selected Environment">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="4" title="Read Excel Data">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">Read Excel Data based on selected Environment</value>
+          <value class="value" valueClass="string">Read Excel Data</value>
         </argument>
       </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="op_ExcelData" variableScope="Test">
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9121_SYDATAT-LocationToLocation.xlsx;1625720639085</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="TransactionType"/>
+            <apiParam name="TransactionId"/>
+            <apiParam name="BackgroundProcessing"/>
+            <apiParam name="FromDivision"/>
+            <apiParam name="Item"/>
+            <apiParam name="FromSite"/>
+            <apiParam name="FromLocID"/>
+            <apiParam name="FromLocNo"/>
+            <apiParam name="FromLotNo"/>
+            <apiParam name="FromProject"/>
+            <apiParam name="ToDivision"/>
+            <apiParam name="ToSite"/>
+            <apiParam name="ToLocID"/>
+            <apiParam name="ToLocNo"/>
+            <apiParam name="ToProject"/>
+            <apiParam name="TransactionQty"/>
+            <apiParam name="TxnComment"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/RSTK-9121_SYDATAT-LocationToLocation.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">SYDATA_INVLOCLOC</worksheetName>
+            <valuesRange class="value" valueClass="string">A:Q</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
       <clauses>
-        <clause name="hidden" testItemId="297">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="298" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">PDE5</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="140">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="239" title="Read Excel Data">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_ExcelData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9121_SYDATAT-LocationToLocation.xlsx;1625720639085</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="RowNumber"/>
-                            <apiParam name="TransactionType"/>
-                            <apiParam name="TransactionId"/>
-                            <apiParam name="BackgroundProcessing"/>
-                            <apiParam name="FromDivision"/>
-                            <apiParam name="Item"/>
-                            <apiParam name="FromSite"/>
-                            <apiParam name="FromLocID"/>
-                            <apiParam name="FromLocNo"/>
-                            <apiParam name="FromLotNo"/>
-                            <apiParam name="FromProject"/>
-                            <apiParam name="ToDivision"/>
-                            <apiParam name="ToSite"/>
-                            <apiParam name="ToLocID"/>
-                            <apiParam name="ToLocNo"/>
-                            <apiParam name="ToProject"/>
-                            <apiParam name="TransactionQty"/>
-                            <apiParam name="TxnComment"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9121_SYDATAT-LocationToLocation.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">SYDATA_INVLOCLOC</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:Q</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="5"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="143">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="144" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="145">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="237" title="Read Excel Data">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_ExcelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9121_SYDATAT-LocationToLocation.xlsx;1625720639085</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="TransactionType"/>
-                                    <apiParam name="TransactionId"/>
-                                    <apiParam name="BackgroundProcessing"/>
-                                    <apiParam name="FromDivision"/>
-                                    <apiParam name="Item"/>
-                                    <apiParam name="FromSite"/>
-                                    <apiParam name="FromLocID"/>
-                                    <apiParam name="FromLocNo"/>
-                                    <apiParam name="FromLotNo"/>
-                                    <apiParam name="FromProject"/>
-                                    <apiParam name="ToDivision"/>
-                                    <apiParam name="ToSite"/>
-                                    <apiParam name="ToLocID"/>
-                                    <apiParam name="ToLocNo"/>
-                                    <apiParam name="ToProject"/>
-                                    <apiParam name="TransactionQty"/>
-                                    <apiParam name="TxnComment"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9121_SYDATAT-LocationToLocation.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">SYDATA_INVLOCLOC</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:Q</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="240"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="148">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="4" title="Read Excel Data">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_ExcelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9121_SYDATAT-LocationToLocation.xlsx;1625720639085</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="TransactionType"/>
-                                    <apiParam name="TransactionId"/>
-                                    <apiParam name="BackgroundProcessing"/>
-                                    <apiParam name="FromDivision"/>
-                                    <apiParam name="Item"/>
-                                    <apiParam name="FromSite"/>
-                                    <apiParam name="FromLocID"/>
-                                    <apiParam name="FromLocNo"/>
-                                    <apiParam name="FromLotNo"/>
-                                    <apiParam name="FromProject"/>
-                                    <apiParam name="ToDivision"/>
-                                    <apiParam name="ToSite"/>
-                                    <apiParam name="ToLocID"/>
-                                    <apiParam name="ToLocNo"/>
-                                    <apiParam name="ToProject"/>
-                                    <apiParam name="TransactionQty"/>
-                                    <apiParam name="TxnComment"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9121_SYDATAT-LocationToLocation.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">SYDATA_INVLOCLOC</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:Q</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="238"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
+        <clause name="hidden" testItemId="5"/>
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="6" title="For Each: {op_ExcelData}=&gt;op_ExcelDataRow">

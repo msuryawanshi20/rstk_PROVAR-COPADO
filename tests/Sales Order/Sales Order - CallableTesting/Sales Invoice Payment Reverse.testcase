@@ -145,6 +145,39 @@
               <clauses>
                 <clause name="substeps" testItemId="5">
                   <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="145" title="UI Assert-Read Invoice Total">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">InvoiceTotal</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="InvoiceTotal">
+                              <fieldLocator uri="ui:locator?name=InvoiceTotal"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="None" normalize="true">
+                                  <value class="value" valueClass="string">prepayments un-applied</value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="99" title="Click the Deapprove Invoice button">
                       <arguments>
                         <argument id="locator">
@@ -1083,8 +1116,10 @@
                               <resultAssertions>
                                 <resultAssertion resultName="rstk__soinvpay_payamount__c" title="Check rstk__soinvpay_payamount__c">
                                   <expected class="variable">
-                                    <path element="varPayments"/>
-                                    <path element="Amount"/>
+                                    <path element="InvoiceTotal"/>
+                                    <path element="fields"/>
+                                    <path element="InvoiceTotal"/>
+                                    <path element="value"/>
                                   </expected>
                                 </resultAssertion>
                                 <resultAssertion resultName="rstk__soinvpay_status__c" title="Check rstk__soinvpay_status__c">

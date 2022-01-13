@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0" registryId="964b5dec-7df7-4150-920e-fa912df101ac" visibility="Internal">
+<testCase failureBehaviour="Continue" id="0" registryId="964b5dec-7df7-4150-920e-fa912df101ac" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -1060,7 +1060,7 @@
                               <fieldLocator uri="ui:locator?name=postedInAR"/>
                               <attributeAssertions>
                                 <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                                  <value class="value" valueClass="string">true</value>
+                                  <value class="value" valueClass="string">false</value>
                                 </uiAttributeAssertion>
                               </attributeAssertions>
                             </uiFieldAssertion>

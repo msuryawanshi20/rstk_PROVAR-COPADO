@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="1">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="53" title="Salesforce Connect: SFConnection (Test)">
@@ -43,103 +43,6 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="83" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-      <arguments>
-        <argument id="condition">
-          <value class="eq">
-            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-            <rhs class="value" valueClass="string">PDE5</rhs>
-          </value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="then" testItemId="84">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="114" title="Read excel">
-              <arguments>
-                <argument id="description">
-                  <value class="value" valueClass="string">Read excel</value>
-                </argument>
-              </arguments>
-              <parameterValueSources>
-                <parameterValueSource variableName="op_excelData" variableScope="Test">
-                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9677-Clone Routing Master.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">Create Routing Master</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
-              <clauses>
-                <clause name="hidden" testItemId="94"/>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
-        <clause name="else" testItemId="85">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="86" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">Automation</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="87">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="112" title="Read excel">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read excel</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_excelData" variableScope="Test">
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9677-Clone Routing Master.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Create Routing Master</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="115"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="88">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="93" title="Read excel">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read excel</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_excelData" variableScope="Test">
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9677-Clone Routing Master.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Create Routing Master</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="113"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="54" title="Read Excel Data and perform Operation">
       <arguments>
         <argument id="list">
@@ -157,7 +60,21 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
       </arguments>
-      <parameterValueSources/>
+      <parameterValueSources>
+        <parameterValueSource variableName="op_excelData" variableScope="Test">
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1633012204510</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="Site"/>
+            <apiParam name="ItemNumber"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9677-Clone Routing Master.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Create Routing Master</worksheetName>
+            <valuesRange class="value" valueClass="string">A:B</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
       <clauses>
         <clause name="substeps" testItemId="50">
           <steps>
@@ -212,103 +129,6 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="95" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">PDE5</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="96">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="97" title="Read excel">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read excel</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_excelDataClone" variableScope="Test">
-                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9677-Clone Routing Master.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Clone</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:F</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="98"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="99">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="100" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="101">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="108" title="Read excel">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read excel</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_excelDataClone" variableScope="Test">
-                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9677-Clone Routing Master.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Clone</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:F</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="109"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="104">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="110" title="Read excel">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read excel</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_excelDataClone" variableScope="Test">
-                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9677-Clone Routing Master.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Clone</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:F</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="111"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="51" title="Clone Routing Master record">
               <arguments>
                 <argument id="list">
@@ -326,7 +146,25 @@
                   <value class="value" valueClass="boolean">true</value>
                 </argument>
               </arguments>
-              <parameterValueSources/>
+              <parameterValueSources>
+                <parameterValueSource variableName="op_excelDataClone" variableScope="Test">
+                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/Temp2.xlsx;1633076434511</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="ItemNumber"/>
+                    <apiParam name="SourceAddRevision"/>
+                    <apiParam name="TargetItemNumber"/>
+                    <apiParam name="ResponsibleEngineer"/>
+                    <apiParam name="ResponsiblePlanner"/>
+                    <apiParam name="TargetAddRevision"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9677-Clone Routing Master.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Clone</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:F</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
               <clauses>
                 <clause name="substeps" testItemId="52">
                   <steps>

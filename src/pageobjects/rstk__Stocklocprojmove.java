@@ -69,13 +69,13 @@ public class rstk__Stocklocprojmove {
 			xpath = "//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[7]//select";
+					+ "')]/parent::td/parent::tr//td[6]//select";
 			testLogger.info("Dropdownvalues::::" + xpath);
 		} else {
 
 			xpath = "//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[7]//select";
+					+ "')]/parent::td/parent::tr//td[6]//select";
 			testLogger.info("Dropdownvalues::::" + xpath);
 		}
 
@@ -94,11 +94,11 @@ public class rstk__Stocklocprojmove {
 			ele = driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[8]//select"));
+					+ "')]/parent::td/parent::tr//td[7]//select"));
 		} else {
 			ele = driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[8]//select"));
+					+ "')]/parent::td/parent::tr//td[7]//select"));
 
 		}
 
@@ -114,11 +114,11 @@ public class rstk__Stocklocprojmove {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[9]/input")).sendKeys(qty);
+					+ "')]/parent::td/parent::tr//td[8]/input")).sendKeys(qty);
 		} else {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[9]/input")).sendKeys(qty);
+					+ "')]/parent::td/parent::tr//td[8]/input")).sendKeys(qty);
 
 		}
 	}
@@ -129,12 +129,12 @@ public class rstk__Stocklocprojmove {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[10]/input")).sendKeys("" + document);
+					+ "')]/parent::td/parent::tr//td[9]/input")).sendKeys("" + document);
 
 		} else {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[10]/input")).sendKeys("" + document);
+					+ "')]/parent::td/parent::tr//td[9]/input")).sendKeys("" + document);
 		}
 	}
 
@@ -146,11 +146,11 @@ public class rstk__Stocklocprojmove {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[11]/input")).sendKeys("" + txnComment);
+					+ "')]/parent::td/parent::tr//td[10]/input")).sendKeys("" + txnComment);
 		} else {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[11]/input")).sendKeys("" + txnComment);
+					+ "')]/parent::td/parent::tr//td[10]/input")).sendKeys("" + txnComment);
 		}
 
 	}
@@ -161,11 +161,11 @@ public class rstk__Stocklocprojmove {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[12]/input")).sendKeys("" + toLocComment);
+					+ "')]/parent::td/parent::tr//td[11]/input")).sendKeys("" + toLocComment);
 		} else {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[12]/input")).sendKeys("" + toLocComment);
+					+ "')]/parent::td/parent::tr//td[11]/input")).sendKeys("" + toLocComment);
 
 		}
 	}
@@ -210,7 +210,7 @@ public class rstk__Stocklocprojmove {
 				element = driver.findElement(By.xpath("//*[contains(text(),'" + locID
 						+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 						+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-						+ "')]/parent::td/parent::tr//td[9]//select/option[" + i + "]"));
+						+ "')]/parent::td/parent::tr//td[8]//select/option[" + i + "]"));
 
 				testLogger.info("Serial Number:" + element.getText());
 				selectedSerial += "\n" + element.getText();
@@ -218,7 +218,7 @@ public class rstk__Stocklocprojmove {
 
 				element = driver.findElement(By.xpath("//*[contains(text(),'" + locID
 						+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-						+ "')]/parent::td/parent::tr//td[9]//select/option[" + i + "]"));
+						+ "')]/parent::td/parent::tr//td[8]//select/option[" + i + "]"));
 
 				testLogger.info("Serial Number:" + element.getText());
 				selectedSerial += "\n" + element.getText();

@@ -813,7 +813,6 @@
                               </generatedParameters>
                             </apiCall>
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="115" title="Call the readSelectedSerialNumber method">
-                              <tags/>
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.rstk__Stocklocmove&amp;operation=readSelectedSerialNumber"/>
@@ -861,7 +860,6 @@
                               </generatedParameters>
                             </apiCall>
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="116" title="Call the setLocationDetails method">
-                              <tags/>
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.rstk__Stocklocmove&amp;operation=setLocationDetails"/>
@@ -906,7 +904,6 @@
                               </generatedParameters>
                             </apiCall>
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="123" title="Call the setcheckbox method">
-                              <tags/>
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.rstk__Stocklocmove&amp;operation=setcheckbox"/>
@@ -945,7 +942,6 @@
                               </generatedParameters>
                             </apiCall>
                             <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="120" title="If: {ip_TxnComment != null}">
-                              <tags/>
                               <arguments>
                                 <argument id="condition">
                                   <value class="ne">
@@ -956,9 +952,9 @@
                                 </argument>
                               </arguments>
                               <clauses>
-                                <clause name="then" testItemId="209">
+                                <clause name="then" testItemId="121">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="210" title="Call the setTxnComments method">
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="119" title="Call the setTxnComments method">
                                       <arguments>
                                         <argument id="locator">
                                           <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.rstk__Stocklocmove&amp;operation=setTxnComments"/>

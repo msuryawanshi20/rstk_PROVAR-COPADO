@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="5">
+<testCase id="51">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -1871,217 +1871,49 @@
                                         </outputArgument>
                                       </outputArguments>
                                     </caseCall>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="346" title="Create RMA Details">
-                                      <arguments>
-                                        <argument id="description">
-                                          <value class="value" valueClass="string">Create RMA Details</value>
-                                        </argument>
-                                      </arguments>
-                                      <parameterValueSources>
-                                        <parameterValueSource variableName="SourceData_RMADetails" variableScope="Test">
-                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/TempRMA.xlsx;1634748914702</cacheToken>
-                                          <cachedParameters>
-                                            <apiParam name="RowNumber"/>
-                                            <apiParam name="RMA"/>
-                                            <apiParam name="Product"/>
-                                            <apiParam name="QuantityAuthorized"/>
-                                            <apiParam name="ReasonForReturn"/>
-                                            <apiParam name="SalesOrderLine"/>
-                                            <apiParam name="ShipperLine"/>
-                                            <apiParam name="Action"/>
-                                            <apiParam name="DateIssued"/>
-                                            <apiParam name="ReceiveToSite"/>
-                                            <apiParam name="Id"/>
-                                            <apiParam name="Rstk__soline_sohdr__c"/>
-                                          </cachedParameters>
-                                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="RMA" whereValue="{op_RMAHDR_Row.RMA}">
-                                            <workbookPath class="value" valueClass="string">templates/QARSF/TempRMA.xlsx</workbookPath>
-                                            <worksheetName class="value" valueClass="string">RMA Details Maintenance Grid</worksheetName>
-                                            <valuesRange class="value" valueClass="string">A:K</valuesRange>
-                                          </sourceValue>
-                                        </parameterValueSource>
-                                      </parameterValueSources>
-                                      <clauses>
-                                        <clause name="hidden" testItemId="347">
-                                          <steps>
-                                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="348" title="SOQL Query: select ID,rstk__sormh_rmano__c\tfrom rstk__sormh__c where rstk__sormh_rmano__c='{op_RMANumber}'=&gt;op_rmaHdrID">
-                                              <arguments>
-                                                <argument id="soqlQuery">
-                                                  <value class="compound">
-                                                    <parts>
-                                                      <value valueClass="string">select ID,rstk__sormh_rmano__c\tfrom rstk__sormh__c where rstk__sormh_rmano__c='</value>
-                                                      <variable>
-                                                        <path element="op_RMANumber"/>
-                                                      </variable>
-                                                      <value valueClass="string">'</value>
-                                                    </parts>
-                                                  </value>
-                                                </argument>
-                                                <argument id="apexConnectionName">
-                                                  <value class="value" valueClass="string">SFConnection</value>
-                                                </argument>
-                                                <argument id="resultListName">
-                                                  <value class="value" valueClass="string">op_rmaHdrID</value>
-                                                </argument>
-                                                <argument id="resultScope">
-                                                  <value class="value" valueClass="string">Test</value>
-                                                </argument>
-                                              </arguments>
-                                            </apiCall>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="349" title="Set Values: tempRowCount">
-                                              <arguments>
-                                                <argument id="values">
-                                                  <value class="valueList" mutable="Mutable">
-                                                    <namedValues mutable="Mutable">
-                                                      <namedValue name="valuePath">
-                                                        <value class="value" valueClass="string">tempRowCount</value>
-                                                      </namedValue>
-                                                      <namedValue name="value">
-                                                        <value class="value" valueClass="string">1</value>
-                                                      </namedValue>
-                                                      <namedValue name="valueScope">
-                                                        <value class="value" valueClass="string">Test</value>
-                                                      </namedValue>
-                                                    </namedValues>
-                                                  </value>
-                                                </argument>
-                                              </arguments>
-                                            </apiCall>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="350" title="For Each: {SourceData_RMADetails}=&gt;op_RMADetailsRow">
-                                              <arguments>
-                                                <argument id="list">
-                                                  <value class="variable">
-                                                    <path element="SourceData_RMADetails"/>
-                                                  </value>
-                                                </argument>
-                                                <argument id="fromItem">
-                                                  <value class="value" valueClass="decimal">1</value>
-                                                </argument>
-                                                <argument id="valueName">
-                                                  <value class="value" valueClass="string">op_RMADetailsRow</value>
-                                                </argument>
-                                                <argument id="continueOnFailure"/>
-                                              </arguments>
-                                              <clauses>
-                                                <clause name="substeps" testItemId="351">
-                                                  <steps>
-                                                    <caseCall testCaseId="985c4783-4d49-4d0b-8ebe-8ed9656ecb5e" testCasePath="tests/RMA/Callable/Add RMA Details Using Maintenance Grid.testcase" testItemId="352">
-                                                      <arguments>
-                                                        <argument id="reuseConnectionName">
-                                                          <value class="value" valueClass="string">SFConnection</value>
-                                                        </argument>
-                                                        <argument id="ip_recordID">
-                                                          <value class="variable">
-                                                            <path element="op_rmaHdrID"/>
-                                                            <path element="ID"/>
-                                                          </value>
-                                                        </argument>
-                                                        <argument id="ip_rowCount">
-                                                          <value class="variable">
-                                                            <path element="tempRowCount"/>
-                                                          </value>
-                                                        </argument>
-                                                        <argument id="ip_product">
-                                                          <value class="variable">
-                                                            <path element="op_RMADetailsRow"/>
-                                                            <path element="Product"/>
-                                                          </value>
-                                                        </argument>
-                                                        <argument id="ip_QtyAuthorized">
-                                                          <value class="variable">
-                                                            <path element="op_RMADetailsRow"/>
-                                                            <path element="QuantityAuthorized"/>
-                                                          </value>
-                                                        </argument>
-                                                        <argument id="ip_reasonforReturn">
-                                                          <value class="variable">
-                                                            <path element="op_RMADetailsRow"/>
-                                                            <path element="ReasonForReturn"/>
-                                                          </value>
-                                                        </argument>
-                                                        <argument id="ip_salesOrderLine">
-                                                          <value class="variable">
-                                                            <path element="op_RMADetailsRow"/>
-                                                            <path element="SalesOrderLine"/>
-                                                          </value>
-                                                        </argument>
-                                                        <argument id="ip_shipperLine">
-                                                          <value class="variable">
-                                                            <path element="op_RMADetailsRow"/>
-                                                            <path element="ShipperLine"/>
-                                                          </value>
-                                                        </argument>
-                                                        <argument id="ip_action">
-                                                          <value class="variable">
-                                                            <path element="op_RMADetailsRow"/>
-                                                            <path element="Action"/>
-                                                          </value>
-                                                        </argument>
-                                                        <argument id="ip_dateIssued">
-                                                          <value class="variable">
-                                                            <path element="op_RMADetailsRow"/>
-                                                            <path element="DateIssued"/>
-                                                          </value>
-                                                        </argument>
-                                                        <argument id="ip_receiveToSite">
-                                                          <value class="variable">
-                                                            <path element="op_RMADetailsRow"/>
-                                                            <path element="ReceiveToSite"/>
-                                                          </value>
-                                                        </argument>
-                                                      </arguments>
-                                                    </caseCall>
-                                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="353" title="Set Values: tempRowCount">
-                                                      <arguments>
-                                                        <argument id="values">
-                                                          <value class="valueList" mutable="Mutable">
-                                                            <namedValues mutable="Mutable">
-                                                              <namedValue name="valuePath">
-                                                                <value class="value" valueClass="string">tempRowCount</value>
-                                                              </namedValue>
-                                                              <namedValue name="value">
-                                                                <value class="add">
-                                                                  <lhs class="variable">
-                                                                    <path element="tempRowCount"/>
-                                                                  </lhs>
-                                                                  <rhs class="value" valueClass="decimal">1</rhs>
-                                                                </value>
-                                                              </namedValue>
-                                                              <namedValue name="valueScope">
-                                                                <value class="value" valueClass="string">Test</value>
-                                                              </namedValue>
-                                                            </namedValues>
-                                                          </value>
-                                                        </argument>
-                                                      </arguments>
-                                                    </apiCall>
-                                                  </steps>
-                                                </clause>
-                                              </clauses>
-                                            </apiCall>
-                                          </steps>
-                                        </clause>
-                                      </clauses>
-                                    </apiCall>
-                                    <caseCall testCaseId="663c30a8-f857-45dd-8bad-916d4a963314" testCasePath="tests/RMA/Callable/Release RMA.testcase" testItemId="344">
-                                      <arguments>
-                                        <argument id="reuseConnectionName">
-                                          <value class="value" valueClass="string">SFConnection</value>
-                                        </argument>
-                                        <argument id="ip_recordID">
-                                          <value class="variable">
-                                            <path element="op_rmaHdrID"/>
-                                            <path element="ID"/>
-                                          </value>
-                                        </argument>
-                                      </arguments>
-                                    </caseCall>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="377" title="Fetch RMA Details records">
+                                  </steps>
+                                </clause>
+                              </clauses>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="346" title="Create RMA Details">
+                              <arguments>
+                                <argument id="description">
+                                  <value class="value" valueClass="string">Create RMA Details</value>
+                                </argument>
+                              </arguments>
+                              <parameterValueSources>
+                                <parameterValueSource variableName="SourceData_RMADetails" variableScope="Test">
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/TempRMA.xlsx;1634748914702</cacheToken>
+                                  <cachedParameters>
+                                    <apiParam name="RowNumber"/>
+                                    <apiParam name="RMA"/>
+                                    <apiParam name="Product"/>
+                                    <apiParam name="QuantityAuthorized"/>
+                                    <apiParam name="ReasonForReturn"/>
+                                    <apiParam name="SalesOrderLine"/>
+                                    <apiParam name="ShipperLine"/>
+                                    <apiParam name="Action"/>
+                                    <apiParam name="DateIssued"/>
+                                    <apiParam name="ReceiveToSite"/>
+                                    <apiParam name="Id"/>
+                                    <apiParam name="Rstk__soline_sohdr__c"/>
+                                  </cachedParameters>
+                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereValue="{op_RMAHDR_Row.RMA}">
+                                    <workbookPath class="value" valueClass="string">templates/QARSF/TempRMA.xlsx</workbookPath>
+                                    <worksheetName class="value" valueClass="string">RMA Details Maintenance Grid</worksheetName>
+                                    <valuesRange class="value" valueClass="string">A:K</valuesRange>
+                                  </sourceValue>
+                                </parameterValueSource>
+                              </parameterValueSources>
+                              <clauses>
+                                <clause name="hidden" testItemId="347">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="348" title="SOQL Query: select ID,rstk__sormh_rmano__c\tfrom rstk__sormh__c where rstk__sormh_rmano__c='{op_RMANumber}'=&gt;op_rmaHdrID">
                                       <arguments>
                                         <argument id="soqlQuery">
                                           <value class="compound">
                                             <parts>
-                                              <value valueClass="string">select ID,\nrstk__sorma_sormh__r.rstk__sormh_rmano__c,\nrstk__sorma_soprod__r.rstk__soprod_icitem__r.rstk__icitem_srlcontrol__c,\nrstk__sorma_soprod__r.rstk__soprod_icitem__r.rstk__icitem_lotcontrol__c,\nrstk__sorma_soprod__r.name,\nrstk__sorma_qtyauth__c,\nrstk__sorma_soline__r.name from rstk__sorma__c where rstk__sorma_sormh__r.rstk__sormh_rmano__c='</value>
+                                              <value valueClass="string">select ID,rstk__sormh_rmano__c\tfrom rstk__sormh__c where rstk__sormh_rmano__c='</value>
                                               <variable>
                                                 <path element="op_RMANumber"/>
                                               </variable>
@@ -2093,191 +1925,221 @@
                                           <value class="value" valueClass="string">SFConnection</value>
                                         </argument>
                                         <argument id="resultListName">
-                                          <value class="value" valueClass="string">op_sormaDetails</value>
+                                          <value class="value" valueClass="string">op_rmaHdrID</value>
                                         </argument>
                                         <argument id="resultScope">
                                           <value class="value" valueClass="string">Test</value>
                                         </argument>
                                       </arguments>
                                     </apiCall>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="371" title="For Each: {op_ReceiptExcelData}=&gt;op_ReceiptExcelDataRow">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="349" title="Set Values: tempRowCount">
+                                      <arguments>
+                                        <argument id="values">
+                                          <value class="valueList" mutable="Mutable">
+                                            <namedValues mutable="Mutable">
+                                              <namedValue name="valuePath">
+                                                <value class="value" valueClass="string">tempRowCount</value>
+                                              </namedValue>
+                                              <namedValue name="value">
+                                                <value class="value" valueClass="string">1</value>
+                                              </namedValue>
+                                              <namedValue name="valueScope">
+                                                <value class="value" valueClass="string">Test</value>
+                                              </namedValue>
+                                            </namedValues>
+                                          </value>
+                                        </argument>
+                                      </arguments>
+                                    </apiCall>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="350" title="For Each: {SourceData_RMADetails}=&gt;op_RMADetailsRow">
                                       <arguments>
                                         <argument id="list">
                                           <value class="variable">
-                                            <path element="op_ReceiptExcelData"/>
+                                            <path element="SourceData_RMADetails"/>
                                           </value>
                                         </argument>
                                         <argument id="fromItem">
                                           <value class="value" valueClass="decimal">1</value>
                                         </argument>
                                         <argument id="valueName">
-                                          <value class="value" valueClass="string">op_ReceiptExcelDataRow</value>
+                                          <value class="value" valueClass="string">op_RMADetailsRow</value>
                                         </argument>
                                         <argument id="continueOnFailure"/>
                                       </arguments>
-                                      <parameterValueSources>
-                                        <parameterValueSource variableName="op_ReceiptExcelData" variableScope="Test">
-                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/TempRMA.xlsx;1636467735295</cacheToken>
-                                          <cachedParameters>
-                                            <apiParam name="RowNumber"/>
-                                            <apiParam name="RMA"/>
-                                            <apiParam name="Product"/>
-                                            <apiParam name="QtyToProcess"/>
-                                            <apiParam name="Destination"/>
-                                            <apiParam name="LocationID"/>
-                                            <apiParam name="LocationNumber"/>
-                                            <apiParam name="LotNumber"/>
-                                          </cachedParameters>
-                                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="RMA" whereValue="{op_RMAHDR_Row.RMA}">
-                                            <workbookPath class="value" valueClass="string">templates/QARSF/TempRMA.xlsx</workbookPath>
-                                            <worksheetName class="value" valueClass="string">Receipt</worksheetName>
-                                            <valuesRange class="value" valueClass="string">A:I</valuesRange>
-                                          </sourceValue>
-                                        </parameterValueSource>
-                                      </parameterValueSources>
                                       <clauses>
-                                        <clause name="substeps" testItemId="372">
+                                        <clause name="substeps" testItemId="351">
                                           <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="366" title="Iterate and process SORMA Details">
+                                            <caseCall testCaseId="985c4783-4d49-4d0b-8ebe-8ed9656ecb5e" testCasePath="tests/RMA/Callable/Add RMA Details Using Maintenance Grid.testcase" testItemId="352">
                                               <arguments>
-                                                <argument id="list">
+                                                <argument id="reuseConnectionName">
+                                                  <value class="value" valueClass="string">SFConnection</value>
+                                                </argument>
+                                                <argument id="ip_recordID">
                                                   <value class="variable">
-                                                    <path element="op_sormaDetails"/>
+                                                    <path element="op_rmaHdrID"/>
+                                                    <path element="ID"/>
                                                   </value>
                                                 </argument>
-                                                <argument id="fromItem">
-                                                  <value class="value" valueClass="decimal">1</value>
+                                                <argument id="ip_rowCount">
+                                                  <value class="variable">
+                                                    <path element="tempRowCount"/>
+                                                  </value>
                                                 </argument>
-                                                <argument id="valueName">
-                                                  <value class="value" valueClass="string">op_sormaDetailsRow</value>
+                                                <argument id="ip_product">
+                                                  <value class="variable">
+                                                    <path element="op_RMADetailsRow"/>
+                                                    <path element="Product"/>
+                                                  </value>
                                                 </argument>
-                                                <argument id="continueOnFailure">
-                                                  <value class="value" valueClass="boolean">true</value>
+                                                <argument id="ip_QtyAuthorized">
+                                                  <value class="variable">
+                                                    <path element="op_RMADetailsRow"/>
+                                                    <path element="QuantityAuthorized"/>
+                                                  </value>
+                                                </argument>
+                                                <argument id="ip_reasonforReturn">
+                                                  <value class="variable">
+                                                    <path element="op_RMADetailsRow"/>
+                                                    <path element="ReasonForReturn"/>
+                                                  </value>
+                                                </argument>
+                                                <argument id="ip_salesOrderLine">
+                                                  <value class="variable">
+                                                    <path element="op_RMADetailsRow"/>
+                                                    <path element="SalesOrderLine"/>
+                                                  </value>
+                                                </argument>
+                                                <argument id="ip_shipperLine">
+                                                  <value class="variable">
+                                                    <path element="op_RMADetailsRow"/>
+                                                    <path element="ShipperLine"/>
+                                                  </value>
+                                                </argument>
+                                                <argument id="ip_action">
+                                                  <value class="variable">
+                                                    <path element="op_RMADetailsRow"/>
+                                                    <path element="Action"/>
+                                                  </value>
+                                                </argument>
+                                                <argument id="ip_dateIssued">
+                                                  <value class="variable">
+                                                    <path element="op_RMADetailsRow"/>
+                                                    <path element="DateIssued"/>
+                                                  </value>
+                                                </argument>
+                                                <argument id="ip_receiveToSite">
+                                                  <value class="variable">
+                                                    <path element="op_RMADetailsRow"/>
+                                                    <path element="ReceiveToSite"/>
+                                                  </value>
                                                 </argument>
                                               </arguments>
-                                              <clauses>
-                                                <clause name="substeps" testItemId="367">
-                                                  <steps>
-                                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="396" title="If: {op_sormaDetailsRow.rstk__sorma_soprod__r.name = op_ReceiptExcelDataRow.Product}">
-                                                      <arguments>
-                                                        <argument id="condition">
-                                                          <value class="eq">
-                                                            <lhs class="variable">
-                                                              <path element="op_sormaDetailsRow"/>
-                                                              <path element="rstk__sorma_soprod__r"/>
-                                                              <path element="name"/>
-                                                            </lhs>
-                                                            <rhs class="variable">
-                                                              <path element="op_ReceiptExcelDataRow"/>
-                                                              <path element="Product"/>
-                                                            </rhs>
-                                                          </value>
-                                                        </argument>
-                                                      </arguments>
-                                                      <clauses>
-                                                        <clause name="then" testItemId="397">
-                                                          <steps>
-                                                            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="364" title="Authorised serials when item is serial track item">
-                                                              <arguments>
-                                                                <argument id="condition">
-                                                                  <value class="eq">
-                                                                    <lhs class="variable">
-                                                                      <path element="op_sormaDetailsRow"/>
-                                                                      <path element="rstk__sorma_soprod__r"/>
-                                                                      <path element="rstk__soprod_icitem__r"/>
-                                                                      <path element="rstk__icitem_srlcontrol__c"/>
-                                                                    </lhs>
-                                                                    <rhs class="value" valueClass="boolean">true</rhs>
-                                                                  </value>
-                                                                </argument>
-                                                              </arguments>
-                                                              <clauses>
-                                                                <clause name="then" testItemId="365">
-                                                                  <steps>
-                                                                    <caseCall testCaseId="29757787-4c23-4010-a815-735445fc7285" testCasePath="tests/RMA/Callable/Authorize serials.testcase" testItemId="369">
-                                                                      <arguments>
-                                                                        <argument id="reuseConnectionName">
-                                                                          <value class="value" valueClass="string">SFConnection</value>
-                                                                        </argument>
-                                                                        <argument id="ip_recordID">
-                                                                          <value class="variable">
-                                                                            <path element="op_sormaDetailsRow"/>
-                                                                            <path element="ID"/>
-                                                                          </value>
-                                                                        </argument>
-                                                                        <argument id="ip_Qty">
-                                                                          <value class="variable">
-                                                                            <path element="op_sormaDetailsRow"/>
-                                                                            <path element="rstk__sorma_qtyauth__c"/>
-                                                                          </value>
-                                                                        </argument>
-                                                                      </arguments>
-                                                                    </caseCall>
-                                                                  </steps>
-                                                                </clause>
-                                                              </clauses>
-                                                            </apiCall>
-                                                            <caseCall testCaseId="56a22884-7449-46f4-8a6c-403fefd2d84d" testCasePath="tests/RMA/Callable/Process Receipt.testcase" testItemId="370">
-                                                              <arguments>
-                                                                <argument id="reuseConnectionName">
-                                                                  <value class="value" valueClass="string">SFConnection</value>
-                                                                </argument>
-                                                                <argument id="ip_recordID">
-                                                                  <value class="variable">
-                                                                    <path element="op_sormaDetailsRow"/>
-                                                                    <path element="ID"/>
-                                                                  </value>
-                                                                </argument>
-                                                                <argument id="ip_Destination">
-                                                                  <value class="variable">
-                                                                    <path element="op_ReceiptExcelDataRow"/>
-                                                                    <path element="Destination"/>
-                                                                  </value>
-                                                                </argument>
-                                                                <argument id="ip_qtytoProcess">
-                                                                  <value class="variable">
-                                                                    <path element="op_ReceiptExcelDataRow"/>
-                                                                    <path element="QtyToProcess"/>
-                                                                  </value>
-                                                                </argument>
-                                                                <argument id="ip_txnComments">
-                                                                  <value class="variable">
-                                                                    <path element="op_ReceiptExcelDataRow"/>
-                                                                    <path element="TxnComments"/>
-                                                                  </value>
-                                                                </argument>
-                                                                <argument id="ip_locationComments">
-                                                                  <value class="variable">
-                                                                    <path element="op_ReceiptExcelDataRow"/>
-                                                                    <path element="LocationComments"/>
-                                                                  </value>
-                                                                </argument>
-                                                                <argument id="ip_isSerialTrack">
-                                                                  <value class="variable">
-                                                                    <path element="op_sormaDetailsRow"/>
-                                                                    <path element="rstk__sorma_soprod__r"/>
-                                                                    <path element="rstk__soprod_icitem__r"/>
-                                                                    <path element="rstk__icitem_srlcontrol__c"/>
-                                                                  </value>
-                                                                </argument>
-                                                                <argument id="ip_lotNumber">
-                                                                  <value class="variable">
-                                                                    <path element="op_ReceiptExcelDataRow"/>
-                                                                    <path element="LotNumber"/>
-                                                                  </value>
-                                                                </argument>
-                                                              </arguments>
-                                                            </caseCall>
-                                                          </steps>
-                                                        </clause>
-                                                      </clauses>
-                                                    </apiCall>
-                                                  </steps>
-                                                </clause>
-                                              </clauses>
+                                            </caseCall>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="353" title="Set Values: tempRowCount">
+                                              <arguments>
+                                                <argument id="values">
+                                                  <value class="valueList" mutable="Mutable">
+                                                    <namedValues mutable="Mutable">
+                                                      <namedValue name="valuePath">
+                                                        <value class="value" valueClass="string">tempRowCount</value>
+                                                      </namedValue>
+                                                      <namedValue name="value">
+                                                        <value class="add">
+                                                          <lhs class="variable">
+                                                            <path element="tempRowCount"/>
+                                                          </lhs>
+                                                          <rhs class="value" valueClass="decimal">1</rhs>
+                                                        </value>
+                                                      </namedValue>
+                                                      <namedValue name="valueScope">
+                                                        <value class="value" valueClass="string">Test</value>
+                                                      </namedValue>
+                                                    </namedValues>
+                                                  </value>
+                                                </argument>
+                                              </arguments>
                                             </apiCall>
                                           </steps>
                                         </clause>
+                                      </clauses>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
+                            </apiCall>
+                            <caseCall testCaseId="663c30a8-f857-45dd-8bad-916d4a963314" testCasePath="tests/RMA/Callable/Release RMA.testcase" testItemId="344">
+                              <arguments>
+                                <argument id="reuseConnectionName">
+                                  <value class="value" valueClass="string">SFConnection</value>
+                                </argument>
+                                <argument id="ip_recordID">
+                                  <value class="variable">
+                                    <path element="op_rmaHdrID"/>
+                                    <path element="ID"/>
+                                  </value>
+                                </argument>
+                              </arguments>
+                            </caseCall>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="345" title="Fetch RMA Details records">
+                              <arguments>
+                                <argument id="soqlQuery">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">select ID,rstk__sorma_sormh__r.rstk__sormh_rmano__c,rstk__sorma_soprod__r.rstk__soprod_icitem__r.rstk__icitem_srlcontrol__c from rstk__sorma__c where rstk__sorma_sormh__r.rstk__sormh_rmano__c='</value>
+                                      <variable>
+                                        <path element="op_RMANumber"/>
+                                      </variable>
+                                      <value valueClass="string">'</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="apexConnectionName">
+                                  <value class="value" valueClass="string">SFConnection</value>
+                                </argument>
+                                <argument id="resultListName">
+                                  <value class="value" valueClass="string">op_sormaDetails</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="366" title="For Each: {op_sormaDetails}=&gt;op_sormaDetailsRow">
+                              <arguments>
+                                <argument id="list">
+                                  <value class="variable">
+                                    <path element="op_sormaDetails"/>
+                                  </value>
+                                </argument>
+                                <argument id="fromItem">
+                                  <value class="value" valueClass="decimal">1</value>
+                                </argument>
+                                <argument id="valueName">
+                                  <value class="value" valueClass="string">op_sormaDetailsRow</value>
+                                </argument>
+                                <argument id="continueOnFailure">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                              </arguments>
+                              <clauses>
+                                <clause name="substeps" testItemId="367">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="364" title="If: {op_sormaDetailsRow.rstk__sorma_soprod__r.rstk__soprod_icitem__r.rstk__icitem_srlcontrol__c = true}">
+                                      <arguments>
+                                        <argument id="condition">
+                                          <value class="eq">
+                                            <lhs class="variable">
+                                              <path element="op_sormaDetailsRow"/>
+                                              <path element="rstk__sorma_soprod__r"/>
+                                              <path element="rstk__soprod_icitem__r"/>
+                                              <path element="rstk__icitem_srlcontrol__c"/>
+                                            </lhs>
+                                            <rhs class="value" valueClass="boolean">true</rhs>
+                                          </value>
+                                        </argument>
+                                      </arguments>
+                                      <clauses>
+                                        <clause name="then" testItemId="365"/>
                                       </clauses>
                                     </apiCall>
                                   </steps>

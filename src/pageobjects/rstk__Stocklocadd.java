@@ -173,12 +173,4 @@ public class rstk__Stocklocadd {
 	@FindBy(xpath = "//label[normalize-space(.)='Division']/parent::span/parent::th/following-sibling::td")
 	public WebElement division;
 
-	@PageRow()
-	public static class Table {
-	}
-
-	@FindBy(id = "pg:fm:j_id168:j_id170:j_id171:0:j_id172:tb")
-	@PageTable(firstRowContainsHeaders = false, row = Table.class)
-	public List<Table> table;
-
 }

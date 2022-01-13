@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="5" registryId="8d091a4a-2a5f-4ff0-8734-8cefc8a9d717" visibility="Internal">
+<testCase failureBehaviour="Continue" id="5" registryId="8d091a4a-2a5f-4ff0-8734-8cefc8a9d717" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -2676,16 +2676,10 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="291" title="Assert: {Row_AddLine.CustomerName} EqualTo {CustomerName.fields.Customer.value}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="291" title="Assert: {CustomerName.fields.Customer.value} Contains {Row_AddLine.CustomerName}">
                       <tags/>
                       <arguments>
                         <argument id="expectedValue">
-                          <value class="variable">
-                            <path element="Row_AddLine"/>
-                            <path element="CustomerName"/>
-                          </value>
-                        </argument>
-                        <argument id="actualValue">
                           <value class="variable">
                             <path element="CustomerName"/>
                             <path element="fields"/>
@@ -2693,8 +2687,14 @@
                             <path element="value"/>
                           </value>
                         </argument>
+                        <argument id="actualValue">
+                          <value class="variable">
+                            <path element="Row_AddLine"/>
+                            <path element="CustomerName"/>
+                          </value>
+                        </argument>
                         <argument id="comparisonType">
-                          <value class="value" valueClass="string">EqualTo</value>
+                          <value class="value" valueClass="string">Contains</value>
                         </argument>
                         <argument id="caseSensitive">
                           <value class="value" valueClass="boolean">false</value>

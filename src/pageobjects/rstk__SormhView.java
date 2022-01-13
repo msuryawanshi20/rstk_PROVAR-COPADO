@@ -25,8 +25,5 @@ public class rstk__SormhView {
 	@ButtonType()
 	@FindByLabel(label = "Release RMA")
 	public WebElement releaseRMA;
-	@ButtonType()
-	@FindByLabel(label = "RMA Detail Mass Ship")
-	public WebElement rMADetailMassShip;
 	
 }

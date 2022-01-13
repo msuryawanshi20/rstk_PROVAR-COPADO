@@ -56,7 +56,10 @@ public class rstk__salesorder {
 		public WebElement discountPct;
 		@TextType()
 		@FindBy(xpath = "//input[contains(@id,'soline_duedate__c')]")
-		public WebElement dueDate;	
+		public WebElement dueDate;
+		@LinkType()
+		@VisualforceBy(componentXPath = "apex:outputField[@id='dsp_soline_prod__c']/a")
+		public WebElement product1;	
 				
 	}
 	@TextType()
@@ -132,7 +135,7 @@ public class rstk__salesorder {
 	@FindBy(id = "pg:fm:j_id246:j_id318:j_id321:shipto_soaddr_name__c")
 	public WebElement Name_CustomerShipToTab;
 	@ButtonType()
-	@FindByLabel(label = "Select Related Customer Address")
+	@FindBy(xpath = "//h2[text()='Sales Order Addresses']/following::input[@name='SelectRelatedCustomerAddress'][1]")
 	public WebElement selectRelatedCustomerAddress;
 	@TextType()
 	@FindBy(xpath = "//h3[normalize-space(.)='Related Customer Addresses']")
@@ -155,6 +158,15 @@ public class rstk__salesorder {
 	@ButtonType()
 	@FindBy(xpath = "//div[contains(@id,'lineAddress')]//input[@name='SelectRelatedCustomerAddress']")
 	public WebElement SelectRelatedCustomerAddress_SOLine;
+	@TextType()
+	@FindBy(id = "img_pg:fm:pb:advancedBlock")
+	public WebElement advancedBlock;
+	@TextType()
+	@FindBy(xpath = "//span[contains(@id,'sohdr_opportunity__c')]//a")
+	public WebElement opportunity;
+	@TextType()
+	@FindBy(xpath = "//span[contains(@id,'sohdr_quotesf__c')]//a")
+	public WebElement quote;
 	
 	
 }

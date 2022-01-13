@@ -43,165 +43,40 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="224" title="Read Excel Data based on selected Environment">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="3" title="Read Excel Data">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">Read Excel Data based on selected Environment</value>
+          <value class="value" valueClass="string">Read Excel Data</value>
         </argument>
       </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="op_excelData" variableScope="Test">
+          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9119_SYDATA-Loc Adjust.xlsx;1625661401663</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="TransactionType"/>
+            <apiParam name="Async"/>
+            <apiParam name="Division"/>
+            <apiParam name="Site"/>
+            <apiParam name="ItemName"/>
+            <apiParam name="Project"/>
+            <apiParam name="LocationID"/>
+            <apiParam name="LocationNumber"/>
+            <apiParam name="LotNumber"/>
+            <apiParam name="TransactionQuantity"/>
+            <apiParam name="TransactionDate"/>
+            <apiParam name="AdjustmentAccount"/>
+            <apiParam name="Comments"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/RSTK-9119_SYDATA-Loc Adjust.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Inv Adjust</worksheetName>
+            <valuesRange class="value" valueClass="string">A:M</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
       <clauses>
-        <clause name="hidden" testItemId="297">
-          <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="298" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">PDE5</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="140">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="230" title="Read Excel Data">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_excelData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9119_SYDATA-Loc Adjust.xlsx;1625661401663</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="RowNumber"/>
-                            <apiParam name="TransactionType"/>
-                            <apiParam name="Async"/>
-                            <apiParam name="Division"/>
-                            <apiParam name="Site"/>
-                            <apiParam name="ItemName"/>
-                            <apiParam name="Project"/>
-                            <apiParam name="LocationID"/>
-                            <apiParam name="LocationNumber"/>
-                            <apiParam name="LotNumber"/>
-                            <apiParam name="TransactionQuantity"/>
-                            <apiParam name="TransactionDate"/>
-                            <apiParam name="AdjustmentAccount"/>
-                            <apiParam name="Comments"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9119_SYDATA-Loc Adjust.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Inv Adjust</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:M</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
-                      <clauses>
-                        <clause name="hidden" testItemId="4"/>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="143">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="144" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="145">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="228" title="Read Excel Data">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_excelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9119_SYDATA-Loc Adjust.xlsx;1625661401663</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="TransactionType"/>
-                                    <apiParam name="Async"/>
-                                    <apiParam name="Division"/>
-                                    <apiParam name="Site"/>
-                                    <apiParam name="ItemName"/>
-                                    <apiParam name="Project"/>
-                                    <apiParam name="LocationID"/>
-                                    <apiParam name="LocationNumber"/>
-                                    <apiParam name="LotNumber"/>
-                                    <apiParam name="TransactionQuantity"/>
-                                    <apiParam name="TransactionDate"/>
-                                    <apiParam name="AdjustmentAccount"/>
-                                    <apiParam name="Comments"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9119_SYDATA-Loc Adjust.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Inv Adjust</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:M</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="231"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="148">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="3" title="Read Excel Data">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_excelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/RSTK-9119_SYDATA-Loc Adjust.xlsx;1625661401663</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="TransactionType"/>
-                                    <apiParam name="Async"/>
-                                    <apiParam name="Division"/>
-                                    <apiParam name="Site"/>
-                                    <apiParam name="ItemName"/>
-                                    <apiParam name="Project"/>
-                                    <apiParam name="LocationID"/>
-                                    <apiParam name="LocationNumber"/>
-                                    <apiParam name="LotNumber"/>
-                                    <apiParam name="TransactionQuantity"/>
-                                    <apiParam name="TransactionDate"/>
-                                    <apiParam name="AdjustmentAccount"/>
-                                    <apiParam name="Comments"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9119_SYDATA-Loc Adjust.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Inv Adjust</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:M</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="229"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-          </steps>
-        </clause>
+        <clause name="hidden" testItemId="4"/>
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="5" title="For Each: {op_excelData}=&gt;op_excelDataRow">

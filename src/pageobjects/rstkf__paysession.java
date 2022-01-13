@@ -26,8 +26,11 @@ public class rstkf__paysession {
 		// TODO Auto-generated constructor stub
 	}
 
+//	@TextType()
+//	@FindBy(xpath = "//label[normalize-space(.)='Payment Date']/parent::th/following-sibling::td//input")
+//	public WebElement paymentDate;
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Payment Date']/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Payment Date']/preceding::th[1]/following-sibling::td[2]//input")
 	public WebElement paymentDate;
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Save Session']")
@@ -36,7 +39,7 @@ public class rstkf__paysession {
 	@FindBy(xpath = "//input[@value='Select for Payment by Invoice']")
 	public WebElement selectForPaymentByInvoice;
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Filter By Vendor:']/following-sibling::select")
+	@FindBy(xpath = "//td/select[contains(@id,'filteredVendors__c')]")
 	public WebElement filteredVendors__c;
 	
 	@PageRow()
@@ -98,10 +101,12 @@ public class rstkf__paysession {
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Post Payments']")
 	public WebElement postPayments;
+//	@TextType()
+//	@FindBy(xpath = "//th[contains(text(),'Session Status')]/parent::tr//preceding-sibling::td/span")
+//	public WebElement sessionStatus;
 	@TextType()
-	@FindBy(xpath = "//th[contains(text(),'Session Status')]/parent::tr//preceding-sibling::td/span")
+	@FindBy(xpath = "//label[contains(text(),'Starting Check Number')]/parent::th/parent::tr/td[@class='dataCol '][1]/span")
 	public WebElement sessionStatus;
-	
 	public void chkbox(String Inv) throws InterruptedException
 		{
 			
@@ -133,6 +138,27 @@ public class rstkf__paysession {
 					}
 					}
 	
+	}
+
+	@ButtonType()
+	@FindBy(xpath = "//span[contains(@id,'op_btns_paymRevAndProcessing')]/input[@value='Close']")
+	public WebElement reviewclose;
+	@ChoiceListType()
+	@FindBy(xpath = "//label[normalize-space(.)='Bank Account']/parent::th/following-sibling::td//select")
+	public WebElement paysession_glbankacct__c;
+	
+	public void selectbankacc(String AccName) throws InterruptedException {
+
+		Thread.sleep(2000);
+
+		List <WebElement> option = driver.findElements(By.xpath("//label[normalize-space(.)='Bank Account']/parent::th/following-sibling::td//select/option[@value='" + AccName + "']"));
+//				By.xpath("//select/option[contains(text(),'" + Item + "')]"));
+				
+		for(int i=0;i<option.size();i++)
+                {
+                    option.get(i).click();
+                }
+
 	}
 	}
 	
