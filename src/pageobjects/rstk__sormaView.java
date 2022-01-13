@@ -19,5 +19,8 @@ public class rstk__sormaView {
 	@ButtonType()
 	@FindByLabel(label = "Serial Details")
 	public WebElement serialDetails;
+	@ButtonType()
+	@FindByLabel(label = "Process Receipt")
+	public WebElement processReceipt;
 	
 }

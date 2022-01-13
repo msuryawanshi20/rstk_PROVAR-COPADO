@@ -95,7 +95,7 @@ public class rstk__Stocklocmove {
 	}
 
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Move Option']/parent::th/following-sibling::td//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Move Option']/ancestor::th/following-sibling::td//select")
 	public WebElement MoveOption;
 
 	@ButtonType()
@@ -188,9 +188,10 @@ public class rstk__Stocklocmove {
 	}
 
 	public void setcheckbox() {
-		WebElement selectCheckBox11 = driver.findElement(By
-				.xpath("//*[a[contains(text(),'" + locationId + "')]/parent::span/parent::td | span[normalize-space()='"
-						+ locationNum + "']/parent::td]/parent::tr//td[1]//input"));
+		WebElement selectCheckBox11 = driver.findElement(By.xpath("//*[contains(text(),'" + locationId
+				+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locationNum
+				+ "')]/parent::td/parent::tr//td[1]//input"));
+
 		selectCheckBox11.click();
 	}
 

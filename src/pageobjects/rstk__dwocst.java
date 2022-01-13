@@ -16,18 +16,18 @@ import com.provar.core.testapi.annotations.FindByLabel;
 import com.provar.core.testapi.annotations.LinkType;
 import com.provar.core.testapi.annotations.PageRow;
 import com.provar.core.testapi.annotations.PageTable;
+import com.provar.core.testapi.annotations.PageWait;
 import com.provar.core.testapi.annotations.PageWaitAfter;
 import com.provar.core.testapi.annotations.SalesforcePage;
 import com.provar.core.testapi.annotations.TextType;
 
 @SalesforcePage(title = "Rstk__dwocst", summary = "", page = "DWocst", namespacePrefix = "rstk", object = "rstk__wocst__c", connection = "QARSF_Admin")
 public class rstk__dwocst {
-public WebDriver driver;
+	public WebDriver driver;
 
 	public rstk__dwocst(WebDriver driver) {
 		this.driver = driver;
 	}
-
 
 	@TextType()
 	@FindBy(xpath = "//*[contains(@id,'wocst_ordno__c')]//input")
@@ -42,30 +42,29 @@ public WebDriver driver;
 	public WebElement DisassemblyItemLookup;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Disassembly Item Quantity']/parent::span/parent::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Disassembly Item Quantity']/ancestor::span/ancestor::th/following-sibling::td[1]//input")
 	public WebElement disassemblyItemQuantity;
 
 	@DateType
 	@FindBy(xpath = "//input[contains(@id,'wocst_duedte__c')]")
 	public WebElement dueDate;
-		
+
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Project']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Project']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement project;
 
-	
 	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Project Charge Code']/parent::th/following-sibling::td//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Project Charge Code']/ancestor::th/following-sibling::td//select")
 	public WebElement projectChargeCode;
-	
+
 	public void selectProject(String ProjectName) throws InterruptedException {
 		Thread.sleep(1000);
 		WebElement ele = driver.findElement(By.xpath("//input[@name='wocst_proj__c_autocomplete']"));
 		ele.clear();
 		ele.sendKeys(ProjectName);
 		Thread.sleep(1500);
-		
+
 		Actions actions = new Actions(driver);
 		Thread.sleep(1000);
 		List<WebElement> autoCompleteList = driver
@@ -79,7 +78,7 @@ public WebDriver driver;
 			}
 		}
 	}
-	
+
 	@ButtonType()
 	@FindByLabel(label = "Save")
 	public WebElement save;
@@ -94,12 +93,10 @@ public WebDriver driver;
 
 	@FindBy(xpath = "//*[contains(text(),' Status')]//following::td//span[contains(@id,'wocst_ordsts_pl__c')]")
 	public WebElement status;
-	
-	
+
 	@TextType()
 	@FindBy(xpath = "//*[contains(@id,'wocst_ordno__c')]//span//span")
 	public WebElement opOrderNumber;
-	
 
 	@ButtonType()
 	@FindByLabel(label = "Issue Disassembly Item")
@@ -113,6 +110,9 @@ public WebDriver driver;
 	@FindBy(xpath = "//*[@value='Allocate']")
 	public WebElement allocate;
 
+	@ButtonType()
+	@FindBy(xpath = "//*[contains(@value,'Deallocate')]")
+	public WebElement deallocate;
 
 	@LinkType()
 	@FindBy(linkText = "Rootstock Site Map")
@@ -126,7 +126,9 @@ public WebDriver driver;
 	@FindByLabel(label = "All")
 	public WebElement all;
 
-	@PageTable(row = DerivedComponents.class)
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@PageWait.BackgroundActivity(timeoutSeconds = 60)
+	@PageTable(firstRowContainsHeaders = false, row = DerivedComponents.class)
 	@FindBy(xpath = "//table[contains(@id,'pbs_DerivedComponents')]//tbody//tr")
 	public List<DerivedComponents> derivedComponents;
 
@@ -135,31 +137,28 @@ public WebDriver driver;
 
 		@LinkType
 		@FindBy(xpath = ".//td[1]//a[text()='Edit']")
-		public WebElement edit;	
-	
+		public WebElement edit;
+
 		@TextType()
 		@FindBy(xpath = ".//td[3]")
-		public WebElement derivedComponent;	
-			
+		public WebElement derivedComponent;
+
 		@TextType()
 		@FindBy(xpath = ".//td[5]//input")
-		public WebElement expected;	
+		public WebElement expected;
 
-		
-		
 		@TextType()
 		@FindBy(xpath = ".//td[7]//input")
 		public WebElement actualYield;
-		
+
 		@ChoiceListType
-		@FindBy(xpath = ".//select//option")
+		@FindBy(xpath = ".//td[11]/select//option")
 		public WebElement locationID;
-		
+
 		@BooleanType
-		@FindBy(xpath = ".//td//input[@type='checkbox']")
+		@FindBy(xpath = ".//td[2]//input[@type='checkbox']")
 		public WebElement select;
-		
-		
+
 	}
 
 	@ButtonType()
@@ -173,29 +172,25 @@ public WebDriver driver;
 	@ButtonType()
 	@FindByLabel(label = "Close Work Order")
 	public WebElement closeWorkOrder;
-	
-	
+
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Add Derived Component']")
 	public WebElement addDerivedComponent;
-	
-	
+
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Component Issue']")
 	public WebElement componentIssue;
-	
-	
+
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Complete Disassembly Order']")
 	public WebElement completeDisassemblyOrder;
-	
+
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Reverse Derived Components']")
 	public WebElement reverseDerivedComponents;
-	
+
 	@ButtonType()
 	@FindByLabel(label = "Reverse WO Close")
 	public WebElement reverseWOClose;
-	
-	
+
 }

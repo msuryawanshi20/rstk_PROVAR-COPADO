@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="12">
+<testCase id="434">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="79" title="Salesforce Connect: SFConnection (Test)">
@@ -43,6 +43,121 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="187" title="Read Excel File Based on Selected Environment">
+      <arguments>
+        <argument id="condition">
+          <value class="eq">
+            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+            <rhs class="value" valueClass="string">PDE5</rhs>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="905">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="949" title="Read Excel Data">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Read Excel Data</value>
+                </argument>
+              </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="op_excelData" variableScope="Test">
+                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9692-CRUD Operation on routing operation.xlsx;1635422765269</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="Site"/>
+                    <apiParam name="ItemNumber"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9692-CRUD Operation on routing operation.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Routing Master</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:B</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+              <clauses>
+                <clause name="hidden" testItemId="946"/>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="906">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                    <rhs class="value" valueClass="string">Automation</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="919">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="947" title="Read Excel Data">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read Excel Data</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="op_excelData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9692-CRUD Operation on routing operation.xlsx;1635422765269</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="Site"/>
+                            <apiParam name="ItemNumber"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9692-CRUD Operation on routing operation.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Routing Master</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:B</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="950"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="922">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="945" title="Read Excel Data">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read Excel Data</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="op_excelData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9692-CRUD Operation on routing operation.xlsx;1635422765269</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="Site"/>
+                            <apiParam name="ItemNumber"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9692-CRUD Operation on routing operation.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Routing Master</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:B</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="948"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="80" title="Read Excel Data and perform Operation">
       <arguments>
         <argument id="list">
@@ -60,21 +175,7 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="op_excelData" variableScope="Test">
-          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/tempRoutingOperations.xlsx;1633365549385</cacheToken>
-          <cachedParameters>
-            <apiParam name="RowNumber"/>
-            <apiParam name="Site"/>
-            <apiParam name="ItemNumber"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9692-CRUD Operation on routing operation.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">Routing Master</worksheetName>
-            <valuesRange class="value" valueClass="string">A:B</valuesRange>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
       <clauses>
         <clause name="substeps" testItemId="50">
           <steps>
@@ -129,243 +230,380 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="99" title="Read Data to add routing operations">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="930" title="Read Excel File Based on Selected Environment">
               <arguments>
-                <argument id="description">
-                  <value class="value" valueClass="string">Read Operation Data</value>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                    <rhs class="value" valueClass="string">PDE5</rhs>
+                  </value>
                 </argument>
               </arguments>
-              <parameterValueSources>
-                <parameterValueSource variableName="op_operationExcelData" variableScope="Test">
-                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/tempRoutingOperations.xlsx;1633375990001</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="RowNumber"/>
-                    <apiParam name="ItemNumber"/>
-                    <apiParam name="Site"/>
-                    <apiParam name="OperationType"/>
-                    <apiParam name="OperationNumber"/>
-                    <apiParam name="Description"/>
-                    <apiParam name="ConcurrentSeq"/>
-                    <apiParam name="OutsideOperationFlag"/>
-                    <apiParam name="LaborOnlyOperationFlag"/>
-                    <apiParam name="ProcessNumber"/>
-                    <apiParam name="WorkCenter"/>
-                    <apiParam name="SetupTimeType"/>
-                    <apiParam name="SetupGrade"/>
-                    <apiParam name="SetupStdOption"/>
-                    <apiParam name="SetupHoursSimulated"/>
-                    <apiParam name="SetupHoursStandard"/>
-                    <apiParam name="RunTimeType"/>
-                    <apiParam name="RunGrade"/>
-                    <apiParam name="RunStdOption"/>
-                    <apiParam name="RunHoursSimulated"/>
-                    <apiParam name="RunHoursStandard"/>
-                    <apiParam name="MachineType"/>
-                    <apiParam name="MachineNumber"/>
-                    <apiParam name="MachineStdOption"/>
-                    <apiParam name="MachineHrsSim"/>
-                    <apiParam name="MachineHrsStd"/>
-                    <apiParam name="SubcontractLeadTime"/>
-                    <apiParam name="AllowAcceptFlag"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9692-CRUD Operation on routing operation.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">Operations</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:AA</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
               <clauses>
-                <clause name="hidden" testItemId="100">
+                <clause name="then" testItemId="931">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="101" title="Add operations">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="940" title="Read Excel Data">
                       <arguments>
-                        <argument id="list">
-                          <value class="variable">
-                            <path element="op_operationExcelData"/>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read Excel Data</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="op_operationExcelData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9692-CRUD Operation on routing operation.xlsx;1635422765269</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="ItemNumber"/>
+                            <apiParam name="Site"/>
+                            <apiParam name="OperationType"/>
+                            <apiParam name="OperationNumber"/>
+                            <apiParam name="Description"/>
+                            <apiParam name="ConcurrentSeq"/>
+                            <apiParam name="OutsideOperationFlag"/>
+                            <apiParam name="LaborOnlyOperationFlag"/>
+                            <apiParam name="ProcessNumber"/>
+                            <apiParam name="WorkCenter"/>
+                            <apiParam name="SetupTimeType"/>
+                            <apiParam name="SetupGrade"/>
+                            <apiParam name="SetupStdOption"/>
+                            <apiParam name="SetupHoursSimulated"/>
+                            <apiParam name="SetupHoursStandard"/>
+                            <apiParam name="RunTimeType"/>
+                            <apiParam name="RunGrade"/>
+                            <apiParam name="RunStdOption"/>
+                            <apiParam name="RunHoursSimulated"/>
+                            <apiParam name="RunHoursStandard"/>
+                            <apiParam name="MachineType"/>
+                            <apiParam name="MachineNumber"/>
+                            <apiParam name="MachineStdOption"/>
+                            <apiParam name="MachineHrsSim"/>
+                            <apiParam name="MachineHrsStd"/>
+                            <apiParam name="SubcontractLeadTime"/>
+                            <apiParam name="AllowAcceptFlag"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9692-CRUD Operation on routing operation.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Operations</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:AA</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="937"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="932">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="933" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="eq">
+                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                            <rhs class="value" valueClass="string">Automation</rhs>
                           </value>
-                        </argument>
-                        <argument id="fromItem">
-                          <value class="value" valueClass="decimal">1</value>
-                        </argument>
-                        <argument id="valueName">
-                          <value class="value" valueClass="string">op_operationExcelDataRow</value>
-                        </argument>
-                        <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
                         </argument>
                       </arguments>
                       <clauses>
-                        <clause name="substeps" testItemId="102">
+                        <clause name="then" testItemId="934">
                           <steps>
-                            <caseCall testCaseId="23af0c61-6533-4d2b-97ff-5418e8fee594" testCasePath="tests/Shop Floor/Callable/Add Operations.testcase" testItemId="103">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="938" title="Read Excel Data">
                               <arguments>
-                                <argument id="reuseConnectionName">
-                                  <value class="value" valueClass="string">SFConnection</value>
-                                </argument>
-                                <argument id="ip_RecordID"/>
-                                <argument id="ip_site">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="Site"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_operationType">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="OperationType"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_operationNumber">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="OperationNumber"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_description">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="Description"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_process">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="ProcessNumber"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_workCenter">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="WorkCenter"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_concurrentSeq">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="ConcurrentSeq"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_outsideOpFlag">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="OutsideOperationFlag"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_labOnlyOP">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="LaborOnlyOperationFlag"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_setupType">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="SetupTimeType"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_setupLaborGrade">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="SetupGrade"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_setupStdOption">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="SetupStdOption"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_setupHoursSimulated">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="SetupHoursSimulated"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_setupStandardHours">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="SetupHoursStandard"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_runType">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="RunTimeType"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_runLaborGrade">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="RunGrade"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_runStdOption">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="RunStdOption"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_runHoursSimulated">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="RunHoursSimulated"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_runStandardHours">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="RunHoursStandard"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_machineType">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="MachineType"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_machineNumber">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="MachineNumber"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_machineStdOption">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="MachineStdOption"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_machineHrsSim">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="MachineHrsSim"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_standardMachineHours">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="MachineHrsStd"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_subConLeadTime">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="SubcontractLeadTime"/>
-                                  </value>
-                                </argument>
-                                <argument id="ip_allowAcceptFlagStatus">
-                                  <value class="variable">
-                                    <path element="op_operationExcelDataRow"/>
-                                    <path element="AllowAcceptFlag"/>
-                                  </value>
+                                <argument id="description">
+                                  <value class="value" valueClass="string">Read Excel Data</value>
                                 </argument>
                               </arguments>
-                            </caseCall>
+                              <parameterValueSources>
+                                <parameterValueSource variableName="op_operationExcelData" variableScope="Test">
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9692-CRUD Operation on routing operation.xlsx;1635422765269</cacheToken>
+                                  <cachedParameters>
+                                    <apiParam name="RowNumber"/>
+                                    <apiParam name="ItemNumber"/>
+                                    <apiParam name="Site"/>
+                                    <apiParam name="OperationType"/>
+                                    <apiParam name="OperationNumber"/>
+                                    <apiParam name="Description"/>
+                                    <apiParam name="ConcurrentSeq"/>
+                                    <apiParam name="OutsideOperationFlag"/>
+                                    <apiParam name="LaborOnlyOperationFlag"/>
+                                    <apiParam name="ProcessNumber"/>
+                                    <apiParam name="WorkCenter"/>
+                                    <apiParam name="SetupTimeType"/>
+                                    <apiParam name="SetupGrade"/>
+                                    <apiParam name="SetupStdOption"/>
+                                    <apiParam name="SetupHoursSimulated"/>
+                                    <apiParam name="SetupHoursStandard"/>
+                                    <apiParam name="RunTimeType"/>
+                                    <apiParam name="RunGrade"/>
+                                    <apiParam name="RunStdOption"/>
+                                    <apiParam name="RunHoursSimulated"/>
+                                    <apiParam name="RunHoursStandard"/>
+                                    <apiParam name="MachineType"/>
+                                    <apiParam name="MachineNumber"/>
+                                    <apiParam name="MachineStdOption"/>
+                                    <apiParam name="MachineHrsSim"/>
+                                    <apiParam name="MachineHrsStd"/>
+                                    <apiParam name="SubcontractLeadTime"/>
+                                    <apiParam name="AllowAcceptFlag"/>
+                                  </cachedParameters>
+                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9692-CRUD Operation on routing operation.xlsx</workbookPath>
+                                    <worksheetName class="value" valueClass="string">Operations</worksheetName>
+                                    <valuesRange class="value" valueClass="string">A:AA</valuesRange>
+                                  </sourceValue>
+                                </parameterValueSource>
+                              </parameterValueSources>
+                              <clauses>
+                                <clause name="hidden" testItemId="941"/>
+                              </clauses>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="935">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="936" title="Read Excel Data">
+                              <arguments>
+                                <argument id="description">
+                                  <value class="value" valueClass="string">Read Excel Data</value>
+                                </argument>
+                              </arguments>
+                              <parameterValueSources>
+                                <parameterValueSource variableName="op_operationExcelData" variableScope="Test">
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9692-CRUD Operation on routing operation.xlsx;1635422765269</cacheToken>
+                                  <cachedParameters>
+                                    <apiParam name="RowNumber"/>
+                                    <apiParam name="ItemNumber"/>
+                                    <apiParam name="Site"/>
+                                    <apiParam name="OperationType"/>
+                                    <apiParam name="OperationNumber"/>
+                                    <apiParam name="Description"/>
+                                    <apiParam name="ConcurrentSeq"/>
+                                    <apiParam name="OutsideOperationFlag"/>
+                                    <apiParam name="LaborOnlyOperationFlag"/>
+                                    <apiParam name="ProcessNumber"/>
+                                    <apiParam name="WorkCenter"/>
+                                    <apiParam name="SetupTimeType"/>
+                                    <apiParam name="SetupGrade"/>
+                                    <apiParam name="SetupStdOption"/>
+                                    <apiParam name="SetupHoursSimulated"/>
+                                    <apiParam name="SetupHoursStandard"/>
+                                    <apiParam name="RunTimeType"/>
+                                    <apiParam name="RunGrade"/>
+                                    <apiParam name="RunStdOption"/>
+                                    <apiParam name="RunHoursSimulated"/>
+                                    <apiParam name="RunHoursStandard"/>
+                                    <apiParam name="MachineType"/>
+                                    <apiParam name="MachineNumber"/>
+                                    <apiParam name="MachineStdOption"/>
+                                    <apiParam name="MachineHrsSim"/>
+                                    <apiParam name="MachineHrsStd"/>
+                                    <apiParam name="SubcontractLeadTime"/>
+                                    <apiParam name="AllowAcceptFlag"/>
+                                  </cachedParameters>
+                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9692-CRUD Operation on routing operation.xlsx</workbookPath>
+                                    <worksheetName class="value" valueClass="string">Operations</worksheetName>
+                                    <valuesRange class="value" valueClass="string">A:AA</valuesRange>
+                                  </sourceValue>
+                                </parameterValueSource>
+                              </parameterValueSources>
+                              <clauses>
+                                <clause name="hidden" testItemId="939"/>
+                              </clauses>
+                            </apiCall>
                           </steps>
                         </clause>
                       </clauses>
                     </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="101" title="Add operations">
+              <arguments>
+                <argument id="list">
+                  <value class="variable">
+                    <path element="op_operationExcelData"/>
+                  </value>
+                </argument>
+                <argument id="fromItem">
+                  <value class="value" valueClass="decimal">1</value>
+                </argument>
+                <argument id="valueName">
+                  <value class="value" valueClass="string">op_operationExcelDataRow</value>
+                </argument>
+                <argument id="continueOnFailure">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="102">
+                  <steps>
+                    <caseCall testCaseId="23af0c61-6533-4d2b-97ff-5418e8fee594" testCasePath="tests/Shop Floor/Callable/Add Operations.testcase" testItemId="103">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="ip_RecordID"/>
+                        <argument id="ip_site">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="Site"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_operationType">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="OperationType"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_operationNumber">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="OperationNumber"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_description">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="Description"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_process">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="ProcessNumber"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_workCenter">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="WorkCenter"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_concurrentSeq">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="ConcurrentSeq"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_outsideOpFlag">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="OutsideOperationFlag"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_labOnlyOP">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="LaborOnlyOperationFlag"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_setupType">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="SetupTimeType"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_setupLaborGrade">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="SetupGrade"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_setupStdOption">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="SetupStdOption"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_setupHoursSimulated">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="SetupHoursSimulated"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_setupStandardHours">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="SetupHoursStandard"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_runType">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="RunTimeType"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_runLaborGrade">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="RunGrade"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_runStdOption">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="RunStdOption"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_runHoursSimulated">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="RunHoursSimulated"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_runStandardHours">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="RunHoursStandard"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_machineType">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="MachineType"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_machineNumber">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="MachineNumber"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_machineStdOption">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="MachineStdOption"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_machineHrsSim">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="MachineHrsSim"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_standardMachineHours">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="MachineHrsStd"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_subConLeadTime">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="SubcontractLeadTime"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_allowAcceptFlagStatus">
+                          <value class="variable">
+                            <path element="op_operationExcelDataRow"/>
+                            <path element="AllowAcceptFlag"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
                   </steps>
                 </clause>
               </clauses>
