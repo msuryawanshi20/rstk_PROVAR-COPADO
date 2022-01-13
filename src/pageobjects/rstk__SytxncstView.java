@@ -77,7 +77,7 @@ public class rstk__SytxncstView {
 	@FindBy(xpath = "//span[text()='Customer']/following::td//span[contains(@id,'pbs_Orders')][1]")
 	public WebElement Customer;
 	@TextType()
-	@FindBy(xpath = "//th[normalize-space(.)='Inventory Item Master']//following-sibling::td/span/a")
+	@FindBy(xpath = "//th[contains(normalize-space(.),'Inventory Item Master')]//following-sibling::td//span//a")
 	public WebElement inventoryItemMaster2;
 	
 }
