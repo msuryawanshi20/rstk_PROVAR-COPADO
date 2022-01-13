@@ -21,14 +21,6 @@ public class rstk__soppy {
 	public WebElement Customer_Number;
 	
 	@TextType()
-	@FindBy(xpath = "//input[contains(@id,'soppy_order')]")
-	public WebElement SalesOrderNumber;
-	
-	@TextType()
-	@FindBy(id = "li-0")
-	public WebElement SalesOrderNumber_Select;
-	
-	@TextType()
 	@FindBy(id = "li-0")
 	public WebElement Customer_Select;
 	

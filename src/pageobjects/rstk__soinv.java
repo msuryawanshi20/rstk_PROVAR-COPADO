@@ -12,7 +12,7 @@ import com.provar.core.testapi.annotations.*;
                , page="Soinv"
                , namespacePrefix="rstk"
                , object="rstk__soinv__c"
-               , connection="QARSF_Admin"
+               , connection="Devqaff"
      )             
 public class rstk__soinv {
 

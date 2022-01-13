@@ -267,12 +267,12 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="64" title="SOQL Query: select Id,rstk__sohdr_order__c from rstk__sohdr__c where rstk__sohdr_order__c='{OrderNumber}'=&gt;rstkRows_SOHeader">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="64" title="SOQL Query: select Id\n    ,rstk__sohdr_order__c from rstk__sohdr__c where rstk__sohdr_order__c='{OrderNumber}'=&gt;rstkRows_SOHeader">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
                     <parts>
-                      <value valueClass="string">select Id,rstk__sohdr_order__c from rstk__sohdr__c where rstk__sohdr_order__c='</value>
+                      <value valueClass="string">select Id\n    ,rstk__sohdr_order__c from rstk__sohdr__c where rstk__sohdr_order__c='</value>
                       <variable>
                         <path element="OrderNumber"/>
                       </variable>

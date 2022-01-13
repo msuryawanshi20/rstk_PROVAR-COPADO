@@ -33,11 +33,11 @@ public class rstkf__arcashh2 {
 	public WebElement Save;
 	
 	@TextType()
-	@FindBy(xpath = "//*[text()='Deposit Number']/following::td//span[1]")
+	@FindBy(xpath = "//th[text()='Deposit Number']/following::td//span[1]")
 	public WebElement DepositNumber;
 	
 	@TextType()
-	@FindBy(xpath = "//*[text()='Status']/following::td//span[1]")
+	@FindBy(xpath = "//th[text()='Status']/following::td//span[1]")
 	public WebElement Status;
 	
 	@TextType()

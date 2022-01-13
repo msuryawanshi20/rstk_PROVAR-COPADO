@@ -24,7 +24,7 @@
         </argument>
         <argument id="reuseConnectionName"/>
         <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Reuse</value>
+          <value class="value" valueClass="string">Fail</value>
         </argument>
         <argument id="privateBrowsingMode"/>
         <argument id="enableObjectIdLogging">
@@ -54,7 +54,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/QARSF/Parallel/SYDATA_Parallel_Allocate_PickPackShip.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Allocate1</worksheetName>
-            <valuesRange class="value"/>
+            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>

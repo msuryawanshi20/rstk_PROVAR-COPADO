@@ -66,10 +66,7 @@
           </value>
         </argument>
         <argument id="rstk__soibatch_div__c">
-          <value class="variable">
-            <path element="SourceData_SOHeader"/>
-            <path element="SalesDivision"/>
-          </value>
+          <value class="value" valueClass="string">a7O410000004Nwj</value>
         </argument>
         <argument id="assignmentRuleId"/>
         <argument id="resultScope">
@@ -143,18 +140,6 @@
         </connectionType>
       </type>
     </param>
-    <param name="SourceData_SOHeader" title="SourceData_SOHeader">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-    </param>
   </params>
   <outputParams>
     <param name="InvBatchNumber" title="InvBatchNumber">
@@ -177,11 +162,6 @@
     <argument id="reuseConnectionName">
       <value class="variable">
         <path element="reuseConnectionName"/>
-      </value>
-    </argument>
-    <argument id="SourceData_SOHeader">
-      <value class="variable">
-        <path element="SourceData_SOHeader"/>
       </value>
     </argument>
   </args>

@@ -43,155 +43,31 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="13" title="Read Excel Path">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Read Excel Path</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="hidden" testItemId="20">
-          <steps>
-            <caseCall testCaseId="ebb259de-4317-480b-807e-548e3d043472" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="23">
-              <arguments>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
-                </argument>
-              </arguments>
-              <outputArguments>
-                <outputArgument id="ExcelPath_SOAPI">
-                  <name class="value" valueClass="string">ExcelPath_SOAPI</name>
-                </outputArgument>
-                <outputArgument id="ExcelPath_SalesOrder_BaseData_SOAPI">
-                  <name class="value" valueClass="string">ExcelPath_SalesOrder_BaseData_SOAPI</name>
-                </outputArgument>
-                <outputArgument id="ExcelPath_CustomerMaster">
-                  <name class="value" valueClass="string">ExcelPath_CustomerMaster</name>
-                </outputArgument>
-                <outputArgument id="ExcelPath_SYDATA">
-                  <name class="value" valueClass="string">ExcelPath_SYDATA</name>
-                </outputArgument>
-              </outputArguments>
-            </caseCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="14" title="Read Data">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Read Data</value>
-        </argument>
-      </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData_SOHeader" variableScope="Test">
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="variable">
-              <path element="ExcelPath_SYDATA"/>
-            </workbookPath>
-            <worksheetName class="value" valueClass="string">AddHeader</worksheetName>
-          </sourceValue>
-        </parameterValueSource>
-        <parameterValueSource variableName="SourceData_SOLine" variableScope="Test">
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="variable">
-              <path element="ExcelPath_SYDATA"/>
-            </workbookPath>
-            <worksheetName class="value" valueClass="string">AddLine</worksheetName>
-          </sourceValue>
-        </parameterValueSource>
-        <parameterValueSource variableName="SourceData_Prepayment" variableScope="Test">
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="variable">
-              <path element="ExcelPath_SYDATA"/>
-            </workbookPath>
-            <worksheetName class="value" valueClass="string">PrepaymentReleaseRecall</worksheetName>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
-      <clauses>
-        <clause name="hidden" testItemId="22">
-          <steps/>
-        </clause>
-      </clauses>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="15" title="Create Sales Order Header">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Create Sales Order Header</value>
-        </argument>
-      </arguments>
-      <parameterValueSources/>
-      <clauses>
-        <clause name="hidden" testItemId="21">
-          <steps>
-            <caseCall testCaseId="a6c37f2e-69ff-4b6c-84bd-7701e2e8699d" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Create Sales Order Header - SOAPI.testcase" testItemId="16">
-              <arguments>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
-                </argument>
-                <argument id="SourceData_SOHeader">
-                  <value class="variable">
-                    <path element="SourceData_SOHeader"/>
-                  </value>
-                </argument>
-              </arguments>
-              <outputArguments>
-                <outputArgument id="rstkRows_SOHeader">
-                  <name class="value" valueClass="string">rstkRows_SOHeader</name>
-                </outputArgument>
-                <outputArgument id="OrderNumber">
-                  <name class="value" valueClass="string">OrderNumber</name>
-                </outputArgument>
-              </outputArguments>
-            </caseCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="17" title="Add SO Lines">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Add SO Lines</value>
-        </argument>
-      </arguments>
-      <parameterValueSources/>
-      <clauses>
-        <clause name="hidden" testItemId="29">
-          <steps>
-            <caseCall testCaseId="2045d3ed-782f-4b58-afa5-bc89ec24265b" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Add SO Lines for SYDATA.testcase" testItemId="30">
-              <arguments>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
-                </argument>
-                <argument id="SourceData_SOLine">
-                  <value class="variable">
-                    <path element="SourceData_SOLine"/>
-                  </value>
-                </argument>
-                <argument id="rstkRows_SOHeader">
-                  <value class="variable">
-                    <path element="rstkRows_SOHeader"/>
-                  </value>
-                </argument>
-                <argument id="OrderNumber">
-                  <value class="variable">
-                    <path element="OrderNumber"/>
-                  </value>
-                </argument>
-              </arguments>
-            </caseCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="Create a new Prepayment Detail from sitemap">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Create a new Prepayment Detail from sitemap</value>
         </argument>
       </arguments>
-      <parameterValueSources/>
+      <parameterValueSources>
+        <parameterValueSource variableName="SourceData_Prepayment" variableScope="Test">
+          <cacheToken>C:\\Users\\Ashok\\Automation_1Updated\\rsqasampleproj\\templates\\SYDATA.xlsx;1625829288674</cacheToken>
+          <cachedParameters>
+            <apiParam name="APIMode"/>
+            <apiParam name="AsynchronousProcessing"/>
+            <apiParam name="InventoryDivision"/>
+            <apiParam name="SalesDivision"/>
+            <apiParam name="Customer"/>
+            <apiParam name="ManufacturingUser"/>
+            <apiParam name="RecordProcessed"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">PrepaymentReleaseRecall</worksheetName>
+            <valuesRange class="value"/>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
       <clauses>
         <clause name="hidden" testItemId="3">
           <steps>

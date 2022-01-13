@@ -47,7 +47,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="29" title="SOQL Query: select Id,Name ,rstk__porcptap_amtcomp__c,rstk__porcptap_qtycomp__c,rstk__porcptap_rcptdate__c,rstk__porcptap_upricercpt__c from rstk__porcptap__c where rstk__porcptap_ordno__c ='{POHDRID}' and \trstk__porcptap_authyn__c != 'Y'=&gt;porcpt">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="29" title="SOQL Query: select Id,Name ,rstk__porcptap_amtcomp__c,rstk__porcptap_qtycomp__c,rstk__porcptap_rcptdate__c,rstk__porcptap_upricercpt__c from rstk__porcptap__c where rstk__porcptap_ordno__c ='{POHDRID}'=&gt;porcpt">
       <arguments>
         <argument id="soqlQuery">
           <value class="compound">
@@ -56,7 +56,7 @@
               <variable>
                 <path element="POHDRID"/>
               </variable>
-              <value valueClass="string">' and \trstk__porcptap_authyn__c != 'Y'</value>
+              <value valueClass="string">'</value>
             </parts>
           </value>
         </argument>
@@ -131,7 +131,7 @@
       <clauses>
         <clause name="substeps" testItemId="37">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="52" title="Assert: {ExpectedResult[rownum].Quantity} EqualTo {porcptap.rstk__porcptap_qtycomp__c}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="40" title="Assert: {ExpectedResult[rownum].Quantity} EqualTo {porcptap.rstk__porcptap_qtycomp__c}">
               <arguments>
                 <argument argId="bf51d7f2-e1ab-425b-902a-25bb1c0c4be6" id="expectedValue">
                   <value class="variable">
@@ -177,12 +177,12 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="40" title="Assert: {ExpectedResult[rownum].UnitPrice} EqualTo {porcptap.rstk__porcptap_upricercpt__c}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="43" title="Assert: {Round(ExpectedResult[rownum].UnitPrice, 2)} EqualTo {porcptap.rstk__porcptap_upricercpt__c}">
               <tags>
                 <string>disabled</string>
               </tags>
               <arguments>
-                <argument argId="bf51d7f2-e1ab-425b-902a-25bb1c0c4be6" id="expectedValue">
+                <argument id="expectedValue">
                   <value class="variable">
                     <path element="ExpectedResult">
                       <filter class="conditionFilter">
@@ -207,7 +207,7 @@
                   <value class="value" valueClass="boolean">true</value>
                 </argument>
                 <argument id="numeric">
-                  <value class="value" valueClass="boolean">false</value>
+                  <value class="value" valueClass="boolean">true</value>
                 </argument>
                 <argument id="retainDecimals">
                   <value class="value" valueClass="boolean">false</value>
@@ -222,7 +222,73 @@
                   <value class="value" valueClass="boolean">false</value>
                 </argument>
                 <argument id="failureMessage">
-                  <value class="value" valueClass="string">Quanity not matching</value>
+                  <value class="value" valueClass="string">Not Matching</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="45" title="Assert: {ExpectedResult[rownum].Quantity * Round(ExpectedResult[rownum].UnitPrice, 1)}  EqualTo {porcptap.rstk__porcptap_amtcomp__c}">
+              <tags>
+                <string>disabled</string>
+              </tags>
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="compound">
+                    <parts>
+                      <mult>
+                        <lhs class="variable">
+                          <path element="ExpectedResult">
+                            <filter class="conditionFilter">
+                              <condition class="variable">
+                                <path element="rownum"/>
+                              </condition>
+                            </filter>
+                          </path>
+                          <path element="Quantity"/>
+                        </lhs>
+                        <rhs class="variable">
+                          <path element="ExpectedResult">
+                            <filter class="conditionFilter">
+                              <condition class="variable">
+                                <path element="rownum"/>
+                              </condition>
+                            </filter>
+                          </path>
+                          <path element="UnitPrice"/>
+                        </rhs>
+                      </mult>
+                      <value valueClass="string"> </value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="porcptap"/>
+                    <path element="rstk__porcptap_amtcomp__c"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="failureMessage">
+                  <value class="value" valueClass="string">Total Amount i s incorrect</value>
                 </argument>
               </arguments>
             </apiCall>

@@ -57,7 +57,7 @@ public class rstk__icreqfirm {
 	@FindBy(xpath = "//div[@id='datePicker']/div/div")
 	public WebElement dateselect;
 	@TextType()
-	@FindBy(xpath = "//div[contains(@id,'icreq_duedte__c')]/span[1]/span")
+	@FindBy(xpath = "//tr[5]//span[normalize-space(.)='[ 7/6/2021 ]'][1]/input")
 	public WebElement dueDate;
 	
 }

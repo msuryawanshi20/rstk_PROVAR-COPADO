@@ -20,8 +20,8 @@ public class rstkf__cashreceiptsjournalreportview {
 	@VisualforceBy(componentXPath = "apex:commandbutton[@id='btn_postBatches']")
 	public WebElement postSessions;
 	
-	@LinkType()
-	@FindBy(xpath = "//span[contains(@id,'report')]//a[@class='savereturl']")
+	@TextType()
+	@FindBy(xpath = "//a[@class='savereturl']")
 	public WebElement Session;
 	
 	@TextType()

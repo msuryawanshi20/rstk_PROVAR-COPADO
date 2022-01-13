@@ -82,9 +82,6 @@
                       <value valueClass="string">SYDATA - </value>
                       <variable>
                         <path element="OrderNumber"/>
-                        <path element="fields"/>
-                        <path element="orderNumber"/>
-                        <path element="value"/>
                       </variable>
                     </parts>
                   </value>
@@ -366,113 +363,6 @@
                 </argument>
                 <argument id="failureMessage"/>
               </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="100" title="Actual Time of Creation">
-              <arguments>
-                <argument id="description">
-                  <value class="value" valueClass="string">Actual Time of Creation</value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="hidden" testItemId="103">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="101" title="SOQL Query: SELECT SystemModstamp FROM rstk__sydata__c WHERE Id = '{rstkRows_SYDATA.Id}'=&gt;SystemModStamp">
-                      <arguments>
-                        <argument id="soqlQuery">
-                          <value class="compound">
-                            <parts>
-                              <value valueClass="string">SELECT SystemModstamp FROM rstk__sydata__c WHERE Id = '</value>
-                              <variable>
-                                <path element="rstkRows_SYDATA"/>
-                                <path element="Id"/>
-                              </variable>
-                              <value valueClass="string">'</value>
-                            </parts>
-                          </value>
-                        </argument>
-                        <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">SFConnection</value>
-                        </argument>
-                        <argument id="resultListName">
-                          <value class="value" valueClass="string">SystemModStamp</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="106" title="Set Values: SystemModStamp">
-                      <arguments>
-                        <argument id="values">
-                          <value class="valueList" mutable="Mutable">
-                            <namedValues mutable="Mutable">
-                              <namedValue name="valuePath">
-                                <value class="value" valueClass="string">SystemModStamp</value>
-                              </namedValue>
-                              <namedValue name="value">
-                                <value class="variable">
-                                  <path element="SystemModStamp"/>
-                                  <path element="SystemModstamp"/>
-                                </value>
-                              </namedValue>
-                              <namedValue name="valueScope">
-                                <value class="value" valueClass="string">Test</value>
-                              </namedValue>
-                            </namedValues>
-                          </value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="107" title="SOQL Query: SELECT CreatedDate FROM rstk__sydata__c WHERE Id = '{rstkRows_SYDATA.Id}'=&gt;CreatedDate">
-                      <arguments>
-                        <argument id="soqlQuery">
-                          <value class="compound">
-                            <parts>
-                              <value valueClass="string">SELECT CreatedDate FROM rstk__sydata__c WHERE Id = '</value>
-                              <variable>
-                                <path element="rstkRows_SYDATA"/>
-                                <path element="Id"/>
-                              </variable>
-                              <value valueClass="string">'</value>
-                            </parts>
-                          </value>
-                        </argument>
-                        <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">SFConnection</value>
-                        </argument>
-                        <argument id="resultListName">
-                          <value class="value" valueClass="string">CreatedDate</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="108" title="Set Values: CreatedDate">
-                      <arguments>
-                        <argument id="values">
-                          <value class="valueList" mutable="Mutable">
-                            <namedValues mutable="Mutable">
-                              <namedValue name="valuePath">
-                                <value class="value" valueClass="string">CreatedDate</value>
-                              </namedValue>
-                              <namedValue name="value">
-                                <value class="variable">
-                                  <path element="CreatedDate"/>
-                                  <path element="CreatedDate"/>
-                                </value>
-                              </namedValue>
-                              <namedValue name="valueScope">
-                                <value class="value" valueClass="string">Test</value>
-                              </namedValue>
-                            </namedValues>
-                          </value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
             </apiCall>
           </steps>
         </clause>

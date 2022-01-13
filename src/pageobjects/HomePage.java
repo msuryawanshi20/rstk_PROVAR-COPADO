@@ -9,11 +9,7 @@ import com.provar.core.testapi.annotations.LinkType;
 import com.provar.core.testapi.annotations.Page;
 import com.provar.core.testapi.annotations.TextType;
 
-@Page(title = "HomePage", 
-      summary = "", 
-      relativeUrl = "", 
-      connection = "QARSF_Admin")
-      
+@Page(title = "HomePage", summary = "", relativeUrl = "", connection = "pde5")
 public class HomePage {
 
 	public WebDriver driver;

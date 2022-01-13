@@ -283,7 +283,7 @@
                                 <argument id="fieldAssertions">
                                   <value class="valueList" mutable="Mutable">
                                     <uiFieldAssertion resultName="status">
-                                      <fieldLocator uri="ui:locator?name=status"/>
+                                      <fieldLocator uri="ui:pageobject:field?field=status&amp;pageId=pageobjects.rstk__LWocstNew"/>
                                       <attributeAssertions>
                                         <uiAttributeAssertion attributeName="value" comparisonType="None"/>
                                       </attributeAssertions>

@@ -56,7 +56,7 @@ public class rstk__Rmaserialdetails {
 
 		for (int i = 1; i <= NumberOfSerialTobeSelected; i++) {
 
-			WebElement element = driver.findElement(By.xpath("//select[contains(@id,'serials')]/option[" + i + "]"));
+			WebElement element = driver.findElement(By.xpath("//select[contains(@id,'compsrls')]/option[" + i + "]"));
 			element.click();
 
 		}

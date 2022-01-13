@@ -402,14 +402,9 @@
                     <path element="OrderNumber"/>
                   </expected>
                 </resultAssertion>
-                <resultAssertion comparisonType="StartsWith" resultName="rstk__sopack_packslip__c" title="Check rstk__sopack_packslip__c">
-                  <expected class="compound">
-                    <parts>
-                      <value valueClass="string">S</value>
-                      <variable>
-                        <path element="OrderNumber"/>
-                      </variable>
-                    </parts>
+                <resultAssertion resultName="rstk__sopack_packslip__c" title="Check rstk__sopack_packslip__c">
+                  <expected class="variable">
+                    <path element="OrderNumber"/>
                   </expected>
                 </resultAssertion>
                 <resultAssertion resultName="rstk__sopack_shiphdr__c" title="Check rstk__sopack_shiphdr__c">

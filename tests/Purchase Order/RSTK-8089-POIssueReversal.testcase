@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="25">
+<testCase id="2">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -59,7 +59,9 @@
             <apiParam name="UnitPrice"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
+            <workbookPath class="variable">
+              <path element="POUIExcelPath"/>
+            </workbookPath>
             <worksheetName class="value" valueClass="string">POIssue</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>

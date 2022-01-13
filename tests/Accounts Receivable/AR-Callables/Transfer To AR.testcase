@@ -563,9 +563,7 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="154" title="Assert: {InvoiceNumber.fields.invoiceNumber.value}({Row_AddLine.CustomerName}) IsPresent {ARSession.fields.AccountsReceivableSession.value}">
-                      <tags>
-                        <string>disabled</string>
-                      </tags>
+                      <tags/>
                       <arguments>
                         <argument id="expectedValue">
                           <value class="compound">
@@ -691,10 +689,10 @@
                           <value class="value" valueClass="boolean">true</value>
                         </argument>
                         <argument id="captureBefore">
-                          <value class="value" valueClass="string">full</value>
+                          <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="captureAfter">
-                          <value class="value" valueClass="string">full</value>
+                          <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="beforeWait">
                           <value class="uiWait" uri="default"/>
@@ -943,9 +941,6 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="171" title="UI Assert-Verify Transaction Date">
-                      <tags>
-                        <string>disabled</string>
-                      </tags>
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values_Date</value>
@@ -1193,9 +1188,6 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="302" title="UI Assert-Verify Date Posted">
-                      <tags>
-                        <string>disabled</string>
-                      </tags>
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values_Date</value>
@@ -1347,10 +1339,16 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="291" title="Assert: {CustomerName.fields.Customer.value} Contains {Row_AddLine.Customer}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="291" title="Assert: {Row_AddLine.Customer} EqualTo {CustomerName.fields.Customer.value}">
                       <tags/>
                       <arguments>
                         <argument id="expectedValue">
+                          <value class="variable">
+                            <path element="Row_AddLine"/>
+                            <path element="Customer"/>
+                          </value>
+                        </argument>
+                        <argument id="actualValue">
                           <value class="variable">
                             <path element="CustomerName"/>
                             <path element="fields"/>
@@ -1358,14 +1356,8 @@
                             <path element="value"/>
                           </value>
                         </argument>
-                        <argument id="actualValue">
-                          <value class="variable">
-                            <path element="Row_AddLine"/>
-                            <path element="Customer"/>
-                          </value>
-                        </argument>
                         <argument id="comparisonType">
-                          <value class="value" valueClass="string">Contains</value>
+                          <value class="value" valueClass="string">EqualTo</value>
                         </argument>
                         <argument id="caseSensitive">
                           <value class="value" valueClass="boolean">false</value>
@@ -1440,9 +1432,6 @@
                       </generatedParameters>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="299" title="Hover the Notes And Attachments button">
-                      <tags>
-                        <string>disabled</string>
-                      </tags>
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=NotesAndAttachments"/>
@@ -1505,10 +1494,10 @@
                           <value class="value" valueClass="boolean">true</value>
                         </argument>
                         <argument id="captureBefore">
-                          <value class="value" valueClass="string">full</value>
+                          <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="captureAfter">
-                          <value class="value" valueClass="string">full</value>
+                          <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="beforeWait">
                           <value class="uiWait" uri="default"/>

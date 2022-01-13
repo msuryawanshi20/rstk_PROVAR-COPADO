@@ -429,9 +429,6 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="104" title="SOQL Query: select count() from rstk__sopickd__c where rstk__sopickh_sohdr__c='{rstkRows_SOHeader.Id}'=&gt;rstkRows_PicklistDetails">
-              <tags>
-                <string>disabled</string>
-              </tags>
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">

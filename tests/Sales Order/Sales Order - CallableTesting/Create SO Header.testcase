@@ -285,9 +285,6 @@
         <clause name="substeps" testItemId="16">
           <steps>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="23" title="Set Values: OrderNumber">
-              <tags>
-                <string>disabled</string>
-              </tags>
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -316,9 +313,6 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="17" title="Set the Order Number field to {OrderNumber}">
-              <tags>
-                <string>disabled</string>
-              </tags>
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=orderNumber"/>
@@ -406,10 +400,10 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
+                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:timed?seconds=3"/>
+                  <value class="uiWait" uri="ui:wait:timed?seconds=5"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Set the Customer field to {SourceData_SOHeader.Customer}</value>
@@ -458,7 +452,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
+                  <value class="uiWait" uri="ui:wait:timed?seconds=5"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Customer_ Select field</value>
@@ -495,7 +489,6 @@
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="20" title="Click the Save button">
-              <tags/>
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=save"/>
@@ -516,7 +509,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:timed?seconds=80"/>
+                  <value class="uiWait" uri="ui:wait:timed?seconds=30"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Save button</value>
@@ -546,74 +539,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="110" title="UI Assert - Read the Order Number created">
-              <tags/>
-              <arguments>
-                <argument id="resultName">
-                  <value class="value" valueClass="string">OrderNumber</value>
-                </argument>
-                <argument id="resultScope">
-                  <value class="value" valueClass="string">Folder</value>
-                </argument>
-                <argument id="fieldAssertions">
-                  <value class="valueList" mutable="Mutable">
-                    <uiFieldAssertion resultName="orderNumber">
-                      <fieldLocator uri="ui:locator?name=orderNumber"/>
-                      <attributeAssertions>
-                        <uiAttributeAssertion attributeName="value" comparisonType="None">
-                          <value class="variable">
-                            <path element="OrderNumber"/>
-                          </value>
-                        </uiAttributeAssertion>
-                      </attributeAssertions>
-                    </uiFieldAssertion>
-                  </value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="columnAssertions">
-                  <value class="valueList" mutable="Mutable"/>
-                </argument>
-                <argument id="pageAssertions">
-                  <value class="valueList" mutable="Mutable"/>
-                </argument>
-                <argument id="beforeWait"/>
-                <argument id="autoRetry"/>
-              </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="109" title="SOQL Query: select Id,rstk__sohdr_order__c from rstk__sohdr__c where rstk__sohdr_order__c='{OrderNumber.fields.orderNumber.value}'=&gt;rstkRows_SOHeader">
-              <tags/>
-              <arguments>
-                <argument id="soqlQuery">
-                  <value class="compound">
-                    <parts>
-                      <value valueClass="string">select Id,rstk__sohdr_order__c from rstk__sohdr__c where rstk__sohdr_order__c='</value>
-                      <variable>
-                        <path element="OrderNumber"/>
-                        <path element="fields"/>
-                        <path element="orderNumber"/>
-                        <path element="value"/>
-                      </variable>
-                      <value valueClass="string">'</value>
-                    </parts>
-                  </value>
-                </argument>
-                <argument id="apexConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
-                </argument>
-                <argument id="resultListName">
-                  <value class="value" valueClass="string">rstkRows_SOHeader</value>
-                </argument>
-                <argument id="resultScope">
-                  <value class="value" valueClass="string">Test</value>
-                </argument>
-              </arguments>
-            </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="21" title="UI Assert - Verify the Order Number created">
-              <tags>
-                <string>disabled</string>
-              </tags>
               <arguments>
                 <argument id="resultName">
                   <value class="value" valueClass="string">OrderNumber</value>
@@ -647,69 +573,6 @@
                 <argument id="beforeWait"/>
                 <argument id="autoRetry"/>
               </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="26" title="Actual Time of Creation">
-              <tags/>
-              <arguments>
-                <argument id="description">
-                  <value class="value" valueClass="string">Actual Time of Creation</value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="hidden" testItemId="103">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="107" title="SOQL Query: SELECT CreatedDate FROM rstk__sohdr__c WHERE rstk__sohdr_order__c = '{OrderNumber.fields.orderNumber.value}'=&gt;CreatedDate">
-                      <arguments>
-                        <argument id="soqlQuery">
-                          <value class="compound">
-                            <parts>
-                              <value valueClass="string">SELECT CreatedDate FROM rstk__sohdr__c WHERE rstk__sohdr_order__c = '</value>
-                              <variable>
-                                <path element="OrderNumber"/>
-                                <path element="fields"/>
-                                <path element="orderNumber"/>
-                                <path element="value"/>
-                              </variable>
-                              <value valueClass="string">'</value>
-                            </parts>
-                          </value>
-                        </argument>
-                        <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">SFConnection</value>
-                        </argument>
-                        <argument id="resultListName">
-                          <value class="value" valueClass="string">CreatedDate</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="108" title="Set Values: CreatedDate">
-                      <arguments>
-                        <argument id="values">
-                          <value class="valueList" mutable="Mutable">
-                            <namedValues mutable="Mutable">
-                              <namedValue name="valuePath">
-                                <value class="value" valueClass="string">CreatedDate</value>
-                              </namedValue>
-                              <namedValue name="value">
-                                <value class="variable">
-                                  <path element="CreatedDate"/>
-                                  <path element="CreatedDate"/>
-                                </value>
-                              </namedValue>
-                              <namedValue name="valueScope">
-                                <value class="value" valueClass="string">Test</value>
-                              </namedValue>
-                            </namedValues>
-                          </value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
             </apiCall>
           </steps>
         </clause>
@@ -765,21 +628,6 @@
         <path element="OrderNumber"/>
       </sourceValue>
     </param>
-    <param name="rstkRows_SOHeader" title="rstkRows_SOHeader">
-      <summary>The name under which the returned rows will be stored.</summary>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-      <sourceValue class="variable">
-        <path element="rstkRows_SOHeader"/>
-      </sourceValue>
-    </param>
   </outputParams>
   <args>
     <argument id="reuseConnectionName">
@@ -796,9 +644,6 @@
   <outputArgs>
     <outputArgument id="OrderNumber">
       <name class="value" valueClass="string">OrderNumber</name>
-    </outputArgument>
-    <outputArgument id="rstkRows_SOHeader">
-      <name class="value" valueClass="string">rstkRows_SOHeader</name>
     </outputArgument>
   </outputArgs>
 </testCase>

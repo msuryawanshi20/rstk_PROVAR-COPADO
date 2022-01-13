@@ -210,9 +210,5 @@ public class rstk__Manufacturing {
 	@FindBy(xpath = "//a[normalize-space(.)='Independent Operations']")
 	public WebElement independentOperations;
 
-	@LinkType()
-	@FindBy(xpath = "//a[contains(normalize-space(.),'General Journal Entries')]")
-	public WebElement generalJournalEntries;
-
 }
 

@@ -34,7 +34,7 @@ public class rstk__Rtindoper {
 	public WebElement independentOperationID;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Description']/parent::span/parent::th/following-sibling::td[1]")
+	@FindBy(xpath = "//label[normalize-space(.)='Description']/ancestor::span/parent::th/following-sibling::td[1]//input")
 	public WebElement description;
 
 	@TextType()
@@ -74,7 +74,7 @@ public class rstk__Rtindoper {
 	public WebElement employeeAssignedTo;
 
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Inspection Order Template']/parent::th/following-sibling::td//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Inspection Order Template']/ancestor::th/following-sibling::td//select")
 	public WebElement inspectionOrderTemplate;
 
 	@TextType()

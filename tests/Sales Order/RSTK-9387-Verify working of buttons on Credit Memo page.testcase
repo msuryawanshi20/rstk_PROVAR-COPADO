@@ -43,61 +43,25 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="67" title="Read Excel Path">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Read Excel Path</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="hidden" testItemId="94">
-          <steps>
-            <caseCall testCaseId="ebb259de-4317-480b-807e-548e3d043472" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="97">
-              <arguments>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
-                </argument>
-              </arguments>
-              <outputArguments>
-                <outputArgument id="ExcelPath_SOAPI">
-                  <name class="value" valueClass="string">ExcelPath_SOAPI</name>
-                </outputArgument>
-                <outputArgument id="ExcelPath_SalesOrder_BaseData_SOAPI">
-                  <name class="value" valueClass="string">ExcelPath_SalesOrder_BaseData_SOAPI</name>
-                </outputArgument>
-              </outputArguments>
-            </caseCall>
-          </steps>
-        </clause>
-      </clauses>
-    </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="68" title="Read Data">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Read Data</value>
-        </argument>
-      </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData_CreditMemo" variableScope="Test">
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="variable">
-              <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
-            </workbookPath>
-            <worksheetName class="value" valueClass="string">CreditMemo</worksheetName>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
-      <clauses>
-        <clause name="hidden" testItemId="92"/>
-      </clauses>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="2" title="Create Credit Memo from sitemap">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Create Credit Memo from sitemap</value>
         </argument>
       </arguments>
-      <parameterValueSources/>
+      <parameterValueSources>
+        <parameterValueSource variableName="SourceData_CreditMemo" variableScope="Test">
+          <cacheToken>C:\\Users\\Ashok\\Provar\\WS_RSAutomation\\rsqasampleproj\\templates\\QARSF\\WIP-Create and Delete Credit Memo.xlsx;1629717670384</cacheToken>
+          <cachedParameters>
+            <apiParam name="CustomerName"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/QARSF/Credit Memo.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">CreditMemo</worksheetName>
+            <valuesRange class="value"/>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
       <clauses>
         <clause name="hidden" testItemId="3">
           <steps>

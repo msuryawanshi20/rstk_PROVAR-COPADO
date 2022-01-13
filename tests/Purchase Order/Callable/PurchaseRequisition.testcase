@@ -2204,7 +2204,7 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">full</value>
+                  <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="beforeWait">
                   <value class="uiWait" uri="default"/>
@@ -2338,7 +2338,7 @@
                           <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="captureAfter">
-                          <value class="value" valueClass="string">full</value>
+                          <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="beforeWait">
                           <value class="uiWait" uri="default"/>
@@ -2422,7 +2422,7 @@
                           <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="captureAfter">
-                          <value class="value" valueClass="string">full</value>
+                          <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="beforeWait">
                           <value class="uiWait" uri="default"/>
@@ -2657,7 +2657,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="254" title="SOQL Query: select Id,CreatedDate,rstk__pohdr_ordno__c,rstk__pohdr_totamt__c from rstk__pohdr__c where Name = '{PONumber}'  and rstk__pohdr_div__c  = 'a7O410000004NwjEAE' =&gt;pohdr">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="254" title="SOQL Query: select Id,CreatedDate,rstk__pohdr_ordno__c,rstk__pohdr_totamt__c from rstk__pohdr__c where Name = '{PONumber}'=&gt;pohdr">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -2666,7 +2666,7 @@
                       <variable>
                         <path element="PONumber"/>
                       </variable>
-                      <value valueClass="string">'  and rstk__pohdr_div__c  = 'a7O410000004NwjEAE' </value>
+                      <value valueClass="string">'</value>
                     </parts>
                   </value>
                 </argument>
@@ -2874,7 +2874,7 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">full</value>
+                  <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="beforeWait">
                   <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
