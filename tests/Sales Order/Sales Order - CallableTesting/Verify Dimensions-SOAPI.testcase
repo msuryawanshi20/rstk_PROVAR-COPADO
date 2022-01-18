@@ -1143,10 +1143,8 @@
                                 <argument id="failureMessage"/>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="115" title="Assert: {AccDimValueName_ICItem} Contains {rstkRows_SOLIine.rstk__formula_dimval2__c}">
-                              <tags>
-                                <string>disabled</string>
-                              </tags>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="115" title="Assert: {AccDimValueName_ICItem} Contains {rstkRows_SOLIine.rstk__formula_dimval5__c}">
+                              <tags/>
                               <arguments>
                                 <argument id="expectedValue">
                                   <value class="variable">
@@ -1156,7 +1154,7 @@
                                 <argument id="actualValue">
                                   <value class="variable">
                                     <path element="rstkRows_SOLIine"/>
-                                    <path element="rstk__formula_dimval2__c"/>
+                                    <path element="rstk__formula_dimval5__c"/>
                                   </value>
                                 </argument>
                                 <argument id="comparisonType">
@@ -1183,7 +1181,7 @@
                                 <argument id="failureMessage"/>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="116" title="Assert: {AccDimValueName_Customer} Contains {rstkRows_SOLIine.rstk__formula_dimval2__c}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="116" title="Assert: {AccDimValueName_Customer} Contains {rstkRows_SOLIine.rstk__formula_dimval3__c}">
                               <arguments>
                                 <argument id="expectedValue">
                                   <value class="variable">
@@ -1193,7 +1191,7 @@
                                 <argument id="actualValue">
                                   <value class="variable">
                                     <path element="rstkRows_SOLIine"/>
-                                    <path element="rstk__formula_dimval2__c"/>
+                                    <path element="rstk__formula_dimval3__c"/>
                                   </value>
                                 </argument>
                                 <argument id="comparisonType">
@@ -1257,7 +1255,7 @@
                                 <argument id="failureMessage"/>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="117" title="Assert: {AccDimValueName_Product} Contains {rstkRows_SOLIine.rstk__formula_dimval3__c}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="117" title="Assert: {AccDimValueName_Product} Contains {rstkRows_SOLIine.rstk__formula_dimval6__c}">
                               <arguments>
                                 <argument id="expectedValue">
                                   <value class="variable">
@@ -1267,7 +1265,7 @@
                                 <argument id="actualValue">
                                   <value class="variable">
                                     <path element="rstkRows_SOLIine"/>
-                                    <path element="rstk__formula_dimval3__c"/>
+                                    <path element="rstk__formula_dimval6__c"/>
                                   </value>
                                 </argument>
                                 <argument id="comparisonType">
@@ -1417,6 +1415,9 @@
                                       </arguments>
                                     </apiCall>
                                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="155" title="With rstk__solines__r rows {NAME = $SOLineNumber}">
+                                      <tags>
+                                        <string>disabled</string>
+                                      </tags>
                                       <arguments>
                                         <argument id="uiConnectionName">
                                           <value class="value" valueClass="string">SFConnection</value>
@@ -1508,6 +1509,84 @@
                               <generatedParameters>
                                 <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
                                   <summary>The Id of the SF Object to be Viewed or Edited.</summary>
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="260" title="On My Page Object page">
+                              <arguments>
+                                <argument id="uiConnectionName">
+                                  <value class="value" valueClass="string">SFConnection</value>
+                                </argument>
+                                <argument id="target">
+                                  <value class="uiTarget" uri="ui:pageobject:target?pageId=pageobjects.MyPageObject"/>
+                                </argument>
+                                <argument id="navigate">
+                                  <value class="value" valueClass="string">Dont</value>
+                                </argument>
+                                <argument id="targetDescription">
+                                  <value class="value" valueClass="string">On My Page Object page</value>
+                                </argument>
+                                <argument id="windowSelection">
+                                  <value class="value" valueClass="string">Default</value>
+                                </argument>
+                                <argument id="windowSize">
+                                  <value class="value" valueClass="string">Default</value>
+                                </argument>
+                                <argument id="closeWindow"/>
+                                <argument id="captureBefore">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="captureAfter">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="uiTargetUrl"/>
+                              </arguments>
+                              <clauses>
+                                <clause name="substeps" testItemId="261">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="262" title="UI Assert-Verify Sales Order Lines Related List">
+                                      <arguments>
+                                        <argument id="resultName">
+                                          <value class="value" valueClass="string">Values</value>
+                                        </argument>
+                                        <argument id="resultScope">
+                                          <value class="value" valueClass="string">Test</value>
+                                        </argument>
+                                        <argument id="fieldAssertions">
+                                          <value class="valueList" mutable="Mutable">
+                                            <uiFieldAssertion resultName="LineNAME">
+                                              <fieldLocator uri="ui:pageobject:field?field=LineNAME&amp;pageId=pageobjects.MyPageObject"/>
+                                              <attributeAssertions>
+                                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                                  <value class="variable">
+                                                    <path element="SOLineNumber"/>
+                                                  </value>
+                                                </uiAttributeAssertion>
+                                              </attributeAssertions>
+                                            </uiFieldAssertion>
+                                          </value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="columnAssertions">
+                                          <value class="valueList" mutable="Mutable"/>
+                                        </argument>
+                                        <argument id="pageAssertions">
+                                          <value class="valueList" mutable="Mutable"/>
+                                        </argument>
+                                        <argument id="beforeWait"/>
+                                        <argument id="autoRetry"/>
+                                      </arguments>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
+                              <generatedParameters>
+                                <apiParam group="target" name="uiTargetUrl" title="Web Page">
                                   <type>
                                     <textType/>
                                   </type>
@@ -1788,6 +1867,9 @@
                                       </arguments>
                                     </apiCall>
                                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="162" title="With rstk__soorddmds__r rows {NAME = $SOORDDMD_Name}">
+                                      <tags>
+                                        <string>disabled</string>
+                                      </tags>
                                       <arguments>
                                         <argument id="uiConnectionName">
                                           <value class="value" valueClass="string">SFConnection</value>
@@ -1888,6 +1970,84 @@
                               <generatedParameters>
                                 <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">
                                   <summary>The Id of the SF Object to be Viewed or Edited.</summary>
+                                  <type>
+                                    <textType/>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="263" title="On My Page Object page">
+                              <arguments>
+                                <argument id="uiConnectionName">
+                                  <value class="value" valueClass="string">SFConnection</value>
+                                </argument>
+                                <argument id="target">
+                                  <value class="uiTarget" uri="ui:pageobject:target?pageId=pageobjects.MyPageObject"/>
+                                </argument>
+                                <argument id="navigate">
+                                  <value class="value" valueClass="string">Dont</value>
+                                </argument>
+                                <argument id="targetDescription">
+                                  <value class="value" valueClass="string">On My Page Object page</value>
+                                </argument>
+                                <argument id="windowSelection">
+                                  <value class="value" valueClass="string">Default</value>
+                                </argument>
+                                <argument id="windowSize">
+                                  <value class="value" valueClass="string">Default</value>
+                                </argument>
+                                <argument id="closeWindow"/>
+                                <argument id="captureBefore">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="captureAfter">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="uiTargetUrl"/>
+                              </arguments>
+                              <clauses>
+                                <clause name="substeps" testItemId="264">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="265" title="UI Assert-Verify Sales Order DMD Related List">
+                                      <arguments>
+                                        <argument id="resultName">
+                                          <value class="value" valueClass="string">Values</value>
+                                        </argument>
+                                        <argument id="resultScope">
+                                          <value class="value" valueClass="string">Test</value>
+                                        </argument>
+                                        <argument id="fieldAssertions">
+                                          <value class="valueList" mutable="Mutable">
+                                            <uiFieldAssertion resultName="SOORDDMDNAME">
+                                              <fieldLocator uri="ui:pageobject:field?field=SOORDDMDNAME&amp;pageId=pageobjects.MyPageObject"/>
+                                              <attributeAssertions>
+                                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
+                                                  <value class="variable">
+                                                    <path element="SOORDDMD_Name"/>
+                                                  </value>
+                                                </uiAttributeAssertion>
+                                              </attributeAssertions>
+                                            </uiFieldAssertion>
+                                          </value>
+                                        </argument>
+                                        <argument id="captureAfter">
+                                          <value class="value" valueClass="string">false</value>
+                                        </argument>
+                                        <argument id="columnAssertions">
+                                          <value class="valueList" mutable="Mutable"/>
+                                        </argument>
+                                        <argument id="pageAssertions">
+                                          <value class="valueList" mutable="Mutable"/>
+                                        </argument>
+                                        <argument id="beforeWait"/>
+                                        <argument id="autoRetry"/>
+                                      </arguments>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
+                              <generatedParameters>
+                                <apiParam group="target" name="uiTargetUrl" title="Web Page">
                                   <type>
                                     <textType/>
                                   </type>

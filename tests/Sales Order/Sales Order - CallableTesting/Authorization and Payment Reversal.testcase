@@ -912,7 +912,7 @@
                           <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="afterWait">
-                          <value class="uiWait" uri="ui:wait:timed?seconds=15"/>
+                          <value class="uiWait" uri="ui:wait:timed?seconds=20"/>
                         </argument>
                         <argument id="interactionDescription">
                           <value class="value" valueClass="string">Click the Commit button</value>
@@ -1472,7 +1472,7 @@
                           <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="afterWait">
-                          <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                          <value class="uiWait" uri="ui:wait:timed?seconds=20"/>
                         </argument>
                         <argument id="interactionDescription">
                           <value class="value" valueClass="string">Click the Commit button</value>
@@ -2009,7 +2009,7 @@
                       <clauses>
                         <clause name="substeps" testItemId="186">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="187" title="Set the Select Payment Operation select to {varPayments.SelectPaymentOperationReverse}">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="187" title="Set the Select Payment Operation select to {varPayments.SelectPaymentOperationPrepaymentReverse}">
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=selectPaymentOperation"/>
@@ -2020,7 +2020,7 @@
                                 <argument id="value">
                                   <value class="variable">
                                     <path element="varPayments"/>
-                                    <path element="SelectPaymentOperationReverse"/>
+                                    <path element="SelectPaymentOperationPrepaymentReverse"/>
                                   </value>
                                 </argument>
                                 <argument id="blur">
@@ -2042,7 +2042,7 @@
                                   <value class="uiWait" uri="default"/>
                                 </argument>
                                 <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Select Payment Operation select to {varPayments.SelectPaymentOperationReverse}</value>
+                                  <value class="value" valueClass="string">Set the Select Payment Operation select to {varPayments.SelectPaymentOperationPrepaymentReverse}</value>
                                 </argument>
                                 <argument id="autoRetry"/>
                               </arguments>
@@ -2155,7 +2155,7 @@
                           <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="afterWait">
-                          <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                          <value class="uiWait" uri="ui:wait:timed?seconds=20"/>
                         </argument>
                         <argument id="interactionDescription">
                           <value class="value" valueClass="string">Click the Commit button</value>

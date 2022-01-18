@@ -44,5 +44,12 @@ public WebDriver driver;
                 }
 
 	}
+
+		@LinkType()
+		@FindBy(xpath = "//th[text()='Line']/following::tr//td/following::th//a")
+		public WebElement LineNAME;
+		@LinkType()
+		@FindBy(xpath = "//th[text()='SOORDDMD Name']/following::tr//td/following::th//a")
+		public WebElement SOORDDMDNAME;
 			
 }
