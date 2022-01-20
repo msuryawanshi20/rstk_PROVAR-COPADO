@@ -1502,6 +1502,13 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="205" title="Sleep for {10} seconds">
+                      <arguments>
+                        <argument id="sleepSecs">
+                          <value class="value" valueClass="decimal">10</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="170" title="UI Assert-Read Payment Status">
                       <arguments>
                         <argument id="fieldAssertions">
@@ -2009,7 +2016,11 @@
                       <clauses>
                         <clause name="substeps" testItemId="186">
                           <steps>
+<<<<<<< HEAD
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="187" title="Set the Select Payment Operation select to {varPayments.SelectPaymentOperationPrepaymentReverse}">
+=======
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="187" title="Set the Select Payment Operation select to {varPayments.SelectPaymentOperationPrepayReverse}">
+>>>>>>> Test-Branch
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=selectPaymentOperation"/>
@@ -2020,7 +2031,11 @@
                                 <argument id="value">
                                   <value class="variable">
                                     <path element="varPayments"/>
+<<<<<<< HEAD
                                     <path element="SelectPaymentOperationPrepaymentReverse"/>
+=======
+                                    <path element="SelectPaymentOperationPrepayReverse"/>
+>>>>>>> Test-Branch
                                   </value>
                                 </argument>
                                 <argument id="blur">
@@ -2042,7 +2057,11 @@
                                   <value class="uiWait" uri="default"/>
                                 </argument>
                                 <argument id="interactionDescription">
+<<<<<<< HEAD
                                   <value class="value" valueClass="string">Set the Select Payment Operation select to {varPayments.SelectPaymentOperationPrepaymentReverse}</value>
+=======
+                                  <value class="value" valueClass="string">Set the Select Payment Operation select to {varPayments.SelectPaymentOperationPrepayReverse}</value>
+>>>>>>> Test-Branch
                                 </argument>
                                 <argument id="autoRetry"/>
                               </arguments>
@@ -2184,6 +2203,13 @@
                           </type>
                         </apiParam>
                       </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="206" title="Sleep for {10} seconds">
+                      <arguments>
+                        <argument id="sleepSecs">
+                          <value class="value" valueClass="decimal">10</value>
+                        </argument>
+                      </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="190" title="UI Assert-Read Payment Status">
                       <arguments>
