@@ -109,10 +109,11 @@ public class rstk__Woreceipt {
 
 	public void selectWorkOrder(String WorkOrder) throws InterruptedException {
 		List<WebElement> workOrderList = driver.findElements(By.xpath(
-				"//label[normalize-space(.)='Work Order']/ancestor::span/ancestor::th/following-sibling::td//option"));
+				"//label[normalize-space(.)='Work Order']/parent::span/parent::th/following-sibling::td//option"));
 		for (int i = 0; i < workOrderList.size(); i++) {
 			if (workOrderList.get(i).getText().contains(WorkOrder)) {
 				workOrderList.get(i).click();
+				Thread.sleep(2000);
 
 			}
 		}

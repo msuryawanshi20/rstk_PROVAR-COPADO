@@ -28,5 +28,14 @@ public class rstk__SormhView {
 	@ButtonType()
 	@FindByLabel(label = "RMA Detail Mass Ship")
 	public WebElement rMADetailMassShip;
+	@ButtonType()
+	@FindByLabel(label = "Quick Create RMA Details")
+	public WebElement quickCreateRMADetails;
+	@LinkType()
+	@FindBy(xpath = "//a[@name='createCreditMemoLink']")
+	public WebElement creditMemo;
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='Credit Memo']/ancestor::th/following-sibling::td[1]")
+	public WebElement creditMemoNumber;
 	
 }

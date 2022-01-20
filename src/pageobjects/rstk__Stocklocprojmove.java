@@ -1,7 +1,5 @@
 package pageobjects;
 
-
-
 import java.util.logging.Logger;
 
 import org.openqa.selenium.By;
@@ -12,13 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.provar.core.testapi.annotations.*;
 
-@SalesforcePage( title="Rstk__ Stocklocprojmove"                                
-               , summary=""
-               , page="Stocklocprojmove"
-               , namespacePrefix="rstk"
-               , object="rstk__locadd__c"
-               , connection="QARSF_Admin"
-     )             
+@SalesforcePage(title = "Rstk__ Stocklocprojmove", summary = "", page = "Stocklocprojmove", namespacePrefix = "rstk", object = "rstk__locadd__c", connection = "QARSF_Admin")
 public class rstk__Stocklocprojmove {
 	public WebDriver driver;
 
@@ -47,6 +39,10 @@ public class rstk__Stocklocprojmove {
 	@TextType()
 	@FindBy(xpath = "//input[contains(@id,'locmove_toproj__c_autocomplete')]")
 	public WebElement searchToProject;
+
+	@ChoiceListType()
+	@FindBy(xpath = "//label[normalize-space(.)='Stock Loc ID']/ancestor::span/ancestor::th/following-sibling::td//select")
+	public WebElement stockLocID;
 
 	@ButtonType()
 	@FindByLabel(label = "Display Proj Move Entries")

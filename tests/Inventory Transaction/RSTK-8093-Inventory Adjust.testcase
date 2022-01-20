@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="35">
+<testCase failureBehaviour="Continue" id="17">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -415,7 +415,7 @@
                                     <apiParam name="CycleCount"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ItemName" whereValue="{op_ItemDetailsRow.ItemNo}">
-                                    <workbookPath class="value" valueClass="string">templates/QA-RSF/RSTK-8093-Inventory Location Adjustment.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-8093-Inventory Location Adjustment.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">Inventory Location details</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:J</valuesRange>
                                   </sourceValue>
