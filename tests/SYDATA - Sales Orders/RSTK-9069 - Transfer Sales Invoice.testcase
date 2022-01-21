@@ -52,7 +52,7 @@
       <clauses>
         <clause name="hidden" testItemId="40">
           <steps>
-            <caseCall testCaseId="ebb259de-4317-480b-807e-548e3d043472" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="41">
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="60">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -70,6 +70,9 @@
                 </outputArgument>
                 <outputArgument id="ExcelPath_SYDATA">
                   <name class="value" valueClass="string">ExcelPath_SYDATA</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_AR">
+                  <name class="value" valueClass="string">ExcelPath_AR</name>
                 </outputArgument>
               </outputArguments>
             </caseCall>

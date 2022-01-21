@@ -44,7 +44,45 @@
       </arguments>
       <parameterValueSources/>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="66" title="Read Data for SOAPI Add Header">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="66" title="Read Excel Path">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Excel Path</value>
+        </argument>
+      </arguments>
+      <parameterValueSources/>
+      <clauses>
+        <clause name="hidden" testItemId="67">
+          <steps>
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="103">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="ExcelPath_SOAPI">
+                  <name class="value" valueClass="string">ExcelPath_SOAPI</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SalesOrder_BaseData_SOAPI">
+                  <name class="value" valueClass="string">ExcelPath_SalesOrder_BaseData_SOAPI</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_CustomerMaster">
+                  <name class="value" valueClass="string">ExcelPath_CustomerMaster</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SYDATA">
+                  <name class="value" valueClass="string">ExcelPath_SYDATA</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_AR">
+                  <name class="value" valueClass="string">ExcelPath_AR</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="101" title="Read Data for SOAPI Add Header">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read Data for SOAPI Add Header</value>
@@ -52,25 +90,16 @@
       </arguments>
       <parameterValueSources>
         <parameterValueSource variableName="SourceData_AddHeader" variableScope="Test">
-          <cacheToken>C:/Users/Ashok/Automation/rsqasampleproj/templates/SOAPI.xlsx;1621778534821</cacheToken>
-          <cachedParameters>
-            <apiParam name="APIMode"/>
-            <apiParam name="AsynchronousProcessing"/>
-            <apiParam name="InventoryDivision"/>
-            <apiParam name="SalesDivision"/>
-            <apiParam name="Customer"/>
-            <apiParam name="ManufacturingUser"/>
-            <apiParam name="RecordProcessed"/>
-          </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/SOAPI.xlsx</workbookPath>
+            <workbookPath class="variable">
+              <path element="ExcelPath_SOAPI"/>
+            </workbookPath>
             <worksheetName class="value" valueClass="string">Add Header</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
       <clauses>
-        <clause name="hidden" testItemId="67"/>
+        <clause name="hidden" testItemId="102"/>
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="16" title="For Each: {SourceData_AddHeader}=&gt;Row_AddHeader">

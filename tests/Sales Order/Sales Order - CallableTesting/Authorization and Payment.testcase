@@ -912,7 +912,7 @@
                           <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="afterWait">
-                          <value class="uiWait" uri="ui:wait:timed?seconds=15"/>
+                          <value class="uiWait" uri="ui:wait:timed?seconds=20"/>
                         </argument>
                         <argument id="interactionDescription">
                           <value class="value" valueClass="string">Click the Commit button</value>
@@ -941,6 +941,16 @@
                           </type>
                         </apiParam>
                       </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="181" title="Sleep for {10} seconds">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
+                      <arguments>
+                        <argument id="sleepSecs">
+                          <value class="value" valueClass="decimal">10</value>
+                        </argument>
+                      </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="149" title="UI Assert-Read Payment Status">
                       <arguments>
@@ -1477,7 +1487,9 @@
                         <argument id="interactionDescription">
                           <value class="value" valueClass="string">Click the Commit button</value>
                         </argument>
-                        <argument id="autoRetry"/>
+                        <argument id="autoRetry">
+                          <value class="uiWait" uri="ui:wait:autoRetry:timeout=20"/>
+                        </argument>
                         <argument id="ieClickMethod">
                           <value class="value" valueClass="string">Default</value>
                         </argument>
@@ -1502,7 +1514,14 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
+<<<<<<< HEAD
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="182" title="Sleep for {10} seconds">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
+=======
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="181" title="Sleep for {10} seconds">
+>>>>>>> Test-Branch
                       <arguments>
                         <argument id="sleepSecs">
                           <value class="value" valueClass="decimal">10</value>

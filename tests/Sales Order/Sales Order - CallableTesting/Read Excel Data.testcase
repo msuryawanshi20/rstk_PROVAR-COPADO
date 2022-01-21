@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="5" registryId="ebb259de-4317-480b-807e-548e3d043472" visibility="Internal">
+<testCase id="5" registryId="45166f67-6482-468a-9d8a-64329d6e898c" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -188,7 +188,7 @@
                                 <value class="value" valueClass="string">wb_ExcelPath_CustomerMaster</value>
                               </namedValue>
                               <namedValue name="value">
-                                <value class="value" valueClass="string">templates/AutomationOrg/CustomerMaster.xlsx</value>
+                                <value class="value" valueClass="string">templates/QARSF/CustomerMaster.xlsx</value>
                               </namedValue>
                               <namedValue name="valueScope">
                                 <value class="value" valueClass="string">Test</value>
@@ -207,7 +207,7 @@
                                 <value class="value" valueClass="string">wb_ExcelPath_SOAPI</value>
                               </namedValue>
                               <namedValue name="value">
-                                <value class="template">templates/QARSF/SOAPI.xlsx</value>
+                                <value class="value" valueClass="string">templates/QARSF/SOAPI.xlsx</value>
                               </namedValue>
                               <namedValue name="valueScope">
                                 <value class="value" valueClass="string">Test</value>
@@ -226,7 +226,7 @@
                                 <value class="value" valueClass="string">wb_ExcelPath_SalesOrder_BaseData_SOAPI</value>
                               </namedValue>
                               <namedValue name="value">
-                                <value class="value" valueClass="string">templates\\QARSF\\SalesOrder_BaseData_SOAPI.xlsx</value>
+                                <value class="value" valueClass="string">templates/QARSF/SalesOrder_BaseData_SOAPI.xlsx</value>
                               </namedValue>
                               <namedValue name="valueScope">
                                 <value class="value" valueClass="string">Test</value>
@@ -245,7 +245,7 @@
                                 <value class="value" valueClass="string">wb_ExcelPath_SYDATA</value>
                               </namedValue>
                               <namedValue name="value">
-                                <value class="value" valueClass="string">templates/AutomationOrg/SYDATA.xlsx</value>
+                                <value class="value" valueClass="string">templates/QARSF/SYDATA.xlsx</value>
                               </namedValue>
                               <namedValue name="valueScope">
                                 <value class="value" valueClass="string">Test</value>

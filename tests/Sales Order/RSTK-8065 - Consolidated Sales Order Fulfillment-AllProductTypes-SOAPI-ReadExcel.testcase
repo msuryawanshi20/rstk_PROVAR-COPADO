@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="9">
+<testCase id="0">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -53,7 +53,7 @@
       <clauses>
         <clause name="hidden" testItemId="67">
           <steps>
-            <caseCall testCaseId="ebb259de-4317-480b-807e-548e3d043472" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="100">
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="334">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -65,6 +65,15 @@
                 </outputArgument>
                 <outputArgument id="ExcelPath_SalesOrder_BaseData_SOAPI">
                   <name class="value" valueClass="string">ExcelPath_SalesOrder_BaseData_SOAPI</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_CustomerMaster">
+                  <name class="value" valueClass="string">ExcelPath_CustomerMaster</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SYDATA">
+                  <name class="value" valueClass="string">ExcelPath_SYDATA</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_AR">
+                  <name class="value" valueClass="string">ExcelPath_AR</name>
                 </outputArgument>
               </outputArguments>
             </caseCall>
@@ -133,6 +142,7 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="276" title="Read On Hand Qty Before SO Shipment">
+      <tags/>
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read On Hand Qty Before SO Shipment</value>
@@ -141,92 +151,6 @@
       <clauses>
         <clause name="hidden" testItemId="277">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="307" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
-              <arguments>
-                <argument id="condition">
-                  <value class="eq">
-                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="308">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="309" title="Set Values: wb_Quantitypath">
-                      <arguments>
-                        <argument id="values">
-                          <value class="valueList" mutable="Mutable">
-                            <namedValues mutable="Mutable">
-                              <namedValue name="valuePath">
-                                <value class="value" valueClass="string">wb_Quantitypath</value>
-                              </namedValue>
-                              <namedValue name="value">
-                                <value class="variable">
-                                  <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
-                                </value>
-                              </namedValue>
-                              <namedValue name="valueScope">
-                                <value class="value" valueClass="string">Test</value>
-                              </namedValue>
-                            </namedValues>
-                          </value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="310" title="Set Values: ws_quantity">
-                      <arguments>
-                        <argument id="values">
-                          <value class="valueList" mutable="Mutable">
-                            <namedValues mutable="Mutable">
-                              <namedValue name="valuePath">
-                                <value class="value" valueClass="string">ws_quantity</value>
-                              </namedValue>
-                              <namedValue name="value">
-                                <value class="value" valueClass="string">InventoryQuantity</value>
-                              </namedValue>
-                              <namedValue name="valueScope">
-                                <value class="value" valueClass="string">Test</value>
-                              </namedValue>
-                            </namedValues>
-                          </value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                    <caseCall testCaseId="fb25e9f2-c38a-44b3-90f8-52830d59d796" testCasePath="tests/PO_SYDATA/Callable/Inventory QuantityOnHand.testcase" testItemId="311">
-                      <arguments>
-                        <argument id="reuseConnectionName">
-                          <value class="value" valueClass="string">SFConnection</value>
-                        </argument>
-                        <argument id="SrcData_InvyQty">
-                          <value class="variable">
-                            <path element="SrcData_InvyQty"/>
-                          </value>
-                        </argument>
-                        <argument id="wb_Quantitypath">
-                          <value class="variable">
-                            <path element="wb_Quantitypath"/>
-                          </value>
-                        </argument>
-                        <argument id="ws_quantity">
-                          <value class="variable">
-                            <path element="ws_quantity"/>
-                          </value>
-                        </argument>
-                        <argument id="Quantity">
-                          <value class="value" valueClass="string">QuantityBefore</value>
-                        </argument>
-                      </arguments>
-                      <outputArguments>
-                        <outputArgument id="QtyOnHand">
-                          <name class="value" valueClass="string">QtyOnHand</name>
-                        </outputArgument>
-                      </outputArguments>
-                    </caseCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="278" title="Set Values: wb_Quantitypath">
               <tags>
                 <string>disabled</string>
@@ -305,6 +229,9 @@
               </outputArguments>
             </caseCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="312" title="If: {GetSelectedEnvironment() = &quot;QARSF&quot;}">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="condition">
                   <value class="eq">
@@ -390,6 +317,142 @@
                 </clause>
               </clauses>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="328" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
+              <tags>
+                <string>disabled</string>
+              </tags>
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="329">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="330" title="Set Values: wb_Quantitypath">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">wb_Quantitypath</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="331" title="Set Values: ws_quantity">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">ws_quantity</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">InventoryQuantity</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <caseCall testCaseId="fb25e9f2-c38a-44b3-90f8-52830d59d796" testCasePath="tests/PO_SYDATA/Callable/Inventory QuantityOnHand.testcase" testItemId="332">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="SrcData_InvyQty">
+                          <value class="variable">
+                            <path element="SrcData_InvyQty"/>
+                          </value>
+                        </argument>
+                        <argument id="wb_Quantitypath">
+                          <value class="variable">
+                            <path element="wb_Quantitypath"/>
+                          </value>
+                        </argument>
+                        <argument id="ws_quantity">
+                          <value class="variable">
+                            <path element="ws_quantity"/>
+                          </value>
+                        </argument>
+                        <argument id="Quantity">
+                          <value class="value" valueClass="string">QuantityBefore</value>
+                        </argument>
+                        <argument id="ExcelPath_SalesOrder_BaseData_SOAPI">
+                          <value class="variable">
+                            <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <outputArguments>
+                        <outputArgument id="QtyOnHand">
+                          <name class="value" valueClass="string">QtyOnHand</name>
+                        </outputArgument>
+                      </outputArguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <caseCall testCaseId="fb25e9f2-c38a-44b3-90f8-52830d59d796" testCasePath="tests/PO_SYDATA/Callable/Inventory QuantityOnHand.testcase" testItemId="333">
+              <tags/>
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="SrcData_InvyQty">
+                  <value class="variable">
+                    <path element="SrcData_InvyQty"/>
+                  </value>
+                </argument>
+                <argument id="wb_Quantitypath">
+                  <value class="variable">
+                    <path element="wb_Quantitypath"/>
+                  </value>
+                </argument>
+                <argument id="ws_quantity">
+                  <value class="variable">
+                    <path element="ws_quantity"/>
+                  </value>
+                </argument>
+                <argument id="Quantity">
+                  <value class="value" valueClass="string">QuantityBefore</value>
+                </argument>
+                <argument id="ExcelPath_SalesOrder_BaseData_SOAPI">
+                  <value class="variable">
+                    <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="QtyOnHand">
+                  <name class="value" valueClass="string">QtyOnHand</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
           </steps>
         </clause>
       </clauses>
@@ -593,6 +656,7 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="299" title="Verify Dimensions">
+      <tags/>
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Verify Dimensions</value>
@@ -628,6 +692,7 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="302" title="Read On Hand Qty After SO Shipment">
+      <tags/>
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read On Hand Qty After SO Shipment</value>
@@ -637,9 +702,7 @@
         <clause name="hidden" testItemId="303">
           <steps>
             <caseCall testCaseId="fb25e9f2-c38a-44b3-90f8-52830d59d796" testCasePath="tests/PO_SYDATA/Callable/Inventory QuantityOnHand.testcase" testItemId="304">
-              <tags>
-                <string>disabled</string>
-              </tags>
+              <tags/>
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -662,6 +725,11 @@
                 <argument id="Quantity">
                   <value class="value" valueClass="string">QuantityAfter</value>
                 </argument>
+                <argument id="ExcelPath_SalesOrder_BaseData_SOAPI">
+                  <value class="variable">
+                    <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+                  </value>
+                </argument>
               </arguments>
               <outputArguments>
                 <outputArgument id="QtyOnHand">
@@ -670,6 +738,9 @@
               </outputArguments>
             </caseCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="317" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="condition">
                   <value class="eq">
@@ -756,6 +827,9 @@
               </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="322" title="If: {GetSelectedEnvironment() = &quot;QARSF&quot;}">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="condition">
                   <value class="eq">
@@ -829,6 +903,11 @@
                         </argument>
                         <argument id="Quantity">
                           <value class="value" valueClass="string">QuantityAfter</value>
+                        </argument>
+                        <argument id="ExcelPath_SalesOrder_BaseData_SOAPI">
+                          <value class="variable">
+                            <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+                          </value>
                         </argument>
                       </arguments>
                       <outputArguments>

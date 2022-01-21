@@ -44,6 +44,44 @@
       </arguments>
       <parameterValueSources/>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="103" title="Read Excel Path">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Excel Path</value>
+        </argument>
+      </arguments>
+      <parameterValueSources/>
+      <clauses>
+        <clause name="hidden" testItemId="104">
+          <steps>
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="105">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="ExcelPath_SOAPI">
+                  <name class="value" valueClass="string">ExcelPath_SOAPI</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SalesOrder_BaseData_SOAPI">
+                  <name class="value" valueClass="string">ExcelPath_SalesOrder_BaseData_SOAPI</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_CustomerMaster">
+                  <name class="value" valueClass="string">ExcelPath_CustomerMaster</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SYDATA">
+                  <name class="value" valueClass="string">ExcelPath_SYDATA</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_AR">
+                  <name class="value" valueClass="string">ExcelPath_AR</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="66" title="Read Data for SOAPI Add Header">
       <arguments>
         <argument id="description">
@@ -63,9 +101,11 @@
             <apiParam name="RecordProcessed"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/SOAPI.xlsx</workbookPath>
+            <workbookPath class="variable">
+              <path element="ExcelPath_SOAPI"/>
+            </workbookPath>
             <worksheetName class="value" valueClass="string">Change Header</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -400,9 +440,11 @@
             <apiParam name="RecordProcessed"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/SOAPI.xlsx</workbookPath>
+            <workbookPath class="variable">
+              <path element="ExcelPath_SOAPI"/>
+            </workbookPath>
             <worksheetName class="value" valueClass="string">Change Header</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -580,7 +622,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.DoWhile" name="DoWhile" testItemId="99" title="While: {rstkRows_ChangeHeader.rstk__soapi_processed__c = &quot;false&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.DoWhile" name="DoWhile" testItemId="102" title="While: {rstkRows_ChangeHeader.rstk__soapi_processed__c = &quot;false&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">

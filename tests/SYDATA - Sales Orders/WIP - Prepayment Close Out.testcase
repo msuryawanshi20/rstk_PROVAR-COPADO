@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="2">
+<testCase id="41">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -52,7 +52,7 @@
       <clauses>
         <clause name="hidden" testItemId="20">
           <steps>
-            <caseCall testCaseId="ebb259de-4317-480b-807e-548e3d043472" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="23">
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="29">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -70,6 +70,9 @@
                 </outputArgument>
                 <outputArgument id="ExcelPath_SYDATA">
                   <name class="value" valueClass="string">ExcelPath_SYDATA</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_AR">
+                  <name class="value" valueClass="string">ExcelPath_AR</name>
                 </outputArgument>
               </outputArguments>
             </caseCall>
@@ -203,6 +206,11 @@
                 <argument id="SourceData_Prepayment">
                   <value class="variable">
                     <path element="SourceData_Prepayment"/>
+                  </value>
+                </argument>
+                <argument id="OrderNumber">
+                  <value class="variable">
+                    <path element="OrderNumber"/>
                   </value>
                 </argument>
               </arguments>

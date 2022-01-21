@@ -43,6 +43,44 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="142" title="Read Excel Path">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Excel Path</value>
+        </argument>
+      </arguments>
+      <parameterValueSources/>
+      <clauses>
+        <clause name="hidden" testItemId="110">
+          <steps>
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="143">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="ExcelPath_SOAPI">
+                  <name class="value" valueClass="string">ExcelPath_SOAPI</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SalesOrder_BaseData_SOAPI">
+                  <name class="value" valueClass="string">ExcelPath_SalesOrder_BaseData_SOAPI</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_CustomerMaster">
+                  <name class="value" valueClass="string">ExcelPath_CustomerMaster</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SYDATA">
+                  <name class="value" valueClass="string">ExcelPath_SYDATA</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_AR">
+                  <name class="value" valueClass="string">ExcelPath_AR</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="40" title="Read Data for SOAPI Add Header">
       <arguments>
         <argument id="description">
@@ -66,7 +104,9 @@
             <apiParam name="RecordProcessed"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/SOAPI.xlsx</workbookPath>
+            <workbookPath class="variable">
+              <path element="ExcelPath_SOAPI"/>
+            </workbookPath>
             <worksheetName class="value" valueClass="string">Delete Header</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
