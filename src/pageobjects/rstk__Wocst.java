@@ -17,14 +17,7 @@ import com.provar.core.testapi.annotations.PageWaitAfter;
 import com.provar.core.testapi.annotations.SalesforcePage;
 import com.provar.core.testapi.annotations.TextType;
 
-
-@SalesforcePage( title="Rstk__ Wocst"                                
-               , summary=""
-               , page="Wocst"
-               , namespacePrefix="rstk"
-               , object="rstk__wocst__c"
-               , connection="QARSF_Admin"
-     )     
+@SalesforcePage(title = "Rstk__ Wocst", summary = "", page = "Wocst", namespacePrefix = "rstk", object = "rstk__wocst__c", connection = "QARSF_Admin")
 
 public class rstk__Wocst {
 
@@ -35,11 +28,11 @@ public class rstk__Wocst {
 	}
 
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Site']/parent::span/parent::th/following-sibling::td[1]//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Site']/ancestor::span/ancestor::th/following-sibling::td[1]//select")
 	public WebElement Site;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Order Number']/parent::span/parent::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Order Number']/ancestor::span/ancestor::th/following-sibling::td[1]//input")
 	public WebElement orderNumber;
 
 	public void selectInventoryItem(String InventoryItemName) throws InterruptedException {
@@ -84,15 +77,15 @@ public class rstk__Wocst {
 	}
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Qty Required']/parent::span/parent::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Qty Required']/ancestor::span/ancestor::th/following-sibling::td[1]//input")
 	public WebElement qtyRequired;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Qty Required']/parent::span/parent::th/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Qty Required']/ancestor::span/ancestor::th/following-sibling::td[1]//span")
 	public WebElement readQtyRequired;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Due Date']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Due Date']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement dueDate;
 
 	@ButtonType()
@@ -100,20 +93,20 @@ public class rstk__Wocst {
 	public WebElement save;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Order Number']/parent::span/parent::th/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Order Number']/ancestor::span/ancestor::th/following-sibling::td[1]//span")
 	public WebElement orderNumber1;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Status']/parent::span/parent::th/following-sibling::td//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Status']/ancestor::span/ancestor::th/following-sibling::td//span")
 	public WebElement status;
 
 	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Project Charge Code']/parent::th/following-sibling::td//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Project Charge Code']/ancestor::th/following-sibling::td//select")
 	public WebElement projectChargeCode;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Project']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Project']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement project;
 
 	@TextType()
@@ -131,6 +124,10 @@ public class rstk__Wocst {
 	@ButtonType()
 	@FindBy(xpath = "//input[@id='allocateDemandsBtn']")
 	public WebElement allocate;
+
+	@ButtonType()
+	@FindBy(xpath = "//*[contains(@value,'Deallocate')]")
+	public WebElement deallocate;
 
 	@ButtonType()
 	@FindBy(xpath = "//input[@id='generatePickListRecords']")
@@ -152,11 +149,11 @@ public class rstk__Wocst {
 	public WebElement lot;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Lot Number']/parent::span/parent::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Lot Number']/ancestor::span/ancestor::th/following-sibling::td[1]//input")
 	public WebElement lotNumber;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Lot Expiration Date']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Lot Expiration Date']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement lotExpirationDate;
 
 	@ButtonType()
@@ -219,17 +216,17 @@ public class rstk__Wocst {
 	public WebElement addConcurrentOperation;
 
 	@BooleanType()
-	@FindBy(xpath = "//label[normalize-space(.)='Rework']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Rework']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement rework;
 
 	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@PageWait.Field(timeoutSeconds = 10)
 	@BooleanType()
-	@FindBy(xpath = "//label[normalize-space(.)='Refurb']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Refurb']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement refurb;
 
 	@BooleanType()
-	@FindBy(xpath = "//label[normalize-space(.)='Consigned']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Consigned']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement consigned;
 
 	@ButtonType()
@@ -263,47 +260,47 @@ public class rstk__Wocst {
 	public WebElement tab_Totalcost_lbl;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Material']/parent::td/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Material']/ancestor::td/following-sibling::td[1]//span")
 	public WebElement charges_Material;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Labor']/parent::td/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Labor']/ancestor::td/following-sibling::td[1]//span")
 	public WebElement charges_Labor;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Material Overhead']/parent::td/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Material Overhead']/ancestor::td/following-sibling::td[1]//span")
 	public WebElement charges_MaterialOverhead;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Labor Overhead']/parent::td/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Labor Overhead']/ancestor::td/following-sibling::td[1]//span")
 	public WebElement charges_LaborOverhead;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Fringe Overhead']/parent::td/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Fringe Overhead']/ancestor::td/following-sibling::td[1]//span")
 	public WebElement charges_FringeOverhead;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Machine Overhead']/parent::td/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Machine Overhead']/ancestor::td/following-sibling::td[1]//span")
 	public WebElement charges_MachineOverhead;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Subcontract Material']/parent::td/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Subcontract Material']/ancestor::td/following-sibling::td[1]//span")
 	public WebElement charges_SubcontractMaterial;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Subcontract Labor']/parent::td/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Subcontract Labor']/ancestor::td/following-sibling::td[1]//span")
 	public WebElement charges_SubcontractLabor;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Freight']/parent::td/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Freight']/ancestor::td/following-sibling::td[1]//span")
 	public WebElement charges_Freight;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Other Indirect']/parent::td/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Other Indirect']/ancestor::td/following-sibling::td[1]//span")
 	public WebElement charges_OtherIndirect;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Total Charges']/parent::td/following-sibling::td[1]//span")
+	@FindBy(xpath = "//label[normalize-space(.)='Total Charges']/ancestor::td/following-sibling::td[1]//span")
 	public WebElement charges_TotalCharges;
 
 }

@@ -974,6 +974,52 @@
                             </apiCall>
                           </steps>
                         </clause>
+                        <clause name="else" testItemId="136">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="137" title="Uncheck the Setup Labor field">
+                              <arguments>
+                                <argument id="locator">
+                                  <value class="uiLocator" uri="ui:locator?name=setupLabor"/>
+                                </argument>
+                                <argument id="captureBefore">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="captureAfter">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="beforeWait">
+                                  <value class="uiWait" uri="default"/>
+                                </argument>
+                                <argument id="afterWait">
+                                  <value class="uiWait" uri="default"/>
+                                </argument>
+                                <argument id="interactionDescription">
+                                  <value class="value" valueClass="string">Uncheck the Setup Labor field</value>
+                                </argument>
+                                <argument id="autoRetry"/>
+                                <argument id="interaction">
+                                  <value class="uiInteraction" uri="ui:interaction?name=uncheck"/>
+                                </argument>
+                                <argument id="ieClickMethod">
+                                  <value class="value" valueClass="string">Default</value>
+                                </argument>
+                              </arguments>
+                              <generatedParameters>
+                                <apiParam group="value" name="ieClickMethod" seq="10000" title="IE Click Method">
+                                  <summary>How the click should be executed for Internet Explorer.</summary>
+                                  <type>
+                                    <choiceType>
+                                      <constraints>
+                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                                      </constraints>
+                                    </choiceType>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
+                          </steps>
+                        </clause>
                       </clauses>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="104" title="Set Complete Flag">
@@ -1020,6 +1066,52 @@
                                 <argument id="autoRetry"/>
                                 <argument id="interaction">
                                   <value class="uiInteraction" uri="ui:interaction?name=check"/>
+                                </argument>
+                                <argument id="ieClickMethod">
+                                  <value class="value" valueClass="string">Default</value>
+                                </argument>
+                              </arguments>
+                              <generatedParameters>
+                                <apiParam group="value" name="ieClickMethod" seq="10000" title="IE Click Method">
+                                  <summary>How the click should be executed for Internet Explorer.</summary>
+                                  <type>
+                                    <choiceType>
+                                      <constraints>
+                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                                      </constraints>
+                                    </choiceType>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="134">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="135" title="Uncheck the Complete field">
+                              <arguments>
+                                <argument id="locator">
+                                  <value class="uiLocator" uri="ui:locator?name=complete"/>
+                                </argument>
+                                <argument id="captureBefore">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="captureAfter">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="beforeWait">
+                                  <value class="uiWait" uri="default"/>
+                                </argument>
+                                <argument id="afterWait">
+                                  <value class="uiWait" uri="default"/>
+                                </argument>
+                                <argument id="interactionDescription">
+                                  <value class="value" valueClass="string">Uncheck the Complete field</value>
+                                </argument>
+                                <argument id="autoRetry"/>
+                                <argument id="interaction">
+                                  <value class="uiInteraction" uri="ui:interaction?name=uncheck"/>
                                 </argument>
                                 <argument id="ieClickMethod">
                                   <value class="value" valueClass="string">Default</value>

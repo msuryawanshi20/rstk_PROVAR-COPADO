@@ -158,7 +158,7 @@ public class rstk__Stocklocdivsitemove {
 	public WebElement ToProject;
 
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Move Option']/parent::th/following-sibling::td[1]//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Move Option']/ancestor::th/following-sibling::td[1]//select")
 	public WebElement locmove_moveoption__c;
 
 	@ButtonType()

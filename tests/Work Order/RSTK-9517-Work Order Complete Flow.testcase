@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="5">
+<testCase failureBehaviour="Continue" id="43">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -51,26 +51,7 @@
           <value class="value" valueClass="string">Read Excel Data</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="op_excelData" variableScope="Test">
-          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx;1631618974053</cacheToken>
-          <cachedParameters>
-            <apiParam name="RowNumber"/>
-            <apiParam name="Site"/>
-            <apiParam name="ItemNumber"/>
-            <apiParam name="QtyRequired"/>
-            <apiParam name="DueDate"/>
-            <apiParam name="Project"/>
-            <apiParam name="ProjectChargeCode"/>
-            <apiParam name="ExtractOperationsAndComponent"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">Create WO</worksheetName>
-            <valuesRange class="value" valueClass="string">A:G</valuesRange>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
       <clauses>
         <clause name="hidden" testItemId="154">
           <steps>
@@ -174,6 +155,118 @@
                   </type>
                 </apiParam>
               </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="174" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                    <rhs class="value" valueClass="string">PDE5</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="905">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="181" title="Read Excel Data">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read Excel Data</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="op_excelData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="Site"/>
+                            <apiParam name="ItemNumber"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Create WO</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:G</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="73"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="906">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="eq">
+                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                            <rhs class="value" valueClass="string">Automation</rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="919">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="179" title="Read Excel Data">
+                              <arguments>
+                                <argument id="description">
+                                  <value class="value" valueClass="string">Read Excel Data</value>
+                                </argument>
+                              </arguments>
+                              <parameterValueSources>
+                                <parameterValueSource variableName="op_excelData" variableScope="Test">
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                  <cachedParameters>
+                                    <apiParam name="Site"/>
+                                    <apiParam name="ItemNumber"/>
+                                  </cachedParameters>
+                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                    <worksheetName class="value" valueClass="string">Create WO</worksheetName>
+                                    <valuesRange class="value" valueClass="string">A:G</valuesRange>
+                                  </sourceValue>
+                                </parameterValueSource>
+                              </parameterValueSources>
+                              <clauses>
+                                <clause name="hidden" testItemId="182"/>
+                              </clauses>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="922">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="57" title="Read Excel Data">
+                              <arguments>
+                                <argument id="description">
+                                  <value class="value" valueClass="string">Read Excel Data</value>
+                                </argument>
+                              </arguments>
+                              <parameterValueSources>
+                                <parameterValueSource variableName="op_excelData" variableScope="Test">
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                  <cachedParameters>
+                                    <apiParam name="Site"/>
+                                    <apiParam name="ItemNumber"/>
+                                  </cachedParameters>
+                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                    <worksheetName class="value" valueClass="string">Create WO</worksheetName>
+                                    <valuesRange class="value" valueClass="string">A:G</valuesRange>
+                                  </sourceValue>
+                                </parameterValueSource>
+                              </parameterValueSources>
+                              <clauses>
+                                <clause name="hidden" testItemId="180"/>
+                              </clauses>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
             </apiCall>
           </steps>
         </clause>
@@ -546,59 +639,203 @@
                                   <value class="value" valueClass="string">Read Componet and Operation Data</value>
                                 </argument>
                               </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_componentExcelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Work Order.xlsx;1629905609740</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="ItemNumber"/>
-                                    <apiParam name="ComponentItem"/>
-                                    <apiParam name="EnterQtyPerFlag"/>
-                                    <apiParam name="EnterComponentQtyFlag"/>
-                                    <apiParam name="FixedComponentQtyFlag"/>
-                                    <apiParam name="ComponentQty"/>
-                                    <apiParam name="ScrapFactor"/>
-                                    <apiParam name="SetupQty"/>
-                                    <apiParam name="Comments"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Add Component</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:I</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                                <parameterValueSource variableName="op_operationExcelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx;1633080995115</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="RowNumber"/>
-                                    <apiParam name="ItemNumber"/>
-                                    <apiParam name="OperationType"/>
-                                    <apiParam name="OperationNumber"/>
-                                    <apiParam name="Description"/>
-                                    <apiParam name="Process"/>
-                                    <apiParam name="WorkCenter"/>
-                                    <apiParam name="AssignedTo"/>
-                                    <apiParam name="ConcurrentSeq"/>
-                                    <apiParam name="SetupType"/>
-                                    <apiParam name="SetupLaborGrade"/>
-                                    <apiParam name="SetupStandardHours"/>
-                                    <apiParam name="RunType"/>
-                                    <apiParam name="RunLaborGrade"/>
-                                    <apiParam name="RunStandardHours"/>
-                                    <apiParam name="MachineType"/>
-                                    <apiParam name="MachineNumber"/>
-                                    <apiParam name="StandardMachineHours"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Add Operation</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:S</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
+                              <parameterValueSources/>
                               <clauses>
                                 <clause name="hidden" testItemId="124">
                                   <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="231" title="Read Componet and Operation Data">
+                                      <arguments>
+                                        <argument id="condition">
+                                          <value class="eq">
+                                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                                            <rhs class="value" valueClass="string">PDE5</rhs>
+                                          </value>
+                                        </argument>
+                                      </arguments>
+                                      <clauses>
+                                        <clause name="then" testItemId="232">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="233" title="Read Componet and Operation Data">
+                                              <arguments>
+                                                <argument id="description">
+                                                  <value class="value" valueClass="string">Read Componet and Operation Data</value>
+                                                </argument>
+                                              </arguments>
+                                              <parameterValueSources>
+                                                <parameterValueSource variableName="op_componentExcelData" variableScope="Test">
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                                  <cachedParameters>
+                                                    <apiParam name="Site"/>
+                                                    <apiParam name="ItemNumber"/>
+                                                  </cachedParameters>
+                                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <worksheetName class="value" valueClass="string">Add Component</worksheetName>
+                                                    <valuesRange class="value" valueClass="string">A:I</valuesRange>
+                                                  </sourceValue>
+                                                </parameterValueSource>
+                                                <parameterValueSource variableName="op_operationExcelData" variableScope="Test">
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx;1635422764682</cacheToken>
+                                                  <cachedParameters>
+                                                    <apiParam name="ItemNumber"/>
+                                                    <apiParam name="OperationType"/>
+                                                    <apiParam name="OperationNumber"/>
+                                                    <apiParam name="Description"/>
+                                                    <apiParam name="Process"/>
+                                                    <apiParam name="WorkCenter"/>
+                                                    <apiParam name="AssignedTo"/>
+                                                    <apiParam name="ConcurrentSeq"/>
+                                                    <apiParam name="SetupType"/>
+                                                    <apiParam name="SetupLaborGrade"/>
+                                                    <apiParam name="SetupStandardHours"/>
+                                                    <apiParam name="RunType"/>
+                                                    <apiParam name="RunLaborGrade"/>
+                                                    <apiParam name="RunStandardHours"/>
+                                                    <apiParam name="MachineType"/>
+                                                    <apiParam name="MachineNumber"/>
+                                                    <apiParam name="StandardMachineHours"/>
+                                                  </cachedParameters>
+                                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <worksheetName class="value" valueClass="string">Add Operation</worksheetName>
+                                                    <valuesRange class="value" valueClass="string">A:S</valuesRange>
+                                                  </sourceValue>
+                                                </parameterValueSource>
+                                              </parameterValueSources>
+                                              <clauses>
+                                                <clause name="hidden" testItemId="234"/>
+                                              </clauses>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                        <clause name="else" testItemId="235">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="236" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                                              <arguments>
+                                                <argument id="condition">
+                                                  <value class="eq">
+                                                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                                                    <rhs class="value" valueClass="string">Automation</rhs>
+                                                  </value>
+                                                </argument>
+                                              </arguments>
+                                              <clauses>
+                                                <clause name="then" testItemId="237">
+                                                  <steps>
+                                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="238" title="Read Componet and Operation Data">
+                                                      <arguments>
+                                                        <argument id="description">
+                                                          <value class="value" valueClass="string">Read Componet and Operation Data</value>
+                                                        </argument>
+                                                      </arguments>
+                                                      <parameterValueSources>
+                                                        <parameterValueSource variableName="op_componentExcelData" variableScope="Test">
+                                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                                          <cachedParameters>
+                                                            <apiParam name="Site"/>
+                                                            <apiParam name="ItemNumber"/>
+                                                          </cachedParameters>
+                                                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                            <worksheetName class="value" valueClass="string">Add Component</worksheetName>
+                                                            <valuesRange class="value" valueClass="string">A:I</valuesRange>
+                                                          </sourceValue>
+                                                        </parameterValueSource>
+                                                        <parameterValueSource variableName="op_operationExcelData" variableScope="Test">
+                                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx;1635422764682</cacheToken>
+                                                          <cachedParameters>
+                                                            <apiParam name="ItemNumber"/>
+                                                            <apiParam name="OperationType"/>
+                                                            <apiParam name="OperationNumber"/>
+                                                            <apiParam name="Description"/>
+                                                            <apiParam name="Process"/>
+                                                            <apiParam name="WorkCenter"/>
+                                                            <apiParam name="AssignedTo"/>
+                                                            <apiParam name="ConcurrentSeq"/>
+                                                            <apiParam name="SetupType"/>
+                                                            <apiParam name="SetupLaborGrade"/>
+                                                            <apiParam name="SetupStandardHours"/>
+                                                            <apiParam name="RunType"/>
+                                                            <apiParam name="RunLaborGrade"/>
+                                                            <apiParam name="RunStandardHours"/>
+                                                            <apiParam name="MachineType"/>
+                                                            <apiParam name="MachineNumber"/>
+                                                            <apiParam name="StandardMachineHours"/>
+                                                          </cachedParameters>
+                                                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                            <worksheetName class="value" valueClass="string">Add Operation</worksheetName>
+                                                            <valuesRange class="value" valueClass="string">A:S</valuesRange>
+                                                          </sourceValue>
+                                                        </parameterValueSource>
+                                                      </parameterValueSources>
+                                                      <clauses>
+                                                        <clause name="hidden" testItemId="239"/>
+                                                      </clauses>
+                                                    </apiCall>
+                                                  </steps>
+                                                </clause>
+                                                <clause name="else" testItemId="240">
+                                                  <steps>
+                                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="241" title="Read Componet and Operation Data">
+                                                      <arguments>
+                                                        <argument id="description">
+                                                          <value class="value" valueClass="string">Read Componet and Operation Data</value>
+                                                        </argument>
+                                                      </arguments>
+                                                      <parameterValueSources>
+                                                        <parameterValueSource variableName="op_componentExcelData" variableScope="Test">
+                                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                                          <cachedParameters>
+                                                            <apiParam name="Site"/>
+                                                            <apiParam name="ItemNumber"/>
+                                                          </cachedParameters>
+                                                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                            <worksheetName class="value" valueClass="string">Add Component</worksheetName>
+                                                            <valuesRange class="value" valueClass="string">A:I</valuesRange>
+                                                          </sourceValue>
+                                                        </parameterValueSource>
+                                                        <parameterValueSource variableName="op_operationExcelData" variableScope="Test">
+                                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx;1635422764682</cacheToken>
+                                                          <cachedParameters>
+                                                            <apiParam name="ItemNumber"/>
+                                                            <apiParam name="OperationType"/>
+                                                            <apiParam name="OperationNumber"/>
+                                                            <apiParam name="Description"/>
+                                                            <apiParam name="Process"/>
+                                                            <apiParam name="WorkCenter"/>
+                                                            <apiParam name="AssignedTo"/>
+                                                            <apiParam name="ConcurrentSeq"/>
+                                                            <apiParam name="SetupType"/>
+                                                            <apiParam name="SetupLaborGrade"/>
+                                                            <apiParam name="SetupStandardHours"/>
+                                                            <apiParam name="RunType"/>
+                                                            <apiParam name="RunLaborGrade"/>
+                                                            <apiParam name="RunStandardHours"/>
+                                                            <apiParam name="MachineType"/>
+                                                            <apiParam name="MachineNumber"/>
+                                                            <apiParam name="StandardMachineHours"/>
+                                                          </cachedParameters>
+                                                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                            <worksheetName class="value" valueClass="string">Add Operation</worksheetName>
+                                                            <valuesRange class="value" valueClass="string">A:S</valuesRange>
+                                                          </sourceValue>
+                                                        </parameterValueSource>
+                                                      </parameterValueSources>
+                                                      <clauses>
+                                                        <clause name="hidden" testItemId="242"/>
+                                                      </clauses>
+                                                    </apiCall>
+                                                  </steps>
+                                                </clause>
+                                              </clauses>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                      </clauses>
+                                    </apiCall>
                                     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="129" title="For Each: {op_componentExcelData}=&gt;op_componentExcelDataRow">
                                       <arguments>
                                         <argument id="list">
@@ -921,14 +1158,14 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="57" title="Perform Time and Qty Booking">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="175" title="Perform Time and Qty Booking">
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Perform Time and Qty Booking</value>
                 </argument>
               </arguments>
               <clauses>
-                <clause name="hidden" testItemId="58">
+                <clause name="hidden" testItemId="176">
                   <steps>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="51" title="Engg item Master details">
                       <arguments>
@@ -960,37 +1197,123 @@
                           <value class="value" valueClass="string">Read excel-Time and Qty Booking</value>
                         </argument>
                       </arguments>
-                      <parameterValueSources>
-                        <parameterValueSource variableName="op_timeQtyBookingExcelData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Work Order.xlsx;1629905609740</cacheToken>
-                          <cachedParameters>
-                            <apiParam name="RowNumber"/>
-                            <apiParam name="ItemNumber"/>
-                            <apiParam name="OverrideEmployeeRate"/>
-                            <apiParam name="BookingType"/>
-                            <apiParam name="TransactionDate"/>
-                            <apiParam name="Hours"/>
-                            <apiParam name="WorkOrder"/>
-                            <apiParam name="Operation"/>
-                            <apiParam name="SetupLabor"/>
-                            <apiParam name="Complete"/>
-                            <apiParam name="MoveOnly"/>
-                            <apiParam name="Ship"/>
-                            <apiParam name="Quantity"/>
-                            <apiParam name="LaborPayType"/>
-                            <apiParam name="OPComments"/>
-                            <apiParam name="TxnComments"/>
-                          </cachedParameters>
-                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
-                            <worksheetName class="value" valueClass="string">Time and Qty Booking</worksheetName>
-                            <valuesRange class="value" valueClass="string">A:O</valuesRange>
-                          </sourceValue>
-                        </parameterValueSource>
-                      </parameterValueSources>
+                      <parameterValueSources/>
                       <clauses>
                         <clause name="hidden" testItemId="53">
-                          <steps/>
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="243" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+                              <arguments>
+                                <argument id="condition">
+                                  <value class="eq">
+                                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                                    <rhs class="value" valueClass="string">PDE5</rhs>
+                                  </value>
+                                </argument>
+                              </arguments>
+                              <clauses>
+                                <clause name="then" testItemId="244">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="257" title="Read excel-Time and Qty Booking">
+                                      <arguments>
+                                        <argument id="description">
+                                          <value class="value" valueClass="string">Read excel-Time and Qty Booking</value>
+                                        </argument>
+                                      </arguments>
+                                      <parameterValueSources>
+                                        <parameterValueSource variableName="op_timeQtyBookingExcelData" variableScope="Test">
+                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                          <cachedParameters>
+                                            <apiParam name="Site"/>
+                                            <apiParam name="ItemNumber"/>
+                                          </cachedParameters>
+                                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                            <worksheetName class="value" valueClass="string">Time and Qty Booking</worksheetName>
+                                            <valuesRange class="value" valueClass="string">A:O</valuesRange>
+                                          </sourceValue>
+                                        </parameterValueSource>
+                                      </parameterValueSources>
+                                      <clauses>
+                                        <clause name="hidden" testItemId="254"/>
+                                      </clauses>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                                <clause name="else" testItemId="247">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="248" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                                      <arguments>
+                                        <argument id="condition">
+                                          <value class="eq">
+                                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                                            <rhs class="value" valueClass="string">Automation</rhs>
+                                          </value>
+                                        </argument>
+                                      </arguments>
+                                      <clauses>
+                                        <clause name="then" testItemId="249">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="255" title="Read excel-Time and Qty Booking">
+                                              <arguments>
+                                                <argument id="description">
+                                                  <value class="value" valueClass="string">Read excel-Time and Qty Booking</value>
+                                                </argument>
+                                              </arguments>
+                                              <parameterValueSources>
+                                                <parameterValueSource variableName="op_timeQtyBookingExcelData" variableScope="Test">
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                                  <cachedParameters>
+                                                    <apiParam name="Site"/>
+                                                    <apiParam name="ItemNumber"/>
+                                                  </cachedParameters>
+                                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <worksheetName class="value" valueClass="string">Time and Qty Booking</worksheetName>
+                                                    <valuesRange class="value" valueClass="string">A:O</valuesRange>
+                                                  </sourceValue>
+                                                </parameterValueSource>
+                                              </parameterValueSources>
+                                              <clauses>
+                                                <clause name="hidden" testItemId="258"/>
+                                              </clauses>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                        <clause name="else" testItemId="252">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="253" title="Read excel-Time and Qty Booking">
+                                              <arguments>
+                                                <argument id="description">
+                                                  <value class="value" valueClass="string">Read excel-Time and Qty Booking</value>
+                                                </argument>
+                                              </arguments>
+                                              <parameterValueSources>
+                                                <parameterValueSource variableName="op_timeQtyBookingExcelData" variableScope="Test">
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                                  <cachedParameters>
+                                                    <apiParam name="Site"/>
+                                                    <apiParam name="ItemNumber"/>
+                                                  </cachedParameters>
+                                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <worksheetName class="value" valueClass="string">Time and Qty Booking</worksheetName>
+                                                    <valuesRange class="value" valueClass="string">A:O</valuesRange>
+                                                  </sourceValue>
+                                                </parameterValueSource>
+                                              </parameterValueSources>
+                                              <clauses>
+                                                <clause name="hidden" testItemId="256"/>
+                                              </clauses>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                      </clauses>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
+                            </apiCall>
+                          </steps>
                         </clause>
                       </clauses>
                     </apiCall>
@@ -1130,32 +1453,135 @@
                   <value class="value" valueClass="string">Work Order receipt</value>
                 </argument>
               </arguments>
-              <parameterValueSources>
-                <parameterValueSource variableName="op_WOReceiptExcelData" variableScope="Test">
-                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Work Order.xlsx;1629905609740</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="RowNumber"/>
-                    <apiParam name="ItemNumber"/>
-                    <apiParam name="WOReceiptTraveler"/>
-                    <apiParam name="TransactionDate"/>
-                    <apiParam name="Operation"/>
-                    <apiParam name="InventoryLocationID"/>
-                    <apiParam name="InventoryLocationNumber"/>
-                    <apiParam name="QtyToBeAccepted"/>
-                    <apiParam name="LotExpirationDate"/>
-                    <apiParam name="TransactionComments"/>
-                    <apiParam name="LocationComments"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">WO receipt</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:J</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
+              <parameterValueSources/>
               <clauses>
                 <clause name="hidden" testItemId="33">
                   <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="259" title="Read Excel data based on Selected Environment">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read Excel data based on Selected Environment</value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="hidden" testItemId="260">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="263" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+                              <arguments>
+                                <argument id="condition">
+                                  <value class="eq">
+                                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                                    <rhs class="value" valueClass="string">PDE5</rhs>
+                                  </value>
+                                </argument>
+                              </arguments>
+                              <clauses>
+                                <clause name="then" testItemId="264">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="277" title="Work Order receipt">
+                                      <arguments>
+                                        <argument id="description">
+                                          <value class="value" valueClass="string">Work Order receipt</value>
+                                        </argument>
+                                      </arguments>
+                                      <parameterValueSources>
+                                        <parameterValueSource variableName="op_WOReceiptExcelData" variableScope="Test">
+                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                          <cachedParameters>
+                                            <apiParam name="Site"/>
+                                            <apiParam name="ItemNumber"/>
+                                          </cachedParameters>
+                                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                            <worksheetName class="value" valueClass="string">WO receipt</worksheetName>
+                                            <valuesRange class="value" valueClass="string">A:J</valuesRange>
+                                          </sourceValue>
+                                        </parameterValueSource>
+                                      </parameterValueSources>
+                                      <clauses>
+                                        <clause name="hidden" testItemId="274"/>
+                                      </clauses>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                                <clause name="else" testItemId="267">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="268" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                                      <arguments>
+                                        <argument id="condition">
+                                          <value class="eq">
+                                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                                            <rhs class="value" valueClass="string">Automation</rhs>
+                                          </value>
+                                        </argument>
+                                      </arguments>
+                                      <clauses>
+                                        <clause name="then" testItemId="269">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="275" title="Work Order receipt">
+                                              <arguments>
+                                                <argument id="description">
+                                                  <value class="value" valueClass="string">Work Order receipt</value>
+                                                </argument>
+                                              </arguments>
+                                              <parameterValueSources>
+                                                <parameterValueSource variableName="op_WOReceiptExcelData" variableScope="Test">
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                                  <cachedParameters>
+                                                    <apiParam name="Site"/>
+                                                    <apiParam name="ItemNumber"/>
+                                                  </cachedParameters>
+                                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <worksheetName class="value" valueClass="string">WO receipt</worksheetName>
+                                                    <valuesRange class="value" valueClass="string">A:J</valuesRange>
+                                                  </sourceValue>
+                                                </parameterValueSource>
+                                              </parameterValueSources>
+                                              <clauses>
+                                                <clause name="hidden" testItemId="278"/>
+                                              </clauses>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                        <clause name="else" testItemId="272">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="273" title="Work Order receipt">
+                                              <arguments>
+                                                <argument id="description">
+                                                  <value class="value" valueClass="string">Work Order receipt</value>
+                                                </argument>
+                                              </arguments>
+                                              <parameterValueSources>
+                                                <parameterValueSource variableName="op_WOReceiptExcelData" variableScope="Test">
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                                  <cachedParameters>
+                                                    <apiParam name="Site"/>
+                                                    <apiParam name="ItemNumber"/>
+                                                  </cachedParameters>
+                                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <worksheetName class="value" valueClass="string">WO receipt</worksheetName>
+                                                    <valuesRange class="value" valueClass="string">A:J</valuesRange>
+                                                  </sourceValue>
+                                                </parameterValueSource>
+                                              </parameterValueSources>
+                                              <clauses>
+                                                <clause name="hidden" testItemId="276"/>
+                                              </clauses>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                      </clauses>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="35" title="For Each: {op_WOReceiptExcelData}=&gt;op_WOReceiptExcelDataRow">
                       <arguments>
                         <argument id="list">
@@ -1536,27 +1962,137 @@
                   <value class="value" valueClass="string">Reverse Work Order Receipt</value>
                 </argument>
               </arguments>
-              <parameterValueSources>
-                <parameterValueSource variableName="op_woReceiptReversalExcelData" variableScope="Test">
-                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Work Order.xlsx;1629905609740</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="RowNumber"/>
-                    <apiParam name="ItemNumber"/>
-                    <apiParam name="TransactionDate"/>
-                    <apiParam name="ReverseQty"/>
-                    <apiParam name="TxnComment"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">WO Receipt reversal</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:D</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
+              <parameterValueSources/>
               <clauses>
                 <clause name="hidden" testItemId="70">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="74" title="For Each: {op_woReceiptReversalExcelData}=&gt;op_woReceiptReversalExcelDataRow">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="279" title="Read excel data based on selected environment">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read excel data based on selected environment</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources/>
+                      <clauses>
+                        <clause name="hidden" testItemId="280">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="281" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+                              <arguments>
+                                <argument id="condition">
+                                  <value class="eq">
+                                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                                    <rhs class="value" valueClass="string">PDE5</rhs>
+                                  </value>
+                                </argument>
+                              </arguments>
+                              <clauses>
+                                <clause name="then" testItemId="282">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="309" title="Read excel-WO Receipt Reversal">
+                                      <arguments>
+                                        <argument id="description">
+                                          <value class="value" valueClass="string">Read excel-WO Receipt Reversal</value>
+                                        </argument>
+                                      </arguments>
+                                      <parameterValueSources>
+                                        <parameterValueSource variableName="op_woReceiptReversalExcelData" variableScope="Test">
+                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                          <cachedParameters>
+                                            <apiParam name="Site"/>
+                                            <apiParam name="ItemNumber"/>
+                                          </cachedParameters>
+                                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                            <worksheetName class="value" valueClass="string">WO Receipt reversal</worksheetName>
+                                            <valuesRange class="value" valueClass="string">A:D</valuesRange>
+                                          </sourceValue>
+                                        </parameterValueSource>
+                                      </parameterValueSources>
+                                      <clauses>
+                                        <clause name="hidden" testItemId="292"/>
+                                      </clauses>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                                <clause name="else" testItemId="285">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="286" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                                      <arguments>
+                                        <argument id="condition">
+                                          <value class="eq">
+                                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                                            <rhs class="value" valueClass="string">Automation</rhs>
+                                          </value>
+                                        </argument>
+                                      </arguments>
+                                      <clauses>
+                                        <clause name="then" testItemId="287">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="307" title="Read excel-WO Receipt Reversal">
+                                              <arguments>
+                                                <argument id="description">
+                                                  <value class="value" valueClass="string">Read excel-WO Receipt Reversal</value>
+                                                </argument>
+                                              </arguments>
+                                              <parameterValueSources>
+                                                <parameterValueSource variableName="op_woReceiptReversalExcelData" variableScope="Test">
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                                  <cachedParameters>
+                                                    <apiParam name="Site"/>
+                                                    <apiParam name="ItemNumber"/>
+                                                  </cachedParameters>
+                                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <worksheetName class="value" valueClass="string">WO Receipt reversal</worksheetName>
+                                                    <valuesRange class="value" valueClass="string">A:D</valuesRange>
+                                                  </sourceValue>
+                                                </parameterValueSource>
+                                              </parameterValueSources>
+                                              <clauses>
+                                                <clause name="hidden" testItemId="310"/>
+                                              </clauses>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                        <clause name="else" testItemId="290">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="291" title="Read excel-WO Receipt Reversal">
+                                              <arguments>
+                                                <argument id="description">
+                                                  <value class="value" valueClass="string">Read excel-WO Receipt Reversal</value>
+                                                </argument>
+                                              </arguments>
+                                              <parameterValueSources>
+                                                <parameterValueSource variableName="op_woReceiptReversalExcelData" variableScope="Test">
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                                  <cachedParameters>
+                                                    <apiParam name="Site"/>
+                                                    <apiParam name="ItemNumber"/>
+                                                  </cachedParameters>
+                                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <worksheetName class="value" valueClass="string">WO Receipt reversal</worksheetName>
+                                                    <valuesRange class="value" valueClass="string">A:D</valuesRange>
+                                                  </sourceValue>
+                                                </parameterValueSource>
+                                              </parameterValueSources>
+                                              <clauses>
+                                                <clause name="hidden" testItemId="308"/>
+                                              </clauses>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                      </clauses>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="177" title="For Each: {op_woReceiptReversalExcelData}=&gt;op_woReceiptReversalExcelDataRow">
                       <arguments>
                         <argument id="list">
                           <value class="variable">
@@ -1574,7 +2110,7 @@
                         </argument>
                       </arguments>
                       <clauses>
-                        <clause name="substeps" testItemId="75">
+                        <clause name="substeps" testItemId="178">
                           <steps>
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="165" title="Before transaction Total Qty">
                               <tags/>
@@ -1817,26 +2353,136 @@
                   <value class="value" valueClass="string">Reverse Time and Qty Booking</value>
                 </argument>
               </arguments>
-              <parameterValueSources>
-                <parameterValueSource variableName="op_RevTimeAndQtyBookExcelData" variableScope="Test">
-                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Work Order.xlsx;1629905609740</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="RowNumber"/>
-                    <apiParam name="ItemNumber"/>
-                    <apiParam name="Employee"/>
-                    <apiParam name="WorkOrder"/>
-                    <apiParam name="Operation"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">Time and Qty Booking Reversal</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:D</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
+              <parameterValueSources/>
               <clauses>
                 <clause name="hidden" testItemId="78">
                   <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="311" title="Read excel data based on selected environment">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read excel data based on selected environment</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources/>
+                      <clauses>
+                        <clause name="hidden" testItemId="312">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="313" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+                              <arguments>
+                                <argument id="condition">
+                                  <value class="eq">
+                                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                                    <rhs class="value" valueClass="string">PDE5</rhs>
+                                  </value>
+                                </argument>
+                              </arguments>
+                              <clauses>
+                                <clause name="then" testItemId="314">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="341" title="Read excel-Reverse Time and Qty Booking">
+                                      <arguments>
+                                        <argument id="description">
+                                          <value class="value" valueClass="string">Read excel-Reverse Time and Qty Booking</value>
+                                        </argument>
+                                      </arguments>
+                                      <parameterValueSources>
+                                        <parameterValueSource variableName="op_RevTimeAndQtyBookExcelData" variableScope="Test">
+                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                          <cachedParameters>
+                                            <apiParam name="Site"/>
+                                            <apiParam name="ItemNumber"/>
+                                          </cachedParameters>
+                                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                            <worksheetName class="value" valueClass="string">Time and Qty Booking Reversal</worksheetName>
+                                            <valuesRange class="value" valueClass="string">A:D</valuesRange>
+                                          </sourceValue>
+                                        </parameterValueSource>
+                                      </parameterValueSources>
+                                      <clauses>
+                                        <clause name="hidden" testItemId="324"/>
+                                      </clauses>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                                <clause name="else" testItemId="317">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="318" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                                      <arguments>
+                                        <argument id="condition">
+                                          <value class="eq">
+                                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                                            <rhs class="value" valueClass="string">Automation</rhs>
+                                          </value>
+                                        </argument>
+                                      </arguments>
+                                      <clauses>
+                                        <clause name="then" testItemId="319">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="339" title="Read excel-Reverse Time and Qty Booking">
+                                              <arguments>
+                                                <argument id="description">
+                                                  <value class="value" valueClass="string">Read excel-Reverse Time and Qty Booking</value>
+                                                </argument>
+                                              </arguments>
+                                              <parameterValueSources>
+                                                <parameterValueSource variableName="op_RevTimeAndQtyBookExcelData" variableScope="Test">
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                                  <cachedParameters>
+                                                    <apiParam name="Site"/>
+                                                    <apiParam name="ItemNumber"/>
+                                                  </cachedParameters>
+                                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <worksheetName class="value" valueClass="string">Time and Qty Booking Reversal</worksheetName>
+                                                    <valuesRange class="value" valueClass="string">A:D</valuesRange>
+                                                  </sourceValue>
+                                                </parameterValueSource>
+                                              </parameterValueSources>
+                                              <clauses>
+                                                <clause name="hidden" testItemId="342"/>
+                                              </clauses>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                        <clause name="else" testItemId="322">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="323" title="Read excel-Reverse Time and Qty Booking">
+                                              <arguments>
+                                                <argument id="description">
+                                                  <value class="value" valueClass="string">Read excel-Reverse Time and Qty Booking</value>
+                                                </argument>
+                                              </arguments>
+                                              <parameterValueSources>
+                                                <parameterValueSource variableName="op_RevTimeAndQtyBookExcelData" variableScope="Test">
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                                  <cachedParameters>
+                                                    <apiParam name="Site"/>
+                                                    <apiParam name="ItemNumber"/>
+                                                  </cachedParameters>
+                                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <worksheetName class="value" valueClass="string">Time and Qty Booking Reversal</worksheetName>
+                                                    <valuesRange class="value" valueClass="string">A:D</valuesRange>
+                                                  </sourceValue>
+                                                </parameterValueSource>
+                                              </parameterValueSources>
+                                              <clauses>
+                                                <clause name="hidden" testItemId="340"/>
+                                              </clauses>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                      </clauses>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="81" title="For Each: {op_RevTimeAndQtyBookExcelData}=&gt;op_RevTimeAndQtyBookExcelDataRow">
                       <arguments>
                         <argument id="list">
@@ -1914,31 +2560,163 @@
                 </clause>
               </clauses>
             </apiCall>
+            <caseCall testCaseId="51e55bd2-f27f-4840-b270-30059d566d76" testCasePath="tests/Work Order/Callable/DeAllocate Qty.testcase" testItemId="389">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="ip_RecordID">
+                  <value class="variable">
+                    <path element="op_WORecID"/>
+                    <path element="ID"/>
+                  </value>
+                </argument>
+                <argument id="ip_isDisassemblyWO">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="op_orderStatus">
+                  <name class="value" valueClass="string">op_orderStatus</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="84" title="Delete Operations and components">
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Delete Operations and components</value>
                 </argument>
               </arguments>
-              <parameterValueSources>
-                <parameterValueSource variableName="op_deleteOPandCompoExcelData" variableScope="Test">
-                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Work Order.xlsx;1629905609740</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="RowNumber"/>
-                    <apiParam name="ItemNumber"/>
-                    <apiParam name="DeleteOperations"/>
-                    <apiParam name="DeleteComponents"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">Delete Operation and Components</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:C</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
+              <parameterValueSources/>
               <clauses>
                 <clause name="hidden" testItemId="85">
                   <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="357" title="Read excel data based on selected environment">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read excel data based on selected environment</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources/>
+                      <clauses>
+                        <clause name="hidden" testItemId="358">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="359" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+                              <arguments>
+                                <argument id="condition">
+                                  <value class="eq">
+                                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                                    <rhs class="value" valueClass="string">PDE5</rhs>
+                                  </value>
+                                </argument>
+                              </arguments>
+                              <clauses>
+                                <clause name="then" testItemId="360">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="387" title="Read excel-Delete Operations and Components">
+                                      <arguments>
+                                        <argument id="description">
+                                          <value class="value" valueClass="string">Read excel-Delete Operations and Components</value>
+                                        </argument>
+                                      </arguments>
+                                      <parameterValueSources>
+                                        <parameterValueSource variableName="op_deleteOPandCompoExcelData" variableScope="Test">
+                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                          <cachedParameters>
+                                            <apiParam name="Site"/>
+                                            <apiParam name="ItemNumber"/>
+                                          </cachedParameters>
+                                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                            <worksheetName class="value" valueClass="string">Delete Operation and Components</worksheetName>
+                                            <valuesRange class="value" valueClass="string">A:C</valuesRange>
+                                          </sourceValue>
+                                        </parameterValueSource>
+                                      </parameterValueSources>
+                                      <clauses>
+                                        <clause name="hidden" testItemId="370"/>
+                                      </clauses>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                                <clause name="else" testItemId="363">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="364" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                                      <arguments>
+                                        <argument id="condition">
+                                          <value class="eq">
+                                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                                            <rhs class="value" valueClass="string">Automation</rhs>
+                                          </value>
+                                        </argument>
+                                      </arguments>
+                                      <clauses>
+                                        <clause name="then" testItemId="365">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="385" title="Read excel-Delete Operations and Components">
+                                              <arguments>
+                                                <argument id="description">
+                                                  <value class="value" valueClass="string">Read excel-Delete Operations and Components</value>
+                                                </argument>
+                                              </arguments>
+                                              <parameterValueSources>
+                                                <parameterValueSource variableName="op_deleteOPandCompoExcelData" variableScope="Test">
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                                  <cachedParameters>
+                                                    <apiParam name="Site"/>
+                                                    <apiParam name="ItemNumber"/>
+                                                  </cachedParameters>
+                                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <worksheetName class="value" valueClass="string">Delete Operation and Components</worksheetName>
+                                                    <valuesRange class="value" valueClass="string">A:C</valuesRange>
+                                                  </sourceValue>
+                                                </parameterValueSource>
+                                              </parameterValueSources>
+                                              <clauses>
+                                                <clause name="hidden" testItemId="388"/>
+                                              </clauses>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                        <clause name="else" testItemId="368">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="369" title="Read excel-Delete Operations and Components">
+                                              <arguments>
+                                                <argument id="description">
+                                                  <value class="value" valueClass="string">Read excel-Delete Operations and Components</value>
+                                                </argument>
+                                              </arguments>
+                                              <parameterValueSources>
+                                                <parameterValueSource variableName="op_deleteOPandCompoExcelData" variableScope="Test">
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9676-CRUD operation on Routing Master.xlsx;1635422765941</cacheToken>
+                                                  <cachedParameters>
+                                                    <apiParam name="Site"/>
+                                                    <apiParam name="ItemNumber"/>
+                                                  </cachedParameters>
+                                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
+                                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <worksheetName class="value" valueClass="string">Delete Operation and Components</worksheetName>
+                                                    <valuesRange class="value" valueClass="string">A:C</valuesRange>
+                                                  </sourceValue>
+                                                </parameterValueSource>
+                                              </parameterValueSources>
+                                              <clauses>
+                                                <clause name="hidden" testItemId="386"/>
+                                              </clauses>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                      </clauses>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="88" title="For Each: {op_deleteOPandCompoExcelData}=&gt;op_deleteOPandCompoExcelDataRow">
                       <arguments>
                         <argument id="list">
