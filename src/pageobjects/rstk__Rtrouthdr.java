@@ -7,19 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
 import com.provar.core.testapi.annotations.ButtonType;
 import com.provar.core.testapi.annotations.ChoiceListType;
 import com.provar.core.testapi.annotations.FindByLabel;
 import com.provar.core.testapi.annotations.SalesforcePage;
 import com.provar.core.testapi.annotations.TextType;
 
-@SalesforcePage( title="Rstk__ Rtrouthdr"                                
-               , summary=""
-               , page="Rtrouthdr"
-               , namespacePrefix="rstk"
-               , object="rstk__rtrouthdr__c"
-               , connection="QARSF_Admin"
-     )             
+@SalesforcePage(title = "Rstk__ Rtrouthdr", summary = "", page = "Rtrouthdr", namespacePrefix = "rstk", object = "rstk__rtrouthdr__c", connection = "QARSF_Admin")
 public class rstk__Rtrouthdr {
 	public WebDriver driver;
 
@@ -41,10 +36,13 @@ public class rstk__Rtrouthdr {
 		Thread.sleep(500);
 		List<WebElement> autoCompleteList = driver
 				.findElements(By.xpath("//div[@class='ac_results'][1]/ul[@id='IDREF']/li"));
+
 		for (int i = 0; i < autoCompleteList.size(); i++) {
-			Thread.sleep(1000);
+			Thread.sleep(3000);
+
 			actions.moveToElement(autoCompleteList.get(i)).build().perform();
 			if (autoCompleteList.get(i).getText().startsWith(ItemNumber)) {
+				Thread.sleep(1000);
 				actions.moveToElement(autoCompleteList.get(i)).click().build().perform();
 				break;
 			}
@@ -92,18 +90,17 @@ public class rstk__Rtrouthdr {
 	@ChoiceListType()
 	@FindBy(xpath = "//label[normalize-space(.)='Target Add Revision']/parent::span/parent::th/following-sibling::td//select")
 	public WebElement targetRevision;
-	
-	
+
 	@ButtonType()
-	@FindBy(xpath= "//a[contains(text(),'Add Standard Operation')]")
+	@FindBy(xpath = "//a[contains(text(),'Add Standard Operation')]")
 	public WebElement addStandardOperation;
 
 	@ButtonType()
-	@FindBy(xpath= "//a[contains(text(),'Add Subcontract Operation')]")
+	@FindBy(xpath = "//a[contains(text(),'Add Subcontract Operation')]")
 	public WebElement addSubcontractOperation;
 
 	@ButtonType()
-	@FindBy(xpath= "//a[contains(text(),'Add Concurrent Operation')]")
+	@FindBy(xpath = "//a[contains(text(),'Add Concurrent Operation')]")
 	public WebElement addConcurrentOperation;
 
 }

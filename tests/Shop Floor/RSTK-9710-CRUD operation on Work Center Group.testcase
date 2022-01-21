@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="7">
+<testCase failureBehaviour="Continue" id="440">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,6 +43,121 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="55" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+      <arguments>
+        <argument id="condition">
+          <value class="eq">
+            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+            <rhs class="value" valueClass="string">PDE5</rhs>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="905">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="948" title="Read Excel Data">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Read Excel Data</value>
+                </argument>
+              </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="SourceData" variableScope="Test">
+                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9710-CRUD operation on Work Center Group.xlsx;1635422765365</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="GroupID"/>
+                    <apiParam name="Description"/>
+                    <apiParam name="Comments"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9710-CRUD operation on Work Center Group.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Create</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:C</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+              <clauses>
+                <clause name="hidden" testItemId="925"/>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="906">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                    <rhs class="value" valueClass="string">Automation</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="919">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="946" title="Read Excel Data">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read Excel Data</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="SourceData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9710-CRUD operation on Work Center Group.xlsx;1635422765365</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="GroupID"/>
+                            <apiParam name="Description"/>
+                            <apiParam name="Comments"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9710-CRUD operation on Work Center Group.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Create</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:C</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="949"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="922">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="924" title="Read Excel Data">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read Excel Data</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="SourceData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9710-CRUD operation on Work Center Group.xlsx;1635422765365</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="GroupID"/>
+                            <apiParam name="Description"/>
+                            <apiParam name="Comments"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9710-CRUD operation on Work Center Group.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Create</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:C</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="947"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="2" title="Read excel data and process record">
       <arguments>
         <argument id="list">
@@ -60,25 +175,128 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData" variableScope="Test">
-          <cacheToken>D:\\provar\\rsqasampleproj\\rsqasampleproj\\templates\\QARSF\\RSTK-9710-CRUD operation on Work Center Group.xlsx;1633539375667</cacheToken>
-          <cachedParameters>
-            <apiParam name="RowNumber"/>
-            <apiParam name="GroupID"/>
-            <apiParam name="Description"/>
-            <apiParam name="Comments"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9710-CRUD operation on Work Center Group.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">Create</worksheetName>
-            <valuesRange class="value" valueClass="string">A1:C2</valuesRange>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
       <clauses>
         <clause name="substeps" testItemId="3">
           <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="955" title="Delete Existing Data">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Delete Existing Data</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="956">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="957" title="SOQL Query: select count() from rstk__rtwcgroup__c where name like '{op_create.GroupID}%'=&gt;op_operCount">
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">select count() from rstk__rtwcgroup__c where name like '</value>
+                              <variable>
+                                <path element="op_create"/>
+                                <path element="GroupID"/>
+                              </variable>
+                              <value valueClass="string">%'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">op_operCount</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="958" title="If: {op_operCount &gt; 0}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="gt">
+                            <lhs class="variable">
+                              <path element="op_operCount"/>
+                            </lhs>
+                            <rhs class="value" valueClass="decimal">0</rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="959">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="960" title="SOQL Query: select ID from rstk__rtwcgroup__c where name like '{op_create.GroupID}%'=&gt;op_operCount">
+                              <arguments>
+                                <argument id="soqlQuery">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">select ID from rstk__rtwcgroup__c where name like '</value>
+                                      <variable>
+                                        <path element="op_create"/>
+                                        <path element="GroupID"/>
+                                      </variable>
+                                      <value valueClass="string">%'</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="apexConnectionName">
+                                  <value class="value" valueClass="string">SFConnection</value>
+                                </argument>
+                                <argument id="resultListName">
+                                  <value class="value" valueClass="string">op_operCount</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="961" title="For Each: {op_operCount}=&gt;op_operCountD">
+                              <arguments>
+                                <argument id="list">
+                                  <value class="variable">
+                                    <path element="op_operCount"/>
+                                  </value>
+                                </argument>
+                                <argument id="fromItem">
+                                  <value class="value" valueClass="decimal">1</value>
+                                </argument>
+                                <argument id="valueName">
+                                  <value class="value" valueClass="string">op_operCountD</value>
+                                </argument>
+                                <argument id="continueOnFailure">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                              </arguments>
+                              <clauses>
+                                <clause name="substeps" testItemId="962">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexDeleteObject" name="ApexDeleteObject" testItemId="965" title="Delete Object: {op_operCountD.ID}">
+                                      <arguments>
+                                        <argument id="objectId">
+                                          <value class="variable">
+                                            <path element="op_operCountD"/>
+                                            <path element="ID"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="apexConnectionName">
+                                          <value class="value" valueClass="string">SFConnection</value>
+                                        </argument>
+                                      </arguments>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="34" title="Create record">
               <arguments>
                 <argument id="description">
@@ -543,6 +761,121 @@
                 </clause>
               </clauses>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="934" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                    <rhs class="value" valueClass="string">PDE5</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="935">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="944" title="Read Excel Data">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read Excel Data</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="SourceData2" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9710-CRUD operation on Work Center Group.xlsx;1635422765365</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="GroupID"/>
+                            <apiParam name="Description"/>
+                            <apiParam name="Comments"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="GroupID" whereValue="{op_create.GroupID}">
+                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9710-CRUD operation on Work Center Group.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">update</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:C</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="941"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="936">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="937" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="eq">
+                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                            <rhs class="value" valueClass="string">Automation</rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="938">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="942" title="Read Excel Data">
+                              <arguments>
+                                <argument id="description">
+                                  <value class="value" valueClass="string">Read Excel Data</value>
+                                </argument>
+                              </arguments>
+                              <parameterValueSources>
+                                <parameterValueSource variableName="SourceData2" variableScope="Test">
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9710-CRUD operation on Work Center Group.xlsx;1635422765365</cacheToken>
+                                  <cachedParameters>
+                                    <apiParam name="GroupID"/>
+                                    <apiParam name="Description"/>
+                                    <apiParam name="Comments"/>
+                                  </cachedParameters>
+                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="GroupID" whereValue="{op_create.GroupID}">
+                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9710-CRUD operation on Work Center Group.xlsx</workbookPath>
+                                    <worksheetName class="value" valueClass="string">update</worksheetName>
+                                    <valuesRange class="value" valueClass="string">A:C</valuesRange>
+                                  </sourceValue>
+                                </parameterValueSource>
+                              </parameterValueSources>
+                              <clauses>
+                                <clause name="hidden" testItemId="945"/>
+                              </clauses>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="939">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="940" title="Read Excel Data">
+                              <arguments>
+                                <argument id="description">
+                                  <value class="value" valueClass="string">Read Excel Data</value>
+                                </argument>
+                              </arguments>
+                              <parameterValueSources>
+                                <parameterValueSource variableName="SourceData2" variableScope="Test">
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9710-CRUD operation on Work Center Group.xlsx;1635422765365</cacheToken>
+                                  <cachedParameters>
+                                    <apiParam name="GroupID"/>
+                                    <apiParam name="Description"/>
+                                    <apiParam name="Comments"/>
+                                  </cachedParameters>
+                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="GroupID" whereValue="{op_create.GroupID}">
+                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9710-CRUD operation on Work Center Group.xlsx</workbookPath>
+                                    <worksheetName class="value" valueClass="string">update</worksheetName>
+                                    <valuesRange class="value" valueClass="string">A:C</valuesRange>
+                                  </sourceValue>
+                                </parameterValueSource>
+                              </parameterValueSources>
+                              <clauses>
+                                <clause name="hidden" testItemId="943"/>
+                              </clauses>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="24" title="Update Record">
               <arguments>
                 <argument id="list">
@@ -560,22 +893,7 @@
                   <value class="value" valueClass="boolean">true</value>
                 </argument>
               </arguments>
-              <parameterValueSources>
-                <parameterValueSource variableName="SourceData2" variableScope="Test">
-                  <cacheToken>D:\\provar\\rsqasampleproj\\rsqasampleproj\\templates\\QARSF\\RSTK-9710-CRUD operation on Work Center Group.xlsx;1633539375667</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="RowNumber"/>
-                    <apiParam name="GroupID"/>
-                    <apiParam name="Description"/>
-                    <apiParam name="Comments"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="GroupID" whereValue="{op_create.GroupID}">
-                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9710-CRUD operation on Work Center Group.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">update</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:C</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
+              <parameterValueSources/>
               <clauses>
                 <clause name="substeps" testItemId="25">
                   <steps>

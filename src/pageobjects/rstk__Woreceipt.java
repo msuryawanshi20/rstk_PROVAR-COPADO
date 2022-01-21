@@ -34,32 +34,32 @@ public class rstk__Woreceipt {
 	}
 
 	@BooleanType()
-	@FindBy(xpath = "//label[normalize-space(.)='Sort by Item Number']/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Sort by Item Number']/ancestor::th/following-sibling::td//input")
 	public WebElement sortByItemNumber;
 
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Work Order']/parent::span/parent::th/following-sibling::td//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Work Order']/ancestor::span/ancestor::th/following-sibling::td//select")
 	public WebElement workOrder;
 
 	@BooleanType()
-	@FindBy(xpath = "//label[normalize-space(.)='Override Receipt Template']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Override Receipt Template']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement overrideReceiptTemplate;
 
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='WO Receipt Traveler']/parent::span/parent::th/following-sibling::td//select")
+	@FindBy(xpath = "//label[normalize-space(.)='WO Receipt Traveler']/ancestor::span/ancestor::th/following-sibling::td//select")
 	public WebElement wOReceipt_Traveler;
 
 	@ButtonType()
-	@FindBy(xpath = "//label[normalize-space(.)='WO Receipt Traveler']/parent::span/parent::th/following-sibling::td//input[@type='submit']")
+	@FindBy(xpath = "//label[normalize-space(.)='WO Receipt Traveler']/ancestor::span/ancestor::th/following-sibling::td//input[@type='submit']")
 	public WebElement save;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Transaction Date']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Transaction Date']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement transactionDate;
 	
 	
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Transaction Date']/parent::span/parent::th/following-sibling::td//a")
+	@FindBy(xpath = "//label[normalize-space(.)='Transaction Date']/ancestor::span/ancestor::th/following-sibling::td//a")
 	public WebElement transactionDateTodayLink;
 	
 	
@@ -69,35 +69,35 @@ public class rstk__Woreceipt {
 	public WebElement reloadWorkOrderS;
 
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Operation']/parent::span/parent::th/following-sibling::td//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Operation']/ancestor::span/ancestor::th/following-sibling::td//select")
 	public WebElement operation;
 
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Inventory Location ID']/parent::span/parent::th/following-sibling::td//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Inventory Location ID']/ancestor::span/ancestor::th/following-sibling::td//select")
 	public WebElement inventoryLocationID;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Inventory Location Number']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Inventory Location Number']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement inventoryLocationNumber;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Qty Remaining']/parent::span/parent::th/following-sibling::td/span")
+	@FindBy(xpath = "//label[normalize-space(.)='Qty Remaining']/ancestor::span/ancestor::th/following-sibling::td/span")
 	public WebElement qtyRemaining;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Qty to be Accepted']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Qty to be Accepted']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement qtyToBeAccepted;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Lot Expiration Date']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Lot Expiration Date']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement lotExpirationDate;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Transaction Comments']/parent::span/parent::th/following-sibling::td//textarea")
+	@FindBy(xpath = "//label[normalize-space(.)='Transaction Comments']/ancestor::span/ancestor::th/following-sibling::td//textarea")
 	public WebElement transactionComments;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Location Comments']/parent::span/parent::th/following-sibling::td//textarea")
+	@FindBy(xpath = "//label[normalize-space(.)='Location Comments']/ancestor::span/ancestor::th/following-sibling::td//textarea")
 	public WebElement locationComments;
 
 	@ButtonType()
@@ -113,6 +113,7 @@ public class rstk__Woreceipt {
 		for (int i = 0; i < workOrderList.size(); i++) {
 			if (workOrderList.get(i).getText().contains(WorkOrder)) {
 				workOrderList.get(i).click();
+				Thread.sleep(2000);
 
 			}
 		}

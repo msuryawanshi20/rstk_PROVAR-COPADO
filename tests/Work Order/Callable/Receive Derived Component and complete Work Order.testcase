@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" registryId="ffc86958-dcfe-4bc4-9eb5-0a2bb0cd8fff" visibility="Internal">
+<testCase failureBehaviour="Continue" id="2" registryId="ffc86958-dcfe-4bc4-9eb5-0a2bb0cd8fff" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -288,7 +288,9 @@
                         <argument id="failIfNotFound">
                           <value class="value" valueClass="boolean">true</value>
                         </argument>
-                        <argument id="debugRowLocator"/>
+                        <argument id="debugRowLocator">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Row</value>
                         </argument>
@@ -313,7 +315,9 @@
                                 <argument id="interactionDescription">
                                   <value class="value" valueClass="string">Check the Select field</value>
                                 </argument>
-                                <argument id="beforeWait"/>
+                                <argument id="beforeWait">
+                                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                                </argument>
                                 <argument id="afterWait"/>
                                 <argument id="autoRetry"/>
                                 <argument id="captureBefore">
@@ -629,10 +633,10 @@
   <args>
     <argument id="reuseConnectionName"/>
     <argument id="ip_recordID">
-      <value class="variable">
-        <path element="ip_recordID"/>
-      </value>
+      <value class="value" valueClass="string">a8F1K000000PVqcUAG</value>
     </argument>
-    <argument id="ip_WONum"/>
+    <argument id="ip_WONum">
+      <value class="value" valueClass="string">PRO-DWO_U5DWF</value>
+    </argument>
   </args>
 </testCase>

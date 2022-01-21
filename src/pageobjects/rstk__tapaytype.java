@@ -1,11 +1,12 @@
 package pageobjects;
 
-import java.util.List;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.provar.core.testapi.annotations.*;
+import com.provar.core.testapi.annotations.ButtonType;
+import com.provar.core.testapi.annotations.FindByLabel;
+import com.provar.core.testapi.annotations.SalesforcePage;
+import com.provar.core.testapi.annotations.TextType;
 
 @SalesforcePage( title="Rstk__tapaytype"                                
                , summary=""
@@ -17,19 +18,19 @@ import com.provar.core.testapi.annotations.*;
 public class rstk__tapaytype {
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Labor Pay Type']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Labor Pay Type']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement laborPayType;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Description']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Description']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement description;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Hourly Add Amount']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Hourly Add Amount']/ancestor::span/parent::th/following-sibling::td//input")
 	public WebElement hourlyAddAmount;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Rate Factor']/parent::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Rate Factor']/ancestor::span/parent::th/following-sibling::td//input")
 	public WebElement rateFactor;
 
 	@ButtonType()

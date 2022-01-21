@@ -97,21 +97,7 @@
                 </argument>
                 <argument id="continueOnFailure"/>
               </arguments>
-              <parameterValueSources>
-                <parameterValueSource variableName="op_extractComponet" variableScope="Test">
-                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Refurb Work Order.xlsx;1630951094352</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="RowNumber"/>
-                    <apiParam name="ItemNumber"/>
-                    <apiParam name="ComponentItem"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{ip_parentComponent}">
-                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9520-Refurb Work Order.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">Extract Componet</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:B</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
+              <parameterValueSources/>
               <clauses>
                 <clause name="substeps" testItemId="8">
                   <steps>
@@ -230,7 +216,7 @@
         </connectionType>
       </type>
     </param>
-    <param name="ip_parentComponent" title="Parent Component ">
+    <param name="op_extractComponet" title="Select refurb Componen">
       <summary/>
       <type>
         <textType>
@@ -245,6 +231,6 @@
   </params>
   <args>
     <argument id="reuseConnectionName"/>
-    <argument id="ip_parentComponent"/>
+    <argument id="op_extractComponet"/>
   </args>
 </testCase>
