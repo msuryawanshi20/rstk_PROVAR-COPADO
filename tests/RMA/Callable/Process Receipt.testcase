@@ -248,7 +248,7 @@
           <steps>
             <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="91" title="If: {ip_Destination = &quot;Inventory&quot;}">
               <arguments>
-                <argument id="condition">
+                <argument argId="778feaa8-e236-409f-ac89-1c4447a2e75a" id="condition">
                   <value class="eq">
                     <lhs class="variable">
                       <path element="ip_Destination"/>
@@ -434,9 +434,6 @@
                             <textType>
                               <constraints>
                                 <valueConstraint name="mimeType">text/plain</valueConstraint>
-                                <valueConstraint name="minLength">0</valueConstraint>
-                                <valueConstraint name="maxLength">9999</valueConstraint>
-                                <valueConstraint name="regex"/>
                               </constraints>
                             </textType>
                           </type>
@@ -875,7 +872,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                  <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Process Receipt button</value>
