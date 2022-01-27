@@ -1349,12 +1349,12 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="208" title="SOQL Query: select Id,CreatedDate,rstk__pohdr_ordno__c,rstk__pohdr_totamt__c from rstk__pohdr__c where Name = '{PONumber}'=&gt;op_pohdr">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="208" title="SOQL Query: select Id,CreatedDate,rstk__pohdr_ordno__c,rstk__pohdr_totamt__c,\trstk__pohdr_vendno__c from rstk__pohdr__c where Name = '{PONumber}'=&gt;op_pohdr">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
                     <parts>
-                      <value valueClass="string">select Id,CreatedDate,rstk__pohdr_ordno__c,rstk__pohdr_totamt__c from rstk__pohdr__c where Name = '</value>
+                      <value valueClass="string">select Id,CreatedDate,rstk__pohdr_ordno__c,rstk__pohdr_totamt__c,\trstk__pohdr_vendno__c from rstk__pohdr__c where Name = '</value>
                       <variable>
                         <path element="PONumber"/>
                       </variable>
@@ -1373,7 +1373,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="235" title="Set Values: POHDRID">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="236" title="Set Values: POHDRID">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -1385,6 +1385,28 @@
                         <value class="variable">
                           <path element="op_pohdr"/>
                           <path element="Id"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="235" title="Set Values: vendor">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">vendor</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="op_pohdr"/>
+                          <path element="rstk__pohdr_vendno__c"/>
                         </value>
                       </namedValue>
                       <namedValue name="valueScope">
@@ -1706,6 +1728,21 @@
         <path element="POTotal"/>
       </sourceValue>
     </param>
+    <param name="vendor" title="vendor">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="vendor"/>
+      </sourceValue>
+    </param>
   </outputParams>
   <args>
     <argument id="reuseConnectionName">
@@ -1731,6 +1768,9 @@
     </outputArgument>
     <outputArgument id="POTotal">
       <name class="value" valueClass="string">POTotal</name>
+    </outputArgument>
+    <outputArgument id="vendor">
+      <name class="value" valueClass="string">vendor</name>
     </outputArgument>
   </outputArgs>
 </testCase>

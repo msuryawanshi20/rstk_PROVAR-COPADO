@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="35">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,7 +43,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="10" title="Reading Excel Data">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="95" title="Reading Excel Data">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Reading Excel Data</value>
@@ -76,32 +76,54 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="Read Excel">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="93" title="Read Test Data">
               <arguments>
                 <argument id="description">
-                  <value class="value" valueClass="string">Read Excel</value>
+                  <value class="value" valueClass="string">Read Test Data</value>
                 </argument>
               </arguments>
               <parameterValueSources>
-                <parameterValueSource variableName="ExcelData" variableScope="Test">
-                  <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/RSTKF_AutomationData.xlsx;1619690449455</cacheToken>
+                <parameterValueSource variableName="POLineData" variableScope="Test">
+                  <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/RSTKF_AutomationData.xlsx;1624364287371</cacheToken>
                   <cachedParameters>
+                    <apiParam name="APIMode"/>
+                    <apiParam name="OverrideDimension"/>
+                    <apiParam name="OverrideAddress"/>
+                    <apiParam name="Name"/>
+                    <apiParam name="Division"/>
                     <apiParam name="Vendor"/>
+                    <apiParam name="Street"/>
+                    <apiParam name="City"/>
+                    <apiParam name="State"/>
+                    <apiParam name="Zipcode"/>
+                    <apiParam name="Country"/>
                     <apiParam name="Item"/>
-                    <apiParam name="Quantity"/>
+                    <apiParam name="QtyReq"/>
                     <apiParam name="UnitPrice"/>
+                    <apiParam name="Project"/>
+                    <apiParam name="Dim1"/>
+                    <apiParam name="Dim3"/>
+                    <apiParam name="Dim4"/>
                   </cachedParameters>
                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
                     <workbookPath class="variable">
-                      <path element="POUIExcel"/>
+                      <path element="POLoaderExcel"/>
                     </workbookPath>
-                    <worksheetName class="value" valueClass="string">POReceipt</worksheetName>
+                    <worksheetName class="value" valueClass="string">AddLineDefault</worksheetName>
                     <valuesRange class="value"/>
+                  </sourceValue>
+                </parameterValueSource>
+                <parameterValueSource variableName="POHeaderData" variableScope="Test">
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="POLoaderExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">AddHeaderDefault</worksheetName>
                   </sourceValue>
                 </parameterValueSource>
               </parameterValueSources>
               <clauses>
-                <clause name="hidden" testItemId="3">
+                <clause name="hidden" testItemId="53">
                   <steps/>
                 </clause>
               </clauses>
@@ -110,83 +132,58 @@
         </clause>
       </clauses>
     </apiCall>
-    <caseCall testCaseId="8f010250-9f93-4d50-8117-a6f51aefe852" testCasePath="tests/Purchase Order/Callable/POmultipleline.testcase" testItemId="7">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="104" title="For Each: {POHeaderData}=&gt;podata">
       <arguments>
-        <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">SFConnection</value>
-        </argument>
-        <argument id="IPVendor">
-          <value class="variable">
-            <path element="ExcelData"/>
-          </value>
-        </argument>
         <argument id="list">
           <value class="variable">
-            <path element="ExcelData"/>
+            <path element="POHeaderData"/>
           </value>
         </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">podata</value>
+        </argument>
+        <argument id="continueOnFailure"/>
       </arguments>
-      <outputArguments>
-        <outputArgument id="PONumber">
-          <name class="value" valueClass="string">PONumber</name>
-        </outputArgument>
-        <outputArgument id="POHDRID">
-          <name class="value" valueClass="string">POHDRID</name>
-        </outputArgument>
-        <outputArgument id="OrderNumber">
-          <name class="value" valueClass="string">OrderNumber</name>
-        </outputArgument>
-        <outputArgument id="CreatedDate">
-          <name class="value" valueClass="string">CreatedDate</name>
-        </outputArgument>
-        <outputArgument id="POTotal">
-          <name class="value" valueClass="string">POTotal</name>
-        </outputArgument>
-      </outputArguments>
-    </caseCall>
-    <caseCall testCaseId="bc86e6b2-9609-43e2-b616-d3e6d10407d7" testCasePath="tests/Purchase Order/Callable/PurchaseOrderReceipt.testcase" testItemId="8">
-      <arguments>
-        <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">SFConnection</value>
-        </argument>
-        <argument id="OrdNo">
-          <value class="variable">
-            <path element="OrderNumber"/>
-          </value>
-        </argument>
-        <argument id="IPList">
-          <value class="variable">
-            <path element="ExcelData"/>
-          </value>
-        </argument>
-      </arguments>
-    </caseCall>
-    <caseCall testCaseId="b5ad7509-c8a5-4d96-9ea9-32068c74bd6f" testCasePath="tests/Purchase Order/Callable/PO Receipt Reversal.testcase" testItemId="9">
-      <arguments>
-        <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">SFConnection</value>
-        </argument>
-        <argument id="OrdNo">
-          <value class="variable">
-            <path element="OrderNumber"/>
-          </value>
-        </argument>
-        <argument id="ReverseQty">
-          <value class="variable">
-            <path element="ExcelData"/>
-          </value>
-        </argument>
-        <argument id="IPList">
-          <value class="variable">
-            <path element="ExcelData"/>
-          </value>
-        </argument>
-        <argument id="POHDRID">
-          <value class="variable">
-            <path element="POHDRID"/>
-          </value>
-        </argument>
-      </arguments>
-    </caseCall>
+      <clauses>
+        <clause name="substeps" testItemId="105">
+          <steps>
+            <caseCall testCaseId="bf68b852-4f80-489c-b812-ecc3b72db4cc" testCasePath="tests/POLOADER/Callable/POLoader_POCreation.testcase" testItemId="94">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="List">
+                  <value class="variable">
+                    <path element="podata"/>
+                  </value>
+                </argument>
+                <argument id="AddLineData">
+                  <value class="variable">
+                    <path element="POLineData"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="POHDRID">
+                  <name class="value" valueClass="string">POHDRID</name>
+                </outputArgument>
+                <outputArgument id="POLINEID">
+                  <name class="value" valueClass="string">POLINEID</name>
+                </outputArgument>
+                <outputArgument id="POTotal">
+                  <name class="value" valueClass="string">POTotal</name>
+                </outputArgument>
+                <outputArgument id="POOrderNum">
+                  <name class="value" valueClass="string">POOrderNum</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
   </steps>
 </testCase>

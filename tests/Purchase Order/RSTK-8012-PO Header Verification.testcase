@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="77">
+<testCase id="4">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,32 +43,71 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="3" title="ReadExcel">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="31" title="Reading Excel Data">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">ReadExcel</value>
+          <value class="value" valueClass="string">Reading Excel Data</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="ExcelData" variableScope="Test">
-          <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/RSTKF_AutomationData.xlsx;1612250304210</cacheToken>
-          <cachedParameters>
-            <apiParam name="Vendor"/>
-            <apiParam name="Item"/>
-            <apiParam name="Quantity"/>
-            <apiParam name="UnitPrice"/>
-            <apiParam name="FreightTerms"/>
-            <apiParam name="PaymentTerms"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">POHDRRev</worksheetName>
-            <valuesRange class="value"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
       <clauses>
-        <clause name="hidden" testItemId="4"/>
+        <clause name="hidden" testItemId="32">
+          <steps>
+            <caseCall testCaseId="5e762c63-0656-4a26-8a25-66df35188869" testCasePath="tests/Purchase Order/Callable/ReadExcelPath.testcase" testItemId="33">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="ExcelPath">
+                  <name class="value" valueClass="string">ExcelPath</name>
+                </outputArgument>
+                <outputArgument id="ExcelURL" scope="Folder">
+                  <name class="value" valueClass="string">ExcelURL</name>
+                </outputArgument>
+                <outputArgument id="POUIExcel">
+                  <name class="value" valueClass="string">POUIExcel</name>
+                </outputArgument>
+                <outputArgument id="POLoaderExcel">
+                  <name class="value" valueClass="string">POLoaderExcel</name>
+                </outputArgument>
+                <outputArgument id="POSYDATAExcel">
+                  <name class="value" valueClass="string">POSYDATAExcel</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="34" title="ReadExcel">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">ReadExcel</value>
+                </argument>
+              </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="ExcelData" variableScope="Test">
+                  <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/RSTKF_AutomationData.xlsx;1613649169779</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="Vendor"/>
+                    <apiParam name="Item"/>
+                    <apiParam name="Quantity"/>
+                    <apiParam name="UnitPrice"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="POUIExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">POHDRRev</worksheetName>
+                    <valuesRange class="value"/>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+              <clauses>
+                <clause name="hidden" testItemId="35">
+                  <steps/>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
       </clauses>
     </apiCall>
     <caseCall testCaseId="8f010250-9f93-4d50-8117-a6f51aefe852" testCasePath="tests/Purchase Order/Callable/POmultipleline.testcase" testItemId="27">
@@ -79,7 +118,6 @@
         <argument id="IPVendor">
           <value class="variable">
             <path element="ExcelData"/>
-            <path element="Vendor"/>
           </value>
         </argument>
         <argument id="list">
@@ -143,10 +181,10 @@
       <clauses>
         <clause name="substeps" testItemId="12">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="13" title="Click the Advanced 1 field">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="13" title="Click the Advanced field">
               <arguments>
                 <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=Advanced1"/>
+                  <value class="uiLocator" uri="ui:locator?name=Advanced"/>
                 </argument>
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=action"/>
@@ -167,15 +205,29 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Click the Advanced 1 field</value>
+                  <value class="value" valueClass="string">Click the Advanced field</value>
                 </argument>
                 <argument id="autoRetry"/>
+                <argument id="ieClickMethod">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="hover" title="Hover before Clicking">
+                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
                   <summary>Whether the mouse should hover over the field before it is clicked.</summary>
                   <type>
                     <booleanType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                  <summary>How the click should be executed for Internet Explorer.</summary>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                      </constraints>
+                    </choiceType>
                   </type>
                 </apiParam>
               </generatedParameters>
@@ -231,7 +283,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="15" title="Set the Freight Terms select to {ExcelData.FreightTerms}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="29" title="Set the Freight Terms select to {ExcelData.FreightTerms}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=FreightTerms"/>
@@ -289,7 +341,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="16" title="Set the Payment Terms select to {ExcelData.PaymentTerms}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="30" title="Set the Payment Terms select to {ExcelData.PaymentTerms}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=PaymentTerms"/>
@@ -508,10 +560,10 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
+                  <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
+                  <value class="uiWait" uri="ui:wait:pageload?timeout=20"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Cancel field</value>
@@ -578,7 +630,7 @@
       </arguments>
       <parameterValueSources/>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="25" title="SOQL Query: select Id,\trstk__pohdr_vendrev__c,rstk__pohdr_curintrev__c from rstk__pohdr__c where Name = '{PONumber}'=&gt;pohdr">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="25" title="SOQL Query: select Id,\trstk__pohdr_vendrev__c,rstk__pohdr_curintrev__c from rstk__pohdr__c where Name = '{PONumber}' Order by CreatedDate Desc limit 1=&gt;pohdr">
       <arguments>
         <argument id="soqlQuery">
           <value class="compound">
@@ -587,7 +639,7 @@
               <variable>
                 <path element="PONumber"/>
               </variable>
-              <value valueClass="string">'</value>
+              <value valueClass="string">' Order by CreatedDate Desc limit 1</value>
             </parts>
           </value>
         </argument>

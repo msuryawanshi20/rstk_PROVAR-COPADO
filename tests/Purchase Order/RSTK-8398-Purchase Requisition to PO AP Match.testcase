@@ -43,48 +43,96 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="ReadExcel">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="90" title="Reading Excel Data">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">ReadExcel</value>
+          <value class="value" valueClass="string">Reading Excel Data</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="InventoryData" variableScope="Test">
-          <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/AutomationData.xlsx;1617166738337</cacheToken>
-          <cachedParameters>
-            <apiParam name="Vendor"/>
-            <apiParam name="Project"/>
-            <apiParam name="OrganizationalDepartment"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">InventoryRequisition</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
-          </sourceValue>
-        </parameterValueSource>
-        <parameterValueSource variableName="NonInvData" variableScope="Test">
-          <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/AutomationData.xlsx;1617166738337</cacheToken>
-          <cachedParameters>
-            <apiParam name="Item"/>
-            <apiParam name="Quantity"/>
-            <apiParam name="UnitPrice"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">IndirectRequisition</worksheetName>
-            <valuesRange class="value"/>
-          </sourceValue>
-        </parameterValueSource>
-        <parameterValueSource variableName="PurReqData" variableScope="Test">
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">PurchaseRequisition</worksheetName>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
       <clauses>
-        <clause name="hidden" testItemId="3"/>
+        <clause name="hidden" testItemId="32">
+          <steps>
+            <caseCall testCaseId="5e762c63-0656-4a26-8a25-66df35188869" testCasePath="tests/Purchase Order/Callable/ReadExcelPath.testcase" testItemId="33">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="ExcelPath">
+                  <name class="value" valueClass="string">ExcelPath</name>
+                </outputArgument>
+                <outputArgument id="ExcelURL" scope="Folder">
+                  <name class="value" valueClass="string">ExcelURL</name>
+                </outputArgument>
+                <outputArgument id="POUIExcel">
+                  <name class="value" valueClass="string">POUIExcel</name>
+                </outputArgument>
+                <outputArgument id="POLoaderExcel">
+                  <name class="value" valueClass="string">POLoaderExcel</name>
+                </outputArgument>
+                <outputArgument id="POSYDATAExcel">
+                  <name class="value" valueClass="string">POSYDATAExcel</name>
+                </outputArgument>
+                <outputArgument id="POSYDataExcel1">
+                  <name class="value" valueClass="string">POSYDataExcel1</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="ReadExcel">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">ReadExcel</value>
+                </argument>
+              </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="InventoryData" variableScope="Test">
+                  <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/AutomationData.xlsx;1617166738337</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="Vendor"/>
+                    <apiParam name="Project"/>
+                    <apiParam name="OrganizationalDepartment"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="POUIExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">InventoryRequisition</worksheetName>
+                    <valuesRange class="value"/>
+                  </sourceValue>
+                </parameterValueSource>
+                <parameterValueSource variableName="NonInvData" variableScope="Test">
+                  <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/AutomationData.xlsx;1617166738337</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="Item"/>
+                    <apiParam name="Quantity"/>
+                    <apiParam name="UnitPrice"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="POUIExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">IndirectRequisition</worksheetName>
+                    <valuesRange class="value"/>
+                  </sourceValue>
+                </parameterValueSource>
+                <parameterValueSource variableName="PurReqData" variableScope="Test">
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="POUIExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">PurchaseRequisition</worksheetName>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+              <clauses>
+                <clause name="hidden" testItemId="3">
+                  <steps/>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="16" title="For Each: {PurReqData}=&gt;poreqdata">

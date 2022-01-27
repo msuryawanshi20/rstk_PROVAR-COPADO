@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="18">
+<testCase id="30">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -481,6 +481,11 @@
                     <path element="POHDRID"/>
                   </value>
                 </argument>
+                <argument id="OrderNum">
+                  <value class="variable">
+                    <path element="POOrderNum"/>
+                  </value>
+                </argument>
               </arguments>
               <outputArguments>
                 <outputArgument id="poapmatchsydataid">
@@ -593,6 +598,54 @@
                 </clause>
               </clauses>
             </apiCall>
+            <caseCall testCaseId="1c22d988-c6e5-4bb1-9821-38531f457765" testCasePath="tests/Account Payable/POPaySession.testcase" testItemId="273">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="INVNO">
+                  <value class="variable">
+                    <path element="InvNum"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="APINVTXN">
+                  <name class="value" valueClass="string">APINVTXN</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+            <caseCall testCaseId="63069f2c-2aa1-4383-9227-da95bf27caa8" testCasePath="tests/Account Payable/PAYTO.testcase" testItemId="275">
+              <arguments>
+                <argument id="Inv_Trans">
+                  <value class="variable">
+                    <path element="APINVTXN"/>
+                  </value>
+                </argument>
+                <argument id="Pay_Amt">
+                  <value class="variable">
+                    <path element="POTotal"/>
+                  </value>
+                </argument>
+                <argument id="CheckNum">
+                  <value class="variable">
+                    <path element="POOrderNum"/>
+                  </value>
+                </argument>
+                <argument id="fincmp">
+                  <value class="variable">
+                    <path element="POData"/>
+                    <path element="GLCMP"/>
+                  </value>
+                </argument>
+                <argument id="BankName">
+                  <value class="variable">
+                    <path element="POData"/>
+                    <path element="BankAccount"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
           </steps>
         </clause>
       </clauses>

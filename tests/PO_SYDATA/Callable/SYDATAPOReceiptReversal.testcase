@@ -43,11 +43,11 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="4" title="For Each: {SourceData}=&gt;poreceiptreversal">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="4" title="For Each: {porcpt}=&gt;poreceiptreversal">
       <arguments>
         <argument argId="7d284dc8-a80f-400c-9eb7-8172c88efe58" id="list">
           <value class="variable">
-            <path element="SourceData"/>
+            <path element="porcpt"/>
           </value>
         </argument>
         <argument id="fromItem">
@@ -123,7 +123,8 @@
                 </argument>
                 <argument argId="6a37cb99-443a-4ef2-9500-b26aba8d053f" id="rstk__sydata_prcrptap__c">
                   <value class="variable">
-                    <path element="ReceiptID"/>
+                    <path element="poreceiptreversal"/>
+                    <path element="Id"/>
                   </value>
                 </argument>
               </arguments>
