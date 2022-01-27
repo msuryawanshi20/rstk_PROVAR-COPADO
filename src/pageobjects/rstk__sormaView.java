@@ -19,17 +19,27 @@ public class rstk__sormaView {
 	@ButtonType()
 	@FindByLabel(label = "Serial Details")
 	public WebElement serialDetails;
+
 	@ButtonType()
 	@FindByLabel(label = "Process Receipt")
 	public WebElement processReceipt;
+
 	@ButtonType()
 	@FindByLabel(label = "Create Replacement Sales Order")
 	public WebElement createReplacementSalesOrder;
+
 	@TextType()
 	@FindBy(xpath = "//div[@class='messageText']")
 	public WebElement successMessage;
+
 	@ButtonType()
 	@FindByLabel(label = "Edit")
 	public WebElement edit;
 	
+	
+	@ButtonType()
+	@FindByLabel(label = "Receipt Disposition and Reversal")
+	public WebElement receiptDispositionandReversal;
+	
+
 }
