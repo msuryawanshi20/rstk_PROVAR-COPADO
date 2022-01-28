@@ -147,11 +147,11 @@ public class rstkf__paysession {
 	@FindBy(xpath = "//label[normalize-space(.)='Bank Account']/parent::th/following-sibling::td//select")
 	public WebElement paysession_glbankacct__c;
 	
-	public void selectbankacc(String AccName) throws InterruptedException {
+	public void selectbankacc(String Bankname) throws InterruptedException {
 
 		Thread.sleep(2000);
 
-		List <WebElement> option = driver.findElements(By.xpath("//label[normalize-space(.)='Bank Account']/parent::th/following-sibling::td//select/option[@value='" + AccName + "']"));
+		List <WebElement> option = driver.findElements(By.xpath("//label[normalize-space(.)='Bank Account']/parent::th/following-sibling::td//select/option[@value='"+Bankname+"']"));
 //				By.xpath("//select/option[contains(text(),'" + Item + "')]"));
 				
 		for(int i=0;i<option.size();i++)

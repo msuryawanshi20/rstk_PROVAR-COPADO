@@ -128,20 +128,17 @@
                       </value>
                     </argument>
                     <argument id="outputFormat">
-                      <value class="value" valueClass="string">YYYY-MM-dd</value>
+                      <value class="value" valueClass="string">yyyy-MM-dd</value>
                     </argument>
                   </value>
                 </argument>
                 <argument id="rstk__sydata_batchinvoicenumber__c">
                   <value class="compound">
                     <parts>
-                      <value valueClass="string">NPAUTOINV_</value>
-                      <funcCall id="UniqueId">
-                        <argument id="length">
-                          <value class="value" valueClass="decimal">2</value>
-                        </argument>
-                      </funcCall>
-                      <value valueClass="string">N7</value>
+                      <value valueClass="string">NPAUTOAPI_</value>
+                      <variable>
+                        <path element="OrderNum"/>
+                      </variable>
                     </parts>
                   </value>
                 </argument>
@@ -248,6 +245,18 @@
     <param linkedToUrl="provar:hasvalue:91479e67-7eeb-4fc8-b539-69cb6dc9e5d2" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_pohdr__c" name="POHDRID" title="POHDRID">
       <summary/>
     </param>
+    <param name="OrderNum" title="OrderNum">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
   </params>
   <outputParams>
     <param name="poapmatchsydataid" title="poapmatchsydataid">
@@ -295,6 +304,11 @@
     <argument id="InvAmt">
       <value class="variable">
         <path element="POTotal"/>
+      </value>
+    </argument>
+    <argument id="OrderNum">
+      <value class="variable">
+        <path element="POOrderNum"/>
       </value>
     </argument>
   </args>
