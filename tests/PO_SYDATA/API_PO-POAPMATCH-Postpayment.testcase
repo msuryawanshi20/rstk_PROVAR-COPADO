@@ -52,19 +52,13 @@
       <clauses>
         <clause name="hidden" testItemId="242">
           <steps>
-            <caseCall testCaseId="5e762c63-0656-4a26-8a25-66df35188869" testCasePath="tests/Purchase Order/Callable/ReadExcelPath.testcase" testItemId="244">
+            <caseCall testCaseId="0996b2be-bbb6-4b92-82d8-19ad6683a2ac" testCasePath="tests/Purchase Order/Callable/ReadExcelPath.testcase" testItemId="277">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
               </arguments>
               <outputArguments>
-                <outputArgument id="ExcelPath">
-                  <name class="value" valueClass="string">ExcelPath</name>
-                </outputArgument>
-                <outputArgument id="ExcelURL" scope="Folder">
-                  <name class="value" valueClass="string">ExcelURL</name>
-                </outputArgument>
                 <outputArgument id="POUIExcel">
                   <name class="value" valueClass="string">POUIExcel</name>
                 </outputArgument>
@@ -73,6 +67,12 @@
                 </outputArgument>
                 <outputArgument id="POSYDATAExcel">
                   <name class="value" valueClass="string">POSYDATAExcel</name>
+                </outputArgument>
+                <outputArgument id="POSydataExcel1">
+                  <name class="value" valueClass="string">POSydataExcel1</name>
+                </outputArgument>
+                <outputArgument id="FinExcel">
+                  <name class="value" valueClass="string">FinExcel</name>
                 </outputArgument>
               </outputArguments>
             </caseCall>
@@ -368,6 +368,11 @@
                         <argument id="Quantity">
                           <value class="value" valueClass="string">QuantityBefore</value>
                         </argument>
+                        <argument id="ExcelPath_SalesOrder_BaseData_SOAPI">
+                          <value class="variable">
+                            <path element="POSYDATAExcel"/>
+                          </value>
+                        </argument>
                       </arguments>
                       <outputArguments>
                         <outputArgument id="QtyOnHand">
@@ -451,6 +456,11 @@
                         </argument>
                         <argument id="Quantity">
                           <value class="value" valueClass="string">QuantityAfter</value>
+                        </argument>
+                        <argument id="ExcelPath_SalesOrder_BaseData_SOAPI">
+                          <value class="variable">
+                            <path element="POSYDATAExcel"/>
+                          </value>
                         </argument>
                       </arguments>
                       <outputArguments>
@@ -598,10 +608,12 @@
                 </clause>
               </clauses>
             </apiCall>
-            <caseCall testCaseId="1c22d988-c6e5-4bb1-9821-38531f457765" testCasePath="tests/Account Payable/POPaySession.testcase" testItemId="273">
+            <caseCall testCaseId="48beb1a7-523f-4cd2-809e-43cab11c401d" testCasePath="tests/Account Payable/POPaySession.testcase" testItemId="276">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
+                  <value class="variable">
+                    <path element="reuseConnectionName"/>
+                  </value>
                 </argument>
                 <argument id="INVNO">
                   <value class="variable">
@@ -609,11 +621,6 @@
                   </value>
                 </argument>
               </arguments>
-              <outputArguments>
-                <outputArgument id="APINVTXN">
-                  <name class="value" valueClass="string">APINVTXN</name>
-                </outputArgument>
-              </outputArguments>
             </caseCall>
             <caseCall testCaseId="63069f2c-2aa1-4383-9227-da95bf27caa8" testCasePath="tests/Account Payable/PAYTO.testcase" testItemId="275">
               <arguments>

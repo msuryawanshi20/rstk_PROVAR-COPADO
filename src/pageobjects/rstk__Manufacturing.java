@@ -214,5 +214,21 @@ public class rstk__Manufacturing {
 	@FindBy(xpath = "//a[contains(normalize-space(.),'General Journal Entries')]")
 	public WebElement generalJournalEntries;
 
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Post by Transaction']")
+	public WebElement postByTransaction;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Post by Session']")
+	public WebElement postBySession;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Change Payment Method']")
+	public WebElement changePaymentMethod;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Void AP Payments']")
+	public WebElement voidAPPayments;
+
 }
 
