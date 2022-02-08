@@ -91,6 +91,12 @@ public WebDriver driver;
 	@ButtonType()
 	@FindBy(xpath = "//span/div/div/div/div/div/table//span/input")
 	public WebElement copyVendorCreditFromInvoiceVendorDebit;
+	@ButtonType()
+	@FindBy(xpath = "//form//div/div/div/table/tbody/tr/td/span/span/input")
+	public WebElement closeTransaction;
+	@ButtonType()
+	@FindBy(xpath = "//td[2]/span/span/input[2]")
+	public WebElement postTransaction;
 	
 	}
 	

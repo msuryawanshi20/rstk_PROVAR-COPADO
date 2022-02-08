@@ -164,7 +164,9 @@
                             <workbookPath class="variable">
                               <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
                             </workbookPath>
-                            <worksheetName class="value" valueClass="string">InventoryQuantity</worksheetName>
+                            <worksheetName class="variable">
+                              <path element="ws_quantity"/>
+                            </worksheetName>
                           </value>
                         </argument>
                         <argument id="targetDescription">

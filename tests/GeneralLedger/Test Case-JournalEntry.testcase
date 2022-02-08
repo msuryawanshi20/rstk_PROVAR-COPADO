@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="11">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,19 +43,21 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="30" title="Read Excel Data ">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="38" title="Read Excel Data">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">Read Excel Data </value>
+          <value class="value" valueClass="string">Read Excel Data</value>
         </argument>
       </arguments>
       <clauses>
-        <clause name="hidden" testItemId="53">
+        <clause name="hidden" testItemId="39">
           <steps>
-            <caseCall testCaseId="0996b2be-bbb6-4b92-82d8-19ad6683a2ac" testCasePath="tests/Purchase Order/Callable/ReadExcelPath.testcase" testItemId="54">
+            <caseCall testCaseId="0996b2be-bbb6-4b92-82d8-19ad6683a2ac" testCasePath="tests/Purchase Order/Callable/ReadExcelPath.testcase" testItemId="36">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
+                  <value class="variable">
+                    <path element="reuseConnectionName"/>
+                  </value>
                 </argument>
               </arguments>
               <outputArguments>
@@ -76,14 +78,14 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="34" title="Read AP Invoice Data">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="3" title="Read Journal Entry Data">
               <arguments>
                 <argument id="description">
-                  <value class="value" valueClass="string">Read AP Invoice Data</value>
+                  <value class="value" valueClass="string">Read Journal Entry Data</value>
                 </argument>
               </arguments>
               <parameterValueSources>
-                <parameterValueSource variableName="APInvoiceData" variableScope="Test">
+                <parameterValueSource variableName="journalentrydata" variableScope="Test">
                   <cacheToken>C:/Users/dellDevonforce/Provar/ErpFinalProject/rsqasampleproj/templates/Account Payable.xlsx;1629720846260</cacheToken>
                   <cachedParameters>
                     <apiParam name="Vendor"/>
@@ -93,59 +95,73 @@
                     <workbookPath class="variable">
                       <path element="FinExcel"/>
                     </workbookPath>
-                    <worksheetName class="value" valueClass="string">Invoice</worksheetName>
+                    <worksheetName class="value" valueClass="string">JournalEntries</worksheetName>
                     <valuesRange class="value"/>
+                  </sourceValue>
+                </parameterValueSource>
+                <parameterValueSource variableName="gljddata" variableScope="Test">
+                  <cacheToken>C:/Users/Namrata/git/rsqasampleproj/templates/QARSF/Account Payable.xlsx;1644227746117</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="Account"/>
+                    <apiParam name="DebitAmount"/>
+                    <apiParam name="CreditAmount"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="FinExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">JournalEntriesD</worksheetName>
                   </sourceValue>
                 </parameterValueSource>
               </parameterValueSources>
               <clauses>
-                <clause name="hidden" testItemId="35"/>
+                <clause name="hidden" testItemId="29">
+                  <steps/>
+                </clause>
               </clauses>
             </apiCall>
           </steps>
         </clause>
       </clauses>
     </apiCall>
-    <caseCall testCaseId="bdc41502-a550-4dfc-8f75-0e86c114adc8" testCasePath="tests/Account Payable/PayableSession.testcase" testItemId="4">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="31" title="For Each: {journalentrydata}=&gt;gljhdata">
       <arguments>
-        <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">SFConnection</value>
-        </argument>
-        <argument id="InvoiceData">
+        <argument id="list">
           <value class="variable">
-            <path element="APInvoiceData"/>
+            <path element="journalentrydata"/>
           </value>
         </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">gljhdata</value>
+        </argument>
+        <argument id="continueOnFailure"/>
       </arguments>
-      <outputArguments>
-        <outputArgument id="APINVH">
-          <name class="value" valueClass="string">APINVH</name>
-        </outputArgument>
-        <outputArgument id="INVNum">
-          <name class="value" valueClass="string">INVNum</name>
-        </outputArgument>
-        <outputArgument id="sessionno">
-          <name class="value" valueClass="string">sessionno</name>
-        </outputArgument>
-      </outputArguments>
-    </caseCall>
-    <caseCall testCaseId="10bc15c1-a62e-4bde-bc58-bdcc07bf809e" testCasePath="tests/Account Payable/PayableSessionVerify.testcase" testItemId="5">
-      <arguments>
-        <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">SFConnection</value>
-        </argument>
-        <argument id="APINVH">
-          <value class="variable">
-            <path element="APINVH"/>
-          </value>
-        </argument>
-        <argument id="ExpTxnTot">
-          <value class="variable">
-            <path element="APInvoiceData"/>
-            <path element="TransactionTotal"/>
-          </value>
-        </argument>
-      </arguments>
-    </caseCall>
+      <clauses>
+        <clause name="substeps" testItemId="32">
+          <steps>
+            <caseCall testCaseId="775b7e69-d2d6-4108-a3c6-1cc05a55a088" testCasePath="tests/GeneralLedger/JournalEntry.testcase" testItemId="33">
+              <arguments>
+                <argument id="gljd">
+                  <value class="variable">
+                    <path element="gljddata"/>
+                  </value>
+                </argument>
+                <argument id="gljh">
+                  <value class="variable">
+                    <path element="gljhdata"/>
+                  </value>
+                </argument>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
   </steps>
 </testCase>

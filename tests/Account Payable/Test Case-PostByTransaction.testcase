@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="10">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,7 +43,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="30" title="Read Excel Data ">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="32" title="Read Excel Data ">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read Excel Data </value>
@@ -106,7 +106,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <caseCall testCaseId="bdc41502-a550-4dfc-8f75-0e86c114adc8" testCasePath="tests/Account Payable/PayableSession.testcase" testItemId="4">
+    <caseCall testCaseId="ffad8b53-19eb-4873-a4fc-277a01694bb6" testCasePath="tests/Account Payable/PayableTransaction.testcase" testItemId="30">
       <arguments>
         <argument id="reuseConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
@@ -124,12 +124,32 @@
         <outputArgument id="INVNum">
           <name class="value" valueClass="string">INVNum</name>
         </outputArgument>
-        <outputArgument id="sessionno">
-          <name class="value" valueClass="string">sessionno</name>
+      </outputArguments>
+    </caseCall>
+    <caseCall testCaseId="f005da83-7f48-4e45-a387-23a740907b25" testCasePath="tests/Account Payable/PostByTransaction.testcase" testItemId="31">
+      <arguments>
+        <argument id="reuseConnectionName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="DocNo">
+          <value class="variable">
+            <path element="INVNum"/>
+          </value>
+        </argument>
+      </arguments>
+      <outputArguments>
+        <outputArgument id="APINVH">
+          <name class="value" valueClass="string">APINVH</name>
+        </outputArgument>
+        <outputArgument id="INVNum">
+          <name class="value" valueClass="string">INVNum</name>
         </outputArgument>
       </outputArguments>
     </caseCall>
     <caseCall testCaseId="10bc15c1-a62e-4bde-bc58-bdcc07bf809e" testCasePath="tests/Account Payable/PayableSessionVerify.testcase" testItemId="5">
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="reuseConnectionName">
           <value class="value" valueClass="string">SFConnection</value>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="1" registryId="bdc41502-a550-4dfc-8f75-0e86c114adc8" visibility="Internal">
+<testCase id="4" registryId="ffad8b53-19eb-4873-a4fc-277a01694bb6" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="23" title="Salesforce Connect: SFConnection (Test)">
@@ -57,14 +57,14 @@
         </argument>
       </arguments>
       <parameterValueSources>
-        <parameterValueSource variableName="APInvoiceData" variableScope="Test">
+        <parameterValueSource variableName="InvoiceData" variableScope="Test">
           <cacheToken>C:/Users/dellDevonforce/Provar/ErpFinalProject/rsqasampleproj/templates/Account Payable.xlsx;1629720846260</cacheToken>
           <cachedParameters>
             <apiParam name="Vendor"/>
             <apiParam name="TransactionTotal"/>
           </cachedParameters>
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/Account Payable.xlsx</workbookPath>
+            <workbookPath class="value" valueClass="string">templates/QARSF/Account Payable.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Invoice</worksheetName>
             <valuesRange class="value"/>
           </sourceValue>
@@ -74,19 +74,19 @@
         <clause name="hidden" testItemId="29"/>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="24" title="On SF Payable Session Payable Sessions list view">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="24" title="On SF Payable Transaction Payable Transactions list view">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?object=rstkf__apinvh__c&amp;action=List&amp;listView=rstkf__RS_Payable_Sessions"/>
+          <value class="uiTarget" uri="sf:ui:target?object=rstkf__apinvtxn__c&amp;action=List&amp;listView=rstkf__RS_Payable_Transactions"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Always</value>
         </argument>
         <argument id="targetDescription">
-          <value class="value" valueClass="string">On SF Payable Session Payable Sessions list view</value>
+          <value class="value" valueClass="string">On SF Payable Transaction Payable Transactions list view</value>
         </argument>
         <argument id="windowSelection">
           <value class="value" valueClass="string">Default</value>
@@ -105,10 +105,10 @@
       <clauses>
         <clause name="substeps" testItemId="3">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="4" title="Click the New button">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="36" title="Click the New button">
               <arguments>
                 <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=New&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3Drstkf__apinvh__c%26action%3DNew"/>
+                  <value class="uiLocator" uri="ui:locator?name=New&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3Drstkf__apinvtxn__c%26action%3DNew"/>
                 </argument>
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=action"/>
@@ -635,7 +635,7 @@
                 <argument id="autoRetry"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.string.Split" name="Split" testItemId="14" title="Split: {Values.fields.pageTitle.value}=&gt; =&gt;Tokens">
+            <apiCall apiId="com.provar.plugins.bundled.apis.string.Split" name="Split" testItemId="14" title="Split: {Values.fields.pageTitle.value}=&gt; - =&gt;Tokens">
               <arguments>
                 <argument id="input">
                   <value class="variable">
@@ -646,7 +646,7 @@
                   </value>
                 </argument>
                 <argument id="separator">
-                  <value class="value" valueClass="string"> </value>
+                  <value class="value" valueClass="string"> - </value>
                 </argument>
                 <argument id="resultName">
                   <value class="value" valueClass="string">Tokens</value>
@@ -656,56 +656,13 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="16" title="Set Values: APINVH">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="41" title="Set Values: APINVH">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
                     <namedValues mutable="Mutable">
                       <namedValue name="valuePath">
                         <value class="value" valueClass="string">APINVH</value>
-                      </namedValue>
-                      <namedValue name="value">
-                        <value class="variable">
-                          <path element="Tokens">
-                            <filter class="index">
-                              <index valueClass="decimal">3</index>
-                            </filter>
-                          </path>
-                        </value>
-                      </namedValue>
-                      <namedValue name="valueScope">
-                        <value class="value" valueClass="string">Test</value>
-                      </namedValue>
-                    </namedValues>
-                  </value>
-                </argument>
-              </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.string.Split" name="Split" testItemId="36" title="Split: {APINVH}=&gt;-=&gt;Tokens">
-              <arguments>
-                <argument id="input">
-                  <value class="variable">
-                    <path element="APINVH"/>
-                  </value>
-                </argument>
-                <argument id="separator">
-                  <value class="value" valueClass="string">-</value>
-                </argument>
-                <argument id="resultName">
-                  <value class="value" valueClass="string">Tokens</value>
-                </argument>
-                <argument id="resultScope">
-                  <value class="value" valueClass="string">Test</value>
-                </argument>
-              </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="37" title="Set Values: sessionno">
-              <arguments>
-                <argument id="values">
-                  <value class="valueList" mutable="Mutable">
-                    <namedValues mutable="Mutable">
-                      <namedValue name="valuePath">
-                        <value class="value" valueClass="string">sessionno</value>
                       </namedValue>
                       <namedValue name="value">
                         <value class="variable">
@@ -724,7 +681,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="38" title="Set Values: CloseFlag">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="48" title="Set Values: CloseFlag">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -746,7 +703,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="39" title="Set Values: PostFlag">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="16" title="Set Values: PostFlag">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -768,7 +725,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="40" title="If: {CloseFlag = &quot;Y&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="39" title="If: {CloseFlag = &quot;Y&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
@@ -780,12 +737,12 @@
                 </argument>
               </arguments>
               <clauses>
-                <clause name="then" testItemId="41">
+                <clause name="then" testItemId="40">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="19" title="Click the Close Session button">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="42" title="Click the Close Transaction button">
                       <arguments>
                         <argument id="locator">
-                          <value class="uiLocator" uri="ui:locator?name=closeSession"/>
+                          <value class="uiLocator" uri="ui:locator?name=closeTransaction"/>
                         </argument>
                         <argument id="interaction">
                           <value class="uiInteraction" uri="ui:interaction?name=action"/>
@@ -806,7 +763,7 @@
                           <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Click the Close Session button</value>
+                          <value class="value" valueClass="string">Click the Close Transaction button</value>
                         </argument>
                         <argument id="autoRetry"/>
                         <argument id="ieClickMethod">
@@ -833,13 +790,13 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiHandleAlert" name="UiHandleAlert" testItemId="20" title="Handle UI Alerts">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiHandleAlert" name="UiHandleAlert" testItemId="43" title="Handle UI Alerts">
                       <arguments>
                         <argument id="alerts">
                           <value class="valueList" mutable="Mutable">
                             <namedValues mutable="Mutable">
                               <namedValue name="expectedMessage">
-                                <value class="value" escapingDisabled="true" valueClass="string">Close Session?</value>
+                                <value class="value" valueClass="string">Close Transaction?</value>
                               </namedValue>
                               <namedValue name="response">
                                 <value class="value" valueClass="string">OK</value>
@@ -874,7 +831,7 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="44" title="If: {PostFlag = &quot;Y&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="46" title="If: {PostFlag = &quot;Y&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
@@ -886,12 +843,12 @@
                 </argument>
               </arguments>
               <clauses>
-                <clause name="then" testItemId="45">
+                <clause name="then" testItemId="47">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="46" title="Click the Post Session button">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="38" title="Click the Post Transaction button">
                       <arguments>
                         <argument id="locator">
-                          <value class="uiLocator" uri="ui:locator?name=postSession"/>
+                          <value class="uiLocator" uri="ui:locator?name=postTransaction"/>
                         </argument>
                         <argument id="interaction">
                           <value class="uiInteraction" uri="ui:interaction?name=action"/>
@@ -912,7 +869,7 @@
                           <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Click the Post Session button</value>
+                          <value class="value" valueClass="string">Click the Post Transaction button</value>
                         </argument>
                         <argument id="autoRetry"/>
                         <argument id="ieClickMethod">
@@ -939,13 +896,13 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiHandleAlert" name="UiHandleAlert" testItemId="47" title="Handle UI Alerts">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiHandleAlert" name="UiHandleAlert" testItemId="22" title="Handle UI Alerts">
                       <arguments>
                         <argument id="alerts">
                           <value class="valueList" mutable="Mutable">
                             <namedValues mutable="Mutable">
                               <namedValue name="expectedMessage">
-                                <value class="value" escapingDisabled="true" valueClass="string">Post Session?</value>
+                                <value class="value" valueClass="string">Post Transaction?</value>
                               </namedValue>
                               <namedValue name="response">
                                 <value class="value" valueClass="string">OK</value>
@@ -1049,21 +1006,6 @@
         <path element="INVNum"/>
       </sourceValue>
     </param>
-    <param name="sessionno" title="sessionno">
-      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-      <sourceValue class="variable">
-        <path element="sessionno"/>
-      </sourceValue>
-    </param>
   </outputParams>
   <args>
     <argument id="reuseConnectionName">
@@ -1081,9 +1023,6 @@
     </outputArgument>
     <outputArgument id="INVNum">
       <name class="value" valueClass="string">INVNum</name>
-    </outputArgument>
-    <outputArgument id="sessionno">
-      <name class="value" valueClass="string">sessionno</name>
     </outputArgument>
   </outputArgs>
 </testCase>
