@@ -563,9 +563,7 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="154" title="Assert: {InvoiceNumber.fields.invoiceNumber.value}({Row_AddLine.CustomerName}) IsPresent {ARSession.fields.AccountsReceivableSession.value}">
-                      <tags>
-                        <string>disabled</string>
-                      </tags>
+                      <tags/>
                       <arguments>
                         <argument id="expectedValue">
                           <value class="compound">

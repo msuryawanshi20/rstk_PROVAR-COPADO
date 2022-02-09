@@ -3061,6 +3061,9 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="184" title="Assert: {DebitAmount} EqualTo {CreditAmount}">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="expectedValue">
                           <value class="variable">

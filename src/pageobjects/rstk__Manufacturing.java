@@ -215,6 +215,10 @@ public class rstk__Manufacturing {
 	public WebElement generalJournalEntries;
 
 	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='MRP Launch']")
+	public WebElement MRPLaunch;
+
+  @LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Post by Transaction']")
 	public WebElement postByTransaction;
 
@@ -229,6 +233,7 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Void AP Payments']")
 	public WebElement voidAPPayments;
+
 
 }
 
