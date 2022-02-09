@@ -172,6 +172,12 @@
                                     <path element="Division"/>
                                   </value>
                                 </argument>
+                                <argument id="rstk__poloader_poagh__c">
+                                  <value class="variable">
+                                    <path element="addheader"/>
+                                    <path element="Agreement"/>
+                                  </value>
+                                </argument>
                               </arguments>
                               <parameterGeneratorProperties>
                                 <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
@@ -191,6 +197,7 @@
                                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_div__c" name="rstk__poloader_div__c" title="rstk__poloader_div__c">
                                   <summary>Not Applicable</summary>
                                 </apiParam>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__poloader__c&amp;field=rstk__poloader_poagh__c" name="rstk__poloader_poagh__c" title="rstk__poloader_poagh__c"/>
                               </generatedParameters>
                             </apiCall>
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="240" title="SOQL Query: select Id,Name,rstk__poloader_pohdr__c,rstk__poloader_process__c from rstk__poloader__c where id = '{addheaderId}'=&gt;poloaderhdrapi">
@@ -331,7 +338,7 @@
                                       </value>
                                     </argument>
                                     <argument id="outputFormat">
-                                      <value class="value" valueClass="string">YYYY-MM-dd</value>
+                                      <value class="value" valueClass="string">yyyy-MM-dd</value>
                                     </argument>
                                   </value>
                                 </argument>
@@ -490,12 +497,12 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="244" title="SOQL Query: select Id,rstk__pohdr_ordsts__c,rstk__pohdr_totamt__c,CreatedDate from rstk__pohdr__c where Id ='{POHDRID}'=&gt;pohdr">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="244" title="SOQL Query: select Id,rstk__pohdr_ordsts__c,rstk__pohdr_totamt__c,rstk__pohdr_ordno__c,CreatedDate from rstk__pohdr__c where Id ='{POHDRID}'=&gt;pohdr">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
                     <parts>
-                      <value valueClass="string">select Id,rstk__pohdr_ordsts__c,rstk__pohdr_totamt__c,CreatedDate from rstk__pohdr__c where Id ='</value>
+                      <value valueClass="string">select Id,rstk__pohdr_ordsts__c,rstk__pohdr_totamt__c,rstk__pohdr_ordno__c,CreatedDate from rstk__pohdr__c where Id ='</value>
                       <variable>
                         <path element="POHDRID"/>
                       </variable>
@@ -514,7 +521,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="246" title="Set Values: POTotal">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="247" title="Set Values: POTotal">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -526,6 +533,28 @@
                         <value class="variable">
                           <path element="pohdr"/>
                           <path element="rstk__pohdr_totamt__c"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="246" title="Set Values: POOrderNum">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">POOrderNum</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="pohdr"/>
+                          <path element="rstk__pohdr_ordno__c"/>
                         </value>
                       </namedValue>
                       <namedValue name="valueScope">
@@ -612,6 +641,21 @@
         <path element="POTotal"/>
       </sourceValue>
     </param>
+    <param name="POOrderNum" title="POOrderNum">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="POOrderNum"/>
+      </sourceValue>
+    </param>
   </outputParams>
   <args>
     <argument id="List">
@@ -639,6 +683,9 @@
     </outputArgument>
     <outputArgument id="POTotal">
       <name class="value" valueClass="string">POTotal</name>
+    </outputArgument>
+    <outputArgument id="POOrderNum">
+      <name class="value" valueClass="string">POOrderNum</name>
     </outputArgument>
   </outputArgs>
 </testCase>

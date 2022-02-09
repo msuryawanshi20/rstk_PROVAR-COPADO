@@ -22,7 +22,7 @@ public class rstk__inspord {
 	@FindByLabel(label = "Set Serial Disposition")
 	public WebElement setSerialDisposition;
 	@ButtonType()
-	@FindByLabel(label = "Edit")
+	@FindBy(xpath = "//input[@value='Edit']")
 	public WebElement edit;
 	@ButtonType
 	@FindBy(xpath = "//td/table//table/tbody/tr/td/table/tbody/tr/td[normalize-space(.)='Inspection Order Serials']")
@@ -37,19 +37,19 @@ public class rstk__inspord {
 	@FindBy(xpath = "//div[@id='insOrderSerialPopup']//input[@name='popupCancelButton']")
 	public WebElement close;
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Order Status']/parent::th/following-sibling::td//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Order Status']/ancestor::th/following-sibling::td//select")
 	public WebElement orderStatus;
 	@ButtonType()
 	@FindByLabel(label = "Save")
 	public WebElement save1;
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Quantity OK']/parent::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Quantity OK']/ancestor::th/following-sibling::td[1]//input")
 	public WebElement quantityOK;
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Quantity to be Scrapped']/parent::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Quantity to be Scrapped']/ancestor::th/following-sibling::td[1]//input")
 	public WebElement quantityToBeScrapped;
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Quantity in Other Disposition']/parent::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Quantity in Other Disposition']/ancestor::th/following-sibling::td[1]//input")
 	public WebElement quantityInOtherDisposition;
 	
 	

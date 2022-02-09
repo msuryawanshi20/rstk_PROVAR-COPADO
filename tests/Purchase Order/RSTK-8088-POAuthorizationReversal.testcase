@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="8">
+<testCase id="86">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,32 +43,93 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="15" title="ReadExcel">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="39" title="Reading Excel Data">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">ReadExcel</value>
+          <value class="value" valueClass="string">Reading Excel Data</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="ExcelData" variableScope="Test">
-          <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/RSTKF_AutomationData.xlsx;1613649169779</cacheToken>
-          <cachedParameters>
-            <apiParam name="Vendor"/>
-            <apiParam name="Item"/>
-            <apiParam name="Quantity"/>
-            <apiParam name="UnitPrice"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="variable">
-              <path element="POUIExcelPath"/>
-            </workbookPath>
-            <worksheetName class="value" valueClass="string">POAuthorization</worksheetName>
-            <valuesRange class="value"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
       <clauses>
-        <clause name="hidden" testItemId="16"/>
+        <clause name="hidden" testItemId="242">
+          <steps>
+            <caseCall testCaseId="5e762c63-0656-4a26-8a25-66df35188869" testCasePath="tests/Purchase Order/Callable/ReadExcelPath.testcase" testItemId="244">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="ExcelPath">
+                  <name class="value" valueClass="string">ExcelPath</name>
+                </outputArgument>
+                <outputArgument id="ExcelURL" scope="Folder">
+                  <name class="value" valueClass="string">ExcelURL</name>
+                </outputArgument>
+                <outputArgument id="POUIExcel">
+                  <name class="value" valueClass="string">POUIExcel</name>
+                </outputArgument>
+                <outputArgument id="POLoaderExcel">
+                  <name class="value" valueClass="string">POLoaderExcel</name>
+                </outputArgument>
+                <outputArgument id="POSYDATAExcel">
+                  <name class="value" valueClass="string">POSYDATAExcel</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="15" title="ReadExcel">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">ReadExcel</value>
+                </argument>
+              </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="ExcelData" variableScope="Test">
+                  <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/RSTKF_AutomationData.xlsx;1613649169779</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="Vendor"/>
+                    <apiParam name="Item"/>
+                    <apiParam name="Quantity"/>
+                    <apiParam name="UnitPrice"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="POUIExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">POAuthorization</worksheetName>
+                    <valuesRange class="value"/>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+              <clauses>
+                <clause name="hidden" testItemId="16">
+                  <steps/>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="47" title="For Each: {ExcelData}=&gt;POData">
+      <tags>
+        <string>disabled</string>
+      </tags>
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="ExcelData"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">POData</value>
+        </argument>
+        <argument id="continueOnFailure"/>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="48"/>
       </clauses>
     </apiCall>
     <caseCall testCaseId="8f010250-9f93-4d50-8117-a6f51aefe852" testCasePath="tests/Purchase Order/Callable/POmultipleline.testcase" testItemId="18">
@@ -79,7 +140,6 @@
         <argument id="IPVendor">
           <value class="variable">
             <path element="ExcelData"/>
-            <path element="Vendor"/>
           </value>
         </argument>
         <argument id="list">
@@ -100,6 +160,9 @@
         </outputArgument>
         <outputArgument id="CreatedDate">
           <name class="value" valueClass="string">CreatedDate</name>
+        </outputArgument>
+        <outputArgument id="POTotal">
+          <name class="value" valueClass="string">POTotal</name>
         </outputArgument>
       </outputArguments>
     </caseCall>
@@ -132,12 +195,12 @@
         </argument>
       </arguments>
     </caseCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="21" title="SOQL Query: select Id,rstk__poline_ordno__c,rstk__formula_qtyrcvd__c, rstk__poline_ordsts__c,rstk__poline_qtyacc__c from rstk__poline__c where rstk__poline_ordno__c ='{POHDRID}'=&gt;poline">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="21" title="SOQL Query: select Id,rstk__poline_ordno__c,rstk__formula_qtyrcvd__c, rstk__poline_qtyreq__c ,rstk__poline_ordsts__c,rstk__poline_qtyacc__c from rstk__poline__c where rstk__poline_ordno__c ='{POHDRID}'=&gt;poline">
       <arguments>
         <argument id="soqlQuery">
           <value class="compound">
             <parts>
-              <value valueClass="string">select Id,rstk__poline_ordno__c,rstk__formula_qtyrcvd__c, rstk__poline_ordsts__c,rstk__poline_qtyacc__c from rstk__poline__c where rstk__poline_ordno__c ='</value>
+              <value valueClass="string">select Id,rstk__poline_ordno__c,rstk__formula_qtyrcvd__c, rstk__poline_qtyreq__c ,rstk__poline_ordsts__c,rstk__poline_qtyacc__c from rstk__poline__c where rstk__poline_ordno__c ='</value>
               <variable>
                 <path element="POHDRID"/>
               </variable>
@@ -193,10 +256,10 @@
       <clauses>
         <clause name="substeps" testItemId="30">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="31" title="Assert: 8-All Line Items Received EqualTo {lineiteration.rstk__poline_ordsts__c}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="31" title="Assert: 5-Vendor Notified EqualTo {lineiteration.rstk__poline_ordsts__c}">
               <arguments>
                 <argument id="expectedValue">
-                  <value class="value" valueClass="string">8-All Line Items Received</value>
+                  <value class="value" valueClass="string">5-Vendor Notified</value>
                 </argument>
                 <argument id="actualValue">
                   <value class="variable">
@@ -228,7 +291,7 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="14" title="Assert: {ExcelData[rownum].Quantity} EqualTo {poline.rstk__poline_qtyacc__c}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="49" title="Assert: {ExcelData[rownum].Quantity} EqualTo {lineiteration.rstk__poline_qtyreq__c}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="variable">
@@ -241,6 +304,41 @@
                     </path>
                     <path element="Quantity"/>
                   </value>
+                </argument>
+                <argument id="actualValue">
+                  <value class="variable">
+                    <path element="lineiteration"/>
+                    <path element="rstk__poline_qtyreq__c"/>
+                  </value>
+                </argument>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
+                </argument>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="14" title="Assert: 0 EqualTo {poline.rstk__poline_qtyacc__c}">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="value" valueClass="string">0</value>
                 </argument>
                 <argument id="actualValue">
                   <value class="variable">

@@ -1,7 +1,5 @@
 package pageobjects;
 
-
-
 import java.util.logging.Logger;
 
 import org.openqa.selenium.By;
@@ -12,13 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.provar.core.testapi.annotations.*;
 
-@SalesforcePage( title="Rstk__ Stocklocprojmove"                                
-               , summary=""
-               , page="Stocklocprojmove"
-               , namespacePrefix="rstk"
-               , object="rstk__locadd__c"
-               , connection="QARSF_Admin"
-     )             
+@SalesforcePage(title = "Rstk__ Stocklocprojmove", summary = "", page = "Stocklocprojmove", namespacePrefix = "rstk", object = "rstk__locadd__c", connection = "QARSF_Admin")
 public class rstk__Stocklocprojmove {
 	public WebDriver driver;
 
@@ -48,6 +40,10 @@ public class rstk__Stocklocprojmove {
 	@FindBy(xpath = "//input[contains(@id,'locmove_toproj__c_autocomplete')]")
 	public WebElement searchToProject;
 
+	@ChoiceListType()
+	@FindBy(xpath = "//label[normalize-space(.)='Stock Loc ID']/ancestor::span/ancestor::th/following-sibling::td//select")
+	public WebElement stockLocID;
+
 	@ButtonType()
 	@FindByLabel(label = "Display Proj Move Entries")
 	public WebElement displayProjMoveEntries;
@@ -69,13 +65,13 @@ public class rstk__Stocklocprojmove {
 			xpath = "//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[6]//select";
+					+ "')]/parent::td/parent::tr//td[7]//select";
 			testLogger.info("Dropdownvalues::::" + xpath);
 		} else {
 
 			xpath = "//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[6]//select";
+					+ "')]/parent::td/parent::tr//td[7]//select";
 			testLogger.info("Dropdownvalues::::" + xpath);
 		}
 
@@ -94,11 +90,11 @@ public class rstk__Stocklocprojmove {
 			ele = driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[7]//select"));
+					+ "')]/parent::td/parent::tr//td[8]//select"));
 		} else {
 			ele = driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[7]//select"));
+					+ "')]/parent::td/parent::tr//td[8]//select"));
 
 		}
 
@@ -114,11 +110,11 @@ public class rstk__Stocklocprojmove {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[8]/input")).sendKeys(qty);
+					+ "')]/parent::td/parent::tr//td[9]/input")).sendKeys(qty);
 		} else {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[8]/input")).sendKeys(qty);
+					+ "')]/parent::td/parent::tr//td[9]/input")).sendKeys(qty);
 
 		}
 	}
@@ -129,12 +125,12 @@ public class rstk__Stocklocprojmove {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[9]/input")).sendKeys("" + document);
+					+ "')]/parent::td/parent::tr//td[10]/input")).sendKeys("" + document);
 
 		} else {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[9]/input")).sendKeys("" + document);
+					+ "')]/parent::td/parent::tr//td[10]/input")).sendKeys("" + document);
 		}
 	}
 
@@ -146,11 +142,11 @@ public class rstk__Stocklocprojmove {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[10]/input")).sendKeys("" + txnComment);
+					+ "')]/parent::td/parent::tr//td[11]/input")).sendKeys("" + txnComment);
 		} else {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[10]/input")).sendKeys("" + txnComment);
+					+ "')]/parent::td/parent::tr//td[11]/input")).sendKeys("" + txnComment);
 		}
 
 	}
@@ -161,11 +157,11 @@ public class rstk__Stocklocprojmove {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[11]/input")).sendKeys("" + toLocComment);
+					+ "')]/parent::td/parent::tr//td[12]/input")).sendKeys("" + toLocComment);
 		} else {
 			driver.findElement(By.xpath("//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[11]/input")).sendKeys("" + toLocComment);
+					+ "')]/parent::td/parent::tr//td[12]/input")).sendKeys("" + toLocComment);
 
 		}
 	}
@@ -210,7 +206,7 @@ public class rstk__Stocklocprojmove {
 				element = driver.findElement(By.xpath("//*[contains(text(),'" + locID
 						+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 						+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-						+ "')]/parent::td/parent::tr//td[8]//select/option[" + i + "]"));
+						+ "')]/parent::td/parent::tr//td[9]//select/option[" + i + "]"));
 
 				testLogger.info("Serial Number:" + element.getText());
 				selectedSerial += "\n" + element.getText();
@@ -218,7 +214,7 @@ public class rstk__Stocklocprojmove {
 
 				element = driver.findElement(By.xpath("//*[contains(text(),'" + locID
 						+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-						+ "')]/parent::td/parent::tr//td[8]//select/option[" + i + "]"));
+						+ "')]/parent::td/parent::tr//td[9]//select/option[" + i + "]"));
 
 				testLogger.info("Serial Number:" + element.getText());
 				selectedSerial += "\n" + element.getText();

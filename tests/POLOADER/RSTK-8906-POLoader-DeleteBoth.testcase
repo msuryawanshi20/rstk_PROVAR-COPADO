@@ -702,14 +702,7 @@
                               <fieldLocator uri="ui:locator?name=SO_Header_Deleted"/>
                               <attributeAssertions>
                                 <uiAttributeAssertion attributeName="value" comparisonType="Contains" normalize="true">
-                                  <value class="compound">
-                                    <parts>
-                                      <value valueClass="string">POHDR entry not found for pohdrId: </value>
-                                      <variable>
-                                        <path element="pohdrid"/>
-                                      </variable>
-                                    </parts>
-                                  </value>
+                                  <value class="value" valueClass="string">POHDR entry not found for pohdrId: </value>
                                 </uiAttributeAssertion>
                               </attributeAssertions>
                             </uiFieldAssertion>

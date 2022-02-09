@@ -47,19 +47,19 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="26" title="On SF Payment Selection Session Payment Selection - In process list view">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="26" title="On SF Payment Selection Session Payment Selection Session - Filtered list view">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?object=rstkf__paysession__c&amp;action=List&amp;listView=Payment_Selection_In_process"/>
+          <value class="uiTarget" uri="sf:ui:target?object=rstkf__paysession__c&amp;action=List&amp;listView=rstkf__RS_Payment_Selection_Session_Filtered"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Always</value>
         </argument>
         <argument id="targetDescription">
-          <value class="value" valueClass="string">On SF Payment Selection Session Payment Selection - In process list view</value>
+          <value class="value" valueClass="string">On SF Payment Selection Session Payment Selection Session - Filtered list view</value>
         </argument>
         <argument id="windowSelection">
           <value class="value" valueClass="string">Default</value>
@@ -293,9 +293,16 @@
                     <path element="ip_AccName"/>
                   </value>
                 </argument>
+                <argument id="param_BankName"/>
+                <argument id="param_Bankname">
+                  <value class="variable">
+                    <path element="ip_AccName"/>
+                    <path element="Id"/>
+                  </value>
+                </argument>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="param_AccName" title="Acc Name">
+                <apiParam group="value" name="param_Bankname" title="Bankname">
                   <type>
                     <textType/>
                   </type>

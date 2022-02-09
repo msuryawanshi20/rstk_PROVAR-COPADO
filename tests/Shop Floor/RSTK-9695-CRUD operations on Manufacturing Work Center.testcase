@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="4">
+<testCase id="435">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,6 +43,154 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="146" title="Read excel based on Selected environment">
+      <arguments>
+        <argument id="condition">
+          <value class="eq">
+            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+            <rhs class="value" valueClass="string">PDE5</rhs>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="905">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="944" title="Read excel data for selected environment">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Read excel data for selected environment</value>
+                </argument>
+              </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="SourceData" variableScope="Test">
+                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9695-CRUD operations on Manufacturing Work Center.xlsx;1635422766209</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="WorkCenterNumber"/>
+                    <apiParam name="Description"/>
+                    <apiParam name="MfgDepartment"/>
+                    <apiParam name="ResponsiblePlanner"/>
+                    <apiParam name="IssueLocationID"/>
+                    <apiParam name="TotalCapacityLaborHrsDay"/>
+                    <apiParam name="LengthOfProductionDayLaborHrs"/>
+                    <apiParam name="TotalCapacityMachineHrsDay"/>
+                    <apiParam name="LengthOfProductionDayMachineHrs"/>
+                    <apiParam name="SequenceNumber"/>
+                    <apiParam name="SchedulingFactor"/>
+                    <apiParam name="WorkCenterConcurrentSequenceOption"/>
+                    <apiParam name="QueueDays"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9695-CRUD operations on Manufacturing Work Center.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Create</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:M</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+              <clauses>
+                <clause name="hidden" testItemId="941"/>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="906">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                    <rhs class="value" valueClass="string">Automation</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="919">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="942" title="Read excel data for selected environment">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read excel data for selected environment</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="SourceData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9695-CRUD operations on Manufacturing Work Center.xlsx;1635422766209</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="WorkCenterNumber"/>
+                            <apiParam name="Description"/>
+                            <apiParam name="MfgDepartment"/>
+                            <apiParam name="ResponsiblePlanner"/>
+                            <apiParam name="IssueLocationID"/>
+                            <apiParam name="TotalCapacityLaborHrsDay"/>
+                            <apiParam name="LengthOfProductionDayLaborHrs"/>
+                            <apiParam name="TotalCapacityMachineHrsDay"/>
+                            <apiParam name="LengthOfProductionDayMachineHrs"/>
+                            <apiParam name="SequenceNumber"/>
+                            <apiParam name="SchedulingFactor"/>
+                            <apiParam name="WorkCenterConcurrentSequenceOption"/>
+                            <apiParam name="QueueDays"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9695-CRUD operations on Manufacturing Work Center.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Create</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:M</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="945"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="922">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="940" title="Read excel data for selected environment">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read excel data for selected environment</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="SourceData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9695-CRUD operations on Manufacturing Work Center.xlsx;1635422766209</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="WorkCenterNumber"/>
+                            <apiParam name="Description"/>
+                            <apiParam name="MfgDepartment"/>
+                            <apiParam name="ResponsiblePlanner"/>
+                            <apiParam name="IssueLocationID"/>
+                            <apiParam name="TotalCapacityLaborHrsDay"/>
+                            <apiParam name="LengthOfProductionDayLaborHrs"/>
+                            <apiParam name="TotalCapacityMachineHrsDay"/>
+                            <apiParam name="LengthOfProductionDayMachineHrs"/>
+                            <apiParam name="SequenceNumber"/>
+                            <apiParam name="SchedulingFactor"/>
+                            <apiParam name="WorkCenterConcurrentSequenceOption"/>
+                            <apiParam name="QueueDays"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9695-CRUD operations on Manufacturing Work Center.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Create</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:M</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="943"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="24" title="Read Excel Data and process record">
       <arguments>
         <argument id="list">
@@ -60,32 +208,7 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData" variableScope="Test">
-          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/Manufacturing Work Center.xlsx;1633448457065</cacheToken>
-          <cachedParameters>
-            <apiParam name="RowNumber"/>
-            <apiParam name="WorkCenterNumber"/>
-            <apiParam name="Description"/>
-            <apiParam name="MfgDepartment"/>
-            <apiParam name="ResponsiblePlanner"/>
-            <apiParam name="IssueLocationID"/>
-            <apiParam name="TotalCapacityLaborHrsDay"/>
-            <apiParam name="LengthOfProductionDayLaborHrs"/>
-            <apiParam name="TotalCapacityMachineHrsDay"/>
-            <apiParam name="LengthOfProductionDayMachineHrs"/>
-            <apiParam name="SequenceNumber"/>
-            <apiParam name="SchedulingFactor"/>
-            <apiParam name="WorkCenterConcurrentSequenceOption"/>
-            <apiParam name="QueueDays"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9695-CRUD operations on Manufacturing Work Center.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">Create</worksheetName>
-            <valuesRange class="value" valueClass="string">A:M</valuesRange>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
       <clauses>
         <clause name="substeps" testItemId="25">
           <steps>
@@ -1109,6 +1232,154 @@
                 </clause>
               </clauses>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="923" title="Read Excel data to perform update operation">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                    <rhs class="value" valueClass="string">PDE5</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="924">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="948" title="Read excel data for selected environment">
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">Read excel data for selected environment</value>
+                        </argument>
+                      </arguments>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="SourceData2" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9695-CRUD operations on Manufacturing Work Center.xlsx;1635422766209</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="WorkCenterNumber"/>
+                            <apiParam name="Description"/>
+                            <apiParam name="MfgDepartment"/>
+                            <apiParam name="ResponsiblePlanner"/>
+                            <apiParam name="IssueLocationID"/>
+                            <apiParam name="TotalCapacityLaborHrsDay"/>
+                            <apiParam name="LengthOfProductionDayLaborHrs"/>
+                            <apiParam name="TotalCapacityMachineHrsDay"/>
+                            <apiParam name="LengthOfProductionDayMachineHrs"/>
+                            <apiParam name="SequenceNumber"/>
+                            <apiParam name="SchedulingFactor"/>
+                            <apiParam name="WorkCenterConcurrentSequenceOption"/>
+                            <apiParam name="QueueDays"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="WorkCenterNumber" whereValue="{op_wcName.fields.workCenterNumber1.value}">
+                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9695-CRUD operations on Manufacturing Work Center.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Update</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:M</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="939"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="925">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="926" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="eq">
+                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                            <rhs class="value" valueClass="string">Automation</rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="927">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="946" title="Read excel data for selected environment">
+                              <arguments>
+                                <argument id="description">
+                                  <value class="value" valueClass="string">Read excel data for selected environment</value>
+                                </argument>
+                              </arguments>
+                              <parameterValueSources>
+                                <parameterValueSource variableName="SourceData2" variableScope="Test">
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9695-CRUD operations on Manufacturing Work Center.xlsx;1635422766209</cacheToken>
+                                  <cachedParameters>
+                                    <apiParam name="RowNumber"/>
+                                    <apiParam name="WorkCenterNumber"/>
+                                    <apiParam name="Description"/>
+                                    <apiParam name="MfgDepartment"/>
+                                    <apiParam name="ResponsiblePlanner"/>
+                                    <apiParam name="IssueLocationID"/>
+                                    <apiParam name="TotalCapacityLaborHrsDay"/>
+                                    <apiParam name="LengthOfProductionDayLaborHrs"/>
+                                    <apiParam name="TotalCapacityMachineHrsDay"/>
+                                    <apiParam name="LengthOfProductionDayMachineHrs"/>
+                                    <apiParam name="SequenceNumber"/>
+                                    <apiParam name="SchedulingFactor"/>
+                                    <apiParam name="WorkCenterConcurrentSequenceOption"/>
+                                    <apiParam name="QueueDays"/>
+                                  </cachedParameters>
+                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="WorkCenterNumber" whereValue="{op_wcName.fields.workCenterNumber1.value}">
+                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9695-CRUD operations on Manufacturing Work Center.xlsx</workbookPath>
+                                    <worksheetName class="value" valueClass="string">Update</worksheetName>
+                                    <valuesRange class="value" valueClass="string">A:M</valuesRange>
+                                  </sourceValue>
+                                </parameterValueSource>
+                              </parameterValueSources>
+                              <clauses>
+                                <clause name="hidden" testItemId="949"/>
+                              </clauses>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="928">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="938" title="Read excel data for selected environment">
+                              <arguments>
+                                <argument id="description">
+                                  <value class="value" valueClass="string">Read excel data for selected environment</value>
+                                </argument>
+                              </arguments>
+                              <parameterValueSources>
+                                <parameterValueSource variableName="SourceData2" variableScope="Test">
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9695-CRUD operations on Manufacturing Work Center.xlsx;1635422766209</cacheToken>
+                                  <cachedParameters>
+                                    <apiParam name="RowNumber"/>
+                                    <apiParam name="WorkCenterNumber"/>
+                                    <apiParam name="Description"/>
+                                    <apiParam name="MfgDepartment"/>
+                                    <apiParam name="ResponsiblePlanner"/>
+                                    <apiParam name="IssueLocationID"/>
+                                    <apiParam name="TotalCapacityLaborHrsDay"/>
+                                    <apiParam name="LengthOfProductionDayLaborHrs"/>
+                                    <apiParam name="TotalCapacityMachineHrsDay"/>
+                                    <apiParam name="LengthOfProductionDayMachineHrs"/>
+                                    <apiParam name="SequenceNumber"/>
+                                    <apiParam name="SchedulingFactor"/>
+                                    <apiParam name="WorkCenterConcurrentSequenceOption"/>
+                                    <apiParam name="QueueDays"/>
+                                  </cachedParameters>
+                                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="WorkCenterNumber" whereValue="{op_wcName.fields.workCenterNumber1.value}">
+                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9695-CRUD operations on Manufacturing Work Center.xlsx</workbookPath>
+                                    <worksheetName class="value" valueClass="string">Update</worksheetName>
+                                    <valuesRange class="value" valueClass="string">A:M</valuesRange>
+                                  </sourceValue>
+                                </parameterValueSource>
+                              </parameterValueSources>
+                              <clauses>
+                                <clause name="hidden" testItemId="947"/>
+                              </clauses>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="96" title="Update Record">
               <arguments>
                 <argument id="list">
@@ -1126,32 +1397,7 @@
                   <value class="value" valueClass="boolean">true</value>
                 </argument>
               </arguments>
-              <parameterValueSources>
-                <parameterValueSource variableName="SourceData2" variableScope="Test">
-                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/Manufacturing Work Center.xlsx;1633448457065</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="RowNumber"/>
-                    <apiParam name="WorkCenterNumber"/>
-                    <apiParam name="Description"/>
-                    <apiParam name="MfgDepartment"/>
-                    <apiParam name="ResponsiblePlanner"/>
-                    <apiParam name="IssueLocationID"/>
-                    <apiParam name="TotalCapacityLaborHrsDay"/>
-                    <apiParam name="LengthOfProductionDayLaborHrs"/>
-                    <apiParam name="TotalCapacityMachineHrsDay"/>
-                    <apiParam name="LengthOfProductionDayMachineHrs"/>
-                    <apiParam name="SequenceNumber"/>
-                    <apiParam name="SchedulingFactor"/>
-                    <apiParam name="WorkCenterConcurrentSequenceOption"/>
-                    <apiParam name="QueueDays"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="WorkCenterNumber" whereValue="{op_wcName.fields.workCenterNumber1.value}">
-                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9695-CRUD operations on Manufacturing Work Center.xlsx</workbookPath>
-                    <worksheetName class="value" valueClass="string">Update</worksheetName>
-                    <valuesRange class="value" valueClass="string">A:M</valuesRange>
-                  </sourceValue>
-                </parameterValueSource>
-              </parameterValueSources>
+              <parameterValueSources/>
               <clauses>
                 <clause name="substeps" testItemId="97">
                   <steps>

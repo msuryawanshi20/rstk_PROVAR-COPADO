@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="44">
+<testCase id="0">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,30 +43,71 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="Read Excel">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="10" title="Reading Excel Data">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">Read Excel</value>
+          <value class="value" valueClass="string">Reading Excel Data</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="ExcelData" variableScope="Test">
-          <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/RSTKF_AutomationData.xlsx;1619690449455</cacheToken>
-          <cachedParameters>
-            <apiParam name="Vendor"/>
-            <apiParam name="Item"/>
-            <apiParam name="Quantity"/>
-            <apiParam name="UnitPrice"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">POReceipt</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
       <clauses>
-        <clause name="hidden" testItemId="3"/>
+        <clause name="hidden" testItemId="242">
+          <steps>
+            <caseCall testCaseId="5e762c63-0656-4a26-8a25-66df35188869" testCasePath="tests/Purchase Order/Callable/ReadExcelPath.testcase" testItemId="244">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="ExcelPath">
+                  <name class="value" valueClass="string">ExcelPath</name>
+                </outputArgument>
+                <outputArgument id="ExcelURL" scope="Folder">
+                  <name class="value" valueClass="string">ExcelURL</name>
+                </outputArgument>
+                <outputArgument id="POUIExcel">
+                  <name class="value" valueClass="string">POUIExcel</name>
+                </outputArgument>
+                <outputArgument id="POLoaderExcel">
+                  <name class="value" valueClass="string">POLoaderExcel</name>
+                </outputArgument>
+                <outputArgument id="POSYDATAExcel">
+                  <name class="value" valueClass="string">POSYDATAExcel</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="Read Excel">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Read Excel</value>
+                </argument>
+              </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="ExcelData" variableScope="Test">
+                  <cacheToken>C:/Users/dellDevonforce/Provar/RootstockFinancials/PurchaseOrder/templates/RSTKF_AutomationData.xlsx;1619690449455</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="Vendor"/>
+                    <apiParam name="Item"/>
+                    <apiParam name="Quantity"/>
+                    <apiParam name="UnitPrice"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="POUIExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">POReceipt</worksheetName>
+                    <valuesRange class="value"/>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+              <clauses>
+                <clause name="hidden" testItemId="3">
+                  <steps/>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
       </clauses>
     </apiCall>
     <caseCall testCaseId="8f010250-9f93-4d50-8117-a6f51aefe852" testCasePath="tests/Purchase Order/Callable/POmultipleline.testcase" testItemId="7">
@@ -77,7 +118,6 @@
         <argument id="IPVendor">
           <value class="variable">
             <path element="ExcelData"/>
-            <path element="Vendor"/>
           </value>
         </argument>
         <argument id="list">
@@ -98,6 +138,9 @@
         </outputArgument>
         <outputArgument id="CreatedDate">
           <name class="value" valueClass="string">CreatedDate</name>
+        </outputArgument>
+        <outputArgument id="POTotal">
+          <name class="value" valueClass="string">POTotal</name>
         </outputArgument>
       </outputArguments>
     </caseCall>

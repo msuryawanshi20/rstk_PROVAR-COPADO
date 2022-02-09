@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="1" visibility="Internal">
+<testCase id="1" registryId="0996b2be-bbb6-4b92-82d8-19ad6683a2ac" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -59,7 +59,7 @@
       <clauses>
         <clause name="then" testItemId="119">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="120" title="Set Values: poui">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="139" title="Set Values: poui">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -69,6 +69,44 @@
                       </namedValue>
                       <namedValue name="value">
                         <value class="value" valueClass="string">templates/QARSF/RSTKF_AutomationData.xlsx</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="120" title="Set Values: financial">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">financial</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">templates/QARSF/Account Payable.xlsx</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="138" title="Set Values: posydata1">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">posydata1</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">templates/QARSF/POSYDATA.xlsx</value>
                       </namedValue>
                       <namedValue name="valueScope">
                         <value class="value" valueClass="string">Test</value>
@@ -132,6 +170,44 @@
               <clauses>
                 <clause name="then" testItemId="115">
                   <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="140" title="Set Values: financial">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">financial</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">templates/AutomationOrg/FinancialData_AutomationOrg.xlsx</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="137" title="Set Values: posydata1">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">posydata1</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">templates/AutomationOrg/POSYDATA-AutomationOrg.xlsx</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="133" title="Set Values: posydata">
                       <arguments>
                         <argument id="values">
@@ -197,7 +273,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="127" title="Set Values: pouipath">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="142" title="Set Values: pouipath">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -208,6 +284,48 @@
               <namedValue name="value">
                 <value class="variable">
                   <path element="poui"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="141" title="Set Values: posydatapath1">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">posydatapath1</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="posydata1"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="127" title="Set Values: finpath">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">finpath</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="financial"/>
                 </value>
               </namedValue>
               <namedValue name="valueScope">
@@ -320,6 +438,36 @@
         <path element="posydatapath"/>
       </sourceValue>
     </param>
+    <param name="POSydataExcel1" title="POSydataExcel1">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="posydatapath1"/>
+      </sourceValue>
+    </param>
+    <param name="FinExcel" title="FinExcel">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="finpath"/>
+      </sourceValue>
+    </param>
   </outputParams>
   <args>
     <argument id="reuseConnectionName">
@@ -343,6 +491,12 @@
     </outputArgument>
     <outputArgument id="POSYDATAExcel">
       <name class="value" valueClass="string">POSYDATAExcel</name>
+    </outputArgument>
+    <outputArgument id="POSydataExcel1">
+      <name class="value" valueClass="string">POSydataExcel1</name>
+    </outputArgument>
+    <outputArgument id="FinExcel">
+      <name class="value" valueClass="string">FinExcel</name>
     </outputArgument>
   </outputArgs>
 </testCase>
