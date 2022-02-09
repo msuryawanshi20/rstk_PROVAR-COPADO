@@ -144,7 +144,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="23" title="Set Values: wb_ExcelPath_AR">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="26" title="Set Values: wb_ExcelPath_AR">
                       <arguments>
                         <argument id="values">
                           <value class="valueList" mutable="Mutable">
@@ -154,6 +154,44 @@
                               </namedValue>
                               <namedValue name="value">
                                 <value class="value" valueClass="string">templates/AutomationOrg/AR.xlsx</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="29" title="Set Values: wb_ExcelPath_MRP">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">wb_ExcelPath_MRP</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">templates/AutomationOrg/MRP.xlsx</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="23" title="Set Values: wb_ExcelPath_FSL">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">wb_ExcelPath_FSL</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">templates/AutomationOrg/FSL.xlsx</value>
                               </namedValue>
                               <namedValue name="valueScope">
                                 <value class="value" valueClass="string">Test</value>
@@ -274,6 +312,79 @@
                         </argument>
                       </arguments>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="30" title="Set Values: wb_ExcelPath_MRP">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">wb_ExcelPath_MRP</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">templates/QARSF/MRP.xlsx</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="27" title="Set Values: wb_ExcelPath_FSL">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">wb_ExcelPath_FSL</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">templates/QARSF/FSL.xlsx</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="32" title="If: {GetSelectedEnvironment() = &quot;DEVQAFF&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                    <rhs class="value" valueClass="string">DEVQAFF</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="33">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="34" title="Set Values: wb_ExcelPath_FSL">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">wb_ExcelPath_FSL</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">templates/DEVQAFF/FSL.xlsx</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                   </steps>
                 </clause>
               </clauses>
@@ -320,7 +431,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="19" title="Set Values: ExcelPath_AR">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="28" title="Set Values: ExcelPath_AR">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -331,6 +442,48 @@
                       <namedValue name="value">
                         <value class="variable">
                           <path element="wb_ExcelPath_AR"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="31" title="Set Values: ExcelPath_MRP">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ExcelPath_MRP</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="wb_ExcelPath_MRP"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="19" title="Set Values: ExcelPath_FSL">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ExcelPath_FSL</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="wb_ExcelPath_FSL"/>
                         </value>
                       </namedValue>
                       <namedValue name="valueScope">
@@ -487,6 +640,36 @@
         <path element="ExcelPath_AR"/>
       </sourceValue>
     </param>
+    <param name="ExcelPath_MRP" title="ExcelPath_MRP">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="ExcelPath_MRP"/>
+      </sourceValue>
+    </param>
+    <param name="ExcelPath_FSL" title="ExcelPath_FSL">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="ExcelPath_FSL"/>
+      </sourceValue>
+    </param>
   </outputParams>
   <args>
     <argument id="reuseConnectionName">
@@ -510,6 +693,12 @@
     </outputArgument>
     <outputArgument id="ExcelPath_AR">
       <name class="value" valueClass="string">ExcelPath_AR</name>
+    </outputArgument>
+    <outputArgument id="ExcelPath_MRP">
+      <name class="value" valueClass="string">ExcelPath_MRP</name>
+    </outputArgument>
+    <outputArgument id="ExcelPath_FSL">
+      <name class="value" valueClass="string">ExcelPath_FSL</name>
     </outputArgument>
   </outputArgs>
 </testCase>

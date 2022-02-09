@@ -50,6 +50,29 @@ public class HomePage {
 	@FindBy(xpath = "//input[@name='new']")
 	public WebElement New_Prepayment_Detail;
 	
+	@LinkType()
+	@FindBy(xpath = "//span[text()='Forecast Demand']")
+	public WebElement ForecastDemand;
+	
+	@LinkType()
+	@FindBy(xpath = "//span[text()='Forecast Demand-Fast Entry']")
+	public WebElement ForecastDemandFastEntry;
+
+	@ButtonType()
+	@FindBy(xpath = "//input[@name='new']")
+	public WebElement NewForecastDemand;
+	
+	@LinkType()
+	@FindBy(xpath = "//span[text()='Summary Review by Item']")
+	public WebElement SummaryReviewbyItem;
+	
+	@LinkType()
+	@FindBy(xpath = "//span[text()='Detailed Review by Item']")
+	public WebElement DetailedReviewbyItem;
+	
+	@LinkType()
+	@FindBy(xpath = "//span[text()='MRP Action Message Search']")
+	public WebElement MRPActionMessageSearch;
 	
 
 }
