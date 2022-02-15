@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Inherit" id="33" registryId="02a51191-fbea-488b-ad70-a07574a27c2b" visibility="Internal">
+<testCase failureBehaviour="Inherit" id="33" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -46,7 +46,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="15" title="On SF Routing Master New screen">
-      <tags/>
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
