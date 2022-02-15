@@ -521,7 +521,10 @@
                                   </value>
                                 </argument>
                                 <argument id="ip_activationGracePeriod">
-                                  <value class="invalid">{op_soconppRow.ActivationGracePeriod)</value>
+                                  <value class="variable">
+                                    <path element="op_soconppRow"/>
+                                    <path element="ActivationGracePeriod"/>
+                                  </value>
                                 </argument>
                                 <argument id="ip_associatedRecurringChargeProduct">
                                   <value class="variable">
