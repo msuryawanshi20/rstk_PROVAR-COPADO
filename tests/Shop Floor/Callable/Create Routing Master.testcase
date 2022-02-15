@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Inherit" registryId="02a51191-fbea-488b-ad70-a07574a27c2b" visibility="Internal">
+<testCase failureBehaviour="Inherit" id="33" registryId="02a51191-fbea-488b-ad70-a07574a27c2b" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -46,9 +46,7 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="15" title="On SF Routing Master New screen">
-      <tags>
-        <string>disabled</string>
-      </tags>
+      <tags/>
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
@@ -79,6 +77,7 @@
         <argument id="sfUiTargetResultScope"/>
         <argument id="sfUiTargetObjectId"/>
       </arguments>
+      <expectedExceptions/>
       <clauses>
         <clause name="substeps" testItemId="6">
           <steps/>
@@ -115,7 +114,7 @@
           <value class="uiTarget" uri="sf:ui:target?page=rstk__Rtrouthdr&amp;pageObject=pageobjects.rstk__Rtrouthdr"/>
         </argument>
         <argument id="navigate">
-          <value class="value" valueClass="string">Always</value>
+          <value class="value" valueClass="string">Dont</value>
         </argument>
         <argument id="targetDescription">
           <value class="value" valueClass="string">On SF rstk__Rtrouthdr page with pageobject Rstk__ Rtrouthdr</value>
@@ -375,16 +374,10 @@
   <args>
     <argument id="reuseConnectionName"/>
     <argument id="ip_site">
-      <value class="variable">
-        <path element="op_excelDataRow"/>
-        <path element="Site"/>
-      </value>
+      <value class="value" valueClass="string">10 (Denver)</value>
     </argument>
     <argument id="ip_ItemNumber">
-      <value class="variable">
-        <path element="op_excelDataRow"/>
-        <path element="ItemNumber"/>
-      </value>
+      <value class="value" valueClass="string">pro-child1</value>
     </argument>
   </args>
   <outputArgs>

@@ -378,7 +378,7 @@
                                     <booleanType/>
                                   </type>
                                 </apiParam>
-                                <apiParam group="value" name="ieClickMethod" title="IE Click Method">
+                                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
                                   <summary>How the click should be executed for Internet Explorer.</summary>
                                   <type>
                                     <choiceType>
@@ -397,6 +397,9 @@
                       <generatedParameters/>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="8" title="On SF Work Center Group New screen">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="uiConnectionName">
                           <value class="value" valueClass="string">SFConnection</value>
@@ -462,7 +465,7 @@
                           <value class="uiTarget" uri="sf:ui:target?page=rstk__rtwcgroup&amp;pageObject=pageobjects.rstk__rtwcgroup"/>
                         </argument>
                         <argument id="navigate">
-                          <value class="value" valueClass="string">Dont</value>
+                          <value class="value" valueClass="string">Always</value>
                         </argument>
                         <argument id="targetDescription">
                           <value class="value" valueClass="string">On SF rstk__rtwcgroup page with pageobject Rstk__rtwcgroup</value>

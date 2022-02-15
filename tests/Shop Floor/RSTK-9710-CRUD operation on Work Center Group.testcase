@@ -369,10 +369,21 @@
                                 <argument id="autoRetry"/>
                               </arguments>
                               <generatedParameters>
-                                <apiParam group="value" name="hover" title="Hover before Clicking">
+                                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
                                   <summary>Whether the mouse should hover over the field before it is clicked.</summary>
                                   <type>
                                     <booleanType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="value" name="ieClickMethod" title="IE Click Method">
+                                  <summary>How the click should be executed for Internet Explorer.</summary>
+                                  <type>
+                                    <choiceType>
+                                      <constraints>
+                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                                      </constraints>
+                                    </choiceType>
                                   </type>
                                 </apiParam>
                               </generatedParameters>
@@ -383,6 +394,9 @@
                       <generatedParameters/>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="8" title="On SF Work Center Group New screen">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="uiConnectionName">
                           <value class="value" valueClass="string">SFConnection</value>
@@ -448,7 +462,7 @@
                           <value class="uiTarget" uri="sf:ui:target?page=rstk__rtwcgroup&amp;pageObject=pageobjects.rstk__rtwcgroup"/>
                         </argument>
                         <argument id="navigate">
-                          <value class="value" valueClass="string">Dont</value>
+                          <value class="value" valueClass="string">Always</value>
                         </argument>
                         <argument id="targetDescription">
                           <value class="value" valueClass="string">On SF rstk__rtwcgroup page with pageobject Rstk__rtwcgroup</value>
