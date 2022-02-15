@@ -264,6 +264,9 @@
                       <generatedParameters/>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="5" title="On SF Manufacturing Machine Master New screen">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="uiConnectionName">
                           <value class="value" valueClass="string">SFConnection</value>
@@ -329,7 +332,7 @@
                           <value class="uiTarget" uri="sf:ui:target?page=rstk__Rtmach&amp;pageObject=pageobjects.rstk__Rtmach"/>
                         </argument>
                         <argument id="navigate">
-                          <value class="value" valueClass="string">Dont</value>
+                          <value class="value" valueClass="string">Always</value>
                         </argument>
                         <argument id="targetDescription">
                           <value class="value" valueClass="string">On SF rstk__Rtmach page with pageobject Rstk__ Rtmach</value>
@@ -392,19 +395,23 @@
                                 <argument id="autoRetry"/>
                               </arguments>
                               <generatedParameters>
-                                <apiParam group="value" name="value" title="Value">
+                                <apiParam group="value" name="value" seq="10000" title="Value">
                                   <summary>The value to be populated.</summary>
                                   <type>
-                                    <textType/>
+                                    <textType>
+                                      <constraints>
+                                        <valueConstraint name="mimeType">text/plain</valueConstraint>
+                                      </constraints>
+                                    </textType>
                                   </type>
                                 </apiParam>
-                                <apiParam group="value" name="blur" title="Tab off field">
+                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
                                   <summary>Whether the tab key should be pressed after the value is populated.</summary>
                                   <type>
                                     <booleanType/>
                                   </type>
                                 </apiParam>
-                                <apiParam group="value" name="pressEnter" title="Press Enter">
+                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
                                   <summary>Whether the Enter key should be pressed after the value is populated.</summary>
                                   <type>
                                     <booleanType/>
