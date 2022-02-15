@@ -66,6 +66,7 @@ public class Rstk__icitemsiteproj_item_c {
 	}
 	@FindBy(xpath = "//iframe[contains(@id,'itarget')]")
 	public Frame frame;
+	
 
 	
 }

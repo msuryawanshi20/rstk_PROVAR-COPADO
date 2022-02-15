@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="1">
+<testCase id="1" registryId="63069f2c-2aa1-4383-9227-da95bf27caa8" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,6 +43,54 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="9" title="SOQL Query: SELECT Id,Name FROM rstkf__glcmp__c where Name = '{fincmp}'=&gt;ip_FinCmp">
+      <arguments>
+        <argument argId="75076c9c-0cfe-47fc-902a-5080f0a3afd6" id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">SELECT Id,Name FROM rstkf__glcmp__c where Name = '</value>
+              <variable>
+                <path element="fincmp"/>
+              </variable>
+              <value valueClass="string">'</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">ip_FinCmp</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="8" title="SOQL Query: SELECT Id,Name FROM rstkf__glbankacct__c where name = '{BankName}'=&gt;ip_AccName">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">SELECT Id,Name FROM rstkf__glbankacct__c where name = '</value>
+              <variable>
+                <path element="BankName"/>
+              </variable>
+              <value valueClass="string">'</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">ip_AccName</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="7" title="Create Object: rstkf__payto__c=&gt;paytoId">
       <arguments>
         <argument id="objectType">
@@ -62,16 +110,37 @@
           <value class="value" valueClass="string">NPAutoPAYTO</value>
         </argument>
         <argument id="rstkf__payto_glcmp__c">
-          <value class="value" valueClass="string">a9g410000004LBs</value>
+          <value class="variable">
+            <path element="ip_FinCmp"/>
+            <path element="Id"/>
+          </value>
         </argument>
         <argument id="rstkf__payto_glbankacct__c">
-          <value class="value" valueClass="string">a9d41000000012i</value>
+          <value class="variable">
+            <path element="ip_AccName"/>
+            <path element="Id"/>
+          </value>
         </argument>
         <argument id="rstkf__payto_exppaydate__c">
-          <value class="value" valueClass="date">1601251200000</value>
+          <value class="funcCall" id="DateFormat">
+            <argument id="date">
+              <value class="funcCall" id="DateAdd">
+                <argument id="date">
+                  <value class="variable">
+                    <path element="TODAY"/>
+                  </value>
+                </argument>
+              </value>
+            </argument>
+            <argument id="outputFormat">
+              <value class="value" valueClass="string">yyyy-MM-dd</value>
+            </argument>
+          </value>
         </argument>
-        <argument id="rstkf__payto_checknumber__c">
-          <value class="value" valueClass="string">07122684</value>
+        <argument argId="6da4f8fc-fb0c-44ab-9fb5-918cb2a3e41e" id="rstkf__payto_checknumber__c">
+          <value class="variable">
+            <path element="CheckNum"/>
+          </value>
         </argument>
         <argument id="rstkf__payto_paytype__c">
           <value class="value" valueClass="string">Check</value>
@@ -82,11 +151,15 @@
         <argument id="rstkf__payto_trantype__c">
           <value class="value" valueClass="string">Payment</value>
         </argument>
-        <argument id="rstkf__payto_apinvtxndr__c">
-          <value class="value" valueClass="string">a911K000000LtHDQA0</value>
+        <argument argId="674947b7-16c9-47e9-b4bf-54ba5a35dd8d" id="rstkf__payto_apinvtxndr__c">
+          <value class="variable">
+            <path element="Inv_Trans"/>
+          </value>
         </argument>
-        <argument id="rstkf__payto_netpayamt__c">
-          <value class="value" valueClass="decimal">188.02</value>
+        <argument argId="1766e3cc-038c-45d3-ad93-947f60049fcb" id="rstkf__payto_netpayamt__c">
+          <value class="variable">
+            <path element="Pay_Amt"/>
+          </value>
         </argument>
         <argument id="rstkf__payto_apinvtxncr__c"/>
       </arguments>
@@ -109,6 +182,9 @@
       </generatedParameters>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="4" title="SOQL Query: select Id,Name,rstkf__apato_docno__c from rstkf__apato__c where Id = '{apatoId}'=&gt;soqlapato">
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="soqlQuery">
           <value class="compound">
@@ -133,6 +209,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="3" title="SOQL Query: select Id,Name,rstkf__apinvtxn_docno__c,rstkf__apinvtxn_apinvh__c from rstkf__apinvtxn__c where rstkf__apinvtxn_docno__c = '{soqlapato.rstkf__apato_docno__c}'=&gt;apinvtxn">
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="soqlQuery">
           <value class="compound">
@@ -158,7 +237,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="5" title="SOQL Query: select Id,Name,rstkf__apinvh_status__c from rstkf__apinvh__c where Id = '{apinvtxn.rstkf__apinvtxn_apinvh__c}'=&gt;apinvh">
-      <tags/>
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument argId="fb44ef2b-0676-46e8-b17c-97e564e7ba9b" id="soqlQuery">
           <value class="compound">
@@ -184,4 +265,52 @@
       </arguments>
     </apiCall>
   </steps>
+  <params>
+    <param linkedToUrl="provar:hasvalue:674947b7-16c9-47e9-b4bf-54ba5a35dd8d" modelBinding="sf:ui:binding:object?object=rstkf__payto__c&amp;field=rstkf__payto_apinvtxndr__c" name="Inv_Trans" title="Inv_Trans">
+      <summary/>
+    </param>
+    <param linkedToUrl="provar:hasvalue:1766e3cc-038c-45d3-ad93-947f60049fcb" modelBinding="sf:ui:binding:object?object=rstkf__payto__c&amp;field=rstkf__payto_netpayamt__c" name="Pay_Amt" title="Pay_Amt">
+      <summary/>
+    </param>
+    <param linkedToUrl="provar:hasvalue:6da4f8fc-fb0c-44ab-9fb5-918cb2a3e41e" modelBinding="sf:ui:binding:object?object=rstkf__payto__c&amp;field=rstkf__payto_checknumber__c" name="CheckNum" title="CheckNum">
+      <summary/>
+    </param>
+    <param name="fincmp" title="fincmp">
+      <summary>The Apex code to be executed.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="BankName" title="BankName">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+  </params>
+  <args>
+    <argument id="Inv_Trans">
+      <value class="value" valueClass="string">a911K000000LtHDQA0</value>
+    </argument>
+    <argument id="Pay_Amt">
+      <value class="value" valueClass="decimal">188.02</value>
+    </argument>
+    <argument id="CheckNum">
+      <value class="value" valueClass="string">07122684</value>
+    </argument>
+    <argument id="fincmp"/>
+    <argument id="BankName"/>
+  </args>
 </testCase>

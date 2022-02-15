@@ -26,9 +26,8 @@
 						testOutputlevel="BASIC" 
 						pluginOutputlevel="WARNING"
 						stopTestRunOnError="false"
-						secretsPassword="${secrets.password}"
-						testEnvironmentSecretsPassword="${testenvironment.secretspassword}"
 						invokeTestRunMonitor="true"
+			       			dontFailBuild="true"
 						>
 
 			<fileset id="testplan" dir="../plans/${TestPlan}">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="3">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -73,6 +73,12 @@
                 </outputArgument>
                 <outputArgument id="ExcelPath_AR">
                   <name class="value" valueClass="string">ExcelPath_AR</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_MRP">
+                  <name class="value" valueClass="string">ExcelPath_MRP</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_FSL">
+                  <name class="value" valueClass="string">ExcelPath_FSL</name>
                 </outputArgument>
               </outputArguments>
             </caseCall>
@@ -1492,6 +1498,11 @@
                     <path element="rstkRows_Invoice"/>
                   </value>
                 </argument>
+                <argument id="DocumentNumber">
+                  <value class="variable">
+                    <path element="DocumentNumber"/>
+                  </value>
+                </argument>
               </arguments>
             </caseCall>
           </steps>
@@ -1656,6 +1667,11 @@
                 <argument id="rstkRows_Invoice">
                   <value class="variable">
                     <path element="rstkRows_Invoice"/>
+                  </value>
+                </argument>
+                <argument id="DocumentNumber">
+                  <value class="variable">
+                    <path element="DocumentNumber"/>
                   </value>
                 </argument>
               </arguments>

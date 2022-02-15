@@ -84,17 +84,17 @@ public class rstk__PurchOrd {
 	@TextType()
 	@FindBy(xpath = "//img[@name='Advanced']")
 	public WebElement Advanced;
+//	@TextType()
+//	@FindBy(id = "img_pg:fm:pb:j_id739")
+//	public WebElement Advanced1;
 	@TextType()
-	@FindBy(id = "img_pg:fm:pb:j_id739")
-	public WebElement Advanced1;
-	@TextType()
-	@FindBy(id = "pg:fm:pb:j_id739:pbs_tp_terms_lbl")
+	@FindBy(xpath = "//td[contains(@id,'pbs_tp_terms_lbl')]")
 	public WebElement Termstab;
 	@ChoiceListType()
-	@FindBy(name = "pg:fm:pb:j_id739:j_id1194:j_id1243:pohdr_frghtrm__c:j_id1245:j_id1251")
+	@FindBy(xpath = "//select[contains(@name,'pohdr_frghtrm__c')]")
 	public WebElement FreightTerms;
 	@ChoiceListType()
-	@FindBy(name = "pg:fm:pb:j_id739:j_id1194:j_id1259:pohdr_terms__c:j_id1261:j_id1267")
+	@FindBy(xpath = "//select[contains(@name,'pohdr_terms__c')]")
 	public WebElement PaymentTerms;
 	@ButtonType()
 	@FindByLabel(label = "Submit Change to Vendor")
