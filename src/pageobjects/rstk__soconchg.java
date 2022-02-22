@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
 import com.provar.core.testapi.annotations.ChoiceListType;
+import com.provar.core.testapi.annotations.DateType;
 import com.provar.core.testapi.annotations.FindByLabel;
 import com.provar.core.testapi.annotations.SalesforcePage;
 import com.provar.core.testapi.annotations.TextType;
@@ -28,10 +29,6 @@ public class rstk__soconchg {
 		this.driver = driver;
 	}
 
-	@TextType()
-	@FindBy(xpath = "//input[@id='soconchg_soprod__c_autocomplete']")
-	public WebElement MiscellaneousChargeProduct;
-
 	public void selectMiscellaneousChargeProduct(String MiscellaneousChargeProduct) throws InterruptedException {
 		Thread.sleep(1000);
 		WebElement ele = driver.findElement(By.xpath("//input[@id='soconchg_soprod__c_autocomplete']"));
@@ -45,6 +42,7 @@ public class rstk__soconchg {
 		for (int i = 0; i < autoCompleteList.size(); i++) {
 			Thread.sleep(1000);
 			actions.moveToElement(autoCompleteList.get(i)).build().perform();
+			System.out.println("inside Loop+++"+autoCompleteList.get(i).getText());
 			if (autoCompleteList.get(i).getText().startsWith(MiscellaneousChargeProduct)) {
 				actions.moveToElement(autoCompleteList.get(i)).click().build().perform();
 				break;
@@ -88,7 +86,7 @@ public class rstk__soconchg {
 	@FindBy(xpath = "//label[normalize-space(.)='Charge Amount']/ancestor::th/following-sibling::td[1]//input")
 	public WebElement chargeAmount;
 
-	@TextType()
+	@DateType
 	@FindBy(xpath = "//*[normalize-space(.)='Billable After This Date']/ancestor::th/following-sibling::td[1]//input")
 	public WebElement billableAfterThisDate;
 

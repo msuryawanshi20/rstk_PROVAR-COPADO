@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="12">
+<testCase id="4">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="842" title="Salesforce Connect: SFConnection (Test)">
@@ -2913,33 +2913,6 @@
                                                 </argument>
                                               </arguments>
                                             </apiCall>
-                                            <caseCall testCaseId="e96413e4-912a-4972-9d1d-ada2bc1b837b" testCasePath="tests/RMA/Callable/Quick Create RMA Details.testcase" testItemId="892">
-                                              <arguments>
-                                                <argument id="reuseConnectionName">
-                                                  <value class="variable">
-                                                    <path element="reuseConnectionName"/>
-                                                  </value>
-                                                </argument>
-                                                <argument id="ip_recordID">
-                                                  <value class="value" valueClass="string">a7k5f000000YWIu</value>
-                                                </argument>
-                                                <argument id="ip_UseProductDefaultsforInventoryLocs">
-                                                  <value class="value" valueClass="string">false</value>
-                                                </argument>
-                                                <argument id="ip_IndividualLinesforKitComponents">
-                                                  <value class="value" valueClass="string">false</value>
-                                                </argument>
-                                                <argument id="ip_invoiceNumber">
-                                                  <value class="value" valueClass="string">INV-176</value>
-                                                </argument>
-                                                <argument id="ip_invLine">
-                                                  <value class="value" valueClass="string">100_176 - 1</value>
-                                                </argument>
-                                                <argument id="ip_ShipperNumber">
-                                                  <value class="value" valueClass="string">RMA-QT1Q - 1</value>
-                                                </argument>
-                                              </arguments>
-                                            </caseCall>
                                             <caseCall testCaseId="e96413e4-912a-4972-9d1d-ada2bc1b837b" testCasePath="tests/RMA/Callable/Quick Create RMA Details.testcase" testItemId="845">
                                               <arguments>
                                                 <argument id="reuseConnectionName">
@@ -2963,9 +2936,7 @@
                                                     <path element="name"/>
                                                   </value>
                                                 </argument>
-                                                <argument id="ip_invLine">
-                                                  <value class="value"/>
-                                                </argument>
+                                                <argument id="ip_invLine"/>
                                                 <argument id="ip_ShipperNumber"/>
                                               </arguments>
                                             </caseCall>
@@ -3042,12 +3013,13 @@
                                                     <caseCall testCaseId="4d2c1d2c-d97c-4237-9876-6c2791c96171" testCasePath="tests/RMA/Callable/RMA Detail-Credit Authorized.testcase" testItemId="893">
                                                       <arguments>
                                                         <argument id="reuseConnectionName">
-                                                          <value class="variable">
-                                                            <path element="reuseConnectionName"/>
-                                                          </value>
+                                                          <value class="value" valueClass="string">SFConnection</value>
                                                         </argument>
                                                         <argument id="ip_recordID">
-                                                          <value class="value" valueClass="string">a7c5f000000XuJa</value>
+                                                          <value class="variable">
+                                                            <path element="op_sormaDetailsRow"/>
+                                                            <path element="ID"/>
+                                                          </value>
                                                         </argument>
                                                       </arguments>
                                                     </caseCall>
@@ -3295,9 +3267,7 @@
                                                                     <caseCall testCaseId="a673507e-3a7a-44aa-805d-b91da97a47f5" testCasePath="tests/RMA/Callable/Process Receipt.testcase" testItemId="888">
                                                                       <arguments>
                                                                         <argument id="reuseConnectionName">
-                                                                          <value class="variable">
-                                                                            <path element="reuseConnectionName"/>
-                                                                          </value>
+                                                                          <value class="value" valueClass="string">SFConnection</value>
                                                                         </argument>
                                                                         <argument id="ip_recordID">
                                                                           <value class="variable">

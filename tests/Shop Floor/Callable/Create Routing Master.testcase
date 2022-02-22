@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Inherit" id="33" registryId="deae7cf1-3620-4467-8e6f-292b103cffe7" visibility="Internal">
+<testCase failureBehaviour="Inherit" id="1" registryId="deae7cf1-3620-4467-8e6f-292b103cffe7" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -13,7 +13,9 @@
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
         </argument>
-        <argument id="uiApplicationName"/>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">rstk__Force_com</value>
+        </argument>
         <argument id="quickUiLogin">
           <value class="value" valueClass="boolean">true</value>
         </argument>
@@ -45,10 +47,8 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="15" title="On SF Routing Master New screen">
-      <tags>
-        <string>disabled</string>
-      </tags>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="17" title="On SF Routing Master New screen">
+      <tags/>
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
@@ -56,11 +56,11 @@
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=rstk__rtrouthdr__c&amp;action=New"/>
         </argument>
-        <argument id="navigate">
-          <value class="value" valueClass="string">Always</value>
-        </argument>
         <argument id="targetDescription">
           <value class="value" valueClass="string">On SF Routing Master New screen</value>
+        </argument>
+        <argument id="navigate">
+          <value class="value" valueClass="string">Always</value>
         </argument>
         <argument id="windowSelection">
           <value class="value" valueClass="string">Default</value>
@@ -75,15 +75,15 @@
         <argument id="captureAfter">
           <value class="value" valueClass="string">false</value>
         </argument>
-        <argument id="sfUiTargetResultName"/>
-        <argument id="sfUiTargetResultScope"/>
-        <argument id="sfUiTargetObjectId"/>
+        <argument id="sfUiTargetResultName">
+          <value class="value" valueClass="string">a</value>
+        </argument>
+        <argument id="sfUiTargetResultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
       </arguments>
-      <expectedExceptions/>
       <clauses>
-        <clause name="substeps" testItemId="6">
-          <steps/>
-        </clause>
+        <clause name="substeps" testItemId="18"/>
       </clauses>
       <generatedParameters>
         <apiParam group="result" name="sfUiTargetResultName" resultNameParameter="true" title="Result Name">
@@ -116,7 +116,7 @@
           <value class="uiTarget" uri="sf:ui:target?page=rstk__Rtrouthdr&amp;pageObject=pageobjects.rstk__Rtrouthdr"/>
         </argument>
         <argument id="navigate">
-          <value class="value" valueClass="string">Dont</value>
+          <value class="value" valueClass="string">Always</value>
         </argument>
         <argument id="targetDescription">
           <value class="value" valueClass="string">On SF rstk__Rtrouthdr page with pageobject Rstk__ Rtrouthdr</value>

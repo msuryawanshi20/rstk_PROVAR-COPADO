@@ -202,6 +202,36 @@
                     </apiCall>
                   </steps>
                 </clause>
+                <clause name="else" testItemId="49">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="50" title="Today link the Billing Run Date field">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=billingRunDate"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=sfToday"/>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Today link the Billing Run Date field</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
               </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="23" title="Set Customer">
@@ -217,21 +247,13 @@
               <clauses>
                 <clause name="then" testItemId="24">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="9" title="Set the Customer select to {ip_Customer}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="9" title="Call the selectCustomer method">
                       <arguments>
                         <argument id="locator">
-                          <value class="uiLocator" uri="ui:locator?name=Customer"/>
+                          <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.rstk__GenerateRecurringBillingExecution&amp;operation=selectCustomer"/>
                         </argument>
                         <argument id="interaction">
-                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                        </argument>
-                        <argument argId="04ccbea8-9336-433b-8786-1b7ddd180d73" id="value">
-                          <value class="variable">
-                            <path element="ip_Customer"/>
-                          </value>
-                        </argument>
-                        <argument id="blur">
-                          <value class="value" valueClass="boolean">false</value>
+                          <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
                         </argument>
                         <argument id="pressEnter">
                           <value class="value" valueClass="boolean">false</value>
@@ -243,17 +265,29 @@
                           <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="beforeWait">
-                          <value class="uiWait" uri="default"/>
+                          <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
                         </argument>
                         <argument id="afterWait">
                           <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Set the Customer select to {ip_Customer}</value>
+                          <value class="value" valueClass="string">Call the selectCustomer method</value>
                         </argument>
                         <argument id="autoRetry"/>
+                        <argument id="param_CustomerName">
+                          <value class="variable">
+                            <path element="ip_Customer"/>
+                          </value>
+                        </argument>
+                        <argument id="value"/>
+                        <argument id="blur"/>
                       </arguments>
                       <generatedParameters>
+                        <apiParam group="value" name="param_CustomerName" title="Customer Name">
+                          <type>
+                            <textType/>
+                          </type>
+                        </apiParam>
                         <apiParam group="value" name="value" seq="10000" title="Value">
                           <summary>The value to be populated.</summary>
                           <type>
@@ -290,10 +324,10 @@
                   <value class="value" valueClass="string">Call the selectContract method</value>
                 </argument>
                 <argument argId="92b863c7-6ba1-495c-bcd6-a9168c550e75" id="beforeWait">
-                  <value class="uiWait" uri="NoWait"/>
+                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
                 </argument>
                 <argument argId="6aef6283-40c5-44dc-bc5e-e57d344eeccb" id="afterWait">
-                  <value class="uiWait" uri="NoWait"/>
+                  <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
                 </argument>
                 <argument argId="5914b28c-61de-41ae-b1b2-8bf9722c00f3" id="autoRetry"/>
                 <argument argId="be69c1e2-60f0-4720-9570-a9de07be94c3" id="captureBefore">
@@ -385,10 +419,18 @@
             <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="31" title="Select Periodic Billing Frequency">
               <arguments>
                 <argument id="condition">
-                  <value class="ne">
-                    <lhs class="variable">
-                      <path element="ip_PeriodicBillingFrequency"/>
+                  <value class="or">
+                    <lhs class="ne">
+                      <lhs class="variable">
+                        <path element="ip_PeriodicBillingFrequency"/>
+                      </lhs>
                     </lhs>
+                    <rhs class="ne">
+                      <lhs class="variable">
+                        <path element="ip_PeriodicBillingFrequency"/>
+                      </lhs>
+                      <rhs class="value" valueClass="string">All</rhs>
+                    </rhs>
                   </value>
                 </argument>
               </arguments>
@@ -459,10 +501,18 @@
             <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="34" title="Set Contract Type">
               <arguments>
                 <argument id="condition">
-                  <value class="ne">
-                    <lhs class="variable">
-                      <path element="ip_ContractType"/>
+                  <value class="or">
+                    <lhs class="ne">
+                      <lhs class="variable">
+                        <path element="ip_ContractType"/>
+                      </lhs>
                     </lhs>
+                    <rhs class="ne">
+                      <lhs class="variable">
+                        <path element="ip_ContractType"/>
+                      </lhs>
+                      <rhs class="value" valueClass="string">--None--</rhs>
+                    </rhs>
                   </value>
                 </argument>
               </arguments>
@@ -596,101 +646,26 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="40" title="Select From Customer">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="43" title="Select From and To Customer">
               <arguments>
                 <argument id="condition">
                   <value class="and">
-                    <lhs class="eq">
-                      <lhs class="variable">
-                        <path element="ip_SpecifyCustomerRange"/>
+                    <lhs class="and">
+                      <lhs class="eq">
+                        <lhs class="variable">
+                          <path element="ip_SpecifyCustomerRange"/>
+                        </lhs>
+                        <rhs class="value" valueClass="boolean">true</rhs>
                       </lhs>
-                      <rhs class="value" valueClass="boolean">true</rhs>
+                      <rhs class="ne">
+                        <lhs class="variable">
+                          <path element="ip_FromCustomer"/>
+                        </lhs>
+                      </rhs>
                     </lhs>
                     <rhs class="ne">
                       <lhs class="variable">
-                        <path element="ip_FromCustomer"/>
-                      </lhs>
-                    </rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="41">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="15" title="Set the To_ Customer select to {ip_FromCustomer}">
-                      <arguments>
-                        <argument id="locator">
-                          <value class="uiLocator" uri="ui:locator?name=To_Customer"/>
-                        </argument>
-                        <argument id="interaction">
-                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                        </argument>
-                        <argument argId="e50419b1-7e16-482e-a2f8-0ead70cd43db" id="value">
-                          <value class="variable">
-                            <path element="ip_FromCustomer"/>
-                          </value>
-                        </argument>
-                        <argument id="blur">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="pressEnter">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="captureBefore">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="beforeWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="afterWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Set the To_ Customer select to {ip_FromCustomer}</value>
-                        </argument>
-                        <argument id="autoRetry"/>
-                      </arguments>
-                      <generatedParameters>
-                        <apiParam group="value" name="value" seq="10000" title="Value">
-                          <summary>The value to be populated.</summary>
-                          <type>
-                            <choiceType/>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                          <type>
-                            <booleanType/>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                          <type>
-                            <booleanType/>
-                          </type>
-                        </apiParam>
-                      </generatedParameters>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="43" title="Select To Customer">
-              <arguments>
-                <argument id="condition">
-                  <value class="and">
-                    <lhs class="eq">
-                      <lhs class="variable">
-                        <path element="ip_SpecifyCustomerRange"/>
-                      </lhs>
-                      <rhs class="value" valueClass="boolean">true</rhs>
-                    </lhs>
-                    <rhs class="ne">
-                      <lhs class="variable">
-                        <path element="ip_FromCustomer"/>
+                        <path element="ip_ToCustomer"/>
                       </lhs>
                     </rhs>
                   </value>
@@ -699,63 +674,6 @@
               <clauses>
                 <clause name="then" testItemId="44">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="45" title="Set the To_ Customer select to {ip_FromCustomer}">
-                      <arguments>
-                        <argument id="locator">
-                          <value class="uiLocator" uri="ui:locator?name=To_Customer"/>
-                        </argument>
-                        <argument id="interaction">
-                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                        </argument>
-                        <argument argId="e50419b1-7e16-482e-a2f8-0ead70cd43db" id="value">
-                          <value class="variable">
-                            <path element="ip_FromCustomer"/>
-                          </value>
-                        </argument>
-                        <argument id="blur">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="pressEnter">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="captureBefore">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="beforeWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="afterWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Set the To_ Customer select to {ip_FromCustomer}</value>
-                        </argument>
-                        <argument id="autoRetry"/>
-                      </arguments>
-                      <generatedParameters>
-                        <apiParam group="value" name="value" seq="10000" title="Value">
-                          <summary>The value to be populated.</summary>
-                          <type>
-                            <choiceType/>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                          <type>
-                            <booleanType/>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                          <type>
-                            <booleanType/>
-                          </type>
-                        </apiParam>
-                      </generatedParameters>
-                    </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="14" title="Set the From_ Customer select to {ip_ToCustomer}">
                       <arguments>
                         <argument id="locator">
@@ -789,6 +707,63 @@
                         </argument>
                         <argument id="interactionDescription">
                           <value class="value" valueClass="string">Set the From_ Customer select to {ip_ToCustomer}</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="value" seq="10000" title="Value">
+                          <summary>The value to be populated.</summary>
+                          <type>
+                            <choiceType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="45" title="Set the To_ Customer select to {ip_FromCustomer}">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=To_Customer"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                        </argument>
+                        <argument argId="e50419b1-7e16-482e-a2f8-0ead70cd43db" id="value">
+                          <value class="variable">
+                            <path element="ip_FromCustomer"/>
+                          </value>
+                        </argument>
+                        <argument id="blur">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="pressEnter">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Set the To_ Customer select to {ip_FromCustomer}</value>
                         </argument>
                         <argument id="autoRetry"/>
                       </arguments>
@@ -868,6 +843,80 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="46" title="Wait till Header gets generated">
+              <arguments>
+                <argument id="locator">
+                  <value class="uiLocator" uri="ui:pageobject:method?operation=viewBillingRunBatchHeader&amp;pageId=pageobjects.rstk__GenerateRecurringBillingExecution"/>
+                </argument>
+                <argument id="interaction">
+                  <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
+                </argument>
+                <argument id="hover">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="beforeWait">
+                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                </argument>
+                <argument id="afterWait">
+                  <value class="uiWait" uri="default"/>
+                </argument>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Call the viewBillingRunBatchHeader method</value>
+                </argument>
+                <argument id="autoRetry">
+                  <value class="uiWait" uri="ui:wait:autoRetry:timeout=30"/>
+                </argument>
+                <argument id="ieClickMethod">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+                <argument id="param_resultName">
+                  <value class="value" valueClass="string">op_recordID</value>
+                </argument>
+                <argument id="param_resultScope">
+                  <value class="value" valueClass="string">Global</value>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="value" name="param_resultName" seq="1001" title="Result Name">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="param_resultScope" seq="1002" title="Result Scope">
+                  <defaultValue>Test</defaultValue>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="boundedValues">Global:Test Run|Folder:Test Folder|Test:Test Case|GroupStep:Group Step|Local:Test Step</valueConstraint>
+                      </constraints>
+                    </choiceType>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                  <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                  <summary>How the click should be executed for Internet Explorer.</summary>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                      </constraints>
+                    </choiceType>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
           </steps>
         </clause>
       </clauses>
@@ -879,6 +928,27 @@
           </type>
         </apiParam>
       </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="53" title="Set Values: op_recordID">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">op_recordID</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="op_recordID"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
     </apiCall>
   </steps>
   <params>
@@ -952,17 +1022,25 @@
       </type>
     </param>
   </params>
+  <outputParams>
+    <param name="op_recordID" title="Billing Run Batch Header">
+      <summary>Billing Run Batch Header ID</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="op_recordID"/>
+      </sourceValue>
+    </param>
+  </outputParams>
   <args>
     <argument id="reuseConnectionName"/>
-    <argument id="ip_date">
-      <value class="funcCall" id="DateAdd">
-        <argument id="date">
-          <value class="variable">
-            <path element="TODAY"/>
-          </value>
-        </argument>
-      </value>
-    </argument>
+    <argument id="ip_date"/>
     <argument id="ip_SpecifyCustomerRange">
       <value class="value" valueClass="string">false</value>
     </argument>
@@ -988,4 +1066,9 @@
       <value class="value" valueClass="string">4 - Pro_Customer1</value>
     </argument>
   </args>
+  <outputArgs>
+    <outputArgument id="op_recordID">
+      <name class="value" valueClass="string">op_recordID</name>
+    </outputArgument>
+  </outputArgs>
 </testCase>

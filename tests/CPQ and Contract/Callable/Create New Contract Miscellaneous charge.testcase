@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Inherit" id="1" registryId="75ca2dd6-885b-4c25-837e-323a52a342b2" visibility="Internal">
+<testCase failureBehaviour="Inherit" id="2" registryId="75ca2dd6-885b-4c25-837e-323a52a342b2" visibility="Internal">
   <summary>&lt;quote&gt;&lt;p&gt;&lt;/p&gt;&lt;/quote&gt;</summary>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -277,19 +277,21 @@
       <clauses>
         <clause name="substeps" testItemId="14">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="24" title="Set the Miscellaneous Charge Product field to {ip_MiscellaneousChargeProduct}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="24" title="Call the selectMiscellaneousChargeProduct method">
               <arguments>
                 <argument argId="63941b6b-12cc-4283-a2b4-41cabe5667cc" id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=MiscellaneousChargeProduct"/>
+                  <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.rstk__soconchg&amp;operation=selectMiscellaneousChargeProduct"/>
                 </argument>
                 <argument argId="ded90e5d-c3c5-4988-97c0-39c3d925566c" id="interaction">
-                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                  <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Miscellaneous Charge Product field to {ip_MiscellaneousChargeProduct}</value>
+                  <value class="value" valueClass="string">Call the selectMiscellaneousChargeProduct method</value>
                 </argument>
                 <argument id="beforeWait"/>
-                <argument id="afterWait"/>
+                <argument id="afterWait">
+                  <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
+                </argument>
                 <argument id="autoRetry"/>
                 <argument id="captureBefore">
                   <value class="value" valueClass="string">false</value>
@@ -297,25 +299,25 @@
                 <argument id="captureAfter">
                   <value class="value" valueClass="string">false</value>
                 </argument>
-                <argument argId="2d31c248-7aea-4a94-8d6e-5fd3e8638ef5" id="value">
+                <argument id="pressEnter"/>
+                <argument id="param_MiscellaneousChargeProduct">
                   <value class="variable">
                     <path element="ip_MiscellaneousChargeProduct"/>
                   </value>
                 </argument>
-                <argument id="blur">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="pressEnter"/>
+                <argument id="value"/>
+                <argument id="blur"/>
               </arguments>
               <generatedParameters>
+                <apiParam group="value" name="param_MiscellaneousChargeProduct" title="Miscellaneous Charge Product">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
                 <apiParam group="value" name="value" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
-                    <textType>
-                      <constraints>
-                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                      </constraints>
-                    </textType>
+                    <booleanType/>
                   </type>
                 </apiParam>
                 <apiParam group="value" name="blur" seq="10001" title="Tab off field">
@@ -367,7 +369,7 @@
                           <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="beforeWait">
-                          <value class="uiWait" uri="default"/>
+                          <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
                         </argument>
                         <argument id="afterWait">
                           <value class="uiWait" uri="default"/>
@@ -583,66 +585,150 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="18" title="Set the Billable After This Date field to {ip_BillableAfterThisDate}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="65" title="Set the Billable After This Date">
               <arguments>
-                <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=billableAfterThisDate"/>
-                </argument>
-                <argument id="interaction">
-                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                </argument>
-                <argument argId="28dc9fb7-75a4-49ab-99cc-28dbac9b882f" id="value">
-                  <value class="variable">
-                    <path element="ip_BillableAfterThisDate"/>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="variable">
+                      <path element="ip_BillableAfterThisDate"/>
+                    </lhs>
                   </value>
                 </argument>
-                <argument id="blur">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="pressEnter">
-                  <value class="value" valueClass="boolean">false</value>
-                </argument>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="beforeWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
-                </argument>
-                <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Billable After This Date field to {ip_BillableAfterThisDate}</value>
-                </argument>
-                <argument id="autoRetry"/>
               </arguments>
-              <generatedParameters>
-                <apiParam group="value" name="value" seq="10000" title="Value">
-                  <summary>The value to be populated.</summary>
-                  <type>
-                    <textType>
-                      <constraints>
-                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                      </constraints>
-                    </textType>
-                  </type>
-                </apiParam>
-                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                  <type>
-                    <booleanType/>
-                  </type>
-                </apiParam>
-                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                  <type>
-                    <booleanType/>
-                  </type>
-                </apiParam>
-              </generatedParameters>
+              <clauses>
+                <clause name="then" testItemId="66">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="67" title="Set the Billable After This Date date to {DateAdd(TODAY, &quot;-6&quot;, MONTH)}">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=billableAfterThisDate"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                        </argument>
+                        <argument id="pressEnter">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Set the Billable After This Date date to {DateAdd(TODAY, "-6", MONTH)}</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                        <argument id="value">
+                          <value class="funcCall" id="DateAdd">
+                            <argument id="date">
+                              <value class="variable">
+                                <path element="TODAY"/>
+                              </value>
+                            </argument>
+                            <argument id="amount">
+                              <value class="value" valueClass="string">-6</value>
+                            </argument>
+                            <argument id="unit">
+                              <value class="variable">
+                                <path element="MONTH"/>
+                              </value>
+                            </argument>
+                          </value>
+                        </argument>
+                        <argument id="blur"/>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="value" seq="10000" title="Value">
+                          <summary>The value to be populated.</summary>
+                          <type>
+                            <dateType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="68">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="18" title="Set the Billable After This Date date to {ip_BillableAfterThisDate}">
+                      <arguments>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:locator?name=billableAfterThisDate"/>
+                        </argument>
+                        <argument id="interaction">
+                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                        </argument>
+                        <argument argId="28dc9fb7-75a4-49ab-99cc-28dbac9b882f" id="value">
+                          <value class="variable">
+                            <path element="ip_BillableAfterThisDate"/>
+                          </value>
+                        </argument>
+                        <argument id="blur">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="pressEnter">
+                          <value class="value" valueClass="boolean">false</value>
+                        </argument>
+                        <argument id="captureBefore">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="afterWait">
+                          <value class="uiWait" uri="default"/>
+                        </argument>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Set the Billable After This Date date to {ip_BillableAfterThisDate}</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                      <generatedParameters>
+                        <apiParam group="value" name="value" seq="10000" title="Value">
+                          <summary>The value to be populated.</summary>
+                          <type>
+                            <dateType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
+                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
+                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="32" title="Set Charge Released for Billing To TRUE">
               <arguments>
@@ -1073,7 +1159,7 @@
       <value class="value" valueClass="string">a625f000000qfA6</value>
     </argument>
     <argument id="ip_MiscellaneousChargeProduct">
-      <value class="value" valueClass="string">pro-misc</value>
+      <value class="value" valueClass="string">Pro-Misc product</value>
     </argument>
     <argument id="ip_ContractGeneralMiscCharge">
       <value class="value" valueClass="string">true</value>

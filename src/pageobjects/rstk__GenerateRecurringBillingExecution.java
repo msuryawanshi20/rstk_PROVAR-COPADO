@@ -1,11 +1,14 @@
 package pageobjects;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
@@ -13,6 +16,7 @@ import com.provar.core.testapi.annotations.ChoiceListType;
 import com.provar.core.testapi.annotations.FindByLabel;
 import com.provar.core.testapi.annotations.SalesforcePage;
 import com.provar.core.testapi.annotations.TextType;
+
 
 @SalesforcePage( title="Rstk__ Generate Recurring Billing Execution"                                
                , summary=""
@@ -24,6 +28,8 @@ import com.provar.core.testapi.annotations.TextType;
 public class rstk__GenerateRecurringBillingExecution {
 
 	public WebDriver driver;
+
+	Logger loggerTest;
 
 	public rstk__GenerateRecurringBillingExecution(WebDriver driver) {
 		this.driver = driver;
@@ -37,16 +43,27 @@ public class rstk__GenerateRecurringBillingExecution {
 	@FindBy(xpath = "//label[normalize-space(.)='Specify Customer Range']/ancestor::th/following-sibling::td[1]//input")
 	public WebElement specifyCustomerRange;
 
-	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Customer']/ancestor::th/following-sibling::td[1]//select")
-	public WebElement Customer;
+	public void selectCustomer(String CustomerName) throws InterruptedException {
+		Thread.sleep(2000);
+
+		List<WebElement> customerList = driver.findElements(By
+				.xpath("//label[normalize-space(.)='Customer']/ancestor::th/following-sibling::td[1]//select//option"));
+		for (int i = 0; i < customerList.size(); i++) {
+			if (customerList.get(i).getText().contains(CustomerName)) {
+				customerList.get(i).click();
+				Thread.sleep(2000);
+			}
+		}
+	}
 
 	public void selectContract(String ContractName) throws InterruptedException {
-		List<WebElement> workOrderList = driver.findElements(
+		Thread.sleep(2000);
+
+		List<WebElement> contractList = driver.findElements(
 				By.xpath("//label[normalize-space(.)='Contract']/ancestor::th/following-sibling::td//option"));
-		for (int i = 0; i < workOrderList.size(); i++) {
-			if (workOrderList.get(i).getText().contains(ContractName)) {
-				workOrderList.get(i).click();
+		for (int i = 0; i < contractList.size(); i++) {
+			if (contractList.get(i).getText().contains(ContractName)) {
+				contractList.get(i).click();
 				Thread.sleep(2000);
 			}
 		}
@@ -75,5 +92,36 @@ public class rstk__GenerateRecurringBillingExecution {
 	@ButtonType()
 	@FindByLabel(label = "Generate Recurring Billings")
 	public WebElement generateRecurringBillings;
+
+	public String viewBillingRunBatchHeader() {
+		WebDriverWait wait = new WebDriverWait(driver, 7200);
+		String recID = null;
+		try {
+
+			/*
+			 * // Old Code wait.until(ExpectedConditions .presenceOfElementLocated(By.
+			 * xpath("//a[normalize-space(.)='View Billing Run Batch Header']")));
+			 * driver.findElement(By.
+			 * xpath("//a[normalize-space(.)='View Billing Run Batch Header']")).click();
+			 */
+
+			wait.until(ExpectedConditions.elementToBeClickable(
+					By.xpath("//*[normalize-space(.)='View Billing Run Batch Header']/parent::a")));
+			recID = driver.findElement(By.xpath("//*[normalize-space(.)='View Billing Run Batch Header']/parent::a"))
+					.getAttribute("href");
+
+			recID = recID.split("=")[1];
+			Thread.sleep(3000);
+			driver.findElement(By.xpath("//*[normalize-space(.)='View Billing Run Batch Header']/parent::a")).click();
+			Thread.sleep(3000);
+
+		} catch (Exception e) {
+
+			loggerTest.info("Exception" + e);
+		}
+
+		return recID;
+
+	}
 
 }

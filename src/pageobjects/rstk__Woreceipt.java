@@ -7,7 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
@@ -28,6 +30,8 @@ import com.provar.core.testapi.annotations.TextType;
 public class rstk__Woreceipt {
 
 	public WebDriver driver;
+
+	WebDriverWait wait = new WebDriverWait(driver, 30);
 
 	public rstk__Woreceipt(WebDriver driver) {
 		this.driver = driver;
@@ -56,13 +60,10 @@ public class rstk__Woreceipt {
 	@TextType()
 	@FindBy(xpath = "//label[normalize-space(.)='Transaction Date']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement transactionDate;
-	
-	
+
 	@TextType()
 	@FindBy(xpath = "//label[normalize-space(.)='Transaction Date']/ancestor::span/ancestor::th/following-sibling::td//a")
 	public WebElement transactionDateTodayLink;
-	
-	
 
 	@ButtonType()
 	@FindBy(xpath = "//table[@id='bodyTable']//div/input")
@@ -108,8 +109,10 @@ public class rstk__Woreceipt {
 	public Logger testLogger;
 
 	public void selectWorkOrder(String WorkOrder) throws InterruptedException {
-		List<WebElement> workOrderList = driver.findElements(By.xpath(
-				"//label[normalize-space(.)='Work Order']/parent::span/parent::th/following-sibling::td//option"));
+		Thread.sleep(2000);
+		String elementLocator = "//label[normalize-space(.)='Work Order']/ancestor::th/following-sibling::td//option";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
+		List<WebElement> workOrderList = driver.findElements(By.xpath(elementLocator));
 		for (int i = 0; i < workOrderList.size(); i++) {
 			if (workOrderList.get(i).getText().contains(WorkOrder)) {
 				workOrderList.get(i).click();
@@ -118,9 +121,8 @@ public class rstk__Woreceipt {
 			}
 		}
 	}
-	
-	public void selectSerialNumber(Integer NumberOfSerialTobeSelected)
-			throws InterruptedException {
+
+	public void selectSerialNumber(Integer NumberOfSerialTobeSelected) throws InterruptedException {
 
 		Thread.sleep(2000);
 
@@ -128,7 +130,7 @@ public class rstk__Woreceipt {
 		testLogger.info("Size" + ele.size());
 		Select listbox = new Select(driver.findElement(By.xpath("//select[contains(@id,'serials')]")));
 		listbox.deselectAll();
-		
+
 		for (int i = 1; i <= NumberOfSerialTobeSelected; i++) {
 
 			WebElement element = driver.findElement(By.xpath("//select[contains(@id,'serials')]/option[" + i + "]"));
