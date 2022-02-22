@@ -232,7 +232,15 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Void AP Payments']")
 	public WebElement voidAPPayments;
-  
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='GL Transaction Inquiry']")
+	public WebElement gLTransactionInquiry;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Postings Summary Report']")
+	public WebElement postingsSummaryReport;
+
   @LinkType()
   @FindBy(xpath = "//a[normalize-space(.)='Generate Recurring Billing']")
 	public WebElement generateRecurringBilling;

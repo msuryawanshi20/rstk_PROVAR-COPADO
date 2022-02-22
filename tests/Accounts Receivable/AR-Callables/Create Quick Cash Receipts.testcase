@@ -191,10 +191,47 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="239" title="Set Values: DocumentNumber">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">DocumentNumber</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="compound">
+                                  <parts>
+                                    <variable>
+                                      <path element="rstkRows_Invoice"/>
+                                      <path element="rstk__soinv_invoiceno__c"/>
+                                    </variable>
+                                    <value valueClass="string">-</value>
+                                    <variable>
+                                      <path element="QCR"/>
+                                      <path element="DivisionNumber"/>
+                                    </variable>
+                                  </parts>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                   </steps>
                 </clause>
               </clauses>
-              <generatedParameters/>
+              <generatedParameters>
+                <apiParam group="target" name="uiTargetUrl" title="Web Page">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="58" title="On SF rstkf__quickCashReceipts page with pageobject Rstkf__quick Cash Receipts">
               <arguments>
@@ -897,7 +934,7 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="74" title="Set the Document Numbers field to {rstkRows_Invoice.rstk__soinv_invoiceno__c}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="74" title="Set the Document Numbers field to {DocumentNumber}">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=DocumentNumbers"/>
@@ -907,8 +944,7 @@
                         </argument>
                         <argument id="value">
                           <value class="variable">
-                            <path element="rstkRows_Invoice"/>
-                            <path element="rstk__soinv_invoiceno__c"/>
+                            <path element="DocumentNumber"/>
                           </value>
                         </argument>
                         <argument id="blur">
@@ -930,7 +966,7 @@
                           <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Set the Document Numbers field to {rstkRows_Invoice.rstk__soinv_invoiceno__c}</value>
+                          <value class="value" valueClass="string">Set the Document Numbers field to {DocumentNumber}</value>
                         </argument>
                         <argument id="autoRetry"/>
                       </arguments>
@@ -2647,6 +2683,13 @@
                         </argument>
                       </arguments>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="237" title="Sleep for {10} seconds">
+                      <arguments>
+                        <argument id="sleepSecs">
+                          <value class="value" valueClass="decimal">10</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="223" title="UI Assert-Read Posted?">
                       <arguments>
                         <argument id="fieldAssertions">
@@ -2680,13 +2723,6 @@
                         </argument>
                         <argument id="beforeWait"/>
                         <argument id="autoRetry"/>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="237" title="Sleep for {10} seconds">
-                      <arguments>
-                        <argument id="sleepSecs">
-                          <value class="value" valueClass="decimal">10</value>
-                        </argument>
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="224" title="Assert: Yes EqualTo {PostedStatus.fields.PostedStatus.value}">
