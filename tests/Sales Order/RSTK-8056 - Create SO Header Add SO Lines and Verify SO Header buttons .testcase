@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+
+<testCase id="2">
+
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="32" title="Salesforce Connect: SFConnection (Test)">
@@ -175,11 +177,15 @@
                 <argument id="captureAfter">
                   <value class="value" valueClass="string">false</value>
                 </argument>
+                <argument id="sfUiTargetResultName"/>
+                <argument id="sfUiTargetResultScope"/>
+                <argument id="sfUiTargetObjectId"/>
               </arguments>
               <clauses>
                 <clause name="substeps" testItemId="589">
                   <steps>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="590" title="Click the New button">
+                      <tags/>
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=New&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3Drstk__sohdr__c%26action%3DNew"/>
@@ -233,6 +239,7 @@
                   </steps>
                 </clause>
               </clauses>
+              <generatedParameters/>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="591" title="Create SO Header">
               <arguments>
@@ -8967,11 +8974,18 @@
         <argument id="captureAfter">
           <value class="value" valueClass="string">false</value>
         </argument>
+        <argument id="sfUiTargetResultName"/>
+        <argument id="sfUiTargetResultScope"/>
+        <argument id="uiTargetUrl"/>
+        <argument id="sfUiTargetVfIndex">
+          <value class="value" valueClass="string">1</value>
+        </argument>
       </arguments>
       <clauses>
         <clause name="substeps" testItemId="739">
           <steps>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="740" title="Click the New button">
+              <tags/>
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=New&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3Drstk__sohdr__c%26action%3DNew"/>
@@ -9025,6 +9039,7 @@
           </steps>
         </clause>
       </clauses>
+      <generatedParameters/>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="741" title="Create SO Header">
       <arguments>

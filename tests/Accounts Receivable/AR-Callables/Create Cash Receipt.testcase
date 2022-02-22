@@ -97,6 +97,37 @@
               <clauses>
                 <clause name="substeps" testItemId="55">
                   <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="269" title="Set Values: DocumentNumber">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">DocumentNumber</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="compound">
+                                  <parts>
+                                    <variable>
+                                      <path element="rstkRows_Invoice"/>
+                                      <path element="rstk__soinv_invoiceno__c"/>
+                                    </variable>
+                                    <value valueClass="string">-</value>
+                                    <variable>
+                                      <path element="CR"/>
+                                      <path element="DivisionNumber"/>
+                                    </variable>
+                                  </parts>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="56" title="Click the Rootstock Site Map">
                       <arguments>
                         <argument id="locator">
@@ -1663,7 +1694,7 @@
                                 <argument id="autoRetry"/>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="126" title="Set the From Document Number field to {rstkRows_Invoice.rstk__soinv_invoiceno__c}">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="126" title="Set the From Document Number field to {DocumentNumber}">
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=FromDocumentNumber"/>
@@ -1673,8 +1704,7 @@
                                 </argument>
                                 <argument id="value">
                                   <value class="variable">
-                                    <path element="rstkRows_Invoice"/>
-                                    <path element="rstk__soinv_invoiceno__c"/>
+                                    <path element="DocumentNumber"/>
                                   </value>
                                 </argument>
                                 <argument id="blur">
@@ -1696,7 +1726,7 @@
                                   <value class="uiWait" uri="default"/>
                                 </argument>
                                 <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the From Document Number field to {rstkRows_Invoice.rstk__soinv_invoiceno__c}</value>
+                                  <value class="value" valueClass="string">Set the From Document Number field to {DocumentNumber}</value>
                                 </argument>
                                 <argument id="autoRetry"/>
                               </arguments>
@@ -1725,7 +1755,7 @@
                                 </apiParam>
                               </generatedParameters>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="127" title="Set the Thru Document Number field to {rstkRows_Invoice.rstk__soinv_invoiceno__c}">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="127" title="Set the Thru Document Number field to {DocumentNumber}">
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=ThruDocumentNumber"/>
@@ -1735,8 +1765,7 @@
                                 </argument>
                                 <argument id="value">
                                   <value class="variable">
-                                    <path element="rstkRows_Invoice"/>
-                                    <path element="rstk__soinv_invoiceno__c"/>
+                                    <path element="DocumentNumber"/>
                                   </value>
                                 </argument>
                                 <argument id="blur">
@@ -1758,7 +1787,7 @@
                                   <value class="uiWait" uri="default"/>
                                 </argument>
                                 <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Thru Document Number field to {rstkRows_Invoice.rstk__soinv_invoiceno__c}</value>
+                                  <value class="value" valueClass="string">Set the Thru Document Number field to {DocumentNumber}</value>
                                 </argument>
                                 <argument id="autoRetry"/>
                               </arguments>
@@ -1787,7 +1816,7 @@
                                 </apiParam>
                               </generatedParameters>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="128" title="Click the Search field">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="128" title="Click the Search button">
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=Search"/>
@@ -1796,7 +1825,7 @@
                                   <value class="uiInteraction" uri="ui:interaction?name=action"/>
                                 </argument>
                                 <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Click the Search field</value>
+                                  <value class="value" valueClass="string">Click the Search button</value>
                                 </argument>
                                 <argument id="beforeWait"/>
                                 <argument id="afterWait">
@@ -2065,8 +2094,7 @@
                                       <attributeAssertions>
                                         <uiAttributeAssertion attributeName="value" caseInsensitive="true" comparisonType="EqualTo" normalize="true">
                                           <value class="variable">
-                                            <path element="rstkRows_Invoice"/>
-                                            <path element="rstk__soinv_invoiceno__c"/>
+                                            <path element="DocumentNumber"/>
                                           </value>
                                         </uiAttributeAssertion>
                                       </attributeAssertions>

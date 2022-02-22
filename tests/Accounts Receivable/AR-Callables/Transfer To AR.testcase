@@ -28,7 +28,7 @@
           </value>
         </argument>
         <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Fail</value>
+          <value class="value" valueClass="string">Reuse</value>
         </argument>
         <argument id="privateBrowsingMode"/>
         <argument id="enableObjectIdLogging">
@@ -77,7 +77,7 @@
                   <value class="value" valueClass="string">On SF Sales Order Invoice Header View screen</value>
                 </argument>
                 <argument id="navigate">
-                  <value class="value" valueClass="string">IfNeccessary</value>
+                  <value class="value" valueClass="string">Always</value>
                 </argument>
                 <argument id="windowSelection">
                   <value class="value" valueClass="string">Default</value>
@@ -120,7 +120,7 @@
                   <value class="uiTarget" uri="sf:ui:target?page=rstk__Soinv&amp;pageObject=pageobjects.rstk__soinv"/>
                 </argument>
                 <argument id="navigate">
-                  <value class="value" valueClass="string">Dont</value>
+                  <value class="value" valueClass="string">Always</value>
                 </argument>
                 <argument id="targetDescription">
                   <value class="value" valueClass="string">On SF rstk__Soinv page with pageobject Rstk__soinv</value>
@@ -562,6 +562,39 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="345" title="Set Values: DocumentNumber">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">DocumentNumber</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="compound">
+                                  <parts>
+                                    <variable>
+                                      <path element="InvoiceNumber"/>
+                                      <path element="fields"/>
+                                      <path element="invoiceNumber"/>
+                                      <path element="value"/>
+                                    </variable>
+                                    <value valueClass="string">-</value>
+                                    <variable>
+                                      <path element="Row_AddLine"/>
+                                      <path element="DivisionNumber"/>
+                                    </variable>
+                                  </parts>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="154" title="Assert: {InvoiceNumber.fields.invoiceNumber.value}({Row_AddLine.CustomerName}) IsPresent {ARSession.fields.AccountsReceivableSession.value}">
                       <tags/>
                       <arguments>
@@ -615,17 +648,14 @@
                         <argument id="failureMessage"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="337" title="SOQL Query: select count() from rstkf__arinvtxn__c where rstkf__arinvtxn_docno__c='{InvoiceNumber.fields.invoiceNumber.value}'=&gt;rstkfRows_ReceivableTransaction">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="337" title="SOQL Query: select count() from rstkf__arinvtxn__c where rstkf__arinvtxn_docno__c='{DocumentNumber}'=&gt;rstkfRows_ReceivableTransaction">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
                             <parts>
                               <value valueClass="string">select count() from rstkf__arinvtxn__c where rstkf__arinvtxn_docno__c='</value>
                               <variable>
-                                <path element="InvoiceNumber"/>
-                                <path element="fields"/>
-                                <path element="invoiceNumber"/>
-                                <path element="value"/>
+                                <path element="DocumentNumber"/>
                               </variable>
                               <value valueClass="string">'</value>
                             </parts>
@@ -1254,10 +1284,7 @@
                               <attributeAssertions>
                                 <uiAttributeAssertion attributeName="value" comparisonType="EqualTo">
                                   <value class="variable">
-                                    <path element="InvoiceNumber"/>
-                                    <path element="fields"/>
-                                    <path element="invoiceNumber"/>
-                                    <path element="value"/>
+                                    <path element="DocumentNumber"/>
                                   </value>
                                 </uiAttributeAssertion>
                               </attributeAssertions>
@@ -1627,10 +1654,7 @@
                                       <attributeAssertions>
                                         <uiAttributeAssertion attributeName="value" caseInsensitive="true" comparisonType="EqualTo" normalize="true">
                                           <value class="variable">
-                                            <path element="InvoiceNumber"/>
-                                            <path element="fields"/>
-                                            <path element="invoiceNumber"/>
-                                            <path element="value"/>
+                                            <path element="DocumentNumber"/>
                                           </value>
                                         </uiAttributeAssertion>
                                       </attributeAssertions>
@@ -1869,6 +1893,7 @@
       </type>
     </param>
   </params>
+  <outputParams/>
   <args>
     <argument id="reuseConnectionName">
       <value class="variable">
@@ -1886,4 +1911,9 @@
       </value>
     </argument>
   </args>
+  <outputArgs>
+    <outputArgument id="DocumentNumber">
+      <name class="value" valueClass="string">DocumentNumber</name>
+    </outputArgument>
+  </outputArgs>
 </testCase>
