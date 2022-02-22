@@ -46,6 +46,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="63" title="On SF Return Material Authorization New screen">
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
@@ -109,7 +112,7 @@
           <value class="uiTarget" uri="sf:ui:target?page=rstk__Sormh&amp;pageObject=pageobjects.rstk__Sormh"/>
         </argument>
         <argument id="navigate">
-          <value class="value" valueClass="string">Dont</value>
+          <value class="value" valueClass="string">Always</value>
         </argument>
         <argument id="targetDescription">
           <value class="value" valueClass="string">On SF rstk__Sormh page with pageobject Rstk__ Sormh</value>

@@ -46,6 +46,7 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="4" title="On SF Engineering Item Revision View screen">
+      <tags/>
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
@@ -103,7 +104,7 @@
           <value class="uiTarget" uri="sf:ui:target?page=rstk__Peitemrev&amp;pageObject=pageobjects.rstk__peitemrev"/>
         </argument>
         <argument id="navigate">
-          <value class="value" valueClass="string">Dont</value>
+          <value class="value" valueClass="string">Always</value>
         </argument>
         <argument id="targetDescription">
           <value class="value" valueClass="string">On SF rstk__Peitemrev page with pageobject Rstk__peitemrev</value>

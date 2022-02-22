@@ -214,7 +214,6 @@ public class rstk__Manufacturing {
 	@FindBy(xpath = "//a[contains(normalize-space(.),'General Journal Entries')]")
 	public WebElement generalJournalEntries;
 
-	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='MRP Launch']")
 	public WebElement MRPLaunch;
 
@@ -242,6 +241,9 @@ public class rstk__Manufacturing {
 	@FindBy(xpath = "//a[normalize-space(.)='Postings Summary Report']")
 	public WebElement postingsSummaryReport;
 
+  @LinkType()
+  @FindBy(xpath = "//a[normalize-space(.)='Generate Recurring Billing']")
+	public WebElement generateRecurringBilling;
 
 }
 
