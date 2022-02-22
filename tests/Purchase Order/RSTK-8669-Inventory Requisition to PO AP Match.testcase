@@ -54,19 +54,13 @@
       <clauses>
         <clause name="hidden" testItemId="32">
           <steps>
-            <caseCall testCaseId="5e762c63-0656-4a26-8a25-66df35188869" testCasePath="tests/Purchase Order/Callable/ReadExcelPath.testcase" testItemId="33">
+            <caseCall testCaseId="0996b2be-bbb6-4b92-82d8-19ad6683a2ac" testCasePath="tests/Purchase Order/Callable/ReadExcelPath.testcase" testItemId="36">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
               </arguments>
               <outputArguments>
-                <outputArgument id="ExcelPath">
-                  <name class="value" valueClass="string">ExcelPath</name>
-                </outputArgument>
-                <outputArgument id="ExcelURL" scope="Folder">
-                  <name class="value" valueClass="string">ExcelURL</name>
-                </outputArgument>
                 <outputArgument id="POUIExcel">
                   <name class="value" valueClass="string">POUIExcel</name>
                 </outputArgument>
@@ -76,8 +70,11 @@
                 <outputArgument id="POSYDATAExcel">
                   <name class="value" valueClass="string">POSYDATAExcel</name>
                 </outputArgument>
-                <outputArgument id="POSYDataExcel1">
-                  <name class="value" valueClass="string">POSYDataExcel1</name>
+                <outputArgument id="POSydataExcel1">
+                  <name class="value" valueClass="string">POSydataExcel1</name>
+                </outputArgument>
+                <outputArgument id="FinExcel">
+                  <name class="value" valueClass="string">FinExcel</name>
                 </outputArgument>
               </outputArguments>
             </caseCall>

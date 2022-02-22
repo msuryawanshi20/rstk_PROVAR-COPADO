@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="3">
+<testCase id="47">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,7 +43,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="32" title="Read Excel Data ">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="30" title="Read Excel Data ">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read Excel Data </value>
@@ -93,8 +93,16 @@
                     <workbookPath class="variable">
                       <path element="FinExcel"/>
                     </workbookPath>
-                    <worksheetName class="value" valueClass="string">Invoice</worksheetName>
+                    <worksheetName class="value" valueClass="string">PAYTO</worksheetName>
                     <valuesRange class="value"/>
+                  </sourceValue>
+                </parameterValueSource>
+                <parameterValueSource variableName="objdata" variableScope="Test">
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="FinExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">ObjectName</worksheetName>
                   </sourceValue>
                 </parameterValueSource>
               </parameterValueSources>
@@ -106,94 +114,130 @@
         </clause>
       </clauses>
     </apiCall>
-    <caseCall testCaseId="bdc41502-a550-4dfc-8f75-0e86c114adc8" testCasePath="tests/Account Payable/Callable/PayableSession.testcase" testItemId="4">
+    <caseCall testCaseId="e08077a2-003a-4ff5-934b-36bbc985a8a4" testCasePath="tests/Account Payable/Callable/FetchingObjectsId.testcase" testItemId="57">
       <arguments>
-        <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">SFConnection</value>
-        </argument>
-        <argument id="InvoiceData">
+        <argument id="objdata">
           <value class="variable">
-            <path element="APInvoiceData"/>
+            <path element="objdata"/>
           </value>
         </argument>
       </arguments>
       <outputArguments>
-        <outputArgument id="APINVH">
-          <name class="value" valueClass="string">APINVH</name>
+        <outputArgument id="CompanyID">
+          <name class="value" valueClass="string">CompanyID</name>
         </outputArgument>
-        <outputArgument id="INVNum">
-          <name class="value" valueClass="string">INVNum</name>
+        <outputArgument id="VendorID">
+          <name class="value" valueClass="string">VendorID</name>
+        </outputArgument>
+        <outputArgument id="AccountID">
+          <name class="value" valueClass="string">AccountID</name>
+        </outputArgument>
+        <outputArgument id="FisYear">
+          <name class="value" valueClass="string">FisYear</name>
+        </outputArgument>
+        <outputArgument id="BankAccID">
+          <name class="value" valueClass="string">BankAccID</name>
         </outputArgument>
       </outputArguments>
     </caseCall>
-    <caseCall testCaseId="0843e6ef-dc45-4ee6-98db-c44819beb5ae" testCasePath="tests/Account Payable/Callable/CopyVendorCredit.testcase" testItemId="31">
+    <caseCall testCaseId="431fed4f-fadf-4753-9d5f-83fe5b588e4e" testCasePath="tests/Account Payable/Callable/APATO.testcase" testItemId="56">
       <arguments>
         <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">SFConnection</value>
-        </argument>
-        <argument id="TestData">
           <value class="variable">
-            <path element="TestData"/>
+            <path element="reuseConnectionName"/>
           </value>
         </argument>
-        <argument id="Invoice">
+        <argument id="APtxndata">
           <value class="variable">
-            <path element="INVNum"/>
+            <path element="APInvoiceData"/>
+          </value>
+        </argument>
+        <argument id="glcmpid">
+          <value class="variable">
+            <path element="CompanyID"/>
+          </value>
+        </argument>
+        <argument id="glacctid">
+          <value class="variable">
+            <path element="AccountID"/>
+          </value>
+        </argument>
+        <argument id="vendno">
+          <value class="variable">
+            <path element="VendorID"/>
+          </value>
+        </argument>
+        <argument id="yearid">
+          <value class="variable">
+            <path element="FisYear"/>
           </value>
         </argument>
       </arguments>
       <outputArguments>
-        <outputArgument id="APINVH">
-          <name class="value" valueClass="string">APINVH</name>
+        <outputArgument id="txnid">
+          <name class="value" valueClass="string">txnid</name>
         </outputArgument>
-        <outputArgument id="VCINVH">
-          <name class="value" valueClass="string">VCINVH</name>
+        <outputArgument id="txnname">
+          <name class="value" valueClass="string">txnname</name>
+        </outputArgument>
+        <outputArgument id="aptxnname">
+          <name class="value" valueClass="string">aptxnname</name>
         </outputArgument>
       </outputArguments>
     </caseCall>
-    <caseCall testCaseId="3f6e02c0-c485-44cc-95f5-ed08c082498d" testCasePath="tests/Account Payable/ApplyVendorCredittoInvoice.testcase" testItemId="30">
+    <caseCall testCaseId="63069f2c-2aa1-4383-9227-da95bf27caa8" testCasePath="tests/Account Payable/Callable/PAYTO.testcase" testItemId="55">
       <arguments>
-        <argument id="APINVTXNID">
-          <value class="value" valueClass="string">a911K000000Lt7cQAC</value>
-        </argument>
-        <argument id="VendorINV">
-          <value class="value" valueClass="string">NP-VC308</value>
-        </argument>
-        <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">SFConnection</value>
-        </argument>
-        <argument id="VCINVH">
+        <argument id="Inv_Trans">
           <value class="variable">
-            <path element="VCINVH"/>
+            <path element="txnid"/>
           </value>
         </argument>
-        <argument id="Inv">
+        <argument id="Pay_Amt">
           <value class="variable">
-            <path element="INVNum"/>
+            <path element="APInvoiceData"/>
+            <path element="Amount"/>
+          </value>
+        </argument>
+        <argument id="CheckNum">
+          <value class="funcCall" id="UniqueId">
+            <argument id="length">
+              <value class="value" valueClass="decimal">8</value>
+            </argument>
+            <argument id="format">
+              <value class="variable">
+                <path element="NUMERIC"/>
+              </value>
+            </argument>
+          </value>
+        </argument>
+        <argument id="fincmp">
+          <value class="variable">
+            <path element="CompanyID"/>
+          </value>
+        </argument>
+        <argument id="BankName">
+          <value class="variable">
+            <path element="BankAccID"/>
           </value>
         </argument>
       </arguments>
     </caseCall>
-    <caseCall testCaseId="10bc15c1-a62e-4bde-bc58-bdcc07bf809e" testCasePath="tests/Account Payable/PayableSessionVerify.testcase" testItemId="5">
+    <caseCall testCaseId="c8229252-83ec-4d3e-b4b7-81d6b6cb80e0" testCasePath="tests/Account Payable/Callable/PostPaymentVerification.testcase" testItemId="58">
       <arguments>
         <argument id="reuseConnectionName">
-          <value class="value" valueClass="string">SFConnection</value>
-        </argument>
-        <argument id="APINVH">
           <value class="variable">
-            <path element="APINVH"/>
+            <path element="reuseConnectionName"/>
           </value>
         </argument>
-        <argument id="InvSrcData">
+        <argument id="INVNO">
           <value class="variable">
-            <path element="APInvoiceData"/>
-            <path element="TransactionTotal"/>
+            <path element="aptxnname"/>
           </value>
         </argument>
         <argument id="ExpTxnTot">
           <value class="variable">
             <path element="APInvoiceData"/>
-            <path element="TransactionTotal"/>
+            <path element="Amount"/>
           </value>
         </argument>
       </arguments>

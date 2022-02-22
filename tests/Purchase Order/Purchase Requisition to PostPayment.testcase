@@ -462,7 +462,7 @@
                 </argument>
               </arguments>
               <parameterValueSources>
-                <parameterValueSource variableName="SrcData_InvyQty" variableScope="Test">
+                <parameterValueSource variableName="InvyQty" variableScope="Test">
                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
                     <workbookPath class="variable">
                       <path element="POUIExcel"/>
@@ -479,7 +479,7 @@
                       <arguments>
                         <argument id="SrcData_InvyQty">
                           <value class="variable">
-                            <path element="InventoryData"/>
+                            <path element="InvyQty"/>
                           </value>
                         </argument>
                         <argument id="reuseConnectionName">

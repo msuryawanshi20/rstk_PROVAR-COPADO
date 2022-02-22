@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="11">
+<testCase id="0">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,21 +43,19 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="38" title="Read Excel Data">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="30" title="Read Excel Data ">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">Read Excel Data</value>
+          <value class="value" valueClass="string">Read Excel Data </value>
         </argument>
       </arguments>
       <clauses>
-        <clause name="hidden" testItemId="39">
+        <clause name="hidden" testItemId="53">
           <steps>
-            <caseCall testCaseId="0996b2be-bbb6-4b92-82d8-19ad6683a2ac" testCasePath="tests/Purchase Order/Callable/ReadExcelPath.testcase" testItemId="36">
+            <caseCall testCaseId="0996b2be-bbb6-4b92-82d8-19ad6683a2ac" testCasePath="tests/Purchase Order/Callable/ReadExcelPath.testcase" testItemId="54">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="variable">
-                    <path element="reuseConnectionName"/>
-                  </value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
               </arguments>
               <outputArguments>
@@ -78,14 +76,14 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="3" title="Read Journal Entry Data">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="34" title="Read AP Invoice Data">
               <arguments>
                 <argument id="description">
-                  <value class="value" valueClass="string">Read Journal Entry Data</value>
+                  <value class="value" valueClass="string">Read AP Invoice Data</value>
                 </argument>
               </arguments>
               <parameterValueSources>
-                <parameterValueSource variableName="journalentrydata" variableScope="Test">
+                <parameterValueSource variableName="APData" variableScope="Test">
                   <cacheToken>C:/Users/dellDevonforce/Provar/ErpFinalProject/rsqasampleproj/templates/Account Payable.xlsx;1629720846260</cacheToken>
                   <cachedParameters>
                     <apiParam name="Vendor"/>
@@ -95,67 +93,100 @@
                     <workbookPath class="variable">
                       <path element="FinExcel"/>
                     </workbookPath>
-                    <worksheetName class="value" valueClass="string">JournalEntries</worksheetName>
+                    <worksheetName class="value" valueClass="string">APATO</worksheetName>
                     <valuesRange class="value"/>
                   </sourceValue>
                 </parameterValueSource>
-                <parameterValueSource variableName="gljddata" variableScope="Test">
-                  <cacheToken>C:/Users/Namrata/git/rsqasampleproj/templates/QARSF/Account Payable.xlsx;1644227746117</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="Account"/>
-                    <apiParam name="DebitAmount"/>
-                    <apiParam name="CreditAmount"/>
-                  </cachedParameters>
+                <parameterValueSource variableName="objnamedata" variableScope="Test">
                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
                     <workbookPath class="variable">
                       <path element="FinExcel"/>
                     </workbookPath>
-                    <worksheetName class="value" valueClass="string">JournalEntriesD</worksheetName>
+                    <worksheetName class="value" valueClass="string">ObjectName</worksheetName>
                   </sourceValue>
                 </parameterValueSource>
               </parameterValueSources>
               <clauses>
-                <clause name="hidden" testItemId="29">
-                  <steps/>
-                </clause>
+                <clause name="hidden" testItemId="35"/>
               </clauses>
             </apiCall>
           </steps>
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="31" title="For Each: {journalentrydata}=&gt;gljhdata">
+    <caseCall testCaseId="e08077a2-003a-4ff5-934b-36bbc985a8a4" testCasePath="tests/Account Payable/Callable/FetchingObjectsId.testcase" testItemId="55">
+      <arguments>
+        <argument id="objdata">
+          <value class="variable">
+            <path element="objnamedata"/>
+          </value>
+        </argument>
+      </arguments>
+      <outputArguments>
+        <outputArgument id="CompanyID">
+          <name class="value" valueClass="string">CompanyID</name>
+        </outputArgument>
+        <outputArgument id="VendorID">
+          <name class="value" valueClass="string">VendorID</name>
+        </outputArgument>
+        <outputArgument id="AccountID">
+          <name class="value" valueClass="string">AccountID</name>
+        </outputArgument>
+        <outputArgument id="FisYear">
+          <name class="value" valueClass="string">FisYear</name>
+        </outputArgument>
+        <outputArgument id="BankAccID">
+          <name class="value" valueClass="string">BankAccID</name>
+        </outputArgument>
+      </outputArguments>
+    </caseCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="57" title="For Each: {APData}=&gt;apatodata">
       <arguments>
         <argument id="list">
           <value class="variable">
-            <path element="journalentrydata"/>
+            <path element="APData"/>
           </value>
         </argument>
         <argument id="fromItem">
           <value class="value" valueClass="decimal">1</value>
         </argument>
         <argument id="valueName">
-          <value class="value" valueClass="string">gljhdata</value>
+          <value class="value" valueClass="string">apatodata</value>
         </argument>
         <argument id="continueOnFailure"/>
       </arguments>
       <clauses>
-        <clause name="substeps" testItemId="32">
+        <clause name="substeps" testItemId="58">
           <steps>
-            <caseCall testCaseId="775b7e69-d2d6-4108-a3c6-1cc05a55a088" testCasePath="tests/GeneralLedger/JournalEntry.testcase" testItemId="33">
+            <caseCall testCaseId="431fed4f-fadf-4753-9d5f-83fe5b588e4e" testCasePath="tests/Account Payable/Callable/APATO.testcase" testItemId="56">
               <arguments>
-                <argument id="gljd">
-                  <value class="variable">
-                    <path element="gljddata"/>
-                  </value>
-                </argument>
-                <argument id="gljh">
-                  <value class="variable">
-                    <path element="gljhdata"/>
-                  </value>
-                </argument>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="APtxndata">
+                  <value class="variable">
+                    <path element="apatodata"/>
+                  </value>
+                </argument>
+                <argument id="glcmpid">
+                  <value class="variable">
+                    <path element="CompanyID"/>
+                  </value>
+                </argument>
+                <argument id="glacctid">
+                  <value class="variable">
+                    <path element="AccountID"/>
+                  </value>
+                </argument>
+                <argument id="vendno">
+                  <value class="variable">
+                    <path element="VendorID"/>
+                  </value>
+                </argument>
+                <argument id="yearid">
+                  <value class="variable">
+                    <path element="FisYear"/>
+                  </value>
                 </argument>
               </arguments>
             </caseCall>
