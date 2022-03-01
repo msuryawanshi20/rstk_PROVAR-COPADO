@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="11">
+<testCase id="0">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -93,7 +93,7 @@
                     <workbookPath class="variable">
                       <path element="FinExcel"/>
                     </workbookPath>
-                    <worksheetName class="value" valueClass="string">APATO</worksheetName>
+                    <worksheetName class="value" valueClass="string">APATO_ForeignCurr</worksheetName>
                     <valuesRange class="value"/>
                   </sourceValue>
                 </parameterValueSource>
@@ -140,7 +140,7 @@
         </outputArgument>
       </outputArguments>
     </caseCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="57" title="For Each: {APData}=&gt;apatodata">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="97" title="For Each: {APData}=&gt;apatodata">
       <arguments>
         <argument id="list">
           <value class="variable">
