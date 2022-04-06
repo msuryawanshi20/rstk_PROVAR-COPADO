@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="3">
+<testCase id="0">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -30,7 +30,9 @@
         <argument id="enableObjectIdLogging">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="autoCleanup"/>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
         <argument id="cleanupConnectionName"/>
         <argument id="logFileLocation"/>
         <argument id="username"/>
@@ -1160,7 +1162,7 @@
                                 </argument>
                               </arguments>
                               <outputArguments>
-                                <outputArgument id="rstkRows_Invoice">
+                                <outputArgument id="rstkRows_Invoice" scope="Global">
                                   <name class="value" valueClass="string">rstkRows_Invoice</name>
                                 </outputArgument>
                               </outputArguments>
@@ -1691,62 +1693,7 @@
       </clauses>
     </apiCall>
   </steps>
-  <outputParams>
-    <param name="SourceData_Firm" title="SourceData_Firm">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-      <sourceValue class="value" valueClass="string">SourceData_Firm</sourceValue>
-    </param>
-    <param name="SourceData_Allocate" title="SourceData_Allocate">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-      <sourceValue class="variable">
-        <path element="SourceData_Allocate"/>
-      </sourceValue>
-    </param>
-    <param name="SourceData_PickPackShip" title="SourceData_PickPackShip">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-      <sourceValue class="value" valueClass="string">SourceData_PickPackShip</sourceValue>
-    </param>
-    <param name="SourceData_CreateInvoice" title="SourceData_CreateInvoice">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-      <sourceValue class="value" valueClass="string">SourceData_CreateInvoice</sourceValue>
-    </param>
-  </outputParams>
+  <outputParams/>
   <outputArgs>
     <outputArgument id="SourceData_Firm">
       <name class="value" valueClass="string">SourceData_Firm</name>
