@@ -151,8 +151,10 @@ public class rstkf__paysession {
 
 		Thread.sleep(2000);
 
-		List <WebElement> option = driver.findElements(By.xpath("//label[normalize-space(.)='Bank Account']/parent::th/following-sibling::td//select/option[@value='"+Bankname+"']"));
+		List <WebElement> option = driver.findElements(By.xpath("//select/option[@value='"+Bankname+"']"));
 //				By.xpath("//select/option[contains(text(),'" + Item + "')]"));
+//List <WebElement> option = driver.findElements(By.xpath("//label[normalize-space(.)='Bank Account']/parent::th/following-sibling::td//select/option[@value='"+Bankname+"']"));
+
 				
 		for(int i=0;i<option.size();i++)
                 {

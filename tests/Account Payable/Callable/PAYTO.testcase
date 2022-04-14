@@ -30,7 +30,9 @@
         <argument id="enableObjectIdLogging">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="autoCleanup"/>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
         <argument id="cleanupConnectionName"/>
         <argument id="logFileLocation"/>
         <argument id="username"/>
@@ -71,9 +73,7 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="8" title="SOQL Query: SELECT Id,Name FROM rstkf__glbankacct__c where name = '{BankName}'=&gt;ip_AccName">
-      <tags>
-        <string>disabled</string>
-      </tags>
+      <tags/>
       <arguments>
         <argument id="soqlQuery">
           <value class="compound">
@@ -122,7 +122,8 @@
         </argument>
         <argument id="rstkf__payto_glbankacct__c">
           <value class="variable">
-            <path element="BankName"/>
+            <path element="ip_AccName"/>
+            <path element="Id"/>
           </value>
         </argument>
         <argument id="rstkf__payto_exppaydate__c">
