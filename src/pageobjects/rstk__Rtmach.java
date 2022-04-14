@@ -47,7 +47,7 @@ public class rstk__Rtmach {
 	public WebElement hourlyRateStd;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Hourly Rate, Std']/ancestor::span/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Sales Price per Hour']/ancestor::span/parent::th/following-sibling::td//input")
 	public WebElement salesPricePerHour;
 
 	@ButtonType()

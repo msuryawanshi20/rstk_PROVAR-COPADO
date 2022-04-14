@@ -182,7 +182,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="23" title="Set Values: wb_ExcelPath_FSL">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="35" title="Set Values: wb_ExcelPath_FSL">
                       <arguments>
                         <argument id="values">
                           <value class="valueList" mutable="Mutable">
@@ -192,6 +192,25 @@
                               </namedValue>
                               <namedValue name="value">
                                 <value class="value" valueClass="string">templates/AutomationOrg/FSL.xlsx</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="23" title="Set Values: wb_ExcelPath_SOSetup">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">wb_ExcelPath_SOSetup</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">templates/AutomationOrg/SOSetup.xlsx</value>
                               </namedValue>
                               <namedValue name="valueScope">
                                 <value class="value" valueClass="string">Test</value>
@@ -322,6 +341,25 @@
                               </namedValue>
                               <namedValue name="value">
                                 <value class="value" valueClass="string">templates/QARSF/MRP.xlsx</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="36" title="Set Values: wb_ExcelPath_SOSetup">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">wb_ExcelPath_SOSetup</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">templates/QARSF/SOSetup.xlsx</value>
                               </namedValue>
                               <namedValue name="valueScope">
                                 <value class="value" valueClass="string">Test</value>
@@ -473,7 +511,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="19" title="Set Values: ExcelPath_FSL">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="38" title="Set Values: ExcelPath_FSL">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -484,6 +522,27 @@
                       <namedValue name="value">
                         <value class="variable">
                           <path element="wb_ExcelPath_FSL"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="19" title="Set Values: ExcelPath_SOSetup">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ExcelPath_SOSetup</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="wb_ExcelPath_SOSetup"/>
                         </value>
                       </namedValue>
                       <namedValue name="valueScope">
@@ -670,6 +729,20 @@
         <path element="ExcelPath_FSL"/>
       </sourceValue>
     </param>
+    <param name="ExcelPath_SOSetup" title="ExcelPath_SOSetup">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="ExcelPath_SOSetup"/>
+      </sourceValue>
+    </param>
   </outputParams>
   <args>
     <argument id="reuseConnectionName">
@@ -699,6 +772,9 @@
     </outputArgument>
     <outputArgument id="ExcelPath_FSL">
       <name class="value" valueClass="string">ExcelPath_FSL</name>
+    </outputArgument>
+    <outputArgument id="ExcelPath_SOSetup">
+      <name class="value" valueClass="string">ExcelPath_SOSetup</name>
     </outputArgument>
   </outputArgs>
 </testCase>

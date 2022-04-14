@@ -30,7 +30,9 @@
         <argument id="enableObjectIdLogging">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="autoCleanup"/>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
         <argument id="cleanupConnectionName"/>
         <argument id="logFileLocation"/>
         <argument id="username"/>
@@ -91,12 +93,7 @@
                 <argument id="rstk__poloader_process__c">
                   <value class="value" valueClass="string">Ready</value>
                 </argument>
-                <argument id="rstk__poloader_vendno__c">
-                  <value class="variable">
-                    <path element="povendorsubmit"/>
-                    <path element="Vendor"/>
-                  </value>
-                </argument>
+                <argument id="rstk__poloader_vendno__c"/>
                 <argument id="rstk__poloader_mode__c">
                   <value class="value" valueClass="string">Submit to Vendor</value>
                 </argument>

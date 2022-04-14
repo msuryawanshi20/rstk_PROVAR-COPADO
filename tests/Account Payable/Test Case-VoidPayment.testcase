@@ -118,7 +118,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <caseCall testCaseId="bdc41502-a550-4dfc-8f75-0e86c114adc8" testCasePath="tests/Account Payable/PayableSession.testcase" testItemId="4">
+    <caseCall testCaseId="bdc41502-a550-4dfc-8f75-0e86c114adc8" testCasePath="tests/Account Payable/Callable/PayableSession.testcase" testItemId="4">
       <arguments>
         <argument id="reuseConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
@@ -141,7 +141,7 @@
         </outputArgument>
       </outputArguments>
     </caseCall>
-    <caseCall testCaseId="bf602e96-0dcf-4bc2-a8d3-ca6b7868740e" testCasePath="tests/Account Payable/Postpayment.testcase" testItemId="33">
+    <caseCall testCaseId="bf602e96-0dcf-4bc2-a8d3-ca6b7868740e" testCasePath="tests/Account Payable/Callable/Postpayment.testcase" testItemId="33">
       <arguments>
         <argument id="Vendor">
           <value class="variable">

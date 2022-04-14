@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="1" registryId="c8229252-83ec-4d3e-b4b7-81d6b6cb80e0" visibility="Internal">
+<testCase id="1" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="23" title="Salesforce Connect: SFConnection (Test)">
@@ -47,25 +47,17 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="27" title="SOQL Query: select Id,Name,rstkf__apinvtxn_apinvh__c,rstkf__apinvtxn_unapplamtmaint__c,rstkf__apinvtxn_amtapplmaint__c from rstkf__apinvtxn__c where Name like '{INVNO}%'=&gt;apinvtxn">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="26" title="SOQL Query: SELECT id,rstkf__gltxn_apinvtxn_homeamt__c,rstkf__gltxn_cramt__c,rstkf__gltxn_dramt__c FROM rstkf__gltxn__c where rstkf__gltxn_apinvtxn__c = 'a911K000000LuHuQAK'=&gt;gltnxrecord">
       <tags/>
       <arguments>
-        <argument id="soqlQuery">
-          <value class="compound">
-            <parts>
-              <value valueClass="string">select Id,Name,rstkf__apinvtxn_apinvh__c,rstkf__apinvtxn_unapplamtmaint__c,rstkf__apinvtxn_amtapplmaint__c from rstkf__apinvtxn__c where Name like '</value>
-              <variable>
-                <path element="INVNO"/>
-              </variable>
-              <value valueClass="string">%'</value>
-            </parts>
-          </value>
+        <argument argId="fb44ef2b-0676-46e8-b17c-97e564e7ba9b" id="soqlQuery">
+          <value class="value" valueClass="string">SELECT id,rstkf__gltxn_apinvtxn_homeamt__c,rstkf__gltxn_cramt__c,rstkf__gltxn_dramt__c FROM rstkf__gltxn__c where rstkf__gltxn_apinvtxn__c = 'a911K000000LuHuQAK'</value>
         </argument>
         <argument id="apexConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="resultListName">
-          <value class="value" valueClass="string">apinvtxn</value>
+          <value class="value" valueClass="string">gltnxrecord</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -123,7 +115,7 @@
         </connectionType>
       </type>
     </param>
-    <param name="INVNO" title="INVNO">
+    <param name="apinvtxnid" title="apinvtxnid">
       <summary>The Apex code to be executed.</summary>
       <type>
         <textType>
@@ -157,9 +149,9 @@
         <path element="InvSrcData"/>
       </value>
     </argument>
-    <argument id="INVNO">
+    <argument id="apinvtxnid">
       <value class="variable">
-        <path element="APINVH"/>
+        <path element="apinvtxnid"/>
       </value>
     </argument>
   </args>

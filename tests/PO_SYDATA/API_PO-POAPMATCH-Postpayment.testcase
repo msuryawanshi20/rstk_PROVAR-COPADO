@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="30">
+<testCase id="7">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -30,7 +30,9 @@
         <argument id="enableObjectIdLogging">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="autoCleanup"/>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
         <argument id="cleanupConnectionName"/>
         <argument id="logFileLocation"/>
         <argument id="username"/>
@@ -213,6 +215,14 @@
                     <worksheetName class="value" valueClass="string">CloseAPBatch</worksheetName>
                   </sourceValue>
                 </parameterValueSource>
+                <parameterValueSource variableName="objnamedata" variableScope="Test">
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="FinExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">ObjectName</worksheetName>
+                  </sourceValue>
+                </parameterValueSource>
               </parameterValueSources>
               <clauses>
                 <clause name="hidden" testItemId="53">
@@ -224,6 +234,32 @@
         </clause>
       </clauses>
     </apiCall>
+    <caseCall testCaseId="e08077a2-003a-4ff5-934b-36bbc985a8a4" testCasePath="tests/Account Payable/Callable/FetchingObjectsId.testcase" testItemId="278">
+      <arguments>
+        <argument id="objdata">
+          <value class="variable">
+            <path element="objnamedata"/>
+          </value>
+        </argument>
+      </arguments>
+      <outputArguments>
+        <outputArgument id="CompanyID">
+          <name class="value" valueClass="string">CompanyID</name>
+        </outputArgument>
+        <outputArgument id="VendorID">
+          <name class="value" valueClass="string">VendorID</name>
+        </outputArgument>
+        <outputArgument id="AccountID">
+          <name class="value" valueClass="string">AccountID</name>
+        </outputArgument>
+        <outputArgument id="FisYear">
+          <name class="value" valueClass="string">FisYear</name>
+        </outputArgument>
+        <outputArgument id="BankAccID">
+          <name class="value" valueClass="string">BankAccID</name>
+        </outputArgument>
+      </outputArguments>
+    </caseCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="108" title="For Each: {AddPOCreationData}=&gt;POData">
       <arguments>
         <argument id="list">
@@ -602,31 +638,144 @@
                         <outputArgument id="InvNum">
                           <name class="value" valueClass="string">InvNum</name>
                         </outputArgument>
+                        <outputArgument id="BatchNo">
+                          <name class="value" valueClass="string">BatchNo</name>
+                        </outputArgument>
                       </outputArguments>
                     </caseCall>
                   </steps>
                 </clause>
               </clauses>
             </apiCall>
-            <caseCall testCaseId="48beb1a7-523f-4cd2-809e-43cab11c401d" testCasePath="tests/Account Payable/POPaySession.testcase" testItemId="276">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="279" title="Post Payable Transaction">
               <arguments>
-                <argument id="reuseConnectionName">
-                  <value class="variable">
-                    <path element="reuseConnectionName"/>
-                  </value>
-                </argument>
-                <argument id="INVNO">
-                  <value class="variable">
-                    <path element="InvNum"/>
-                  </value>
+                <argument id="description">
+                  <value class="value" valueClass="string">Post Payable Transaction</value>
                 </argument>
               </arguments>
-            </caseCall>
-            <caseCall testCaseId="63069f2c-2aa1-4383-9227-da95bf27caa8" testCasePath="tests/Account Payable/PAYTO.testcase" testItemId="275">
+              <clauses>
+                <clause name="hidden" testItemId="280">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="282" title="SOQL Query: select Id,Name,rstkf__apinvtxn_apinvh__c,rstkf__apinvtxn_unapplamtmaint__c,rstkf__apinvtxn_amtapplmaint__c,rstkf__apinvtxn_status__c from rstkf__apinvtxn__c where Name like '{InvNum}%'=&gt;apinvtxn">
+                      <tags/>
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">select Id,Name,rstkf__apinvtxn_apinvh__c,rstkf__apinvtxn_unapplamtmaint__c,rstkf__apinvtxn_amtapplmaint__c,rstkf__apinvtxn_status__c from rstkf__apinvtxn__c where Name like '</value>
+                              <variable>
+                                <path element="InvNum"/>
+                              </variable>
+                              <value valueClass="string">%'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">apinvtxn</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="288" title="Set Values: TXNID">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">TXNID</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="apinvtxn"/>
+                                  <path element="Id"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="286" title="Set Values: TxnStatus">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">TxnStatus</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="apinvtxn"/>
+                                  <path element="rstkf__apinvtxn_status__c"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="283" title="If: {TxnStatus != Posted}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="ne">
+                            <lhs class="variable">
+                              <path element="TxnStatus"/>
+                            </lhs>
+                            <rhs class="variable">
+                              <path element="Posted"/>
+                            </rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="284">
+                          <steps>
+                            <caseCall testCaseId="48beb1a7-523f-4cd2-809e-43cab11c401d" testCasePath="tests/Account Payable/Callable/POPaySession.testcase" testItemId="276">
+                              <arguments>
+                                <argument id="reuseConnectionName">
+                                  <value class="variable">
+                                    <path element="reuseConnectionName"/>
+                                  </value>
+                                </argument>
+                                <argument id="INVNO">
+                                  <value class="variable">
+                                    <path element="InvNum"/>
+                                  </value>
+                                </argument>
+                              </arguments>
+                              <outputArguments>
+                                <outputArgument id="aptxnid">
+                                  <name class="value" valueClass="string">aptxnid</name>
+                                </outputArgument>
+                                <outputArgument id="TXNID">
+                                  <name class="value" valueClass="string">TXNID</name>
+                                </outputArgument>
+                              </outputArguments>
+                            </caseCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <caseCall testCaseId="63069f2c-2aa1-4383-9227-da95bf27caa8" testCasePath="tests/Account Payable/Callable/PAYTO.testcase" testItemId="275">
               <arguments>
                 <argument id="Inv_Trans">
                   <value class="variable">
-                    <path element="APINVTXN"/>
+                    <path element="TXNID"/>
                   </value>
                 </argument>
                 <argument id="Pay_Amt">
@@ -641,14 +790,112 @@
                 </argument>
                 <argument id="fincmp">
                   <value class="variable">
-                    <path element="POData"/>
-                    <path element="GLCMP"/>
+                    <path element="CompanyID"/>
                   </value>
                 </argument>
                 <argument id="BankName">
                   <value class="variable">
                     <path element="POData"/>
                     <path element="BankAccount"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="289" title="Verify Inventory Quantity ">
+              <tags/>
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Verify Inventory Quantity </value>
+                </argument>
+              </arguments>
+              <parameterValueSources/>
+              <clauses>
+                <clause name="hidden" testItemId="110">
+                  <steps>
+                    <caseCall testCaseId="954a8824-0dfb-4e35-8c28-b2f0eab560ab" testCasePath="tests/Purchase Order/Callable/InventoryQuantityVerificationPO.testcase" testItemId="246">
+                      <arguments>
+                        <argument id="SrcData_InvyQty">
+                          <value class="variable">
+                            <path element="POReceiptData"/>
+                          </value>
+                        </argument>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                      </arguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <caseCall testCaseId="29846612-c501-4e3b-863b-1cd4c090c96b" testCasePath="tests/Purchase Order/Callable/POReceiptVerification.testcase" testItemId="290">
+              <tags/>
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="POHDRID">
+                  <value class="variable">
+                    <path element="POHDRID"/>
+                  </value>
+                </argument>
+                <argument id="ExpectedResult">
+                  <value class="variable">
+                    <path element="POReceiptData"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="porcptid">
+                  <name class="value" valueClass="string">porcptid</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+            <caseCall testCaseId="3a3fd54e-7208-45d3-a39e-fee0eff06e88" testCasePath="tests/Purchase Order/Callable/PayableBatchHeaderVerification.testcase" testItemId="291">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="INVNO">
+                  <value class="variable">
+                    <path element="InvNum"/>
+                  </value>
+                </argument>
+                <argument id="BatchNo">
+                  <value class="variable">
+                    <path element="BatchNo"/>
+                  </value>
+                </argument>
+                <argument id="POTotal">
+                  <value class="variable">
+                    <path element="POTotal"/>
+                  </value>
+                </argument>
+                <argument id="ORDNO">
+                  <value class="variable">
+                    <path element="POOrderNum"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
+            <caseCall testCaseId="c8229252-83ec-4d3e-b4b7-81d6b6cb80e0" testCasePath="tests/Account Payable/Callable/PostPaymentVerification.testcase" testItemId="292">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="INVNO">
+                  <value class="variable">
+                    <path element="InvNum"/>
+                  </value>
+                </argument>
+                <argument id="ExpTxnTot">
+                  <value class="variable">
+                    <path element="POTotal"/>
+                  </value>
+                </argument>
+                <argument id="ExcelData">
+                  <value class="variable">
+                    <path element="POData"/>
                   </value>
                 </argument>
               </arguments>

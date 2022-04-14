@@ -3403,10 +3403,12 @@
                                                                         </clause>
                                                                       </clauses>
                                                                     </apiCall>
-                                                                    <caseCall testCaseId="56a22884-7449-46f4-8a6c-403fefd2d84d" testCasePath="tests/RMA/Callable/Process Receipt.testcase" testItemId="746">
+                                                                    <caseCall testCaseId="a673507e-3a7a-44aa-805d-b91da97a47f5" testCasePath="tests/RMA/Callable/Process Receipt.testcase" testItemId="1004">
                                                                       <arguments>
                                                                         <argument id="reuseConnectionName">
-                                                                          <value class="value" valueClass="string">SFConnection</value>
+                                                                          <value class="variable">
+                                                                            <path element="reuseConnectionName"/>
+                                                                          </value>
                                                                         </argument>
                                                                         <argument id="ip_recordID">
                                                                           <value class="variable">
@@ -3451,12 +3453,6 @@
                                                                             <path element="op_ReceiptExcelDataRow"/>
                                                                             <path element="LotNumber"/>
                                                                           </value>
-                                                                        </argument>
-                                                                        <argument id="ip_ToInventory">
-                                                                          <value class="value" valueClass="string">true</value>
-                                                                        </argument>
-                                                                        <argument id="ip_ToInspection">
-                                                                          <value class="value" valueClass="string">false</value>
                                                                         </argument>
                                                                       </arguments>
                                                                     </caseCall>

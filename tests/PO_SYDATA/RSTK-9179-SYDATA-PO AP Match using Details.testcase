@@ -43,118 +43,169 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="54" title="Read Data for PO to PO AP Match">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="92" title="Reading Excel Data">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">Read Data for PO to PO AP Match</value>
+          <value class="value" valueClass="string">Reading Excel Data</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="AddPOCreationData" variableScope="Test">
-          <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/RSTKF_AutomationData.xlsx;1624364287371</cacheToken>
-          <cachedParameters>
-            <apiParam name="APIMode"/>
-            <apiParam name="OverrideDimension"/>
-            <apiParam name="OverrideAddress"/>
-            <apiParam name="Name"/>
-            <apiParam name="Division"/>
-            <apiParam name="Vendor"/>
-            <apiParam name="Street"/>
-            <apiParam name="City"/>
-            <apiParam name="State"/>
-            <apiParam name="Zipcode"/>
-            <apiParam name="Country"/>
-            <apiParam name="Item"/>
-            <apiParam name="QtyReq"/>
-            <apiParam name="UnitPrice"/>
-            <apiParam name="Project"/>
-            <apiParam name="Dim1"/>
-            <apiParam name="Dim3"/>
-            <apiParam name="Dim4"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA-POtoPOAP Match.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">POHeader</worksheetName>
-            <valuesRange class="value"/>
-          </sourceValue>
-        </parameterValueSource>
-        <parameterValueSource variableName="POReceiptData" variableScope="Test">
-          <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/POSYDATA.xlsx;1626349847145</cacheToken>
-          <cachedParameters>
-            <apiParam name="TransactionType"/>
-            <apiParam name="Process"/>
-            <apiParam name="BackgroundProcessing"/>
-            <apiParam name="TransactionQTY"/>
-            <apiParam name="Division"/>
-            <apiParam name="InvLocID"/>
-            <apiParam name="LocNum"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA-POtoPOAP Match.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">POReceipt</worksheetName>
-            <valuesRange class="value"/>
-          </sourceValue>
-        </parameterValueSource>
-        <parameterValueSource variableName="AddlineData" variableScope="Test">
-          <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/POLOADER.xlsx;1626414138253</cacheToken>
-          <cachedParameters>
-            <apiParam name="APIMode"/>
-            <apiParam name="Process"/>
-            <apiParam name="Item"/>
-            <apiParam name="Quantity"/>
-            <apiParam name="UnitPrice"/>
-            <apiParam name="Project"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA-POtoPOAP Match.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">Multiple PO Line</worksheetName>
-            <valuesRange class="value"/>
-          </sourceValue>
-        </parameterValueSource>
-        <parameterValueSource variableName="POAuthData" variableScope="Test">
-          <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/SYDATA-POtoPOAP Match.xlsx;1627370924902</cacheToken>
-          <cachedParameters>
-            <apiParam name="TransactionType"/>
-            <apiParam name="Process"/>
-            <apiParam name="BackgroundProcessing"/>
-            <apiParam name="TransactionQTY"/>
-            <apiParam name="Division"/>
-            <apiParam name="Auth"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA-POtoPOAP Match.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">POAuthorization</worksheetName>
-            <valuesRange class="value"/>
-          </sourceValue>
-        </parameterValueSource>
-        <parameterValueSource variableName="POAPMatchData" variableScope="Test">
-          <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/SYDATA-POtoPOAP Match.xlsx;1627378426645</cacheToken>
-          <cachedParameters>
-            <apiParam name="TransactionType"/>
-            <apiParam name="Process"/>
-            <apiParam name="BackgroundProcessing"/>
-            <apiParam name="Division"/>
-            <apiParam name="Name"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA-POtoPOAP Match.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">POAPMatch</worksheetName>
-          </sourceValue>
-        </parameterValueSource>
-        <parameterValueSource variableName="SYDATADData" variableScope="Test">
-          <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/SYDATA-POtoPOAP Match.xlsx;1627378426645</cacheToken>
-          <cachedParameters>
-            <apiParam name="Name"/>
-            <apiParam name="TransactionDetailType"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SYDATA-POtoPOAP Match.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">SYDATAD</worksheetName>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
       <clauses>
-        <clause name="hidden" testItemId="53"/>
+        <clause name="hidden" testItemId="242">
+          <steps>
+            <caseCall testCaseId="0996b2be-bbb6-4b92-82d8-19ad6683a2ac" testCasePath="tests/Purchase Order/Callable/ReadExcelPath.testcase" testItemId="244">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="ExcelPath">
+                  <name class="value" valueClass="string">ExcelPath</name>
+                </outputArgument>
+                <outputArgument id="ExcelURL" scope="Folder">
+                  <name class="value" valueClass="string">ExcelURL</name>
+                </outputArgument>
+                <outputArgument id="POUIExcel">
+                  <name class="value" valueClass="string">POUIExcel</name>
+                </outputArgument>
+                <outputArgument id="POLoaderExcel">
+                  <name class="value" valueClass="string">POLoaderExcel</name>
+                </outputArgument>
+                <outputArgument id="POSYDATAExcel">
+                  <name class="value" valueClass="string">POSYDATAExcel</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="93" title="Read Data for PO to PO AP Batch">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Read Data for PO to PO AP Batch</value>
+                </argument>
+              </arguments>
+              <parameterValueSources>
+                <parameterValueSource variableName="AddPOCreationData" variableScope="Test">
+                  <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/RSTKF_AutomationData.xlsx;1624364287371</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="APIMode"/>
+                    <apiParam name="OverrideDimension"/>
+                    <apiParam name="OverrideAddress"/>
+                    <apiParam name="Name"/>
+                    <apiParam name="Division"/>
+                    <apiParam name="Vendor"/>
+                    <apiParam name="Street"/>
+                    <apiParam name="City"/>
+                    <apiParam name="State"/>
+                    <apiParam name="Zipcode"/>
+                    <apiParam name="Country"/>
+                    <apiParam name="Item"/>
+                    <apiParam name="QtyReq"/>
+                    <apiParam name="UnitPrice"/>
+                    <apiParam name="Project"/>
+                    <apiParam name="Dim1"/>
+                    <apiParam name="Dim3"/>
+                    <apiParam name="Dim4"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="POSYDATAExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">POHeader</worksheetName>
+                    <valuesRange class="value"/>
+                  </sourceValue>
+                </parameterValueSource>
+                <parameterValueSource variableName="POReceiptData" variableScope="Test">
+                  <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/POSYDATA.xlsx;1626349847145</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="TransactionType"/>
+                    <apiParam name="Process"/>
+                    <apiParam name="BackgroundProcessing"/>
+                    <apiParam name="TransactionQTY"/>
+                    <apiParam name="Division"/>
+                    <apiParam name="InvLocID"/>
+                    <apiParam name="LocNum"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="POSYDATAExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">POReceipt</worksheetName>
+                    <valuesRange class="value"/>
+                  </sourceValue>
+                </parameterValueSource>
+                <parameterValueSource variableName="AddlineData" variableScope="Test">
+                  <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/POLOADER.xlsx;1626414138253</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="APIMode"/>
+                    <apiParam name="Process"/>
+                    <apiParam name="Item"/>
+                    <apiParam name="Quantity"/>
+                    <apiParam name="UnitPrice"/>
+                    <apiParam name="Project"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="POSYDATAExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">Multiple PO Line</worksheetName>
+                    <valuesRange class="value"/>
+                  </sourceValue>
+                </parameterValueSource>
+                <parameterValueSource variableName="POAuthData" variableScope="Test">
+                  <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/SYDATA-POtoPOAP Match.xlsx;1627370924902</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="TransactionType"/>
+                    <apiParam name="Process"/>
+                    <apiParam name="BackgroundProcessing"/>
+                    <apiParam name="TransactionQTY"/>
+                    <apiParam name="Division"/>
+                    <apiParam name="Auth"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="POSYDATAExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">POAuthorization</worksheetName>
+                    <valuesRange class="value"/>
+                  </sourceValue>
+                </parameterValueSource>
+                <parameterValueSource variableName="POAPMatchData" variableScope="Test">
+                  <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/SYDATA-POtoPOAP Match.xlsx;1627378426645</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="TransactionType"/>
+                    <apiParam name="Process"/>
+                    <apiParam name="BackgroundProcessing"/>
+                    <apiParam name="Division"/>
+                    <apiParam name="Name"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="POSYDATAExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">POAPMatch</worksheetName>
+                  </sourceValue>
+                </parameterValueSource>
+                <parameterValueSource variableName="SYDATADData" variableScope="Test">
+                  <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/SYDATA-POtoPOAP Match.xlsx;1627378426645</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="Name"/>
+                    <apiParam name="TransactionDetailType"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="POSYDATAExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">SYDATAD</worksheetName>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+              <clauses>
+                <clause name="hidden" testItemId="94">
+                  <steps/>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
       </clauses>
     </apiCall>
     <caseCall testCaseId="bf68b852-4f80-489c-b812-ecc3b72db4cc" testCasePath="tests/POLOADER/Callable/POLoader_POCreation.testcase" testItemId="67">

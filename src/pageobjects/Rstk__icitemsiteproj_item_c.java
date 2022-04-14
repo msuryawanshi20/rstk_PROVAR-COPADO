@@ -66,6 +66,12 @@ public class Rstk__icitemsiteproj_item_c {
 	}
 	@FindBy(xpath = "//iframe[contains(@id,'itarget')]")
 	public Frame frame;
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Purchase Order Header']")
+	public WebElement purchaseOrderHeader;
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='New']")
+	public WebElement New;
 	
 
 	
