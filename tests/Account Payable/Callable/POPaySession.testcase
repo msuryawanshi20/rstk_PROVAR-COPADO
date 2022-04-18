@@ -34,7 +34,9 @@
         <argument id="enableObjectIdLogging">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="autoCleanup"/>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
         <argument id="cleanupConnectionName"/>
         <argument id="logFileLocation"/>
         <argument id="username"/>
@@ -69,6 +71,28 @@
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="88" title="Set Values: aptxnid">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">aptxnid</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="apinvtxn"/>
+                  <path element="Id"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
         </argument>
       </arguments>
     </apiCall>
@@ -280,6 +304,23 @@
       </type>
     </param>
   </params>
+  <outputParams>
+    <param name="TXNID" title="TXNID">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="aptxnid"/>
+      </sourceValue>
+    </param>
+  </outputParams>
   <args>
     <argument id="reuseConnectionName">
       <value class="variable">
@@ -292,4 +333,9 @@
       </value>
     </argument>
   </args>
+  <outputArgs>
+    <outputArgument id="TXNID">
+      <name class="value" valueClass="string">TXNID</name>
+    </outputArgument>
+  </outputArgs>
 </testCase>

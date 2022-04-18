@@ -24,5 +24,8 @@ public class rootstock__RecordEdit {
 	@TextType()
 	@AuraBy(componentXPath = "//lightning:input[@value='{!v.currentRecord.rstk__sohdr_order__c}']", qualifier = "rstk__sohdr_order__c")
 	public WebElement orderNumber;
+	@TextType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//li/div")
+	public WebElement vendorlist;
 	
 }

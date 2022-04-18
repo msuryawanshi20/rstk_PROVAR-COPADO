@@ -109,4 +109,8 @@ public class rstk__peitem {
 	@FindBy(xpath = "//label[normalize-space(.)='Item Number']/parent::span/parent::th/following-sibling::td[1]")
 	public WebElement itemNumber1;
 
+	@TextType()
+	@FindBy(xpath = "//td/table//table/tbody/tr/td/table/tbody/tr/td[normalize-space(.)='Approved Manufacturers']")
+	public WebElement tab_ApprovedMfrs_lbl;
+
 }

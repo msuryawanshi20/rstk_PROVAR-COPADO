@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedEnvironment="AutomationOrg">
+<testProject selectedBrowserProviderDeviceName="Full Screen" selectedBrowserProviderName="Desktop" selectedEnvironment="QARSF">
   <title>/rsqasampleproj/.testproject</title>
   <configPath>config</configPath>
   <testsPath>tests</testsPath>
@@ -68,6 +68,15 @@
         </connection>
       </connections>
     </connectionClass>
+    <connectionClass name="ui">
+      <connections>
+        <connection name="Arena">
+          <connectionUrls>
+            <connectionUrl secureStorageNodeId="22a3d9fe-1d92-4d5f-874a-eed15dd1091a" url="se:user=swood@rootstock.com;password={password};baseUrl=https://app.bom.com/"/>
+          </connectionUrls>
+        </connection>
+      </connections>
+    </connectionClass>
   </connectionClasses>
   <browserConfigurations>
     <browserConfiguration adjustBrowserWidthForChromeIde="true" browserHeight="0" browserWidth="0" name="Full Screen">
@@ -86,6 +95,7 @@
       <summary>Fixed 1920x1080</summary>
     </browserConfiguration>
   </browserConfigurations>
+  <antPath>ANT</antPath>
   <testCyclePath>TestCycle</testCyclePath>
   <browserApplications>
     <browserApplication connectionTypes="sf" name="Salesforce1">

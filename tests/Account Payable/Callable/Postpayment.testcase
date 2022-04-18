@@ -167,7 +167,7 @@
       <clauses>
         <clause name="substeps" testItemId="30">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="31" title="Set the Payment Date field to {DateFormat(DateAdd(TODAY), &quot;MM/dd/yyyy&quot;)}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="68" title="Set the Payment Date field to {DateFormat(DateAdd(TODAY), &quot;MM/dd/yyyy&quot;)}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=paymentDate"/>
@@ -240,9 +240,7 @@
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="67" title="SOQL Query: SELECT Id,Name FROM rstkf__glbankacct__c where name = '{BankName}'=&gt;ip_AccName">
-              <tags>
-                <string>disabled</string>
-              </tags>
+              <tags/>
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -299,7 +297,8 @@
                 <argument id="param_BankName"/>
                 <argument id="param_Bankname">
                   <value class="variable">
-                    <path element="BankName"/>
+                    <path element="ip_AccName"/>
+                    <path element="Id"/>
                   </value>
                 </argument>
               </arguments>

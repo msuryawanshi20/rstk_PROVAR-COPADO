@@ -48,6 +48,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="4" title="Set Values: INVNO">
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -184,7 +187,7 @@
         </connectionType>
       </type>
     </param>
-    <param name="ORDNO" title="ORDNO">
+    <param name="INVNO" title="INVNO">
       <summary>The Apex code to be executed.</summary>
       <type>
         <textType>
@@ -231,6 +234,6 @@
         <path element="POTotal"/>
       </value>
     </argument>
-    <argument id="ORDNO"/>
+    <argument id="INVNO"/>
   </args>
 </testCase>

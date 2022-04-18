@@ -34,7 +34,9 @@
         <argument id="enableObjectIdLogging">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="autoCleanup"/>
+        <argument id="autoCleanup">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
         <argument id="cleanupConnectionName"/>
         <argument id="logFileLocation"/>
         <argument id="username"/>
@@ -1895,11 +1897,7 @@
   </params>
   <outputParams/>
   <args>
-    <argument id="reuseConnectionName">
-      <value class="variable">
-        <path element="reuseConnectionName"/>
-      </value>
-    </argument>
+    <argument id="reuseConnectionName"/>
     <argument id="SourceData_AR">
       <value class="variable">
         <path element="SourceData_AR"/>

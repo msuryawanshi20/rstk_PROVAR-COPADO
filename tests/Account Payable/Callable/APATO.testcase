@@ -47,6 +47,54 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="31" title="SOQL Query: SELECT Id,Name FROM rstk__povend__c where Name =  '{APtxndata.Vendor}'=&gt;povend">
+      <tags/>
+      <arguments>
+        <argument argId="fb44ef2b-0676-46e8-b17c-97e564e7ba9b" id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">SELECT Id,Name FROM rstk__povend__c where Name =  '</value>
+              <variable>
+                <path element="APtxndata"/>
+                <path element="Vendor"/>
+              </variable>
+              <value valueClass="string">'</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">povend</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="32" title="Set Values: vendno">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">vendno</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="povend"/>
+                  <path element="Id"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: rstkf__apato__c=&gt;apatoId">
       <arguments>
         <argument id="objectType">
@@ -148,11 +196,6 @@
             <path element="Status"/>
           </value>
         </argument>
-        <argument id="rstkf__apato_apacct__c">
-          <value class="variable">
-            <path element="glacctid"/>
-          </value>
-        </argument>
         <argument id="rstkf__apato_terms__c"/>
         <argument id="rstkf__apato_distmaintamt__c">
           <value class="variable">
@@ -208,6 +251,12 @@
             <path element="Dim4"/>
           </value>
         </argument>
+        <argument id="rstkf__apato_loadasposted__c">
+          <value class="variable">
+            <path element="APtxndata"/>
+            <path element="LoadPosted"/>
+          </value>
+        </argument>
       </arguments>
       <parameterGeneratorProperties>
         <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
@@ -225,7 +274,6 @@
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__apato__c&amp;field=rstkf__apato_vendno__c" name="rstkf__apato_vendno__c" title="rstkf__apato_vendno__c"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__apato__c&amp;field=rstkf__apato_year__c" name="rstkf__apato_year__c" title="rstkf__apato_year__c"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__apato__c&amp;field=rstkf__apato_status__c" name="rstkf__apato_status__c" title="rstkf__apato_status__c"/>
-        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__apato__c&amp;field=rstkf__apato_apacct__c" name="rstkf__apato_apacct__c" title="rstkf__apato_apacct__c"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__apato__c&amp;field=rstkf__apato_terms__c" name="rstkf__apato_terms__c" title="rstkf__apato_terms__c"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__apato__c&amp;field=rstkf__apato_distmaintamt__c" name="rstkf__apato_distmaintamt__c" title="rstkf__apato_distmaintamt__c"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__apato__c&amp;field=rstkf__apato_linemaintamt__c" name="rstkf__apato_linemaintamt__c" title="rstkf__apato_linemaintamt__c"/>
@@ -236,6 +284,7 @@
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__apato__c&amp;field=rstkf__apato_dimval2__c" name="rstkf__apato_dimval2__c" title="rstkf__apato_dimval2__c"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__apato__c&amp;field=rstkf__apato_dimval3__c" name="rstkf__apato_dimval3__c" title="rstkf__apato_dimval3__c"/>
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__apato__c&amp;field=rstkf__apato_dimval4__c" name="rstkf__apato_dimval4__c" title="rstkf__apato_dimval4__c"/>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__apato__c&amp;field=rstkf__apato_loadasposted__c" name="rstkf__apato_loadasposted__c" title="rstkf__apato_loadasposted__c"/>
       </generatedParameters>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="4" title="SOQL Query: select Id,Name,rstkf__apato_docno__c,\trstkf__apato_apinvh__c from rstkf__apato__c where Id = '{apatoId}'=&gt;soqlapato">
@@ -653,9 +702,6 @@
     <param linkedToUrl="provar:hasvalue:0bb326fe-2125-4c4a-8662-502471ca1309" modelBinding="sf:ui:binding:object?object=rstkf__apato__c&amp;field=rstkf__apato_glacct__c" name="glacctid" title="glacctid">
       <summary/>
     </param>
-    <param linkedToUrl="provar:hasvalue:b1027964-d6ff-4299-a263-2f446fa20e04" modelBinding="sf:ui:binding:object?object=rstkf__apato__c&amp;field=rstkf__apato_vendno__c" name="vendno" title="vendno">
-      <summary/>
-    </param>
     <param linkedToUrl="provar:hasvalue:d3dab0b6-e7b6-494e-a351-d850997bec0d" modelBinding="sf:ui:binding:object?object=rstkf__apato__c&amp;field=rstkf__apato_year__c" name="yearid" title="yearid">
       <summary/>
     </param>
@@ -708,11 +754,6 @@
     </argument>
     <argument id="glacctid">
       <value class="value" valueClass="string">a9S1K000000CfCy</value>
-    </argument>
-    <argument id="vendno">
-      <value class="variable">
-        <path element="vendno"/>
-      </value>
     </argument>
     <argument id="yearid">
       <value class="variable">
