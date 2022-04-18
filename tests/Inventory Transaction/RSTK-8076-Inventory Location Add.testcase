@@ -205,12 +205,12 @@
         </clause>
         <clause name="else" testItemId="906">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
                     <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">Automation</rhs>
+                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
                   </value>
                 </argument>
               </arguments>
@@ -227,7 +227,7 @@
                       <expectedExceptions/>
                       <parameterValueSources>
                         <parameterValueSource variableName="op_InvLocAddExcelData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QA-Automation/LOCAdd.xlsx;1641997039348</cacheToken>
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/AutomationOrg/LOCAdd.xlsx;1641997039348</cacheToken>
                           <cachedParameters>
                             <apiParam name="RowNumber"/>
                             <apiParam name="Site"/>
@@ -253,7 +253,7 @@
                             <apiParam name="UnitCostLanding"/>
                           </cachedParameters>
                           <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QA-Automation/LOCAdd.xlsx</workbookPath>
+                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/LOCAdd.xlsx</workbookPath>
                             <worksheetName class="value" valueClass="string">Location Add</worksheetName>
                             <valuesRange class="value" valueClass="string">A:U</valuesRange>
                           </sourceValue>

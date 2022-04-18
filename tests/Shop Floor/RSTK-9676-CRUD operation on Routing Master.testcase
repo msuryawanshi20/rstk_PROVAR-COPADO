@@ -83,12 +83,12 @@
         </clause>
         <clause name="else" testItemId="906">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
                     <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">Automation</rhs>
+                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
                   </value>
                 </argument>
               </arguments>
@@ -109,7 +109,7 @@
                             <apiParam name="ItemNumber"/>
                           </cachedParameters>
                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9676-CRUD operation on Routing Master.xlsx</workbookPath>
+                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9676-CRUD operation on Routing Master.xlsx</workbookPath>
                             <worksheetName class="value" valueClass="string">Create Routing Master</worksheetName>
                             <valuesRange class="value" valueClass="string">A:B</valuesRange>
                           </sourceValue>
@@ -240,12 +240,12 @@
                 </clause>
                 <clause name="else" testItemId="61">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="62" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="62" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                       <arguments>
                         <argument id="condition">
                           <value class="eq">
                             <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
+                            <rhs class="value" valueClass="string">AutomationOrg</rhs>
                           </value>
                         </argument>
                       </arguments>
@@ -266,7 +266,7 @@
                                     <apiParam name="ItemNumber"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9676-CRUD operation on Routing Master.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9676-CRUD operation on Routing Master.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">Update Routing Master</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:C</valuesRange>
                                   </sourceValue>

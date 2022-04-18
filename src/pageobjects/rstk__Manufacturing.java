@@ -57,51 +57,50 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Inventory Location Add']")
 	public WebElement inventoryLocationAdd;
-	
+
 	@LinkType()
 	@FindBy(linkText = "Rootstock Site Map")
 	public WebElement rootstockSiteMap;
-	
+
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Purchase Order Header']")
 	public WebElement purchaseOrderEntry;
-	
+
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Purchase Order Receipts']")
 	public WebElement purchaseOrderReceipts;
-	
+
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='PO Receipt Transactions']")
 	public WebElement pOReceiptTransactions;
-	
+
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Inventory Cost Transactions']")
 	public WebElement inventoryCostTransactions;
-	
+
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Engineering Item Master']")
 	public WebElement engineeringItemMaster;
-	
+
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='PO Issue']")
 	public WebElement pOIssue;
-	
+
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Purchase Order Authorization']")
 	public WebElement purchaseOrderAuthorization;
-	
+
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='PO-AP Match']")
 	public WebElement pOAPMatch;
-	
+
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Purchase Requisition']")
 	public WebElement purchaseRequisition;
-	
+
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='PO Receipt Reversals']")
 	public WebElement pOReceiptReversals;
-	
 
 	@FindBy(xpath = "//a[normalize-space(.)='PO Issue Reversal']")
 	public WebElement pOIssueReversal;
@@ -129,11 +128,11 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Vendor Class']")
 	public WebElement vendorClass;
- 
+
 	@LinkType()
 	@FindBy(linkText = "Project to Project Transfer")
 	public WebElement projectToProjectTransfer;
-  
+
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Inventory Location Adjust']")
 	public WebElement inventoryLocationAdjust;
@@ -161,7 +160,7 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='WO Receipt']")
 	public WebElement wOReceipt;
-	
+
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='WO Receipt Reversal']")
 	public WebElement wOReceiptReversal;
@@ -217,7 +216,7 @@ public class rstk__Manufacturing {
 	@FindBy(xpath = "//a[normalize-space(.)='MRP Launch']")
 	public WebElement MRPLaunch;
 
-  @LinkType()
+	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Post by Transaction']")
 	public WebElement postByTransaction;
 
@@ -241,9 +240,8 @@ public class rstk__Manufacturing {
 	@FindBy(xpath = "//a[normalize-space(.)='Postings Summary Report']")
 	public WebElement postingsSummaryReport;
 
-  @LinkType()
-  @FindBy(xpath = "//a[normalize-space(.)='Generate Recurring Billing']")
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Generate Recurring Billing']")
 	public WebElement generateRecurringBilling;
 
 }
-

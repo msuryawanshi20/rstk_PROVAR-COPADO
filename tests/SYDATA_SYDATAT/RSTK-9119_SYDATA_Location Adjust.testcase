@@ -104,12 +104,12 @@
                 </clause>
                 <clause name="else" testItemId="143">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="144" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="144" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                       <arguments>
                         <argument id="condition">
                           <value class="eq">
                             <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
+                            <rhs class="value" valueClass="string">AutomationOrg</rhs>
                           </value>
                         </argument>
                       </arguments>
@@ -142,7 +142,7 @@
                                     <apiParam name="Comments"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9119_SYDATA-Loc Adjust.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9119_SYDATA-Loc Adjust.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">Inv Adjust</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:M</valuesRange>
                                   </sourceValue>

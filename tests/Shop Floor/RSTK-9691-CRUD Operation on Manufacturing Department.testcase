@@ -93,12 +93,12 @@
         </clause>
         <clause name="else" testItemId="906">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
                     <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">Automation</rhs>
+                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
                   </value>
                 </argument>
               </arguments>
@@ -129,7 +129,7 @@
                             <apiParam name="SimOhdRateFringe"/>
                           </cachedParameters>
                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx</workbookPath>
+                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx</workbookPath>
                             <worksheetName class="value" valueClass="string">Create Mfg Dept</worksheetName>
                             <valuesRange class="value" valueClass="string">A:M</valuesRange>
                           </sourceValue>
@@ -1383,12 +1383,12 @@
                 </clause>
                 <clause name="else" testItemId="934">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="935" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="935" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                       <arguments>
                         <argument id="condition">
                           <value class="eq">
                             <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
+                            <rhs class="value" valueClass="string">AutomationOrg</rhs>
                           </value>
                         </argument>
                       </arguments>
@@ -1419,7 +1419,7 @@
                                     <apiParam name="SimOhdRateFringe"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ManufacturingDepartmentNumber" whereValue="{op_mfgDeptName.fields.manufacturingDepartmentNumber1.value}">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9691-CRUD Operation on Manufacturing Department.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">Update</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:M</valuesRange>
                                   </sourceValue>

@@ -98,12 +98,12 @@
         </clause>
         <clause name="else" testItemId="522">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="523" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="523" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
                     <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">Automation</rhs>
+                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
                   </value>
                 </argument>
               </arguments>
@@ -135,7 +135,7 @@
                             <apiParam name="TxnComment"/>
                           </cachedParameters>
                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QA-Automation/Site to Site.xlsx</workbookPath>
+                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/Site to Site.xlsx</workbookPath>
                             <worksheetName class="value" valueClass="string">RSTK-8890-Lot-existing</worksheetName>
                             <valuesRange class="value" valueClass="string">A:L</valuesRange>
                           </sourceValue>

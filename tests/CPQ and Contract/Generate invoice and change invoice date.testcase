@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="16">
+<testCase>
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="994" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
@@ -43,7 +43,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="949" title="Read excel data based on selected environment">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="995" title="Read excel data based on selected environment">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read excel data based on selected environment</value>
@@ -135,7 +135,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="950" title="For Each: {op_SOCONTRACT}=&gt;op_soContractRow">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="996" title="For Each: {op_SOCONTRACT}=&gt;op_soContractRow">
       <arguments>
         <argument id="list">
           <value class="variable">
@@ -927,6 +927,18 @@
                 </clause>
               </clauses>
             </apiCall>
+            <caseCall testCaseId="8d5e6335-fd8a-4155-817e-9a4db3f75f4f" testCasePath="tests/CPQ and Contract/Callable/Change Invoice Date.testcase" testItemId="997">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="ip_recordID">
+                  <value class="variable">
+                    <path element="op_recordID"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
             <caseCall testCaseId="fbc6d9b1-4a22-4320-9459-e0536b06dc73" testCasePath="tests/CPQ and Contract/Callable/Change Status on Contract Periodic Billing Detail.testcase" testItemId="992">
               <arguments>
                 <argument id="reuseConnectionName">
@@ -943,18 +955,6 @@
               </arguments>
             </caseCall>
             <caseCall testCaseId="c9f6f1a0-2f72-4ab1-bf7c-3f2b3401a541" testCasePath="tests/CPQ and Contract/Callable/Create Sales invoice from Billing Run Batch Header.testcase" testItemId="991">
-              <arguments>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
-                </argument>
-                <argument id="ip_recordID">
-                  <value class="variable">
-                    <path element="op_recordID"/>
-                  </value>
-                </argument>
-              </arguments>
-            </caseCall>
-            <caseCall testCaseId="eedd450b-e255-4b17-a242-0536af254734" testCasePath="tests/CPQ and Contract/Callable/Delete Sales Invoice from Billing Run Batch Header.testcase" testItemId="993">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
