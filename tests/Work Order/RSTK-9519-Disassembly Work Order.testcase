@@ -196,12 +196,12 @@
                 </clause>
                 <clause name="else" testItemId="906">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                       <arguments>
                         <argument id="condition">
                           <value class="eq">
                             <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
+                            <rhs class="value" valueClass="string">AutomationOrg</rhs>
                           </value>
                         </argument>
                       </arguments>
@@ -222,7 +222,7 @@
                                     <apiParam name="ItemNumber"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9519-Disassembly Work Order.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9519-Disassembly Work Order.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">Create Disassembly WO</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:F</valuesRange>
                                   </sourceValue>
@@ -453,12 +453,12 @@
                         </clause>
                         <clause name="else" testItemId="182">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="175" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="175" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                               <arguments>
                                 <argument id="condition">
                                   <value class="eq">
                                     <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                    <rhs class="value" valueClass="string">Automation</rhs>
+                                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
                                   </value>
                                 </argument>
                               </arguments>
@@ -479,7 +479,7 @@
                                             <apiParam name="ItemNumber"/>
                                           </cachedParameters>
                                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
-                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9519-Disassembly Work Order.xlsx</workbookPath>
+                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9519-Disassembly Work Order.xlsx</workbookPath>
                                             <worksheetName class="value" valueClass="string">Derived Components</worksheetName>
                                             <valuesRange class="value" valueClass="string">A:J</valuesRange>
                                           </sourceValue>
@@ -677,12 +677,12 @@
                         </clause>
                         <clause name="else" testItemId="929">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="930" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="930" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                               <arguments>
                                 <argument id="condition">
                                   <value class="eq">
                                     <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                    <rhs class="value" valueClass="string">Automation</rhs>
+                                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
                                   </value>
                                 </argument>
                               </arguments>
@@ -703,7 +703,7 @@
                                             <apiParam name="ItemNumber"/>
                                           </cachedParameters>
                                           <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
-                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9519-Disassembly Work Order.xlsx</workbookPath>
+                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9519-Disassembly Work Order.xlsx</workbookPath>
                                             <worksheetName class="value" valueClass="string">Consumable Components</worksheetName>
                                             <valuesRange class="value" valueClass="string">A:I</valuesRange>
                                           </sourceValue>

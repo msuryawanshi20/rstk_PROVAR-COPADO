@@ -196,12 +196,12 @@
                 </clause>
                 <clause name="else" testItemId="906">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                       <arguments>
                         <argument id="condition">
                           <value class="eq">
                             <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
+                            <rhs class="value" valueClass="string">AutomationOrg</rhs>
                           </value>
                         </argument>
                       </arguments>
@@ -222,7 +222,7 @@
                                     <apiParam name="ItemNumber"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">Create WO</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:G</valuesRange>
                                   </sourceValue>
@@ -710,12 +710,12 @@
                                         </clause>
                                         <clause name="else" testItemId="235">
                                           <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="236" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="236" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                                               <arguments>
                                                 <argument id="condition">
                                                   <value class="eq">
                                                     <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                                    <rhs class="value" valueClass="string">Automation</rhs>
+                                                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
                                                   </value>
                                                 </argument>
                                               </arguments>
@@ -736,7 +736,7 @@
                                                             <apiParam name="ItemNumber"/>
                                                           </cachedParameters>
                                                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
                                                             <worksheetName class="value" valueClass="string">Add Component</worksheetName>
                                                             <valuesRange class="value" valueClass="string">A:I</valuesRange>
                                                           </sourceValue>
@@ -763,7 +763,7 @@
                                                             <apiParam name="StandardMachineHours"/>
                                                           </cachedParameters>
                                                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
                                                             <worksheetName class="value" valueClass="string">Add Operation</worksheetName>
                                                             <valuesRange class="value" valueClass="string">A:S</valuesRange>
                                                           </sourceValue>
@@ -1241,12 +1241,12 @@
                                 </clause>
                                 <clause name="else" testItemId="247">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="248" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="248" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                                       <arguments>
                                         <argument id="condition">
                                           <value class="eq">
                                             <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                            <rhs class="value" valueClass="string">Automation</rhs>
+                                            <rhs class="value" valueClass="string">AutomationOrg</rhs>
                                           </value>
                                         </argument>
                                       </arguments>
@@ -1267,7 +1267,7 @@
                                                     <apiParam name="ItemNumber"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">Time and Qty Booking</worksheetName>
                                                     <valuesRange class="value" valueClass="string">A:O</valuesRange>
                                                   </sourceValue>
@@ -1506,12 +1506,12 @@
                                 </clause>
                                 <clause name="else" testItemId="267">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="268" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="268" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                                       <arguments>
                                         <argument id="condition">
                                           <value class="eq">
                                             <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                            <rhs class="value" valueClass="string">Automation</rhs>
+                                            <rhs class="value" valueClass="string">AutomationOrg</rhs>
                                           </value>
                                         </argument>
                                       </arguments>
@@ -1532,7 +1532,7 @@
                                                     <apiParam name="ItemNumber"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">WO receipt</worksheetName>
                                                     <valuesRange class="value" valueClass="string">A:J</valuesRange>
                                                   </sourceValue>
@@ -1638,7 +1638,7 @@
                               </arguments>
                               <expectedExceptions/>
                             </apiCall>
-                            <caseCall testCaseId="a718b342-10d9-4d38-a41a-fab077c133e3" testCasePath="tests/Work Order/Callable/WO Receipt.testcase" testItemId="34">
+                            <caseCall testCaseId="1dcbe833-4609-4208-8c13-39f0c47664af" testCasePath="tests/Work Order/Callable/WO Receipt.testcase" testItemId="34">
                               <arguments>
                                 <argument id="reuseConnectionName">
                                   <value class="value" valueClass="string">SFConnection</value>
@@ -2016,12 +2016,12 @@
                                 </clause>
                                 <clause name="else" testItemId="285">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="286" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="286" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                                       <arguments>
                                         <argument id="condition">
                                           <value class="eq">
                                             <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                            <rhs class="value" valueClass="string">Automation</rhs>
+                                            <rhs class="value" valueClass="string">AutomationOrg</rhs>
                                           </value>
                                         </argument>
                                       </arguments>
@@ -2042,7 +2042,7 @@
                                                     <apiParam name="ItemNumber"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">WO Receipt reversal</worksheetName>
                                                     <valuesRange class="value" valueClass="string">A:D</valuesRange>
                                                   </sourceValue>
@@ -2407,12 +2407,12 @@
                                 </clause>
                                 <clause name="else" testItemId="317">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="318" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="318" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                                       <arguments>
                                         <argument id="condition">
                                           <value class="eq">
                                             <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                            <rhs class="value" valueClass="string">Automation</rhs>
+                                            <rhs class="value" valueClass="string">AutomationOrg</rhs>
                                           </value>
                                         </argument>
                                       </arguments>
@@ -2433,7 +2433,7 @@
                                                     <apiParam name="ItemNumber"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">Time and Qty Booking Reversal</worksheetName>
                                                     <valuesRange class="value" valueClass="string">A:D</valuesRange>
                                                   </sourceValue>
@@ -2641,12 +2641,12 @@
                                 </clause>
                                 <clause name="else" testItemId="363">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="364" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="364" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                                       <arguments>
                                         <argument id="condition">
                                           <value class="eq">
                                             <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                            <rhs class="value" valueClass="string">Automation</rhs>
+                                            <rhs class="value" valueClass="string">AutomationOrg</rhs>
                                           </value>
                                         </argument>
                                       </arguments>
@@ -2667,7 +2667,7 @@
                                                     <apiParam name="ItemNumber"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9517-Work Order complete Flow.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">Delete Operation and Components</worksheetName>
                                                     <valuesRange class="value" valueClass="string">A:C</valuesRange>
                                                   </sourceValue>

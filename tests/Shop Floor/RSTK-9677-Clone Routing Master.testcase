@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="1">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="53" title="Salesforce Connect: SFConnection (Test)">
@@ -78,12 +78,12 @@
         </clause>
         <clause name="else" testItemId="85">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="86" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="86" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
                     <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">Automation</rhs>
+                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
                   </value>
                 </argument>
               </arguments>
@@ -99,7 +99,7 @@
                       <parameterValueSources>
                         <parameterValueSource variableName="op_excelData" variableScope="Test">
                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9677-Clone Routing Master.xlsx</workbookPath>
+                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9677-Clone Routing Master.xlsx</workbookPath>
                             <worksheetName class="value" valueClass="string">Create Routing Master</worksheetName>
                             <valuesRange class="value" valueClass="string">A:B</valuesRange>
                           </sourceValue>
@@ -161,7 +161,7 @@
       <clauses>
         <clause name="substeps" testItemId="50">
           <steps>
-            <caseCall testCaseId="deae7cf1-3620-4467-8e6f-292b103cffe7" testCasePath="tests/Shop Floor/Callable/Crate Routing Master.testcase" testItemId="80">
+            <caseCall testCaseId="deae7cf1-3620-4467-8e6f-292b103cffe7" testCasePath="tests/Shop Floor/Callable/Create Routing Master.testcase" testItemId="80">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -247,12 +247,12 @@
                 </clause>
                 <clause name="else" testItemId="99">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="100" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="100" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                       <arguments>
                         <argument id="condition">
                           <value class="eq">
                             <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
+                            <rhs class="value" valueClass="string">AutomationOrg</rhs>
                           </value>
                         </argument>
                       </arguments>
@@ -268,7 +268,7 @@
                               <parameterValueSources>
                                 <parameterValueSource variableName="op_excelDataClone" variableScope="Test">
                                   <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9677-Clone Routing Master.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9677-Clone Routing Master.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">Clone</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:F</valuesRange>
                                   </sourceValue>

@@ -101,12 +101,12 @@
                 </clause>
                 <clause name="else" testItemId="143">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="144" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="144" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                       <arguments>
                         <argument id="condition">
                           <value class="eq">
                             <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
+                            <rhs class="value" valueClass="string">AutomationOrg</rhs>
                           </value>
                         </argument>
                       </arguments>
@@ -134,7 +134,7 @@
                                     <apiParam name="ExtractOperations"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9588-SYDATA-WO receipt reversal.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9588-SYDATA-WO receipt reversal.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">Create WO</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:K</valuesRange>
                                   </sourceValue>
@@ -252,6 +252,9 @@
                       </arguments>
                     </apiCall>
                     <caseCall testCaseId="77b534bc-0823-462a-aedb-59f401dde9b6" testCasePath="tests/Work Order/Callable/Create Work Order.testcase" testItemId="6">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="reuseConnectionName">
                           <value class="value" valueClass="string">SFConnection</value>
@@ -326,6 +329,82 @@
                         </outputArgument>
                       </outputArguments>
                     </caseCall>
+                    <caseCall testCaseId="c6daa6cb-5a01-495d-b74f-629e9d4b23a1" testCasePath="tests/Work Order/Callable/API-Create Work Order.testcase" testItemId="671">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="ip_site">
+                          <value class="variable">
+                            <path element="op_excelDataRow"/>
+                            <path element="Site"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_OrderNumber">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">Pro-SY_</value>
+                              <funcCall id="UniqueId">
+                                <argument id="length">
+                                  <value class="value" valueClass="decimal">5</value>
+                                </argument>
+                              </funcCall>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="ip_InventoryItemName">
+                          <value class="variable">
+                            <path element="op_excelDataRow"/>
+                            <path element="ItemNumber"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_Qty">
+                          <value class="variable">
+                            <path element="op_excelDataRow"/>
+                            <path element="QtyRequired"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_ProjectName">
+                          <value class="variable">
+                            <path element="op_excelDataRow"/>
+                            <path element="Project"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_ProjectChargeCode">
+                          <value class="variable">
+                            <path element="op_excelDataRow"/>
+                            <path element="ProjectChargeCode"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_dueDate">
+                          <value class="funcCall" id="DateFormat">
+                            <argument id="date">
+                              <value class="variable">
+                                <path element="op_excelDataRow"/>
+                                <path element="DueDate"/>
+                              </value>
+                            </argument>
+                          </value>
+                        </argument>
+                        <argument id="ip_reworkFlag">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="ip_refurbFlag">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="ip_consignedFlag">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                      </arguments>
+                      <outputArguments>
+                        <outputArgument id="op_OrderNumber">
+                          <name class="value" valueClass="string">op_OrderNumber</name>
+                        </outputArgument>
+                        <outputArgument id="op_orderStatus">
+                          <name class="value" valueClass="string">op_orderStatus</name>
+                        </outputArgument>
+                      </outputArguments>
+                    </caseCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="14" title="REad order number ID">
                       <tags/>
                       <arguments>
@@ -371,7 +450,12 @@
                                 <argument id="reuseConnectionName">
                                   <value class="value" valueClass="string">SFConnection</value>
                                 </argument>
-                                <argument id="ip_RecordID"/>
+                                <argument id="ip_RecordID">
+                                  <value class="variable">
+                                    <path element="op_WORecID"/>
+                                    <path element="ID"/>
+                                  </value>
+                                </argument>
                               </arguments>
                             </caseCall>
                           </steps>

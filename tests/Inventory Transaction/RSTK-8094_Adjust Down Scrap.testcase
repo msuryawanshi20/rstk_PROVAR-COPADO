@@ -277,12 +277,12 @@
         </clause>
         <clause name="else" testItemId="906">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
                     <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">Automation</rhs>
+                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
                   </value>
                 </argument>
               </arguments>
@@ -315,7 +315,7 @@
                             <apiParam name="CycleCount"/>
                           </cachedParameters>
                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QA-Automation/LocAdjustment.xlsx</workbookPath>
+                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/LocAdjustment.xlsx</workbookPath>
                             <worksheetName class="value" valueClass="string">Location Adjustment</worksheetName>
                             <valuesRange class="value" valueClass="string">A:L</valuesRange>
                           </sourceValue>

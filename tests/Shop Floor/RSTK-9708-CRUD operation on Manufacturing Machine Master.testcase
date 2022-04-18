@@ -79,12 +79,12 @@
         </clause>
         <clause name="else" testItemId="906">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
                     <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">Automation</rhs>
+                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
                   </value>
                 </argument>
               </arguments>
@@ -101,7 +101,7 @@
                         <parameterValueSource variableName="SourceData" variableScope="Test">
                           <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9708-CRUD operation on Manufacturing Machine Master.xlsx;1635422767046</cacheToken>
                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9708-CRUD operation on Manufacturing Machine Master.xlsx</workbookPath>
+                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9708-CRUD operation on Manufacturing Machine Master.xlsx</workbookPath>
                             <worksheetName class="value" valueClass="string">Create</worksheetName>
                             <valuesRange class="value" valueClass="string">A:H</valuesRange>
                           </sourceValue>
@@ -1005,12 +1005,12 @@
                 </clause>
                 <clause name="else" testItemId="953">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="954" title="If: {GetSelectedEnvironment() = &quot;Automation&quot;}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="954" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                       <arguments>
                         <argument id="condition">
                           <value class="eq">
                             <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">Automation</rhs>
+                            <rhs class="value" valueClass="string">AutomationOrg</rhs>
                           </value>
                         </argument>
                       </arguments>
@@ -1038,7 +1038,7 @@
                                     <apiParam name="SalesPricePerHour"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="MachineNumber" whereValue="{op_machNumName.fields.name.value}">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RSTK-9708-CRUD operation on Manufacturing Machine Master.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9708-CRUD operation on Manufacturing Machine Master.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">Update</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:H</valuesRange>
                                   </sourceValue>

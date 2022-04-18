@@ -15,6 +15,7 @@ import com.provar.core.testapi.annotations.ChoiceListType;
 import com.provar.core.testapi.annotations.FindByLabel;
 import com.provar.core.testapi.annotations.PageWaitAfter;
 import com.provar.core.testapi.annotations.SalesforcePage;
+import com.provar.core.testapi.annotations.TextType;
 @SalesforcePage( title="Rstk__soconpbbatch View"                                
                , summary=""
                , page="soconpbbatchView"
@@ -85,5 +86,18 @@ public class rstk__soconpbbatchView {
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Remove Selected Billings From Batch']")
 	public WebElement removeSelectedBillingsFromBatch;
+	
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 600)
+	@ButtonType()
+	@FindByLabel(label = "Change Invoice Date")
+	public WebElement changeInvoiceDate;
 
+	@ButtonType()
+	@FindBy(xpath = "//div[@id='changeInvoiceDatePopup']//input[@name='popupCancelButton']")
+	public WebElement close;
+	
+	
+	@FindBy(xpath = "//*[contains(text(),'Invoice Date')]//parent::span//following::td[1]")
+	public WebElement invoiceDate;
+	
 }

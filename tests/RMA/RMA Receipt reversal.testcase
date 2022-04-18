@@ -61,10 +61,10 @@
               <clauses>
                 <clause name="case" testItemId="595">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="596" title="Case: Automation">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="596" title="Case: AutomationOrg">
                       <arguments>
                         <argument id="value">
-                          <value class="value" valueClass="string">Automation</value>
+                          <value class="value" valueClass="string">AutomationOrg</value>
                         </argument>
                         <argument id="caseSensitive">
                           <value class="value" valueClass="string">No</value>
@@ -99,7 +99,7 @@
                                     <apiParam name="TxnComment"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RMA Receipt Reversal.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RMA Receipt Reversal.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">AddHeader</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:G</valuesRange>
                                   </sourceValue>
@@ -442,10 +442,10 @@
                               <clauses>
                                 <clause name="case" testItemId="559">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="560" title="Case: Automation">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="560" title="Case: AutomationOrg">
                                       <arguments>
                                         <argument id="value">
-                                          <value class="value" valueClass="string">Automation</value>
+                                          <value class="value" valueClass="string">AutomationOrg</value>
                                         </argument>
                                         <argument id="caseSensitive">
                                           <value class="value" valueClass="string">No</value>
@@ -484,7 +484,7 @@
                                                     <apiParam name="PackagingAmount"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="None">
-                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RMA Receipt Reversal.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RMA Receipt Reversal.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">AddLine</worksheetName>
                                                     <valuesRange class="value" valueClass="string">A:N</valuesRange>
                                                   </sourceValue>
@@ -890,10 +890,10 @@
                                       <clauses>
                                         <clause name="case" testItemId="577">
                                           <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="578" title="Case: Automation">
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="578" title="Case: AutomationOrg">
                                               <arguments>
                                                 <argument id="value">
-                                                  <value class="value" valueClass="string">Automation</value>
+                                                  <value class="value" valueClass="string">AutomationOrg</value>
                                                 </argument>
                                                 <argument id="caseSensitive">
                                                   <value class="value" valueClass="string">No</value>
@@ -904,7 +904,7 @@
                                               <clauses>
                                                 <clause name="steps" testItemId="579">
                                                   <steps>
-                                                    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" name="Write" testItemId="588" title="Write: {op_SOLinesResult}=&gt;templates/QA-Automation/RMA Receipt Reversal.xlsx">
+                                                    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" name="Write" testItemId="588" title="Write: {op_SOLinesResult}=&gt;templates/AutomationOrg/RMA Receipt Reversal.xlsx">
                                                       <arguments>
                                                         <argument id="data">
                                                           <value class="variable">
@@ -913,12 +913,12 @@
                                                         </argument>
                                                         <argument id="dataUrl">
                                                           <value class="excelTarget" debug="true" sheetWriteMode="Update">
-                                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RMA Receipt Reversal.xlsx</workbookPath>
+                                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RMA Receipt Reversal.xlsx</workbookPath>
                                                             <worksheetName class="value" valueClass="string">RMA Details Maintenance Grid</worksheetName>
                                                           </value>
                                                         </argument>
                                                         <argument id="targetDescription">
-                                                          <value class="value" valueClass="string">templates/QA-Automation/RMA Receipt Reversal.xlsx</value>
+                                                          <value class="value" valueClass="string">templates/AutomationOrg/RMA Receipt Reversal.xlsx</value>
                                                         </argument>
                                                         <argument id="updateValueRange"/>
                                                         <argument id="updateColumnNames">
@@ -1113,10 +1113,10 @@
                               <clauses>
                                 <clause name="case" testItemId="606">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="607" title="Case: Automation">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="607" title="Case: AutomationOrg">
                                       <arguments>
                                         <argument id="value">
-                                          <value class="value" valueClass="string">Automation</value>
+                                          <value class="value" valueClass="string">AutomationOrg</value>
                                         </argument>
                                         <argument id="caseSensitive">
                                           <value class="value" valueClass="string">No</value>
@@ -1143,7 +1143,7 @@
                                                     <apiParam name="BackgroundProcessing"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RMA Receipt Reversal.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RMA Receipt Reversal.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">FirmAllLines</worksheetName>
                                                     <valuesRange class="value" valueClass="string">A:B</valuesRange>
                                                   </sourceValue>
@@ -1404,10 +1404,10 @@
                               <clauses>
                                 <clause name="case" testItemId="617">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="618" title="Case: Automation">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="618" title="Case: AutomationOrg">
                                       <arguments>
                                         <argument id="value">
-                                          <value class="value" valueClass="string">Automation</value>
+                                          <value class="value" valueClass="string">AutomationOrg</value>
                                         </argument>
                                         <argument id="caseSensitive">
                                           <value class="value" valueClass="string">No</value>
@@ -1435,7 +1435,7 @@
                                                     <apiParam name="ProcessAllLines"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RMA Receipt Reversal.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RMA Receipt Reversal.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">Allocate</worksheetName>
                                                     <valuesRange class="value" valueClass="string">A:C</valuesRange>
                                                   </sourceValue>
@@ -1704,10 +1704,10 @@
                               <clauses>
                                 <clause name="case" testItemId="643">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="644" title="Case: Automation">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="644" title="Case: AutomationOrg">
                                       <arguments>
                                         <argument id="value">
-                                          <value class="value" valueClass="string">Automation</value>
+                                          <value class="value" valueClass="string">AutomationOrg</value>
                                         </argument>
                                         <argument id="caseSensitive">
                                           <value class="value" valueClass="string">No</value>
@@ -1727,14 +1727,14 @@
                                               </arguments>
                                               <parameterValueSources>
                                                 <parameterValueSource variableName="SourceData_PickPackShip" variableScope="Test">
-                                                  <cacheToken>C:/Users/Ashok/Automation_1Updated/rsqasampleproj/templates/SYDATA.xlsx;1626082606652</cacheToken>
+                                                  <cacheToken>C:/Users/Ashok/AutomationOrg_1Updated/rsqasampleproj/templates/SYDATA.xlsx;1626082606652</cacheToken>
                                                   <cachedParameters>
                                                     <apiParam name="TransactionType"/>
                                                     <apiParam name="BackgroundProcessing"/>
                                                     <apiParam name="TransactionQuantity"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RMA Receipt Reversal.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RMA Receipt Reversal.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">PickPackShip</worksheetName>
                                                     <valuesRange class="value"/>
                                                   </sourceValue>
@@ -1768,7 +1768,7 @@
                                               </arguments>
                                               <parameterValueSources>
                                                 <parameterValueSource variableName="SourceData_PickPackShip" variableScope="Test">
-                                                  <cacheToken>C:/Users/Ashok/Automation_1Updated/rsqasampleproj/templates/SYDATA.xlsx;1626082606652</cacheToken>
+                                                  <cacheToken>C:/Users/Ashok/AutomationOrg_1Updated/rsqasampleproj/templates/SYDATA.xlsx;1626082606652</cacheToken>
                                                   <cachedParameters>
                                                     <apiParam name="TransactionType"/>
                                                     <apiParam name="BackgroundProcessing"/>
@@ -2061,10 +2061,10 @@
                                       <clauses>
                                         <clause name="case" testItemId="668">
                                           <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="669" title="Case: Automation">
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="669" title="Case: AutomationOrg">
                                               <arguments>
                                                 <argument id="value">
-                                                  <value class="value" valueClass="string">Automation</value>
+                                                  <value class="value" valueClass="string">AutomationOrg</value>
                                                 </argument>
                                                 <argument id="caseSensitive">
                                                   <value class="value" valueClass="string">No</value>
@@ -2075,7 +2075,7 @@
                                               <clauses>
                                                 <clause name="steps" testItemId="670">
                                                   <steps>
-                                                    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" name="Write" testItemId="675" title="Write: {op_SOShipperResultRow}=&gt;templates/QA-Automation/RMA Receipt Reversal.xlsx">
+                                                    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" name="Write" testItemId="675" title="Write: {op_SOShipperResultRow}=&gt;templates/AutomationOrg/RMA Receipt Reversal.xlsx">
                                                       <arguments>
                                                         <argument id="data">
                                                           <value class="variable">
@@ -2084,12 +2084,12 @@
                                                         </argument>
                                                         <argument id="dataUrl">
                                                           <value class="excelTarget" debug="true" sheetWriteMode="Update">
-                                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RMA Receipt Reversal.xlsx</workbookPath>
+                                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RMA Receipt Reversal.xlsx</workbookPath>
                                                             <worksheetName class="value" valueClass="string">RMA Details Maintenance Grid</worksheetName>
                                                           </value>
                                                         </argument>
                                                         <argument id="targetDescription">
-                                                          <value class="value" valueClass="string">templates/QA-Automation/RMA Receipt Reversal.xlsx</value>
+                                                          <value class="value" valueClass="string">templates/AutomationOrg/RMA Receipt Reversal.xlsx</value>
                                                         </argument>
                                                         <argument id="updateValueRange"/>
                                                         <argument id="updateColumnNames">
@@ -2283,10 +2283,10 @@
                               <clauses>
                                 <clause name="case" testItemId="681">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="682" title="Case: Automation">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="682" title="Case: AutomationOrg">
                                       <arguments>
                                         <argument id="value">
-                                          <value class="value" valueClass="string">Automation</value>
+                                          <value class="value" valueClass="string">AutomationOrg</value>
                                         </argument>
                                         <argument id="caseSensitive">
                                           <value class="value" valueClass="string">No</value>
@@ -2306,14 +2306,14 @@
                                               </arguments>
                                               <parameterValueSources>
                                                 <parameterValueSource variableName="SourceData_CreateInvoice" variableScope="Test">
-                                                  <cacheToken>C:/Users/Ashok/Automation_1Updated/rsqasampleproj/templates/SYDATA.xlsx;1626154092383</cacheToken>
+                                                  <cacheToken>C:/Users/Ashok/AutomationOrg_1Updated/rsqasampleproj/templates/SYDATA.xlsx;1626154092383</cacheToken>
                                                   <cachedParameters>
                                                     <apiParam name="TransactionType"/>
                                                     <apiParam name="BackgroundProcessing"/>
                                                     <apiParam name="ProcessAllLines"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/RMA Receipt Reversal.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RMA Receipt Reversal.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">CreateInvoice</worksheetName>
                                                     <valuesRange class="value"/>
                                                   </sourceValue>
@@ -2347,7 +2347,7 @@
                                               </arguments>
                                               <parameterValueSources>
                                                 <parameterValueSource variableName="SourceData_CreateInvoice" variableScope="Test">
-                                                  <cacheToken>C:/Users/Ashok/Automation_1Updated/rsqasampleproj/templates/SYDATA.xlsx;1626154092383</cacheToken>
+                                                  <cacheToken>C:/Users/Ashok/AutomationOrg_1Updated/rsqasampleproj/templates/SYDATA.xlsx;1626154092383</cacheToken>
                                                   <cachedParameters>
                                                     <apiParam name="TransactionType"/>
                                                     <apiParam name="BackgroundProcessing"/>
@@ -2621,10 +2621,10 @@
                                       <clauses>
                                         <clause name="case" testItemId="714">
                                           <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="715" title="Case: Automation">
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="715" title="Case: AutomationOrg">
                                               <arguments>
                                                 <argument id="value">
-                                                  <value class="value" valueClass="string">Automation</value>
+                                                  <value class="value" valueClass="string">AutomationOrg</value>
                                                 </argument>
                                                 <argument id="caseSensitive">
                                                   <value class="value" valueClass="string">No</value>
@@ -2646,7 +2646,7 @@
                                                         <parameterValueSource variableName="op_RMAHeader" variableScope="Test">
                                                           <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RMA Receipt Reversal.xlsx;1634558962189</cacheToken>
                                                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RMA Receipt Reversal.xlsx</workbookPath>
+                                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RMA Receipt Reversal.xlsx</workbookPath>
                                                             <worksheetName class="value" valueClass="string">RMA Header</worksheetName>
                                                             <valuesRange class="value" valueClass="string">A:G</valuesRange>
                                                           </sourceValue>
@@ -2866,10 +2866,10 @@
                                                       <clauses>
                                                         <clause name="case" testItemId="789">
                                                           <steps>
-                                                            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="790" title="Case: Automation">
+                                                            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="790" title="Case: AutomationOrg">
                                                               <arguments>
                                                                 <argument id="value">
-                                                                  <value class="value" valueClass="string">Automation</value>
+                                                                  <value class="value" valueClass="string">AutomationOrg</value>
                                                                 </argument>
                                                                 <argument id="caseSensitive">
                                                                   <value class="value" valueClass="string">No</value>
@@ -2904,7 +2904,7 @@
                                                                             <apiParam name="Rstk__soline_sohdr__c"/>
                                                                           </cachedParameters>
                                                                           <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="RMA" whereValue="{op_RMAHDR_Row.RMA}">
-                                                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RMA Receipt Reversal.xlsx</workbookPath>
+                                                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RMA Receipt Reversal.xlsx</workbookPath>
                                                                             <worksheetName class="value" valueClass="string">RMA Details Maintenance Grid</worksheetName>
                                                                             <valuesRange class="value" valueClass="string">A:K</valuesRange>
                                                                           </sourceValue>
@@ -3200,10 +3200,10 @@
                                                       <clauses>
                                                         <clause name="case" testItemId="808">
                                                           <steps>
-                                                            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="809" title="Case: Automation">
+                                                            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="809" title="Case: AutomationOrg">
                                                               <arguments>
                                                                 <argument id="value">
-                                                                  <value class="value" valueClass="string">Automation</value>
+                                                                  <value class="value" valueClass="string">AutomationOrg</value>
                                                                 </argument>
                                                                 <argument id="caseSensitive">
                                                                   <value class="value" valueClass="string">No</value>
@@ -3236,7 +3236,7 @@
                                                                             <apiParam name="LotNumber"/>
                                                                           </cachedParameters>
                                                                           <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="RMA" whereValue="{op_RMAHDR_Row.RMA}">
-                                                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RMA Receipt Reversal.xlsx</workbookPath>
+                                                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RMA Receipt Reversal.xlsx</workbookPath>
                                                                             <worksheetName class="value" valueClass="string">Receipt</worksheetName>
                                                                             <valuesRange class="value" valueClass="string">A:I</valuesRange>
                                                                           </sourceValue>
@@ -3524,10 +3524,10 @@
                                                       <clauses>
                                                         <clause name="case" testItemId="977">
                                                           <steps>
-                                                            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="978" title="Case: Automation">
+                                                            <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="978" title="Case: AutomationOrg">
                                                               <arguments>
                                                                 <argument id="value">
-                                                                  <value class="value" valueClass="string">Automation</value>
+                                                                  <value class="value" valueClass="string">AutomationOrg</value>
                                                                 </argument>
                                                                 <argument id="caseSensitive">
                                                                   <value class="value" valueClass="string">No</value>
@@ -3546,7 +3546,7 @@
                                                                       </arguments>
                                                                       <parameterValueSources>
                                                                         <parameterValueSource variableName="op_ReceiptReversalExcelData" variableScope="Test">
-                                                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QA-Automation/RMA Receipt Reversal.xlsx;1643290787538</cacheToken>
+                                                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/AutomationOrg/RMA Receipt Reversal.xlsx;1643290787538</cacheToken>
                                                                           <cachedParameters>
                                                                             <apiParam name="RowNumber"/>
                                                                             <apiParam name="RMA"/>
@@ -3556,7 +3556,7 @@
                                                                             <apiParam name="TransferTo"/>
                                                                           </cachedParameters>
                                                                           <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="RMA" whereValue="{op_RMAHDR_Row.RMA}">
-                                                                            <workbookPath class="value" valueClass="string">templates/QA-Automation/RMA Receipt Reversal.xlsx</workbookPath>
+                                                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RMA Receipt Reversal.xlsx</workbookPath>
                                                                             <worksheetName class="value" valueClass="string">Receipt Reversal</worksheetName>
                                                                             <valuesRange class="value" valueClass="string">A:F</valuesRange>
                                                                           </sourceValue>
@@ -3587,7 +3587,7 @@
                                                                       </arguments>
                                                                       <parameterValueSources>
                                                                         <parameterValueSource variableName="op_ReceiptReversalExcelData" variableScope="Test">
-                                                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QA-Automation/RMA Receipt Reversal.xlsx;1643290787538</cacheToken>
+                                                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/AutomationOrg/RMA Receipt Reversal.xlsx;1643290787538</cacheToken>
                                                                           <cachedParameters>
                                                                             <apiParam name="RowNumber"/>
                                                                             <apiParam name="RMA"/>

@@ -61,10 +61,10 @@
               <clauses>
                 <clause name="case" testItemId="595">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="596" title="Case: Automation">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.SwitchCase" name="SwitchCase" testItemId="596" title="Case: AutomationOrg">
                       <arguments>
                         <argument id="value">
-                          <value class="value" valueClass="string">Automation</value>
+                          <value class="value" valueClass="string">AutomationOrg</value>
                         </argument>
                         <argument id="caseSensitive">
                           <value class="value" valueClass="string">No</value>
@@ -83,7 +83,7 @@
                               </arguments>
                               <parameterValueSources>
                                 <parameterValueSource variableName="op_Socontract" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QA-Automation/Contract Master.xlsx;1643740119776</cacheToken>
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/AutomationOrg/Contract Master.xlsx;1643740119776</cacheToken>
                                   <cachedParameters>
                                     <apiParam name="RowNumber"/>
                                     <apiParam name="ContractID"/>
@@ -99,7 +99,7 @@
                                     <apiParam name="ContractTermUOMBillingFrequency"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QA-Automation/Contract Master.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/Contract Master.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">Create</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:J</valuesRange>
                                   </sourceValue>
