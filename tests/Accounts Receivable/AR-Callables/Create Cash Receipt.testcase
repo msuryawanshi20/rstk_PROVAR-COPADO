@@ -65,6 +65,126 @@
       <clauses>
         <clause name="substeps" testItemId="62">
           <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="288" title="Retrieve Home Currency from Company Master">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Retrieve Home Currency from Company Master</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="356">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="358" title="SOQL Query: SELECT rstk__sycmp_homecurr__c FROM rstk__sycmp__c WHERE rstk__sycmp_cmpno__c ='{CR.CompanyNumber}'=&gt;rstkRows_HomeCurrCmpny">
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">SELECT rstk__sycmp_homecurr__c FROM rstk__sycmp__c WHERE rstk__sycmp_cmpno__c ='</value>
+                              <variable>
+                                <path element="CR"/>
+                                <path element="CompanyNumber"/>
+                              </variable>
+                              <value valueClass="string">'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">rstkRows_HomeCurrCmpny</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="377" title="Set Values: rstkRows_HomeCurrCmpny">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">rstkRows_HomeCurrCmpny</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="rstkRows_HomeCurrCmpny"/>
+                                  <path element="rstk__sycmp_homecurr__c"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Folder</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="289" title="Retrieve Currency from Customer Master">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Retrieve Currency from Customer Master</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="360">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="362" title="SOQL Query: SELECT rstk__socust_custcurr__c FROM rstk__socust__c WHERE rstk__socust_sf_account_name__c = '{CR.Customer}'=&gt;rstkRows_CustomerCurr">
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">SELECT rstk__socust_custcurr__c FROM rstk__socust__c WHERE rstk__socust_sf_account_name__c = '</value>
+                              <variable>
+                                <path element="CR"/>
+                                <path element="Customer"/>
+                              </variable>
+                              <value valueClass="string">'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">rstkRows_CustomerCurr</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="379" title="Set Values: rstkRows_CustomerCurr">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">rstkRows_CustomerCurr</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="rstkRows_CustomerCurr"/>
+                                  <path element="rstk__socust_custcurr__c"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Folder</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="54" title="On HomePage page">
               <arguments>
                 <argument id="uiConnectionName">
@@ -97,7 +217,32 @@
               <clauses>
                 <clause name="substeps" testItemId="55">
                   <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="270" title="Set Values: DocumentNumber">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">DocumentNumber</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="rstkRows_Invoice"/>
+                                  <path element="rstk__soinv_invoiceno__c"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="269" title="Set Values: DocumentNumber">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="values">
                           <value class="valueList" mutable="Mutable">
@@ -947,12 +1092,12 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="266" title="SOQL Query: select Id from rstk__socust__c where Name='{CR.Customer}'=&gt;varCustomerID">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="266" title="SOQL Query: select Id from rstk__socust__c where rstk__socust_sf_account_name__c='{CR.Customer}'=&gt;varCustomerID">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
                             <parts>
-                              <value valueClass="string">select Id from rstk__socust__c where Name='</value>
+                              <value valueClass="string">select Id from rstk__socust__c where rstk__socust_sf_account_name__c='</value>
                               <variable>
                                 <path element="CR"/>
                                 <path element="Customer"/>
@@ -2139,7 +2284,7 @@
                                 </argument>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="148" title="UI Assert-Verify Transaction Amount Txn Currency">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="148" title="UI Assert-Read Transaction Amount Txn Currency">
                               <arguments>
                                 <argument id="resultName">
                                   <value class="value" valueClass="string">TxnAmount</value>
@@ -2214,7 +2359,7 @@
                                 <argument id="failureMessage"/>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="149" title="UI Assert-Verify Transaction Amount AR Currency">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="271" title="UI Assert-Read Transaction Amount AR Currency">
                               <arguments>
                                 <argument id="resultName">
                                   <value class="value" valueClass="string">TxnAmountAR</value>
@@ -2226,6 +2371,42 @@
                                   <value class="valueList" mutable="Mutable">
                                     <uiFieldAssertion resultName="TransactionAmountARCurrency">
                                       <fieldLocator uri="ui:locator?name=TransactionAmountARCurrency"/>
+                                      <attributeAssertions>
+                                        <uiAttributeAssertion attributeName="value" caseInsensitive="true" comparisonType="None" normalize="true">
+                                          <value class="variable">
+                                            <path element="CR"/>
+                                            <path element="CustomerPaymentAmount"/>
+                                          </value>
+                                        </uiAttributeAssertion>
+                                      </attributeAssertions>
+                                    </uiFieldAssertion>
+                                  </value>
+                                </argument>
+                                <argument id="captureAfter">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="columnAssertions">
+                                  <value class="valueList" mutable="Mutable"/>
+                                </argument>
+                                <argument id="pageAssertions">
+                                  <value class="valueList" mutable="Mutable"/>
+                                </argument>
+                                <argument id="beforeWait"/>
+                                <argument id="autoRetry"/>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="149" title="UI Assert-Read New Discount Taken - Txn Currency">
+                              <arguments>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">NewDiscountTaken</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                                <argument id="fieldAssertions">
+                                  <value class="valueList" mutable="Mutable">
+                                    <uiFieldAssertion resultName="NewDiscountTakenTxnCurrency">
+                                      <fieldLocator uri="ui:locator?name=NewDiscountTakenTxnCurrency"/>
                                       <attributeAssertions>
                                         <uiAttributeAssertion attributeName="value" caseInsensitive="true" comparisonType="None" normalize="true">
                                           <value class="variable">
@@ -2759,9 +2940,7 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="173" title="UI Assert-Verify Document Amount - Document Currency">
-                      <tags>
-                        <string>disabled</string>
-                      </tags>
+                      <tags/>
                       <arguments>
                         <argument id="fieldAssertions">
                           <value class="valueList" mutable="Mutable">
@@ -2770,8 +2949,8 @@
                               <attributeAssertions>
                                 <uiAttributeAssertion attributeName="value" comparisonType="EqualTo">
                                   <value class="variable">
-                                    <path element="CR"/>
-                                    <path element="CustomerPaymentAmount"/>
+                                    <path element="InvoiceTotal"/>
+                                    <path element="rstk__soinv_grandtotal__c"/>
                                   </value>
                                 </uiAttributeAssertion>
                               </attributeAssertions>
@@ -2916,7 +3095,59 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="177" title="UI Assert-Read Debit Amount Row 2">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="276" title="Set Values: DebitAmountRow1">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">DebitAmountRow1</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="DebitAmountRow1"/>
+                                  <path element="fields"/>
+                                  <path element="DebitAmountRow1"/>
+                                  <path element="value"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="277" title="Set Values: DebitAmountRow1">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">DebitAmountRow1</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="funcCall" id="NumberFormat">
+                                  <argument id="numberToFormat">
+                                    <value class="variable">
+                                      <path element="DebitAmountRow1"/>
+                                    </value>
+                                  </argument>
+                                  <argument id="outputFormat">
+                                    <value class="value" valueClass="string">####.##</value>
+                                  </argument>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="272" title="UI Assert-Read Debit Amount Row 2">
                       <arguments>
                         <argument id="fieldAssertions">
                           <value class="valueList" mutable="Mutable">
@@ -2952,6 +3183,146 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="278" title="Set Values: DebitAmountRow2">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">DebitAmountRow2</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="DebitAmountRow2"/>
+                                  <path element="fields"/>
+                                  <path element="DebitAmountRow2"/>
+                                  <path element="value"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="279" title="Set Values: DebitAmountRow2">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">DebitAmountRow2</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="funcCall" id="NumberFormat">
+                                  <argument id="numberToFormat">
+                                    <value class="variable">
+                                      <path element="DebitAmountRow2"/>
+                                    </value>
+                                  </argument>
+                                  <argument id="outputFormat">
+                                    <value class="value" valueClass="string">####.##</value>
+                                  </argument>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="177" title="UI Assert-Read Debit Amount Row 3">
+                      <arguments>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="DebitAmountRow3">
+                              <fieldLocator uri="ui:locator?name=DebitAmountRow3"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="None">
+                                  <value class="variable">
+                                    <path element="CR"/>
+                                    <path element="CustomerPaymentAmount"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">DebitAmountRow3</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="280" title="Set Values: DebitAmountRow3">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">DebitAmountRow3</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="DebitAmountRow3"/>
+                                  <path element="fields"/>
+                                  <path element="DebitAmountRow3"/>
+                                  <path element="value"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="281" title="Set Values: DebitAmountRow3">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">DebitAmountRow3</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="funcCall" id="NumberFormat">
+                                  <argument id="numberToFormat">
+                                    <value class="variable">
+                                      <path element="DebitAmountRow3"/>
+                                    </value>
+                                  </argument>
+                                  <argument id="outputFormat">
+                                    <value class="value" valueClass="string">####.##</value>
+                                  </argument>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="178" title="Set Values: DebitAmount">
                       <arguments>
                         <argument id="values">
@@ -2962,17 +3333,16 @@
                               </namedValue>
                               <namedValue name="value">
                                 <value class="add">
-                                  <lhs class="variable">
-                                    <path element="DebitAmountRow1"/>
-                                    <path element="fields"/>
-                                    <path element="DebitAmountRow1"/>
-                                    <path element="value"/>
+                                  <lhs class="add">
+                                    <lhs class="variable">
+                                      <path element="DebitAmountRow1"/>
+                                    </lhs>
+                                    <rhs class="variable">
+                                      <path element="DebitAmountRow2"/>
+                                    </rhs>
                                   </lhs>
                                   <rhs class="variable">
-                                    <path element="DebitAmountRow2"/>
-                                    <path element="fields"/>
-                                    <path element="DebitAmountRow2"/>
-                                    <path element="value"/>
+                                    <path element="DebitAmountRow3"/>
                                   </rhs>
                                 </value>
                               </namedValue>
@@ -3020,7 +3390,59 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="180" title="UI Assert-Read Credit Amount Row 2">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="282" title="Set Values: CreditAmountRow1">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">CreditAmountRow1</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="CreditAmountRow1"/>
+                                  <path element="fields"/>
+                                  <path element="CreditAmountRow1"/>
+                                  <path element="value"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="283" title="Set Values: CreditAmountRow1">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">CreditAmountRow1</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="funcCall" id="NumberFormat">
+                                  <argument id="numberToFormat">
+                                    <value class="variable">
+                                      <path element="CreditAmountRow1"/>
+                                    </value>
+                                  </argument>
+                                  <argument id="outputFormat">
+                                    <value class="value" valueClass="string">####.##</value>
+                                  </argument>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="273" title="UI Assert-Read Credit Amount Row 2">
                       <arguments>
                         <argument id="fieldAssertions">
                           <value class="valueList" mutable="Mutable">
@@ -3056,6 +3478,146 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="284" title="Set Values: CreditAmountRow2">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">CreditAmountRow2</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="CreditAmountRow2"/>
+                                  <path element="fields"/>
+                                  <path element="CreditAmountRow2"/>
+                                  <path element="value"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="285" title="Set Values: CreditAmountRow2">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">CreditAmountRow2</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="funcCall" id="NumberFormat">
+                                  <argument id="numberToFormat">
+                                    <value class="variable">
+                                      <path element="CreditAmountRow2"/>
+                                    </value>
+                                  </argument>
+                                  <argument id="outputFormat">
+                                    <value class="value" valueClass="string">####.##</value>
+                                  </argument>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="180" title="UI Assert-Read Credit Amount Row 3">
+                      <arguments>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="CreditAmountRow3">
+                              <fieldLocator uri="ui:locator?name=CreditAmountRow3"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="None">
+                                  <value class="variable">
+                                    <path element="CR"/>
+                                    <path element="CustomerPaymentAmount"/>
+                                  </value>
+                                </uiAttributeAssertion>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">CreditAmountRow3</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="286" title="Set Values: CreditAmountRow3">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">CreditAmountRow3</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="CreditAmountRow3"/>
+                                  <path element="fields"/>
+                                  <path element="CreditAmountRow3"/>
+                                  <path element="value"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="287" title="Set Values: CreditAmountRow3">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">CreditAmountRow3</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="funcCall" id="NumberFormat">
+                                  <argument id="numberToFormat">
+                                    <value class="variable">
+                                      <path element="CreditAmountRow3"/>
+                                    </value>
+                                  </argument>
+                                  <argument id="outputFormat">
+                                    <value class="value" valueClass="string">####.##</value>
+                                  </argument>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="181" title="Set Values: CreditAmount">
                       <arguments>
                         <argument id="values">
@@ -3066,17 +3628,16 @@
                               </namedValue>
                               <namedValue name="value">
                                 <value class="add">
-                                  <lhs class="variable">
-                                    <path element="CreditAmountRow1"/>
-                                    <path element="fields"/>
-                                    <path element="CreditAmountRow1"/>
-                                    <path element="value"/>
+                                  <lhs class="add">
+                                    <lhs class="variable">
+                                      <path element="CreditAmountRow1"/>
+                                    </lhs>
+                                    <rhs class="variable">
+                                      <path element="CreditAmountRow2"/>
+                                    </rhs>
                                   </lhs>
                                   <rhs class="variable">
-                                    <path element="CreditAmountRow2"/>
-                                    <path element="fields"/>
-                                    <path element="CreditAmountRow2"/>
-                                    <path element="value"/>
+                                    <path element="CreditAmountRow3"/>
                                   </rhs>
                                 </value>
                               </namedValue>
@@ -3089,9 +3650,7 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="184" title="Assert: {DebitAmount} EqualTo {CreditAmount}">
-                      <tags>
-                        <string>disabled</string>
-                      </tags>
+                      <tags/>
                       <arguments>
                         <argument id="expectedValue">
                           <value class="variable">
@@ -3483,7 +4042,174 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="240" title="Read Object: rstkf__arcashddist__c = {varCashReceiptDetailDistDebit.Id}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="298" title="If: {rstkRows_HomeCurrCmpny != rstkRows_CustomerCurr}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="ne">
+                            <lhs class="variable">
+                              <path element="rstkRows_HomeCurrCmpny"/>
+                            </lhs>
+                            <rhs class="variable">
+                              <path element="rstkRows_CustomerCurr"/>
+                            </rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="242">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="299" title="Read Object: rstkf__arcashddist__c = {varCashReceiptDetailDistDebit.Id}">
+                              <arguments>
+                                <argument id="objectType">
+                                  <value class="value" valueClass="string">rstkf__arcashddist__c</value>
+                                </argument>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">rstkfRead</value>
+                                </argument>
+                                <argument id="objectId">
+                                  <value class="variable">
+                                    <path element="varCashReceiptDetailDistDebit"/>
+                                    <path element="Id"/>
+                                  </value>
+                                </argument>
+                                <argument id="apexConnectionName">
+                                  <value class="value" valueClass="string">SFConnection</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_dramt__c">
+                                  <value class="value" valueClass="decimal">120.0</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_arapplic__c">
+                                  <value class="value" valueClass="string">a971K000000PEiGQAW</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_source__c">
+                                  <value class="value" valueClass="string">701</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_arcashd__c">
+                                  <value class="value" valueClass="string">a991K0000008eIXQAY</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                              </arguments>
+                              <resultAssertions>
+                                <resultAssertion resultName="rstkf__arcashddist_dramt__c" title="Check rstkf__arcashddist_dramt__c">
+                                  <expected class="mult">
+                                    <lhs class="variable">
+                                      <path element="CR"/>
+                                      <path element="CustomerPaymentAmount"/>
+                                    </lhs>
+                                    <rhs class="variable">
+                                      <path element="rstkfRows_ReceivableTxn"/>
+                                      <path element="rstkf__arinvtxn_exchrate__c"/>
+                                    </rhs>
+                                  </expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_arapplic__c" title="Check rstkf__arcashddist_arapplic__c">
+                                  <expected class="variable">
+                                    <path element="varARAPPLIC"/>
+                                    <path element="Id"/>
+                                  </expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_source__c" title="Check rstkf__arcashddist_source__c">
+                                  <expected class="value" valueClass="string">701</expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_arcashd__c" title="Check rstkf__arcashddist_arcashd__c">
+                                  <expected class="variable">
+                                    <path element="varCashReceiptsDetail"/>
+                                    <path element="Id"/>
+                                  </expected>
+                                </resultAssertion>
+                              </resultAssertions>
+                              <parameterGeneratorProperties>
+                                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
+                                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">rstkf__arcashddist__c</propertyValue>
+                              </parameterGeneratorProperties>
+                              <generatedParameters>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_dramt__c" name="rstkf__arcashddist_dramt__c" title="Debit Amount"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_arapplic__c" name="rstkf__arcashddist_arapplic__c" title="Application Transaction"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_source__c" name="rstkf__arcashddist_source__c" title="Posting Type"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_arcashd__c" name="rstkf__arcashddist_arcashd__c" title="Cash Receipts Detail"/>
+                              </generatedParameters>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="244">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="245" title="Read Object: rstkf__arcashddist__c = {varCashReceiptDetailDistDebit.Id}">
+                              <arguments>
+                                <argument id="objectType">
+                                  <value class="value" valueClass="string">rstkf__arcashddist__c</value>
+                                </argument>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">rstkfRead</value>
+                                </argument>
+                                <argument id="objectId">
+                                  <value class="variable">
+                                    <path element="varCashReceiptDetailDistDebit"/>
+                                    <path element="Id"/>
+                                  </value>
+                                </argument>
+                                <argument id="apexConnectionName">
+                                  <value class="value" valueClass="string">SFConnection</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_dramt__c">
+                                  <value class="value" valueClass="decimal">120.0</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_arapplic__c">
+                                  <value class="value" valueClass="string">a971K000000PEiGQAW</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_source__c">
+                                  <value class="value" valueClass="string">701</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_arcashd__c">
+                                  <value class="value" valueClass="string">a991K0000008eIXQAY</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                              </arguments>
+                              <resultAssertions>
+                                <resultAssertion resultName="rstkf__arcashddist_dramt__c" title="Check rstkf__arcashddist_dramt__c">
+                                  <expected class="variable">
+                                    <path element="CR"/>
+                                    <path element="CustomerPaymentAmount"/>
+                                  </expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_arapplic__c" title="Check rstkf__arcashddist_arapplic__c">
+                                  <expected class="variable">
+                                    <path element="varARAPPLIC"/>
+                                    <path element="Id"/>
+                                  </expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_source__c" title="Check rstkf__arcashddist_source__c">
+                                  <expected class="value" valueClass="string">701</expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_arcashd__c" title="Check rstkf__arcashddist_arcashd__c">
+                                  <expected class="variable">
+                                    <path element="varCashReceiptsDetail"/>
+                                    <path element="Id"/>
+                                  </expected>
+                                </resultAssertion>
+                              </resultAssertions>
+                              <parameterGeneratorProperties>
+                                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
+                                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">rstkf__arcashddist__c</propertyValue>
+                              </parameterGeneratorProperties>
+                              <generatedParameters>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_dramt__c" name="rstkf__arcashddist_dramt__c" title="Debit Amount"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_arapplic__c" name="rstkf__arcashddist_arapplic__c" title="Application Transaction"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_source__c" name="rstkf__arcashddist_source__c" title="Posting Type"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_arcashd__c" name="rstkf__arcashddist_arcashd__c" title="Cash Receipts Detail"/>
+                              </generatedParameters>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="275" title="Read Object: rstkf__arcashddist__c = {varCashReceiptDetailDistDebit.Id}">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="objectType">
                           <value class="value" valueClass="string">rstkf__arcashddist__c</value>
@@ -3550,6 +4276,187 @@
                         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_arcashd__c" name="rstkf__arcashddist_arcashd__c" title="Cash Receipts Detail"/>
                       </generatedParameters>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="274" title="SOQL Query: SELECT Id FROM rstkf__arcashddist__c WHERE rstkf__arcashddist_arcashd__c = '{varCashReceiptsDetail.Id}' AND rstkf__arcashddist_source__c = '731'=&gt;varCashReceiptDetailDistDebitDiscount">
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">SELECT Id FROM rstkf__arcashddist__c WHERE rstkf__arcashddist_arcashd__c = '</value>
+                              <variable>
+                                <path element="varCashReceiptsDetail"/>
+                                <path element="Id"/>
+                              </variable>
+                              <value valueClass="string">' AND rstkf__arcashddist_source__c = '731'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">varCashReceiptDetailDistDebitDiscount</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="305" title="If: {rstkRows_HomeCurrCmpny != rstkRows_CustomerCurr}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="ne">
+                            <lhs class="variable">
+                              <path element="rstkRows_HomeCurrCmpny"/>
+                            </lhs>
+                            <rhs class="variable">
+                              <path element="rstkRows_CustomerCurr"/>
+                            </rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="306">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="240" title="Read Object: rstkf__arcashddist__c = {varCashReceiptDetailDistDebitDiscount.Id}">
+                              <arguments>
+                                <argument id="objectType">
+                                  <value class="value" valueClass="string">rstkf__arcashddist__c</value>
+                                </argument>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">rstkfRead</value>
+                                </argument>
+                                <argument id="objectId">
+                                  <value class="variable">
+                                    <path element="varCashReceiptDetailDistDebitDiscount"/>
+                                    <path element="Id"/>
+                                  </value>
+                                </argument>
+                                <argument id="apexConnectionName">
+                                  <value class="value" valueClass="string">SFConnection</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_dramt__c">
+                                  <value class="value" valueClass="decimal">120.0</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_arapplic__c">
+                                  <value class="value" valueClass="string">a971K000000PEiGQAW</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_source__c">
+                                  <value class="value" valueClass="string">701</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_arcashd__c">
+                                  <value class="value" valueClass="string">a991K0000008eIXQAY</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                              </arguments>
+                              <resultAssertions>
+                                <resultAssertion resultName="rstkf__arcashddist_dramt__c" title="Check rstkf__arcashddist_dramt__c">
+                                  <expected class="mult">
+                                    <lhs class="variable">
+                                      <path element="NewDiscountTaken"/>
+                                      <path element="fields"/>
+                                      <path element="NewDiscountTakenTxnCurrency"/>
+                                      <path element="value"/>
+                                    </lhs>
+                                    <rhs class="variable">
+                                      <path element="rstkfRows_ReceivableTxn"/>
+                                      <path element="rstkf__arinvtxn_exchrate__c"/>
+                                    </rhs>
+                                  </expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_source__c" title="Check rstkf__arcashddist_source__c">
+                                  <expected class="value" valueClass="string">731</expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_arcashd__c" title="Check rstkf__arcashddist_arcashd__c">
+                                  <expected class="variable">
+                                    <path element="varCashReceiptsDetail"/>
+                                    <path element="Id"/>
+                                  </expected>
+                                </resultAssertion>
+                              </resultAssertions>
+                              <parameterGeneratorProperties>
+                                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
+                                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">rstkf__arcashddist__c</propertyValue>
+                              </parameterGeneratorProperties>
+                              <generatedParameters>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_dramt__c" name="rstkf__arcashddist_dramt__c" title="Debit Amount"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_arapplic__c" name="rstkf__arcashddist_arapplic__c" title="Application Transaction"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_source__c" name="rstkf__arcashddist_source__c" title="Posting Type"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_arcashd__c" name="rstkf__arcashddist_arcashd__c" title="Cash Receipts Detail"/>
+                              </generatedParameters>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="308">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="309" title="Read Object: rstkf__arcashddist__c = {varCashReceiptDetailDistDebitDiscount.Id}">
+                              <arguments>
+                                <argument id="objectType">
+                                  <value class="value" valueClass="string">rstkf__arcashddist__c</value>
+                                </argument>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">rstkfRead</value>
+                                </argument>
+                                <argument id="objectId">
+                                  <value class="variable">
+                                    <path element="varCashReceiptDetailDistDebitDiscount"/>
+                                    <path element="Id"/>
+                                  </value>
+                                </argument>
+                                <argument id="apexConnectionName">
+                                  <value class="value" valueClass="string">SFConnection</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_dramt__c">
+                                  <value class="value" valueClass="decimal">120.0</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_arapplic__c">
+                                  <value class="value" valueClass="string">a971K000000PEiGQAW</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_source__c">
+                                  <value class="value" valueClass="string">701</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_arcashd__c">
+                                  <value class="value" valueClass="string">a991K0000008eIXQAY</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                              </arguments>
+                              <resultAssertions>
+                                <resultAssertion resultName="rstkf__arcashddist_dramt__c" title="Check rstkf__arcashddist_dramt__c">
+                                  <expected class="variable">
+                                    <path element="NewDiscountTaken"/>
+                                    <path element="fields"/>
+                                    <path element="NewDiscountTakenTxnCurrency"/>
+                                    <path element="value"/>
+                                  </expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_source__c" title="Check rstkf__arcashddist_source__c">
+                                  <expected class="value" valueClass="string">731</expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_arcashd__c" title="Check rstkf__arcashddist_arcashd__c">
+                                  <expected class="variable">
+                                    <path element="varCashReceiptsDetail"/>
+                                    <path element="Id"/>
+                                  </expected>
+                                </resultAssertion>
+                              </resultAssertions>
+                              <parameterGeneratorProperties>
+                                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
+                                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">rstkf__arcashddist__c</propertyValue>
+                              </parameterGeneratorProperties>
+                              <generatedParameters>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_dramt__c" name="rstkf__arcashddist_dramt__c" title="Debit Amount"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_arapplic__c" name="rstkf__arcashddist_arapplic__c" title="Application Transaction"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_source__c" name="rstkf__arcashddist_source__c" title="Posting Type"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_arcashd__c" name="rstkf__arcashddist_arcashd__c" title="Cash Receipts Detail"/>
+                              </generatedParameters>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="241" title="SOQL Query: SELECT Id FROM rstkf__arcashddist__c WHERE rstkf__arcashddist_arcashd__c = '{varCashReceiptsDetail.Id}' AND rstkf__arcashddist_source__c = '702'=&gt;varCashReceiptDetailDistCredit">
                       <arguments>
                         <argument id="soqlQuery">
@@ -3575,7 +4482,190 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="242" title="Read Object: rstkf__arcashddist__c = {varCashReceiptDetailDistCredit.Id}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="301" title="If: {rstkRows_HomeCurrCmpny != rstkRows_CustomerCurr}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="ne">
+                            <lhs class="variable">
+                              <path element="rstkRows_HomeCurrCmpny"/>
+                            </lhs>
+                            <rhs class="variable">
+                              <path element="rstkRows_CustomerCurr"/>
+                            </rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="247">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="302" title="Read Object: rstkf__arcashddist__c = {varCashReceiptDetailDistCredit.Id}">
+                              <arguments>
+                                <argument id="objectType">
+                                  <value class="value" valueClass="string">rstkf__arcashddist__c</value>
+                                </argument>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">rstkfRead</value>
+                                </argument>
+                                <argument id="objectId">
+                                  <value class="variable">
+                                    <path element="varCashReceiptDetailDistCredit"/>
+                                    <path element="Id"/>
+                                  </value>
+                                </argument>
+                                <argument id="apexConnectionName">
+                                  <value class="value" valueClass="string">SFConnection</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_arapplic__c">
+                                  <value class="value" valueClass="string">a971K000000PEiGQAW</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_source__c">
+                                  <value class="value" valueClass="string">701</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_arcashd__c">
+                                  <value class="value" valueClass="string">a991K0000008eIXQAY</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                              </arguments>
+                              <resultAssertions>
+                                <resultAssertion resultName="rstkf__arcashddist_arapplic__c" title="Check rstkf__arcashddist_arapplic__c">
+                                  <expected class="variable">
+                                    <path element="varARAPPLIC"/>
+                                    <path element="Id"/>
+                                  </expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_source__c" title="Check rstkf__arcashddist_source__c">
+                                  <expected class="value" valueClass="string">702</expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_arcashd__c" title="Check rstkf__arcashddist_arcashd__c">
+                                  <expected class="variable">
+                                    <path element="varCashReceiptsDetail"/>
+                                    <path element="Id"/>
+                                  </expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_cramt__c" title="Check rstkf__arcashddist_cramt__c">
+                                  <expected class="add">
+                                    <lhs class="mult">
+                                      <lhs class="variable">
+                                        <path element="CR"/>
+                                        <path element="CustomerPaymentAmount"/>
+                                      </lhs>
+                                      <rhs class="variable">
+                                        <path element="rstkfRows_ReceivableTxn"/>
+                                        <path element="rstkf__arinvtxn_exchrate__c"/>
+                                      </rhs>
+                                    </lhs>
+                                    <rhs class="mult">
+                                      <lhs class="variable">
+                                        <path element="NewDiscountTaken"/>
+                                        <path element="fields"/>
+                                        <path element="NewDiscountTakenTxnCurrency"/>
+                                        <path element="value"/>
+                                      </lhs>
+                                      <rhs class="variable">
+                                        <path element="rstkfRows_ReceivableTxn"/>
+                                        <path element="rstkf__arinvtxn_exchrate__c"/>
+                                      </rhs>
+                                    </rhs>
+                                  </expected>
+                                </resultAssertion>
+                              </resultAssertions>
+                              <parameterGeneratorProperties>
+                                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
+                                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">rstkf__arcashddist__c</propertyValue>
+                              </parameterGeneratorProperties>
+                              <generatedParameters>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_arapplic__c" name="rstkf__arcashddist_arapplic__c" title="Application Transaction"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_source__c" name="rstkf__arcashddist_source__c" title="Posting Type"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_arcashd__c" name="rstkf__arcashddist_arcashd__c" title="Cash Receipts Detail"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_cramt__c" name="rstkf__arcashddist_cramt__c" title="Credit Amount"/>
+                              </generatedParameters>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="303">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="304" title="Read Object: rstkf__arcashddist__c = {varCashReceiptDetailDistCredit.Id}">
+                              <arguments>
+                                <argument id="objectType">
+                                  <value class="value" valueClass="string">rstkf__arcashddist__c</value>
+                                </argument>
+                                <argument id="resultName">
+                                  <value class="value" valueClass="string">rstkfRead</value>
+                                </argument>
+                                <argument id="objectId">
+                                  <value class="variable">
+                                    <path element="varCashReceiptDetailDistCredit"/>
+                                    <path element="Id"/>
+                                  </value>
+                                </argument>
+                                <argument id="apexConnectionName">
+                                  <value class="value" valueClass="string">SFConnection</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_arapplic__c">
+                                  <value class="value" valueClass="string">a971K000000PEiGQAW</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_source__c">
+                                  <value class="value" valueClass="string">701</value>
+                                </argument>
+                                <argument id="rstkf__arcashddist_arcashd__c">
+                                  <value class="value" valueClass="string">a991K0000008eIXQAY</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                              </arguments>
+                              <resultAssertions>
+                                <resultAssertion resultName="rstkf__arcashddist_arapplic__c" title="Check rstkf__arcashddist_arapplic__c">
+                                  <expected class="variable">
+                                    <path element="varARAPPLIC"/>
+                                    <path element="Id"/>
+                                  </expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_source__c" title="Check rstkf__arcashddist_source__c">
+                                  <expected class="value" valueClass="string">702</expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_arcashd__c" title="Check rstkf__arcashddist_arcashd__c">
+                                  <expected class="variable">
+                                    <path element="varCashReceiptsDetail"/>
+                                    <path element="Id"/>
+                                  </expected>
+                                </resultAssertion>
+                                <resultAssertion resultName="rstkf__arcashddist_cramt__c" title="Check rstkf__arcashddist_cramt__c">
+                                  <expected class="add">
+                                    <lhs class="variable">
+                                      <path element="CR"/>
+                                      <path element="CustomerPaymentAmount"/>
+                                    </lhs>
+                                    <rhs class="variable">
+                                      <path element="NewDiscountTaken"/>
+                                      <path element="fields"/>
+                                      <path element="NewDiscountTakenTxnCurrency"/>
+                                      <path element="value"/>
+                                    </rhs>
+                                  </expected>
+                                </resultAssertion>
+                              </resultAssertions>
+                              <parameterGeneratorProperties>
+                                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
+                                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">rstkf__arcashddist__c</propertyValue>
+                              </parameterGeneratorProperties>
+                              <generatedParameters>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_arapplic__c" name="rstkf__arcashddist_arapplic__c" title="Application Transaction"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_source__c" name="rstkf__arcashddist_source__c" title="Posting Type"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_arcashd__c" name="rstkf__arcashddist_arcashd__c" title="Cash Receipts Detail"/>
+                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__arcashddist__c&amp;field=rstkf__arcashddist_cramt__c" name="rstkf__arcashddist_cramt__c" title="Credit Amount"/>
+                              </generatedParameters>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="300" title="Read Object: rstkf__arcashddist__c = {varCashReceiptDetailDistCredit.Id}">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="objectType">
                           <value class="value" valueClass="string">rstkf__arcashddist__c</value>
@@ -3622,9 +4712,17 @@
                           </expected>
                         </resultAssertion>
                         <resultAssertion resultName="rstkf__arcashddist_cramt__c" title="Check rstkf__arcashddist_cramt__c">
-                          <expected class="variable">
-                            <path element="CR"/>
-                            <path element="CustomerPaymentAmount"/>
+                          <expected class="add">
+                            <lhs class="variable">
+                              <path element="CR"/>
+                              <path element="CustomerPaymentAmount"/>
+                            </lhs>
+                            <rhs class="variable">
+                              <path element="NewDiscountTaken"/>
+                              <path element="fields"/>
+                              <path element="NewDiscountTakenTxnCurrency"/>
+                              <path element="value"/>
+                            </rhs>
                           </expected>
                         </resultAssertion>
                       </resultAssertions>
@@ -4957,6 +6055,28 @@
         </textType>
       </type>
     </param>
+    <param name="rstkfRows_ReceivableTxn" title="rstkfRows_ReceivableTxn">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+    </param>
+    <param name="rstkfRows_ForeignExchRateSchedule_ExchRate" title="rstkfRows_ForeignExchRateSchedule_ExchRate">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+    </param>
   </params>
   <args>
     <argument id="reuseConnectionName">
@@ -4972,6 +6092,16 @@
     <argument id="rstkRows_Invoice">
       <value class="variable">
         <path element="rstkRows_Invoice"/>
+      </value>
+    </argument>
+    <argument id="rstkfRows_ReceivableTxn">
+      <value class="variable">
+        <path element="rstkfRows_ReceivableTxn"/>
+      </value>
+    </argument>
+    <argument id="rstkfRows_ForeignExchRateSchedule_ExchRate">
+      <value class="variable">
+        <path element="rstkfRows_ForeignExchRateSchedule_ExchRate"/>
       </value>
     </argument>
   </args>

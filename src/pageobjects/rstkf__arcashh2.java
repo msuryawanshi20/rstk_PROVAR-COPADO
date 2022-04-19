@@ -48,6 +48,10 @@ public class rstkf__arcashh2 {
 	@FindBy(xpath = "//div[contains(@id,'payments')]")
 	public WebElement PaymentsSection;
 	
+	@TextType()
+	@FindBy(xpath = "//input[contains(@id,'arcashh_bankhomeexchrate')]")
+	public WebElement ExchangeRate;
+	
 	@ButtonType()
 	@FindBy(xpath = "//a[text()='New Customer Payment']")
 	public WebElement NewCustomerPayment;

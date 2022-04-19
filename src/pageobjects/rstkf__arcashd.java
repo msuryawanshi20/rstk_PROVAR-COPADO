@@ -97,10 +97,18 @@ public class rstkf__arcashd {
 	public WebElement DebitAmountRow2;
 	
 	@TextType()
+	@FindBy(xpath = "//tbody[contains(@id,'pbt_paymentdistribution')]//tr[3]//td[5]")
+	public WebElement DebitAmountRow3;
+	
+	@TextType()
 	@FindBy(xpath = "//tbody[contains(@id,'pbt_paymentdistribution')]//tr[1]//td[6]")
 	public WebElement CreditAmountRow1;
 	
 	@TextType()
 	@FindBy(xpath = "//tbody[contains(@id,'pbt_paymentdistribution')]//tr[2]//td[6]")
 	public WebElement CreditAmountRow2;
+	
+	@TextType()
+	@FindBy(xpath = "//tbody[contains(@id,'pbt_paymentdistribution')]//tr[3]//td[6]")
+	public WebElement CreditAmountRow3;
 }
