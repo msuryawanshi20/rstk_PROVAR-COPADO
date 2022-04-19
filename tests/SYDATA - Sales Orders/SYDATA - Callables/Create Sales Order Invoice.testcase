@@ -421,12 +421,12 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="108" title="SOQL Query: select Id\n    ,rstk__soinv_invoice__c\n    ,rstk__soinv_invoiceno__c,rstk__soinv_order__c from rstk__soinv__c WHERE rstk__soinv_order__c='{rstkRows_SOHeader.Id}'=&gt;rstkRows_Invoice">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="108" title="SOQL Query: select Id\n    ,rstk__soinv_invoice__c\n    ,rstk__soinv_invoiceno__c,rstk__soinv_order__c,rstk__soinv_grandtotal__c from rstk__soinv__c WHERE rstk__soinv_order__c='{rstkRows_SOHeader.Id}'=&gt;rstkRows_Invoice">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
                     <parts>
-                      <value valueClass="string">select Id\n    ,rstk__soinv_invoice__c\n    ,rstk__soinv_invoiceno__c,rstk__soinv_order__c from rstk__soinv__c WHERE rstk__soinv_order__c='</value>
+                      <value valueClass="string">select Id\n    ,rstk__soinv_invoice__c\n    ,rstk__soinv_invoiceno__c,rstk__soinv_order__c,rstk__soinv_grandtotal__c from rstk__soinv__c WHERE rstk__soinv_order__c='</value>
                       <variable>
                         <path element="rstkRows_SOHeader"/>
                         <path element="Id"/>

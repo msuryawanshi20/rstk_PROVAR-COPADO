@@ -55,6 +55,10 @@ public class rstkf__newpaymentapplication {
 	@TextType()
 	@FindBy(xpath = "//input[contains(@id,'sie_arapplic_amtmaint__c')]")
 	public WebElement TransactionAmountARCurrency;
+	
+	@TextType()
+	@FindBy(xpath = "//input[contains(@id,'sie_discntAppliedInProgMaint')]")
+	public WebElement NewDiscountTakenTxnCurrency;
 
 	@ButtonType()
 	@FindByLabel(label = "Accept")

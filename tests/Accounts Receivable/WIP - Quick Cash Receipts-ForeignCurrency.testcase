@@ -1493,6 +1493,11 @@
                   </value>
                 </argument>
               </arguments>
+              <outputArguments>
+                <outputArgument id="rstkfRows_ReceivableTxn" scope="Folder">
+                  <name class="value" valueClass="string">rstkfRows_ReceivableTxn</name>
+                </outputArgument>
+              </outputArguments>
             </caseCall>
           </steps>
         </clause>
@@ -1656,6 +1661,16 @@
                 <argument id="rstkRows_Invoice">
                   <value class="variable">
                     <path element="rstkRows_Invoice"/>
+                  </value>
+                </argument>
+                <argument id="rstkfRows_ReceivableTxn">
+                  <value class="variable">
+                    <path element="rstkfRows_ReceivableTxn"/>
+                  </value>
+                </argument>
+                <argument id="rstkfRows_ForeignExchRateSchedule_ExchRate">
+                  <value class="variable">
+                    <path element="rstkfRows_ForeignExchRateSchedule_ExchRate"/>
                   </value>
                 </argument>
               </arguments>
