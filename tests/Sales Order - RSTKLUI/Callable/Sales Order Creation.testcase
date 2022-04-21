@@ -246,6 +246,7 @@
         <argument id="captureAfter">
           <value class="value" valueClass="string">false</value>
         </argument>
+        <argument id="uiTargetUrl"/>
       </arguments>
       <clauses>
         <clause name="substeps" testItemId="13">
@@ -339,7 +340,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="14" title="Set the Customer to DJ-CUST1 (DJ-CUST1)">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="14" title="Set the Customer to {SourceData_AddHeader.Customer}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:pageobject:field?field=Customer&amp;pageId=pageobjects.SalesOrderHeader_RSTKLUI"/>
@@ -348,7 +349,10 @@
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
                 <argument id="value">
-                  <value class="value" valueClass="string">DJ-CUST1 (DJ-CUST1)</value>
+                  <value class="variable">
+                    <path element="SourceData_AddHeader"/>
+                    <path element="Customer"/>
+                  </value>
                 </argument>
                 <argument id="blur">
                   <value class="value" valueClass="boolean">false</value>
@@ -369,7 +373,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Customer to DJ-CUST1 (DJ-CUST1)</value>
+                  <value class="value" valueClass="string">Set the Customer to {SourceData_AddHeader.Customer}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
@@ -464,7 +468,7 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
+                  <value class="value" valueClass="string">full</value>
                 </argument>
                 <argument id="beforeWait">
                   <value class="uiWait" uri="default"/>
@@ -500,47 +504,74 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="18" title="UI Assert - Verify the SO created">
-              <tags>
-                <string>disabled</string>
-              </tags>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="27" title="SOQL Query: SELECT count() FROM rstk__sohdr__c WHERE rstk__sohdr_order__c = '{OrderNumber}'=&gt;SOOrder_count">
               <arguments>
-                <argument id="resultName">
-                  <value class="value" valueClass="string">Values</value>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">SELECT count() FROM rstk__sohdr__c WHERE rstk__sohdr_order__c = '</value>
+                      <variable>
+                        <path element="OrderNumber"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">SOOrder_count</value>
                 </argument>
                 <argument id="resultScope">
                   <value class="value" valueClass="string">Test</value>
                 </argument>
-                <argument id="fieldAssertions">
-                  <value class="valueList" mutable="Mutable">
-                    <uiFieldAssertion resultName="Order_Number">
-                      <fieldLocator uri="ui:pageobject:field?field=Order_Number&amp;pageId=pageobjects.SalesOrderHeader_RSTKLUI"/>
-                      <attributeAssertions>
-                        <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                          <value class="variable">
-                            <path element="OrderNumber"/>
-                          </value>
-                        </uiAttributeAssertion>
-                      </attributeAssertions>
-                    </uiFieldAssertion>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="28" title="Assert: {SOOrder_count} EqualTo 1">
+              <arguments>
+                <argument id="expectedValue">
+                  <value class="variable">
+                    <path element="SOOrder_count"/>
                   </value>
                 </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
+                <argument id="comparisonType">
+                  <value class="value" valueClass="string">EqualTo</value>
                 </argument>
-                <argument id="columnAssertions">
-                  <value class="valueList" mutable="Mutable"/>
+                <argument id="actualValue">
+                  <value class="value" valueClass="string">1</value>
                 </argument>
-                <argument id="pageAssertions">
-                  <value class="valueList" mutable="Mutable"/>
+                <argument id="caseSensitive">
+                  <value class="value" valueClass="boolean">true</value>
                 </argument>
-                <argument id="beforeWait"/>
-                <argument id="autoRetry"/>
+                <argument id="numeric">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="retainDecimals">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="nullGreater">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchMultiLine">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="matchDotAll">
+                  <value class="value" valueClass="boolean">false</value>
+                </argument>
+                <argument id="failureMessage"/>
               </arguments>
             </apiCall>
           </steps>
         </clause>
       </clauses>
+      <generatedParameters>
+        <apiParam group="target" name="uiTargetUrl" title="Web Page">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="21" title="End">
       <arguments>
@@ -565,6 +596,17 @@
         </connectionType>
       </type>
     </param>
+    <param name="SourceData_AddHeader" title="SourceData_AddHeader">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+    </param>
   </params>
   <outputParams>
     <param name="OrderNumber" title="OrderNumber">
@@ -586,6 +628,11 @@
     <argument id="reuseConnectionName">
       <value class="variable">
         <path element="reuseConnectionName"/>
+      </value>
+    </argument>
+    <argument id="SourceData_AddHeader">
+      <value class="variable">
+        <path element="SourceData_AddHeader"/>
       </value>
     </argument>
   </args>

@@ -141,6 +141,17 @@
         </connectionType>
       </type>
     </param>
+    <param name="QtyOnHand" title="QtyOnHand">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+    </param>
   </params>
   <args>
     <argument id="SrcData_InvyQty">
@@ -151,6 +162,11 @@
     <argument id="reuseConnectionName">
       <value class="variable">
         <path element="reuseConnectionName"/>
+      </value>
+    </argument>
+    <argument id="QtyOnHand">
+      <value class="variable">
+        <path element="QtyOnHand"/>
       </value>
     </argument>
   </args>
