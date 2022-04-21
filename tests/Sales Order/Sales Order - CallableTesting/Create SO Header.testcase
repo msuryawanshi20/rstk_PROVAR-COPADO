@@ -223,32 +223,6 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="24" title="Set SO Header Data">
-      <tags>
-        <string>disabled</string>
-      </tags>
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Set SO Header Data</value>
-        </argument>
-      </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData_SOHeader" variableScope="Test">
-          <cacheToken>C:/Users/Ashok/Provar/WorkspaceMy1/Test_RSTK_1/templates/SOHeader.xlsx;1614348228008</cacheToken>
-          <cachedParameters>
-            <apiParam name="Customer"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/SOHeader.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">SOHeader</worksheetName>
-            <valuesRange class="value"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
-      <clauses>
-        <clause name="hidden" testItemId="25"/>
-      </clauses>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="15" title="On SF rstk__SalesOrder page with pageobject Rstk__salesorder">
       <arguments>
         <argument id="uiConnectionName">
@@ -285,9 +259,7 @@
         <clause name="substeps" testItemId="16">
           <steps>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="23" title="Set Values: OrderNumber">
-              <tags>
-                <string>disabled</string>
-              </tags>
+              <tags/>
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
@@ -316,9 +288,7 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="17" title="Set the Order Number field to {OrderNumber}">
-              <tags>
-                <string>disabled</string>
-              </tags>
+              <tags/>
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=orderNumber"/>
@@ -379,7 +349,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="18" title="Set the Customer field to {SourceData_SOHeader.Customer}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="18" title="Set the Customer field to {SourceData_SOHeader.CustomerName}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=Customer"/>
@@ -390,7 +360,7 @@
                 <argument id="value">
                   <value class="variable">
                     <path element="SourceData_SOHeader"/>
-                    <path element="Customer"/>
+                    <path element="CustomerName"/>
                   </value>
                 </argument>
                 <argument id="blur">
@@ -412,7 +382,7 @@
                   <value class="uiWait" uri="ui:wait:timed?seconds=3"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Customer field to {SourceData_SOHeader.Customer}</value>
+                  <value class="value" valueClass="string">Set the Customer field to {SourceData_SOHeader.CustomerName}</value>
                 </argument>
                 <argument id="autoRetry">
                   <value class="uiWait" uri="ui:wait:autoRetry:timeout=15"/>
@@ -516,7 +486,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:timed?seconds=80"/>
+                  <value class="uiWait" uri="ui:wait:timed?seconds=15"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Save button</value>
@@ -611,9 +581,7 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="21" title="UI Assert - Verify the Order Number created">
-              <tags>
-                <string>disabled</string>
-              </tags>
+              <tags/>
               <arguments>
                 <argument id="resultName">
                   <value class="value" valueClass="string">OrderNumber</value>
@@ -629,6 +597,9 @@
                         <uiAttributeAssertion attributeName="value" comparisonType="EqualTo">
                           <value class="variable">
                             <path element="OrderNumber"/>
+                            <path element="fields"/>
+                            <path element="orderNumber"/>
+                            <path element="value"/>
                           </value>
                         </uiAttributeAssertion>
                       </attributeAssertions>

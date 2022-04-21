@@ -329,6 +329,7 @@ public class rstk__soinv {
 	@ButtonType()
 	@FindByLabel(label = "Commit")
 	public WebElement commit;
+	
 		
 	
 }

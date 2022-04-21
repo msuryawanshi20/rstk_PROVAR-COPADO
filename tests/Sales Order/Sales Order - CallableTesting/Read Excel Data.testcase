@@ -125,7 +125,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="6" title="Set Values: wb_ExcelPath_SalesOrder_BaseData_SOAPI">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="39" title="Set Values: wb_ExcelPath_SalesOrder_BaseData_SOAPI">
                       <arguments>
                         <argument id="values">
                           <value class="valueList" mutable="Mutable">
@@ -135,6 +135,25 @@
                               </namedValue>
                               <namedValue name="value">
                                 <value class="value" valueClass="string">templates/AutomationOrg/SalesOrder_BaseData_SOAPI.xlsx</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="6" title="Set Values: wb_ExcelPath_SalesOrder_BaseData_SingleLine">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">wb_ExcelPath_SalesOrder_BaseData_SingleLine</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">templates/AutomationOrg/SalesOrder_BaseData_SingleLine.xlsx</value>
                               </namedValue>
                               <namedValue name="valueScope">
                                 <value class="value" valueClass="string">Test</value>
@@ -574,6 +593,27 @@
                 </argument>
               </arguments>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="40" title="Set Values: ExcelPath_SalesOrder_BaseData_SingleLine">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ExcelPath_SalesOrder_BaseData_SingleLine</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="wb_ExcelPath_SalesOrder_BaseData_SingleLine"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="15" title="Set Values: ExcelPath_SalesOrder_BaseData_SOAPI">
               <arguments>
                 <argument id="values">
@@ -743,6 +783,20 @@
         <path element="ExcelPath_SOSetup"/>
       </sourceValue>
     </param>
+    <param name="ExcelPath_SalesOrder_BaseData_SingleLine" title="ExcelPath_SalesOrder_BaseData_SingleLine">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="ExcelPath_SalesOrder_BaseData_SingleLine"/>
+      </sourceValue>
+    </param>
   </outputParams>
   <args>
     <argument id="reuseConnectionName">
@@ -775,6 +829,9 @@
     </outputArgument>
     <outputArgument id="ExcelPath_SOSetup">
       <name class="value" valueClass="string">ExcelPath_SOSetup</name>
+    </outputArgument>
+    <outputArgument id="ExcelPath_SalesOrder_BaseData_SingleLine">
+      <name class="value" valueClass="string">ExcelPath_SalesOrder_BaseData_SingleLine</name>
     </outputArgument>
   </outputArgs>
 </testCase>

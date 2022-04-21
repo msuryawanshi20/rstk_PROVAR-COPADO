@@ -99,7 +99,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
+                  <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Sales Order Header</value>
@@ -185,7 +185,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
+                  <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the New_</value>
@@ -339,7 +339,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="14" title="Set the Customer to AC5501_CUSTOMER (AC5501_CUSTOMER)">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="14" title="Set the Customer to DJ-CUST1 (DJ-CUST1)">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:pageobject:field?field=Customer&amp;pageId=pageobjects.SalesOrderHeader_RSTKLUI"/>
@@ -348,7 +348,7 @@
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
                 <argument id="value">
-                  <value class="value" valueClass="string">AC5501_CUSTOMER (AC5501_CUSTOMER)</value>
+                  <value class="value" valueClass="string">DJ-CUST1 (DJ-CUST1)</value>
                 </argument>
                 <argument id="blur">
                   <value class="value" valueClass="boolean">false</value>
@@ -369,24 +369,28 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Customer to AC5501_CUSTOMER (AC5501_CUSTOMER)</value>
+                  <value class="value" valueClass="string">Set the Customer to DJ-CUST1 (DJ-CUST1)</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="value" title="Value">
+                <apiParam group="value" name="value" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
-                    <textType/>
+                    <textType>
+                      <constraints>
+                        <valueConstraint name="mimeType">text/plain</valueConstraint>
+                      </constraints>
+                    </textType>
                   </type>
                 </apiParam>
-                <apiParam group="value" name="blur" title="Tab off field">
+                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
                   <summary>Whether the tab key should be pressed after the value is populated.</summary>
                   <type>
                     <booleanType/>
                   </type>
                 </apiParam>
-                <apiParam group="value" name="pressEnter" title="Press Enter">
+                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
                   <summary>Whether the Enter key should be pressed after the value is populated.</summary>
                   <type>
                     <booleanType/>
@@ -466,7 +470,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                  <value class="uiWait" uri="ui:wait:timed?seconds=15"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Save</value>
@@ -497,6 +501,9 @@
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="18" title="UI Assert - Verify the SO created">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="resultName">
                   <value class="value" valueClass="string">Values</value>

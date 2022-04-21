@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="1">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -74,6 +74,15 @@
                 </outputArgument>
                 <outputArgument id="ExcelPath_AR">
                   <name class="value" valueClass="string">ExcelPath_AR</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_MRP">
+                  <name class="value" valueClass="string">ExcelPath_MRP</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_FSL">
+                  <name class="value" valueClass="string">ExcelPath_FSL</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SOSetup">
+                  <name class="value" valueClass="string">ExcelPath_SOSetup</name>
                 </outputArgument>
               </outputArguments>
             </caseCall>
@@ -174,9 +183,7 @@
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="279" title="Set Values: ws_quantity">
-              <tags>
-                <string>disabled</string>
-              </tags>
+              <tags/>
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
