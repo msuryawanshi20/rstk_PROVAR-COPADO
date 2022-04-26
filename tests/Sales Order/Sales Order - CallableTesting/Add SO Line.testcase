@@ -344,10 +344,8 @@
                       <clauses>
                         <clause name="substeps" testItemId="9">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="10" title="Set the Qty Ordered field to {SOLine.QtyOrdered}">
-                              <tags>
-                                <string>disabled</string>
-                              </tags>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="10" title="Set the Qty Ordered field to {SOLine.OrderQuantity}">
+                              <tags/>
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=qtyOrdered"/>
@@ -365,7 +363,7 @@
                                   <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
                                 </argument>
                                 <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Qty Ordered field to {SOLine.QtyOrdered}</value>
+                                  <value class="value" valueClass="string">Set the Qty Ordered field to {SOLine.OrderQuantity}</value>
                                 </argument>
                                 <argument id="autoRetry"/>
                                 <argument id="interaction">
@@ -374,7 +372,7 @@
                                 <argument id="value">
                                   <value class="variable">
                                     <path element="SOLine"/>
-                                    <path element="QtyOrdered"/>
+                                    <path element="OrderQuantity"/>
                                   </value>
                                 </argument>
                                 <argument id="blur">
@@ -409,10 +407,64 @@
                                 </apiParam>
                               </generatedParameters>
                             </apiCall>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="103" title="Click the Unit Price field">
+                              <tags/>
+                              <arguments>
+                                <argument id="locator">
+                                  <value class="uiLocator" uri="ui:locator?name=unitPrice"/>
+                                </argument>
+                                <argument id="interaction">
+                                  <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                                </argument>
+                                <argument id="blur">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="pressEnter">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="captureBefore">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="captureAfter">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="beforeWait">
+                                  <value class="uiWait" uri="default"/>
+                                </argument>
+                                <argument id="afterWait">
+                                  <value class="uiWait" uri="default"/>
+                                </argument>
+                                <argument id="interactionDescription">
+                                  <value class="value" valueClass="string">Click the Unit Price field</value>
+                                </argument>
+                                <argument id="autoRetry"/>
+                                <argument id="ieClickMethod">
+                                  <value class="value" valueClass="string">Default</value>
+                                </argument>
+                                <argument id="hover"/>
+                              </arguments>
+                              <generatedParameters>
+                                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                                  <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                                  <type>
+                                    <booleanType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                                  <summary>How the click should be executed for Internet Explorer.</summary>
+                                  <type>
+                                    <choiceType>
+                                      <constraints>
+                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                                      </constraints>
+                                    </choiceType>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="41" title="Set the Unit Price field to {SOLine.UnitPrice}">
-                              <tags>
-                                <string>disabled</string>
-                              </tags>
+                              <tags/>
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:locator?name=unitPrice"/>

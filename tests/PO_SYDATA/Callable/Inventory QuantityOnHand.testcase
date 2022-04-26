@@ -152,7 +152,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" name="Write" testItemId="37" title="Write: {QtyOnHand}=&gt;{ExcelPath_SalesOrder_BaseData_SingleLine}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.io.Write" name="Write" testItemId="37" title="Write: {QtyOnHand}=&gt;{wb_Quantitypath}">
                       <arguments>
                         <argument id="data">
                           <value class="variable">
@@ -162,7 +162,7 @@
                         <argument id="dataUrl">
                           <value class="excelTarget" debug="true" sheetWriteMode="Update">
                             <workbookPath class="variable">
-                              <path element="ExcelPath_SalesOrder_BaseData_SingleLine"/>
+                              <path element="wb_Quantitypath"/>
                             </workbookPath>
                             <worksheetName class="variable">
                               <path element="ws_quantity"/>
@@ -170,7 +170,7 @@
                           </value>
                         </argument>
                         <argument id="targetDescription">
-                          <value class="value" valueClass="string">{ExcelPath_SalesOrder_BaseData_SingleLine}</value>
+                          <value class="value" valueClass="string">{wb_Quantitypath}</value>
                         </argument>
                         <argument id="updateValueRange"/>
                         <argument id="updateColumnNames">
@@ -285,29 +285,6 @@
         <textType/>
       </type>
     </param>
-    <param name="ExcelPath_SalesOrder_BaseData_SOAPI" title="ExcelPath_SalesOrder_BaseData_SOAPI">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-            <valueConstraint name="regex"/>
-          </constraints>
-        </textType>
-      </type>
-    </param>
-    <param name="ExcelPath_SalesOrder_BaseData_SingleLine" title="ExcelPath_SalesOrder_BaseData_SingleLine">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-          </constraints>
-        </textType>
-      </type>
-    </param>
   </params>
   <outputParams>
     <param name="QtyOnHand" title="QtyOnHand">
@@ -350,16 +327,6 @@
     <argument id="Quantity">
       <value class="variable">
         <path element="Quantity"/>
-      </value>
-    </argument>
-    <argument id="ExcelPath_SalesOrder_BaseData_SOAPI">
-      <value class="variable">
-        <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
-      </value>
-    </argument>
-    <argument id="ExcelPath_SalesOrder_BaseData_SingleLine">
-      <value class="variable">
-        <path element="ExcelPath_SalesOrder_BaseData_SingleLine"/>
       </value>
     </argument>
   </args>

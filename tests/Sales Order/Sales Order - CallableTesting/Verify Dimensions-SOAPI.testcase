@@ -1144,7 +1144,9 @@
                               </arguments>
                             </apiCall>
                             <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="115" title="Assert: {AccDimValueName_ICItem} Contains {rstkRows_SOLIine.rstk__formula_dimval5__c}">
-                              <tags/>
+                              <tags>
+                                <string>disabled</string>
+                              </tags>
                               <arguments>
                                 <argument id="expectedValue">
                                   <value class="variable">
@@ -1256,6 +1258,9 @@
                               </arguments>
                             </apiCall>
                             <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="117" title="Assert: {AccDimValueName_Product} Contains {rstkRows_SOLIine.rstk__formula_dimval6__c}">
+                              <tags>
+                                <string>disabled</string>
+                              </tags>
                               <arguments>
                                 <argument id="expectedValue">
                                   <value class="variable">
