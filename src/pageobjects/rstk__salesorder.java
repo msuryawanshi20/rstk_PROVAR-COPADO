@@ -35,7 +35,7 @@ public class rstk__salesorder {
 		@VisualforceBy(componentXPath = "apex:inputText[@id='soline_textproduct__c']")
 		public WebElement product;
 		@TextType()
-		@VisualforceBy(componentXPath = "apex:inputField[@id='soline_qtyorder__c']")
+		@FindBy(xpath = "//input[contains(@id,'soline_qtyorder__c')]")
 		public WebElement qtyOrdered;
 		@TextType()
 		@VisualforceBy(componentXPath = "apex:inputField[@id='soline_price__c']")
@@ -69,8 +69,7 @@ public class rstk__salesorder {
 	@FindByLabel(label = "Save")
 	public WebElement save;
 	@TextType()
-	@FindBy(xpath = "//h2[normalize-space(.)='Sales Order - SO-Jan21-1']")
-	public WebElement pageTitle1;
+	
 	@ButtonType()
 	@FindByLabel(label = "Order Fulfillment")
 	public WebElement orderFulfillment;

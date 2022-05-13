@@ -328,7 +328,7 @@
                   <value class="uiWait" uri="NoWait"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:timed?seconds=15"/>
+                  <value class="uiWait" uri="ui:wait:timed?seconds=25"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Process Selected Lines button</value>
@@ -444,7 +444,7 @@
                                         <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
                                           <value class="variable">
                                             <path element="var_SOLine"/>
-                                            <path element="QtyOrdered"/>
+                                            <path element="OrderQuantity"/>
                                           </value>
                                         </uiAttributeAssertion>
                                       </attributeAssertions>
@@ -480,7 +480,7 @@
                                         <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
                                           <value class="variable">
                                             <path element="var_SOLine"/>
-                                            <path element="QtyOrdered"/>
+                                            <path element="OrderQuantity"/>
                                           </value>
                                         </uiAttributeAssertion>
                                       </attributeAssertions>
@@ -516,7 +516,7 @@
                                         <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
                                           <value class="variable">
                                             <path element="var_SOLine"/>
-                                            <path element="QtyOrdered"/>
+                                            <path element="OrderQuantity"/>
                                           </value>
                                         </uiAttributeAssertion>
                                       </attributeAssertions>

@@ -1146,47 +1146,7 @@
                                 <argument id="failureMessage"/>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="115" title="Assert: {AccDimValueName_ICItem} Contains {rstkRows_SOLIine.rstk__formula_dimval2__c}">
-                              <tags>
-                                <string>disabled</string>
-                              </tags>
-                              <arguments>
-                                <argument id="expectedValue">
-                                  <value class="variable">
-                                    <path element="AccDimValueName_ICItem"/>
-                                  </value>
-                                </argument>
-                                <argument id="actualValue">
-                                  <value class="variable">
-                                    <path element="rstkRows_SOLIine"/>
-                                    <path element="rstk__formula_dimval2__c"/>
-                                  </value>
-                                </argument>
-                                <argument id="comparisonType">
-                                  <value class="value" valueClass="string">Contains</value>
-                                </argument>
-                                <argument id="caseSensitive">
-                                  <value class="value" valueClass="boolean">true</value>
-                                </argument>
-                                <argument id="numeric">
-                                  <value class="value" valueClass="boolean">false</value>
-                                </argument>
-                                <argument id="retainDecimals">
-                                  <value class="value" valueClass="boolean">false</value>
-                                </argument>
-                                <argument id="nullGreater">
-                                  <value class="value" valueClass="boolean">false</value>
-                                </argument>
-                                <argument id="matchMultiLine">
-                                  <value class="value" valueClass="boolean">false</value>
-                                </argument>
-                                <argument id="matchDotAll">
-                                  <value class="value" valueClass="boolean">false</value>
-                                </argument>
-                                <argument id="failureMessage"/>
-                              </arguments>
-                            </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="116" title="Assert: {AccDimValueName_Customer} Contains {rstkRows_SOLIine.rstk__formula_dimval2__c}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="116" title="Assert: {AccDimValueName_Customer} Contains {rstkRows_SOLIine.rstk__formula_dimval3__c}">
                               <arguments>
                                 <argument id="expectedValue">
                                   <value class="variable">
@@ -1196,7 +1156,7 @@
                                 <argument id="actualValue">
                                   <value class="variable">
                                     <path element="rstkRows_SOLIine"/>
-                                    <path element="rstk__formula_dimval2__c"/>
+                                    <path element="rstk__formula_dimval3__c"/>
                                   </value>
                                 </argument>
                                 <argument id="comparisonType">
@@ -1260,7 +1220,50 @@
                                 <argument id="failureMessage"/>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="117" title="Assert: {AccDimValueName_Product} Contains {rstkRows_SOLIine.rstk__formula_dimval3__c}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="115" title="Assert: {AccDimValueName_ICItem} Contains {rstkRows_SOLIine.rstk__formula_dimval5__c}">
+                              <tags>
+                                <string>disabled</string>
+                              </tags>
+                              <arguments>
+                                <argument id="expectedValue">
+                                  <value class="variable">
+                                    <path element="AccDimValueName_ICItem"/>
+                                  </value>
+                                </argument>
+                                <argument id="actualValue">
+                                  <value class="variable">
+                                    <path element="rstkRows_SOLIine"/>
+                                    <path element="rstk__formula_dimval5__c"/>
+                                  </value>
+                                </argument>
+                                <argument id="comparisonType">
+                                  <value class="value" valueClass="string">Contains</value>
+                                </argument>
+                                <argument id="caseSensitive">
+                                  <value class="value" valueClass="boolean">true</value>
+                                </argument>
+                                <argument id="numeric">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="retainDecimals">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="nullGreater">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchMultiLine">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="matchDotAll">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                                <argument id="failureMessage"/>
+                              </arguments>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="117" title="Assert: {AccDimValueName_Product} Contains {rstkRows_SOLIine.rstk__formula_dimval6__c}">
+                              <tags>
+                                <string>disabled</string>
+                              </tags>
                               <arguments>
                                 <argument id="expectedValue">
                                   <value class="variable">
@@ -1270,7 +1273,7 @@
                                 <argument id="actualValue">
                                   <value class="variable">
                                     <path element="rstkRows_SOLIine"/>
-                                    <path element="rstk__formula_dimval3__c"/>
+                                    <path element="rstk__formula_dimval6__c"/>
                                   </value>
                                 </argument>
                                 <argument id="comparisonType">

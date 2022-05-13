@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="4">
+<testCase id="2">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -83,6 +83,9 @@
                 </outputArgument>
                 <outputArgument id="ExcelPath_SOSetup">
                   <name class="value" valueClass="string">ExcelPath_SOSetup</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SalesOrder_BaseData_SingleLine">
+                  <name class="value" valueClass="string">ExcelPath_SalesOrder_BaseData_SingleLine</name>
                 </outputArgument>
               </outputArguments>
             </caseCall>
@@ -170,7 +173,9 @@
                         <value class="value" valueClass="string">wb_Quantitypath</value>
                       </namedValue>
                       <namedValue name="value">
-                        <value class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-AllProductTypes-UI.xlsx</value>
+                        <value class="variable">
+                          <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+                        </value>
                       </namedValue>
                       <namedValue name="valueScope">
                         <value class="value" valueClass="string">Test</value>
@@ -221,6 +226,16 @@
                 </argument>
                 <argument id="Quantity">
                   <value class="value" valueClass="string">QuantityBefore</value>
+                </argument>
+                <argument id="ExcelPath_SalesOrder_BaseData_SOAPI">
+                  <value class="variable">
+                    <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+                  </value>
+                </argument>
+                <argument id="ExcelPath_SalesOrder_BaseData_SingleLine">
+                  <value class="variable">
+                    <path element="ExcelPath_SalesOrder_BaseData_SingleLine"/>
+                  </value>
                 </argument>
               </arguments>
               <outputArguments>
@@ -458,9 +473,7 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="40" title="Verify Dimensions">
-      <tags>
-        <string>disabled</string>
-      </tags>
+      <tags/>
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Verify Dimensions</value>
@@ -537,7 +550,9 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="87" title="Verify Inventory Quantity ">
-      <tags/>
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Verify Inventory Quantity </value>

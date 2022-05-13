@@ -73,6 +73,14 @@ public class HomePage {
 	@LinkType()
 	@FindBy(xpath = "//span[text()='MRP Action Message Search']")
 	public WebElement MRPActionMessageSearch;
+
+	@LinkType()
+	@FindBy(xpath = "//div[@id='sidebarDiv']//a[normalize-space(.)='Sales Order Header']")
+	public WebElement salesOrderEntry;
+
+	@ButtonType()
+	@FindBy(xpath = "//input[@name='new']")
+	public WebElement New_Sales_Order_Header;
 	
 
 }
