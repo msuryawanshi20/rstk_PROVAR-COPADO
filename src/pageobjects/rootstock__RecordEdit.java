@@ -27,5 +27,8 @@ public class rootstock__RecordEdit {
 	@TextType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//li/div")
 	public WebElement vendorlist;
+
+	
+
 	
 }

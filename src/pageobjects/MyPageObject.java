@@ -51,5 +51,16 @@ public WebDriver driver;
 		@LinkType()
 		@FindBy(xpath = "//th[text()='SOORDDMD Name']/following::tr//td/following::th//a")
 		public WebElement SOORDDMDNAME;
+		
+		@LinkType()
+		@FindBy(xpath = "//a[normalize-space(.)='Rootstock Site Map']")
+		public WebElement rootstockSiteMap;
+		@ButtonType()
+		@FindBy(xpath = "//input[@name='new']")
+		public WebElement New;
+		@LinkType()
+		@FindBy(xpath = "//a[normalize-space(.)='SYDEFAULT']")
+		public WebElement Name;
+		
 			
 }
