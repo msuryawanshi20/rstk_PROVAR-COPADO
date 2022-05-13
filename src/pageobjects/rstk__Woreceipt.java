@@ -21,19 +21,17 @@ import com.provar.core.testapi.annotations.SalesforcePage;
 import com.provar.core.testapi.annotations.TestLogger;
 import com.provar.core.testapi.annotations.TextType;
 
-
 @SalesforcePage( title="Rstk__ Woreceipt"                                
                , summary=""
                , page="Woreceipt"
                , namespacePrefix="rstk"
                , object="rstk__worcpt__c"
                , connection="QARSF_Admin"
-     )             
+     )   
+
 public class rstk__Woreceipt {
 
 	public WebDriver driver;
-
-	WebDriverWait wait = new WebDriverWait(driver, 30);
 
 	public rstk__Woreceipt(WebDriver driver) {
 		this.driver = driver;
@@ -113,22 +111,22 @@ public class rstk__Woreceipt {
 	public Logger testLogger;
 
 	public void selectWorkOrder(String WorkOrder) throws InterruptedException {
-		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
 		String elementLocator = "//label[normalize-space(.)='Work Order']/ancestor::th/following-sibling::td//option";
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
 		List<WebElement> workOrderList = driver.findElements(By.xpath(elementLocator));
-		for (int i = 0; i < workOrderList.size(); i++) {
-			if (workOrderList.get(i).getText().contains(WorkOrder)) {
-				workOrderList.get(i).click();
-				Thread.sleep(2000);
 
+		for (WebElement option : workOrderList) {
+			if (option.getText().contains(WorkOrder)) {
+				option.click();
+				break;
 			}
 		}
+
 	}
 
 	public void selectSerialNumber(Integer NumberOfSerialTobeSelected) throws InterruptedException {
-
-		Thread.sleep(2000);
 
 		List<WebElement> ele = driver.findElements(By.xpath("//select[contains(@id,'serials')]/option"));
 		testLogger.info("Size" + ele.size());
@@ -136,7 +134,7 @@ public class rstk__Woreceipt {
 		listbox.deselectAll();
 
 		for (int i = 1; i <= NumberOfSerialTobeSelected; i++) {
-
+			
 			WebElement element = driver.findElement(By.xpath("//select[contains(@id,'serials')]/option[" + i + "]"));
 			testLogger.info("Serial Number:" + element.getText());
 			element.click();
