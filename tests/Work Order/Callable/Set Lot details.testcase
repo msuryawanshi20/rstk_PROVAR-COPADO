@@ -244,7 +244,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="44" title="Set the Lot Number field to P-LOT_{DateFormat(TODAY, &quot;DDMMYYYY&quot;)}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="44" title="Set the Lot Number field to P-LOT_{DateFormat(TODAY, &quot;DDMYYYY&quot;)}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=lotNumber"/>
@@ -262,7 +262,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Lot Number field to P-LOT_{DateFormat(TODAY, "DDMMYYYY")}</value>
+                  <value class="value" valueClass="string">Set the Lot Number field to P-LOT_{DateFormat(TODAY, "DDMYYYY")}</value>
                 </argument>
                 <argument id="autoRetry"/>
                 <argument id="interaction">
@@ -279,7 +279,7 @@
                           </value>
                         </argument>
                         <argument id="outputFormat">
-                          <value class="value" valueClass="string">DDMMYYYY</value>
+                          <value class="value" valueClass="string">DDMYYYY</value>
                         </argument>
                       </funcCall>
                     </parts>

@@ -21,7 +21,7 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument argId="10aafab3-a4c5-4541-bb2d-6ef792eac00a" id="reuseConnectionName">
-          <value class="value" valueClass="string"/>
+          <value class="value"/>
         </argument>
         <argument id="alreadyOpenBehaviour">
           <value class="value" valueClass="string">Reuse</value>
@@ -273,11 +273,16 @@
                     <path element="ip_workOrder"/>
                   </value>
                 </argument>
+                <argument id="param_WorkOrder">
+                  <value class="variable">
+                    <path element="ip_workOrder"/>
+                  </value>
+                </argument>
                 <argument id="value"/>
                 <argument id="blur"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="param_InventoryItemName" title="Inventory Item Name">
+                <apiParam group="value" name="param_WorkOrder" title="Work Order">
                   <type>
                     <textType/>
                   </type>

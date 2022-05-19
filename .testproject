@@ -24,11 +24,11 @@
     <environment name="QARSF">
       <summary>QARSF</summary>
     </environment>
-    <environment name="Automation">
-      <summary>QA-Automation Org</summary>
+    <environment name="DEVQAFF_LUI">
+      <summary/>
     </environment>
     <environment name="DEVQAFF">
-      <summary>DEVQAFF</summary>
+      <summary/>
     </environment>
   </environments>
   <variables>
@@ -54,6 +54,7 @@
         <connection id="9d2f70ad-289c-4fc3-8be5-d6959877335e" name="QARSF_Admin">
           <summary/>
           <connectionUrls>
+RSTKLUI-SO_fulfillmentMultipleLines
             <connectionUrl secureStorageNodeId="bb7da988-9015-4a99-8263-0794fd9137ce" url="sf:user=npatil@rootstock.com.qarsf-admin;password={password};securityToken={securityToken};environment=PRERELEASE"/>
             <connectionUrl envName="Env1" secureStorageNodeId="ffc177df-b94c-4ac9-8e53-6eafefafac51" url="sf:user=djha@rootstock.com.qarsf-admin;password={password};securityToken={securityToken};environment=PRERELEASE"/>
             <connectionUrl envName="Env2" secureStorageNodeId="7145d567-7c68-474b-9322-1daf39034203" url="sf:user=npatil@rootstock.com.qarsf-admin;password={password};securityToken={securityToken};environment=PRERELEASE"/>
@@ -61,6 +62,7 @@
             <connectionUrl envName="QARSF" secureStorageNodeId="23d37574-8bbc-4f6a-bc35-9ca9b9a06aa4" url="sf:user=npatil@rootstock.com.qarsf-admin;password={password};securityToken={securityToken};environment=PRERELEASE"/>
             <connectionUrl envName="PDE5" secureStorageNodeId="03d6ef83-22bf-4b92-a0ea-0ee396e23e2f" url="sf:user=msuryawanshi@rootstock.com.pde5;password={password};securityToken={securityToken};environment=PROD_DEV;nsPrefixOverride=-rstk"/>
             <connectionUrl envName="Automation" secureStorageNodeId="4b16ec35-3f05-46e0-9cd8-041da77f5d7c" url="sf:user=msuryawanshi@rootstock.com.automation;password={password};securityToken={securityToken};environment=PRERELEASE"/>
+
             <connectionUrl envName="DEVQAFF" secureStorageNodeId="b1f9ece9-3af9-4ca1-82ec-32437d7b6d92" url="sf:user=achoudhary@rootstock.com.dev-qa-ff;password={password};securityToken={securityToken};environment=PRERELEASE"/>
           </connectionUrls>
         </connection>
