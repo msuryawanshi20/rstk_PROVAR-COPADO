@@ -35,6 +35,9 @@ public class SalesOrderHeader_RSTKLUI {
 	@LinkType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='New']")
 	public WebElement new_;
+	@ButtonType()
+	@FindBy(xpath = "//button[@title='Add']")
+	public WebElement Add;
 	@TextType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//button[contains(@name,'rstk__soline_prodtype__c')]")
 	public WebElement ProductType;
@@ -80,6 +83,20 @@ public class SalesOrderHeader_RSTKLUI {
 	@TextType()
 	@FindBy(xpath = "//lightning-icon[@title='Processing Done']")
 	public WebElement ProcessingStatus;
+	
+	@PageRow()
+	public static class SOLineGrid {
+
+        @TextType()
+	    @FindBy(xpath = ".//th//button[contains(@name,'rstk__soline_prodtype__c')]")
+	    public WebElement ProductType;	
+	    @TextType()
+		@FindBy(xpath = ".//td[3]//input")
+		public WebElement Product;
+	}
+	@FindBy(xpath = "//flexipage-component2[@data-component-id='rootstockSolineGrid']//table//tbody//tr")
+	@PageTable(firstRowContainsHeaders = false, row = SOLineGrid.class)
+	public List<SOLineGrid> table;
 
 			
 }
