@@ -606,5 +606,68 @@
         </clause>
       </clauses>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexUpdateObject" name="ApexUpdateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand" testItemId="284" title="Update Object: rstk__syapcntl__c = a8L5f000000e5uh">
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">rstk__syapcntl__c</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">rstkUpdated</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="objectId">
+          <value class="value" valueClass="string">a8L5f000000e5uh</value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="rstk__syapcntl_xferposted__c">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand.CustomObjectName">rstk__syapcntl__c</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__syapcntl__c&amp;field=rstk__syapcntl_xferposted__c" name="rstk__syapcntl_xferposted__c" title="rstk__syapcntl_xferposted__c"/>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexUpdateObject" name="ApexUpdateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand" testItemId="283" title="Update Object: rstkf__apinvh__c = aAN5f000000sgVy">
+      <tags>
+        <string>disabled</string>
+      </tags>
+      <arguments>
+        <argument id="objectType">
+          <value class="value" valueClass="string">rstkf__apinvh__c</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">rstkfUpdated</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="objectId">
+          <value class="value" valueClass="string">aAN5f000000sgVy</value>
+        </argument>
+        <argument id="assignmentRuleId"/>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="rstkf__apinvh_status__c">
+          <value class="value" valueClass="string">Posted</value>
+        </argument>
+      </arguments>
+      <parameterGeneratorProperties>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
+        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.UpdateCustomObjectTestStepCommand.CustomObjectName">rstkf__apinvh__c</propertyValue>
+      </parameterGeneratorProperties>
+      <generatedParameters>
+        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__apinvh__c&amp;field=rstkf__apinvh_status__c" name="rstkf__apinvh_status__c" title="rstkf__apinvh_status__c"/>
+      </generatedParameters>
+    </apiCall>
   </steps>
 </testCase>

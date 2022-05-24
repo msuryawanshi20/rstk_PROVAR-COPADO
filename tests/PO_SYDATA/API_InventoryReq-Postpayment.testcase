@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="7">
+<testCase id="11">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -30,9 +30,7 @@
         <argument id="enableObjectIdLogging">
           <value class="value" valueClass="boolean">true</value>
         </argument>
-        <argument id="autoCleanup">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
+        <argument id="autoCleanup"/>
         <argument id="cleanupConnectionName"/>
         <argument id="logFileLocation"/>
         <argument id="username"/>
@@ -45,7 +43,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="249" title="Reading Excel Data">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="278" title="Reading Excel Data">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Reading Excel Data</value>
@@ -76,16 +74,19 @@
                 <outputArgument id="FinExcel">
                   <name class="value" valueClass="string">FinExcel</name>
                 </outputArgument>
+                <outputArgument id="reqpaypath">
+                  <name class="value" valueClass="string">reqpaypath</name>
+                </outputArgument>
               </outputArguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="54" title="Read Data for Close PO AP Batch">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="54" title="Read Data ReqtoPostpayment">
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Read Data for Close PO AP Batch</value>
                 </argument>
               </arguments>
               <parameterValueSources>
-                <parameterValueSource variableName="AddPOCreationData" variableScope="Test">
+                <parameterValueSource variableName="RequisitionData" variableScope="Test">
                   <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/RSTKF_AutomationData.xlsx;1624364287371</cacheToken>
                   <cachedParameters>
                     <apiParam name="APIMode"/>
@@ -109,9 +110,9 @@
                   </cachedParameters>
                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
                     <workbookPath class="variable">
-                      <path element="POSYDATAExcel"/>
+                      <path element="reqpaypath"/>
                     </workbookPath>
-                    <worksheetName class="value" valueClass="string">POHeader</worksheetName>
+                    <worksheetName class="value" valueClass="string">ICREQ</worksheetName>
                     <valuesRange class="value"/>
                   </sourceValue>
                 </parameterValueSource>
@@ -128,45 +129,9 @@
                   </cachedParameters>
                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
                     <workbookPath class="variable">
-                      <path element="POSYDATAExcel"/>
+                      <path element="reqpaypath"/>
                     </workbookPath>
                     <worksheetName class="value" valueClass="string">POReceipt</worksheetName>
-                    <valuesRange class="value"/>
-                  </sourceValue>
-                </parameterValueSource>
-                <parameterValueSource variableName="AddlineData" variableScope="Test">
-                  <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/POLOADER.xlsx;1626414138253</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="APIMode"/>
-                    <apiParam name="Process"/>
-                    <apiParam name="Item"/>
-                    <apiParam name="Quantity"/>
-                    <apiParam name="UnitPrice"/>
-                    <apiParam name="Project"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                    <workbookPath class="variable">
-                      <path element="POSYDATAExcel"/>
-                    </workbookPath>
-                    <worksheetName class="value" valueClass="string">Multiple PO Line</worksheetName>
-                    <valuesRange class="value"/>
-                  </sourceValue>
-                </parameterValueSource>
-                <parameterValueSource variableName="POAuthData" variableScope="Test">
-                  <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/SYDATA-POtoPOAP Match.xlsx;1627370924902</cacheToken>
-                  <cachedParameters>
-                    <apiParam name="TransactionType"/>
-                    <apiParam name="Process"/>
-                    <apiParam name="BackgroundProcessing"/>
-                    <apiParam name="TransactionQTY"/>
-                    <apiParam name="Division"/>
-                    <apiParam name="Auth"/>
-                  </cachedParameters>
-                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                    <workbookPath class="variable">
-                      <path element="POSYDATAExcel"/>
-                    </workbookPath>
-                    <worksheetName class="value" valueClass="string">POAuthorization</worksheetName>
                     <valuesRange class="value"/>
                   </sourceValue>
                 </parameterValueSource>
@@ -181,7 +146,7 @@
                   </cachedParameters>
                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
                     <workbookPath class="variable">
-                      <path element="POSYDATAExcel"/>
+                      <path element="reqpaypath"/>
                     </workbookPath>
                     <worksheetName class="value" valueClass="string">POAPMatch</worksheetName>
                   </sourceValue>
@@ -194,7 +159,7 @@
                   </cachedParameters>
                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
                     <workbookPath class="variable">
-                      <path element="POSYDATAExcel"/>
+                      <path element="reqpaypath"/>
                     </workbookPath>
                     <worksheetName class="value" valueClass="string">SYDATAD</worksheetName>
                   </sourceValue>
@@ -210,7 +175,7 @@
                   </cachedParameters>
                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
                     <workbookPath class="variable">
-                      <path element="POSYDATAExcel"/>
+                      <path element="reqpaypath"/>
                     </workbookPath>
                     <worksheetName class="value" valueClass="string">CloseAPBatch</worksheetName>
                   </sourceValue>
@@ -234,7 +199,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <caseCall testCaseId="e08077a2-003a-4ff5-934b-36bbc985a8a4" testCasePath="tests/Account Payable/Callable/FetchingObjectsId.testcase" testItemId="278">
+    <caseCall testCaseId="e08077a2-003a-4ff5-934b-36bbc985a8a4" testCasePath="tests/Account Payable/Callable/FetchingObjectsId.testcase" testItemId="282">
       <arguments>
         <argument id="objdata">
           <value class="variable">
@@ -266,46 +231,48 @@
         </outputArgument>
       </outputArguments>
     </caseCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="108" title="For Each: {AddPOCreationData}=&gt;POData">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="280" title="For Each: {RequisitionData}=&gt;icreqdata">
       <arguments>
         <argument id="list">
           <value class="variable">
-            <path element="AddPOCreationData"/>
+            <path element="RequisitionData"/>
           </value>
         </argument>
         <argument id="fromItem">
           <value class="value" valueClass="decimal">1</value>
         </argument>
         <argument id="valueName">
-          <value class="value" valueClass="string">POData</value>
+          <value class="value" valueClass="string">icreqdata</value>
         </argument>
         <argument id="continueOnFailure"/>
       </arguments>
       <clauses>
-        <clause name="substeps" testItemId="109">
+        <clause name="substeps" testItemId="281">
           <steps>
-            <caseCall testCaseId="bf68b852-4f80-489c-b812-ecc3b72db4cc" testCasePath="tests/POLOADER/Callable/POLoader_POCreation.testcase" testItemId="67">
+            <caseCall testCaseId="79a4ff8b-3b7a-4945-a6b5-d8a952661a8d" testCasePath="tests/Purchase Order/Callable/InventoryReq_API.testcase" testItemId="287">
               <arguments>
-                <argument id="List">
+                <argument id="reqtestdata">
                   <value class="variable">
-                    <path element="POData"/>
+                    <path element="icreqdata"/>
                   </value>
                 </argument>
-                <argument id="AddLineData">
+                <argument id="ObjectID">
+                  <value class="value" valueClass="string">ObjectID</value>
+                </argument>
+                <argument id="DivID">
                   <value class="variable">
-                    <path element="AddlineData"/>
+                    <path element="DivisionID"/>
                   </value>
                 </argument>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
+                <argument id="projid">
+                  <value class="variable">
+                    <path element="ProjectID"/>
+                  </value>
                 </argument>
               </arguments>
               <outputArguments>
                 <outputArgument id="POHDRID">
                   <name class="value" valueClass="string">POHDRID</name>
-                </outputArgument>
-                <outputArgument id="POLINEID">
-                  <name class="value" valueClass="string">POLINEID</name>
                 </outputArgument>
                 <outputArgument id="POTotal">
                   <name class="value" valueClass="string">POTotal</name>
@@ -315,7 +282,7 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <caseCall testCaseId="10433476-827a-48a2-8363-d620a3a0c434" testCasePath="tests/POLOADER/Callable/SubmittoVendor.testcase" testItemId="65">
+            <caseCall testCaseId="10433476-827a-48a2-8363-d620a3a0c434" testCasePath="tests/POLOADER/Callable/SubmittoVendor.testcase" testItemId="285">
               <arguments>
                 <argument id="POHDRID">
                   <value class="variable">
@@ -324,12 +291,15 @@
                 </argument>
                 <argument id="POData">
                   <value class="variable">
-                    <path element="POData"/>
+                    <path element="icreqdata"/>
                   </value>
                 </argument>
               </arguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="86" title="Fetch Quantity on Hand Before Receipt">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="296" title="Fetch Quantity on Hand Before Receipt">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Fetch Quantity on Hand Before Receipt</value>
@@ -426,7 +396,7 @@
                 </clause>
               </clauses>
             </apiCall>
-            <caseCall testCaseId="73e38809-3823-41d8-bf8a-516aed35c5b8" testCasePath="tests/PO_SYDATA/Callable/SYDATAPOReceipt.testcase" testItemId="57">
+            <caseCall testCaseId="73e38809-3823-41d8-bf8a-516aed35c5b8" testCasePath="tests/PO_SYDATA/Callable/SYDATAPOReceipt.testcase" testItemId="297">
               <arguments>
                 <argument id="POlineId">
                   <value class="variable">
@@ -445,21 +415,10 @@
                 </argument>
               </arguments>
             </caseCall>
-            <caseCall testCaseId="d4ff90f1-71ea-4aa1-8f61-645f492f4904" testCasePath="tests/PO_SYDATA/Callable/SYDATAPOAuthorization.testcase" testItemId="71">
-              <arguments>
-                <argument id="POHDRID">
-                  <value class="variable">
-                    <path element="POHDRID"/>
-                  </value>
-                </argument>
-                <argument id="SourceData">
-                  <value class="variable">
-                    <path element="POAuthData"/>
-                  </value>
-                </argument>
-              </arguments>
-            </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="88" title="Fetch and Verify Quantity on Hand After Receipt">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="299" title="Fetch and Verify Quantity on Hand After Receipt">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Fetch and Verify Quantity on Hand After Receipt</value>
@@ -515,7 +474,7 @@
                 </clause>
               </clauses>
             </apiCall>
-            <caseCall testCaseId="f74d9397-e7eb-4d71-881c-2a8035ebdf40" testCasePath="tests/PO_SYDATA/Callable/SYDATAPOAPMatch.testcase" testItemId="87">
+            <caseCall testCaseId="f74d9397-e7eb-4d71-881c-2a8035ebdf40" testCasePath="tests/PO_SYDATA/Callable/SYDATAPOAPMatch.testcase" testItemId="300">
               <tags/>
               <arguments>
                 <argument id="InvAmt">
@@ -548,7 +507,7 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <caseCall testCaseId="89feb42a-baf8-407f-8fe8-d5f9ef188b7e" testCasePath="tests/PO_SYDATA/Callable/SYDATA Detail.testcase" testItemId="74">
+            <caseCall testCaseId="89feb42a-baf8-407f-8fe8-d5f9ef188b7e" testCasePath="tests/PO_SYDATA/Callable/SYDATA Detail.testcase" testItemId="301">
               <tags/>
               <arguments>
                 <argument id="POAPMatchNum">
@@ -568,7 +527,7 @@
                 </argument>
               </arguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="75" title="Edit SYDATA PO AP Match record ">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="302" title="Edit SYDATA PO AP Match record ">
               <tags/>
               <arguments>
                 <argument id="description">
@@ -614,7 +573,7 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="92" title="Close PO AP Batch">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="303" title="Close PO AP Batch">
               <tags/>
               <arguments>
                 <argument id="description">
@@ -653,16 +612,16 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="279" title="Post Payable Transaction">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="304" title="Post Payable Transaction">
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Post Payable Transaction</value>
                 </argument>
               </arguments>
               <clauses>
-                <clause name="hidden" testItemId="280">
+                <clause name="hidden" testItemId="305">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="282" title="SOQL Query: select Id,Name,rstkf__apinvtxn_apinvh__c,rstkf__apinvtxn_unapplamtmaint__c,rstkf__apinvtxn_amtapplmaint__c,rstkf__apinvtxn_status__c from rstkf__apinvtxn__c where Name like '{InvNum}%'=&gt;apinvtxn">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="306" title="SOQL Query: select Id,Name,rstkf__apinvtxn_apinvh__c,rstkf__apinvtxn_unapplamtmaint__c,rstkf__apinvtxn_amtapplmaint__c,rstkf__apinvtxn_status__c from rstkf__apinvtxn__c where Name like '{InvNum}%'=&gt;apinvtxn">
                       <tags/>
                       <arguments>
                         <argument id="soqlQuery">
@@ -731,15 +690,15 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="283" title="If: {TxnStatus != Posted}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="283" title="If: {TxnStatus = Closed}">
                       <arguments>
                         <argument id="condition">
-                          <value class="ne">
+                          <value class="eq">
                             <lhs class="variable">
                               <path element="TxnStatus"/>
                             </lhs>
                             <rhs class="variable">
-                              <path element="Posted"/>
+                              <path element="Closed"/>
                             </rhs>
                           </value>
                         </argument>
@@ -777,7 +736,7 @@
                 </clause>
               </clauses>
             </apiCall>
-            <caseCall testCaseId="63069f2c-2aa1-4383-9227-da95bf27caa8" testCasePath="tests/Account Payable/Callable/PAYTO.testcase" testItemId="275">
+            <caseCall testCaseId="63069f2c-2aa1-4383-9227-da95bf27caa8" testCasePath="tests/Account Payable/Callable/PAYTO.testcase" testItemId="307">
               <arguments>
                 <argument id="Inv_Trans">
                   <value class="variable">
@@ -801,14 +760,16 @@
                 </argument>
                 <argument id="BankName">
                   <value class="variable">
-                    <path element="POData"/>
+                    <path element="icreqdata"/>
                     <path element="BankAccount"/>
                   </value>
                 </argument>
               </arguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="289" title="Verify Inventory Quantity ">
-              <tags/>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="308" title="Verify Inventory Quantity ">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Verify Inventory Quantity </value>
@@ -834,7 +795,7 @@
                 </clause>
               </clauses>
             </apiCall>
-            <caseCall testCaseId="29846612-c501-4e3b-863b-1cd4c090c96b" testCasePath="tests/Purchase Order/Callable/POReceiptVerification.testcase" testItemId="290">
+            <caseCall testCaseId="29846612-c501-4e3b-863b-1cd4c090c96b" testCasePath="tests/Purchase Order/Callable/POReceiptVerification.testcase" testItemId="309">
               <tags/>
               <arguments>
                 <argument id="reuseConnectionName">
@@ -857,7 +818,7 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <caseCall testCaseId="3a3fd54e-7208-45d3-a39e-fee0eff06e88" testCasePath="tests/Purchase Order/Callable/PayableBatchHeaderVerification.testcase" testItemId="291">
+            <caseCall testCaseId="3a3fd54e-7208-45d3-a39e-fee0eff06e88" testCasePath="tests/Purchase Order/Callable/PayableBatchHeaderVerification.testcase" testItemId="310">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -884,7 +845,7 @@
                 </argument>
               </arguments>
             </caseCall>
-            <caseCall testCaseId="c8229252-83ec-4d3e-b4b7-81d6b6cb80e0" testCasePath="tests/Account Payable/Callable/PostPaymentVerification.testcase" testItemId="292">
+            <caseCall testCaseId="c8229252-83ec-4d3e-b4b7-81d6b6cb80e0" testCasePath="tests/Account Payable/Callable/PostPaymentVerification.testcase" testItemId="311">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>

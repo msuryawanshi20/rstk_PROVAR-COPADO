@@ -246,6 +246,25 @@
                         </argument>
                       </arguments>
                     </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="143" title="Set Values: reqpay">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">reqpay</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">templates/AutomationOrg/ReqtoPayment.xlsx</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="96" title="Set Values: poui">
                       <arguments>
                         <argument id="values">
@@ -357,7 +376,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="124" title="Set Values: posydatapath">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="144" title="Set Values: posydatapath">
       <arguments>
         <argument id="values">
           <value class="valueList" mutable="Mutable">
@@ -368,6 +387,27 @@
               <namedValue name="value">
                 <value class="variable">
                   <path element="posydata"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="124" title="Set Values: reqpaypath">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">reqpaypath</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="reqpay"/>
                 </value>
               </namedValue>
               <namedValue name="valueScope">
@@ -468,6 +508,21 @@
         <path element="finpath"/>
       </sourceValue>
     </param>
+    <param name="reqpaypath" title="reqpaypath">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="reqpaypath"/>
+      </sourceValue>
+    </param>
   </outputParams>
   <args>
     <argument id="reuseConnectionName">
@@ -497,6 +552,9 @@
     </outputArgument>
     <outputArgument id="FinExcel">
       <name class="value" valueClass="string">FinExcel</name>
+    </outputArgument>
+    <outputArgument id="reqpaypath">
+      <name class="value" valueClass="string">reqpaypath</name>
     </outputArgument>
   </outputArgs>
 </testCase>
