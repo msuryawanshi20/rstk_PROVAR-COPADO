@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="0">
+<testCase id="3">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="Connection Step">
@@ -167,6 +167,14 @@
               <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
             </workbookPath>
             <worksheetName class="value" valueClass="string">SOFulfillReverse_Complete</worksheetName>
+          </sourceValue>
+        </parameterValueSource>
+        <parameterValueSource variableName="SourceData_SOFulfillment" variableScope="Test">
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="variable">
+              <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+            </workbookPath>
+            <worksheetName class="value" valueClass="string">SOFulfillment</worksheetName>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>

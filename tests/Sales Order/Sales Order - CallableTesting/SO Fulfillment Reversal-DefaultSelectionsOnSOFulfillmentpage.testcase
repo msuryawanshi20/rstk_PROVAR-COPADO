@@ -209,26 +209,6 @@
       <clauses>
         <clause name="substeps" testItemId="182">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiNavigate" name="UiNavigate" testItemId="183" title="Navigate: Refresh">
-              <arguments>
-                <argument id="navigate">
-                  <value class="value" valueClass="string">Refresh</value>
-                </argument>
-                <argument id="captureBefore">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-                <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
-                </argument>
-              </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="184" title="Sleep for {30} seconds">
-              <arguments>
-                <argument id="sleepSecs">
-                  <value class="value" valueClass="decimal">30</value>
-                </argument>
-              </arguments>
-            </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="186" title="On SF rstk__SalesOrderWorkBench page with pageobject Rstk__ Sales Order Workbench">
               <arguments>
                 <argument id="uiConnectionName">
