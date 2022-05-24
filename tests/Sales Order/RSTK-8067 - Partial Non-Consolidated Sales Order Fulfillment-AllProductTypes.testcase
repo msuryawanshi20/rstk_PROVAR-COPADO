@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="6">
+<testCase id="15">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="Connection Step">
@@ -53,60 +53,146 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="47" title="Read On Hand Qty Before SO Shipment">
-      <tags>
-        <string>disabled</string>
-      </tags>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="84" title="Read Excel Path">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Excel Path</value>
+        </argument>
+      </arguments>
+      <parameterValueSources/>
+      <clauses>
+        <clause name="hidden" testItemId="67">
+          <steps>
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="334">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="ExcelPath_SOAPI">
+                  <name class="value" valueClass="string">ExcelPath_SOAPI</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SalesOrder_BaseData_SOAPI">
+                  <name class="value" valueClass="string">ExcelPath_SalesOrder_BaseData_SOAPI</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_CustomerMaster">
+                  <name class="value" valueClass="string">ExcelPath_CustomerMaster</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SYDATA">
+                  <name class="value" valueClass="string">ExcelPath_SYDATA</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_AR">
+                  <name class="value" valueClass="string">ExcelPath_AR</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_MRP">
+                  <name class="value" valueClass="string">ExcelPath_MRP</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_FSL">
+                  <name class="value" valueClass="string">ExcelPath_FSL</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SOSetup">
+                  <name class="value" valueClass="string">ExcelPath_SOSetup</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SalesOrder_BaseData_SingleLine">
+                  <name class="value" valueClass="string">ExcelPath_SalesOrder_BaseData_SingleLine</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="335" title="Read Data">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Read Data</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="SrcData_InvyQty" variableScope="Test">
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="variable">
+              <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+            </workbookPath>
+            <worksheetName class="value" valueClass="string">InventoryQuantity</worksheetName>
+          </sourceValue>
+        </parameterValueSource>
+        <parameterValueSource variableName="SourceData_SOHeader" variableScope="Test">
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="variable">
+              <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+            </workbookPath>
+            <worksheetName class="value" valueClass="string">AddHeader</worksheetName>
+          </sourceValue>
+        </parameterValueSource>
+        <parameterValueSource variableName="SourceData_SOLine" variableScope="Test">
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="variable">
+              <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+            </workbookPath>
+            <worksheetName class="value" valueClass="string">AddLine_Partial</worksheetName>
+          </sourceValue>
+        </parameterValueSource>
+        <parameterValueSource variableName="SourceData_SOFulfillment" variableScope="Test">
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="variable">
+              <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+            </workbookPath>
+            <worksheetName class="value" valueClass="string">SOFulfillment_Partial</worksheetName>
+          </sourceValue>
+        </parameterValueSource>
+        <parameterValueSource variableName="SourceData_Requirements" variableScope="Test">
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="variable">
+              <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+            </workbookPath>
+            <worksheetName class="value" valueClass="string">Requirements_Partial</worksheetName>
+          </sourceValue>
+        </parameterValueSource>
+        <parameterValueSource variableName="SourceData_SOORDDMD" variableScope="Test">
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="variable">
+              <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+            </workbookPath>
+            <worksheetName class="value" valueClass="string">SOORDDMD_Partial</worksheetName>
+          </sourceValue>
+        </parameterValueSource>
+        <parameterValueSource variableName="SourceData_Dimensions" variableScope="Test">
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="variable">
+              <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+            </workbookPath>
+            <worksheetName class="value" valueClass="string">Dimensions</worksheetName>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+      <clauses>
+        <clause name="hidden" testItemId="92"/>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="86" title="Read On Hand Qty Before SO Shipment">
+      <tags/>
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read On Hand Qty Before SO Shipment</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData_InventoryQuantity" variableScope="Test">
-          <cacheToken>C:/Users/Ashok/Provar/WorkspaceMy1/Test_RSTK_1/templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx;1617815186466</cacheToken>
-          <cachedParameters>
-            <apiParam name="ItemNumber"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8067-Partial Non-Consolidated Sales Order Fulfillment-AllProductTypes.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">InventoryQuantity</worksheetName>
-            <valuesRange class="value"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
       <clauses>
-        <clause name="hidden" testItemId="48">
+        <clause name="hidden" testItemId="93">
           <steps>
-            <caseCall testCaseId="82afd0f5-2599-497c-b4e0-7a8cfb8a24c3" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Verify Inventory Quantity.testcase" testItemId="76">
-              <arguments>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
-                </argument>
-                <argument id="SourceData_InventoryQuantity">
-                  <value class="variable">
-                    <path element="SourceData_InventoryQuantity"/>
-                  </value>
-                </argument>
-              </arguments>
-              <outputArguments>
-                <outputArgument id="QtyOnHand">
-                  <name class="value" valueClass="string">QtyOnHand</name>
-                </outputArgument>
-              </outputArguments>
-            </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="54" title="Set Values: QtyBefore">
-              <tags/>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="94" title="Set Values: wb_Quantitypath">
               <arguments>
                 <argument id="values">
                   <value class="valueList" mutable="Mutable">
                     <namedValues mutable="Mutable">
                       <namedValue name="valuePath">
-                        <value class="value" valueClass="string">QtyBefore</value>
+                        <value class="value" valueClass="string">wb_Quantitypath</value>
                       </namedValue>
                       <namedValue name="value">
                         <value class="variable">
-                          <path element="QtyOnHand"/>
+                          <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
                         </value>
                       </namedValue>
                       <namedValue name="valueScope">
@@ -117,6 +203,65 @@
                 </argument>
               </arguments>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="95" title="Set Values: ws_quantity">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ws_quantity</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="value" valueClass="string">InventoryQuantity</value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <caseCall testCaseId="fb25e9f2-c38a-44b3-90f8-52830d59d796" testCasePath="tests/PO_SYDATA/Callable/Inventory QuantityOnHand.testcase" testItemId="87">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="SrcData_InvyQty">
+                  <value class="variable">
+                    <path element="SrcData_InvyQty"/>
+                  </value>
+                </argument>
+                <argument id="wb_Quantitypath">
+                  <value class="variable">
+                    <path element="wb_Quantitypath"/>
+                  </value>
+                </argument>
+                <argument id="ws_quantity">
+                  <value class="variable">
+                    <path element="ws_quantity"/>
+                  </value>
+                </argument>
+                <argument id="Quantity">
+                  <value class="value" valueClass="string">QuantityBefore</value>
+                </argument>
+                <argument id="ExcelPath_SalesOrder_BaseData_SOAPI">
+                  <value class="variable">
+                    <path element="ExcelPath_SalesOrder_BaseData_SOAPI"/>
+                  </value>
+                </argument>
+                <argument id="ExcelPath_SalesOrder_BaseData_SingleLine">
+                  <value class="variable">
+                    <path element="ExcelPath_SalesOrder_BaseData_SingleLine"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="QtyOnHand">
+                  <name class="value" valueClass="string">QtyOnHand</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
           </steps>
         </clause>
       </clauses>
@@ -127,19 +272,7 @@
           <value class="value" valueClass="string">Create Sales Order Header</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData_SOHeader" variableScope="Test">
-          <cacheToken>C:/Users/Ashok/Provar/WorkspaceMy1/Test_RSTK_1/templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx;1617815186466</cacheToken>
-          <cachedParameters>
-            <apiParam name="Customer"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8067-Partial Non-Consolidated Sales Order Fulfillment-AllProductTypes.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">SOHeader</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
       <clauses>
         <clause name="hidden" testItemId="5">
           <steps>
@@ -171,23 +304,7 @@
           <value class="value" valueClass="string">Add Sales Order Line</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData_SOLine" variableScope="Test">
-          <cacheToken>C:/Users/Ashok/Provar/WorkspaceMy1/Test_RSTK_1/templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx;1617815186466</cacheToken>
-          <cachedParameters>
-            <apiParam name="ProductType"/>
-            <apiParam name="Product"/>
-            <apiParam name="QtyOrdered"/>
-            <apiParam name="UnitPrice"/>
-            <apiParam name="DiscountPct"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8067-Partial Non-Consolidated Sales Order Fulfillment-AllProductTypes.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">SOLine</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
       <clauses>
         <clause name="hidden" testItemId="9">
           <steps>
@@ -228,20 +345,7 @@
           <value class="value" valueClass="string">Perform Sales Order Fulfillment</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData_SOFulfillment" variableScope="Test">
-          <cacheToken>C:/Users/Ashok/Provar/WorkspaceMy1/Test_RSTK_1/templates/RSTK8066-Non-Consolidated Sales Order Fulfillment.xlsx;1618153461770</cacheToken>
-          <cachedParameters>
-            <apiParam name="Partial_OR_Complete"/>
-            <apiParam name="ProcessQuantity"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8067-Partial Non-Consolidated Sales Order Fulfillment-AllProductTypes.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">SOFulfillment</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
       <clauses>
         <clause name="hidden" testItemId="68">
           <steps>
@@ -327,23 +431,7 @@
           <value class="value" valueClass="string">Verify Requirements</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData_Requirements" variableScope="Test">
-          <cacheToken>C:/Users/Ashok/Provar/WorkspaceMy1/Test_RSTK_1/templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx;1617708368412</cacheToken>
-          <cachedParameters>
-            <apiParam name="OrderType"/>
-            <apiParam name="Status"/>
-            <apiParam name="ParentItemNo"/>
-            <apiParam name="QtyRequired"/>
-            <apiParam name="QtyRemaining"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8067-Partial Non-Consolidated Sales Order Fulfillment-AllProductTypes.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">Requirements</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
       <clauses>
         <clause name="hidden" testItemId="32">
           <steps>
@@ -374,19 +462,7 @@
           <value class="value" valueClass="string">Verify Sales Order Demand</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData_SOORDDMD" variableScope="Test">
-          <cacheToken>C:/Users/Ashok/Provar/WorkspaceMy1/Test_RSTK_1/templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx;1617708368412</cacheToken>
-          <cachedParameters>
-            <apiParam name="Customer"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8067-Partial Non-Consolidated Sales Order Fulfillment-AllProductTypes.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">SOORDDMD</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
       <clauses>
         <clause name="hidden" testItemId="36">
           <steps>
@@ -417,19 +493,7 @@
           <value class="value" valueClass="string">Verify Dimensions</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData_Dimensions" variableScope="Test">
-          <cacheToken>C:/Users/Ashok/Provar/WorkspaceMy1/Test_RSTK_1/templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx;1617538690394</cacheToken>
-          <cachedParameters>
-            <apiParam name="Customer"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8067-Partial Non-Consolidated Sales Order Fulfillment-AllProductTypes.xlsx</workbookPath>
-            <worksheetName class="value" valueClass="string">Dimensions</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
       <clauses>
         <clause name="hidden" testItemId="41">
           <steps>
@@ -454,40 +518,39 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="60" title="Read On Hand Qty After SO Shipment">
-      <tags>
-        <string>disabled</string>
-      </tags>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="101" title="Read On Hand Qty After SO Shipment">
+      <tags/>
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">Read On Hand Qty Before SO Shipment</value>
+          <value class="value" valueClass="string">Read On Hand Qty After SO Shipment</value>
         </argument>
       </arguments>
-      <parameterValueSources>
-        <parameterValueSource variableName="SourceData_InventoryQuantity" variableScope="Test">
-          <cacheToken>C:/Users/Ashok/Provar/WorkspaceMy1/Test_RSTK_1/templates/RSTK8065-Consolidated Sales Order Fulfillment.xlsx;1617815186466</cacheToken>
-          <cachedParameters>
-            <apiParam name="Customer"/>
-          </cachedParameters>
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="value" valueClass="string">templates/RSTK8067-Partial Non-Consolidated Sales Order Fulfillment-AllProductTypes.xlsx</workbookPath>
-            <worksheetName class="value"/>
-            <valuesRange class="value"/>
-          </sourceValue>
-        </parameterValueSource>
-      </parameterValueSources>
+      <parameterValueSources/>
       <clauses>
-        <clause name="hidden" testItemId="61">
+        <clause name="hidden" testItemId="100">
           <steps>
-            <caseCall testCaseId="82afd0f5-2599-497c-b4e0-7a8cfb8a24c3" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Verify Inventory Quantity.testcase" testItemId="82">
+            <caseCall testCaseId="fb25e9f2-c38a-44b3-90f8-52830d59d796" testCasePath="tests/PO_SYDATA/Callable/Inventory QuantityOnHand.testcase" testItemId="102">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
-                <argument id="SourceData_InventoryQuantity">
+                <argument id="SrcData_InvyQty">
                   <value class="variable">
-                    <path element="SourceData_InventoryQuantity"/>
+                    <path element="SrcData_InvyQty"/>
                   </value>
+                </argument>
+                <argument id="wb_Quantitypath">
+                  <value class="variable">
+                    <path element="wb_Quantitypath"/>
+                  </value>
+                </argument>
+                <argument id="ws_quantity">
+                  <value class="variable">
+                    <path element="ws_quantity"/>
+                  </value>
+                </argument>
+                <argument id="Quantity">
+                  <value class="value" valueClass="string">QuantityAfter</value>
                 </argument>
               </arguments>
               <outputArguments>
@@ -496,78 +559,19 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="63" title="Set Values: QtyAfter">
-              <tags/>
-              <arguments>
-                <argument id="values">
-                  <value class="valueList" mutable="Mutable">
-                    <namedValues mutable="Mutable">
-                      <namedValue name="valuePath">
-                        <value class="value" valueClass="string">QtyAfter</value>
-                      </namedValue>
-                      <namedValue name="value">
-                        <value class="variable">
-                          <path element="QtyOnHand"/>
-                        </value>
-                      </namedValue>
-                      <namedValue name="valueScope">
-                        <value class="value" valueClass="string">Test</value>
-                      </namedValue>
-                    </namedValues>
-                  </value>
-                </argument>
-              </arguments>
-            </apiCall>
           </steps>
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="66" title="Assert: {QtyBefore - SourceData_SOFulfillment.ProcessQuantity} EqualTo {QtyAfter}">
-      <tags>
-        <string>disabled</string>
-      </tags>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="336" title="End">
       <arguments>
-        <argument id="expectedValue">
-          <value class="sub">
-            <lhs class="variable">
-              <path element="QtyBefore"/>
-            </lhs>
-            <rhs class="variable">
-              <path element="SourceData_SOFulfillment"/>
-              <path element="ProcessQuantity"/>
-            </rhs>
-          </value>
-        </argument>
-        <argument id="actualValue">
-          <value class="variable">
-            <path element="QtyAfter"/>
-          </value>
-        </argument>
-        <argument id="comparisonType">
-          <value class="value" valueClass="string">EqualTo</value>
-        </argument>
-        <argument id="caseSensitive">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="numeric">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="retainDecimals">
-          <value class="value" valueClass="boolean">true</value>
-        </argument>
-        <argument id="nullGreater">
-          <value class="value" valueClass="boolean">false</value>
-        </argument>
-        <argument id="matchMultiLine">
-          <value class="value" valueClass="boolean">false</value>
-        </argument>
-        <argument id="matchDotAll">
-          <value class="value" valueClass="boolean">false</value>
-        </argument>
-        <argument id="failureMessage">
-          <value class="value" valueClass="string">Quantity On hand Not Updated</value>
+        <argument id="description">
+          <value class="value" valueClass="string">End</value>
         </argument>
       </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="337"/>
+      </clauses>
     </apiCall>
   </steps>
   <outputParams>
