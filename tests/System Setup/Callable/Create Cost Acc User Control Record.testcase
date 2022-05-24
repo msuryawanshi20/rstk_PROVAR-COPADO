@@ -2,13 +2,13 @@
 <testCase failureBehaviour="Continue" id="3" registryId="312349cb-5b8d-4cb6-98da-0af72e54902a" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: QARSF_Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -50,7 +50,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="2" title="On MyPageObject page">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="ui:pageobject:target?pageId=pageobjects.MyPageObject"/>
@@ -144,10 +144,10 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="5" title="On SF Rootstock Site Map tab">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?page=rstk__Manufacturing&amp;tab=rstk__Rootstock_Site_Map&amp;pageObject=pageobjects.rstk__Manufacturing&amp;application=Force_com"/>
+          <value class="uiTarget" uri="sf:ui:target?pageObject=pageobjects.rstk__Manufacturing&amp;tab=rstk__Rootstock_Site_Map&amp;application=rstk__Force_com"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Dont</value>
@@ -167,6 +167,9 @@
         </argument>
         <argument id="captureAfter">
           <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="sfUiTargetVfIndex">
+          <value class="value" valueClass="string">1</value>
         </argument>
       </arguments>
       <clauses>
@@ -212,11 +215,12 @@
           </steps>
         </clause>
       </clauses>
+      <generatedParameters/>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="8" title="On MyPageObject page">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="ui:pageobject:target?pageId=pageobjects.MyPageObject"/>
@@ -296,7 +300,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="11" title="On SF rstk__Csusracctcntl page with pageobject Rstk__ Csusracctcntl">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?page=rstk__Csusracctcntl&amp;pageObject=pageobjects.rstk__Csusracctcntl"/>

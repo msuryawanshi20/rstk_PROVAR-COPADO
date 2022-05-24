@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="47">
+<testCase failureBehaviour="Continue" id="41">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -198,12 +198,12 @@
         </clause>
         <clause name="else" testItemId="1007">
           <steps>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="1008" title="If: {GetSelectedEnvironment() = &quot;AutomationOrgOrg&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="1008" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
                     <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                    <rhs class="value" valueClass="string">AutomationOrgOrg</rhs>
+                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
                   </value>
                 </argument>
               </arguments>
@@ -234,7 +234,7 @@
                             <apiParam name="TxnComment"/>
                           </cachedParameters>
                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="None">
-                            <workbookPath class="value" valueClass="string">templates/AutomationOrgOrg/LocationToLocation.xlsx</workbookPath>
+                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/LocationToLocation.xlsx</workbookPath>
                             <worksheetName class="value" valueClass="string">RSTK-8173-SRL-Existing loc</worksheetName>
                             <valuesRange class="value" valueClass="string">A:K</valuesRange>
                           </sourceValue>

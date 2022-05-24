@@ -6,7 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
@@ -167,8 +169,13 @@ public class rstk__Stocklocmove {
 
 	public String readSelectedSerialNumber() throws InterruptedException {
 
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+		String elementLocator = "//textarea[contains(@name,'pbs_locmoveentries')]";
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(elementLocator)));
+
 		Thread.sleep(2000);
-		WebElement ele = driver.findElement(By.xpath("//textarea[contains(@name,'pbs_locmoveentries')]"));
+		WebElement ele = driver.findElement(By.xpath(elementLocator));
 		testLogger.info("serial Numbers" + ele.getAttribute("value"));
 
 		return ele.getText();

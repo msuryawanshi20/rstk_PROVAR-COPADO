@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="21">
+<testCase failureBehaviour="Continue" id="21">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: QARSF_Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -181,7 +181,7 @@
             <caseCall testCaseId="ee2ffa48-29cd-46fb-969c-00ab27f841f7" testCasePath="tests/System Setup/Callable/Create Inventory Commodity Code.testcase" testItemId="93">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">QARSF_Admin</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="ip_ComCodField">
                   <value class="variable">
@@ -395,7 +395,7 @@
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="35" title="On SF rstk__Iccomcod page with pageobject Rstk__ Iccomcod">
                       <arguments>
                         <argument id="uiConnectionName">
-                          <value class="value" valueClass="string">QARSF_Admin</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="target">
                           <value class="uiTarget" uri="sf:ui:target?page=rstk__Iccomcod&amp;pageObject=pageobjects.rstk__Iccomcod"/>
@@ -746,7 +746,7 @@
                             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="254" title="On SF rstk__Iccomcod page with pageobject Rstk__ Iccomcod">
                               <arguments>
                                 <argument id="uiConnectionName">
-                                  <value class="value" valueClass="string">QARSF_Admin</value>
+                                  <value class="value" valueClass="string">SFConnection</value>
                                 </argument>
                                 <argument id="target">
                                   <value class="uiTarget" uri="sf:ui:target?page=rstk__Iccomcod&amp;pageObject=pageobjects.rstk__Iccomcod"/>
@@ -960,7 +960,7 @@
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="331" title="On SF rstk__Iccomcod page with pageobject Rstk__ Iccomcod">
                       <arguments>
                         <argument id="uiConnectionName">
-                          <value class="value" valueClass="string">QARSF_Admin</value>
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="target">
                           <value class="uiTarget" uri="sf:ui:target?page=rstk__Iccomcod&amp;pageObject=pageobjects.rstk__Iccomcod"/>

@@ -53,6 +53,7 @@ public class rstk__Wocst {
 				.findElements(By.xpath("//div[@class='ac_results'][1]/ul[@id='IDREF']/li"));
 
 		for (int i = 0; i < autoCompleteList.size(); i++) {
+		Thread.sleep(2000);
 			actions.moveToElement(autoCompleteList.get(i)).build().perform();
 			if (autoCompleteList.get(i).getText().startsWith(InventoryItemName)) {
 				actions.moveToElement(autoCompleteList.get(i)).click().build().perform();

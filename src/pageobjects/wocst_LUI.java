@@ -15,15 +15,10 @@ import com.provar.core.testapi.annotations.LinkType;
 import com.provar.core.testapi.annotations.Page;
 import com.provar.core.testapi.annotations.TextType;
 
+@Page(title = "wocst_LUI", summary = "", relativeUrl = "", connection = "QARSF_Admin"
 
+)
 
-@Page( title="wocst_LUI"                                
-     , summary=""
-     , relativeUrl=""
-     , connection="QARSF_Admin"
-     
-     )
-     
 public class wocst_LUI {
 
 	public WebDriver driver;
@@ -204,5 +199,20 @@ public class wocst_LUI {
 	@LinkType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Issue']")
 	public WebElement issue;
+
+	public void enterIssueFrom(String IssueFrom) {
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+		String locator = "//label[text()='Issue from:' or text()='Select a Location Id']/parent::div//following::input[1]";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+		driver.findElement(By.xpath(locator)).sendKeys(IssueFrom);
+		String autoComplete = "//label[text()='Issue from:' or text()='Select a Location Id']/parent::div//following::ul[@role='listbox']/li";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(autoComplete)));
+		driver.findElement(By.xpath(autoComplete)).click();
+	}
+
+	@TextType()
+	@FindBy(xpath = "//input[@name='Quantity_To_Issue']")
+	public WebElement quantityToIssue;
 
 }
