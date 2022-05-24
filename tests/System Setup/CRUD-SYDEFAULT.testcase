@@ -2,13 +2,13 @@
 <testCase failureBehaviour="Continue" id="2">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: QARSF_Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -177,7 +177,7 @@
             <caseCall testCaseId="38698eae-2957-40da-a5c2-563e500a7223" testCasePath="tests/System Setup/Callable/Edit SYDEFAULT.testcase" testItemId="248">
               <arguments>
                 <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">QARSF_Admin</value>
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="ip_SOAck">
                   <value class="variable">
@@ -246,12 +246,10 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="14" title="On SF System Defaults Edit screen">
-      <tags>
-        <string>disabled</string>
-      </tags>
+      <tags/>
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=rstk__sydefault__c&amp;action=Edit"/>
@@ -282,7 +280,7 @@
       <clauses>
         <clause name="substeps" testItemId="15">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="16" title="Set the Override Form Tool - Sales Order Ack. picklist to Email Template">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="16" title="Set the Override Form Tool - Sales Order Ack. picklist to No Override">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=rstk__sydefault_formovr_ack__c&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3Drstk__sydefault__c%26field%3Drstk__sydefault_formovr_ack__c"/>
@@ -291,7 +289,7 @@
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
                 <argument id="value">
-                  <value class="value" valueClass="string">Email Template</value>
+                  <value class="value" valueClass="string">No Override</value>
                 </argument>
                 <argument id="blur">
                   <value class="value" valueClass="boolean">false</value>
@@ -312,24 +310,28 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Override Form Tool - Sales Order Ack. picklist to Email Template</value>
+                  <value class="value" valueClass="string">Set the Override Form Tool - Sales Order Ack. picklist to No Override</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="value" title="Value">
+                <apiParam group="value" modelBinding="sf:ui:binding:object?object=rstk__sydefault__c&amp;field=rstk__sydefault_formovr_ack__c" name="value" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
-                    <textType/>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="boundedValues">No Override:No Override|Email Template:Email Template|RootForms:RootForms</valueConstraint>
+                      </constraints>
+                    </choiceType>
                   </type>
                 </apiParam>
-                <apiParam group="value" name="blur" title="Tab off field">
+                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
                   <summary>Whether the tab key should be pressed after the value is populated.</summary>
                   <type>
                     <booleanType/>
                   </type>
                 </apiParam>
-                <apiParam group="value" name="pressEnter" title="Press Enter">
+                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
                   <summary>Whether the Enter key should be pressed after the value is populated.</summary>
                   <type>
                     <booleanType/>

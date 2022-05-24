@@ -2,13 +2,13 @@
 <testCase failureBehaviour="Continue" id="2" registryId="38698eae-2957-40da-a5c2-563e500a7223" visibility="Internal">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: QARSF_Admin (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
         </argument>
         <argument id="resultName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="resultScope">
           <value class="value" valueClass="string">Test</value>
@@ -50,7 +50,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="2" title="On MyPageObject page">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="ui:pageobject:target?pageId=pageobjects.MyPageObject"/>
@@ -144,7 +144,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="5" title="On SF Rootstock Site Map tab">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?tab=rstk__Rootstock_Site_Map&amp;application=rstk__Force_com&amp;pageObject=pageobjects.rstk__Manufacturing"/>
@@ -202,12 +202,26 @@
                   <value class="value" valueClass="string">Click the System Defaults button</value>
                 </argument>
                 <argument id="autoRetry"/>
+                <argument id="ieClickMethod">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="hover" title="Hover before Clicking">
+                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
                   <summary>Whether the mouse should hover over the field before it is clicked.</summary>
                   <type>
                     <booleanType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                  <summary>How the click should be executed for Internet Explorer.</summary>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                      </constraints>
+                    </choiceType>
                   </type>
                 </apiParam>
               </generatedParameters>
@@ -220,7 +234,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="8" title="On MyPageObject page">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="ui:pageobject:target?pageId=pageobjects.MyPageObject"/>
@@ -276,12 +290,26 @@
                   <value class="value" valueClass="string">Click the Name</value>
                 </argument>
                 <argument id="autoRetry"/>
+                <argument id="ieClickMethod">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="hover" title="Hover before Clicking">
+                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
                   <summary>Whether the mouse should hover over the field before it is clicked.</summary>
                   <type>
                     <booleanType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                  <summary>How the click should be executed for Internet Explorer.</summary>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                      </constraints>
+                    </choiceType>
                   </type>
                 </apiParam>
               </generatedParameters>
@@ -300,7 +328,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="11" title="On SF System Defaults View screen">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=rstk__sydefault__c&amp;action=View"/>
@@ -397,7 +425,7 @@
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="14" title="On SF System Defaults Edit screen">
       <arguments>
         <argument id="uiConnectionName">
-          <value class="value" valueClass="string">QARSF_Admin</value>
+          <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
           <value class="uiTarget" uri="sf:ui:target?object=rstk__sydefault__c&amp;action=Edit"/>

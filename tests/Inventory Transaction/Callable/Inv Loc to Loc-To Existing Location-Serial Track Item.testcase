@@ -825,7 +825,7 @@
                                   <value class="value" valueClass="string">Call the readSelectedSerialNumber method</value>
                                 </argument>
                                 <argument id="beforeWait">
-                                  <value class="uiWait" uri="ui:wait:timed?seconds=3"/>
+                                  <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
                                 </argument>
                                 <argument id="afterWait"/>
                                 <argument id="autoRetry"/>

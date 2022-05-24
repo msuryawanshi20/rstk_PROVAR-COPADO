@@ -302,6 +302,9 @@
         <argument id="captureAfter">
           <value class="value" valueClass="string">false</value>
         </argument>
+        <argument id="sfUiTargetVfIndex">
+          <value class="value" valueClass="string">1</value>
+        </argument>
       </arguments>
       <clauses>
         <clause name="substeps" testItemId="12">
@@ -1012,6 +1015,14 @@
           </steps>
         </clause>
       </clauses>
+      <generatedParameters>
+        <apiParam group="target" name="sfUiTargetVfIndex" title="Page Index">
+          <summary>The VF page index. This is by default 1 and is used when there is same VF embedded multiple times</summary>
+          <type>
+            <numericType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
     </apiCall>
   </steps>
   <params>

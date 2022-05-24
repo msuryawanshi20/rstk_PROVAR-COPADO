@@ -255,7 +255,10 @@
                           </value>
                         </argument>
                         <argument id="ip_ProjectChargeCode">
-                          <value class="invalid">{OP_WorkOrderRow.ProjectChargeCode</value>
+                          <value class="variable">
+                            <path element="OP_WorkOrderRow"/>
+                            <path element="ProjectChargeCode"/>
+                          </value>
                         </argument>
                         <argument id="ip_reworkFlag">
                           <value class="value" valueClass="string">false</value>
@@ -930,7 +933,36 @@
                 </argument>
               </arguments>
               <clauses>
-                <clause name="hidden" testItemId="250"/>
+                <clause name="hidden" testItemId="250">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="251" title="Read Work Order components data">
+                      <tags/>
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">select ID, Name, rstk__woorddmd_compqty_ordqty_ui__c, rstk__woorddmd_compitem__c, rstk__woorddmd_compitem__r.name, rstk__woorddmd_qtyiss__c from rstk__woorddmd__c where rstk__woorddmd_ordno__r.id='</value>
+                              <variable>
+                                <path element="op_WORecID"/>
+                                <path element="ID"/>
+                              </variable>
+                              <value valueClass="string">'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">op_woorddmd</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
               </clauses>
             </apiCall>
           </steps>
