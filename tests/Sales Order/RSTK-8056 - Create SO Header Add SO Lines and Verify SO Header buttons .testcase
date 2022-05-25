@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-
-<testCase id="2">
-
+<testCase id="11">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="32" title="Salesforce Connect: SFConnection (Test)">
@@ -150,19 +148,19 @@
               </clauses>
               <generatedParameters/>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="588" title="On SF Sales Order Header All list view">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="588" title="On SF Sales Order Header New screen">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="target">
-                  <value class="uiTarget" uri="sf:ui:target?object=rstk__sohdr__c&amp;action=List&amp;listView=rstk__All7"/>
+                  <value class="uiTarget" uri="sf:ui:target?object=rstk__sohdr__c&amp;action=New"/>
                 </argument>
                 <argument id="navigate">
                   <value class="value" valueClass="string">Dont</value>
                 </argument>
                 <argument id="targetDescription">
-                  <value class="value" valueClass="string">On SF Sales Order Header All list view</value>
+                  <value class="value" valueClass="string">On SF Sales Order Header New screen</value>
                 </argument>
                 <argument id="windowSelection">
                   <value class="value" valueClass="string">Default</value>
@@ -185,7 +183,9 @@
                 <clause name="substeps" testItemId="589">
                   <steps>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="590" title="Click the New button">
-                      <tags/>
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:locator?name=New&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3Drstk__sohdr__c%26action%3DNew"/>
@@ -239,7 +239,27 @@
                   </steps>
                 </clause>
               </clauses>
-              <generatedParameters/>
+              <generatedParameters>
+                <apiParam group="result" name="sfUiTargetResultName" resultNameParameter="true" title="Result Name">
+                  <summary>The name under which the resulting Object Id will be stored.</summary>
+                  <type>
+                    <textType/>
+                  </type>
+                  <resultValueClasses>
+                    <string>ApexObjectId</string>
+                  </resultValueClasses>
+                </apiParam>
+                <apiParam group="result" name="sfUiTargetResultScope" title="Result Scope">
+                  <summary>The life-span of the resulting identifiers.</summary>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="boundedValues">Global:Test Run|Folder:Test Folder|Test:Test Case|GroupStep:Group Step|Local:Test Step</valueConstraint>
+                      </constraints>
+                    </choiceType>
+                  </type>
+                </apiParam>
+              </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="591" title="Create SO Header">
               <arguments>
@@ -8947,19 +8967,19 @@
       </clauses>
       <generatedParameters/>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="738" title="On SF Sales Order Header All list view">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="738" title="On SF Sales Order Header Home screen">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?object=rstk__sohdr__c&amp;action=List&amp;listView=rstk__All7"/>
+          <value class="uiTarget" uri="sf:ui:target?object=rstk__sohdr__c&amp;action=ObjectHome"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Dont</value>
         </argument>
         <argument id="targetDescription">
-          <value class="value" valueClass="string">On SF Sales Order Header All list view</value>
+          <value class="value" valueClass="string">On SF Sales Order Header Home screen</value>
         </argument>
         <argument id="windowSelection">
           <value class="value" valueClass="string">Default</value>
@@ -8980,21 +9000,21 @@
         <argument id="sfUiTargetVfIndex">
           <value class="value" valueClass="string">1</value>
         </argument>
+        <argument id="sfUiTargetObjectId"/>
       </arguments>
       <clauses>
         <clause name="substeps" testItemId="739">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="740" title="Click the New button">
-              <tags/>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="928" title="Click the New button">
               <arguments>
                 <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=New&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3Drstk__sohdr__c%26action%3DNew"/>
+                  <value class="uiLocator" uri="ui:locator?name=New&amp;binding=sf%3Aui%3Abinding%3Aobject%3Fobject%3Drstk__sohdr__c%26field%3DNew"/>
                 </argument>
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=action"/>
                 </argument>
                 <argument id="hover">
-                  <value class="value" valueClass="boolean">false</value>
+                  <value class="value" valueClass="boolean">true</value>
                 </argument>
                 <argument id="captureBefore">
                   <value class="value" valueClass="string">false</value>
@@ -9003,10 +9023,10 @@
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="beforeWait">
-                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                  <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                  <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the New button</value>
@@ -11240,6 +11260,9 @@
                                       </generatedParameters>
                                     </apiCall>
                                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="914" title="Set the Discount Pct field to {SOLine.DiscountPct}">
+                                      <tags>
+                                        <string>disabled</string>
+                                      </tags>
                                       <arguments>
                                         <argument id="locator">
                                           <value class="uiLocator" uri="ui:locator?name=discountPct"/>
