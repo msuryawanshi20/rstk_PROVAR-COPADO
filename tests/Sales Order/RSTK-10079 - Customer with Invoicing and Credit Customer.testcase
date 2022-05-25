@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="3">
+<testCase id="16">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -73,6 +73,18 @@
                 </outputArgument>
                 <outputArgument id="ExcelPath_AR">
                   <name class="value" valueClass="string">ExcelPath_AR</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_MRP">
+                  <name class="value" valueClass="string">ExcelPath_MRP</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_FSL">
+                  <name class="value" valueClass="string">ExcelPath_FSL</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SOSetup">
+                  <name class="value" valueClass="string">ExcelPath_SOSetup</name>
+                </outputArgument>
+                <outputArgument id="ExcelPath_SalesOrder_BaseData_SingleLine">
+                  <name class="value" valueClass="string">ExcelPath_SalesOrder_BaseData_SingleLine</name>
                 </outputArgument>
               </outputArguments>
             </caseCall>
