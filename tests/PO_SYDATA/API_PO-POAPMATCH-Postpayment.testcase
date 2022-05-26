@@ -731,15 +731,15 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="283" title="If: {TxnStatus != Posted}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="283" title="If: {TxnStatus = Closed}">
                       <arguments>
                         <argument id="condition">
-                          <value class="ne">
+                          <value class="eq">
                             <lhs class="variable">
                               <path element="TxnStatus"/>
                             </lhs>
                             <rhs class="variable">
-                              <path element="Posted"/>
+                              <path element="Closed"/>
                             </rhs>
                           </value>
                         </argument>

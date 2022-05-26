@@ -38,7 +38,7 @@
         <argument id="securityToken"/>
         <argument id="environment"/>
         <argument id="lightningMode">
-          <value class="value" valueClass="string">enable</value>
+          <value class="value" valueClass="string">disable</value>
         </argument>
         <argument id="webBrowser"/>
       </arguments>
@@ -412,18 +412,130 @@
                 </argument>
               </arguments>
             </caseCall>
-            <caseCall testCaseId="48beb1a7-523f-4cd2-809e-43cab11c401d" testCasePath="tests/Account Payable/Callable/POPaySession.testcase" testItemId="245">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="248" title="Post Payable Transaction">
               <arguments>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
-                </argument>
-                <argument id="INVNO">
-                  <value class="variable">
-                    <path element="InvoiceNum"/>
-                  </value>
+                <argument id="description">
+                  <value class="value" valueClass="string">Post Payable Transaction</value>
                 </argument>
               </arguments>
-            </caseCall>
+              <clauses>
+                <clause name="hidden" testItemId="280">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="282" title="SOQL Query: select Id,Name,rstkf__apinvtxn_apinvh__c,rstkf__apinvtxn_unapplamtmaint__c,rstkf__apinvtxn_amtapplmaint__c,rstkf__apinvtxn_status__c from rstkf__apinvtxn__c where Name like '{InvoiceNum}%'=&gt;apinvtxn">
+                      <tags/>
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">select Id,Name,rstkf__apinvtxn_apinvh__c,rstkf__apinvtxn_unapplamtmaint__c,rstkf__apinvtxn_amtapplmaint__c,rstkf__apinvtxn_status__c from rstkf__apinvtxn__c where Name like '</value>
+                              <variable>
+                                <path element="InvoiceNum"/>
+                              </variable>
+                              <value valueClass="string">%'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">apinvtxn</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="288" title="Set Values: TXNID">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">TXNID</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="apinvtxn"/>
+                                  <path element="Id"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="286" title="Set Values: TxnStatus">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">TxnStatus</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="apinvtxn"/>
+                                  <path element="rstkf__apinvtxn_status__c"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="283" title="If: {TxnStatus = Closed}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="eq">
+                            <lhs class="variable">
+                              <path element="TxnStatus"/>
+                            </lhs>
+                            <rhs class="variable">
+                              <path element="Closed"/>
+                            </rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="284">
+                          <steps>
+                            <caseCall testCaseId="48beb1a7-523f-4cd2-809e-43cab11c401d" testCasePath="tests/Account Payable/Callable/POPaySession.testcase" testItemId="276">
+                              <arguments>
+                                <argument id="reuseConnectionName">
+                                  <value class="variable">
+                                    <path element="reuseConnectionName"/>
+                                  </value>
+                                </argument>
+                                <argument id="INVNO">
+                                  <value class="variable">
+                                    <path element="InvNum"/>
+                                  </value>
+                                </argument>
+                              </arguments>
+                              <outputArguments>
+                                <outputArgument id="aptxnid">
+                                  <name class="value" valueClass="string">aptxnid</name>
+                                </outputArgument>
+                                <outputArgument id="TXNID">
+                                  <name class="value" valueClass="string">TXNID</name>
+                                </outputArgument>
+                              </outputArguments>
+                            </caseCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
             <caseCall testCaseId="bf602e96-0dcf-4bc2-a8d3-ca6b7868740e" testCasePath="tests/Account Payable/Callable/Postpayment.testcase" testItemId="91">
               <arguments>
                 <argument id="reuseConnectionName">
