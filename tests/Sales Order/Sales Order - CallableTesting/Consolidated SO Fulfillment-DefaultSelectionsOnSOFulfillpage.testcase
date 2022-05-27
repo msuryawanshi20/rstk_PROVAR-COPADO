@@ -1281,6 +1281,30 @@
         </argument>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="366" title="SOQL Query: select Id,rstk__soinv_invoice__c,rstk__soinv_invoiceno__c,rstk__soinv_order__c,rstk__soinv_grandtotal__c from rstk__soinv__c where rstk__soinv_invoiceno__c='{Invoice}'=&gt;rstkRows_Invoice">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="compound">
+            <parts>
+              <value valueClass="string">select Id,rstk__soinv_invoice__c,rstk__soinv_invoiceno__c,rstk__soinv_order__c,rstk__soinv_grandtotal__c from rstk__soinv__c where rstk__soinv_invoiceno__c='</value>
+              <variable>
+                <path element="Invoice"/>
+              </variable>
+              <value valueClass="string">'</value>
+            </parts>
+          </value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">rstkRows_Invoice</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Folder</value>
+        </argument>
+      </arguments>
+    </apiCall>
   </steps>
   <params>
     <param linkedToUrl="provar:hasvalue:f83b4760-e2b1-46b5-ab80-f02a9e07c641" name="reuseConnectionName" title="Override Connection">
@@ -1335,6 +1359,20 @@
         <path element="Invoice"/>
       </sourceValue>
     </param>
+    <param name="rstkRows_Invoice" title="rstkRows_Invoice">
+      <summary>The name under which the returned rows will be stored.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="rstkRows_Invoice"/>
+      </sourceValue>
+    </param>
   </outputParams>
   <args>
     <argument id="reuseConnectionName">
@@ -1359,6 +1397,9 @@
     </outputArgument>
     <outputArgument id="OrderNumber">
       <name class="value" valueClass="string">OrderNumber</name>
+    </outputArgument>
+    <outputArgument id="rstkRows_Invoice">
+      <name class="value" valueClass="string">rstkRows_Invoice</name>
     </outputArgument>
   </outputArgs>
 </testCase>
