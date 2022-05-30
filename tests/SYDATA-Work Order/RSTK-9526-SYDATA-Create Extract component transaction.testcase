@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="11">
+<testCase failureBehaviour="Continue" id="5">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -251,7 +251,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <caseCall testCaseId="c6daa6cb-5a01-495d-b74f-629e9d4b23a1" testCasePath="tests/Work Order/Callable/API-Create Work Order.testcase" testItemId="304">
+                    <caseCall testCaseId="c6daa6cb-5a01-495d-b74f-629e9d4b23a1" testCasePath="tests/SYDATA-Work Order/Callable/API-Create Work Order.testcase" testItemId="304">
                       <arguments>
                         <argument id="reuseConnectionName">
                           <value class="value" valueClass="string">SFConnection</value>
@@ -307,84 +307,6 @@
                               </value>
                             </argument>
                           </value>
-                        </argument>
-                        <argument id="ip_reworkFlag">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="ip_refurbFlag">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="ip_consignedFlag">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                      </arguments>
-                      <outputArguments>
-                        <outputArgument id="op_OrderNumber">
-                          <name class="value" valueClass="string">op_OrderNumber</name>
-                        </outputArgument>
-                        <outputArgument id="op_orderStatus">
-                          <name class="value" valueClass="string">op_orderStatus</name>
-                        </outputArgument>
-                      </outputArguments>
-                    </caseCall>
-                    <caseCall testCaseId="77b534bc-0823-462a-aedb-59f401dde9b6" testCasePath="tests/Work Order/Callable/Create Work Order.testcase" testItemId="6">
-                      <tags>
-                        <string>disabled</string>
-                      </tags>
-                      <arguments>
-                        <argument id="reuseConnectionName">
-                          <value class="value" valueClass="string">SFConnection</value>
-                        </argument>
-                        <argument id="ip_site">
-                          <value class="variable">
-                            <path element="op_excelDataRow"/>
-                            <path element="Site"/>
-                          </value>
-                        </argument>
-                        <argument id="ip_OrderNumber">
-                          <value class="compound">
-                            <parts>
-                              <value valueClass="string">Pro-SY_</value>
-                              <funcCall id="UniqueId">
-                                <argument id="length">
-                                  <value class="value" valueClass="decimal">5</value>
-                                </argument>
-                              </funcCall>
-                            </parts>
-                          </value>
-                        </argument>
-                        <argument id="ip_InventoryItemName">
-                          <value class="variable">
-                            <path element="op_excelDataRow"/>
-                            <path element="ItemNumber"/>
-                          </value>
-                        </argument>
-                        <argument id="ip_Qty">
-                          <value class="variable">
-                            <path element="op_excelDataRow"/>
-                            <path element="QtyRequired"/>
-                          </value>
-                        </argument>
-                        <argument id="ip_ProjectName">
-                          <value class="variable">
-                            <path element="op_excelDataRow"/>
-                            <path element="Project"/>
-                          </value>
-                        </argument>
-                        <argument id="ip_ProjectChargeCode">
-                          <value class="variable">
-                            <path element="op_excelDataRow"/>
-                            <path element="ProjectChargeCode"/>
-                          </value>
-                        </argument>
-                        <argument id="ip_dueDate">
-                          <value class="variable">
-                            <path element="op_excelDataRow"/>
-                            <path element="DueDate"/>
-                          </value>
-                        </argument>
-                        <argument id="ip_refurbFlagTrue">
-                          <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="ip_reworkFlag">
                           <value class="value" valueClass="string">false</value>
@@ -539,7 +461,7 @@
                           <value class="value" valueClass="decimal">100000</value>
                         </argument>
                         <argument id="sleepSecs">
-                          <value class="value" valueClass="decimal">1</value>
+                          <value class="value" valueClass="decimal">3</value>
                         </argument>
                         <argument id="continueOnFailure">
                           <value class="value" valueClass="boolean">true</value>

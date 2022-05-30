@@ -162,7 +162,7 @@
       <clauses>
         <clause name="then" testItemId="90">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="91" title="SOQL Query: select Id,rstk__pjproj_wbsact__c from rstk__pjproj__c where name like '%{ip_ProjectName}%'=&gt;Temp_projD">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="91" title="SOQL Query: select Id,rstk__pjproj_wbsact__c from rstk__pjproj__c where name like '%{ip_ProjectName}%'=&gt;Temp_projID">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -179,7 +179,7 @@
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="resultListName">
-                  <value class="value" valueClass="string">Temp_projD</value>
+                  <value class="value" valueClass="string">Temp_projID</value>
                 </argument>
                 <argument id="resultScope">
                   <value class="value" valueClass="string">Test</value>
@@ -193,7 +193,7 @@
                     <parts>
                       <value valueClass="string">Select name,rstk__pjproj_wbsact__c from rstk__pjproj__c where id ='</value>
                       <variable>
-                        <path element="Temp_projD"/>
+                        <path element="Temp_projID"/>
                         <path element="id"/>
                       </variable>
                       <value valueClass="string">'</value>
@@ -330,7 +330,7 @@
       <clauses>
         <clause name="then" testItemId="101">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="102" title="SOQL Query: select id from rstk__pjprojwbs__c where name='{ip_ProjectChargeCode}' and rstk__pjprojwbs_proj__c='{Temp_projD.id}'=&gt;op_ProjectChargeCode">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="102" title="SOQL Query: select id from rstk__pjprojwbs__c where name='{ip_ProjectChargeCode}' and rstk__pjprojwbs_proj__c='{Temp_projID.id}'=&gt;op_ProjectChargeCode">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -341,7 +341,7 @@
                       </variable>
                       <value valueClass="string">' and rstk__pjprojwbs_proj__c='</value>
                       <variable>
-                        <path element="Temp_projD"/>
+                        <path element="Temp_projID"/>
                         <path element="id"/>
                       </variable>
                       <value valueClass="string">'</value>
@@ -401,8 +401,8 @@
         </argument>
         <argument id="rstk__wocst_proj__c">
           <value class="variable">
-            <path element="op_ProjectName"/>
-            <path element="id"/>
+            <path element="Temp_projID"/>
+            <path element="Id"/>
           </value>
         </argument>
         <argument id="rstk__wocst_qtyreq__c">
