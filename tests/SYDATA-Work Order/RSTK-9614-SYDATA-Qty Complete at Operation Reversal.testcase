@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="60">
+<testCase id="57">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="748" title="Salesforce Connect: SFConnection (Test)">
@@ -251,85 +251,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <caseCall testCaseId="77b534bc-0823-462a-aedb-59f401dde9b6" testCasePath="tests/Work Order/Callable/Create Work Order.testcase" testItemId="6">
-                      <tags>
-                        <string>disabled</string>
-                      </tags>
-                      <arguments>
-                        <argument id="reuseConnectionName">
-                          <value class="value" valueClass="string">SFConnection</value>
-                        </argument>
-                        <argument id="ip_site">
-                          <value class="variable">
-                            <path element="op_excelDataRow"/>
-                            <path element="Site"/>
-                          </value>
-                        </argument>
-                        <argument id="ip_OrderNumber">
-                          <value class="compound">
-                            <parts>
-                              <value valueClass="string">Pro-SY_</value>
-                              <funcCall id="UniqueId">
-                                <argument id="length">
-                                  <value class="value" valueClass="decimal">5</value>
-                                </argument>
-                              </funcCall>
-                            </parts>
-                          </value>
-                        </argument>
-                        <argument id="ip_InventoryItemName">
-                          <value class="variable">
-                            <path element="op_excelDataRow"/>
-                            <path element="ItemNumber"/>
-                          </value>
-                        </argument>
-                        <argument id="ip_Qty">
-                          <value class="variable">
-                            <path element="op_excelDataRow"/>
-                            <path element="QtyRequired"/>
-                          </value>
-                        </argument>
-                        <argument id="ip_ProjectName">
-                          <value class="variable">
-                            <path element="op_excelDataRow"/>
-                            <path element="Project"/>
-                          </value>
-                        </argument>
-                        <argument id="ip_ProjectChargeCode">
-                          <value class="variable">
-                            <path element="op_excelDataRow"/>
-                            <path element="ProjectChargeCode"/>
-                          </value>
-                        </argument>
-                        <argument id="ip_dueDate">
-                          <value class="variable">
-                            <path element="op_excelDataRow"/>
-                            <path element="DueDate"/>
-                          </value>
-                        </argument>
-                        <argument id="ip_refurbFlagTrue">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="ip_reworkFlag">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="ip_refurbFlag">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="ip_consignedFlag">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                      </arguments>
-                      <outputArguments>
-                        <outputArgument id="op_OrderNumber">
-                          <name class="value" valueClass="string">op_OrderNumber</name>
-                        </outputArgument>
-                        <outputArgument id="op_orderStatus">
-                          <name class="value" valueClass="string">op_orderStatus</name>
-                        </outputArgument>
-                      </outputArguments>
-                    </caseCall>
-                    <caseCall testCaseId="c6daa6cb-5a01-495d-b74f-629e9d4b23a1" testCasePath="tests/Work Order/Callable/API-Create Work Order.testcase" testItemId="780">
+                    <caseCall testCaseId="c6daa6cb-5a01-495d-b74f-629e9d4b23a1" testCasePath="tests/SYDATA-Work Order/Callable/API-Create Work Order.testcase" testItemId="780">
                       <arguments>
                         <argument id="reuseConnectionName">
                           <value class="value" valueClass="string">SFConnection</value>
@@ -445,12 +367,12 @@
                       <clauses>
                         <clause name="then" testItemId="22">
                           <steps>
-                            <caseCall testCaseId="73d915a8-5080-41fd-af4b-6a1d96e08d4c" testCasePath="tests/Work Order/Callable/Set Lot details.testcase" testItemId="478">
+                            <caseCall testCaseId="66e6b691-9204-410a-ab4a-d2e862b3f756" testCasePath="tests/SYDATA-Work Order/Callable/API-Set Lot Details.testcase" testItemId="781">
                               <arguments>
                                 <argument id="reuseConnectionName">
                                   <value class="value" valueClass="string">SFConnection</value>
                                 </argument>
-                                <argument id="ip_RecordID">
+                                <argument id="ip_recordID">
                                   <value class="variable">
                                     <path element="op_WORecID"/>
                                     <path element="ID"/>
@@ -568,13 +490,13 @@
                           <value class="value" valueClass="boolean">false</value>
                         </argument>
                         <argument id="maxIterations">
-                          <value class="value" valueClass="decimal">3000</value>
+                          <value class="value" valueClass="decimal">10000</value>
                         </argument>
                         <argument id="sleepSecs">
                           <value class="value" valueClass="decimal">3</value>
                         </argument>
                         <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
+                          <value class="value" valueClass="boolean">false</value>
                         </argument>
                       </arguments>
                       <clauses>
@@ -975,13 +897,13 @@
                           <value class="value" valueClass="boolean">false</value>
                         </argument>
                         <argument id="maxIterations">
-                          <value class="value" valueClass="decimal">3000</value>
+                          <value class="value" valueClass="decimal">10000</value>
                         </argument>
                         <argument id="sleepSecs">
                           <value class="value" valueClass="decimal">3</value>
                         </argument>
                         <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
+                          <value class="value" valueClass="boolean">false</value>
                         </argument>
                       </arguments>
                       <clauses>
@@ -1316,10 +1238,10 @@
                           <value class="value" valueClass="decimal">100000</value>
                         </argument>
                         <argument id="sleepSecs">
-                          <value class="value" valueClass="decimal">1</value>
+                          <value class="value" valueClass="decimal">3</value>
                         </argument>
                         <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
+                          <value class="value" valueClass="boolean">false</value>
                         </argument>
                       </arguments>
                       <clauses>
@@ -1610,10 +1532,10 @@
                           <value class="value" valueClass="decimal">100000</value>
                         </argument>
                         <argument id="sleepSecs">
-                          <value class="value" valueClass="decimal">1</value>
+                          <value class="value" valueClass="decimal">3</value>
                         </argument>
                         <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
+                          <value class="value" valueClass="boolean">false</value>
                         </argument>
                       </arguments>
                       <clauses>
@@ -2119,10 +2041,10 @@
                                                   <value class="value" valueClass="decimal">100000</value>
                                                 </argument>
                                                 <argument id="sleepSecs">
-                                                  <value class="value" valueClass="decimal">1</value>
+                                                  <value class="value" valueClass="decimal">3</value>
                                                 </argument>
                                                 <argument id="continueOnFailure">
-                                                  <value class="value" valueClass="boolean">true</value>
+                                                  <value class="value" valueClass="boolean">false</value>
                                                 </argument>
                                               </arguments>
                                               <clauses>
@@ -2423,10 +2345,10 @@
                                                   <value class="value" valueClass="decimal">100000</value>
                                                 </argument>
                                                 <argument id="sleepSecs">
-                                                  <value class="value" valueClass="decimal">1</value>
+                                                  <value class="value" valueClass="decimal">3</value>
                                                 </argument>
                                                 <argument id="continueOnFailure">
-                                                  <value class="value" valueClass="boolean">true</value>
+                                                  <value class="value" valueClass="boolean">false</value>
                                                 </argument>
                                               </arguments>
                                               <clauses>
@@ -2861,10 +2783,10 @@
                                           <value class="value" valueClass="decimal">100000</value>
                                         </argument>
                                         <argument id="sleepSecs">
-                                          <value class="value" valueClass="decimal">1</value>
+                                          <value class="value" valueClass="decimal">3</value>
                                         </argument>
                                         <argument id="continueOnFailure">
-                                          <value class="value" valueClass="boolean">true</value>
+                                          <value class="value" valueClass="boolean">false</value>
                                         </argument>
                                       </arguments>
                                       <clauses>
@@ -3294,10 +3216,10 @@
                                           <value class="value" valueClass="decimal">100000</value>
                                         </argument>
                                         <argument id="sleepSecs">
-                                          <value class="value" valueClass="decimal">1</value>
+                                          <value class="value" valueClass="decimal">3</value>
                                         </argument>
                                         <argument id="continueOnFailure">
-                                          <value class="value" valueClass="boolean">true</value>
+                                          <value class="value" valueClass="boolean">false</value>
                                         </argument>
                                       </arguments>
                                       <clauses>
@@ -3605,10 +3527,10 @@
                                                   <value class="value" valueClass="decimal">100000</value>
                                                 </argument>
                                                 <argument id="sleepSecs">
-                                                  <value class="value" valueClass="decimal">1</value>
+                                                  <value class="value" valueClass="decimal">3</value>
                                                 </argument>
                                                 <argument id="continueOnFailure">
-                                                  <value class="value" valueClass="boolean">true</value>
+                                                  <value class="value" valueClass="boolean">false</value>
                                                 </argument>
                                               </arguments>
                                               <clauses>
@@ -3823,6 +3745,9 @@
               </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="494" title="Perform WO Receipt and verify order status">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Perform WO Receipt and verify order status</value>
@@ -4068,10 +3993,10 @@
                                           <value class="value" valueClass="decimal">100000</value>
                                         </argument>
                                         <argument id="sleepSecs">
-                                          <value class="value" valueClass="decimal">1</value>
+                                          <value class="value" valueClass="decimal">3</value>
                                         </argument>
                                         <argument id="continueOnFailure">
-                                          <value class="value" valueClass="boolean">true</value>
+                                          <value class="value" valueClass="boolean">false</value>
                                         </argument>
                                       </arguments>
                                       <clauses>
@@ -4258,6 +4183,9 @@
               </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="571" title="Create SYDATA-WO close transaction and verify order status">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Create SYDATA transaction and verify order status</value>
@@ -4369,10 +4297,10 @@
                           <value class="value" valueClass="decimal">100000</value>
                         </argument>
                         <argument id="sleepSecs">
-                          <value class="value" valueClass="decimal">1</value>
+                          <value class="value" valueClass="decimal">3</value>
                         </argument>
                         <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
+                          <value class="value" valueClass="boolean">false</value>
                         </argument>
                       </arguments>
                       <clauses>
@@ -4552,6 +4480,9 @@
               </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="640" title="Reverse Work Order Close">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Reverse Work Order Close</value>
@@ -4589,6 +4520,9 @@
               </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="641" title="Perform WO receipt Reversal">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Perform WO receipt Reversal</value>
@@ -4768,10 +4702,10 @@
                           <value class="value" valueClass="decimal">100000</value>
                         </argument>
                         <argument id="sleepSecs">
-                          <value class="value" valueClass="decimal">1</value>
+                          <value class="value" valueClass="decimal">3</value>
                         </argument>
                         <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
+                          <value class="value" valueClass="boolean">false</value>
                         </argument>
                       </arguments>
                       <clauses>
@@ -5168,10 +5102,10 @@
                                           <value class="value" valueClass="decimal">100000</value>
                                         </argument>
                                         <argument id="sleepSecs">
-                                          <value class="value" valueClass="decimal">1</value>
+                                          <value class="value" valueClass="decimal">3</value>
                                         </argument>
                                         <argument id="continueOnFailure">
-                                          <value class="value" valueClass="boolean">true</value>
+                                          <value class="value" valueClass="boolean">false</value>
                                         </argument>
                                       </arguments>
                                       <clauses>

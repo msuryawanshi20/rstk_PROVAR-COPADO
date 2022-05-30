@@ -3,7 +3,7 @@
 	<property environment="env"/>
 	<property name="provar.home" value="${env.PROVAR_HOME}"/>
 	<property name="testproject.home" value=".."/>
-	<property name="testproject.results" value="../ANT/Results"/>
+	<property name="testproject.results" value="../ANT/${TestPlan}"/>
 
 	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
 	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
@@ -12,22 +12,23 @@
 	<target name="runtests">
 		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
 		<Run-Test-Case provarHome="${provar.home}" 
+				
+			
 						projectPath="${testproject.home}" 
 						resultsPath="${testproject.results}" 
 						resultsPathDisposition="Increment" 
-						testEnvironment="${TestEnv}" 
-						webBrowser="" 
-						webBrowserConfiguration="LINUX Chrome"
-						webBrowserProviderName="SeleniumGrid"
-						webBrowserDeviceName="LINUX Chrome" 
-						excludeCallableTestCases="false" 
+						testEnvironment="AutomationOrg" 
+						webBrowser="Chrome" 
+						webBrowserConfiguration="Full Screen"
+						webBrowserProviderName="Desktop"
+						webBrowserDeviceName="Full Screen" 
+						excludeCallableTestCases="true" 
 						salesforceMetadataCache="Reuse" 
-						projectCachePath="../../.provarCaches"
+						projectCachePath="../.provarCaches"
 						testOutputlevel="BASIC" 
 						pluginOutputlevel="WARNING"
 						stopTestRunOnError="false"
 						invokeTestRunMonitor="true"
-			       			dontFailBuild="true"
 						>
 
 			<fileset id="testplan" dir="../plans/${TestPlan}">
