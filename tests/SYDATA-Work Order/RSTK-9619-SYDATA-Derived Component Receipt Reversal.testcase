@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="19">
+<testCase id="150">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="793" title="Salesforce Connect: SFConnection (Test)">
@@ -210,7 +210,7 @@
           <value class="value" valueClass="string">op_DisassemblyExcelRow</value>
         </argument>
         <argument id="continueOnFailure">
-          <value class="value" valueClass="boolean">true</value>
+          <value class="value" valueClass="boolean">false</value>
         </argument>
       </arguments>
       <parameterValueSources/>
@@ -308,7 +308,7 @@
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="1028" title="Process SYDATA and read WO status after SYDATA transaction">
               <arguments>
                 <argument id="description">
-                  <value class="value" valueClass="string">Process SYDATA</value>
+                  <value class="value" valueClass="string">Extract operations</value>
                 </argument>
               </arguments>
               <clauses>
@@ -2029,15 +2029,15 @@
                                               </variable>
                                               <value valueClass="string">' and rstk__icitemsrl_item__c='</value>
                                               <variable>
-                                                <path element="op_WORecID"/>
-                                                <path element="rstk__wocst_item__c"/>
+                                                <path element="op_woorddmdRecID"/>
+                                                <path element="rstk__woorddmd_compitem__c"/>
                                               </variable>
                                               <value valueClass="string">' and rstk__icitemsrl_ordno__c=null and rstk__icitemsrl_ordtype__c=null order by lastmodifiedDate Desc LIMIT </value>
                                               <funcCall id="NumberFormat">
                                                 <argument id="numberToFormat">
                                                   <value class="variable">
-                                                    <path element="op_WORecID"/>
-                                                    <path element="rstk__wocst_qtyreq__c"/>
+                                                    <path element="op_woorddmdRecID"/>
+                                                    <path element="rstk__woorddmd_qtyreq__c"/>
                                                   </value>
                                                 </argument>
                                                 <argument id="outputFormat">

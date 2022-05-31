@@ -8,7 +8,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
@@ -33,16 +35,18 @@ public class rstk__Stocklocadj2 {
 	}
 
 	public void selectInventoryItem(String InventoryItemName) throws InterruptedException {
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//input[@name='locadd_item_ui__c_autocomplete']")).sendKeys(InventoryItemName);
-		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		String elementLocator = "//input[@name='locadd_item_ui__c_autocomplete']";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
+		driver.findElement(By.xpath(elementLocator)).sendKeys(InventoryItemName);
 
 		Actions actions = new Actions(driver);
-		Thread.sleep(2000);
-		List<WebElement> autoCompleteList = driver
-				.findElements(By.xpath("//div[@class='ac_results'][1]/ul[@id='IDREF']/li"));
+		String listLocator = "//div[@class='ac_results'][1]/ul[@id='IDREF']/li";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(listLocator)));
+		List<WebElement> autoCompleteList = driver.findElements(By.xpath(listLocator));
+
 		for (int i = 0; i < autoCompleteList.size(); i++) {
-			Thread.sleep(1000);
+			Thread.sleep(500);
 			actions.moveToElement(autoCompleteList.get(i)).build().perform();
 			if (autoCompleteList.get(i).getText().equalsIgnoreCase(InventoryItemName)) {
 				actions.moveToElement(autoCompleteList.get(i)).click().build().perform();
@@ -52,17 +56,19 @@ public class rstk__Stocklocadj2 {
 	}
 
 	public void selectProject(String projectName) throws InterruptedException {
-		Thread.sleep(1000);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		String elementLocator = "//input[@id='locadd_proj__c_autocomplete']";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
+		driver.findElement(By.xpath(elementLocator)).clear();
+		driver.findElement(By.xpath(elementLocator)).sendKeys(projectName);
 
-		driver.findElement(By.xpath("//input[@id='locadd_proj__c_autocomplete']")).clear();
-		driver.findElement(By.xpath("//input[@id='locadd_proj__c_autocomplete']")).sendKeys(projectName);
-		Thread.sleep(1000);
 		Actions actions = new Actions(driver);
-		Thread.sleep(2000);
-		List<WebElement> autoCompleteList = driver
-				.findElements(By.xpath("//div[@class='ac_results'][2]/ul[@id='IDREF']/li"));
+		String listLocator = "//div[@class='ac_results'][2]/ul[@id='IDREF']/li";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(listLocator)));
+		List<WebElement> autoCompleteList = driver.findElements(By.xpath(listLocator));
+
 		for (int i = 0; i < autoCompleteList.size(); i++) {
-			Thread.sleep(1000);
+			Thread.sleep(3000);
 			actions.moveToElement(autoCompleteList.get(i)).build().perform();
 			if (autoCompleteList.get(i).getText().equalsIgnoreCase(projectName)) {
 				actions.moveToElement(autoCompleteList.get(i)).click().build().perform();
@@ -218,7 +224,7 @@ public class rstk__Stocklocadj2 {
 
 	public String selectSerialNumber(Integer NumberOfSerialTobeSelected) throws InterruptedException {
 
-		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 
 		String selectedSerial = "";
 		WebElement element;
@@ -226,18 +232,26 @@ public class rstk__Stocklocadj2 {
 
 			if (Lot != null) {
 
-				element = driver.findElement(By.xpath("//*[contains(text(),'" + locID
+				String elementLocator = "//*[contains(text(),'" + locID
 						+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 						+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-						+ "')]/parent::td/parent::tr//td[6]//select/option[" + i + "]"));
+						+ "')]/parent::td/parent::tr//td[6]//select/option[" + i + "]";
+
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
+
+				element = driver.findElement(By.xpath(elementLocator));
 
 				testLogger.info("Serial Number:" + element.getText());
 				selectedSerial += "\n" + element.getText();
 			} else {
 
-				element = driver.findElement(By.xpath("//*[contains(text(),'" + locID
+				String elementLocator = "//*[contains(text(),'" + locID
 						+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-						+ "')]/parent::td/parent::tr//td[6]//select/option[" + i + "]"));
+						+ "')]/parent::td/parent::tr//td[6]//select/option[" + i + "]";
+
+				wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
+
+				element = driver.findElement(By.xpath(elementLocator));
 
 				testLogger.info("Serial Number:" + element.getText());
 				selectedSerial += "\n" + element.getText();
@@ -251,6 +265,7 @@ public class rstk__Stocklocadj2 {
 
 	public void setAdjustOption(String locationID, String locationNumber, String LotNumber, String adjustmentOption)
 			throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 
 		locID = locationID;
 		locNum = locationNumber;
@@ -260,8 +275,7 @@ public class rstk__Stocklocadj2 {
 		testLogger.info("Location Number" + locNum);
 		testLogger.info("Lot Number" + Lot);
 
-		Thread.sleep(2000);
-		String xpath = null;
+		String xpath;
 		if (Lot != null) {
 			xpath = "//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
@@ -277,7 +291,7 @@ public class rstk__Stocklocadj2 {
 			testLogger.info("Dropdownvalues::::" + xpath);
 		}
 
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 
 		WebElement element = driver.findElement(By.xpath(xpath));
 		Select dropdown = new Select(element);
@@ -286,50 +300,56 @@ public class rstk__Stocklocadj2 {
 
 	public void setQty(String qty) throws InterruptedException {
 
-		Thread.sleep(2000);
-
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		String xpath;
 		if (Lot != null) {
-			driver.findElement(By.xpath("//*[contains(text(),'" + locID
+			xpath = "//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[6]//input")).sendKeys("" + qty);
+					+ "')]/parent::td/parent::tr//td[6]//input";
 
 		} else {
 
-			driver.findElement(By.xpath("//*[contains(text(),'" + locID
+			xpath = "//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[6]//input")).sendKeys("" + qty);
+					+ "')]/parent::td/parent::tr//td[6]//input";
 		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+		driver.findElement(By.xpath(xpath)).sendKeys("" + qty);
 
 	}
 
 	public void setTransactionDate(String date) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 
+		String element;
 		if (Lot != null) {
-			WebElement element = driver.findElement(By.xpath("//*[contains(text(),'" + locID
+			element = "//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[7]//input"));
-			element.clear();
-			element.sendKeys("" + date);
+					+ "')]/parent::td/parent::tr//td[7]//input";
 
 		} else {
 
-			WebElement element = driver.findElement(By.xpath("//*[contains(text(),'" + locID
+			element = "//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[7]//input"));
+					+ "')]/parent::td/parent::tr//td[7]//input";
 
-			element.clear();
-			testLogger.info("Date:::" + date);
-			element.sendKeys("" + date);
 		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(element)));
+		WebElement ele = driver.findElement(By.xpath(element));
+		ele.clear();
+		testLogger.info("Date:::" + date);
+		ele.sendKeys("" + date);
 
 	}
 
 	public void setAdjustmentAccount(String adjustmentAccount) throws InterruptedException {
 
-		Thread.sleep(2000);
-		String xpath = null;
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		String xpath;
 		if (Lot != null) {
 			xpath = "//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
@@ -345,7 +365,7 @@ public class rstk__Stocklocadj2 {
 			testLogger.info("Dropdownvalues::::" + xpath);
 		}
 
-		Thread.sleep(2000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 
 		WebElement element = driver.findElement(By.xpath(xpath));
 		Select dropdown = new Select(element);
@@ -354,20 +374,23 @@ public class rstk__Stocklocadj2 {
 
 	public void setComments(String comments) throws InterruptedException {
 
-		Thread.sleep(2000);
-
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		String xpath;
 		if (Lot != null) {
-			driver.findElement(By.xpath("//*[contains(text(),'" + locID
+			xpath = "//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
 					+ "')]/parent::td/following-sibling::td/span[contains(text(),'" + Lot
-					+ "')]/parent::td/parent::tr//td[9]//input")).sendKeys("" + comments);
+					+ "')]/parent::td/parent::tr//td[9]//input";
 
 		} else {
 
-			driver.findElement(By.xpath("//*[contains(text(),'" + locID
+			xpath = "//*[contains(text(),'" + locID
 					+ "')]/parent::span/parent::td/following-sibling::td/span[contains(text(),'" + locNum
-					+ "')]/parent::td/parent::tr//td[9]//input")).sendKeys("" + comments);
+					+ "')]/parent::td/parent::tr//td[9]//input";
 		}
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
+		driver.findElement(By.xpath(xpath)).sendKeys("" + comments);
 
 	}
 
@@ -389,8 +412,7 @@ public class rstk__Stocklocadj2 {
 		}
 
 	}
-	
-	
+
 	public void selectLocationRowCheckbox(String locationID, String locationNumber, String LotNumber)
 			throws InterruptedException {
 
@@ -414,5 +436,5 @@ public class rstk__Stocklocadj2 {
 		}
 
 	}
-	
+
 }

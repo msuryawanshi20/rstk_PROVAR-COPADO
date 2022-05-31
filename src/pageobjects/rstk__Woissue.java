@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
@@ -31,9 +33,14 @@ public class rstk__Woissue {
 	public WebElement Work_Order;
 
 	public void selectWOrkOrderfromPicklist(String workOrderNumber) throws InterruptedException {
-		Thread.sleep(2000);
-		WebElement option = driver.findElement(By.xpath(
-				"//select[contains(@name,'woiss_hdrordno__c')]//option[contains(text(),'" + workOrderNumber + "')]"));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+		String elementLocator = "//select[contains(@name,'woiss_hdrordno__c')]//option[contains(text(),'"
+				+ workOrderNumber + "')]";
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
+
+		WebElement option = driver.findElement(By.xpath(elementLocator));
 		option.click();
 
 	}

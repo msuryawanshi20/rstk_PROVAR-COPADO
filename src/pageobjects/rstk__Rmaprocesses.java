@@ -6,7 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
@@ -64,9 +66,12 @@ public class rstk__Rmaprocesses {
 
 	public void selectSerialNumber(Integer NumberOfSerialTobeSelected) throws InterruptedException {
 
-		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 
-		Select listbox = new Select(driver.findElement(By.xpath("//select[contains(@id,'rmarcptdetails')]")));
+		String elementLocator = "//select[contains(@id,'rmarcptdetails')]";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
+
+		Select listbox = new Select(driver.findElement(By.xpath(elementLocator)));
 		listbox.deselectAll();
 
 		for (int i = 1; i <= NumberOfSerialTobeSelected; i++) {
@@ -81,9 +86,13 @@ public class rstk__Rmaprocesses {
 
 	public void selectSerialNumberForReversal(Integer NumberOfSerialTobeSelected) throws InterruptedException {
 
-		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 
-		Select listbox = new Select(driver.findElement(By.xpath("//select[contains(@id,'rmarcptdispdetails')]")));
+		String elementLocator = "//select[contains(@id,'rmarcptdispdetails')]";
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
+
+		Select listbox = new Select(driver.findElement(By.xpath(elementLocator)));
 		listbox.deselectAll();
 
 		for (int i = 1; i <= NumberOfSerialTobeSelected; i++) {

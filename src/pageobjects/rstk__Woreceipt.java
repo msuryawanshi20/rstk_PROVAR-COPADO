@@ -21,13 +21,7 @@ import com.provar.core.testapi.annotations.SalesforcePage;
 import com.provar.core.testapi.annotations.TestLogger;
 import com.provar.core.testapi.annotations.TextType;
 
-@SalesforcePage( title="Rstk__ Woreceipt"                                
-               , summary=""
-               , page="Woreceipt"
-               , namespacePrefix="rstk"
-               , object="rstk__worcpt__c"
-               , connection="QARSF_Admin"
-     )   
+@SalesforcePage(title = "Rstk__ Woreceipt", summary = "", page = "Woreceipt", namespacePrefix = "rstk", object = "rstk__worcpt__c", connection = "QARSF_Admin")
 
 public class rstk__Woreceipt {
 
@@ -127,14 +121,17 @@ public class rstk__Woreceipt {
 	}
 
 	public void selectSerialNumber(Integer NumberOfSerialTobeSelected) throws InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		String elementLocator = "//select[contains(@id,'serials')]/option";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
 
-		List<WebElement> ele = driver.findElements(By.xpath("//select[contains(@id,'serials')]/option"));
+		List<WebElement> ele = driver.findElements(By.xpath(elementLocator));
 		testLogger.info("Size" + ele.size());
 		Select listbox = new Select(driver.findElement(By.xpath("//select[contains(@id,'serials')]")));
 		listbox.deselectAll();
 
 		for (int i = 1; i <= NumberOfSerialTobeSelected; i++) {
-			
+
 			WebElement element = driver.findElement(By.xpath("//select[contains(@id,'serials')]/option[" + i + "]"));
 			testLogger.info("Serial Number:" + element.getText());
 			element.click();

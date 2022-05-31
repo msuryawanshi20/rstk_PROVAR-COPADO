@@ -7,6 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.provar.core.testapi.annotations.ButtonType;
 import com.provar.core.testapi.annotations.ChoiceListType;
@@ -49,16 +52,23 @@ public class rstk__insptempl {
 	public WebElement percentageForInspectionOrderQty;
 
 	public void setInspectionOrderLocationID(String LocationID) throws InterruptedException {
-		Thread.sleep(1000);
-		WebElement ele = driver.findElement(By.xpath("//input[@name='insptempl_locid__c_autocomplete']"));
+
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
+		String eleLocator="//input[@name='insptempl_locid__c_autocomplete']";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(eleLocator)));
+		WebElement ele=driver.findElement(By.xpath(eleLocator));
 		ele.clear();
 		ele.sendKeys(LocationID);
-		Thread.sleep(1500);
 
 		Actions actions = new Actions(driver);
 		Thread.sleep(1000);
+		
+		String listLocator="//div[@class='ac_results'][1]/ul[@id='IDREF']/li";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(listLocator)));
+		
 		List<WebElement> autoCompleteList = driver
-				.findElements(By.xpath("//div[@class='ac_results'][1]/ul[@id='IDREF']/li"));
+				.findElements(By.xpath(listLocator));
 		for (int i = 0; i < autoCompleteList.size(); i++) {
 			Thread.sleep(500);
 			actions.moveToElement(autoCompleteList.get(i)).build().perform();
@@ -70,16 +80,20 @@ public class rstk__insptempl {
 	}
 
 	public void setLocationIDforScrappedDisposition(String LocationID) throws InterruptedException {
-		Thread.sleep(1000);
-		WebElement ele = driver.findElement(By.xpath("//input[@name='insptempl_scraplocid__c_autocomplete']"));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
+		String eleLocator="//input[@name='insptempl_scraplocid__c_autocomplete']";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(eleLocator)));
+		WebElement ele=driver.findElement(By.xpath(eleLocator));
 		ele.clear();
 		ele.sendKeys(LocationID);
-		Thread.sleep(1500);
 
 		Actions actions = new Actions(driver);
-		Thread.sleep(1000);
+	
+		String listLocator="//div[@class='ac_results'][2]/ul[@id='IDREF']/li";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(listLocator)));
 		List<WebElement> autoCompleteList = driver
-				.findElements(By.xpath("//div[@class='ac_results'][2]/ul[@id='IDREF']/li"));
+				.findElements(By.xpath(listLocator));
 		for (int i = 0; i < autoCompleteList.size(); i++) {
 			Thread.sleep(500);
 			actions.moveToElement(autoCompleteList.get(i)).build().perform();
@@ -91,16 +105,24 @@ public class rstk__insptempl {
 	}
 
 	public void setLocationIDforOtherDisposition(String LocationID) throws InterruptedException {
-		Thread.sleep(1000);
-		WebElement ele = driver.findElement(By.xpath("//input[@name='insptempl_otherlocid__c_autocomplete']"));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+				
+		String elementLocator = "//input[@name='insptempl_otherlocid__c_autocomplete']";
+			
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
+		
+		WebElement ele = driver.findElement(By.xpath(elementLocator));
 		ele.clear();
 		ele.sendKeys(LocationID);
 		Thread.sleep(1500);
 
 		Actions actions = new Actions(driver);
 		Thread.sleep(1000);
+		
+		String listLocator="//div[@class='ac_results'][3]/ul[@id='IDREF']/li";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(listLocator)));
 		List<WebElement> autoCompleteList = driver
-				.findElements(By.xpath("//div[@class='ac_results'][3]/ul[@id='IDREF']/li"));
+				.findElements(By.xpath(listLocator));
 		for (int i = 0; i < autoCompleteList.size(); i++) {
 			Thread.sleep(500);
 			actions.moveToElement(autoCompleteList.get(i)).build().perform();

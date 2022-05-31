@@ -17,14 +17,7 @@ import com.provar.core.testapi.annotations.FindByLabel;
 import com.provar.core.testapi.annotations.SalesforcePage;
 import com.provar.core.testapi.annotations.TextType;
 
-
-@SalesforcePage( title="Rstk__ Generate Recurring Billing Execution"                                
-               , summary=""
-               , page="GenerateRecurringBillingExecution"
-               , namespacePrefix="rstk"
-               , object="rstk__customext__c"
-               , connection="QARSF_Admin"
-     )             
+@SalesforcePage(title = "Rstk__ Generate Recurring Billing Execution", summary = "", page = "GenerateRecurringBillingExecution", namespacePrefix = "rstk", object = "rstk__customext__c", connection = "QARSF_Admin")
 public class rstk__GenerateRecurringBillingExecution {
 
 	public WebDriver driver;
@@ -44,14 +37,16 @@ public class rstk__GenerateRecurringBillingExecution {
 	public WebElement specifyCustomerRange;
 
 	public void selectCustomer(String CustomerName) throws InterruptedException {
-		Thread.sleep(2000);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 
-		List<WebElement> customerList = driver.findElements(By
-				.xpath("//label[normalize-space(.)='Customer']/ancestor::th/following-sibling::td[1]//select//option"));
+		String listLocator = "//label[normalize-space(.)='Customer']/ancestor::th/following-sibling::td[1]//select//option";
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(listLocator)));
+		List<WebElement> customerList = driver.findElements(By.xpath(listLocator));
 		for (int i = 0; i < customerList.size(); i++) {
 			if (customerList.get(i).getText().contains(CustomerName)) {
 				customerList.get(i).click();
-				Thread.sleep(2000);
+				break;
 			}
 		}
 	}
@@ -59,12 +54,17 @@ public class rstk__GenerateRecurringBillingExecution {
 	public void selectContract(String ContractName) throws InterruptedException {
 		Thread.sleep(2000);
 
-		List<WebElement> contractList = driver.findElements(
-				By.xpath("//label[normalize-space(.)='Contract']/ancestor::th/following-sibling::td//option"));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+		String listLocator = "//label[normalize-space(.)='Contract']/ancestor::th/following-sibling::td//option";
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(listLocator)));
+		List<WebElement> contractList = driver.findElements(By.xpath(listLocator));
+
 		for (int i = 0; i < contractList.size(); i++) {
 			if (contractList.get(i).getText().contains(ContractName)) {
 				contractList.get(i).click();
-				Thread.sleep(2000);
+				break;
 			}
 		}
 	}
@@ -97,13 +97,6 @@ public class rstk__GenerateRecurringBillingExecution {
 		WebDriverWait wait = new WebDriverWait(driver, 7200);
 		String recID = null;
 		try {
-
-			/*
-			 * // Old Code wait.until(ExpectedConditions .presenceOfElementLocated(By.
-			 * xpath("//a[normalize-space(.)='View Billing Run Batch Header']")));
-			 * driver.findElement(By.
-			 * xpath("//a[normalize-space(.)='View Billing Run Batch Header']")).click();
-			 */
 
 			wait.until(ExpectedConditions.elementToBeClickable(
 					By.xpath("//*[normalize-space(.)='View Billing Run Batch Header']/parent::a")));
