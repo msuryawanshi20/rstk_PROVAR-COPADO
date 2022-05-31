@@ -195,7 +195,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="775" title="Read Excel Data and create record for excel rows">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="775" title="Process Records">
       <arguments>
         <argument id="list">
           <value class="variable">
@@ -209,7 +209,7 @@
           <value class="value" valueClass="string">op_excelDataRow</value>
         </argument>
         <argument id="continueOnFailure">
-          <value class="value" valueClass="boolean">true</value>
+          <value class="value" valueClass="boolean">false</value>
         </argument>
       </arguments>
       <parameterValueSources/>

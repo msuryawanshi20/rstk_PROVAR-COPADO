@@ -32,11 +32,8 @@ public class rstk__soconchg {
 		ele.sendKeys(MiscellaneousChargeProduct);
 
 		Actions actions = new Actions(driver);
-
 		String elementLocator = "//div[@class='ac_results'][1]/ul[@id='IDREF']/li";
-
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
-
 		List<WebElement> autoCompleteList = driver.findElements(By.xpath(elementLocator));
 
 		for (int i = 0; i < autoCompleteList.size(); i++) {
@@ -61,9 +58,9 @@ public class rstk__soconchg {
 
 		Actions actions = new Actions(driver);
 		String elementLocatorList = "//div[@class='ac_results'][2]/ul[@id='IDREF']/li";
-
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocatorList)));
 		List<WebElement> autoCompleteList = driver.findElements(By.xpath(elementLocatorList));
+
 		for (int i = 0; i < autoCompleteList.size(); i++) {
 			Thread.sleep(1000);
 			actions.moveToElement(autoCompleteList.get(i)).build().perform();

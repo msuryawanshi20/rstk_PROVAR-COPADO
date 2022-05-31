@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
@@ -59,16 +61,21 @@ public class rstk__dwocst {
 	public WebElement projectChargeCode;
 
 	public void selectProject(String ProjectName) throws InterruptedException {
-		Thread.sleep(1000);
-		WebElement ele = driver.findElement(By.xpath("//input[@name='wocst_proj__c_autocomplete']"));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+		String elementLocator = "//input[@name='wocst_proj__c_autocomplete']";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
+
+		WebElement ele = driver.findElement(By.xpath(elementLocator));
 		ele.clear();
 		ele.sendKeys(ProjectName);
-		Thread.sleep(1500);
 
 		Actions actions = new Actions(driver);
-		Thread.sleep(1000);
-		List<WebElement> autoCompleteList = driver
-				.findElements(By.xpath("//div[@class='ac_results'][2]/ul[@id='IDREF']/li"));
+
+		String listLocator = "//div[@class='ac_results'][2]/ul[@id='IDREF']/li";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(listLocator)));
+
+		List<WebElement> autoCompleteList = driver.findElements(By.xpath(listLocator));
 		for (int i = 0; i < autoCompleteList.size(); i++) {
 			Thread.sleep(500);
 			actions.moveToElement(autoCompleteList.get(i)).build().perform();

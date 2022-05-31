@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="20">
+<testCase id="41">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="135" title="Salesforce Connect: SFConnection (Test)">
@@ -211,7 +211,7 @@
           <value class="value" valueClass="string">op_excelDataRow</value>
         </argument>
         <argument id="continueOnFailure">
-          <value class="value" valueClass="boolean">true</value>
+          <value class="value" valueClass="boolean">false</value>
         </argument>
       </arguments>
       <parameterValueSources/>

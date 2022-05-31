@@ -1,11 +1,14 @@
 package pageobjects;
 
 import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.provar.core.testapi.annotations.ButtonType;
 import com.provar.core.testapi.annotations.ChoiceListType;
@@ -48,18 +51,24 @@ public class rstk__Rtdept {
 	public WebElement organizationalDepartment;
 
 	public void selectAccDim(String AccountingDimension) throws InterruptedException {
-		Thread.sleep(1000);
-		WebElement ele = driver.findElement(By.xpath("//input[@name='rtdept_dimval__c_autocomplete']"));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+
+		String elementLocator = "//input[@name='rtdept_dimval__c_autocomplete']";
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
+
+		WebElement ele = driver.findElement(By.xpath(elementLocator));
 		ele.clear();
 		ele.sendKeys(AccountingDimension);
-		Thread.sleep(1500);
 
 		Actions actions = new Actions(driver);
-		Thread.sleep(1000);
-		List<WebElement> autoCompleteList = driver
-				.findElements(By.xpath("//div[@class='ac_results'][1]/ul[@id='IDREF']/li"));
+
+		String listLocator = "//div[@class='ac_results'][1]/ul[@id='IDREF']/li";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(listLocator)));
+
+		List<WebElement> autoCompleteList = driver.findElements(By.xpath(listLocator));
 		for (int i = 0; i < autoCompleteList.size(); i++) {
-			Thread.sleep(700);
+			Thread.sleep(300);
 			actions.moveToElement(autoCompleteList.get(i)).build().perform();
 			if (autoCompleteList.get(i).getText().equalsIgnoreCase(AccountingDimension)) {
 				actions.moveToElement(autoCompleteList.get(i)).click().build().perform();

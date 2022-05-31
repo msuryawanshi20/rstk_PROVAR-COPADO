@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.provar.core.testapi.annotations.ButtonType;
 import com.provar.core.testapi.annotations.ChoiceListType;
@@ -57,14 +59,24 @@ public class rstk__createInspectionOrder {
 	public Logger testLogger;
 
 	public void selectInventoryItem(String InventoryItemName) throws InterruptedException {
-		Thread.sleep(1000);
-		WebElement ele=driver.findElement(By.xpath("//input[@name='inspord_icitem__c_autocomplete']"));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
+		String elementLocator = "//input[@name='inspord_icitem__c_autocomplete']";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
+		WebElement ele=driver.findElement(By.xpath(elementLocator));
 		ele.clear();
 		ele.sendKeys(InventoryItemName);
+		
+		
+		
 		Actions actions = new Actions(driver);
 		Thread.sleep(2000);
-		List<WebElement> autoCompleteList = driver
-				.findElements(By.xpath("//div[@class='ac_results'][1]/ul[@id='IDREF']/li"));
+		
+		String listLocator="//div[@class='ac_results'][1]/ul[@id='IDREF']/li";
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(listLocator)));
+		
+		List<WebElement> autoCompleteList = driver.findElements(By.xpath(listLocator));
 		for (int i = 0; i < autoCompleteList.size(); i++) {
 			Thread.sleep(1000);
 			actions.moveToElement(autoCompleteList.get(i)).build().perform();
@@ -77,16 +89,28 @@ public class rstk__createInspectionOrder {
 
 	public void selectOriginatingLocationID(String OriginalLocID) throws InterruptedException {
 		Thread.sleep(1000);
-		WebElement ele=driver.findElement(By.xpath("//input[@id='inspord_frlocid__c_autocomplete']"));
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
+		String elementLocator = "//input[@id='inspord_frlocid__c_autocomplete']";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
+		WebElement ele=driver.findElement(By.xpath(elementLocator));
+		
+		
+		
 		ele.clear();
 		ele.sendKeys(OriginalLocID);	
 		Thread.sleep(2500);
 		
 		Actions actions = new Actions(driver);
 		
-		List<WebElement> autoCompleteList = driver
-				.findElements(By.xpath("//div[@class='ac_results'][2]/ul[@id='IDREF']/li"));
-
+		String listLocator="//div[@class='ac_results'][2]/ul[@id='IDREF']/li";
+		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(listLocator)));
+		
+		List<WebElement> autoCompleteList = driver.findElements(By.xpath(listLocator));
+		
+	
 		testLogger.info("List Size" + autoCompleteList.size());
 		for (int i = 0; i < autoCompleteList.size(); i++) {
 			Thread.sleep(500);

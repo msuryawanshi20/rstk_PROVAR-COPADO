@@ -7,6 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.provar.core.testapi.annotations.ButtonType;
 import com.provar.core.testapi.annotations.ChoiceListType;
 import com.provar.core.testapi.annotations.FindByLabel;
@@ -28,15 +31,21 @@ public class rstk__Soconpp {
 	}
 
 	public void selectProduct(String Product) throws InterruptedException {
-		Thread.sleep(1000);
-		WebElement ele = driver.findElement(By.xpath("//input[@name='soconpp_soprod__c_autocomplete']"));
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		String eleLocator="//input[@name='soconpp_soprod__c_autocomplete']";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(eleLocator)));
+
+		WebElement ele = driver.findElement(By.xpath(eleLocator));
 		ele.sendKeys(Product);
-		Thread.sleep(2000);
 
 		Actions actions = new Actions(driver);
-		Thread.sleep(500);
+
+		String listLocator="//div[@class='ac_results'][1]/ul[@id='IDREF']/li";
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(listLocator)));
+		
+
 		List<WebElement> autoCompleteList = driver
-				.findElements(By.xpath("//div[@class='ac_results'][1]/ul[@id='IDREF']/li"));
+				.findElements(By.xpath(listLocator));
 		for (int i = 0; i < autoCompleteList.size(); i++) {
 			Thread.sleep(1000);
 			actions.moveToElement(autoCompleteList.get(i)).build().perform();

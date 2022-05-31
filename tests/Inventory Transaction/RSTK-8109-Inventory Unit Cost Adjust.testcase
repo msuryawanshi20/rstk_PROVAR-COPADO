@@ -490,10 +490,10 @@
               <clauses>
                 <clause name="hidden" testItemId="65">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="117" title="Sleep for {2} seconds">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="117" title="Sleep for {4} seconds">
                       <arguments>
                         <argument id="sleepSecs">
-                          <value class="value" valueClass="decimal">2</value>
+                          <value class="value" valueClass="decimal">4</value>
                         </argument>
                       </arguments>
                     </apiCall>
