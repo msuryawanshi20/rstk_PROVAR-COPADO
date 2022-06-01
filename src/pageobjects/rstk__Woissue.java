@@ -1,8 +1,11 @@
 package pageobjects;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -35,13 +38,27 @@ public class rstk__Woissue {
 	public void selectWOrkOrderfromPicklist(String workOrderNumber) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 
-		String elementLocator = "//select[contains(@name,'woiss_hdrordno__c')]//option[contains(text(),'"
-				+ workOrderNumber + "')]";
+	
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='hdrordno__c_autocomplete']")));
 
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
+		WebElement ele = driver.findElement(By.xpath("//input[@id='hdrordno__c_autocomplete']"));
 
-		WebElement option = driver.findElement(By.xpath(elementLocator));
-		option.click();
+		ele.sendKeys(workOrderNumber);
+		Actions actions = new Actions(driver);
+		wait.until(
+				ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ac_results'][1]/ul[@id='IDREF']/li")));
+
+		List<WebElement> autoCompleteList = driver
+				.findElements(By.xpath("//div[@class='ac_results'][1]/ul[@id='IDREF']/li"));
+
+		for (int i = 0; i < autoCompleteList.size(); i++) {
+			Thread.sleep(500);
+			actions.moveToElement(autoCompleteList.get(i)).build().perform();
+			if (autoCompleteList.get(i).getText().startsWith(workOrderNumber)) {
+				actions.moveToElement(autoCompleteList.get(i)).click().build().perform();
+				break;
+			}
+		}
 
 	}
 
