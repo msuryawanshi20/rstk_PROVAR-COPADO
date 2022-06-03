@@ -38,18 +38,24 @@ public class rstk__laborclockinout {
 	public WebElement oK;
 	
 	
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@BooleanType()
 	@FindBy(xpath = "//label[normalize-space(.)='Show Only Operations with Qty Available']/parent::span/parent::th/following-sibling::td//input")
 	public WebElement showOnlyOperationswithQtyAvailable;
 
+	@PageWaitAfter.Field(field = "list", timeoutSeconds = 10)
+	@PageWait.Field(timeoutSeconds = 10)
 	@TextType()
 	@FindBy(xpath = "//label[normalize-space(.)='Search Work Orders']/parent::span/parent::th/following-sibling::td//input")
 	public WebElement searchWorkOrders;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@PageWait.Field(timeoutSeconds = 10)
 	@TextType()
 	@FindBy(xpath = "//li[@id='li-0']")
 	public WebElement list;
 
+	@PageWaitAfter.Field(field = "timeAndQtyBookingDetailsTable", timeoutSeconds = 10)
 	@ButtonType()
 	@FindByLabel(label = "Load Entry Grid")
 	public WebElement loadEntryGrid;
@@ -57,33 +63,47 @@ public class rstk__laborclockinout {
 	@PageRow()
 	public static class TimeAndQtyBookingDetailsTable {
 
+		@PageWait.Field(timeoutSeconds = 10)
 		@ChoiceListType()
 		@FindBy(xpath = ".//tr/td[2]/select")
 		public WebElement bookingType;
 
+		@PageWait.Field(timeoutSeconds = 10)
 		@TextType()
 		@FindBy(xpath = ".//tr/td[3]//input")
 		public WebElement transactionDate;
 
+
+		@PageWait.Field(timeoutSeconds = 10)
 		@TextType()
 		@FindBy(xpath = ".//tr/td[6]//input")
 		public WebElement hours;
 
+
+		@PageWait.Field(timeoutSeconds = 10)
 		@ChoiceListType()
 		@FindBy(xpath = ".//tr/td[7]//select")
 		public WebElement workOrder;
 
+
+		@PageWait.Field(timeoutSeconds = 10)
 		@ChoiceListType()
 		@FindBy(xpath = ".//tr/td[8]//select")
 		public WebElement operation;
 
+
+		@PageWait.Field(timeoutSeconds = 10)
 		@BooleanType()
 		@FindBy(xpath = ".//tr/td[9]//input")
 		public WebElement setupLabor;
 
+
+
 		@BooleanType()
 		@FindBy(xpath = ".//tr/td[10]//input")
 		public WebElement complete;
+
+
 
 		@BooleanType()
 		@FindBy(xpath = ".//tr/td[11]//input")
@@ -117,6 +137,7 @@ public class rstk__laborclockinout {
 	@PageTable(firstRowContainsHeaders = false, row = TimeAndQtyBookingDetailsTable.class)
 	public List<TimeAndQtyBookingDetailsTable> timeAndQtyBookingDetailsTable;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindByLabel(label = "Submit Bookings")
 	public WebElement submitBookings;
