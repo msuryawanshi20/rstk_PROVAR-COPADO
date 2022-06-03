@@ -85,6 +85,8 @@ public class rstk__Wocst {
 		}
 	}
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@PageWait.BackgroundActivity(timeoutSeconds = 60)
 	@TextType()
 	@FindBy(xpath = "//label[normalize-space(.)='Qty Required']/ancestor::span/ancestor::th/following-sibling::td[1]//input")
 	public WebElement qtyRequired;
@@ -97,6 +99,7 @@ public class rstk__Wocst {
 	@FindBy(xpath = "//label[normalize-space(.)='Due Date']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement dueDate;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindByLabel(label = "Save")
 	public WebElement save;
@@ -105,6 +108,7 @@ public class rstk__Wocst {
 	@FindBy(xpath = "//label[normalize-space(.)='Order Number']/ancestor::span/ancestor::th/following-sibling::td[1]//span")
 	public WebElement orderNumber1;
 
+	@PageWait.BackgroundActivity(timeoutSeconds = 60)
 	@TextType()
 	@FindBy(xpath = "//label[normalize-space(.)='Status']/ancestor::span/ancestor::th/following-sibling::td//span")
 	public WebElement status;
@@ -122,22 +126,28 @@ public class rstk__Wocst {
 	@FindBy(xpath = "//input[@id='wocst_item__c_autocomplete']")
 	public WebElement itemName;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//input[@id='extractOperationsAndComponents']")
 	public WebElement extractOperationsAndComponents;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//input[@id='extractCompOpt']")
 	public WebElement extractOperationsAndComponents1;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//input[@id='allocateDemandsBtn']")
 	public WebElement allocate;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//*[contains(@value,'Deallocate')]")
 	public WebElement deallocate;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@PageWait.Field(timeoutSeconds = 10)
 	@ButtonType()
 	@FindBy(xpath = "//input[@id='generatePickListRecords']")
 	public WebElement generatePickList;
@@ -146,10 +156,13 @@ public class rstk__Wocst {
 	@FindBy(xpath = "//input[@id='incBackflush2']")
 	public WebElement includeBackflushComponentsinPicklist;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@PageWait.Field(timeoutSeconds = 10)
 	@ButtonType()
 	@FindBy(xpath = "//div[@id='generatePicklist']/p[2]/input[1]")
 	public WebElement generatePicklist;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindByLabel(label = "Edit")
 	public WebElement edit;
@@ -165,38 +178,52 @@ public class rstk__Wocst {
 	@FindBy(xpath = "//label[normalize-space(.)='Lot Expiration Date']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement lotExpirationDate;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindByLabel(label = "Close Work Order")
 	public WebElement closeWorkOrder;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindByLabel(label = "Reverse WO Close")
 	public WebElement reverseWOClose;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//input[@id='deleteOperations']")
 	public WebElement deleteOperations;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//input[@id='deleteComponents']")
 	public WebElement deleteComponents;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@PageWait.Field(timeoutSeconds = 10)
 	@TextType()
 	@FindBy(xpath = "//img[@name='Related Lists']")
 	public WebElement relatedLists;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Add Component']")
 	public WebElement addComponent;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@PageWait.Field(timeoutSeconds = 10)
 	@ButtonType()
 	@FindByLabel(label = "Generate Serials")
 	public WebElement generateSerials;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@PageWait.Field(timeoutSeconds = 10)
 	@TextType()
 	@FindBy(xpath = "//*[contains(@id,'tab_SerialNumbers_lbl')]")
 	public WebElement tab_SerialNumbers_lbl;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@PageWait.Field(timeoutSeconds = 10)
+	@TextType()
 	@FindBy(xpath = "//img[@name='Serial Number Fast Entry']")
 	public WebElement pbs_SNFastEntry;
 
@@ -211,6 +238,7 @@ public class rstk__Wocst {
 		driver.findElement(By.xpath("//textarea[@id='srlnums']")).sendKeys(serial + "\n");
 	}
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@TextType()
 	@FindBy(xpath = "//*[contains(@id,'tab_Operations_lbl')]")
 	public WebElement tab_Operations_lbl;
@@ -241,18 +269,22 @@ public class rstk__Wocst {
 	@FindBy(xpath = "//label[normalize-space(.)='Consigned']/ancestor::span/ancestor::th/following-sibling::td//input")
 	public WebElement consigned;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//input[@id='extractOperations']")
 	public WebElement extractOperations;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Extract Operations']")
 	public WebElement extractOperations1;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//input[@id='extractComponents']")
 	public WebElement extractComponets;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Extract Components']")
 	public WebElement extractComponets1;
@@ -267,6 +299,7 @@ public class rstk__Wocst {
 	@FindBy(xpath = "//div[@id='selectRefurb']/div[@id='issueBtns']/p/input")
 	public WebElement oK;
 
+	@PageWait.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//*[contains(@id,'tab_Totalcost_lbl')]")
 	public WebElement tab_Totalcost_lbl;
