@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="1" registryId="d778b8b1-6e3b-4c0c-87ab-d0be732fdb52" visibility="Internal">
+<testCase failureBehaviour="Continue" id="1391" registryId="d778b8b1-6e3b-4c0c-87ab-d0be732fdb52" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -26,7 +26,7 @@
           </value>
         </argument>
         <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Reuse</value>
+          <value class="value" valueClass="string">Reopen</value>
         </argument>
         <argument id="privateBrowsingMode"/>
         <argument id="enableObjectIdLogging">
@@ -351,6 +351,9 @@
               </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="16" title="Set the Search Work Orders field to {ip_workOrderNumber}">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=searchWorkOrders"/>
@@ -412,6 +415,9 @@
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="128" title="Lookup the List field">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=list"/>
@@ -436,6 +442,43 @@
                   <value class="uiInteraction" uri="ui:interaction?name=sfLookup"/>
                 </argument>
               </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="138" title="Call the searchAndSelectWorkOrder method">
+              <tags/>
+              <arguments>
+                <argument id="locator">
+                  <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.rstk__laborclockinout&amp;operation=searchAndSelectWorkOrder"/>
+                </argument>
+                <argument id="interaction">
+                  <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
+                </argument>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Call the searchAndSelectWorkOrder method</value>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="afterWait">
+                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                </argument>
+                <argument id="autoRetry"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="param_workOrderNumber">
+                  <value class="variable">
+                    <path element="ip_workOrderNumber"/>
+                  </value>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="value" name="param_workOrderNumber" title="Work Order Number">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="22" title="Click the Load Entry Grid button">
               <arguments>
@@ -519,7 +562,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="75" title="With Time And Qty Booking Details Table rows 1">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="75" title="With Time And Qty Booking Details Table rows {1}">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -528,22 +571,26 @@
                   <value class="uiLocator" uri="sf:ui:locator:row?table=timeAndQtyBookingDetailsTable"/>
                 </argument>
                 <argument id="uiRowLocator">
-                  <value class="value" valueClass="string">1</value>
+                  <value class="value" valueClass="decimal">1</value>
                 </argument>
                 <argument id="locatorDescription">
-                  <value class="value" valueClass="string">With Time And Qty Booking Details Table rows 1</value>
+                  <value class="value" valueClass="string">With Time And Qty Booking Details Table rows {1}</value>
                 </argument>
                 <argument id="failIfNotFound">
                   <value class="value" valueClass="boolean">true</value>
                 </argument>
-                <argument id="debugRowLocator"/>
+                <argument id="debugRowLocator">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
                 <argument id="resultName">
                   <value class="value" valueClass="string">Row</value>
                 </argument>
                 <argument id="resultScope">
                   <value class="value" valueClass="string">Local</value>
                 </argument>
-                <argument id="autoRetry"/>
+                <argument id="autoRetry">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
               </arguments>
               <clauses>
                 <clause name="substeps" testItemId="76">
@@ -763,7 +810,7 @@
                           </value>
                         </argument>
                         <argument id="blur">
-                          <value class="value" valueClass="boolean">true</value>
+                          <value class="value" valueClass="boolean">false</value>
                         </argument>
                         <argument id="pressEnter">
                           <value class="value" valueClass="boolean">false</value>
@@ -801,7 +848,9 @@
                         <argument id="interactionDescription">
                           <value class="value" valueClass="string">Set the Operation select to {op_operation}</value>
                         </argument>
-                        <argument id="beforeWait"/>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                        </argument>
                         <argument id="afterWait"/>
                         <argument id="autoRetry"/>
                         <argument id="captureBefore">
@@ -1868,13 +1917,11 @@
       <value class="value" valueClass="string">123</value>
     </argument>
     <argument id="ip_workOrderNumber">
-      <value class="value" valueClass="string">PRO-0073</value>
+      <value class="value" valueClass="string">PRO-REG_VWTLU</value>
     </argument>
-    <argument id="ip_trasactionDate">
-      <value class="value" valueClass="string">8/11/2021</value>
-    </argument>
+    <argument id="ip_trasactionDate"/>
     <argument id="op_operation">
-      <value class="value" valueClass="string">20 (Op 20) (Qty Avail:5)</value>
+      <value class="value" valueClass="string">10 (Op 10) (Qty Avail:5)</value>
     </argument>
     <argument id="ip_quantity">
       <value class="value" valueClass="string">5</value>
