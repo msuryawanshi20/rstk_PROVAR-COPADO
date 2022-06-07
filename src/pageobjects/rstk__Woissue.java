@@ -3,6 +3,7 @@ package pageobjects;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -40,7 +41,6 @@ public class rstk__Woissue {
 	public void selectWOrkOrderfromPicklist(String workOrderNumber) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 
-	
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='hdrordno__c_autocomplete']")));
 
 		WebElement ele = driver.findElement(By.xpath("//input[@id='hdrordno__c_autocomplete']"));
@@ -52,6 +52,13 @@ public class rstk__Woissue {
 
 		List<WebElement> autoCompleteList = driver
 				.findElements(By.xpath("//div[@class='ac_results'][1]/ul[@id='IDREF']/li"));
+
+		if (autoCompleteList.size() > 5) {
+			ele.sendKeys(Keys.BACK_SPACE);
+			Thread.sleep(2000);
+
+		}
+		autoCompleteList = driver.findElements(By.xpath("//div[@class='ac_results'][1]/ul[@id='IDREF']/li"));
 
 		for (int i = 0; i < autoCompleteList.size(); i++) {
 			Thread.sleep(500);
