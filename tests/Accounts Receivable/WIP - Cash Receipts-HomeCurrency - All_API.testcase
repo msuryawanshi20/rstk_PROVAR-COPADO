@@ -500,6 +500,102 @@
         </clause>
       </clauses>
     </apiCall>
+
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="156" title="Verify the Invoice and Receivable Transaction created">
+      <tags/>
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Verify the Invoice and Receivable Transaction created</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="157">
+          <steps>
+            <caseCall testCaseId="d868e5fb-15f2-4644-9a53-6eed6b12f3cf" testCasePath="tests/Accounts Receivable/AR-Callables/Verify Invoice and Receivable Transaction.testcase" testItemId="158">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="rstkRows_Invoice">
+                  <value class="variable">
+                    <path element="rstkRows_Invoice"/>
+                  </value>
+                </argument>
+                <argument id="SourceData_AR">
+                  <value class="variable">
+                    <path element="SourceData_AR"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="rstkfRows_ReceivableTxn_HomeCurrency" scope="Folder">
+                  <name class="value" valueClass="string">rstkfRows_ReceivableTxn_HomeCurrency</name>
+                </outputArgument>
+                <outputArgument id="rstkfRows_ReceivableTxn_ForeignCurrency" scope="Folder">
+                  <name class="value" valueClass="string">rstkfRows_ReceivableTxn_ForeignCurrency</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="159" title="CR Add Transaction">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">CR Add Transaction</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="160">
+          <steps>
+            <caseCall testCaseId="14e9de45-32ac-4edd-a322-736f32874d2d" testCasePath="tests/Accounts Receivable/AR-Callables/CRATO.testcase" testItemId="161">
+              <arguments>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="rstkRows_Invoice">
+                  <value class="variable">
+                    <path element="rstkRows_Invoice"/>
+                  </value>
+                </argument>
+                <argument id="SourceData_CRATOHomeCurrency">
+                  <value class="variable">
+                    <path element="SourceData_CRATOHomeCurrency"/>
+                  </value>
+                </argument>
+                <argument id="rstkfRows_ReceivableTxn">
+                  <value class="variable">
+                    <path element="rstkfRows_ReceivableTxn"/>
+                  </value>
+                </argument>
+                <argument id="rstkfRows_ForeignExchRateSchedule_ExchRate">
+                  <value class="variable">
+                    <path element="rstkfRows_ForeignExchRateSchedule_ExchRate"/>
+                  </value>
+                </argument>
+                <argument id="SourceData_CRATO">
+                  <value class="variable">
+                    <path element="SourceData_CRATO"/>
+                  </value>
+                </argument>
+                <argument id="rstkfRows_ReceivableTxn_ForeignCurrency">
+                  <value class="variable">
+                    <path element="rstkfRows_ReceivableTxn_ForeignCurrency"/>
+                  </value>
+                </argument>
+                <argument id="rstkfRows_ReceivableTxn_HomeCurrency">
+                  <value class="variable">
+                    <path element="rstkfRows_ReceivableTxn_HomeCurrency"/>
+                  </value>
+                </argument>
+              </arguments>
+            </caseCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="38" title="End">
       <arguments>
         <argument id="description">
