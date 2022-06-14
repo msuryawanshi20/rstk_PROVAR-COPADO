@@ -13,6 +13,7 @@ import com.provar.core.testapi.annotations.ButtonType;
 import com.provar.core.testapi.annotations.ChoiceListType;
 import com.provar.core.testapi.annotations.LinkType;
 import com.provar.core.testapi.annotations.Page;
+import com.provar.core.testapi.annotations.PageWaitAfter;
 import com.provar.core.testapi.annotations.TextType;
 
 @Page(title = "wocst_LUI", summary = "", relativeUrl = "", connection = "QARSF_Admin"
@@ -49,6 +50,7 @@ public class wocst_LUI {
 	@FindBy(xpath = "//input[@name='rstk__wocst_qtyreq__c']")
 	public WebElement qtyRequired;
 
+	@TextType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//div/span/lightning-formatted-text")
 	public WebElement selectItem;
 
@@ -88,6 +90,7 @@ public class wocst_LUI {
 	@FindBy(xpath = "//input[@name='rstk__wocst_consignind__c']")
 	public WebElement consigned;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//button[normalize-space(.)='Save']")
 	public WebElement save;
@@ -123,6 +126,7 @@ public class wocst_LUI {
 	@FindBy(xpath = "//input[@name='rstk__wocst_lotexpiredate__c']")
 	public WebElement lotExpirationDate;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//button[normalize-space(.)='Save']")
 	public WebElement save1;
@@ -131,6 +135,7 @@ public class wocst_LUI {
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//button[normalize-space(.)='ActionsShow menu']")
 	public WebElement actions;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Generate Serials']")
 	public WebElement generateSerials;
@@ -147,18 +152,21 @@ public class wocst_LUI {
 		driver.findElement(By.xpath("//input[@name='Serial_Numbers_comma_separated']")).sendKeys(serial);
 	}
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//button[normalize-space(.)='Next']")
 	public WebElement next;
 
 	@TextType()
 	@FindBy(xpath = "//lightning-formatted-rich-text//p")
-	public WebElement serialAddSuccess;
+	public WebElement flowCompletionMessage;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindBy(xpath = "//button[normalize-space(.)='Finish']")
 	public WebElement finish;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Extract Components']")
 	public WebElement extractComponents;
@@ -167,6 +175,7 @@ public class wocst_LUI {
 	@FindBy(xpath = "//a[normalize-space(.)='Extract Operations']")
 	public WebElement extractOperations;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Extract Operations & Components']")
 	public WebElement extractOperationsAndComponets;
@@ -175,6 +184,7 @@ public class wocst_LUI {
 	@FindBy(xpath = "//lightning-formatted-rich-text//b")
 	public WebElement successMessage;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Allocate Components']")
 	public WebElement allocateComponents;
@@ -188,6 +198,7 @@ public class wocst_LUI {
 
 	}
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Generate Picklist']")
 	public WebElement generatePicklist;
@@ -196,6 +207,7 @@ public class wocst_LUI {
 	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//label/span[1]")
 	public WebElement includeBackflush_;
 
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@LinkType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Issue']")
 	public WebElement issue;
@@ -214,5 +226,89 @@ public class wocst_LUI {
 	@TextType()
 	@FindBy(xpath = "//input[@name='Quantity_To_Issue']")
 	public WebElement quantityToIssue;
+	
+	@TextType()
+	@FindBy(xpath="//*[normalize-space()='Component Item']//parent::p/text()")
+	public WebElement componentItemName;
+	
+	@TextType()
+	@FindBy(css = "#flowContainer span p")
+	public WebElement flowProcessStatus;
+
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Time And Quantity Booking']")
+	public WebElement timeAndQuantityBooking;
+
+	@ButtonType()
+	@FindBy(xpath = "//label[normalize-space(.)='*Employee']/parent::div//following-sibling::div//button")
+	public WebElement clearEmployee;
+
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='*Employee']/parent::div/following-sibling::div//input")
+	public WebElement empName;
+
+	@TextType()
+	@FindBy(xpath = "//input[@name='Override_Employee_Rate']")
+	public WebElement overrideEmployeeRate;
+
+	@ChoiceListType()
+	@FindBy(xpath = "//label[normalize-space(.)='*']/following-sibling::div//select")
+	public WebElement operation;
+
+	@ButtonType()
+	@FindBy(xpath = "//button[normalize-space(.)='Enter Hours']")
+	public WebElement enterHours;
+
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='*Enter Hours']/following-sibling::div//input")
+	public WebElement enterHoursText;
+
+	@TextType()
+	@FindBy(xpath = "//input[@name='Quantity_Complete']")
+	public WebElement quantityComplete;
+
+	@TextType()
+	@FindBy(xpath = "//input[@name='Txn_Comments']")
+	public WebElement txnComments;
+
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Receive']")
+	public WebElement receive;
+
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='*Inventory Location']/following-sibling::div[1]//input")
+	public WebElement inventoryLocation;
+
+	@TextType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//li[1]/div")
+	public WebElement selectInventoryLocation;
+
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='Inventory Location Number']/following-sibling::div//input")
+	public WebElement inventoryLocationNumber;
+
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='Transaction Quantity']/following-sibling::div//input")
+	public WebElement transactionQuantity;
+
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='Transaction Comments']/following-sibling::div//textarea")
+	public WebElement transactionComments;
+
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='Location Comments']/following-sibling::div//textarea")
+	public WebElement locationComments;
+
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@ButtonType()
+	@FindBy(xpath = "//button[normalize-space(.)='Receive']")
+	public WebElement Receive;
+
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Close']")
+	public WebElement close;
+
 
 }

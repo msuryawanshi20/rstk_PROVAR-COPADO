@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="10">
+<testCase id="3">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -143,12 +143,12 @@
             <worksheetName class="value" valueClass="string">CashReceipt</worksheetName>
           </sourceValue>
         </parameterValueSource>
-        <parameterValueSource variableName="SourceData_CRATO" variableScope="Test">
+        <parameterValueSource variableName="SourceData_CashReceipt" variableScope="Test">
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="variable">
               <path element="ExcelPath_AR"/>
             </workbookPath>
-            <worksheetName class="value" valueClass="string">CRATO_HomeCurrency</worksheetName>
+            <worksheetName class="value" valueClass="string">CashReceipt</worksheetName>
           </sourceValue>
         </parameterValueSource>
         <parameterValueSource variableName="SourceData_ApproveInvoice" variableScope="Test">
@@ -466,7 +466,6 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="128" title="Transfer Sales Invoice">
-      <tags/>
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Transfer Sales Invoice</value>
@@ -501,6 +500,7 @@
         </clause>
       </clauses>
     </apiCall>
+
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="156" title="Verify the Invoice and Receivable Transaction created">
       <tags/>
       <arguments>
@@ -595,6 +595,7 @@
         </clause>
       </clauses>
     </apiCall>
+
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="38" title="End">
       <arguments>
         <argument id="description">
@@ -661,20 +662,6 @@
       </type>
       <sourceValue class="value" valueClass="string">SourceData_CreateInvoice</sourceValue>
     </param>
-    <param name="SourceData_CRATOHomeCurrency" title="SourceData_CRATOHomeCurrency">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-          </constraints>
-        </textType>
-      </type>
-      <sourceValue class="variable">
-        <path element="SourceData_CRATOHomeCurrency"/>
-      </sourceValue>
-    </param>
   </outputParams>
   <outputArgs>
     <outputArgument id="SourceData_Firm">
@@ -691,9 +678,6 @@
     </outputArgument>
     <outputArgument id="SourceData_CreateInvoice">
       <name class="value" valueClass="string">SourceData_CreateInvoice</name>
-    </outputArgument>
-    <outputArgument id="SourceData_CRATOHomeCurrency">
-      <name class="value" valueClass="string">SourceData_CRATOHomeCurrency</name>
     </outputArgument>
   </outputArgs>
 </testCase>
