@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="3">
+<testCase id="7">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -143,14 +143,6 @@
             <worksheetName class="value" valueClass="string">CashReceipt</worksheetName>
           </sourceValue>
         </parameterValueSource>
-        <parameterValueSource variableName="SourceData_CashReceipt" variableScope="Test">
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="variable">
-              <path element="ExcelPath_AR"/>
-            </workbookPath>
-            <worksheetName class="value" valueClass="string">CashReceipt</worksheetName>
-          </sourceValue>
-        </parameterValueSource>
         <parameterValueSource variableName="SourceData_ApproveInvoice" variableScope="Test">
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="variable">
@@ -165,6 +157,14 @@
               <path element="ExcelPath_AR"/>
             </workbookPath>
             <worksheetName class="value" valueClass="string">TransferInvoice</worksheetName>
+          </sourceValue>
+        </parameterValueSource>
+        <parameterValueSource variableName="SourceData_CRATO" variableScope="Test">
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="variable">
+              <path element="ExcelPath_AR"/>
+            </workbookPath>
+            <worksheetName class="value" valueClass="string">CRATO_HomeCurrency</worksheetName>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -500,7 +500,6 @@
         </clause>
       </clauses>
     </apiCall>
-
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="156" title="Verify the Invoice and Receivable Transaction created">
       <tags/>
       <arguments>
@@ -595,7 +594,6 @@
         </clause>
       </clauses>
     </apiCall>
-
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="38" title="End">
       <arguments>
         <argument id="description">
