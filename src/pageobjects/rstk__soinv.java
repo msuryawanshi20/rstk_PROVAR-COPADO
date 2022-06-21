@@ -27,7 +27,7 @@ public class rstk__soinv {
 	@FindByLabel(label = "Approve Credit Memo")
 	public WebElement approveCreditMemo;
 	@TextType()
-	@VisualforceBy(componentXPath = "c:standardHeader//h2[contains(@class, \"pageDescription\")]")
+	@FindBy(xpath = "//lightning-formatted-text[@class='slds-text-heading_medium']")
 	public WebElement pageTitle;
 	@TextType()
 	@FindBy(xpath = "//td[normalize-space(.)='Invoice approved.']")
