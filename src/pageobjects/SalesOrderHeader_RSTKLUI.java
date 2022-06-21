@@ -2,6 +2,8 @@ package pageobjects;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -13,7 +15,11 @@ import com.provar.core.testapi.annotations.*;
      , connection="QARSF_Admin"
      )             
 public class SalesOrderHeader_RSTKLUI {
-
+WebDriver driver;
+String ProdType;
+ public SalesOrderHeader_RSTKLUI(WebDriver driver)
+{this.driver = driver;
+}
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Sales Order Header']")
 	public WebElement salesOrderHeader;
@@ -30,7 +36,7 @@ public class SalesOrderHeader_RSTKLUI {
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//button[normalize-space(.)='Save']")
 	public WebElement save;
 	@TextType()
-	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//div[3]/lightning-output-field//lightning-formatted-text")
+	@FindBy(xpath = "//span[text()='Order Number']/following::div[@class='slds-form-element__control']//lightning-formatted-text[@data-output-element-id='output-field']")
 	public WebElement Order_Number;
 	@LinkType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='New']")
@@ -44,8 +50,11 @@ public class SalesOrderHeader_RSTKLUI {
 	@TextType()
 	@JavascriptBy(jspath = "return document.querySelector('one-record-home-flexipage2').shadowRoot.querySelector('forcegenerated-adg-rollup_component___force-generated__flexipage_-record-page___-sales_-order_-header_-record_-page_-default1___rstk__sohdr__c___-v-i-e-w').shadowRoot.querySelector('forcegenerated-flexipage_sales_order_header_record_page_default1_rstk__sohdr__c__view_js').shadowRoot.querySelector('rootstock-rootstock-soline-grid').shadowRoot.querySelector('c-rootstock-datatable').shadowRoot.querySelectorAll('lightning-primitive-cell-factory')[2].shadowRoot.querySelector('lightning-primitive-custom-cell').shadowRoot.querySelector('c-rootstock-lookup').shadowRoot.querySelector('lightning-input').shadowRoot.querySelector('input')")
 	public WebElement Product;
+	@ChoiceListType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//button[contains(@name,'rstk__soline_prodtype__c')]/../following::div//ul//li//span//span[2]")
+	public WebElement ProductType_Select;
 	@TextType()
-	@FindBy(xpath = "//ul[@class='slds-listbox slds-listbox_vertical']//li//span//span")
+	@FindBy(xpath = "//lightning-primitive-cell-factory[@data-label='Product']//div[@role='listbox']//ul[@class='slds-listbox slds-listbox_vertical']//li//span//span")
 	public WebElement Product_Select;
 	@ButtonType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//button[normalize-space(.)='ActionsShow menu']")
@@ -87,16 +96,62 @@ public class SalesOrderHeader_RSTKLUI {
 	@PageRow()
 	public static class SOLineGrid {
 
-        @TextType()
+       /* @TextType()
 	    @FindBy(xpath = ".//th//button[contains(@name,'rstk__soline_prodtype__c')]")
+	    public WebElement ProductType;	*/
+	    
+	    
+	      @TextType()
+	    @FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//button[contains(@name,'rstk__soline_prodtype__c')]")
 	    public WebElement ProductType;	
+	    
+	    
+	 /*   @TextType()
+	    @FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//button[contains(@name,'rstk__soline_prodtype__c')]/../following::div[@role='listbox']")
+	    public WebElement ProductType;	*/
+	    
+	    @ChoiceListType()
+	    @FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//button[contains(@name,'rstk__soline_prodtype__c')]/../following::div//ul//li//span//span[text()='Service']")
+	    public WebElement ProductType_Select;
+	    
 	    @TextType()
 		@FindBy(xpath = ".//td[3]//input")
 		public WebElement Product;
+		
 	}
+	
+	
+	
+	
+	public void Click(String ProdType) throws InterruptedException{
+	//driver.findElement(By.xpath("(//input[@placeholder='Select'])[1]")).click();
+	//Thread.sleep(1000);
+	//driver.findElement(By.xpath("//span[contains(text(),'DJ_Prod01_No-Track (No Track_MFG)')]")).click();
+//	driver.findElement(By.xpath("//span[contains(text()"+var1+"))".click();
+    
+    driver.findElement(By.xpath("//div[contains(@class,'active') and contains(@class,'oneContent')]//button[contains(@name,'rstk__soline_prodtype__c')]/../following::div//ul//li//span//span[text()='"+ProdType+"']")).click(); 
+
+	}
+	
+	
+	
+	
+	
 	@FindBy(xpath = "//flexipage-component2[@data-component-id='rootstockSolineGrid']//table//tbody//tr")
 	@PageTable(firstRowContainsHeaders = false, row = SOLineGrid.class)
 	public List<SOLineGrid> table;
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[@id='relatedListsTab__item']")
+	public WebElement related;
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[@id='detailTab__item']")
+	public WebElement details;
+	@TextType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//h1//lightning-formatted-text")
+	public WebElement InvoiceHeader_Title;
+	
+	//@FindBy(xpath = "//div[@id='listbox-id-1-1379']//ul//li//span//span")
+	//public WebElement ProductSelect;
 
 			
 }
