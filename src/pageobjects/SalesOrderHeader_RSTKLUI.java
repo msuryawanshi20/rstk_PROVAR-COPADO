@@ -149,6 +149,18 @@ String ProdType;
 	@TextType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//h1//lightning-formatted-text")
 	public WebElement InvoiceHeader_Title;
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Approve Invoice']")
+	public WebElement approveInvoice;
+	@TextType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//span[normalize-space(.)='ProcessingComplete']//lightning-base-formatted-text")
+	public WebElement ProcessingIndicator;
+	@ButtonType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//button[normalize-space(.)='Close']")
+	public WebElement close;
+	@BooleanType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//label[normalize-space(.)='Approved']/span[1]")
+	public WebElement approved;
 	
 	//@FindBy(xpath = "//div[@id='listbox-id-1-1379']//ul//li//span//span")
 	//public WebElement ProductSelect;

@@ -211,7 +211,7 @@
                   <value class="valueList" mutable="Mutable"/>
                 </argument>
                 <argument id="beforeWait">
-                  <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
+                  <value class="uiWait" uri="ui:wait:timed?seconds=5"/>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
@@ -830,7 +830,7 @@
                   <value class="value" valueClass="string">Test</value>
                 </argument>
                 <argument id="captureAfter">
-                  <value class="value" valueClass="string">false</value>
+                  <value class="value" valueClass="string">full</value>
                 </argument>
                 <argument id="beforeWait"/>
                 <argument id="autoRetry"/>
