@@ -68,6 +68,16 @@
             <worksheetName class="value" valueClass="string">AddLine</worksheetName>
           </sourceValue>
         </parameterValueSource>
+        <parameterValueSource variableName="SourceData_Invoice" variableScope="Test">
+          <cacheToken>C:/Users/Ashok/Provar/RSTK_Automation/rsqasampleproj/templates/DEVQAFF/SalesOrder_LUI.xlsx;1655992324420</cacheToken>
+          <cachedParameters>
+            <apiParam name="InvoicePage_URL"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/DEVQAFF/SalesOrder_LUI.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Invoice</worksheetName>
+          </sourceValue>
+        </parameterValueSource>
       </parameterValueSources>
       <clauses>
         <clause name="hidden" testItemId="80"/>
@@ -209,6 +219,9 @@
               <outputArguments>
                 <outputArgument id="Invoice">
                   <name class="value" valueClass="string">Invoice</name>
+                </outputArgument>
+                <outputArgument id="InvoiceNumber">
+                  <name class="value" valueClass="string">InvoiceNumber</name>
                 </outputArgument>
               </outputArguments>
             </caseCall>
@@ -378,6 +391,20 @@
         <path element="SourceData_AddLine"/>
       </sourceValue>
     </param>
+    <param name="SourceData_Invoice" title="SourceData_Invoice">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="SourceData_Invoice"/>
+      </sourceValue>
+    </param>
   </outputParams>
   <outputArgs>
     <outputArgument id="SourceData_AddHeader" scope="Folder">
@@ -385,6 +412,9 @@
     </outputArgument>
     <outputArgument id="SourceData_AddLine" scope="Folder">
       <name class="value" valueClass="string">SourceData_AddLine</name>
+    </outputArgument>
+    <outputArgument id="SourceData_Invoice">
+      <name class="value" valueClass="string">SourceData_Invoice</name>
     </outputArgument>
   </outputArgs>
 </testCase>
