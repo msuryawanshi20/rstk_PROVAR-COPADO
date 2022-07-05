@@ -172,6 +172,9 @@
         <clause name="substeps" testItemId="39">
           <steps>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="40" title="Set the Item No field to {ip_ItemNo}">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=itemNo"/>
@@ -214,9 +217,6 @@
                     <textType>
                       <constraints>
                         <valueConstraint name="mimeType">text/plain</valueConstraint>
-                        <valueConstraint name="minLength">0</valueConstraint>
-                        <valueConstraint name="maxLength">9999</valueConstraint>
-                        <valueConstraint name="regex"/>
                       </constraints>
                     </textType>
                   </type>
@@ -236,6 +236,9 @@
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="41" title="Lookup the List field">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=list"/>
@@ -260,6 +263,44 @@
                   <value class="uiInteraction" uri="ui:interaction?name=sfLookup"/>
                 </argument>
               </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="108" title="Call the selectInventoryItem method">
+              <arguments>
+                <argument id="locator">
+                  <value class="uiLocator" uri="ui:pageobject:method?operation=selectInventoryItem&amp;pageId=pageobjects.rstk__Stocklocadj2"/>
+                </argument>
+                <argument id="interaction">
+                  <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
+                </argument>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Call the selectInventoryItem method</value>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="afterWait"/>
+                <argument id="autoRetry"/>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="param_locationID"/>
+                <argument id="param_locationNumber"/>
+                <argument id="param_LotNumber"/>
+                <argument id="param_adjustmentOption"/>
+                <argument id="param_InventoryItemName">
+                  <value class="variable">
+                    <path element="ip_ItemNo"/>
+                  </value>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="value" name="param_InventoryItemName" title="Inventory Item Name">
+                  <type>
+                    <textType/>
+                  </type>
+                </apiParam>
+              </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="42" title="Set the Project select to {ip_project}">
               <arguments>

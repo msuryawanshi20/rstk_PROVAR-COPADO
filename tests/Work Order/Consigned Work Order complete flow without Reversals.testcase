@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="7">
+<testCase id="26">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="174" title="Salesforce Connect: SFConnection (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
@@ -45,7 +45,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="273" title="Read Excel Data">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="161" title="Read Excel Data">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read Excel Data</value>
@@ -53,9 +53,9 @@
       </arguments>
       <parameterValueSources/>
       <clauses>
-        <clause name="hidden" testItemId="134">
+        <clause name="hidden" testItemId="154">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="135" title="On SF rstk__Stocklocadd page with pageobject Rstk__ Stocklocadd">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="162" title="On SF rstk__Stocklocadd page with pageobject Rstk__ Stocklocadd">
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -87,9 +87,9 @@
                 </argument>
               </arguments>
               <clauses>
-                <clause name="substeps" testItemId="136">
+                <clause name="substeps" testItemId="163">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="137" title="Read Inventory Division name">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="165" title="Read Inventory Division name">
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">op_currentInventoryDivision</value>
@@ -120,7 +120,7 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="138" title="Set Values: op_currentInventoryDivision">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="166" title="Set Values: op_currentInventoryDivision">
                       <arguments>
                         <argument id="values">
                           <value class="valueList" mutable="Mutable">
@@ -156,7 +156,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="139" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="174" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
@@ -166,17 +166,17 @@
                 </argument>
               </arguments>
               <clauses>
-                <clause name="then" testItemId="140">
+                <clause name="then" testItemId="905">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="310" title="Read Excel Data-Create WO">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="239" title="Read Excel Data">
                       <arguments>
                         <argument id="description">
-                          <value class="value" valueClass="string">Read Excel Data-Create WO</value>
+                          <value class="value" valueClass="string">Read Excel Data</value>
                         </argument>
                       </arguments>
                       <parameterValueSources>
                         <parameterValueSource variableName="op_excelData" variableScope="Test">
-                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx;1633632498209</cacheToken>
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9521-Consigned WO.xlsx;1631618974321</cacheToken>
                           <cachedParameters>
                             <apiParam name="RowNumber"/>
                             <apiParam name="Site"/>
@@ -188,23 +188,23 @@
                             <apiParam name="ExtractOperationsAndComponent"/>
                           </cachedParameters>
                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9521-Consigned WO.xlsx</workbookPath>
                             <worksheetName class="value" valueClass="string">Create WO</worksheetName>
                             <valuesRange class="value" valueClass="string">A:G</valuesRange>
                           </sourceValue>
                         </parameterValueSource>
                       </parameterValueSources>
                       <clauses>
-                        <clause name="hidden" testItemId="271">
+                        <clause name="hidden" testItemId="164">
                           <steps/>
                         </clause>
                       </clauses>
                     </apiCall>
                   </steps>
                 </clause>
-                <clause name="else" testItemId="143">
+                <clause name="else" testItemId="906">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="144" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                       <arguments>
                         <argument id="condition">
                           <value class="eq">
@@ -214,17 +214,17 @@
                         </argument>
                       </arguments>
                       <clauses>
-                        <clause name="then" testItemId="145">
+                        <clause name="then" testItemId="919">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="308" title="Read Excel Data-Create WO">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="237" title="Read Excel Data">
                               <arguments>
                                 <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data-Create WO</value>
+                                  <value class="value" valueClass="string">Read Excel Data</value>
                                 </argument>
                               </arguments>
                               <parameterValueSources>
                                 <parameterValueSource variableName="op_excelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx;1633632498209</cacheToken>
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9521-Consigned WO.xlsx;1631618974321</cacheToken>
                                   <cachedParameters>
                                     <apiParam name="RowNumber"/>
                                     <apiParam name="Site"/>
@@ -236,31 +236,31 @@
                                     <apiParam name="ExtractOperationsAndComponent"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9521-Consigned WO.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">Create WO</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:G</valuesRange>
                                   </sourceValue>
                                 </parameterValueSource>
                               </parameterValueSources>
                               <clauses>
-                                <clause name="hidden" testItemId="311">
+                                <clause name="hidden" testItemId="240">
                                   <steps/>
                                 </clause>
                               </clauses>
                             </apiCall>
                           </steps>
                         </clause>
-                        <clause name="else" testItemId="148">
+                        <clause name="else" testItemId="922">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="177" title="Read Excel Data-Create WO">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="134" title="Read Excel Data">
                               <arguments>
                                 <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data-Create WO</value>
+                                  <value class="value" valueClass="string">Read Excel Data</value>
                                 </argument>
                               </arguments>
                               <parameterValueSources>
                                 <parameterValueSource variableName="op_excelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx;1633632498209</cacheToken>
+                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9521-Consigned WO.xlsx;1631618974321</cacheToken>
                                   <cachedParameters>
                                     <apiParam name="RowNumber"/>
                                     <apiParam name="Site"/>
@@ -272,14 +272,14 @@
                                     <apiParam name="ExtractOperationsAndComponent"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9521-Consigned WO.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">Create WO</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:G</valuesRange>
                                   </sourceValue>
                                 </parameterValueSource>
                               </parameterValueSources>
                               <clauses>
-                                <clause name="hidden" testItemId="309">
+                                <clause name="hidden" testItemId="238">
                                   <steps/>
                                 </clause>
                               </clauses>
@@ -296,7 +296,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="178" title="Process excel Data">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="135" title="For Each: {op_excelData}=&gt;op_excelDataRow">
       <arguments>
         <argument id="list">
           <value class="variable">
@@ -314,7 +314,7 @@
         </argument>
       </arguments>
       <clauses>
-        <clause name="substeps" testItemId="272">
+        <clause name="substeps" testItemId="5">
           <steps>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="39" title="Create Work Order">
               <arguments>
@@ -400,7 +400,7 @@
                                       <namedValue name="value">
                                         <value class="compound">
                                           <parts>
-                                            <value valueClass="string">Pro-Reg_</value>
+                                            <value valueClass="string">Pro-Con_</value>
                                             <funcCall id="UniqueId">
                                               <argument id="length">
                                                 <value class="value" valueClass="decimal">5</value>
@@ -477,7 +477,7 @@
                           <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="ip_consignedFlag">
-                          <value class="value" valueClass="string">false</value>
+                          <value class="value" valueClass="string">true</value>
                         </argument>
                       </arguments>
                       <outputArguments>
@@ -657,7 +657,7 @@
                         </clause>
                         <clause name="else" testItemId="120">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="282" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="171" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
                               <arguments>
                                 <argument id="condition">
                                   <value class="eq">
@@ -667,9 +667,9 @@
                                 </argument>
                               </arguments>
                               <clauses>
-                                <clause name="then" testItemId="283">
+                                <clause name="then" testItemId="172">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="328" title="Read Componet and Operation Data">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="261" title="Read Componet and Operation Data">
                                       <arguments>
                                         <argument id="description">
                                           <value class="value" valueClass="string">Read Componet and Operation Data</value>
@@ -677,7 +677,7 @@
                                       </arguments>
                                       <parameterValueSources>
                                         <parameterValueSource variableName="op_componentExcelData" variableScope="Test">
-                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Work Order.xlsx;1629905609740</cacheToken>
+                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Consigned WO.xlsx;1631026439294</cacheToken>
                                           <cachedParameters>
                                             <apiParam name="RowNumber"/>
                                             <apiParam name="ItemNumber"/>
@@ -691,13 +691,13 @@
                                             <apiParam name="Comments"/>
                                           </cachedParameters>
                                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9521-Consigned WO.xlsx</workbookPath>
                                             <worksheetName class="value" valueClass="string">Add Component</worksheetName>
                                             <valuesRange class="value" valueClass="string">A:I</valuesRange>
                                           </sourceValue>
                                         </parameterValueSource>
                                         <parameterValueSource variableName="op_operationExcelData" variableScope="Test">
-                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx;1633080995115</cacheToken>
+                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Work Order.xlsx;1629909011329</cacheToken>
                                           <cachedParameters>
                                             <apiParam name="RowNumber"/>
                                             <apiParam name="ItemNumber"/>
@@ -719,23 +719,23 @@
                                             <apiParam name="StandardMachineHours"/>
                                           </cachedParameters>
                                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9521-Consigned WO.xlsx</workbookPath>
                                             <worksheetName class="value" valueClass="string">Add Operation</worksheetName>
                                             <valuesRange class="value" valueClass="string">A:S</valuesRange>
                                           </sourceValue>
                                         </parameterValueSource>
                                       </parameterValueSources>
                                       <clauses>
-                                        <clause name="hidden" testItemId="124">
+                                        <clause name="hidden" testItemId="258">
                                           <steps/>
                                         </clause>
                                       </clauses>
                                     </apiCall>
                                   </steps>
                                 </clause>
-                                <clause name="else" testItemId="284">
+                                <clause name="else" testItemId="173">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="285" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="179" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                                       <arguments>
                                         <argument id="condition">
                                           <value class="eq">
@@ -745,9 +745,9 @@
                                         </argument>
                                       </arguments>
                                       <clauses>
-                                        <clause name="then" testItemId="286">
+                                        <clause name="then" testItemId="175">
                                           <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="326" title="Read Componet and Operation Data">
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="259" title="Read Componet and Operation Data">
                                               <arguments>
                                                 <argument id="description">
                                                   <value class="value" valueClass="string">Read Componet and Operation Data</value>
@@ -755,7 +755,7 @@
                                               </arguments>
                                               <parameterValueSources>
                                                 <parameterValueSource variableName="op_componentExcelData" variableScope="Test">
-                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Work Order.xlsx;1629905609740</cacheToken>
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Consigned WO.xlsx;1631026439294</cacheToken>
                                                   <cachedParameters>
                                                     <apiParam name="RowNumber"/>
                                                     <apiParam name="ItemNumber"/>
@@ -769,13 +769,13 @@
                                                     <apiParam name="Comments"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9521-Consigned WO.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">Add Component</worksheetName>
                                                     <valuesRange class="value" valueClass="string">A:I</valuesRange>
                                                   </sourceValue>
                                                 </parameterValueSource>
                                                 <parameterValueSource variableName="op_operationExcelData" variableScope="Test">
-                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx;1633080995115</cacheToken>
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Work Order.xlsx;1629909011329</cacheToken>
                                                   <cachedParameters>
                                                     <apiParam name="RowNumber"/>
                                                     <apiParam name="ItemNumber"/>
@@ -797,23 +797,23 @@
                                                     <apiParam name="StandardMachineHours"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9521-Consigned WO.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">Add Operation</worksheetName>
                                                     <valuesRange class="value" valueClass="string">A:S</valuesRange>
                                                   </sourceValue>
                                                 </parameterValueSource>
                                               </parameterValueSources>
                                               <clauses>
-                                                <clause name="hidden" testItemId="329">
+                                                <clause name="hidden" testItemId="262">
                                                   <steps/>
                                                 </clause>
                                               </clauses>
                                             </apiCall>
                                           </steps>
                                         </clause>
-                                        <clause name="else" testItemId="287">
+                                        <clause name="else" testItemId="176">
                                           <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="123" title="Read Componet and Operation Data">
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="257" title="Read Componet and Operation Data">
                                               <arguments>
                                                 <argument id="description">
                                                   <value class="value" valueClass="string">Read Componet and Operation Data</value>
@@ -821,7 +821,7 @@
                                               </arguments>
                                               <parameterValueSources>
                                                 <parameterValueSource variableName="op_componentExcelData" variableScope="Test">
-                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Work Order.xlsx;1629905609740</cacheToken>
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Consigned WO.xlsx;1631026439294</cacheToken>
                                                   <cachedParameters>
                                                     <apiParam name="RowNumber"/>
                                                     <apiParam name="ItemNumber"/>
@@ -835,13 +835,13 @@
                                                     <apiParam name="Comments"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9521-Consigned WO.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">Add Component</worksheetName>
                                                     <valuesRange class="value" valueClass="string">A:I</valuesRange>
                                                   </sourceValue>
                                                 </parameterValueSource>
                                                 <parameterValueSource variableName="op_operationExcelData" variableScope="Test">
-                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9517-Work Order complete Flow.xlsx;1633080995115</cacheToken>
+                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/Work Order.xlsx;1629909011329</cacheToken>
                                                   <cachedParameters>
                                                     <apiParam name="RowNumber"/>
                                                     <apiParam name="ItemNumber"/>
@@ -863,14 +863,14 @@
                                                     <apiParam name="StandardMachineHours"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9521-Consigned WO.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">Add Operation</worksheetName>
                                                     <valuesRange class="value" valueClass="string">A:S</valuesRange>
                                                   </sourceValue>
                                                 </parameterValueSource>
                                               </parameterValueSources>
                                               <clauses>
-                                                <clause name="hidden" testItemId="327">
+                                                <clause name="hidden" testItemId="260">
                                                   <steps/>
                                                 </clause>
                                               </clauses>
@@ -883,7 +883,7 @@
                                 </clause>
                               </clauses>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="318" title="For Each: {op_componentExcelData}=&gt;op_componentExcelDataRow">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="251" title="For Each: {op_componentExcelData}=&gt;op_componentExcelDataRow">
                               <arguments>
                                 <argument id="list">
                                   <value class="variable">
@@ -901,9 +901,9 @@
                                 </argument>
                               </arguments>
                               <clauses>
-                                <clause name="substeps" testItemId="319">
+                                <clause name="substeps" testItemId="252">
                                   <steps>
-                                    <caseCall testCaseId="0183980e-6527-46e5-928a-273cf63e83b1" testCasePath="tests/Work Order/Callable/Add Component.testcase" testItemId="320">
+                                    <caseCall testCaseId="0183980e-6527-46e5-928a-273cf63e83b1" testCasePath="tests/Work Order/Callable/Add Component.testcase" testItemId="253">
                                       <arguments>
                                         <argument id="reuseConnectionName">
                                           <value class="value" valueClass="string">SFConnection</value>
@@ -972,7 +972,7 @@
                                 </clause>
                               </clauses>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="321" title="For Each: {op_operationExcelData}=&gt;op_operationExcelDataRow">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="254" title="For Each: {op_operationExcelData}=&gt;op_operationExcelDataRow">
                               <arguments>
                                 <argument id="list">
                                   <value class="variable">
@@ -990,9 +990,9 @@
                                 </argument>
                               </arguments>
                               <clauses>
-                                <clause name="substeps" testItemId="322">
+                                <clause name="substeps" testItemId="255">
                                   <steps>
-                                    <caseCall testCaseId="28efb160-42d3-40d0-9250-1aaf3d61fe70" testCasePath="tests/Work Order/Callable/Add Operations from WO.testcase" testItemId="323">
+                                    <caseCall testCaseId="28efb160-42d3-40d0-9250-1aaf3d61fe70" testCasePath="tests/Work Order/Callable/Add Operations from WO.testcase" testItemId="256">
                                       <arguments>
                                         <argument id="reuseConnectionName">
                                           <value class="value" valueClass="string">SFConnection</value>
@@ -1210,7 +1210,31 @@
               <clauses>
                 <clause name="hidden" testItemId="58">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="288" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="51" title="Engg item Master details">
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">select rstk__icitem_item__r.rstk__peitem_item__c, rstk__icitem_item__r.rstk__peitem_descr__c from rstk__icitem__c where ID in (select rstk__wocst_item__c from rstk__wocst__c where name='</value>
+                              <variable>
+                                <path element="op_OrderNumber"/>
+                              </variable>
+                              <value valueClass="string">')</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">op_peitemDetails</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="198" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
                       <arguments>
                         <argument id="condition">
                           <value class="eq">
@@ -1220,9 +1244,9 @@
                         </argument>
                       </arguments>
                       <clauses>
-                        <clause name="then" testItemId="289">
+                        <clause name="then" testItemId="199">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="334" title="Read excel-Time and Qty Booking">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="267" title="Read excel-Time and Qty Booking">
                               <arguments>
                                 <argument id="description">
                                   <value class="value" valueClass="string">Read excel-Time and Qty Booking</value>
@@ -1250,7 +1274,7 @@
                                     <apiParam name="TxnComments"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9521-Consigned WO.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">Time and Qty Booking</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:O</valuesRange>
                                   </sourceValue>
@@ -1264,9 +1288,9 @@
                             </apiCall>
                           </steps>
                         </clause>
-                        <clause name="else" testItemId="290">
+                        <clause name="else" testItemId="200">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="291" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="201" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                               <arguments>
                                 <argument id="condition">
                                   <value class="eq">
@@ -1276,9 +1300,9 @@
                                 </argument>
                               </arguments>
                               <clauses>
-                                <clause name="then" testItemId="292">
+                                <clause name="then" testItemId="202">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="332" title="Read excel-Time and Qty Booking">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="265" title="Read excel-Time and Qty Booking">
                                       <arguments>
                                         <argument id="description">
                                           <value class="value" valueClass="string">Read excel-Time and Qty Booking</value>
@@ -1306,21 +1330,21 @@
                                             <apiParam name="TxnComments"/>
                                           </cachedParameters>
                                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9521-Consigned WO.xlsx</workbookPath>
                                             <worksheetName class="value" valueClass="string">Time and Qty Booking</worksheetName>
                                             <valuesRange class="value" valueClass="string">A:O</valuesRange>
                                           </sourceValue>
                                         </parameterValueSource>
                                       </parameterValueSources>
                                       <clauses>
-                                        <clause name="hidden" testItemId="335">
+                                        <clause name="hidden" testItemId="268">
                                           <steps/>
                                         </clause>
                                       </clauses>
                                     </apiCall>
                                   </steps>
                                 </clause>
-                                <clause name="else" testItemId="293">
+                                <clause name="else" testItemId="203">
                                   <steps>
                                     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="52" title="Read excel-Time and Qty Booking">
                                       <arguments>
@@ -1350,14 +1374,14 @@
                                             <apiParam name="TxnComments"/>
                                           </cachedParameters>
                                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9521-Consigned WO.xlsx</workbookPath>
                                             <worksheetName class="value" valueClass="string">Time and Qty Booking</worksheetName>
                                             <valuesRange class="value" valueClass="string">A:O</valuesRange>
                                           </sourceValue>
                                         </parameterValueSource>
                                       </parameterValueSources>
                                       <clauses>
-                                        <clause name="hidden" testItemId="333">
+                                        <clause name="hidden" testItemId="266">
                                           <steps/>
                                         </clause>
                                       </clauses>
@@ -1370,31 +1394,7 @@
                         </clause>
                       </clauses>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="51" title="Engg item Master details">
-                      <arguments>
-                        <argument id="soqlQuery">
-                          <value class="compound">
-                            <parts>
-                              <value valueClass="string">select rstk__icitem_item__r.rstk__peitem_item__c, rstk__icitem_item__r.rstk__peitem_descr__c from rstk__icitem__c where ID in (select rstk__wocst_item__c from rstk__wocst__c where name='</value>
-                              <variable>
-                                <path element="op_OrderNumber"/>
-                              </variable>
-                              <value valueClass="string">')</value>
-                            </parts>
-                          </value>
-                        </argument>
-                        <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">SFConnection</value>
-                        </argument>
-                        <argument id="resultListName">
-                          <value class="value" valueClass="string">op_peitemDetails</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="231" title="Perform Time and Qty Booking">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" isTitleUpdated="true" name="ForEach" testItemId="18" title="Perform Time and Qty Booking">
                       <tags/>
                       <arguments>
                         <argument id="list">
@@ -1413,9 +1413,9 @@
                         </argument>
                       </arguments>
                       <clauses>
-                        <clause name="substeps" testItemId="232">
+                        <clause name="substeps" testItemId="19">
                           <steps>
-                            <caseCall testCaseId="d778b8b1-6e3b-4c0c-87ab-d0be732fdb52" testCasePath="tests/Work Order/Callable/Time and Quantity Booking.testcase" testItemId="233">
+                            <caseCall testCaseId="d778b8b1-6e3b-4c0c-87ab-d0be732fdb52" testCasePath="tests/Work Order/Callable/Time and Quantity Booking.testcase" testItemId="62">
                               <arguments>
                                 <argument id="reuseConnectionName">
                                   <value class="value" valueClass="string">SFConnection</value>
@@ -1524,456 +1524,16 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="259" title="Process inspection Order">
-              <arguments>
-                <argument id="description">
-                  <value class="value" valueClass="string">Process inspection Order</value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="hidden" testItemId="260">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="294" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
-                      <arguments>
-                        <argument id="condition">
-                          <value class="eq">
-                            <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                            <rhs class="value" valueClass="string">PDE5</rhs>
-                          </value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="then" testItemId="295">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="340" title="Read Excel Data Inspection order">
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data Inspection order</value>
-                                </argument>
-                              </arguments>
-                              <parameterValueSources>
-                                <parameterValueSource variableName="op_inspectionOrderExcelData" variableScope="Test">
-                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx;1635422767115</cacheToken>
-                                  <cachedParameters>
-                                    <apiParam name="Site"/>
-                                    <apiParam name="ItemNumber"/>
-                                    <apiParam name="QtyRequired"/>
-                                    <apiParam name="DueDate"/>
-                                    <apiParam name="Project"/>
-                                    <apiParam name="ProjectChargeCode"/>
-                                    <apiParam name="ExtractOperationsAndComponent"/>
-                                  </cachedParameters>
-                                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
-                                    <worksheetName class="value" valueClass="string">Inspection Order Qty</worksheetName>
-                                    <valuesRange class="value" valueClass="string">A:D</valuesRange>
-                                  </sourceValue>
-                                </parameterValueSource>
-                              </parameterValueSources>
-                              <clauses>
-                                <clause name="hidden" testItemId="337"/>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="296">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="297" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
-                              <arguments>
-                                <argument id="condition">
-                                  <value class="eq">
-                                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
-                                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
-                                  </value>
-                                </argument>
-                              </arguments>
-                              <clauses>
-                                <clause name="then" testItemId="298">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="338" title="Read Excel Data Inspection order">
-                                      <arguments>
-                                        <argument id="description">
-                                          <value class="value" valueClass="string">Read Excel Data Inspection order</value>
-                                        </argument>
-                                      </arguments>
-                                      <parameterValueSources>
-                                        <parameterValueSource variableName="op_inspectionOrderExcelData" variableScope="Test">
-                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx;1635422767115</cacheToken>
-                                          <cachedParameters>
-                                            <apiParam name="Site"/>
-                                            <apiParam name="ItemNumber"/>
-                                            <apiParam name="QtyRequired"/>
-                                            <apiParam name="DueDate"/>
-                                            <apiParam name="Project"/>
-                                            <apiParam name="ProjectChargeCode"/>
-                                            <apiParam name="ExtractOperationsAndComponent"/>
-                                          </cachedParameters>
-                                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
-                                            <worksheetName class="value" valueClass="string">Inspection Order Qty</worksheetName>
-                                            <valuesRange class="value" valueClass="string">A:D</valuesRange>
-                                          </sourceValue>
-                                        </parameterValueSource>
-                                      </parameterValueSources>
-                                      <clauses>
-                                        <clause name="hidden" testItemId="341"/>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                                <clause name="else" testItemId="299">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="336" title="Read Excel Data Inspection order">
-                                      <arguments>
-                                        <argument id="description">
-                                          <value class="value" valueClass="string">Read Excel Data Inspection order</value>
-                                        </argument>
-                                      </arguments>
-                                      <parameterValueSources>
-                                        <parameterValueSource variableName="op_inspectionOrderExcelData" variableScope="Test">
-                                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx;1635422767115</cacheToken>
-                                          <cachedParameters>
-                                            <apiParam name="Site"/>
-                                            <apiParam name="ItemNumber"/>
-                                            <apiParam name="QtyRequired"/>
-                                            <apiParam name="DueDate"/>
-                                            <apiParam name="Project"/>
-                                            <apiParam name="ProjectChargeCode"/>
-                                            <apiParam name="ExtractOperationsAndComponent"/>
-                                          </cachedParameters>
-                                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
-                                            <worksheetName class="value" valueClass="string">Inspection Order Qty</worksheetName>
-                                            <valuesRange class="value" valueClass="string">A:D</valuesRange>
-                                          </sourceValue>
-                                        </parameterValueSource>
-                                      </parameterValueSources>
-                                      <clauses>
-                                        <clause name="hidden" testItemId="339"/>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="269" title="Get Inspection order details">
-                      <arguments>
-                        <argument id="soqlQuery">
-                          <value class="compound">
-                            <parts>
-                              <value valueClass="string">select Id,name,rstk__inspord_woordop__c,rstk__inspord_woordop__r.name,rstk__inspord_qtyreq__c\tfrom rstk__inspord__c where rstk__inspord_woordop__c in (select ID from rstk__woordop__c where rstk__woordop_ordno__c='</value>
-                              <variable>
-                                <path element="op_WORecID"/>
-                                <path element="ID"/>
-                              </variable>
-                              <value valueClass="string">' and rstk__woordop_insptempl__c!=null)</value>
-                            </parts>
-                          </value>
-                        </argument>
-                        <argument id="apexConnectionName">
-                          <value class="value" valueClass="string">SFConnection</value>
-                        </argument>
-                        <argument id="resultListName">
-                          <value class="value" valueClass="string">op_inspOrdDetails</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="261" title="For Each: {op_inspectionOrderExcelData}=&gt;op_inspectionOrderExcelRow">
-                      <arguments>
-                        <argument id="list">
-                          <value class="variable">
-                            <path element="op_inspectionOrderExcelData"/>
-                          </value>
-                        </argument>
-                        <argument id="fromItem">
-                          <value class="value" valueClass="decimal">1</value>
-                        </argument>
-                        <argument id="valueName">
-                          <value class="value" valueClass="string">op_inspectionOrderExcelRow</value>
-                        </argument>
-                        <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
-                        </argument>
-                      </arguments>
-                      <parameterValueSources/>
-                      <clauses>
-                        <clause name="substeps" testItemId="262">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="263" title="If: {op_IsSerialTrack.rstk__icitem_srlcontrol__c = false}">
-                              <arguments>
-                                <argument id="condition">
-                                  <value class="eq">
-                                    <lhs class="variable">
-                                      <path element="op_IsSerialTrack"/>
-                                      <path element="rstk__icitem_srlcontrol__c"/>
-                                    </lhs>
-                                    <rhs class="value" valueClass="boolean">false</rhs>
-                                  </value>
-                                </argument>
-                              </arguments>
-                              <clauses>
-                                <clause name="then" testItemId="264">
-                                  <steps>
-                                    <caseCall testCaseId="8a90ac57-5d55-4444-8500-b4c02b24749b" testCasePath="tests/Inventory Transaction/Callable/Set Inspection Quantities Non Serial.testcase" testItemId="265">
-                                      <arguments>
-                                        <argument id="reuseConnectionName">
-                                          <value class="value" valueClass="string">SFConnection</value>
-                                        </argument>
-                                        <argument id="recordID">
-                                          <value class="variable">
-                                            <path element="op_inspOrdDetails"/>
-                                            <path element="Id"/>
-                                          </value>
-                                        </argument>
-                                        <argument id="ip_QtyOK">
-                                          <value class="variable">
-                                            <path element="op_inspectionOrderExcelRow"/>
-                                            <path element="QuantityOK"/>
-                                          </value>
-                                        </argument>
-                                        <argument id="ip_QtyScrap">
-                                          <value class="variable">
-                                            <path element="op_inspectionOrderExcelRow"/>
-                                            <path element="QuantityToBeScrapped"/>
-                                          </value>
-                                        </argument>
-                                        <argument id="ip_QtyOthrDisposition">
-                                          <value class="variable">
-                                            <path element="op_inspectionOrderExcelRow"/>
-                                            <path element="QuantityInOtherDisposition"/>
-                                          </value>
-                                        </argument>
-                                      </arguments>
-                                    </caseCall>
-                                  </steps>
-                                </clause>
-                                <clause name="else" testItemId="266">
-                                  <steps>
-                                    <caseCall testCaseId="fa440150-805e-4ceb-982e-8e66366175cd" testCasePath="tests/Inventory Transaction/Callable/Set Serial Disposition.testcase" testItemId="267">
-                                      <arguments>
-                                        <argument id="reuseConnectionName">
-                                          <value class="value" valueClass="string">SFConnection</value>
-                                        </argument>
-                                        <argument id="recordID">
-                                          <value class="variable">
-                                            <path element="op_inspOrdDetails"/>
-                                            <path element="Id"/>
-                                          </value>
-                                        </argument>
-                                      </arguments>
-                                    </caseCall>
-                                  </steps>
-                                </clause>
-                              </clauses>
-                            </apiCall>
-                            <caseCall testCaseId="552cad4d-243a-467f-ac78-c6946098c702" testCasePath="tests/Inventory Transaction/Callable/Set Inspection Order Status.testcase" testItemId="268">
-                              <arguments>
-                                <argument id="reuseConnectionName">
-                                  <value class="value" valueClass="string">SFConnection</value>
-                                </argument>
-                                <argument id="ip_OrderStatus">
-                                  <value class="value" valueClass="string">Completed</value>
-                                </argument>
-                              </arguments>
-                            </caseCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="376" title="Wait till SYDATA created for Inspection order disposition gets processed.">
-                      <arguments>
-                        <argument id="description">
-                          <value class="value" valueClass="string">Wait till SYDATA created for Inspection order disposition gets processed.</value>
-                        </argument>
-                      </arguments>
-                      <clauses>
-                        <clause name="hidden" testItemId="377">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="378" title="Read status of SYDATA created for 'Inspection Order Final Disposition'">
-                              <tags/>
-                              <arguments>
-                                <argument id="soqlQuery">
-                                  <value class="compound">
-                                    <parts>
-                                      <value valueClass="string">select id,rstk__sydata_process__c,rstk__sydata_inspord__c,rstk__sydata_inspord__r.name from rstk__sydata__c where rstk__sydata_inspord__c='</value>
-                                      <variable>
-                                        <path element="op_inspOrdDetails"/>
-                                        <path element="Id"/>
-                                      </variable>
-                                      <value valueClass="string">' and rstk__sydata_txntype__c='Inspection Order Final Disposition'</value>
-                                    </parts>
-                                  </value>
-                                </argument>
-                                <argument id="apexConnectionName">
-                                  <value class="value" valueClass="string">SFConnection</value>
-                                </argument>
-                                <argument id="resultListName">
-                                  <value class="value" valueClass="string">op_sydata</value>
-                                </argument>
-                                <argument id="resultScope">
-                                  <value class="value" valueClass="string">Test</value>
-                                </argument>
-                              </arguments>
-                            </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" isTitleUpdated="true" name="WaitFor" testItemId="379" title="Wait for record is to be processed">
-                              <tags/>
-                              <arguments>
-                                <argument id="condition">
-                                  <value class="eq">
-                                    <lhs class="variable">
-                                      <path element="op_sydata"/>
-                                      <path element="rstk__sydata_process__c"/>
-                                    </lhs>
-                                  </value>
-                                </argument>
-                                <argument id="testAtStart">
-                                  <value class="value" valueClass="boolean">false</value>
-                                </argument>
-                                <argument id="maxIterations">
-                                  <value class="value" valueClass="decimal">100000</value>
-                                </argument>
-                                <argument id="sleepSecs">
-                                  <value class="value" valueClass="decimal">5</value>
-                                </argument>
-                                <argument id="continueOnFailure">
-                                  <value class="value" valueClass="boolean">true</value>
-                                </argument>
-                              </arguments>
-                              <clauses>
-                                <clause name="substeps" testItemId="807">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="380" title="Read status of SYDATA created for 'Inspection Order Final Disposition'">
-                                      <tags/>
-                                      <arguments>
-                                        <argument id="soqlQuery">
-                                          <value class="compound">
-                                            <parts>
-                                              <value valueClass="string">select id,rstk__sydata_process__c,rstk__sydata_inspord__c,rstk__sydata_inspord__r.name from rstk__sydata__c where rstk__sydata_inspord__c='</value>
-                                              <variable>
-                                                <path element="op_inspOrdDetails"/>
-                                                <path element="Id"/>
-                                              </variable>
-                                              <value valueClass="string">' and rstk__sydata_txntype__c='Inspection Order Final Disposition'</value>
-                                            </parts>
-                                          </value>
-                                        </argument>
-                                        <argument id="apexConnectionName">
-                                          <value class="value" valueClass="string">SFConnection</value>
-                                        </argument>
-                                        <argument id="resultListName">
-                                          <value class="value" valueClass="string">op_sydata</value>
-                                        </argument>
-                                        <argument id="resultScope">
-                                          <value class="value" valueClass="string">Test</value>
-                                        </argument>
-                                      </arguments>
-                                    </apiCall>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="809" title="Check SYDATA processing status and WO status">
-                                      <tags/>
-                                      <arguments>
-                                        <argument id="condition">
-                                          <value class="eq">
-                                            <lhs class="variable">
-                                              <path element="op_sydata"/>
-                                              <path element="rstk__sydata_process__c"/>
-                                            </lhs>
-                                            <rhs class="value" valueClass="string">ProcessingComplete</rhs>
-                                          </value>
-                                        </argument>
-                                      </arguments>
-                                      <clauses>
-                                        <clause name="then" testItemId="810">
-                                          <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="817" title="Break"/>
-                                          </steps>
-                                        </clause>
-                                        <clause name="else" testItemId="818">
-                                          <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="819" title="If: {op_sydata.rstk__sydata_process__c = &quot;Validation Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Batch Processing Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Processing Failure&quot;}">
-                                              <arguments>
-                                                <argument id="condition">
-                                                  <value class="or">
-                                                    <lhs class="or">
-                                                      <lhs class="eq">
-                                                        <lhs class="variable">
-                                                          <path element="op_sydata"/>
-                                                          <path element="rstk__sydata_process__c"/>
-                                                        </lhs>
-                                                        <rhs class="value" valueClass="string">Validation Failure</rhs>
-                                                      </lhs>
-                                                      <rhs class="eq">
-                                                        <lhs class="variable">
-                                                          <path element="op_sydata"/>
-                                                          <path element="rstk__sydata_process__c"/>
-                                                        </lhs>
-                                                        <rhs class="value" valueClass="string">Batch Processing Failure</rhs>
-                                                      </rhs>
-                                                    </lhs>
-                                                    <rhs class="eq">
-                                                      <lhs class="variable">
-                                                        <path element="op_sydata"/>
-                                                        <path element="rstk__sydata_process__c"/>
-                                                      </lhs>
-                                                      <rhs class="value" valueClass="string">Processing Failure</rhs>
-                                                    </rhs>
-                                                  </value>
-                                                </argument>
-                                              </arguments>
-                                              <clauses>
-                                                <clause name="then" testItemId="820">
-                                                  <steps>
-                                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Fail" name="Fail" testItemId="821" title="Fail Test: Validation Failure: Please check SYDATA transaction with Record ID: {op_sydataID}">
-                                                      <arguments>
-                                                        <argument id="message">
-                                                          <value class="compound">
-                                                            <parts>
-                                                              <value valueClass="string">Validation Failure: Please check SYDATA transaction with Record ID: </value>
-                                                              <variable>
-                                                                <path element="op_sydataID"/>
-                                                              </variable>
-                                                            </parts>
-                                                          </value>
-                                                        </argument>
-                                                      </arguments>
-                                                    </apiCall>
-                                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="822" title="Break"/>
-                                                  </steps>
-                                                </clause>
-                                              </clauses>
-                                            </apiCall>
-                                          </steps>
-                                        </clause>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                      </clauses>
-                    </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="348" title="Work Order receipt">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="275" title="Work Order receipt">
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Work Order receipt</value>
                 </argument>
               </arguments>
               <clauses>
-                <clause name="hidden" testItemId="349">
+                <clause name="hidden" testItemId="276">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="300" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="205" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
                       <arguments>
                         <argument id="condition">
                           <value class="eq">
@@ -1983,12 +1543,12 @@
                         </argument>
                       </arguments>
                       <clauses>
-                        <clause name="then" testItemId="301">
+                        <clause name="then" testItemId="206">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="372" title="Work Order receipt">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="290" title="Work Order receipt">
                               <arguments>
                                 <argument id="description">
-                                  <value class="value" valueClass="string">Read Excel Data-Work Order receipt</value>
+                                  <value class="value" valueClass="string">Work Order receipt</value>
                                 </argument>
                               </arguments>
                               <parameterValueSources>
@@ -2008,7 +1568,7 @@
                                     <apiParam name="LocationComments"/>
                                   </cachedParameters>
                                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                                    <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9521-Consigned WO.xlsx</workbookPath>
                                     <worksheetName class="value" valueClass="string">WO receipt</worksheetName>
                                     <valuesRange class="value" valueClass="string">A:J</valuesRange>
                                   </sourceValue>
@@ -2022,9 +1582,9 @@
                             </apiCall>
                           </steps>
                         </clause>
-                        <clause name="else" testItemId="302">
+                        <clause name="else" testItemId="207">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="303" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="208" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
                               <arguments>
                                 <argument id="condition">
                                   <value class="eq">
@@ -2034,12 +1594,12 @@
                                 </argument>
                               </arguments>
                               <clauses>
-                                <clause name="then" testItemId="304">
+                                <clause name="then" testItemId="209">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="370" title="Work Order receipt">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="288" title="Work Order receipt">
                                       <arguments>
                                         <argument id="description">
-                                          <value class="value" valueClass="string">Read Excel Data-Work Order receipt</value>
+                                          <value class="value" valueClass="string">Work Order receipt</value>
                                         </argument>
                                       </arguments>
                                       <parameterValueSources>
@@ -2059,26 +1619,26 @@
                                             <apiParam name="LocationComments"/>
                                           </cachedParameters>
                                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9521-Consigned WO.xlsx</workbookPath>
                                             <worksheetName class="value" valueClass="string">WO receipt</worksheetName>
                                             <valuesRange class="value" valueClass="string">A:J</valuesRange>
                                           </sourceValue>
                                         </parameterValueSource>
                                       </parameterValueSources>
                                       <clauses>
-                                        <clause name="hidden" testItemId="373">
+                                        <clause name="hidden" testItemId="291">
                                           <steps/>
                                         </clause>
                                       </clauses>
                                     </apiCall>
                                   </steps>
                                 </clause>
-                                <clause name="else" testItemId="305">
+                                <clause name="else" testItemId="210">
                                   <steps>
                                     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="32" title="Work Order receipt">
                                       <arguments>
                                         <argument id="description">
-                                          <value class="value" valueClass="string">Read Excel Data-Work Order receipt</value>
+                                          <value class="value" valueClass="string">Work Order receipt</value>
                                         </argument>
                                       </arguments>
                                       <parameterValueSources>
@@ -2098,14 +1658,14 @@
                                             <apiParam name="LocationComments"/>
                                           </cachedParameters>
                                           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="ItemNumber" whereValue="{op_excelDataRow.ItemNumber}">
-                                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9717-WO To Inspection order To WO Receipt flow.xlsx</workbookPath>
+                                            <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9521-Consigned WO.xlsx</workbookPath>
                                             <worksheetName class="value" valueClass="string">WO receipt</worksheetName>
                                             <valuesRange class="value" valueClass="string">A:J</valuesRange>
                                           </sourceValue>
                                         </parameterValueSource>
                                       </parameterValueSources>
                                       <clauses>
-                                        <clause name="hidden" testItemId="371">
+                                        <clause name="hidden" testItemId="289">
                                           <steps/>
                                         </clause>
                                       </clauses>
@@ -2138,49 +1698,6 @@
                       <clauses>
                         <clause name="substeps" testItemId="36">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="824" title="Sleep for {5} seconds">
-                              <arguments>
-                                <argument id="sleepSecs">
-                                  <value class="value" valueClass="decimal">5</value>
-                                </argument>
-                              </arguments>
-                            </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="274" title="Before transaction Total Qty">
-                              <tags/>
-                              <arguments>
-                                <argument id="soqlQuery">
-                                  <value class="compound">
-                                    <parts>
-                                      <value valueClass="string">Select ID,Name,rstk__rollsumm_totalqty__c,rstk__icitem_item__c from rstk__icitem__c where rstk__icitem_div__r.name like '</value>
-                                      <variable>
-                                        <path element="op_currentInventoryDivision"/>
-                                      </variable>
-                                      <value valueClass="string">' and ( rstk__icitem_item__r.rstk__peitem_item__c='</value>
-                                      <variable>
-                                        <path element="op_excelDataRow"/>
-                                        <path element="ItemNumber"/>
-                                      </variable>
-                                      <value valueClass="string">' or Name like '</value>
-                                      <variable>
-                                        <path element="op_excelDataRow"/>
-                                        <path element="ItemNumber"/>
-                                      </variable>
-                                      <value valueClass="string">%')</value>
-                                    </parts>
-                                  </value>
-                                </argument>
-                                <argument id="apexConnectionName">
-                                  <value class="value" valueClass="string">SFConnection</value>
-                                </argument>
-                                <argument id="resultListName">
-                                  <value class="value" valueClass="string">op_LocationQuantityBeforeTxn</value>
-                                </argument>
-                                <argument id="resultScope">
-                                  <value class="value" valueClass="string">Test</value>
-                                </argument>
-                              </arguments>
-                              <expectedExceptions/>
-                            </apiCall>
                             <caseCall testCaseId="1dcbe833-4609-4208-8c13-39f0c47664af" testCasePath="tests/Work Order/Callable/WO Receipt.testcase" testItemId="34">
                               <arguments>
                                 <argument id="reuseConnectionName">
@@ -2256,178 +1773,47 @@
                                 </argument>
                               </arguments>
                             </caseCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="275" title="Assert after transaction Total Qty">
-                              <tags/>
-                              <arguments>
-                                <argument id="description">
-                                  <value class="value" valueClass="string">Verify Qty</value>
-                                </argument>
-                              </arguments>
-                              <clauses>
-                                <clause name="hidden" testItemId="276">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="823" title="Sleep for {5} seconds">
-                                      <arguments>
-                                        <argument id="sleepSecs">
-                                          <value class="value" valueClass="decimal">5</value>
-                                        </argument>
-                                      </arguments>
-                                    </apiCall>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="277" title="Fetch total qty after transaction">
-                                      <tags/>
-                                      <arguments>
-                                        <argument id="soqlQuery">
-                                          <value class="compound">
-                                            <parts>
-                                              <value valueClass="string">Select ID,Name,rstk__rollsumm_totalqty__c,rstk__icitem_item__c from rstk__icitem__c where\n(rstk__icitem_item__r.rstk__peitem_item__c='</value>
-                                              <variable>
-                                                <path element="op_excelDataRow"/>
-                                                <path element="ItemNumber"/>
-                                              </variable>
-                                              <value valueClass="string">' OR Name like '</value>
-                                              <variable>
-                                                <path element="op_excelDataRow"/>
-                                                <path element="ItemNumber"/>
-                                              </variable>
-                                              <value valueClass="string">%') order by lastmodifiedDate desc limit 1</value>
-                                            </parts>
-                                          </value>
-                                        </argument>
-                                        <argument id="apexConnectionName">
-                                          <value class="value" valueClass="string">SFConnection</value>
-                                        </argument>
-                                        <argument id="resultListName">
-                                          <value class="value" valueClass="string">op_LocationQuantityAfterTxn</value>
-                                        </argument>
-                                        <argument id="resultScope">
-                                          <value class="value" valueClass="string">Test</value>
-                                        </argument>
-                                      </arguments>
-                                      <expectedExceptions/>
-                                    </apiCall>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="278" title="If: {op_IsSerialTrack.rstk__icitem_srlcontrol__c = true}">
-                                      <arguments>
-                                        <argument id="condition">
-                                          <value class="eq">
-                                            <lhs class="variable">
-                                              <path element="op_IsSerialTrack"/>
-                                              <path element="rstk__icitem_srlcontrol__c"/>
-                                            </lhs>
-                                            <rhs class="value" valueClass="boolean">true</rhs>
-                                          </value>
-                                        </argument>
-                                      </arguments>
-                                      <clauses>
-                                        <clause name="then" testItemId="279">
-                                          <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="141" title="Assert: {op_LocationQuantityBeforeTxn.rstk__rollsumm_totalqty__c + op_WOReceiptExcelDataRow.QtyToBeAccepted} EqualTo {op_LocationQuantityAfterTxn.rstk__rollsumm_totalqty__c}">
-                                              <arguments>
-                                                <argument id="expectedValue">
-                                                  <value class="add">
-                                                    <lhs class="variable">
-                                                      <path element="op_LocationQuantityBeforeTxn"/>
-                                                      <path element="rstk__rollsumm_totalqty__c"/>
-                                                    </lhs>
-                                                    <rhs class="variable">
-                                                      <path element="op_WOReceiptExcelDataRow"/>
-                                                      <path element="QtyToBeAccepted"/>
-                                                    </rhs>
-                                                  </value>
-                                                </argument>
-                                                <argument id="actualValue">
-                                                  <value class="variable">
-                                                    <path element="op_LocationQuantityAfterTxn"/>
-                                                    <path element="rstk__rollsumm_totalqty__c"/>
-                                                  </value>
-                                                </argument>
-                                                <argument id="comparisonType">
-                                                  <value class="value" valueClass="string">EqualTo</value>
-                                                </argument>
-                                                <argument id="caseSensitive">
-                                                  <value class="value" valueClass="boolean">true</value>
-                                                </argument>
-                                                <argument id="numeric">
-                                                  <value class="value" valueClass="boolean">false</value>
-                                                </argument>
-                                                <argument id="retainDecimals">
-                                                  <value class="value" valueClass="boolean">false</value>
-                                                </argument>
-                                                <argument id="nullGreater">
-                                                  <value class="value" valueClass="boolean">false</value>
-                                                </argument>
-                                                <argument id="matchMultiLine">
-                                                  <value class="value" valueClass="boolean">false</value>
-                                                </argument>
-                                                <argument id="matchDotAll">
-                                                  <value class="value" valueClass="boolean">false</value>
-                                                </argument>
-                                                <argument id="failureMessage">
-                                                  <value class="value" valueClass="string">Quantity Mismatch</value>
-                                                </argument>
-                                              </arguments>
-                                            </apiCall>
-                                          </steps>
-                                        </clause>
-                                        <clause name="else" testItemId="142">
-                                          <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="280" title="Assert: {op_LocationQuantityBeforeTxn.rstk__rollsumm_totalqty__c + op_WOReceiptExcelDataRow.QtyToBeAccepted} EqualTo {op_LocationQuantityAfterTxn.rstk__rollsumm_totalqty__c}">
-                                              <arguments>
-                                                <argument id="expectedValue">
-                                                  <value class="add">
-                                                    <lhs class="variable">
-                                                      <path element="op_LocationQuantityBeforeTxn"/>
-                                                      <path element="rstk__rollsumm_totalqty__c"/>
-                                                    </lhs>
-                                                    <rhs class="variable">
-                                                      <path element="op_WOReceiptExcelDataRow"/>
-                                                      <path element="QtyToBeAccepted"/>
-                                                    </rhs>
-                                                  </value>
-                                                </argument>
-                                                <argument id="actualValue">
-                                                  <value class="variable">
-                                                    <path element="op_LocationQuantityAfterTxn"/>
-                                                    <path element="rstk__rollsumm_totalqty__c"/>
-                                                  </value>
-                                                </argument>
-                                                <argument id="comparisonType">
-                                                  <value class="value" valueClass="string">EqualTo</value>
-                                                </argument>
-                                                <argument id="caseSensitive">
-                                                  <value class="value" valueClass="boolean">true</value>
-                                                </argument>
-                                                <argument id="numeric">
-                                                  <value class="value" valueClass="boolean">false</value>
-                                                </argument>
-                                                <argument id="retainDecimals">
-                                                  <value class="value" valueClass="boolean">false</value>
-                                                </argument>
-                                                <argument id="nullGreater">
-                                                  <value class="value" valueClass="boolean">false</value>
-                                                </argument>
-                                                <argument id="matchMultiLine">
-                                                  <value class="value" valueClass="boolean">false</value>
-                                                </argument>
-                                                <argument id="matchDotAll">
-                                                  <value class="value" valueClass="boolean">false</value>
-                                                </argument>
-                                                <argument id="failureMessage">
-                                                  <value class="value" valueClass="string">Quantity Mismatch</value>
-                                                </argument>
-                                              </arguments>
-                                            </apiCall>
-                                          </steps>
-                                        </clause>
-                                      </clauses>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                              </clauses>
-                            </apiCall>
                           </steps>
                         </clause>
                       </clauses>
                     </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="54" title="Close Work Order">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Close Work Order</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="55">
+                  <steps>
+                    <caseCall testCaseId="c4221d41-a871-414b-bfc0-fff70f8c15be" testCasePath="tests/Work Order/Callable/Close Work Order.testcase" testItemId="56">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="ip_recordID">
+                          <value class="variable">
+                            <path element="op_WORecID"/>
+                            <path element="ID"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_isDisassemblyWO">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="ip_laborWO">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                      </arguments>
+                      <outputArguments>
+                        <outputArgument id="op_orderStatus">
+                          <name class="value" valueClass="string">op_orderStatus</name>
+                        </outputArgument>
+                      </outputArguments>
+                    </caseCall>
                   </steps>
                 </clause>
               </clauses>

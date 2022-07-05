@@ -277,12 +277,12 @@
       <clauses>
         <clause name="substeps" testItemId="14">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="24" title="Call the selectMiscellaneousChargeProduct method">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="70" title="Call the selectMiscellaneousChargeProduct method">
               <arguments>
-                <argument argId="63941b6b-12cc-4283-a2b4-41cabe5667cc" id="locator">
-                  <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.rstk__soconchg&amp;operation=selectMiscellaneousChargeProduct"/>
+                <argument id="locator">
+                  <value class="uiLocator" uri="ui:pageobject:method?operation=selectMiscellaneousChargeProduct&amp;pageId=pageobjects.rstk__soconchg"/>
                 </argument>
-                <argument argId="ded90e5d-c3c5-4988-97c0-39c3d925566c" id="interaction">
+                <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
                 </argument>
                 <argument id="interactionDescription">
@@ -292,44 +292,26 @@
                 <argument id="afterWait">
                   <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
                 </argument>
-                <argument id="autoRetry"/>
+                <argument id="autoRetry">
+                  <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                </argument>
                 <argument id="captureBefore">
                   <value class="value" valueClass="string">false</value>
                 </argument>
                 <argument id="captureAfter">
                   <value class="value" valueClass="string">false</value>
                 </argument>
-                <argument id="pressEnter"/>
+                <argument id="param_CoveredSerializedDevice"/>
                 <argument id="param_MiscellaneousChargeProduct">
                   <value class="variable">
                     <path element="ip_MiscellaneousChargeProduct"/>
                   </value>
                 </argument>
-                <argument id="value"/>
-                <argument id="blur"/>
               </arguments>
               <generatedParameters>
                 <apiParam group="value" name="param_MiscellaneousChargeProduct" title="Miscellaneous Charge Product">
                   <type>
                     <textType/>
-                  </type>
-                </apiParam>
-                <apiParam group="value" name="value" seq="10000" title="Value">
-                  <summary>The value to be populated.</summary>
-                  <type>
-                    <booleanType/>
-                  </type>
-                </apiParam>
-                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                  <type>
-                    <booleanType/>
-                  </type>
-                </apiParam>
-                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                  <type>
-                    <booleanType/>
                   </type>
                 </apiParam>
               </generatedParameters>
@@ -369,7 +351,7 @@
                           <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="beforeWait">
-                          <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
+                          <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
                         </argument>
                         <argument id="afterWait">
                           <value class="uiWait" uri="default"/>
@@ -400,7 +382,7 @@
                 </clause>
                 <clause name="else" testItemId="30">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="31" title="Call the selectCoveredSerializedDevice method">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="69" title="Call the selectCoveredSerializedDevice method">
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:pageobject:method?operation=selectCoveredSerializedDevice&amp;pageId=pageobjects.rstk__soconchg"/>
@@ -408,114 +390,28 @@
                         <argument id="interaction">
                           <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
                         </argument>
-                        <argument id="pressEnter">
-                          <value class="value" valueClass="boolean">false</value>
+                        <argument id="interactionDescription">
+                          <value class="value" valueClass="string">Call the selectCoveredSerializedDevice method</value>
                         </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="afterWait"/>
+                        <argument id="autoRetry"/>
                         <argument id="captureBefore">
                           <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="captureAfter">
                           <value class="value" valueClass="string">false</value>
                         </argument>
-                        <argument id="beforeWait">
-                          <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
-                        </argument>
-                        <argument id="afterWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Call the selectCoveredSerializedDevice method</value>
-                        </argument>
-                        <argument id="autoRetry"/>
-                        <argument argId="f4ffe24e-ba86-4831-8d56-2f32ecf4302d" id="param_CoveredSerializedDevice">
+                        <argument id="param_CoveredSerializedDevice">
                           <value class="variable">
                             <path element="ip_CoveredSerializedDevice"/>
                           </value>
                         </argument>
-                        <argument id="value"/>
-                        <argument id="blur"/>
                       </arguments>
                       <generatedParameters>
                         <apiParam group="value" name="param_CoveredSerializedDevice" title="Covered Serialized Device">
                           <type>
                             <textType/>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="value" seq="10000" title="Value">
-                          <summary>The value to be populated.</summary>
-                          <type>
-                            <textType>
-                              <constraints>
-                                <valueConstraint name="mimeType">text/plain</valueConstraint>
-                              </constraints>
-                            </textType>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                          <type>
-                            <booleanType/>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                          <type>
-                            <booleanType/>
-                          </type>
-                        </apiParam>
-                      </generatedParameters>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="54" title="Set the Contract_ Master select to --None--">
-                      <arguments>
-                        <argument id="locator">
-                          <value class="uiLocator" uri="ui:locator?name=Contract_Master"/>
-                        </argument>
-                        <argument id="interaction">
-                          <value class="uiInteraction" uri="ui:interaction?name=set"/>
-                        </argument>
-                        <argument id="value">
-                          <value class="value" valueClass="string">--None--</value>
-                        </argument>
-                        <argument id="blur">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="pressEnter">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="captureBefore">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="beforeWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="afterWait">
-                          <value class="uiWait" uri="default"/>
-                        </argument>
-                        <argument id="interactionDescription">
-                          <value class="value" valueClass="string">Set the Contract_ Master select to --None--</value>
-                        </argument>
-                        <argument id="autoRetry"/>
-                      </arguments>
-                      <generatedParameters>
-                        <apiParam group="value" name="value" seq="10000" title="Value">
-                          <summary>The value to be populated.</summary>
-                          <type>
-                            <choiceType/>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                          <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                          <type>
-                            <booleanType/>
-                          </type>
-                        </apiParam>
-                        <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                          <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                          <type>
-                            <booleanType/>
                           </type>
                         </apiParam>
                       </generatedParameters>

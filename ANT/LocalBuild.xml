@@ -12,8 +12,7 @@
 	<target name="runtests">
 		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
 		<Run-Test-Case provarHome="${provar.home}" 
-					
-				
+								
 							projectPath="${testproject.home}" 
 							resultsPath="${testproject.results}" 
 							resultsPathDisposition="Increment" 
@@ -23,7 +22,7 @@
 							webBrowserProviderName="Desktop"
 							webBrowserDeviceName="Full Screen" 
 							excludeCallableTestCases="true" 
-							salesforceMetadataCache="Reuse" 
+							salesforceMetadataCache="Reload" 
 							projectCachePath="../.provarCaches"
 							testOutputlevel="BASIC" 
 							pluginOutputlevel="WARNING"
