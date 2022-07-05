@@ -40,7 +40,8 @@ public class rstk__laborqtybookingreversal {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//ul[@class='listbox']/li")));
 		List<WebElement> autoCompleteList = driver.findElements(By.xpath("//ul[@class='listbox']/li"));
 
-		while (autoCompleteList.size() > 5) {
+		while (autoCompleteList.size() > 5 || autoCompleteList.isEmpty()) {
+
 			ele.sendKeys(Keys.BACK_SPACE);
 			Thread.sleep(3000);
 			autoCompleteList = driver.findElements(By.xpath("//ul[@class='listbox']/li"));
