@@ -81,6 +81,18 @@ public class HomePage {
 	@ButtonType()
 	@FindBy(xpath = "//input[@name='new']")
 	public WebElement New_Sales_Order_Header;
+
+	@ButtonType()
+	@FindBy(xpath = "//button[normalize-space(.)='App Launcher']")
+	public WebElement appLauncher;
+
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='Search apps and items...']/following-sibling::div//input")
+	public WebElement searchAppsAndItems;
+
+	@LinkType()
+	@FindBy(xpath = "//one-app-launcher-menu-item/a")
+	public WebElement App_Required;
 	
 
 }

@@ -465,6 +465,41 @@
                 </clause>
               </clauses>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="42" title="If: {GetSelectedEnvironment() = &quot;DEVQAFF_LUI&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                    <rhs class="value" valueClass="string">DEVQAFF_LUI</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="43">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="47" title="Set Values: wb_ExcelPath_SalesOrder_BaseData_SOAPI">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">wb_ExcelPath_SalesOrder_BaseData_SOAPI</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="value" valueClass="string">templates/DEVQAFF_LUI/SalesOrder_LUI.xlsx</value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="22" title="Set Values: ExcelPath_SYDATA">
               <arguments>
                 <argument id="values">

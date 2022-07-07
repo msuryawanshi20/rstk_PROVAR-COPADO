@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="4">
+<testCase id="1">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -92,7 +92,7 @@
       <clauses>
         <clause name="hidden" testItemId="5">
           <steps>
-            <caseCall testCaseId="c8040a6d-dfff-4e18-8d5e-e7383027484f" testCasePath="tests/Sales Order - RSTKLUI/Callable/Sales Order Creation.testcase" testItemId="144">
+            <caseCall testCaseId="c8040a6d-dfff-4e18-8d5e-e7383027484f" testCasePath="tests/Sales Order - RSTKLUI/Callable/Sales Order Creation.testcase" testItemId="152">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -251,6 +251,11 @@
                 <argument id="InvoiceNumber">
                   <value class="variable">
                     <path element="InvoiceNumber"/>
+                  </value>
+                </argument>
+                <argument id="SourceData_Invoice">
+                  <value class="variable">
+                    <path element="SourceData_Invoice"/>
                   </value>
                 </argument>
               </arguments>
