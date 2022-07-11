@@ -152,6 +152,12 @@ String ProdType;
 	@LinkType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Approve Invoice']")
 	public WebElement approveInvoice;
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='De-Approve Invoice']")
+	public WebElement deapproveInvoice;
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Print Invoice']")
+	public WebElement printInvoice;
 	@TextType()
 	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//span[normalize-space(.)='ProcessingComplete']//lightning-base-formatted-text")
 	public WebElement ProcessingIndicator;
@@ -161,6 +167,9 @@ String ProdType;
 	@BooleanType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//label[normalize-space(.)='Approved']/span[1]")
 	public WebElement approved;
+	@BooleanType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//label[normalize-space(.)='Printed']/span[1]")
+	public WebElement printed;
 	
 	//@FindBy(xpath = "//div[@id='listbox-id-1-1379']//ul//li//span//span")
 	//public WebElement ProductSelect;
