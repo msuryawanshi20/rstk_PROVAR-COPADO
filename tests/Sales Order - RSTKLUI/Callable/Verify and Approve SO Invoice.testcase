@@ -132,7 +132,7 @@
                   <value class="compound">
                     <parts>
                       <variable>
-                        <path element="SourceData_Invoice"/>
+                        <path element="SourceData_CreateInvoice"/>
                         <path element="InvoicePage_URL"/>
                       </variable>
                       <variable>
@@ -486,7 +486,7 @@
         </textType>
       </type>
     </param>
-    <param name="SourceData_Invoice" title="SourceData_Invoice">
+    <param name="SourceData_CreateInvoice" title="SourceData_CreateInvoice">
       <summary/>
       <type>
         <textType>
@@ -509,9 +509,9 @@
         <path element="InvoiceNumber"/>
       </value>
     </argument>
-    <argument id="SourceData_Invoice">
+    <argument id="SourceData_CreateInvoice">
       <value class="variable">
-        <path element="SourceData_Invoice"/>
+        <path element="SourceData_CreateInvoice"/>
       </value>
     </argument>
   </args>
