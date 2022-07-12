@@ -325,4 +325,12 @@ public class rstk__Manufacturing {
 	@LinkType()
 	@VisualforceBy(componentXPath = "apex:outputPanel[not(@id)][2]//tr/td[5]/div[1]/div/div[2]/div/li[5]//a[1]")
 	public WebElement manufacturingUsers;
+
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Engineering BOM Query/Edit']")
+	public WebElement engineeringBOMQueryEdit;
+
+	@LinkType()
+	@VisualforceBy(componentXPath = "apex:outputPanel[not(@id)][2]//tr/td[1]/div[2]/div/div[2]/div/li[5]//a[1]")
+	public WebElement engineeringBOMMassAdd;
 }

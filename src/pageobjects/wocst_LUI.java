@@ -215,4 +215,8 @@ public class wocst_LUI {
 	@FindBy(xpath = "//input[@name='Quantity_To_Issue']")
 	public WebElement quantityToIssue;
 
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Rootstock Site Map']")
+	public WebElement rootstockSiteMap;
+
 }

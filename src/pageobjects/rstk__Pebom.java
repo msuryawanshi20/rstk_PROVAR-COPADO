@@ -40,5 +40,20 @@ public class rstk__Pebom {
 	@ButtonType()
 	@FindByLabel(label = "Save")
 	public WebElement save;
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='Line Number']/parent::span/parent::th/following-sibling::td//input")
+	public WebElement lineNumber;
+	@BooleanType()
+	@FindBy(xpath = "//td//td/span/span/input")
+	public WebElement fixedQuantity;
+	@ChoiceListType()
+	@FindBy(xpath = "//label[normalize-space(.)='Phantom Override']/parent::span/parent::th/following-sibling::td//select")
+	public WebElement Phantom_Override;
+	@ButtonType()
+	@FindByLabel(label = "Edit")
+	public WebElement edit;
+	@ButtonType()
+	@FindByLabel(label = "Delete")
+	public WebElement delete;
 	
 }

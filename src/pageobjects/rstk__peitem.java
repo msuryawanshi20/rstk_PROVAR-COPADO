@@ -115,4 +115,12 @@ public class rstk__peitem {
 	@FindBy(xpath = "//td/table//table/tbody/tr/td/table/tbody/tr/td[normalize-space(.)='Approved Manufacturers']")
 	public WebElement tab_ApprovedMfrs_lbl;
 
+	@ButtonType()
+	@FindBy(xpath = "//div[1]/table//td[2]/span/input[1]")
+	public WebElement edit;
+
+	@ButtonType()
+	@FindBy(xpath = "//div[1]/table//td[2]/span/input[2]")
+	public WebElement delete;
+
 }
