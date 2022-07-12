@@ -158,6 +158,9 @@ String ProdType;
 	@LinkType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Print Invoice']")
 	public WebElement printInvoice;
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a//span[contains(text(),'Transfer To A')]")
+	public WebElement TransferToAR;
 	@TextType()
 	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//span[normalize-space(.)='ProcessingComplete']//lightning-base-formatted-text")
 	public WebElement ProcessingIndicator;
@@ -170,6 +173,18 @@ String ProdType;
 	@BooleanType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//label[normalize-space(.)='Printed']/span[1]")
 	public WebElement printed;
+	@TextType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//span[normalize-space(.)='YOUR FLOW FINISHED']")
+	public WebElement PrintInvoiceMsg;
+	@ButtonType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//button[normalize-space(.)='Close this window']")
+	public WebElement closeThisWindow;
+	@BooleanType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//label[normalize-space(.)='Transferred']/span[1]")
+	public WebElement transferred;
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a//span[contains(text(),'Reverse A')]")
+	public WebElement ReverseARTransfer;
 	
 	//@FindBy(xpath = "//div[@id='listbox-id-1-1379']//ul//li//span//span")
 	//public WebElement ProductSelect;
