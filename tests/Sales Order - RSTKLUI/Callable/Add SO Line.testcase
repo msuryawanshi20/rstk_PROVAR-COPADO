@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase registryId="d786c979-a1b3-4b4a-ac8c-d62d7dea6427" visibility="Internal">
+<testCase id="2" registryId="d786c979-a1b3-4b4a-ac8c-d62d7dea6427" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -87,6 +87,100 @@
         </argument>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="97" title="On SalesOrderHeader_RSTKLUI page">
+      <arguments>
+        <argument id="uiConnectionName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="target">
+          <value class="uiTarget" uri="ui:pageobject:target?pageId=pageobjects.SalesOrderHeader_RSTKLUI"/>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">On SalesOrderHeader_RSTKLUI page</value>
+        </argument>
+        <argument id="navigate">
+          <value class="value" valueClass="string">Dont</value>
+        </argument>
+        <argument id="windowSelection">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="windowSize">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="closeWindow"/>
+        <argument id="captureBefore">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="captureAfter">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="uiTargetUrl"/>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="98">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="95" title="Click the Related">
+              <arguments>
+                <argument id="locator">
+                  <value class="uiLocator" uri="ui:pageobject:field?field=related&amp;pageId=pageobjects.SalesOrderHeader_RSTKLUI"/>
+                </argument>
+                <argument id="interaction">
+                  <value class="uiInteraction" uri="ui:interaction?name=action"/>
+                </argument>
+                <argument id="hover">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="beforeWait">
+                  <value class="uiWait" uri="default"/>
+                </argument>
+                <argument id="afterWait">
+                  <value class="uiWait" uri="ui:wait:timed?seconds=5"/>
+                </argument>
+                <argument id="interactionDescription">
+                  <value class="value" valueClass="string">Click the Related</value>
+                </argument>
+                <argument id="autoRetry"/>
+                <argument id="ieClickMethod">
+                  <value class="value" valueClass="string">Default</value>
+                </argument>
+              </arguments>
+              <generatedParameters>
+                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                  <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                  <type>
+                    <booleanType/>
+                  </type>
+                </apiParam>
+                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                  <summary>How the click should be executed for Internet Explorer.</summary>
+                  <type>
+                    <choiceType>
+                      <constraints>
+                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                      </constraints>
+                    </choiceType>
+                  </type>
+                </apiParam>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+      <generatedParameters>
+        <apiParam group="target" name="uiTargetUrl" title="Web Page">
+          <type>
+            <textType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="61" title="For Each: {SourceData_AddLine}=&gt;SOLine">
       <arguments>
         <argument id="list">
@@ -152,13 +246,13 @@
                           <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="captureAfter">
-                          <value class="value" valueClass="string">full</value>
+                          <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="beforeWait">
                           <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="afterWait">
-                          <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                          <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="interactionDescription">
                           <value class="value" valueClass="string">Click the Add</value>
@@ -189,6 +283,7 @@
                       </generatedParameters>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="67" title="With Row">
+                      <tags/>
                       <arguments>
                         <argument id="uiConnectionName">
                           <value class="value" valueClass="string">SFConnection</value>
@@ -219,16 +314,17 @@
                       <clauses>
                         <clause name="substeps" testItemId="68">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="22" title="Set the Product Type to {SOLine.ProductType}">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="133" title="Click the Product Type">
+                              <tags/>
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:pageobject:field?field=ProductType&amp;pageId=pageobjects.SalesOrderHeader_RSTKLUI"/>
                                 </argument>
                                 <argument id="interaction">
-                                  <value class="uiInteraction" uri="ui:interaction?name=set"/>
+                                  <value class="uiInteraction" uri="ui:interaction?name=action"/>
                                 </argument>
                                 <argument id="hover">
-                                  <value class="value" valueClass="boolean">false</value>
+                                  <value class="value" valueClass="boolean">true</value>
                                 </argument>
                                 <argument id="captureBefore">
                                   <value class="value" valueClass="string">false</value>
@@ -243,47 +339,118 @@
                                   <value class="uiWait" uri="default"/>
                                 </argument>
                                 <argument id="interactionDescription">
-                                  <value class="value" valueClass="string">Set the Product Type to {SOLine.ProductType}</value>
+                                  <value class="value" valueClass="string">Click the Product Type</value>
                                 </argument>
                                 <argument id="autoRetry"/>
                                 <argument id="ieClickMethod">
                                   <value class="value" valueClass="string">Default</value>
                                 </argument>
-                                <argument id="value">
+                                <argument id="blur"/>
+                                <argument id="pressEnter">
+                                  <value class="value" valueClass="boolean">false</value>
+                                </argument>
+                              </arguments>
+                              <generatedParameters>
+                                <apiParam group="value" name="hover" seq="10000" title="Hover before Clicking">
+                                  <summary>Whether the mouse should hover over the field before it is clicked.</summary>
+                                  <type>
+                                    <booleanType/>
+                                  </type>
+                                </apiParam>
+                                <apiParam group="value" name="ieClickMethod" seq="10001" title="IE Click Method">
+                                  <summary>How the click should be executed for Internet Explorer.</summary>
+                                  <type>
+                                    <choiceType>
+                                      <constraints>
+                                        <valueConstraint name="valuesSource">com.provar.core.model.base.java.EnumChoiceListValuesSource</valueConstraint>
+                                        <valueConstraint name="valuesSourceDependencies">com.provar.core.model.ui.api.ClickMethod</valueConstraint>
+                                      </constraints>
+                                    </choiceType>
+                                  </type>
+                                </apiParam>
+                              </generatedParameters>
+                            </apiCall>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="137" title="Call the Click method">
+                              <arguments>
+                                <argument id="locator">
+                                  <value class="uiLocator" uri="ui:pageobject:method?pageId=pageobjects.SalesOrderHeader_RSTKLUI&amp;operation=Click"/>
+                                </argument>
+                                <argument id="interaction">
+                                  <value class="uiInteraction" uri="ui:interaction?name=invoke"/>
+                                </argument>
+                                <argument id="interactionDescription">
+                                  <value class="value" valueClass="string">Call the Click method</value>
+                                </argument>
+                                <argument id="beforeWait"/>
+                                <argument id="afterWait"/>
+                                <argument id="autoRetry"/>
+                                <argument id="captureBefore">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="captureAfter">
+                                  <value class="value" valueClass="string">false</value>
+                                </argument>
+                                <argument id="param_ProdType">
                                   <value class="variable">
                                     <path element="SOLine"/>
                                     <path element="ProductType"/>
                                   </value>
                                 </argument>
-                                <argument id="blur"/>
-                                <argument id="pressEnter"/>
                               </arguments>
                               <generatedParameters>
-                                <apiParam group="value" name="value" seq="10000" title="Value">
-                                  <summary>The value to be populated.</summary>
+                                <apiParam group="value" name="param_ProdType" title="Prod Type">
                                   <type>
-                                    <textType>
-                                      <constraints>
-                                        <valueConstraint name="mimeType">text/plain</valueConstraint>
-                                      </constraints>
-                                    </textType>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
-                                  <summary>Whether the tab key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
-                                  </type>
-                                </apiParam>
-                                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
-                                  <summary>Whether the Enter key should be pressed after the value is populated.</summary>
-                                  <type>
-                                    <booleanType/>
+                                    <textType/>
                                   </type>
                                 </apiParam>
                               </generatedParameters>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="24" title="Set the Product to {SOLine.Product}">
+                          </steps>
+                        </clause>
+                      </clauses>
+                      <generatedParameters>
+                        <apiParam group="options" name="autoRetry" title="Auto Retry">
+                          <summary>Whether to wait for the rows to be visible.</summary>
+                          <type>
+                            <booleanType/>
+                          </type>
+                        </apiParam>
+                      </generatedParameters>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithRow" name="UiWithRow" testItemId="104" title="With Row">
+                      <tags/>
+                      <arguments>
+                        <argument id="uiConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="locator">
+                          <value class="uiLocator" uri="ui:pageobject:row?field=table&amp;pageId=pageobjects.SalesOrderHeader_RSTKLUI"/>
+                        </argument>
+                        <argument id="uiRowLocator">
+                          <value class="variable" topLevel="true">
+                            <path element="RowNum"/>
+                          </value>
+                        </argument>
+                        <argument id="locatorDescription">
+                          <value class="value" valueClass="string">With Row</value>
+                        </argument>
+                        <argument id="failIfNotFound">
+                          <value class="value" valueClass="boolean">true</value>
+                        </argument>
+                        <argument id="debugRowLocator"/>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">Row</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Local</value>
+                        </argument>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                      <clauses>
+                        <clause name="substeps" testItemId="105">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="107" title="Set the Product to {SOLine.Product}">
+                              <tags/>
                               <arguments>
                                 <argument id="locator">
                                   <value class="uiLocator" uri="ui:pageobject:field?field=Product&amp;pageId=pageobjects.SalesOrderHeader_RSTKLUI"/>
@@ -313,7 +480,7 @@
                                   <value class="uiWait" uri="default"/>
                                 </argument>
                                 <argument id="afterWait">
-                                  <value class="uiWait" uri="default"/>
+                                  <value class="uiWait" uri="ui:wait:timed?seconds=3"/>
                                 </argument>
                                 <argument id="interactionDescription">
                                   <value class="value" valueClass="string">Set the Product to {SOLine.Product}</value>
@@ -357,7 +524,8 @@
                         </apiParam>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="89" title="Click the Product_ Select">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="131" title="Click the Product_ Select">
+                      <tags/>
                       <arguments>
                         <argument id="locator">
                           <value class="uiLocator" uri="ui:pageobject:field?field=Product_Select&amp;pageId=pageobjects.SalesOrderHeader_RSTKLUI"/>
@@ -378,7 +546,7 @@
                           <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="afterWait">
-                          <value class="uiWait" uri="default"/>
+                          <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
                         </argument>
                         <argument id="interactionDescription">
                           <value class="value" valueClass="string">Click the Product_ Select</value>
@@ -423,13 +591,13 @@
                           <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="captureAfter">
-                          <value class="value" valueClass="string">full</value>
+                          <value class="value" valueClass="string">false</value>
                         </argument>
                         <argument id="beforeWait">
                           <value class="uiWait" uri="default"/>
                         </argument>
                         <argument id="afterWait">
-                          <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                          <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
                         </argument>
                         <argument id="interactionDescription">
                           <value class="value" valueClass="string">Click the Save</value>
@@ -458,33 +626,6 @@
                           </type>
                         </apiParam>
                       </generatedParameters>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="87" title="Set Values: RowNum">
-                      <tags>
-                        <string>disabled</string>
-                      </tags>
-                      <arguments>
-                        <argument id="values">
-                          <value class="valueList" mutable="Mutable">
-                            <namedValues mutable="Mutable">
-                              <namedValue name="valuePath">
-                                <value class="value" valueClass="string">RowNum</value>
-                              </namedValue>
-                              <namedValue name="value">
-                                <value class="add">
-                                  <lhs class="variable">
-                                    <path element="RowNum"/>
-                                  </lhs>
-                                  <rhs class="value" valueClass="decimal">1</rhs>
-                                </value>
-                              </namedValue>
-                              <namedValue name="valueScope">
-                                <value class="value" valueClass="string">Test</value>
-                              </namedValue>
-                            </namedValues>
-                          </value>
-                        </argument>
-                      </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="58" title="Verify SO Line added with status as Planned">
                       <arguments>

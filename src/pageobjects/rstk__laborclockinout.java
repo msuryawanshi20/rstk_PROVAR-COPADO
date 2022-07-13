@@ -126,7 +126,6 @@ public class rstk__laborclockinout {
 	@PageTable(firstRowContainsHeaders = false, row = TimeAndQtyBookingDetailsTable.class)
 	public List<TimeAndQtyBookingDetailsTable> timeAndQtyBookingDetailsTable;
 
-	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindByLabel(label = "Submit Bookings")
 	public WebElement submitBookings;
@@ -143,6 +142,7 @@ public class rstk__laborclockinout {
 		WebElement ele = driver.findElement(By.xpath(xpath));
 
 		ele.sendKeys(workOrderNumber);
+		Thread.sleep(3000);
 		Actions actions = new Actions(driver);
 		wait.until(
 				ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='ac_results'][3]/ul[@id='IDREF']/li")));
@@ -152,12 +152,12 @@ public class rstk__laborclockinout {
 
 		testLogger.info("Size" + autoCompleteList.size());
 
-		if (autoCompleteList.size() > 10) {
+		while (autoCompleteList.size() > 10 || autoCompleteList.isEmpty()) {
 			ele.sendKeys(Keys.BACK_SPACE);
-			Thread.sleep(2000);
-		}
+			Thread.sleep(3000);
+			autoCompleteList = driver.findElements(By.xpath("//div[@class='ac_results'][3]/ul[@id='IDREF']/li"));
 
-		autoCompleteList = driver.findElements(By.xpath("//div[@class='ac_results'][3]/ul[@id='IDREF']/li"));
+		}
 
 		for (int i = 0; i < autoCompleteList.size(); i++) {
 			Thread.sleep(500);

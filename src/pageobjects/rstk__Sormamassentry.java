@@ -7,7 +7,13 @@ import org.openqa.selenium.support.FindBy;
 
 import com.provar.core.testapi.annotations.*;
 
-@SalesforcePage(title = "Rstk__ Sormamassentry", summary = "", page = "SormaMassEntry", namespacePrefix = "rstk", object = "rstk__sormh__c", connection = "QARSF_Admin")
+@SalesforcePage( title="Rstk__ Sormamassentry"                                
+               , summary=""
+               , page="SormaMassEntry"
+               , namespacePrefix="rstk"
+               , object="rstk__sormh__c"
+               , connection="QARSF_Admin"
+     )             
 public class rstk__Sormamassentry {
 
 	@ButtonType()
@@ -29,6 +35,8 @@ public class rstk__Sormamassentry {
 		@FindBy(xpath = ".//td[4]/select")
 		public WebElement reasonForReturn;
 
+		@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+		@PageWait.BackgroundActivity(timeoutSeconds = 60)
 		@TextType()
 		@FindBy(xpath = "//li[@id='li-0']")
 		public WebElement list;
@@ -62,7 +70,6 @@ public class rstk__Sormamassentry {
 	@PageTable(firstRowContainsHeaders = false, row = RMADetailMaintenanceGrid.class)
 	public List<RMADetailMaintenanceGrid> rMADetailMaintenanceGrid;
 	
-	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
 	@FindByLabel(label = "Save")
 	public WebElement save;

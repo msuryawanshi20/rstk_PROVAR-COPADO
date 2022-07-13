@@ -1926,6 +1926,9 @@
               </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="118" title="Verify Cash Receipts Distribution created">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Verify Cash Receipts Distribution created</value>

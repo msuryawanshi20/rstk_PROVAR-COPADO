@@ -151,7 +151,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                  <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Order Fulfillment</value>
@@ -210,7 +210,9 @@
                 <argument id="pageAssertions">
                   <value class="valueList" mutable="Mutable"/>
                 </argument>
-                <argument id="beforeWait"/>
+                <argument id="beforeWait">
+                  <value class="uiWait" uri="ui:wait:timed?seconds=5"/>
+                </argument>
                 <argument id="autoRetry"/>
               </arguments>
             </apiCall>
@@ -283,7 +285,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
+                  <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Process</value>
@@ -334,7 +336,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:timed?seconds=30"/>
+                  <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Continue Processing</value>
@@ -364,7 +366,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="88" title="UI Assert - Read the Processing Status">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="105" title="UI Assert - Read the Processing Status">
               <arguments>
                 <argument id="resultName">
                   <value class="value" valueClass="string">ProcessingStatus</value>
@@ -377,7 +379,9 @@
                     <uiFieldAssertion resultName="ProcessingStatus">
                       <fieldLocator uri="ui:pageobject:field?field=ProcessingStatus&amp;pageId=pageobjects.SalesOrderHeader_RSTKLUI"/>
                       <attributeAssertions>
-                        <uiAttributeAssertion attributeName="value" comparisonType="None"/>
+                        <uiAttributeAssertion attributeName="visible" comparisonType="None">
+                          <value class="value" valueClass="boolean">false</value>
+                        </uiAttributeAssertion>
                       </attributeAssertions>
                     </uiFieldAssertion>
                   </value>
@@ -394,6 +398,66 @@
                 <argument id="beforeWait"/>
                 <argument id="autoRetry"/>
               </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" name="WaitFor" testItemId="106" title="Wait For: {ProcessingStatus.fields.ProcessingStatus.visible = &quot;true&quot;}=&gt;{30}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="variable">
+                      <path element="ProcessingStatus"/>
+                      <path element="fields"/>
+                      <path element="ProcessingStatus"/>
+                      <path element="visible"/>
+                    </lhs>
+                    <rhs class="value" valueClass="string">true</rhs>
+                  </value>
+                </argument>
+                <argument id="testAtStart"/>
+                <argument id="maxIterations">
+                  <value class="value" valueClass="decimal">5</value>
+                </argument>
+                <argument id="sleepSecs">
+                  <value class="value" valueClass="decimal">30</value>
+                </argument>
+                <argument id="continueOnFailure"/>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="107">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="108" title="UI Assert - Read the Processing Status">
+                      <arguments>
+                        <argument id="resultName">
+                          <value class="value" valueClass="string">ProcessingStatus</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                        <argument id="fieldAssertions">
+                          <value class="valueList" mutable="Mutable">
+                            <uiFieldAssertion resultName="ProcessingStatus">
+                              <fieldLocator uri="ui:pageobject:field?field=ProcessingStatus&amp;pageId=pageobjects.SalesOrderHeader_RSTKLUI"/>
+                              <attributeAssertions>
+                                <uiAttributeAssertion attributeName="value" comparisonType="None"/>
+                              </attributeAssertions>
+                            </uiFieldAssertion>
+                          </value>
+                        </argument>
+                        <argument id="captureAfter">
+                          <value class="value" valueClass="string">false</value>
+                        </argument>
+                        <argument id="columnAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="pageAssertions">
+                          <value class="valueList" mutable="Mutable"/>
+                        </argument>
+                        <argument id="beforeWait"/>
+                        <argument id="autoRetry"/>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="89" title="Assert: {ProcessingStatus.fields.ProcessingStatus.visible} EqualTo true">
               <arguments>
@@ -453,7 +517,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="default"/>
+                  <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Close</value>
@@ -483,10 +547,11 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="91" title="Sleep for {10} seconds">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="91" title="Sleep for {30} seconds">
+              <tags/>
               <arguments>
                 <argument id="sleepSecs">
-                  <value class="value" valueClass="decimal">10</value>
+                  <value class="value" valueClass="decimal">30</value>
                 </argument>
               </arguments>
             </apiCall>
@@ -503,10 +568,10 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="93" title="Sleep for {10} seconds">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="93" title="Sleep for {30} seconds">
               <arguments>
                 <argument id="sleepSecs">
-                  <value class="value" valueClass="decimal">10</value>
+                  <value class="value" valueClass="decimal">30</value>
                 </argument>
               </arguments>
             </apiCall>
@@ -582,7 +647,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                  <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Order Fulfillment</value>
@@ -740,7 +805,65 @@
                 </clause>
               </clauses>
             </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="109" title="UI Assert - Read Invoice Number">
+              <arguments>
+                <argument id="fieldAssertions">
+                  <value class="valueList" mutable="Mutable">
+                    <uiFieldAssertion resultName="Invoice">
+                      <fieldLocator uri="ui:pageobject:field?field=Invoice&amp;pageId=pageobjects.SalesOrderHeader_RSTKLUI"/>
+                      <attributeAssertions>
+                        <uiAttributeAssertion attributeName="value" comparisonType="None"/>
+                      </attributeAssertions>
+                    </uiFieldAssertion>
+                  </value>
+                </argument>
+                <argument id="columnAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="pageAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">Invoice</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">full</value>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="autoRetry"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="110" title="Set Values: InvoiceNumber">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">InvoiceNumber</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="Invoice"/>
+                          <path element="fields"/>
+                          <path element="Invoice"/>
+                          <path element="value"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Folder</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="100" title="Click the Invoice">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:pageobject:field?field=Invoice&amp;pageId=pageobjects.SalesOrderHeader_RSTKLUI"/>
@@ -761,7 +884,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="afterWait">
-                  <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                  <value class="uiWait" uri="ui:wait:pageload?timeout=60"/>
                 </argument>
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Invoice</value>
@@ -849,6 +972,22 @@
       </type>
     </param>
   </params>
+  <outputParams>
+    <param name="InvoiceNumber" title="InvoiceNumber">
+      <summary>The name of the value to be set.  May contain sub-values, e.g. 'Value1.SubValue1'.</summary>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+      <sourceValue class="variable">
+        <path element="InvoiceNumber"/>
+      </sourceValue>
+    </param>
+  </outputParams>
   <args>
     <argument id="reuseConnectionName">
       <value class="variable">
@@ -871,4 +1010,9 @@
       </value>
     </argument>
   </args>
+  <outputArgs>
+    <outputArgument id="InvoiceNumber">
+      <name class="value" valueClass="string">InvoiceNumber</name>
+    </outputArgument>
+  </outputArgs>
 </testCase>

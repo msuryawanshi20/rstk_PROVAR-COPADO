@@ -11,10 +11,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.provar.core.testapi.annotations.BooleanType;
 import com.provar.core.testapi.annotations.ButtonType;
-import com.provar.core.testapi.annotations.ChoiceListType;
 import com.provar.core.testapi.annotations.FindByLabel;
 import com.provar.core.testapi.annotations.SalesforcePage;
 import com.provar.core.testapi.annotations.TestLogger;

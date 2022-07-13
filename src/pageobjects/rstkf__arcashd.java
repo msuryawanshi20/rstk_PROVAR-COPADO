@@ -111,4 +111,16 @@ public class rstkf__arcashd {
 	@TextType()
 	@FindBy(xpath = "//tbody[contains(@id,'pbt_paymentdistribution')]//tr[3]//td[6]")
 	public WebElement CreditAmountRow3;
+
+	@PageRow()
+	public static class Table {
+
+		@TextType()
+		@FindBy(xpath = "//tbody[contains(@id,'paymentdistribution:tb')]")
+		public WebElement PaymentAccountDistributions_Table;
+	}
+
+	@FindBy(id = "pg:fm:pb:pbs_relatedlists:j_id186:j_id187:pbt_paymentdistribution:tb")
+	@PageTable(firstRowContainsHeaders = false, row = Table.class)
+	public List<Table> table;
 }

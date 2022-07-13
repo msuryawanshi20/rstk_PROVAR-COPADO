@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="3">
+<testCase id="6">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -1509,6 +1509,14 @@
                   </value>
                 </argument>
               </arguments>
+              <outputArguments>
+                <outputArgument id="rstkfRows_ReceivableTxn" scope="Folder">
+                  <name class="value" valueClass="string">rstkfRows_ReceivableTxn</name>
+                </outputArgument>
+                <outputArgument id="rstkfRows_ForeignExchRateSchedule_ExchRate" scope="Folder">
+                  <name class="value" valueClass="string">rstkfRows_ForeignExchRateSchedule_ExchRate</name>
+                </outputArgument>
+              </outputArguments>
             </caseCall>
           </steps>
         </clause>

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -36,7 +37,7 @@ public class rstk__Stocklocadj2 {
 
 	public void selectInventoryItem(String InventoryItemName) throws InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
-		String elementLocator = "//input[@name='locadd_item_ui__c_autocomplete']";
+		String elementLocator = "//input[@name='locadd_item_ui__c_autocomplete']|//input[@name='locadd_icitem__c_autocomplete']";
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(elementLocator)));
 		driver.findElement(By.xpath(elementLocator)).sendKeys(InventoryItemName);
 
@@ -44,6 +45,13 @@ public class rstk__Stocklocadj2 {
 		String listLocator = "//div[@class='ac_results'][1]/ul[@id='IDREF']/li";
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(listLocator)));
 		List<WebElement> autoCompleteList = driver.findElements(By.xpath(listLocator));
+
+		while (autoCompleteList.size() > 10 || autoCompleteList.isEmpty()) {
+			driver.findElement(By.xpath(elementLocator)).sendKeys(Keys.BACK_SPACE);
+			Thread.sleep(3000);
+			autoCompleteList = driver.findElements(By.xpath(listLocator));
+
+		}
 
 		for (int i = 0; i < autoCompleteList.size(); i++) {
 			Thread.sleep(500);
@@ -66,6 +74,13 @@ public class rstk__Stocklocadj2 {
 		String listLocator = "//div[@class='ac_results'][2]/ul[@id='IDREF']/li";
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(listLocator)));
 		List<WebElement> autoCompleteList = driver.findElements(By.xpath(listLocator));
+
+		while (autoCompleteList.size() > 10 || autoCompleteList.isEmpty()) {
+			driver.findElement(By.xpath(elementLocator)).sendKeys(Keys.BACK_SPACE);
+			Thread.sleep(3000);
+			autoCompleteList = driver.findElements(By.xpath(listLocator));
+
+		}
 
 		for (int i = 0; i < autoCompleteList.size(); i++) {
 			Thread.sleep(3000);
