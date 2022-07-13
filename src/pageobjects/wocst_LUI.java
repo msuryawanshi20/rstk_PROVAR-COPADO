@@ -299,4 +299,8 @@ public class wocst_LUI {
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Close']")
 	public WebElement close;
 
+	@LinkType()
+	@FindBy(xpath = "//a[normalize-space(.)='Rootstock Site Map']")
+	public WebElement rootstockSiteMap;
+
 }
