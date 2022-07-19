@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="4">
+<testCase id="3">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,7 +43,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="178" title="Read Excel Path">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="196" title="Read Excel Path">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read Excel Path</value>
@@ -92,7 +92,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="179" title="Read Data">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="197" title="Read Data">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Read Data</value>
@@ -160,7 +160,7 @@
         <clause name="hidden" testItemId="160"/>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="193" title="Launch the Sales Order Processes App">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="198" title="Launch the Sales Order Processes App">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Launch the Sales Order Processes App</value>
@@ -185,7 +185,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="180" title="Create Sales Order Header">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="199" title="Create Sales Order Header">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Create Sales Order Header</value>
@@ -218,7 +218,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="181" title="Add SO Lines">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="200" title="Add SO Lines">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Add SO Lines</value>
@@ -253,7 +253,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="182" title="Firm All SO Lines">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="201" title="Firm All SO Lines">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Firm All SO Lines</value>
@@ -288,7 +288,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="183" title="Allocate Sales Order Lines">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="202" title="Allocate Sales Order Lines">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Allocate Sales Order Lines</value>
@@ -328,7 +328,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="184" title="Pick-Pack-Ship SO Lines">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="203" title="Pick-Pack-Ship SO Lines">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Pick-Pack-Ship SO Lines</value>
@@ -378,7 +378,7 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="185" title="Create SO Invoice">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="204" title="Create SO Invoice">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Create SO Invoice</value>
@@ -443,39 +443,44 @@
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="186" title="Verify Invoice Actions">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="205" title="Delete Invoice">
       <arguments>
         <argument id="description">
-          <value class="value" valueClass="string">Verify Invoice Actions</value>
+          <value class="value" valueClass="string">Delete Invoice</value>
         </argument>
       </arguments>
       <clauses>
-        <clause name="hidden" testItemId="121">
+        <clause name="hidden" testItemId="206">
           <steps>
-            <caseCall testCaseId="a2b5a3fe-ea0d-4df9-a83b-79c81665ef04" testCasePath="tests/Sales Order - RSTKLUI/Callable/Verify Invoice Actions.testcase" testItemId="187">
+            <caseCall testCaseId="213bed2a-fd71-4ead-9b78-7619c9a412c7" testCasePath="tests/Sales Order - RSTKLUI/Callable/Delete and verify the Invoice created.testcase" testItemId="207">
               <arguments>
-                <argument id="reuseConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
-                </argument>
                 <argument id="rstkRows_Invoice">
                   <value class="variable">
                     <path element="rstkRows_Invoice"/>
                   </value>
+                </argument>
+                <argument id="reuseConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
                 </argument>
                 <argument id="SourceData_CreateInvoice">
                   <value class="variable">
                     <path element="SourceData_CreateInvoice"/>
                   </value>
                 </argument>
-                <argument id="SourceData_SOHeader">
-                  <value class="variable">
-                    <path element="SourceData_SOHeader"/>
-                  </value>
-                </argument>
               </arguments>
             </caseCall>
           </steps>
         </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="209" title="Exit">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">Exit</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="210"/>
       </clauses>
     </apiCall>
   </steps>

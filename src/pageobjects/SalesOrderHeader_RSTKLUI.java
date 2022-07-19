@@ -30,6 +30,9 @@ String ProdType;
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//div/span/lightning-formatted-text")
 	public WebElement CustomerSelect;
 	@TextType()
+	@FindBy(xpath = "//span[@class='slds-listbox__option-text slds-listbox__option-text_entity']")
+	public WebElement CustomerSelect_NewInvoice;
+	@TextType()
 	@FindBy(xpath = "//input[@name='rstk__sohdr_order__c']")
 	public WebElement orderNumber;
 	@ButtonType()
@@ -149,6 +152,18 @@ String ProdType;
 	@TextType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//h1//lightning-formatted-text")
 	public WebElement InvoiceHeader_Title;
+	@TextType()
+	@FindBy(xpath = "//span[contains(text(),'No record found with Id: ')]")
+	public WebElement InvoiceHeader_Deleted;
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Commission Details']")
+	public WebElement CommissionDetails;
+	@TextType()
+	@FindBy(xpath = "//h2//span[text()='Commission Details']//following::div//div[@class='slds-table_header-fixed_container slds-scrollable_x']")
+	public WebElement CommissionDetailsPopup;
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Edit']")
+	public WebElement Edit;
 	@LinkType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Approve Invoice']")
 	public WebElement approveInvoice;
@@ -159,8 +174,20 @@ String ProdType;
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Print Invoice']")
 	public WebElement printInvoice;
 	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Delete']")
+	public WebElement Delete;
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a//span[contains(text(),'Credit This Invoice')]")
+	public WebElement CreditThisInvoice;
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a//span[contains(text(),'Create New Invoice')]")
+	public WebElement CreateNewInvoice;
+	@LinkType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a//span[contains(text(),'Transfer To A')]")
 	public WebElement TransferToAR;
+	@LinkType()
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a//span[contains(text(),'Add To Invoice')]")
+	public WebElement AddToInvoice;
 	@TextType()
 	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//span[normalize-space(.)='ProcessingComplete']//lightning-base-formatted-text")
 	public WebElement ProcessingIndicator;
@@ -185,6 +212,60 @@ String ProdType;
 	@LinkType()
 	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a//span[contains(text(),'Reverse A')]")
 	public WebElement ReverseARTransfer;
+	@TextType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//h1/lightning-formatted-text[contains(text(),'Edit Record:')]")
+	public WebElement EditRecord_title;
+	@TextType()
+	@FindBy(xpath = "//input[@name='rstk__soinv_phone__c']")
+	public WebElement phone;
+	@ButtonType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//button[normalize-space(.)='Save']")
+	public WebElement save_Edit;
+	@TextType()
+	@FindBy(xpath = "//input[@name='rstk__soinv_email__c']")
+	public WebElement email;
+	@TextType()
+	@FindBy(xpath = "//span[text()='Email']/following::div[@class='slds-form-element__control']//lightning-formatted-text")
+	public WebElement email_value;
+	@TextType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//span[normalize-space(.)='Credit This Invoice']")
+	public WebElement CreditThisInvoice_popup;
+	@BooleanType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//label/span[1]")
+	public WebElement AllowShippers_chkbox;
+	@ButtonType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//button[normalize-space(.)='Next']")
+	public WebElement next;
+	@TextType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//p[normalize-space(.)='Process has been completed successfully.']")
+	public WebElement CreditThisInvoice_successmsg;
+	@TextType()
+	@FindBy(xpath = "//span[text()='Transaction Type']/following::lightning-formatted-text")
+	public WebElement transactionType;
+	@TextType()
+	@FindBy(xpath = "//span[text()='Invoice Number']/following::lightning-formatted-text")
+	public WebElement invoiceNumber_CreditMemo;
+	@LinkType()
+	@FindBy(xpath = "//span[text()='Invoice Credited by this CR Memo']/following::div[@class='slds-form-element__control']//a//span")
+	public WebElement invoiceCreditedByThisCRMemo;
+	@TextType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//span[normalize-space(.)='Add Shippers to the Invoice']")
+	public WebElement AddShippers_popup;
+	@BooleanType()
+	@FindBy(xpath = "//span[text()='Select Item 1']/preceding::input[1]")
+	public WebElement AddShippers_chkbox;
+	@ButtonType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//button[normalize-space(.)='Add Shippers to the Invoice']")
+	public WebElement addShippersToTheInvoice;
+	@TextType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//span[normalize-space(.)='New Sales Order Invoice Header']")
+	public WebElement NewSalesOrderInvoiceHeader_popup;
+	@TextType()
+	@FindBy(xpath = "//input[@name='searchText']")
+	public WebElement customerRecordName;
+	@ButtonType()
+	@FindBy(xpath = "//div[contains(@class, 'active') and contains(@class, 'open') and (contains(@class, 'forceModal') or contains(@class, 'uiModal'))][last()]//button[normalize-space(.)='Create Invoice']")
+	public WebElement createInvoice;
 	
 	//@FindBy(xpath = "//div[@id='listbox-id-1-1379']//ul//li//span//span")
 	//public WebElement ProductSelect;
