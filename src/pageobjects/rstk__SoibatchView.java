@@ -59,6 +59,9 @@ public class rstk__SoibatchView {
 	@TextType()
 	@FindBy(xpath = "//span[text()='Date Approved']/following::td//span")
 	public WebElement DateApproved;
+	@TextType()
+	@FindBy(xpath = "//span[text()='Total Invoice Lines in Batch']/following::td//span[1]")
+	public WebElement TotalInvoiceLinesinBatch;
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Print Invoice Batch']")
 	public WebElement PrintInvoiceBatch;

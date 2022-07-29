@@ -330,15 +330,6 @@
                 <resultAssertion resultName="rstk__soibatch_transferred__c" title="Check rstk__soibatch_transferred__c">
                   <expected class="value" valueClass="string">true</expected>
                 </resultAssertion>
-                <resultAssertion resultName="rstk__soibatch_datetransfer__c" title="Check rstk__soibatch_datetransfer__c">
-                  <expected class="funcCall" id="DateAdd">
-                    <argument id="date">
-                      <value class="variable">
-                        <path element="TODAY"/>
-                      </value>
-                    </argument>
-                  </expected>
-                </resultAssertion>
               </resultAssertions>
               <parameterGeneratorProperties>
                 <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
