@@ -166,6 +166,12 @@ public class rstk__salesorder {
 	@TextType()
 	@FindBy(xpath = "//span[contains(@id,'sohdr_quotesf__c')]//a")
 	public WebElement quote;
+	@LinkType()
+	@FindBy(xpath = "//div[@id='detailBlock1']//a[normalize-space(.)='Colorado (100)']")
+	public WebElement division;
+	@TextType()
+	@FindBy(xpath = "//label[normalize-space(.)='Customer Reference']/parent::span/parent::th/following-sibling::td//input")
+	public WebElement customerReference;
 	
 	
 }

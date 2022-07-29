@@ -943,6 +943,9 @@
                       </generatedParameters>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="149" title="UI Assert-Read Payment Status">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="fieldAssertions">
                           <value class="valueList" mutable="Mutable">
@@ -974,6 +977,9 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="150" title="Assert: Authorization Completed EqualTo {Status.fields.PaymentStatus.value}">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="expectedValue">
                           <value class="value" valueClass="string">Authorization Completed</value>
@@ -1503,6 +1509,9 @@
                       </generatedParameters>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="170" title="UI Assert-Read Payment Status">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="fieldAssertions">
                           <value class="valueList" mutable="Mutable">
@@ -1534,6 +1543,9 @@
                       </arguments>
                     </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="171" title="Assert: Authorization Cancelled EqualTo {Status.fields.PaymentStatus.value}">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="expectedValue">
                           <value class="value" valueClass="string">Authorization Cancelled</value>

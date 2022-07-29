@@ -27,7 +27,7 @@ public class rstk__soinv {
 	@FindByLabel(label = "Approve Credit Memo")
 	public WebElement approveCreditMemo;
 	@TextType()
-	@FindBy(xpath = "//lightning-formatted-text[@class='slds-text-heading_medium']")
+	@FindBy(xpath = "//img[@title='Sales Order Invoice Header']/following::h2")
 	public WebElement pageTitle;
 	@TextType()
 	@FindBy(xpath = "//td[normalize-space(.)='Invoice approved.']")

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="7">
+<testCase id="9">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="39" title="Salesforce Connect: SFConnection (Test)">
@@ -880,6 +880,7 @@
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="147" title="On Rstk__soline page">
+              <tags/>
               <arguments>
                 <argument id="uiConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -915,12 +916,14 @@
                 <argument id="uiTargetUrl">
                   <value class="compound">
                     <parts>
-                      <value valueClass="string">https://rstk-qa-rsf--rstk.na75.visual.force.com/apex/soline?id=</value>
+                      <variable>
+                        <path element="Row"/>
+                        <path element="SOLine_DeletePage"/>
+                      </variable>
                       <variable>
                         <path element="rstkRows_SOLINE"/>
                         <path element="Id"/>
                       </variable>
-                      <value valueClass="string">&amp;sfdc.override=1</value>
                     </parts>
                   </value>
                 </argument>
