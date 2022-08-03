@@ -93,6 +93,16 @@ public class HomePage {
 	@LinkType()
 	@FindBy(xpath = "//one-app-launcher-menu-item/a")
 	public WebElement App_Required;
+
+	@TextType()
+	@FindBy(xpath = "//h2[normalize-space(.)='Sales Order Commissions']")
+	public WebElement Sales_Order_Commissions_pageTitle;
+	
+	@TextType()
+	@FindBy(xpath = "//h2[text()='Sales Order Commissions']/following::form")
+	public WebElement Sales_Order_Commissions_form;
+
+	
 	
 
 }

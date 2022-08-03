@@ -172,6 +172,42 @@ public class rstk__salesorder {
 	@TextType()
 	@FindBy(xpath = "//label[normalize-space(.)='Customer Reference']/parent::span/parent::th/following-sibling::td//input")
 	public WebElement customerReference;
+	@TextType()
+	@VisualforceBy(componentXPath = "apex:form[@id='fm']//div[2]/h2")
+	public WebElement Sales_Order_Addresses_popup;
+	@TextType()
+	@FindBy(xpath = "//td/table//table/tbody/tr/td/table/tbody/tr/td[normalize-space(.)='Bill-To']")
+	public WebElement tabBillTo_lbl;
+	@TextType()
+	@FindBy(xpath = "//td/table//table/tbody/tr/td/table/tbody/tr/td[normalize-space(.)='Acknowledgement']")
+	public WebElement tabAck_lbl;
+	@TextType()
+	@FindBy(xpath = "//td/table//table/tbody/tr/td/table/tbody/tr/td[normalize-space(.)='Installation']")
+	public WebElement tabInstall_lbl;
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Customer Account Inquiry']")
+	public WebElement customerAccountInquiry;
+	@ButtonType()
+	@FindBy(xpath = "//td[@class='pbTitle']/following::td//input[@value='Commission Detail']")
+	public WebElement commissionDetail;
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Track Shipments']")
+	public WebElement TrackShipments;
+	@TextType()
+	@FindBy(xpath = "//div[@id='trackPopup']/span//div/h3")
+	public WebElement Sales_Order_Shipping_Detail_popup;
+	@TextType()
+	@FindBy(xpath = "//h3[text()='Sales Order Shipping Detail']/following::div//table[1]")
+	public WebElement SalesOrderShippingDetail;
+	@ButtonType()
+	@FindBy(xpath = "//div[@id='trackPopup']//input[@name='popupCancelButton']")
+	public WebElement close;
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Create Picklist']")
+	public WebElement createPicklist;
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Order Review']")
+	public WebElement OrderReview;
 	
 	
 }

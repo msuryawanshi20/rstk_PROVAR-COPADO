@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="15">
+<testCase id="2">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="Connection Step">
-      <arguments>
-        <argument id="description">
-          <value class="value" valueClass="string">Connection Step</value>
-        </argument>
-      </arguments>
-      <clauses>
-        <clause name="hidden" testItemId="3"/>
-      </clauses>
-    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
@@ -24,7 +14,7 @@
           <value class="value" valueClass="string">Test</value>
         </argument>
         <argument id="uiApplicationName">
-          <value class="value" valueClass="string">Force_com</value>
+          <value class="value" valueClass="string">rstk__Force_com</value>
         </argument>
         <argument id="quickUiLogin">
           <value class="value" valueClass="boolean">true</value>
@@ -34,7 +24,7 @@
         </argument>
         <argument id="reuseConnectionName"/>
         <argument id="alreadyOpenBehaviour">
-          <value class="value" valueClass="string">Fail</value>
+          <value class="value" valueClass="string">Reuse</value>
         </argument>
         <argument id="privateBrowsingMode"/>
         <argument id="enableObjectIdLogging">
