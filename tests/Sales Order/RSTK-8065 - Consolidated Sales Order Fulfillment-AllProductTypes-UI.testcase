@@ -53,7 +53,7 @@
       <clauses>
         <clause name="hidden" testItemId="67">
           <steps>
-            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="334">
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Callable/Read Excel Data.testcase" testItemId="334">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -258,7 +258,7 @@
       <clauses>
         <clause name="hidden" testItemId="5">
           <steps>
-            <caseCall testCaseId="c7a19b86-3b7c-4eaa-9b57-a48a242f0020" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Create SO Header.testcase" testItemId="7">
+            <caseCall testCaseId="c7a19b86-3b7c-4eaa-9b57-a48a242f0020" testCasePath="tests/Sales Order/Callable/Create SO Header.testcase" testItemId="7">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -293,7 +293,7 @@
       <clauses>
         <clause name="hidden" testItemId="9">
           <steps>
-            <caseCall testCaseId="c8447ee1-8153-4b72-9ff9-b273ea2281d1" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Add SO Line.testcase" testItemId="12">
+            <caseCall testCaseId="c8447ee1-8153-4b72-9ff9-b273ea2281d1" testCasePath="tests/Sales Order/Callable/Add SO Line.testcase" testItemId="12">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -334,7 +334,7 @@
       <clauses>
         <clause name="hidden" testItemId="68">
           <steps>
-            <caseCall testCaseId="3a9ccbf3-8423-4754-9f15-5d4c2cb1c189" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Consolidated SO Fulfillment.testcase" testItemId="81">
+            <caseCall testCaseId="3a9ccbf3-8423-4754-9f15-5d4c2cb1c189" testCasePath="tests/Sales Order/Callable/Consolidated SO Fulfillment.testcase" testItemId="81">
               <tags>
                 <string>disabled</string>
               </tags>
@@ -359,7 +359,7 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <caseCall testCaseId="c50755a9-84fb-4a97-abc2-9532f53cfbac" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Consolidated SO Fulfillment-DefaultSelectionsOnSOFulfillpage.testcase" testItemId="82">
+            <caseCall testCaseId="c50755a9-84fb-4a97-abc2-9532f53cfbac" testCasePath="tests/Sales Order/Callable/Consolidated SO Fulfillment-DefaultSelectionsOnSOFulfillpage.testcase" testItemId="82">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -379,6 +379,9 @@
                 <outputArgument id="Invoice">
                   <name class="value" valueClass="string">Invoice</name>
                 </outputArgument>
+                <outputArgument id="rstkRows_Invoice">
+                  <name class="value" valueClass="string">rstkRows_Invoice</name>
+                </outputArgument>
               </outputArguments>
             </caseCall>
           </steps>
@@ -394,7 +397,7 @@
       <clauses>
         <clause name="hidden" testItemId="71">
           <steps>
-            <caseCall testCaseId="c363a919-584d-4d15-afa1-120241e9e2b5" testCasePath="tests/Sales Order/Sales Order - CallableTesting/SO Invoice.testcase" testItemId="76">
+            <caseCall testCaseId="c363a919-584d-4d15-afa1-120241e9e2b5" testCasePath="tests/Sales Order/Callable/SO Invoice.testcase" testItemId="76">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -420,7 +423,7 @@
       <clauses>
         <clause name="hidden" testItemId="32">
           <steps>
-            <caseCall testCaseId="a4bb4e3b-cdfb-4488-92ca-b62a0a4360cf" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Requirements.testcase" testItemId="77">
+            <caseCall testCaseId="a4bb4e3b-cdfb-4488-92ca-b62a0a4360cf" testCasePath="tests/Sales Order/Callable/Requirements.testcase" testItemId="77">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -451,7 +454,7 @@
       <clauses>
         <clause name="hidden" testItemId="36">
           <steps>
-            <caseCall testCaseId="d0c31666-0c7c-41ed-9af3-4208a966671f" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Sales Order DMD.testcase" testItemId="78">
+            <caseCall testCaseId="d0c31666-0c7c-41ed-9af3-4208a966671f" testCasePath="tests/Sales Order/Callable/Sales Order DMD.testcase" testItemId="78">
               <arguments>
                 <argument id="OrderNumber_DMD">
                   <value class="variable">
@@ -483,7 +486,7 @@
       <clauses>
         <clause name="hidden" testItemId="41">
           <steps>
-            <caseCall testCaseId="6a80148c-7917-4cf7-8edf-eb0e7dfee6ea" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Verify Dimensions.testcase" testItemId="79">
+            <caseCall testCaseId="6a80148c-7917-4cf7-8edf-eb0e7dfee6ea" testCasePath="tests/Sales Order/Callable/Verify Dimensions.testcase" testItemId="79">
               <arguments>
                 <argument id="OrderNumber_Dim">
                   <value class="variable">
@@ -562,7 +565,7 @@
       <clauses>
         <clause name="hidden" testItemId="110">
           <steps>
-            <caseCall testCaseId="2bc0d01b-e3a4-4df8-b29c-45ad10f11532" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Verify Inventory Quantity After Transaction .testcase" testItemId="111">
+            <caseCall testCaseId="2bc0d01b-e3a4-4df8-b29c-45ad10f11532" testCasePath="tests/Sales Order/Callable/Verify Inventory Quantity After Transaction .testcase" testItemId="111">
               <arguments>
                 <argument id="SrcData_InvyQty">
                   <value class="variable">

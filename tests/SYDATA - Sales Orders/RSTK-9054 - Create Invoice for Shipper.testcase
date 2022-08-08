@@ -186,7 +186,7 @@
       <clauses>
         <clause name="hidden" testItemId="7">
           <steps>
-            <caseCall testCaseId="2045d3ed-782f-4b58-afa5-bc89ec24265b" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Add SO Lines for SYDATA.testcase" testItemId="18">
+            <caseCall testCaseId="2045d3ed-782f-4b58-afa5-bc89ec24265b" testCasePath="tests/SYDATA - Sales Orders/Callable/Add SO Lines for SYDATA.testcase" testItemId="18">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -222,7 +222,7 @@
       <clauses>
         <clause name="hidden" testItemId="11">
           <steps>
-            <caseCall testCaseId="85b5dbbd-458d-4123-8349-92fea88265a7" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Firm All Sales Order Lines.testcase" testItemId="12">
+            <caseCall testCaseId="85b5dbbd-458d-4123-8349-92fea88265a7" testCasePath="tests/SYDATA - Sales Orders/Callable/Firm All Sales Order Lines.testcase" testItemId="12">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
@@ -299,7 +299,7 @@
       <clauses>
         <clause name="hidden" testItemId="24">
           <steps>
-            <caseCall testCaseId="4275be32-6028-485b-a6f6-b75d8ffbc0ad" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Pick-Pack-Ship Sales Order Lines.testcase" testItemId="27">
+            <caseCall testCaseId="4275be32-6028-485b-a6f6-b75d8ffbc0ad" testCasePath="tests/SYDATA - Sales Orders/Callable/Pick-Pack-Ship Sales Order Lines.testcase" testItemId="27">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
@@ -350,7 +350,7 @@
       <clauses>
         <clause name="hidden" testItemId="29">
           <steps>
-            <caseCall testCaseId="b22fe2b8-4548-41a3-b6b5-bd339b9781a2" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Create Sales Order Invoice.testcase" testItemId="30">
+            <caseCall testCaseId="b22fe2b8-4548-41a3-b6b5-bd339b9781a2" testCasePath="tests/SYDATA - Sales Orders/Callable/Create Sales Order Invoice.testcase" testItemId="30">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
