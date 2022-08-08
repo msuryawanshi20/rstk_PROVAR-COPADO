@@ -69,7 +69,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">InventoryQuantity</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -163,7 +163,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOHeader</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -211,7 +211,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOLine</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -265,7 +265,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOFulfillment</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -342,7 +342,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Requirements</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -385,7 +385,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">SOORDDMD</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -431,7 +431,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">Dimensions</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -475,7 +475,7 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">InventoryQuantity</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -528,14 +528,14 @@
           <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
             <workbookPath class="value" valueClass="string">templates/QARSF/RSTK8065-Consolidated Sales Order Fulfillment-SingleLine.xlsx</workbookPath>
             <worksheetName class="value" valueClass="string">InventoryQuantity</worksheetName>
-            <valuesRange class="value" valueClass="string"/>
+            <valuesRange class="value"/>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
       <clauses>
         <clause name="hidden" testItemId="110">
           <steps>
-            <caseCall testCaseId="2bc0d01b-e3a4-4df8-b29c-45ad10f11532" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Verify Inventory Quantity After Transaction .testcase" testItemId="111">
+            <caseCall testCaseId="2bc0d01b-e3a4-4df8-b29c-45ad10f11532" testCasePath="tests/Sales Order/Callable/Verify Inventory Quantity After Transaction .testcase" testItemId="111">
               <arguments>
                 <argument id="SrcData_InvyQty">
                   <value class="variable">

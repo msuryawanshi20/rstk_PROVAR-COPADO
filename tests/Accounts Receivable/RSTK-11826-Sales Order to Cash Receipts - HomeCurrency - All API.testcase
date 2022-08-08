@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="4">
+<testCase id="7">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -92,7 +92,7 @@
             <workbookPath class="variable">
               <path element="ExcelPath_AR"/>
             </workbookPath>
-            <worksheetName class="value" valueClass="string">AddHeader_ForeignCurr</worksheetName>
+            <worksheetName class="value" valueClass="string">AddHeader</worksheetName>
           </sourceValue>
         </parameterValueSource>
         <parameterValueSource variableName="SourceData_SOLine" variableScope="Test">
@@ -100,7 +100,7 @@
             <workbookPath class="variable">
               <path element="ExcelPath_AR"/>
             </workbookPath>
-            <worksheetName class="value" valueClass="string">AddLine_ForeignCurr</worksheetName>
+            <worksheetName class="value" valueClass="string">AddLine</worksheetName>
           </sourceValue>
         </parameterValueSource>
         <parameterValueSource variableName="SourceData_Firm" variableScope="Test">
@@ -140,15 +140,7 @@
             <workbookPath class="variable">
               <path element="ExcelPath_AR"/>
             </workbookPath>
-            <worksheetName class="value" valueClass="string">CashReceipt_ForeignCurr</worksheetName>
-          </sourceValue>
-        </parameterValueSource>
-        <parameterValueSource variableName="SourceData_CRATO" variableScope="Test">
-          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-            <workbookPath class="variable">
-              <path element="ExcelPath_AR"/>
-            </workbookPath>
-            <worksheetName class="value" valueClass="string">CRATO_ForeignCurrency</worksheetName>
+            <worksheetName class="value" valueClass="string">CashReceipt</worksheetName>
           </sourceValue>
         </parameterValueSource>
         <parameterValueSource variableName="SourceData_ApproveInvoice" variableScope="Test">
@@ -165,6 +157,14 @@
               <path element="ExcelPath_AR"/>
             </workbookPath>
             <worksheetName class="value" valueClass="string">TransferInvoice</worksheetName>
+          </sourceValue>
+        </parameterValueSource>
+        <parameterValueSource variableName="SourceData_CRATO" variableScope="Test">
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="variable">
+              <path element="ExcelPath_AR"/>
+            </workbookPath>
+            <worksheetName class="value" valueClass="string">CRATO_HomeCurrency</worksheetName>
           </sourceValue>
         </parameterValueSource>
       </parameterValueSources>
@@ -214,7 +214,7 @@
       <clauses>
         <clause name="hidden" testItemId="57">
           <steps>
-            <caseCall testCaseId="2045d3ed-782f-4b58-afa5-bc89ec24265b" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Add SO Lines for SYDATA.testcase" testItemId="146">
+            <caseCall testCaseId="2045d3ed-782f-4b58-afa5-bc89ec24265b" testCasePath="tests/SYDATA - Sales Orders/Callable/Add SO Lines for SYDATA.testcase" testItemId="146">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -466,7 +466,6 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="128" title="Transfer Sales Invoice">
-      <tags/>
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Transfer Sales Invoice</value>
@@ -528,9 +527,6 @@
                 </argument>
               </arguments>
               <outputArguments>
-                <outputArgument id="rstkfRows_ReceivableTxn" scope="Folder">
-                  <name class="value" valueClass="string">rstkfRows_ReceivableTxn</name>
-                </outputArgument>
                 <outputArgument id="rstkfRows_ReceivableTxn_HomeCurrency" scope="Folder">
                   <name class="value" valueClass="string">rstkfRows_ReceivableTxn_HomeCurrency</name>
                 </outputArgument>
@@ -664,20 +660,6 @@
       </type>
       <sourceValue class="value" valueClass="string">SourceData_CreateInvoice</sourceValue>
     </param>
-    <param name="SourceData_CRATO" title="SourceData_CRATO">
-      <summary/>
-      <type>
-        <textType>
-          <constraints>
-            <valueConstraint name="minLength">0</valueConstraint>
-            <valueConstraint name="maxLength">9999</valueConstraint>
-          </constraints>
-        </textType>
-      </type>
-      <sourceValue class="variable">
-        <path element="SourceData_CRATO"/>
-      </sourceValue>
-    </param>
   </outputParams>
   <outputArgs>
     <outputArgument id="SourceData_Firm">
@@ -694,9 +676,6 @@
     </outputArgument>
     <outputArgument id="SourceData_CreateInvoice">
       <name class="value" valueClass="string">SourceData_CreateInvoice</name>
-    </outputArgument>
-    <outputArgument id="SourceData_CRATO">
-      <name class="value" valueClass="string">SourceData_CRATO</name>
     </outputArgument>
   </outputArgs>
 </testCase>
