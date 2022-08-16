@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="7">
+<testCase id="15">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="32" title="Salesforce Connect: SFConnection (Test)">
@@ -52,7 +52,7 @@
       <clauses>
         <clause name="hidden" testItemId="884">
           <steps>
-            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="927">
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Callable/Read Excel Data.testcase" testItemId="927">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -1380,7 +1380,7 @@
                                           <value class="uiWait" uri="default"/>
                                         </argument>
                                         <argument id="afterWait">
-                                          <value class="uiWait" uri="default"/>
+                                          <value class="uiWait" uri="ui:wait:timed?seconds=2"/>
                                         </argument>
                                         <argument id="interactionDescription">
                                           <value class="value" valueClass="string">Click the Add button</value>
@@ -6749,7 +6749,8 @@
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="963" title="UI Assert - Verify whether 'Sales Order' tab exists">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="970" title="UI Assert - Verify whether 'Aging' tab exists">
+                      <tags/>
                       <arguments>
                         <argument id="resultName">
                           <value class="value" valueClass="string">Values</value>
@@ -6759,242 +6760,11 @@
                         </argument>
                         <argument id="fieldAssertions">
                           <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="tab_SalesOrders_lbl">
-                              <fieldLocator uri="ui:locator?name=tab_SalesOrders_lbl"/>
-                              <attributeAssertions>
-                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                                  <value class="value" valueClass="string">Sales Order</value>
-                                </uiAttributeAssertion>
-                              </attributeAssertions>
-                            </uiFieldAssertion>
-                          </value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="columnAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="pageAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="beforeWait"/>
-                        <argument id="autoRetry"/>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="964" title="UI Assert - Verify whether 'Sales Order Shippers' tab exists">
-                      <arguments>
-                        <argument id="resultName">
-                          <value class="value" valueClass="string">Values</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                        <argument id="fieldAssertions">
-                          <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="tab_SOShippers_lbl">
-                              <fieldLocator uri="ui:locator?name=tab_SOShippers_lbl"/>
-                              <attributeAssertions>
-                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                                  <value class="value" valueClass="string">Sales Order Shippers</value>
-                                </uiAttributeAssertion>
-                              </attributeAssertions>
-                            </uiFieldAssertion>
-                          </value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="columnAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="pageAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="beforeWait"/>
-                        <argument id="autoRetry"/>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="965" title="UI Assert - Verify whether 'Sales Invoices' tab exists">
-                      <arguments>
-                        <argument id="resultName">
-                          <value class="value" valueClass="string">Values</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                        <argument id="fieldAssertions">
-                          <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="tab_Invoices_lbl">
-                              <fieldLocator uri="ui:locator?name=tab_Invoices_lbl"/>
+                            <uiFieldAssertion resultName="Tabs">
+                              <fieldLocator uri="ui:locator?name=Tabs"/>
                               <attributeAssertions>
                                 <uiAttributeAssertion attributeName="visible" comparisonType="EqualTo">
                                   <value class="value" valueClass="boolean">true</value>
-                                </uiAttributeAssertion>
-                              </attributeAssertions>
-                            </uiFieldAssertion>
-                          </value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="columnAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="pageAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="beforeWait"/>
-                        <argument id="autoRetry"/>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="966" title="UI Assert - Verify whether 'Prepayments' tab exists">
-                      <arguments>
-                        <argument id="resultName">
-                          <value class="value" valueClass="string">Values</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                        <argument id="fieldAssertions">
-                          <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="tab_prepayments_lbl">
-                              <fieldLocator uri="ui:locator?name=tab_prepayments_lbl"/>
-                              <attributeAssertions>
-                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                                  <value class="value" valueClass="string">Prepayments</value>
-                                </uiAttributeAssertion>
-                              </attributeAssertions>
-                            </uiFieldAssertion>
-                          </value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="columnAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="pageAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="beforeWait"/>
-                        <argument id="autoRetry"/>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="967" title="UI Assert - Verify whether 'Addresses' tab exists">
-                      <arguments>
-                        <argument id="resultName">
-                          <value class="value" valueClass="string">Values</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                        <argument id="fieldAssertions">
-                          <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="tab_Addresses_lbl">
-                              <fieldLocator uri="ui:locator?name=tab_Addresses_lbl"/>
-                              <attributeAssertions>
-                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                                  <value class="value" valueClass="string">Addresses</value>
-                                </uiAttributeAssertion>
-                              </attributeAssertions>
-                            </uiFieldAssertion>
-                          </value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="columnAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="pageAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="beforeWait"/>
-                        <argument id="autoRetry"/>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="968" title="UI Assert - Verify whether 'AR Invices &amp; Memos' tab exists">
-                      <arguments>
-                        <argument id="resultName">
-                          <value class="value" valueClass="string">Values</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                        <argument id="fieldAssertions">
-                          <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="tab_arinvdue_lbl">
-                              <fieldLocator uri="ui:locator?name=tab_arinvdue_lbl"/>
-                              <attributeAssertions>
-                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                                  <value class="value" valueClass="string">AR Invoices &amp; Memos</value>
-                                </uiAttributeAssertion>
-                              </attributeAssertions>
-                            </uiFieldAssertion>
-                          </value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="columnAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="pageAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="beforeWait"/>
-                        <argument id="autoRetry"/>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="969" title="UI Assert - Verify whether 'Cash Receipts' tab exists">
-                      <arguments>
-                        <argument id="resultName">
-                          <value class="value" valueClass="string">Values</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                        <argument id="fieldAssertions">
-                          <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="tab_arcashd_lbl">
-                              <fieldLocator uri="ui:locator?name=tab_arcashd_lbl"/>
-                              <attributeAssertions>
-                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                                  <value class="value" valueClass="string">Cash Receipts</value>
-                                </uiAttributeAssertion>
-                              </attributeAssertions>
-                            </uiFieldAssertion>
-                          </value>
-                        </argument>
-                        <argument id="captureAfter">
-                          <value class="value" valueClass="string">false</value>
-                        </argument>
-                        <argument id="columnAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="pageAssertions">
-                          <value class="valueList" mutable="Mutable"/>
-                        </argument>
-                        <argument id="beforeWait"/>
-                        <argument id="autoRetry"/>
-                      </arguments>
-                    </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="970" title="UI Assert - Verify whether 'Aging' tab exists">
-                      <arguments>
-                        <argument id="resultName">
-                          <value class="value" valueClass="string">Values</value>
-                        </argument>
-                        <argument id="resultScope">
-                          <value class="value" valueClass="string">Test</value>
-                        </argument>
-                        <argument id="fieldAssertions">
-                          <value class="valueList" mutable="Mutable">
-                            <uiFieldAssertion resultName="tab_aging_lbl">
-                              <fieldLocator uri="ui:locator?name=tab_aging_lbl"/>
-                              <attributeAssertions>
-                                <uiAttributeAssertion attributeName="value" comparisonType="EqualTo" normalize="true">
-                                  <value class="value" valueClass="string">Aging</value>
                                 </uiAttributeAssertion>
                               </attributeAssertions>
                             </uiFieldAssertion>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="3">
+<testCase id="30">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -52,7 +52,7 @@
       <clauses>
         <clause name="hidden" testItemId="157">
           <steps>
-            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="177">
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Callable/Read Excel Data.testcase" testItemId="177">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -169,7 +169,7 @@
       <clauses>
         <clause name="hidden" testItemId="49">
           <steps>
-            <caseCall testCaseId="a6c37f2e-69ff-4b6c-84bd-7701e2e8699d" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Create Sales Order Header - SOAPI.testcase" testItemId="161">
+            <caseCall testCaseId="a6c37f2e-69ff-4b6c-84bd-7701e2e8699d" testCasePath="tests/Sales Order/Callable/Create Sales Order Header - SOAPI.testcase" testItemId="161">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -237,7 +237,7 @@
       <clauses>
         <clause name="hidden" testItemId="73">
           <steps>
-            <caseCall testCaseId="85b5dbbd-458d-4123-8349-92fea88265a7" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Firm All Sales Order Lines.testcase" testItemId="165">
+            <caseCall testCaseId="85b5dbbd-458d-4123-8349-92fea88265a7" testCasePath="tests/SYDATA - Sales Orders/Callable/Firm All Sales Order Lines.testcase" testItemId="165">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
@@ -272,7 +272,7 @@
       <clauses>
         <clause name="hidden" testItemId="85">
           <steps>
-            <caseCall testCaseId="0228c441-4d65-48fc-a5cf-feb7282152e0" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Allocate Sales Order Lines.testcase" testItemId="167">
+            <caseCall testCaseId="0228c441-4d65-48fc-a5cf-feb7282152e0" testCasePath="tests/SYDATA - Sales Orders/Callable/Allocate Sales Order Lines.testcase" testItemId="167">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
@@ -312,7 +312,7 @@
       <clauses>
         <clause name="hidden" testItemId="97">
           <steps>
-            <caseCall testCaseId="4275be32-6028-485b-a6f6-b75d8ffbc0ad" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Pick-Pack-Ship Sales Order Lines.testcase" testItemId="169">
+            <caseCall testCaseId="4275be32-6028-485b-a6f6-b75d8ffbc0ad" testCasePath="tests/SYDATA - Sales Orders/Callable/Pick-Pack-Ship Sales Order Lines.testcase" testItemId="169">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
@@ -362,7 +362,7 @@
       <clauses>
         <clause name="hidden" testItemId="109">
           <steps>
-            <caseCall testCaseId="b22fe2b8-4548-41a3-b6b5-bd339b9781a2" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Create Sales Order Invoice.testcase" testItemId="170">
+            <caseCall testCaseId="b22fe2b8-4548-41a3-b6b5-bd339b9781a2" testCasePath="tests/SYDATA - Sales Orders/Callable/Create Sales Order Invoice.testcase" testItemId="170">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
@@ -427,7 +427,7 @@
       <clauses>
         <clause name="hidden" testItemId="121">
           <steps>
-            <caseCall testCaseId="964b5dec-7df7-4150-920e-fa912df101ac" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Preapprove_De-Preapprove_Approve_Deapprove Invoice.testcase" testItemId="172">
+            <caseCall testCaseId="964b5dec-7df7-4150-920e-fa912df101ac" testCasePath="tests/Sales Order/Callable/Preapprove_De-Preapprove_Approve_Deapprove Invoice.testcase" testItemId="172">
               <arguments>
                 <argument id="rstkRows_Invoice">
                   <value class="variable">
@@ -452,7 +452,7 @@
       <clauses>
         <clause name="hidden" testItemId="133">
           <steps>
-            <caseCall testCaseId="4422f6d9-7978-4c0d-ae69-f40a305e29ba" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Create New Invoice from Invoice Header page.testcase" testItemId="174">
+            <caseCall testCaseId="4422f6d9-7978-4c0d-ae69-f40a305e29ba" testCasePath="tests/Sales Order/Callable/Create New Invoice from Invoice Header page.testcase" testItemId="174">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -492,7 +492,7 @@
       <clauses>
         <clause name="hidden" testItemId="145">
           <steps>
-            <caseCall testCaseId="bf57c044-6ce0-4dc0-aa2a-3663b0c99c61" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Add and Delete Invoice Lines.testcase" testItemId="176">
+            <caseCall testCaseId="bf57c044-6ce0-4dc0-aa2a-3663b0c99c61" testCasePath="tests/Sales Order/Callable/Add and Delete Invoice Lines.testcase" testItemId="176">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
