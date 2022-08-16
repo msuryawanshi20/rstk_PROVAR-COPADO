@@ -44,5 +44,8 @@ public class rstkf__socustcmpnoAcctInquiry {
 	@TextType()
 	@FindBy(xpath = "//td/table//table/tbody/tr/td/table/tbody/tr/td[normalize-space(.)='Aging']")
 	public WebElement tab_aging_lbl;
+	@TextType()
+	@FindBy(xpath = "//span[contains(@id,'op_tabs')]")
+	public WebElement Tabs;
 	
 }

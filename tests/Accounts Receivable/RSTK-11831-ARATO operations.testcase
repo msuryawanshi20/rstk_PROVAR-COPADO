@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="15">
+<testCase id="4">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -256,7 +256,7 @@
                         <argument id="rstkf__arato_glacct__c">
                           <value class="variable">
                             <path element="ARATO"/>
-                            <path element="Account"/>
+                            <path element="GLAccount"/>
                           </value>
                         </argument>
                         <argument id="rstkf__arato_glcmp__c">
@@ -703,7 +703,7 @@
                                     <path element="SessionStatus"/>
                                   </expected>
                                 </resultAssertion>
-                                <resultAssertion resultName="rstkf__arinvtxn_socust__c" title="Check rstkf__arinvtxn_socust__c">
+                                <resultAssertion comparisonType="Matches" resultName="rstkf__arinvtxn_socust__c" title="Check rstkf__arinvtxn_socust__c">
                                   <expected class="variable">
                                     <path element="ARATO"/>
                                     <path element="Customer"/>
