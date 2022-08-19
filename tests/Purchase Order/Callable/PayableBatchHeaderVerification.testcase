@@ -138,6 +138,9 @@
       </arguments>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="3" title="Assert: C EqualTo {ttaphdr.rstk__ttaphdr_invoice_status__c}">
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument argId="cde1ed7a-829d-4079-ac94-614a74d90da8" id="expectedValue">
           <value class="value" valueClass="string">C</value>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="3">
+<testCase id="61">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -43,6 +43,44 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="12" title="SOQL Query: SELECT Id,Name FROM rstk__pocntl__c where Name = 'Colorado (100)'=&gt;pocntl">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="value" valueClass="string">SELECT Id,Name FROM rstk__pocntl__c where Name = 'Colorado (100)'</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">pocntl</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="14" title="Set Values: POCNTLID">
+      <arguments>
+        <argument id="values">
+          <value class="valueList" mutable="Mutable">
+            <namedValues mutable="Mutable">
+              <namedValue name="valuePath">
+                <value class="value" valueClass="string">POCNTLID</value>
+              </namedValue>
+              <namedValue name="value">
+                <value class="variable">
+                  <path element="pocntl"/>
+                  <path element="Id"/>
+                </value>
+              </namedValue>
+              <namedValue name="valueScope">
+                <value class="value" valueClass="string">Test</value>
+              </namedValue>
+            </namedValues>
+          </value>
+        </argument>
+      </arguments>
+    </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="2" title="On SF PO Control View screen">
       <arguments>
         <argument id="uiConnectionName">
@@ -71,11 +109,15 @@
           <value class="value" valueClass="string">false</value>
         </argument>
         <argument id="sfUiTargetObjectId">
-          <value class="value" valueClass="string">a2n41000000oh8l</value>
+          <value class="variable">
+            <path element="POCNTLID"/>
+          </value>
         </argument>
       </arguments>
       <clauses>
-        <clause name="substeps" testItemId="3"/>
+        <clause name="substeps" testItemId="3">
+          <steps/>
+        </clause>
       </clauses>
       <generatedParameters>
         <apiParam group="target" name="sfUiTargetObjectId" title="Object Id">

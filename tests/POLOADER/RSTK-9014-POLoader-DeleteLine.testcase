@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="9">
+<testCase id="3">
   <summary/>
   <steps>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="39" title="Salesforce Connect: SFConnection (Test)">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
       <arguments>
         <argument id="connectionName">
           <value class="value" valueClass="string">QARSF_Admin</value>
@@ -14,7 +14,7 @@
           <value class="value" valueClass="string">Test</value>
         </argument>
         <argument id="uiApplicationName">
-          <value class="value" valueClass="string">Force_com</value>
+          <value class="value" valueClass="string">Rootstock_Financials</value>
         </argument>
         <argument id="quickUiLogin">
           <value class="value" valueClass="boolean">true</value>
@@ -43,7 +43,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="211" title="Reading Excel Data">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="102" title="Reading Excel Data">
       <arguments>
         <argument id="description">
           <value class="value" valueClass="string">Reading Excel Data</value>
@@ -74,29 +74,45 @@
                 <outputArgument id="POSYDATAExcel">
                   <name class="value" valueClass="string">POSYDATAExcel</name>
                 </outputArgument>
+                <outputArgument id="POSydataExcel1">
+                  <name class="value" valueClass="string">POSydataExcel1</name>
+                </outputArgument>
+                <outputArgument id="FinExcel">
+                  <name class="value" valueClass="string">FinExcel</name>
+                </outputArgument>
+                <outputArgument id="reqpaypath">
+                  <name class="value" valueClass="string">reqpaypath</name>
+                </outputArgument>
               </outputArguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="212" title="Read Data for Add Both">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="3" title="Read Add Line Data">
               <arguments>
                 <argument id="description">
-                  <value class="value" valueClass="string">Read Data for Add Both</value>
+                  <value class="value" valueClass="string">Read Add Line Data</value>
                 </argument>
               </arguments>
               <parameterValueSources>
                 <parameterValueSource variableName="SourceData" variableScope="Test">
-                  <cacheToken>C:/Users/Ashok/Automation/rsqasampleproj/templates/SOAPI.xlsx;1622566555781</cacheToken>
+                  <cacheToken>C:/Users/dellDevonforce/Provar/ERPFinalProj/rsqasampleproj/templates/RSTKF_AutomationData.xlsx;1624364287371</cacheToken>
                   <cachedParameters>
                     <apiParam name="APIMode"/>
-                    <apiParam name="AsynchronousProcessing"/>
-                    <apiParam name="InventoryDivision"/>
-                    <apiParam name="SalesDivision"/>
-                    <apiParam name="Customer"/>
-                    <apiParam name="ManufacturingUser"/>
-                    <apiParam name="Product"/>
-                    <apiParam name="OrderQuantity"/>
+                    <apiParam name="OverrideDimension"/>
+                    <apiParam name="OverrideAddress"/>
+                    <apiParam name="Name"/>
+                    <apiParam name="Division"/>
+                    <apiParam name="Vendor"/>
+                    <apiParam name="Street"/>
+                    <apiParam name="City"/>
+                    <apiParam name="State"/>
+                    <apiParam name="Zipcode"/>
+                    <apiParam name="Country"/>
+                    <apiParam name="Item"/>
+                    <apiParam name="QtyReq"/>
                     <apiParam name="UnitPrice"/>
-                    <apiParam name="LineNumber"/>
-                    <apiParam name="RecordProcessed"/>
+                    <apiParam name="Project"/>
+                    <apiParam name="Dim1"/>
+                    <apiParam name="Dim3"/>
+                    <apiParam name="Dim4"/>
                   </cachedParameters>
                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
                     <workbookPath class="variable">
@@ -106,18 +122,58 @@
                     <valuesRange class="value"/>
                   </sourceValue>
                 </parameterValueSource>
+                <parameterValueSource variableName="objnamedata" variableScope="Test">
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="FinExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">ObjectName</worksheetName>
+                  </sourceValue>
+                </parameterValueSource>
               </parameterValueSources>
               <clauses>
-                <clause name="hidden" testItemId="213">
+                <clause name="hidden" testItemId="53">
                   <steps/>
                 </clause>
               </clauses>
             </apiCall>
+            <caseCall testCaseId="e08077a2-003a-4ff5-934b-36bbc985a8a4" testCasePath="tests/Account Payable/Callable/FetchingObjectsId.testcase" testItemId="245">
+              <arguments>
+                <argument id="objdata">
+                  <value class="variable">
+                    <path element="objnamedata"/>
+                  </value>
+                </argument>
+              </arguments>
+              <outputArguments>
+                <outputArgument id="CompanyID">
+                  <name class="value" valueClass="string">CompanyID</name>
+                </outputArgument>
+                <outputArgument id="VendorID">
+                  <name class="value" valueClass="string">VendorID</name>
+                </outputArgument>
+                <outputArgument id="AccountID">
+                  <name class="value" valueClass="string">AccountID</name>
+                </outputArgument>
+                <outputArgument id="FisYear">
+                  <name class="value" valueClass="string">FisYear</name>
+                </outputArgument>
+                <outputArgument id="BankAccID">
+                  <name class="value" valueClass="string">BankAccID</name>
+                </outputArgument>
+                <outputArgument id="ProjectID">
+                  <name class="value" valueClass="string">ProjectID</name>
+                </outputArgument>
+                <outputArgument id="DivisionID">
+                  <name class="value" valueClass="string">DivisionID</name>
+                </outputArgument>
+              </outputArguments>
+            </caseCall>
           </steps>
         </clause>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="36" title="For Each: {SourceData}=&gt;poloaderaddboth">
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="247" title="For Each: {SourceData}=&gt;poloaderaddboth">
       <arguments>
         <argument id="list">
           <value class="variable">
@@ -136,9 +192,104 @@
       </arguments>
       <parameterValueSources/>
       <clauses>
-        <clause name="substeps" testItemId="17">
+        <clause name="substeps" testItemId="248">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="154" title="Create Object: rstk__poloader__c=&gt;poloaderId">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="265" title="SOQL Query: SELECT Id,Name,rstk__povend_vendcurr__c FROM rstk__povend__c where Name =  '{poloaderaddboth.Vendor}'=&gt;povend">
+              <tags/>
+              <arguments>
+                <argument argId="fb44ef2b-0676-46e8-b17c-97e564e7ba9b" id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">SELECT Id,Name,rstk__povend_vendcurr__c FROM rstk__povend__c where Name =  '</value>
+                      <variable>
+                        <path element="poloaderaddboth"/>
+                        <path element="Vendor"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">povend</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="266" title="Set Values: VendorID">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">VendorID</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="povend"/>
+                          <path element="Id"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="267" title="SOQL Query: select Id from rstk__poitem__c where Name = '{poloaderaddboth.Item}'=&gt;poitem">
+              <arguments>
+                <argument id="soqlQuery">
+                  <value class="compound">
+                    <parts>
+                      <value valueClass="string">select Id from rstk__poitem__c where Name = '</value>
+                      <variable>
+                        <path element="poloaderaddboth"/>
+                        <path element="Item"/>
+                      </variable>
+                      <value valueClass="string">'</value>
+                    </parts>
+                  </value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="resultListName">
+                  <value class="value" valueClass="string">poitem</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="268" title="Set Values: ItemId">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ItemId</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="poitem"/>
+                          <path element="Id"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="249" title="Create Object: rstk__poloader__c=&gt;poloaderId">
               <arguments>
                 <argument id="objectType">
                   <value class="value" valueClass="string">rstk__poloader__c</value>
@@ -161,14 +312,12 @@
                 </argument>
                 <argument id="rstk__poloader_div__c">
                   <value class="variable">
-                    <path element="poloaderaddboth"/>
-                    <path element="Division"/>
+                    <path element="DivisionID"/>
                   </value>
                 </argument>
                 <argument id="rstk__poloader_poitem__c">
                   <value class="variable">
-                    <path element="poloaderaddboth"/>
-                    <path element="Item"/>
+                    <path element="ItemId"/>
                   </value>
                 </argument>
                 <argument id="rstk__poloader_process__c">
@@ -176,8 +325,7 @@
                 </argument>
                 <argument id="rstk__poloader_proj__c">
                   <value class="variable">
-                    <path element="poloaderaddboth"/>
-                    <path element="Project"/>
+                    <path element="ProjectID"/>
                   </value>
                 </argument>
                 <argument id="rstk__poloader_qtyreq__c">
@@ -210,8 +358,7 @@
                 </argument>
                 <argument id="rstk__poloader_vendno__c">
                   <value class="variable">
-                    <path element="poloaderaddboth"/>
-                    <path element="Vendor"/>
+                    <path element="VendorID"/>
                   </value>
                 </argument>
                 <argument id="rstk__poloader_mode__c">
@@ -265,7 +412,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="155" title="SOQL Query: select Id,Name,rstk__poloader_pohdr__c,rstk__poloader_poline__c,rstk__poloader_process__c from rstk__poloader__c where id = '{poloaderId}'=&gt;poloaderapi">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="250" title="SOQL Query: select Id,Name,rstk__poloader_pohdr__c,rstk__poloader_poline__c,rstk__poloader_process__c from rstk__poloader__c where id = '{poloaderId}'=&gt;poloaderapi">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -289,7 +436,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.DoWhile" name="DoWhile" testItemId="156" title="While: {poloaderapi.rstk__poloader_process__c = &quot;Ready&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.DoWhile" name="DoWhile" testItemId="251" title="While: {poloaderapi.rstk__poloader_process__c = &quot;Ready&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
@@ -310,9 +457,9 @@
                 <argument id="continueOnFailure"/>
               </arguments>
               <clauses>
-                <clause name="substeps" testItemId="99">
+                <clause name="substeps" testItemId="252">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="158" title="SOQL Query: select Id,Name,rstk__poloader_pohdr__c,rstk__poloader_poline__c,rstk__poloader_process__c from rstk__poloader__c where id = '{poloaderId}'=&gt;poloaderapi">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="253" title="SOQL Query: select Id,Name,rstk__poloader_pohdr__c,rstk__poloader_poline__c,rstk__poloader_process__c from rstk__poloader__c where id = '{poloaderId}'=&gt;poloaderapi">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -340,7 +487,7 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="159" title="Read Object: rstk__poloader__c = {poloaderapi.Id}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="254" title="Read Object: rstk__poloader__c = {poloaderapi.Id}">
               <arguments>
                 <argument id="objectType">
                   <value class="value" valueClass="string">rstk__poloader__c</value>
@@ -376,7 +523,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="209" title="SOQL Query: SELECT count()  FROM rstk__poline__c where Id = '{poloaderapi.rstk__poloader_poline__c}'=&gt;beforepolinecount">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="255" title="SOQL Query: SELECT count()  FROM rstk__poline__c where Id = '{poloaderapi.rstk__poloader_poline__c}'=&gt;beforepolinecount">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -401,7 +548,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="210" title="Assert: 1 GreaterThanOrEqualTo {beforepolinecount}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="256" title="Assert: 1 GreaterThanOrEqualTo {beforepolinecount}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="value" valueClass="string">1</value>
@@ -435,7 +582,7 @@
                 <argument id="failureMessage"/>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="162" title="Create Object: rstk__poloader__c=&gt;deletelineId">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="257" title="Create Object: rstk__poloader__c=&gt;deletelineId">
               <arguments>
                 <argument id="objectType">
                   <value class="value" valueClass="string">rstk__poloader__c</value>
@@ -509,7 +656,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="163" title="SOQL Query: select Id,Name,rstk__poloader_process__c,rstk__poloader_asyncgroup__c from rstk__poloader__c where id = '{deletelineId}'=&gt;deletelineapi">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="258" title="SOQL Query: select Id,Name,rstk__poloader_process__c,rstk__poloader_asyncgroup__c from rstk__poloader__c where id = '{deletelineId}'=&gt;deletelineapi">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -533,7 +680,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.DoWhile" name="DoWhile" testItemId="165" title="While: {deletelineapi.rstk__poloader_process__c = &quot;Ready&quot;}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.DoWhile" name="DoWhile" testItemId="259" title="While: {deletelineapi.rstk__poloader_process__c = &quot;Ready&quot;}">
               <arguments>
                 <argument id="condition">
                   <value class="eq">
@@ -554,9 +701,9 @@
                 <argument id="continueOnFailure"/>
               </arguments>
               <clauses>
-                <clause name="substeps" testItemId="166">
+                <clause name="substeps" testItemId="260">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="167" title="SOQL Query: select Id,Name,rstk__poloader_pohdr__c,rstk__poloader_process__c,rstk__poloader_asyncgroup__c from rstk__poloader__c where id = '{deletelineId}'=&gt;deletelineapi">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="261" title="SOQL Query: select Id,Name,rstk__poloader_pohdr__c,rstk__poloader_process__c,rstk__poloader_asyncgroup__c from rstk__poloader__c where id = '{deletelineId}'=&gt;deletelineapi">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -584,7 +731,7 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="168" title="Read Object: rstk__poloader__c = {deletelineapi.Id}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="262" title="Read Object: rstk__poloader__c = {deletelineapi.Id}">
               <arguments>
                 <argument id="objectType">
                   <value class="value" valueClass="string">rstk__poloader__c</value>
@@ -620,7 +767,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="204" title="SOQL Query: SELECT count()  FROM rstk__poline__c where Id = '{poloaderapi.rstk__poloader_poline__c}'=&gt;polinecount">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="263" title="SOQL Query: SELECT count()  FROM rstk__poline__c where Id = '{poloaderapi.rstk__poloader_poline__c}'=&gt;polinecount">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -645,7 +792,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="208" title="Assert: 0 EqualTo {polinecount}">
+            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="264" title="Assert: 0 EqualTo {polinecount}">
               <arguments>
                 <argument id="expectedValue">
                   <value class="value" valueClass="string">0</value>

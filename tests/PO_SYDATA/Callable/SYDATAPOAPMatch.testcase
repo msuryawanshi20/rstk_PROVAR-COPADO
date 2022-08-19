@@ -102,9 +102,8 @@
                     <path element="BackgroundProcessing"/>
                   </value>
                 </argument>
-                <argument id="rstk__sydata_sydiv__c">
+                <argument argId="459a9b20-f8d0-4961-8d9d-db355bf8e5a7" id="rstk__sydata_sydiv__c">
                   <value class="variable">
-                    <path element="poapmatch"/>
                     <path element="Division"/>
                   </value>
                 </argument>
@@ -259,6 +258,9 @@
         </textType>
       </type>
     </param>
+    <param linkedToUrl="provar:hasvalue:459a9b20-f8d0-4961-8d9d-db355bf8e5a7" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_sydiv__c" name="Division" title="Division">
+      <summary/>
+    </param>
   </params>
   <outputParams>
     <param name="poapmatchsydataid" title="poapmatchsydataid">
@@ -311,6 +313,12 @@
     <argument id="OrderNum">
       <value class="variable">
         <path element="POOrderNum"/>
+      </value>
+    </argument>
+    <argument id="Division">
+      <value class="variable">
+        <path element="poapmatch"/>
+        <path element="Division"/>
       </value>
     </argument>
   </args>
