@@ -174,9 +174,8 @@
                             <path element="Quantity"/>
                           </value>
                         </argument>
-                        <argument id="rstk__sydata_sydiv__c">
+                        <argument argId="2eb919d3-21bf-4ae8-bd5d-ec4ebd93f179" id="rstk__sydata_sydiv__c">
                           <value class="variable">
-                            <path element="poallocate"/>
                             <path element="Division"/>
                           </value>
                         </argument>
@@ -422,6 +421,9 @@
     <param linkedToUrl="provar:hasvalue:91479e67-7eeb-4fc8-b539-69cb6dc9e5d2" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_pohdr__c" name="POHDRID" title="POHDRID">
       <summary/>
     </param>
+    <param linkedToUrl="provar:hasvalue:2eb919d3-21bf-4ae8-bd5d-ec4ebd93f179" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_sydiv__c" name="Division" title="Division">
+      <summary/>
+    </param>
   </params>
   <args>
     <argument id="POlineId">
@@ -437,6 +439,12 @@
     <argument id="POHDRID">
       <value class="variable">
         <path element="POHDRID"/>
+      </value>
+    </argument>
+    <argument id="Division">
+      <value class="variable">
+        <path element="poallocate"/>
+        <path element="Division"/>
       </value>
     </argument>
   </args>

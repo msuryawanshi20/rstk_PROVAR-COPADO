@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="86">
+<testCase id="43">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -140,6 +140,7 @@
         <argument id="IPVendor">
           <value class="variable">
             <path element="ExcelData"/>
+            <path element="Vendor"/>
           </value>
         </argument>
         <argument id="list">

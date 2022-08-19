@@ -100,9 +100,8 @@
                     <path element="BackgroundProcessing"/>
                   </value>
                 </argument>
-                <argument id="rstk__sydata_sydiv__c">
+                <argument argId="536b1f7c-902f-45d7-b6aa-ba89994ed58f" id="rstk__sydata_sydiv__c">
                   <value class="variable">
-                    <path element="poclose"/>
                     <path element="Division"/>
                   </value>
                 </argument>
@@ -250,6 +249,9 @@
         <textType/>
       </type>
     </param>
+    <param linkedToUrl="provar:hasvalue:536b1f7c-902f-45d7-b6aa-ba89994ed58f" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_sydiv__c" name="Division" title="Division">
+      <summary/>
+    </param>
   </params>
   <args>
     <argument id="SourceData">
@@ -260,6 +262,12 @@
     <argument id="POHDRID">
       <value class="variable">
         <path element="POHDRID"/>
+      </value>
+    </argument>
+    <argument id="Division">
+      <value class="variable">
+        <path element="poclose"/>
+        <path element="Division"/>
       </value>
     </argument>
   </args>

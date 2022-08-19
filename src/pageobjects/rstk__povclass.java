@@ -28,14 +28,20 @@ public class rstk__povclass {
 	@ChoiceListType()
 	@FindBy(xpath = "//label[normalize-space(.)='Payment Terms']/parent::span/parent::th/following-sibling::td[1]//select")
 	public WebElement payterms;
+//	@ChoiceListType()
+//	@FindBy(xpath = "//label[normalize-space(.)='Accounts Payable User']/parent::th/following-sibling::td[1]//select")
+//	public WebElement apuser;
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Accounts Payable User']/parent::th/following-sibling::td[1]//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Accounts Payable User']/following::td[1]//select")
 	public WebElement apuser;
+//	@ChoiceListType()
+//	@FindBy(xpath = "//label[normalize-space(.)='Expense Account (GL)']/parent::th/following-sibling::td[1]//select")
+//	public WebElement expenseglacct;
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Expense Account (GL)']/parent::th/following-sibling::td[1]//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Expense Account (GL)']/following::td[1]//select")
 	public WebElement expenseglacct;
 	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Bank Account Name']/parent::th/following-sibling::td[1]//select")
+	@FindBy(xpath = "//label[normalize-space(.)='Bank Account Name']/following::td[1]//select")
 	public WebElement bankacctname;
 	@ChoiceListType()
 	@FindBy(xpath = "//label[normalize-space(.)='Pay Type']/parent::span/parent::th/following-sibling::td//select")

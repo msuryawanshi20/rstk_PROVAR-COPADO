@@ -317,7 +317,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="12" title="Set the Vendor select to {IPVendor.Vendor}">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="12" title="Set the Vendor select to {IPVendor}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=Vendor"/>
@@ -328,7 +328,6 @@
                 <argument argId="6959fc10-c884-461c-8537-8e01c776e976" id="value">
                   <value class="variable">
                     <path element="IPVendor"/>
-                    <path element="Vendor"/>
                   </value>
                 </argument>
                 <argument id="blur">
@@ -350,7 +349,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Vendor select to {IPVendor.Vendor}</value>
+                  <value class="value" valueClass="string">Set the Vendor select to {IPVendor}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>

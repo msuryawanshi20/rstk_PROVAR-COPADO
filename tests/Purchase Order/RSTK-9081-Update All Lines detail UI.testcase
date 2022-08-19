@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="2">
+<testCase id="79">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -80,6 +80,9 @@
                 <outputArgument id="FinExcel">
                   <name class="value" valueClass="string">FinExcel</name>
                 </outputArgument>
+                <outputArgument id="reqpaypath">
+                  <name class="value" valueClass="string">reqpaypath</name>
+                </outputArgument>
               </outputArguments>
             </caseCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="2" title="Read Data for Close Line">
@@ -114,8 +117,18 @@
                     <apiParam name="OrgDept"/>
                   </cachedParameters>
                   <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
-                    <workbookPath class="value" valueClass="string">templates/RSTKF_AutomationData.xlsx</workbookPath>
+                    <workbookPath class="variable">
+                      <path element="POUIExcel"/>
+                    </workbookPath>
                     <worksheetName class="value" valueClass="string">UpdatePOLineDetail</worksheetName>
+                  </sourceValue>
+                </parameterValueSource>
+                <parameterValueSource variableName="podata" variableScope="Test">
+                  <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="variable">
+                      <path element="POUIExcel"/>
+                    </workbookPath>
+                    <worksheetName class="value" valueClass="string">POVendor</worksheetName>
                   </sourceValue>
                 </parameterValueSource>
               </parameterValueSources>
@@ -145,7 +158,7 @@
                 </argument>
                 <argument id="IPVendor">
                   <value class="variable">
-                    <path element="SourceData"/>
+                    <path element="podata"/>
                     <path element="Vendor"/>
                   </value>
                 </argument>
@@ -167,6 +180,9 @@
                 </outputArgument>
                 <outputArgument id="CreatedDate">
                   <name class="value" valueClass="string">CreatedDate</name>
+                </outputArgument>
+                <outputArgument id="POTotal">
+                  <name class="value" valueClass="string">POTotal</name>
                 </outputArgument>
               </outputArguments>
             </caseCall>
