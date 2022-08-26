@@ -71,6 +71,10 @@ public class HomePage {
 	public WebElement DetailedReviewbyItem;
 	
 	@LinkType()
+	@FindBy(xpath = "//span[text()='Credit Release']")
+	public WebElement CreditRelease;
+	
+	@LinkType()
 	@FindBy(xpath = "//span[text()='MRP Action Message Search']")
 	public WebElement MRPActionMessageSearch;
 
@@ -101,6 +105,10 @@ public class HomePage {
 	@TextType()
 	@FindBy(xpath = "//h2[text()='Sales Order Commissions']/following::form")
 	public WebElement Sales_Order_Commissions_form;
+
+	@ButtonType()
+	@FindBy(xpath = "//input[@name='new']")
+	public WebElement New_Sales_Order_Invoice_Header;
 
 	
 	

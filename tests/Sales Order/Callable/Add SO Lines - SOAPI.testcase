@@ -201,6 +201,9 @@
                     <path element="Id"/>
                   </value>
                 </argument>
+                <argument id="rstk__soapi_firm__c">
+                  <value class="value" valueClass="string">true</value>
+                </argument>
               </arguments>
               <parameterGeneratorProperties>
                 <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">Devqaff</propertyValue>
@@ -220,6 +223,9 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soapi__c&amp;field=rstk__soapi_price__c" name="rstk__soapi_price__c" title="rstk__soapi_price__c"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soapi__c&amp;field=rstk__soapi_line__c" name="rstk__soapi_line__c" title="rstk__soapi_line__c"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soapi__c&amp;field=rstk__soapi_sohdr__c" name="rstk__soapi_sohdr__c" title="rstk__soapi_sohdr__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__soapi__c&amp;field=rstk__soapi_firm__c" name="rstk__soapi_firm__c" title="rstk__soapi_firm__c">
+                  <summary>When adding a SO Line for a Product and the default for said Product is to add at a Unfirm status, by checking this checkbox, it will override said logic and add the SO Line at a Firm status.</summary>
+                </apiParam>
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="83" title="SOQL Query: select Id,rstk__soapi_orderno__c,rstk__soapi_processed__c from rstk__soapi__c where Name='{SOAPI_Name}'=&gt;rstkRows_AddLine">
@@ -373,7 +379,9 @@
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="105" title="On SF Sales Order Header View screen">
-      <tags/>
+      <tags>
+        <string>disabled</string>
+      </tags>
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
