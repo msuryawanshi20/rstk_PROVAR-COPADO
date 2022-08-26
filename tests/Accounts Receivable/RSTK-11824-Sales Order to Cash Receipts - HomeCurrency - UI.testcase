@@ -53,7 +53,7 @@
       <clauses>
         <clause name="hidden" testItemId="67">
           <steps>
-            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="334">
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Callable/Read Excel Data.testcase" testItemId="334">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -179,7 +179,7 @@
       <clauses>
         <clause name="hidden" testItemId="5">
           <steps>
-            <caseCall testCaseId="c7a19b86-3b7c-4eaa-9b57-a48a242f0020" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Create SO Header.testcase" testItemId="7">
+            <caseCall testCaseId="c7a19b86-3b7c-4eaa-9b57-a48a242f0020" testCasePath="tests/Sales Order/Callable/Create SO Header.testcase" testItemId="7">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -214,7 +214,7 @@
       <clauses>
         <clause name="hidden" testItemId="9">
           <steps>
-            <caseCall testCaseId="c8447ee1-8153-4b72-9ff9-b273ea2281d1" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Add SO Line.testcase" testItemId="12">
+            <caseCall testCaseId="c8447ee1-8153-4b72-9ff9-b273ea2281d1" testCasePath="tests/Sales Order/Callable/Add SO Line.testcase" testItemId="12">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -255,7 +255,7 @@
       <clauses>
         <clause name="hidden" testItemId="68">
           <steps>
-            <caseCall testCaseId="c50755a9-84fb-4a97-abc2-9532f53cfbac" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Consolidated SO Fulfillment-DefaultSelectionsOnSOFulfillpage.testcase" testItemId="82">
+            <caseCall testCaseId="c50755a9-84fb-4a97-abc2-9532f53cfbac" testCasePath="tests/Sales Order/Callable/Consolidated SO Fulfillment-DefaultSelectionsOnSOFulfillpage.testcase" testItemId="82">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -293,7 +293,7 @@
       <clauses>
         <clause name="hidden" testItemId="117">
           <steps>
-            <caseCall testCaseId="a61eb222-f409-4215-b7ec-2f4138a9fa44" testCasePath="tests/Accounts Receivable/AR-Callables/Transfer To AR.testcase" testItemId="151">
+            <caseCall testCaseId="a61eb222-f409-4215-b7ec-2f4138a9fa44" testCasePath="tests/Accounts Receivable/Callable/Transfer To AR.testcase" testItemId="151">
               <arguments>
                 <argument id="CreditMemoNumberID">
                   <value class="variable">

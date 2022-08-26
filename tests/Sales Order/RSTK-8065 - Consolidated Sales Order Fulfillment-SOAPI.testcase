@@ -53,7 +53,7 @@
       <clauses>
         <clause name="hidden" testItemId="67">
           <steps>
-            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="334">
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Callable/Read Excel Data.testcase" testItemId="334">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -251,7 +251,7 @@
       <clauses>
         <clause name="hidden" testItemId="282">
           <steps>
-            <caseCall testCaseId="a6c37f2e-69ff-4b6c-84bd-7701e2e8699d" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Create Sales Order Header - SOAPI.testcase" testItemId="283">
+            <caseCall testCaseId="a6c37f2e-69ff-4b6c-84bd-7701e2e8699d" testCasePath="tests/Sales Order/Callable/Create Sales Order Header - SOAPI.testcase" testItemId="283">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -284,7 +284,7 @@
       <clauses>
         <clause name="hidden" testItemId="285">
           <steps>
-            <caseCall testCaseId="e1878dd0-48f1-462a-a9df-9aa10a6ee54d" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Add SO Lines - SOAPI.testcase" testItemId="286">
+            <caseCall testCaseId="e1878dd0-48f1-462a-a9df-9aa10a6ee54d" testCasePath="tests/Sales Order/Callable/Add SO Lines - SOAPI.testcase" testItemId="286">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -319,7 +319,7 @@
       <clauses>
         <clause name="hidden" testItemId="288">
           <steps>
-            <caseCall testCaseId="f28dcded-1be2-46d2-8967-30f393bd97e3" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Consolidated SO Fulfillment-DefaultSelectionsOnSOFulfillpage-SOAPI.testcase" testItemId="289">
+            <caseCall testCaseId="f28dcded-1be2-46d2-8967-30f393bd97e3" testCasePath="tests/Sales Order/Callable/Consolidated SO Fulfillment-DefaultSelectionsOnSOFulfillpage-SOAPI.testcase" testItemId="289">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -332,6 +332,11 @@
                 <argument id="SourceData_SOFulfillment">
                   <value class="variable">
                     <path element="SourceData_SOLine"/>
+                  </value>
+                </argument>
+                <argument id="rstkRows_SOHeader">
+                  <value class="variable">
+                    <path element="rstkRows_SOHeader"/>
                   </value>
                 </argument>
               </arguments>
@@ -354,7 +359,7 @@
       <clauses>
         <clause name="hidden" testItemId="291">
           <steps>
-            <caseCall testCaseId="c363a919-584d-4d15-afa1-120241e9e2b5" testCasePath="tests/Sales Order/Sales Order - CallableTesting/SO Invoice.testcase" testItemId="292">
+            <caseCall testCaseId="c363a919-584d-4d15-afa1-120241e9e2b5" testCasePath="tests/Sales Order/Callable/SO Invoice.testcase" testItemId="292">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -379,7 +384,7 @@
       <clauses>
         <clause name="hidden" testItemId="294">
           <steps>
-            <caseCall testCaseId="cfe0bc71-5691-41cc-a9c8-9d16a0d23c15" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Requirements-SOAPI.testcase" testItemId="295">
+            <caseCall testCaseId="cfe0bc71-5691-41cc-a9c8-9d16a0d23c15" testCasePath="tests/Sales Order/Callable/Requirements-SOAPI.testcase" testItemId="295">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -414,7 +419,7 @@
       <clauses>
         <clause name="hidden" testItemId="297">
           <steps>
-            <caseCall testCaseId="223985d6-8aee-42af-b2eb-599259f1a11b" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Sales Order DMD-SOAPI.testcase" testItemId="298">
+            <caseCall testCaseId="223985d6-8aee-42af-b2eb-599259f1a11b" testCasePath="tests/Sales Order/Callable/Sales Order DMD-SOAPI.testcase" testItemId="298">
               <arguments>
                 <argument id="OrderNumber_DMD">
                   <value class="variable">
@@ -450,7 +455,7 @@
       <clauses>
         <clause name="hidden" testItemId="300">
           <steps>
-            <caseCall testCaseId="5a769b43-be53-4f13-be12-6b0e0480855e" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Verify Dimensions-SOAPI.testcase" testItemId="301">
+            <caseCall testCaseId="5a769b43-be53-4f13-be12-6b0e0480855e" testCasePath="tests/Sales Order/Callable/Verify Dimensions-SOAPI.testcase" testItemId="301">
               <arguments>
                 <argument id="OrderNumber_Dim">
                   <value class="variable">

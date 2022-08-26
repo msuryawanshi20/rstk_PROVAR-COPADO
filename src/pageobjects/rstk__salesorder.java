@@ -208,6 +208,9 @@ public class rstk__salesorder {
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Order Review']")
 	public WebElement OrderReview;
+	@BooleanType()
+	@FindBy(xpath = "//span[contains(@id,'sohdr_credithold__c')]//span//img")
+	public WebElement credithold;
 	
 	
 }
