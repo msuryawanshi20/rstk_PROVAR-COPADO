@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="25">
+<testCase id="1">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -1503,7 +1503,7 @@
                           <value class="value" valueClass="string">op_timeQtyBookingExcelDataRow</value>
                         </argument>
                         <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
+                          <value class="value" valueClass="boolean">false</value>
                         </argument>
                       </arguments>
                       <clauses>
@@ -1802,7 +1802,7 @@
                           <value class="value" valueClass="string">op_WOReceiptExcelDataRow</value>
                         </argument>
                         <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
+                          <value class="value" valueClass="boolean">false</value>
                         </argument>
                       </arguments>
                       <clauses>
@@ -2149,7 +2149,7 @@
                           <value class="value" valueClass="string">op_woReceiptReversalExcelDataRow</value>
                         </argument>
                         <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
+                          <value class="value" valueClass="boolean">false</value>
                         </argument>
                       </arguments>
                       <clauses>
@@ -2377,7 +2377,7 @@
                           <value class="value" valueClass="string">op_RevTimeAndQtyBookExcelDataRow</value>
                         </argument>
                         <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
+                          <value class="value" valueClass="boolean">false</value>
                         </argument>
                       </arguments>
                       <clauses>
@@ -2658,7 +2658,7 @@
                           <value class="value" valueClass="string">op_deleteOPandCompoExcelDataRow</value>
                         </argument>
                         <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
+                          <value class="value" valueClass="boolean">false</value>
                         </argument>
                       </arguments>
                       <clauses>

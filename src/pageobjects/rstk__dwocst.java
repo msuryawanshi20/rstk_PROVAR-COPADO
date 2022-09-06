@@ -114,9 +114,21 @@ public class rstk__dwocst {
 	public WebElement issueDisassemblyItem;
 
 	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@PageWait.Field(timeoutSeconds = 10)
 	@ButtonType()
-	@FindBy(xpath = "//*[@value='Generate Picklist']")
+	@FindBy(xpath = "//input[contains(@id,'_GeneratePicklist')]")
 	public WebElement generatePicklist;
+	
+	@BooleanType()
+	@FindBy(xpath = "//input[@id='incBackflush2']")
+	public WebElement includeBackflushComponentsinPicklist;
+
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@PageWait.Field(timeoutSeconds = 10)
+	@ButtonType()
+	@FindBy(xpath = "//div[@id='generatePicklist']/p[2]/input[1]")
+	public WebElement generatePickList;
+	
 
 	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
 	@ButtonType()
