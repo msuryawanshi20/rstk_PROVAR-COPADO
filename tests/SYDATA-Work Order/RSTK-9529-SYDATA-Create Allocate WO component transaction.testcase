@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="7">
+<testCase id="32">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="294" title="Salesforce Connect: SFConnection (Test)">
@@ -356,16 +356,16 @@
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="16" title="Create SYDATA-Extract operation transaction Verify order status and Verify Operation are extracted">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="325" title="Create SYDATA-Extract Component transaction Verify order status and Verify components are extracted">
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Process SYDATA</value>
                 </argument>
               </arguments>
               <clauses>
-                <clause name="hidden" testItemId="12">
+                <clause name="hidden" testItemId="366">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" isTitleUpdated="true" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="15" title="Create SYDATA-Extract operations transaction">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" isTitleUpdated="true" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="367" title="Create SYDATA-Extract Component transaction">
                       <arguments>
                         <argument id="objectType">
                           <value class="value" valueClass="string">rstk__sydata__c</value>
@@ -381,7 +381,7 @@
                           <value class="value" valueClass="string">Test</value>
                         </argument>
                         <argument id="rstk__sydata_txntype__c">
-                          <value class="value" valueClass="string">Extract Operations</value>
+                          <value class="value" valueClass="string">Extract Components</value>
                         </argument>
                         <argument id="rstk__sydata_process__c">
                           <value class="value" valueClass="string">Ready</value>
@@ -418,7 +418,7 @@
                         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_backgroundprocessing__c" name="rstk__sydata_backgroundprocessing__c" title="rstk__sydata_backgroundprocessing__c"/>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="17" title="Read status of recently created sydata record">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="368" title="Read status of recently created sydata record">
                       <tags/>
                       <arguments>
                         <argument id="soqlQuery">
@@ -443,7 +443,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" isTitleUpdated="true" name="WaitFor" testItemId="18" title="Wait for record is to be processed">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" isTitleUpdated="true" name="WaitFor" testItemId="369" title="Wait for record is to be processed">
                       <tags/>
                       <arguments>
                         <argument id="condition">
@@ -461,16 +461,16 @@
                           <value class="value" valueClass="decimal">100000</value>
                         </argument>
                         <argument id="sleepSecs">
-                          <value class="value" valueClass="decimal">1</value>
+                          <value class="value" valueClass="decimal">3</value>
                         </argument>
                         <argument id="continueOnFailure">
-                          <value class="value" valueClass="boolean">true</value>
+                          <value class="value" valueClass="boolean">false</value>
                         </argument>
                       </arguments>
                       <clauses>
-                        <clause name="substeps" testItemId="188">
+                        <clause name="substeps" testItemId="370">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="219" title="Read status of recently created sydata record">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="371" title="Read status of recently created sydata record">
                               <tags/>
                               <arguments>
                                 <argument id="soqlQuery">
@@ -495,7 +495,7 @@
                                 </argument>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="22" title="If: {op_sydata.rstk__sydata_process__c = &quot;ProcessingComplete&quot;}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="372" title="If: {op_sydata.rstk__sydata_process__c = &quot;ProcessingComplete&quot;}">
                               <tags/>
                               <arguments>
                                 <argument id="condition">
@@ -509,9 +509,9 @@
                                 </argument>
                               </arguments>
                               <clauses>
-                                <clause name="then" testItemId="191">
+                                <clause name="then" testItemId="373">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="21" title="REad order number ID">
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="374" title="REad order number ID">
                                       <tags/>
                                       <arguments>
                                         <argument id="soqlQuery">
@@ -536,7 +536,7 @@
                                         </argument>
                                       </arguments>
                                     </apiCall>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="24" title="Assert: 2-Firm EqualTo {op_WORecIDAfterTransaction.rstk__wocst_ordsts_pl__c}">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="375" title="Assert: 2-Firm EqualTo {op_WORecIDAfterTransaction.rstk__wocst_ordsts_pl__c}">
                                       <arguments>
                                         <argument id="expectedValue">
                                           <value class="value" valueClass="string">2-Firm</value>
@@ -573,12 +573,12 @@
                                         </argument>
                                       </arguments>
                                     </apiCall>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="292" title="Break"/>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="376" title="Break"/>
                                   </steps>
                                 </clause>
-                                <clause name="else" testItemId="216">
+                                <clause name="else" testItemId="377">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="200" title="If: {op_sydata.rstk__sydata_process__c = &quot;Validation Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Batch Processing Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Processing Failure&quot;}">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="378" title="If: {op_sydata.rstk__sydata_process__c = &quot;Validation Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Batch Processing Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Processing Failure&quot;}">
                                       <arguments>
                                         <argument id="condition">
                                           <value class="or">
@@ -609,9 +609,9 @@
                                         </argument>
                                       </arguments>
                                       <clauses>
-                                        <clause name="then" testItemId="201">
+                                        <clause name="then" testItemId="379">
                                           <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Fail" name="Fail" testItemId="209" title="Fail Test: Validation Failure: Please check SYDATA transaction with Record ID:{op_sydataID}">
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Fail" name="Fail" testItemId="380" title="Fail Test: Validation Failure: Please check SYDATA transaction with Record ID:{op_sydataID}">
                                               <arguments>
                                                 <argument id="message">
                                                   <value class="compound">
@@ -625,7 +625,7 @@
                                                 </argument>
                                               </arguments>
                                             </apiCall>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="208" title="Break"/>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="381" title="Break"/>
                                           </steps>
                                         </clause>
                                       </clauses>
@@ -638,13 +638,26 @@
                         </clause>
                       </clauses>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="25" title="Read number of WOORDOP Extracted for WO">
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="326" title="Verify if Components are extracted or not.">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">Verify if Components are extracted or not.</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="hidden" testItemId="383">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="384" title="Read number of WOORDDMD Extracted for WO">
                       <tags/>
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
                             <parts>
-                              <value valueClass="string">select count(ID) from rstk__woordop__c where rstk__woordop_ordno__c='</value>
+                              <value valueClass="string">select count(ID) from rstk__woorddmd__C where rstk__woorddmd_ordno__c='</value>
                               <variable>
                                 <path element="op_WORecID"/>
                                 <path element="ID"/>
@@ -657,53 +670,83 @@
                           <value class="value" valueClass="string">SFConnection</value>
                         </argument>
                         <argument id="resultListName">
-                          <value class="value" valueClass="string">op_woordopCount</value>
+                          <value class="value" valueClass="string">op_woorddmdCount</value>
                         </argument>
                         <argument id="resultScope">
                           <value class="value" valueClass="string">Test</value>
                         </argument>
                       </arguments>
                     </apiCall>
-                  </steps>
-                </clause>
-              </clauses>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="26" title="Verify if operations are extracted or not.">
-              <arguments>
-                <argument id="condition">
-                  <value class="le">
-                    <lhs class="variable">
-                      <path element="op_woordopCount"/>
-                      <path element="expr0"/>
-                    </lhs>
-                    <rhs class="value" valueClass="decimal">0</rhs>
-                  </value>
-                </argument>
-              </arguments>
-              <clauses>
-                <clause name="then" testItemId="27">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Fail" name="Fail" testItemId="28" title="Fail Test: Operation not extracted.">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="385" title="Check if Components are extracted or not.">
                       <arguments>
-                        <argument id="message">
-                          <value class="value" valueClass="string">Operation not extracted.</value>
+                        <argument id="condition">
+                          <value class="le">
+                            <lhs class="variable">
+                              <path element="op_woorddmdCount"/>
+                              <path element="expr0"/>
+                            </lhs>
+                            <rhs class="value" valueClass="decimal">0</rhs>
+                          </value>
                         </argument>
                       </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="386">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Fail" name="Fail" testItemId="387" title="Fail Test: Components not extracted.">
+                              <arguments>
+                                <argument id="message">
+                                  <value class="value" valueClass="string">Components not extracted.</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="396">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="391" title="Read number of WOORDOP Extracted for WO">
+                              <tags/>
+                              <arguments>
+                                <argument id="soqlQuery">
+                                  <value class="compound">
+                                    <parts>
+                                      <value valueClass="string">select ID, Name, rstk__woorddmd_qtyreq__c, rstk__woorddmd_compitem__c from rstk__woorddmd__C where rstk__woorddmd_ordno__c='</value>
+                                      <variable>
+                                        <path element="op_WORecID"/>
+                                        <path element="ID"/>
+                                      </variable>
+                                      <value valueClass="string">'</value>
+                                    </parts>
+                                  </value>
+                                </argument>
+                                <argument id="apexConnectionName">
+                                  <value class="value" valueClass="string">SFConnection</value>
+                                </argument>
+                                <argument id="resultListName">
+                                  <value class="value" valueClass="string">op_woorddmdRecords</value>
+                                </argument>
+                                <argument id="resultScope">
+                                  <value class="value" valueClass="string">Test</value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
                     </apiCall>
                   </steps>
                 </clause>
               </clauses>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="317" title="Create SYDATA-Allocate WO component transaction and Verify order status.">
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="327" title="Create SYDATA-Allocate WO component transaction and Verify order status.">
               <arguments>
                 <argument id="description">
                   <value class="value" valueClass="string">Process SYDATA</value>
                 </argument>
               </arguments>
               <clauses>
-                <clause name="hidden" testItemId="318">
+                <clause name="hidden" testItemId="328">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" isTitleUpdated="true" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="299" title="Create SYDATA-Allocate WO component transaction">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" isTitleUpdated="true" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="329" title="Create SYDATA-Allocate WO component transaction">
                       <arguments>
                         <argument id="objectType">
                           <value class="value" valueClass="string">rstk__sydata__c</value>
@@ -756,7 +799,7 @@
                         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_backgroundprocessing__c" name="rstk__sydata_backgroundprocessing__c" title="rstk__sydata_backgroundprocessing__c"/>
                       </generatedParameters>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="300" title="Read status of recently created sydata record">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="330" title="Read status of recently created sydata record">
                       <tags/>
                       <arguments>
                         <argument id="soqlQuery">
@@ -781,7 +824,7 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" isTitleUpdated="true" name="WaitFor" testItemId="319" title="Wait for record is to be processed">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" isTitleUpdated="true" name="WaitFor" testItemId="331" title="Wait for record is to be processed">
                       <tags/>
                       <arguments>
                         <argument id="condition">
@@ -806,9 +849,9 @@
                         </argument>
                       </arguments>
                       <clauses>
-                        <clause name="substeps" testItemId="302">
+                        <clause name="substeps" testItemId="332">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="303" title="Read status of recently created sydata record">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="333" title="Read status of recently created sydata record">
                               <tags/>
                               <arguments>
                                 <argument id="soqlQuery">
@@ -833,7 +876,7 @@
                                 </argument>
                               </arguments>
                             </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="304" title="Check SYDATA processing status and WO status">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="334" title="Check SYDATA processing status and WO status">
                               <tags/>
                               <arguments>
                                 <argument id="condition">
@@ -847,9 +890,9 @@
                                 </argument>
                               </arguments>
                               <clauses>
-                                <clause name="then" testItemId="305">
+                                <clause name="then" testItemId="335">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="306" title="REad order number ID">
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="336" title="REad order number ID">
                                       <tags/>
                                       <arguments>
                                         <argument id="soqlQuery">
@@ -874,7 +917,7 @@
                                         </argument>
                                       </arguments>
                                     </apiCall>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="307" title="Assert: 4-Ready for activity EqualTo {op_WORecIDAfterTransaction.rstk__wocst_ordsts_pl__c}">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="337" title="Assert: 4-Ready for activity EqualTo {op_WORecIDAfterTransaction.rstk__wocst_ordsts_pl__c}">
                                       <arguments>
                                         <argument id="expectedValue">
                                           <value class="value" valueClass="string">4-Ready for activity</value>
@@ -911,12 +954,12 @@
                                         </argument>
                                       </arguments>
                                     </apiCall>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="308" title="Break"/>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="338" title="Break"/>
                                   </steps>
                                 </clause>
-                                <clause name="else" testItemId="309">
+                                <clause name="else" testItemId="339">
                                   <steps>
-                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="310" title="If: {op_sydata.rstk__sydata_process__c = &quot;Validation Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Batch Processing Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Processing Failure&quot;}">
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="340" title="If: {op_sydata.rstk__sydata_process__c = &quot;Validation Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Batch Processing Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Processing Failure&quot;}">
                                       <arguments>
                                         <argument id="condition">
                                           <value class="or">
@@ -947,9 +990,9 @@
                                         </argument>
                                       </arguments>
                                       <clauses>
-                                        <clause name="then" testItemId="311">
+                                        <clause name="then" testItemId="341">
                                           <steps>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Fail" name="Fail" testItemId="320" title="Fail Test: Validation Failure: Please check SYDATA transaction with Record ID:{op_sydataID}">
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Fail" name="Fail" testItemId="342" title="Fail Test: Validation Failure: Please check SYDATA transaction with Record ID:{op_sydataID}">
                                               <arguments>
                                                 <argument id="message">
                                                   <value class="compound">
@@ -963,7 +1006,7 @@
                                                 </argument>
                                               </arguments>
                                             </apiCall>
-                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="321" title="Break"/>
+                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Break" name="Break" testItemId="343" title="Break"/>
                                           </steps>
                                         </clause>
                                       </clauses>
