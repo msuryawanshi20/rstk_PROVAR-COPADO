@@ -74,6 +74,9 @@
                 <outputArgument id="FinExcel">
                   <name class="value" valueClass="string">FinExcel</name>
                 </outputArgument>
+                <outputArgument id="reqpaypath">
+                  <name class="value" valueClass="string">reqpaypath</name>
+                </outputArgument>
               </outputArguments>
             </caseCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="34" title="Read AP Invoice Data">
@@ -137,6 +140,12 @@
         </outputArgument>
         <outputArgument id="BankAccID">
           <name class="value" valueClass="string">BankAccID</name>
+        </outputArgument>
+        <outputArgument id="ProjectID">
+          <name class="value" valueClass="string">ProjectID</name>
+        </outputArgument>
+        <outputArgument id="DivisionID">
+          <name class="value" valueClass="string">DivisionID</name>
         </outputArgument>
       </outputArguments>
     </caseCall>

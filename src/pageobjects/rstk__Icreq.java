@@ -44,7 +44,7 @@ public class rstk__Icreq {
 	@FindBy(xpath = "//label[normalize-space(.)='Buyer']/parent::span/parent::th/following-sibling::td//select")
 	public WebElement icreqbuyer;
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='PO Price Override']/parent::th/following-sibling::td//input")
+	@FindBy(xpath = "//label[normalize-space(.)='PO Price Override']/following::td[1]//input")
 	public WebElement pOPriceOverride;
 	@ButtonType()
 	@FindBy(xpath = "//input[@value='Save'][@type='submit']")

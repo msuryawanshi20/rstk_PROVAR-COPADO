@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="41">
+<testCase id="134">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -199,7 +199,8 @@
                 </argument>
                 <argument id="Vendor">
                   <value class="variable">
-                    <path element="vendor"/>
+                    <path element="icreqdata"/>
+                    <path element="Vendor"/>
                   </value>
                 </argument>
                 <argument id="INVAmt">
@@ -218,6 +219,9 @@
               </outputArguments>
             </caseCall>
             <caseCall testCaseId="98f49f3a-7453-430c-90fb-e55914fe6081" testCasePath="tests/Purchase Order/Callable/PODMDVerification.testcase" testItemId="18">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -232,6 +236,9 @@
               </arguments>
             </caseCall>
             <caseCall testCaseId="3a3fd54e-7208-45d3-a39e-fee0eff06e88" testCasePath="tests/Purchase Order/Callable/PayableBatchHeaderVerification.testcase" testItemId="21">
+              <tags>
+                <string>disabled</string>
+              </tags>
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
