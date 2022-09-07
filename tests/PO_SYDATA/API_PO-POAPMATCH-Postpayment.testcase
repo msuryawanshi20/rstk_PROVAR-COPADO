@@ -299,6 +299,16 @@
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
                 </argument>
+                <argument id="Division">
+                  <value class="variable">
+                    <path element="DivisionID"/>
+                  </value>
+                </argument>
+                <argument id="Project">
+                  <value class="variable">
+                    <path element="ProjectID"/>
+                  </value>
+                </argument>
               </arguments>
               <outputArguments>
                 <outputArgument id="POHDRID">
@@ -443,6 +453,11 @@
                     <path element="POHDRID"/>
                   </value>
                 </argument>
+                <argument id="Division">
+                  <value class="variable">
+                    <path element="DivisionID"/>
+                  </value>
+                </argument>
               </arguments>
             </caseCall>
             <caseCall testCaseId="d4ff90f1-71ea-4aa1-8f61-645f492f4904" testCasePath="tests/PO_SYDATA/Callable/SYDATAPOAuthorization.testcase" testItemId="71">
@@ -455,6 +470,11 @@
                 <argument id="SourceData">
                   <value class="variable">
                     <path element="POAuthData"/>
+                  </value>
+                </argument>
+                <argument id="Division">
+                  <value class="variable">
+                    <path element="DivisionID"/>
                   </value>
                 </argument>
               </arguments>
@@ -536,6 +556,11 @@
                 <argument id="OrderNum">
                   <value class="variable">
                     <path element="POOrderNum"/>
+                  </value>
+                </argument>
+                <argument id="Division">
+                  <value class="variable">
+                    <path element="DivisionID"/>
                   </value>
                 </argument>
               </arguments>
