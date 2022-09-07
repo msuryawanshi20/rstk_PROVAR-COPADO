@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="33">
+<testCase id="177">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -124,6 +124,9 @@
         <outputArgument id="INVNum">
           <name class="value" valueClass="string">INVNum</name>
         </outputArgument>
+        <outputArgument id="sessionno">
+          <name class="value" valueClass="string">sessionno</name>
+        </outputArgument>
       </outputArguments>
     </caseCall>
     <caseCall testCaseId="0843e6ef-dc45-4ee6-98db-c44819beb5ae" testCasePath="tests/Account Payable/Callable/CopyVendorCredit.testcase" testItemId="31">
@@ -157,7 +160,7 @@
         </outputArgument>
       </outputArguments>
     </caseCall>
-    <caseCall testCaseId="71429f9e-dd6d-4bfc-be91-cf2eea81be19" testCasePath="tests/Account Payable/ApplyVendorCredit.testcase" testItemId="32">
+    <caseCall testCaseId="71429f9e-dd6d-4bfc-be91-cf2eea81be19" testCasePath="tests/Account Payable/Callable/ApplyVendorCredit.testcase" testItemId="32">
       <arguments>
         <argument id="reuseConnectionName">
           <value class="value" valueClass="string">SFConnection</value>

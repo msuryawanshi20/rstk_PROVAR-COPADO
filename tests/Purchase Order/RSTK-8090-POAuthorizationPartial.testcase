@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="2">
+<testCase id="117">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -145,6 +145,9 @@
         </outputArgument>
         <outputArgument id="CreatedDate">
           <name class="value" valueClass="string">CreatedDate</name>
+        </outputArgument>
+        <outputArgument id="POTotal">
+          <name class="value" valueClass="string">POTotal</name>
         </outputArgument>
       </outputArguments>
     </caseCall>

@@ -212,7 +212,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="8" title="Set the Buyer select to Namrata Patil">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="8" title="Set the Buyer select to {List.Responsible}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=Buyer"/>
@@ -221,7 +221,10 @@
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
                 <argument id="value">
-                  <value class="value" valueClass="string">Namrata Patil</value>
+                  <value class="variable">
+                    <path element="List"/>
+                    <path element="Responsible"/>
+                  </value>
                 </argument>
                 <argument id="blur">
                   <value class="value" valueClass="boolean">false</value>
@@ -242,24 +245,24 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Buyer select to Namrata Patil</value>
+                  <value class="value" valueClass="string">Set the Buyer select to {List.Responsible}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
               <generatedParameters>
-                <apiParam group="value" name="value" title="Value">
+                <apiParam group="value" name="value" seq="10000" title="Value">
                   <summary>The value to be populated.</summary>
                   <type>
-                    <textType/>
+                    <choiceType/>
                   </type>
                 </apiParam>
-                <apiParam group="value" name="blur" title="Tab off field">
+                <apiParam group="value" name="blur" seq="10001" title="Tab off field">
                   <summary>Whether the tab key should be pressed after the value is populated.</summary>
                   <type>
                     <booleanType/>
                   </type>
                 </apiParam>
-                <apiParam group="value" name="pressEnter" title="Press Enter">
+                <apiParam group="value" name="pressEnter" seq="10002" title="Press Enter">
                   <summary>Whether the Enter key should be pressed after the value is populated.</summary>
                   <type>
                     <booleanType/>
@@ -916,7 +919,7 @@
                 </apiParam>
               </generatedParameters>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="29" title="Set the Assignvendor select to SB Test CMPNO (1076)">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" name="UiDoAction" testItemId="29" title="Set the Assignvendor select to {List.Vendor}">
               <arguments>
                 <argument id="locator">
                   <value class="uiLocator" uri="ui:locator?name=assignvendor"/>
@@ -925,7 +928,10 @@
                   <value class="uiInteraction" uri="ui:interaction?name=set"/>
                 </argument>
                 <argument id="value">
-                  <value class="value" valueClass="string">SB Test CMPNO (1076)</value>
+                  <value class="variable">
+                    <path element="List"/>
+                    <path element="Vendor"/>
+                  </value>
                 </argument>
                 <argument id="blur">
                   <value class="value" valueClass="boolean">false</value>
@@ -946,7 +952,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Set the Assignvendor select to SB Test CMPNO (1076)</value>
+                  <value class="value" valueClass="string">Set the Assignvendor select to {List.Vendor}</value>
                 </argument>
                 <argument id="autoRetry"/>
               </arguments>
@@ -1200,7 +1206,9 @@
                 <argument id="interactionDescription">
                   <value class="value" valueClass="string">Click the Convert Requisition S To PO button</value>
                 </argument>
-                <argument id="autoRetry"/>
+                <argument id="autoRetry">
+                  <value class="uiWait" uri="ui:wait:autoRetry:timeout=10"/>
+                </argument>
                 <argument id="ieClickMethod">
                   <value class="value" valueClass="string">Default</value>
                 </argument>
@@ -1224,6 +1232,43 @@
                   </type>
                 </apiParam>
               </generatedParameters>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiHandleAlert" name="UiHandleAlert" testItemId="237" title="Handle UI Alerts">
+              <arguments>
+                <argument id="alerts">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="expectedMessage">
+                        <value class="value" escapingDisabled="true" valueClass="string">Task completed successfully</value>
+                      </namedValue>
+                      <namedValue name="response">
+                        <value class="value" valueClass="string">OK</value>
+                      </namedValue>
+                      <namedValue name="comparisonType">
+                        <value class="value" valueClass="string">EqualTo</value>
+                      </namedValue>
+                      <namedValue name="caseSensitive">
+                        <value class="value" valueClass="boolean">true</value>
+                      </namedValue>
+                      <namedValue name="isNormalise">
+                        <value class="value" valueClass="boolean">false</value>
+                      </namedValue>
+                      <namedValue name="isRegex">
+                        <value class="value" valueClass="boolean">false</value>
+                      </namedValue>
+                      <namedValue name="beforeWait"/>
+                      <namedValue name="afterWait"/>
+                      <namedValue name="autoRetry"/>
+                    </namedValues>
+                  </value>
+                </argument>
+                <argument id="captureBefore">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+              </arguments>
             </apiCall>
           </steps>
         </clause>
@@ -1298,7 +1343,9 @@
                 <argument id="pageAssertions">
                   <value class="valueList" mutable="Mutable"/>
                 </argument>
-                <argument id="beforeWait"/>
+                <argument id="beforeWait">
+                  <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                </argument>
                 <argument id="autoRetry"/>
               </arguments>
             </apiCall>

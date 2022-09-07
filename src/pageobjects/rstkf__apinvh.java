@@ -31,10 +31,10 @@ public WebDriver driver;
 	@FindBy(xpath = "//div[@class='ac_results']/ul/li")
 	public WebElement Vendorlist;
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Document Number (e.g., Invoice Number)']/parent::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Document Number (e.g., Invoice Number)']//following::td[1]//input")
 	public WebElement documentNumberEGInvoiceNumber;
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Transaction Total (Txn Currency)']/parent::th/following-sibling::td[1]//input")
+	@FindBy(xpath = "//label[normalize-space(.)='Transaction Total (Txn Currency)']//following::td[1]//input")
 	public WebElement transactionTotalTxnCurrency;
 	@ButtonType()
 	@FindBy(xpath = "//span/input[@value='Save']")
@@ -49,7 +49,7 @@ public WebDriver driver;
 	@FindBy(xpath = "//span/input[@value='Post Session']")
 	public WebElement postSession;
 	@ChoiceListType()
-	@FindBy(xpath = "//label[contains(text(),'Transaction Type')]/parent::th/following::td/span/select[contains(@name,'apinvtxn_trantype__c')]")
+	@FindBy(xpath = "//label[contains(text(),'Transaction Type')]//following::td/span/select[contains(@name,'apinvtxn_trantype__c')]")
 	public WebElement apinvtxn_trantype__c;
 	@TextType()
 	@FindBy(xpath = "//td/table//table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td[normalize-space(.)='Applied/Unapplied Amounts']")

@@ -483,7 +483,9 @@
                   <value class="valueList" mutable="Mutable"/>
                 </argument>
                 <argument id="beforeWait"/>
-                <argument id="autoRetry"/>
+                <argument id="autoRetry">
+                  <value class="uiWait" uri="ui:wait:autoRetry:timeout=20"/>
+                </argument>
               </arguments>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="14" title="ReadTransactinDate">

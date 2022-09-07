@@ -74,19 +74,19 @@
         <clause name="hidden" testItemId="29"/>
       </clauses>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="24" title="On SF Payable Session Payable Sessions list view">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="24" title="On SF Payable Session New screen">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="sf:ui:target?object=rstkf__apinvh__c&amp;action=List&amp;listView=rstkf__RS_Payable_Sessions"/>
+          <value class="uiTarget" uri="sf:ui:target?object=rstkf__apinvh__c&amp;action=New"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Always</value>
         </argument>
         <argument id="targetDescription">
-          <value class="value" valueClass="string">On SF Payable Session Payable Sessions list view</value>
+          <value class="value" valueClass="string">On SF Payable Session New screen</value>
         </argument>
         <argument id="windowSelection">
           <value class="value" valueClass="string">Default</value>
@@ -159,6 +159,27 @@
           </steps>
         </clause>
       </clauses>
+      <generatedParameters>
+        <apiParam group="result" name="sfUiTargetResultName" resultNameParameter="true" title="Result Name">
+          <summary>The name under which the resulting Payable Session Id will be stored.</summary>
+          <type>
+            <textType/>
+          </type>
+          <resultValueClasses>
+            <string>ApexObjectId</string>
+          </resultValueClasses>
+        </apiParam>
+        <apiParam group="result" name="sfUiTargetResultScope" title="Result Scope">
+          <summary>The life-span of the resulting identifiers.</summary>
+          <type>
+            <choiceType>
+              <constraints>
+                <valueConstraint name="boundedValues">Global:Test Run|Folder:Test Folder|Test:Test Case|GroupStep:Group Step|Local:Test Step</valueConstraint>
+              </constraints>
+            </choiceType>
+          </type>
+        </apiParam>
+      </generatedParameters>
     </apiCall>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="25" title="On SF rstkf__apinvh page with pageobject Rstkf__apinvh">
       <arguments>
