@@ -52,7 +52,7 @@
       <clauses>
         <clause name="hidden" testItemId="128">
           <steps>
-            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="139">
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Callable/Read Excel Data.testcase" testItemId="139">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -157,7 +157,7 @@
       <clauses>
         <clause name="hidden" testItemId="44">
           <steps>
-            <caseCall testCaseId="a6c37f2e-69ff-4b6c-84bd-7701e2e8699d" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Create Sales Order Header - SOAPI.testcase" testItemId="132">
+            <caseCall testCaseId="a6c37f2e-69ff-4b6c-84bd-7701e2e8699d" testCasePath="tests/Sales Order/Callable/Create Sales Order Header - SOAPI.testcase" testItemId="132">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -225,7 +225,7 @@
       <clauses>
         <clause name="hidden" testItemId="58">
           <steps>
-            <caseCall testCaseId="85b5dbbd-458d-4123-8349-92fea88265a7" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Firm All Sales Order Lines.testcase" testItemId="134">
+            <caseCall testCaseId="85b5dbbd-458d-4123-8349-92fea88265a7" testCasePath="tests/SYDATA - Sales Orders/Callable/Firm All Sales Order Lines.testcase" testItemId="134">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
@@ -260,7 +260,7 @@
       <clauses>
         <clause name="hidden" testItemId="65">
           <steps>
-            <caseCall testCaseId="0228c441-4d65-48fc-a5cf-feb7282152e0" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Allocate Sales Order Lines.testcase" testItemId="135">
+            <caseCall testCaseId="0228c441-4d65-48fc-a5cf-feb7282152e0" testCasePath="tests/SYDATA - Sales Orders/Callable/Allocate Sales Order Lines.testcase" testItemId="135">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
@@ -300,7 +300,7 @@
       <clauses>
         <clause name="hidden" testItemId="72">
           <steps>
-            <caseCall testCaseId="4275be32-6028-485b-a6f6-b75d8ffbc0ad" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Pick-Pack-Ship Sales Order Lines.testcase" testItemId="136">
+            <caseCall testCaseId="4275be32-6028-485b-a6f6-b75d8ffbc0ad" testCasePath="tests/SYDATA - Sales Orders/Callable/Pick-Pack-Ship Sales Order Lines.testcase" testItemId="136">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
@@ -350,7 +350,7 @@
       <clauses>
         <clause name="hidden" testItemId="79">
           <steps>
-            <caseCall testCaseId="b22fe2b8-4548-41a3-b6b5-bd339b9781a2" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Create Sales Order Invoice.testcase" testItemId="137">
+            <caseCall testCaseId="b22fe2b8-4548-41a3-b6b5-bd339b9781a2" testCasePath="tests/SYDATA - Sales Orders/Callable/Create Sales Order Invoice.testcase" testItemId="137">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
@@ -415,7 +415,7 @@
       <clauses>
         <clause name="hidden" testItemId="86">
           <steps>
-            <caseCall testCaseId="24ca693a-abd1-40bf-b090-fffd2567d81f" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Sales Invoice Payment.testcase" testItemId="138">
+            <caseCall testCaseId="24ca693a-abd1-40bf-b090-fffd2567d81f" testCasePath="tests/Sales Order/Callable/Sales Invoice Payment.testcase" testItemId="138">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>

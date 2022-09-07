@@ -160,6 +160,12 @@
                     <path element="Id"/>
                   </value>
                 </argument>
+                <argument id="rstk__sydata_sydiv__c">
+                  <value class="variable">
+                    <path element="varInvoiceShipper"/>
+                    <path element="Division"/>
+                  </value>
+                </argument>
               </arguments>
               <parameterGeneratorProperties>
                 <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
@@ -175,6 +181,9 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_addtobatch__c" name="rstk__sydata_addtobatch__c" title="rstk__sydata_addtobatch__c"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_soibatch__c" name="rstk__sydata_soibatch__c" title="rstk__sydata_soibatch__c"/>
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_soinv__c" name="rstk__sydata_soinv__c" title="rstk__sydata_soinv__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_sydiv__c" name="rstk__sydata_sydiv__c" title="rstk__sydata_sydiv__c">
+                  <summary>The Inventory Division that the given transaction was performed in.</summary>
+                </apiParam>
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="37" title="SOQL Query: SELECT Id,rstk__sydata_process__c FROM rstk__sydata__c WHERE rstk__sydata_sohdr__c = '{rstkRows_SOHeader.Id}' AND rstk__sydata_txntype__c='{varInvoiceShipper.TransactionType}'=&gt;rstkRows_SYDATA">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="7">
+<testCase id="2">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -476,8 +476,7 @@
                               </namedValue>
                               <namedValue name="value">
                                 <value class="variable">
-                                  <path element="rstkRows_SOHeader"/>
-                                  <path element="rstk__sohdr_order__c"/>
+                                  <path element="OrderNumber"/>
                                 </value>
                               </namedValue>
                               <namedValue name="valueScope">

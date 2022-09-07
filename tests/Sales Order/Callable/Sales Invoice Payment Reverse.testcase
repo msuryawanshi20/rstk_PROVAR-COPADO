@@ -569,7 +569,9 @@
                         <argument id="pageAssertions">
                           <value class="valueList" mutable="Mutable"/>
                         </argument>
-                        <argument id="beforeWait"/>
+                        <argument id="beforeWait">
+                          <value class="uiWait" uri="ui:wait:timed?seconds=5"/>
+                        </argument>
                         <argument id="autoRetry"/>
                       </arguments>
                     </apiCall>
