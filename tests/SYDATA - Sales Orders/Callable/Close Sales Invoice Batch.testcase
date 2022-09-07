@@ -318,15 +318,6 @@
                     <path element="Name"/>
                   </expected>
                 </resultAssertion>
-                <resultAssertion resultName="rstk__soibatch_dateclosed__c" title="Check rstk__soibatch_dateclosed__c">
-                  <expected class="funcCall" id="DateAdd">
-                    <argument id="date">
-                      <value class="variable">
-                        <path element="TODAY"/>
-                      </value>
-                    </argument>
-                  </expected>
-                </resultAssertion>
               </resultAssertions>
               <parameterGeneratorProperties>
                 <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>

@@ -52,7 +52,7 @@
       <clauses>
         <clause name="hidden" testItemId="94">
           <steps>
-            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="98">
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Callable/Read Excel Data.testcase" testItemId="98">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -110,7 +110,7 @@
       <clauses>
         <clause name="hidden" testItemId="82">
           <steps>
-            <caseCall testCaseId="26ec0df2-63e6-44cc-8cc0-65233b69eb3b" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Create Credit Memo from sitemap.testcase" testItemId="83">
+            <caseCall testCaseId="26ec0df2-63e6-44cc-8cc0-65233b69eb3b" testCasePath="tests/Sales Order/Callable/Create Credit Memo from sitemap.testcase" testItemId="83">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -140,7 +140,7 @@
       <clauses>
         <clause name="hidden" testItemId="88">
           <steps>
-            <caseCall testCaseId="e680bb12-a5e2-45f9-8407-c9df39276783" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Delete Credit Memo.testcase" testItemId="89">
+            <caseCall testCaseId="e680bb12-a5e2-45f9-8407-c9df39276783" testCasePath="tests/Sales Order/Callable/Delete Credit Memo.testcase" testItemId="89">
               <arguments>
                 <argument id="rstkRows_Invoice">
                   <value class="variable">
