@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="6">
+<testCase failureBehaviour="Continue" id="39">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -299,13 +299,9 @@
                           </value>
                         </argument>
                         <argument id="ip_dueDate">
-                          <value class="funcCall" id="DateFormat">
-                            <argument id="date">
-                              <value class="variable">
-                                <path element="op_excelDataRow"/>
-                                <path element="DueDate"/>
-                              </value>
-                            </argument>
+                          <value class="variable">
+                            <path element="op_excelDataRow"/>
+                            <path element="DueDate"/>
                           </value>
                         </argument>
                         <argument id="ip_reworkFlag">

@@ -100,7 +100,7 @@
         </argument>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="86" title="Set Due Date">
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="111" title="Set Due Date">
       <arguments>
         <argument id="condition">
           <value class="eq">
@@ -133,6 +133,35 @@
                               <argument id="amount">
                                 <value class="value" valueClass="decimal">5</value>
                               </argument>
+                            </value>
+                          </argument>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="112">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="113" title="Set Values: ip_dueDate">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ip_dueDate</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="funcCall" id="DateFormat">
+                          <argument id="date">
+                            <value class="variable">
+                              <path element="ip_dueDate"/>
                             </value>
                           </argument>
                         </value>

@@ -147,6 +147,35 @@
             </apiCall>
           </steps>
         </clause>
+        <clause name="else" testItemId="111">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="113" title="Set Values: ip_dueDate">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">ip_dueDate</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="funcCall" id="DateFormat">
+                          <argument id="date">
+                            <value class="variable">
+                              <path element="ip_dueDate"/>
+                            </value>
+                          </argument>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
       </clauses>
     </apiCall>
     <apiCall apiId="com.provar.plugins.bundled.apis.If" isTitleUpdated="true" name="If" testItemId="89" title="Enter Project Name">
@@ -461,7 +490,7 @@
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__wocst__c&amp;field=rstk__wocst_div__c" name="rstk__wocst_div__c" title="rstk__wocst_div__c"/>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="104" title="SOQL Query: select rstk__wocst_ordno__c,Name,rstk__wocst_ordsts_pl__c from rstk__wocst__c where ID='{op_wocstId}'=&gt;op_woDetails">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="104" title="SOQL Query: select rstk__wocst_ordno__c,Name,rstk__wocst_ordsts_pl__c from rstk__wocst__c where ID='a9f5f000000onUiAAI'=&gt;op_woDetails">
       <arguments>
         <argument id="soqlQuery">
           <value class="compound">
