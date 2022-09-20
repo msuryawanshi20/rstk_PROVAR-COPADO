@@ -490,7 +490,7 @@
         <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__wocst__c&amp;field=rstk__wocst_div__c" name="rstk__wocst_div__c" title="rstk__wocst_div__c"/>
       </generatedParameters>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="104" title="SOQL Query: select rstk__wocst_ordno__c,Name,rstk__wocst_ordsts_pl__c from rstk__wocst__c where ID='a9f5f000000onUiAAI'=&gt;op_woDetails">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="104" title="SOQL Query: select rstk__wocst_ordno__c,Name,rstk__wocst_ordsts_pl__c from rstk__wocst__c where ID='{op_wocstId}'=&gt;op_woDetails">
       <arguments>
         <argument id="soqlQuery">
           <value class="compound">
