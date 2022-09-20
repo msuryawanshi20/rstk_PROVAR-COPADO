@@ -371,13 +371,9 @@
                           </value>
                         </argument>
                         <argument id="ip_dueDate">
-                          <value class="funcCall" id="DateFormat">
-                            <argument id="date">
-                              <value class="variable">
-                                <path element="op_excelDataRow"/>
-                                <path element="DueDate"/>
-                              </value>
-                            </argument>
+                          <value class="variable">
+                            <path element="op_excelDataRow"/>
+                            <path element="DueDate"/>
                           </value>
                         </argument>
                         <argument id="ip_reworkFlag">
