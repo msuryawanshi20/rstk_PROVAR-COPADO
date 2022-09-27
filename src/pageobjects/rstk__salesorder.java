@@ -211,6 +211,21 @@ public class rstk__salesorder {
 	@BooleanType()
 	@FindBy(xpath = "//span[contains(@id,'sohdr_credithold__c')]//span//img")
 	public WebElement credithold;
+	/*@ButtonType()
+	@FindBy(xpath = "//div[11]//div[1]/table/tbody/tr/td[2]/input[2]")
+	public WebElement Addresses1;*/
+	@TextType()
+	@FindBy(xpath = "//input[contains(@id,'shipto_soaddr_ovrtaxrate__c')]")
+	public WebElement verifiedTaxRate;
+	@ButtonType()
+	@FindBy(xpath = "//input[@id='shipto_validate__c']")
+	public WebElement validate;
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Use Verified Address']")
+	public WebElement useVerifiedAddress;
+	@BooleanType()
+	@FindBy(xpath = "//input[contains(@id,'shipto_soaddr_verified__c')]")
+	public WebElement shipto_soaddr_verified__c;
 	
 	
 }
