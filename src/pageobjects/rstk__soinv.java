@@ -329,6 +329,15 @@ public class rstk__soinv {
 	@ButtonType()
 	@FindByLabel(label = "Commit")
 	public WebElement commit;
+	@ButtonType()
+	@FindBy(xpath = "//input[@value='Fetch Tax']")
+	public WebElement fetchTax;
+	@TextType()
+	@FindBy(xpath = "//span[contains(@id,'taxAmt')]")
+	public WebElement SalesTax;
+	@TextType()
+	@FindBy(xpath = "//td[contains(text(),'Tax fetched, invoice has been updated')]")
+	public WebElement TaxFetched_Msg;
 	
 		
 	

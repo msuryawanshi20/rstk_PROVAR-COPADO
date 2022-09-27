@@ -453,12 +453,12 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="405" title="SOQL Query: select rstkf__arinvtxn_session_status__c,rstkf__arinvtxn_tranid__c,Id from rstkf__arinvtxn__c WHERE rstkf__arinvtxn_soinv__c = '{rstkRows_Invoice.Id}'=&gt;rstkfRows_ReceivableTxn">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="405" title="SOQL Query: select rstkf__arinvtxn_session_status__c,rstkf__arinvtxn_tranid__c,Id,rstkf__arinvtxn_arinvh__c from rstkf__arinvtxn__c WHERE rstkf__arinvtxn_soinv__c = '{rstkRows_Invoice.Id}'=&gt;rstkfRows_ReceivableTxn">
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
                             <parts>
-                              <value valueClass="string">select rstkf__arinvtxn_session_status__c,rstkf__arinvtxn_tranid__c,Id from rstkf__arinvtxn__c WHERE rstkf__arinvtxn_soinv__c = '</value>
+                              <value valueClass="string">select rstkf__arinvtxn_session_status__c,rstkf__arinvtxn_tranid__c,Id,rstkf__arinvtxn_arinvh__c from rstkf__arinvtxn__c WHERE rstkf__arinvtxn_soinv__c = '</value>
                               <variable>
                                 <path element="rstkRows_Invoice"/>
                                 <path element="Id"/>
@@ -539,7 +539,35 @@
                         </argument>
                       </arguments>
                     </apiCall>
-                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="407" title="SOQL Query: select Id,rstkf__arinvh_batchno__c,rstkf__arinvh_poststatus__c from rstkf__arinvh__c where rstkf__arinvh_batchno__c='{rstkfRows_ReceivableTxn.rstkf__arinvtxn_tranid__c}'=&gt;rstkfRows_ReceivableSession">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="446" title="SOQL Query: select Id,rstkf__arinvh_batchno__c,rstkf__arinvh_poststatus__c from rstkf__arinvh__c where Id='{rstkfRows_ReceivableTxn.rstkf__arinvtxn_arinvh__c}'=&gt;rstkfRows_ReceivableSession">
+                      <arguments>
+                        <argument id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">select Id,rstkf__arinvh_batchno__c,rstkf__arinvh_poststatus__c from rstkf__arinvh__c where Id='</value>
+                              <variable>
+                                <path element="rstkfRows_ReceivableTxn"/>
+                                <path element="rstkf__arinvtxn_arinvh__c"/>
+                              </variable>
+                              <value valueClass="string">'</value>
+                            </parts>
+                          </value>
+                        </argument>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">rstkfRows_ReceivableSession</value>
+                        </argument>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="407" title="SOQL Query: select Id,rstkf__arinvh_batchno__c,rstkf__arinvh_poststatus__c from rstkf__arinvh__c where rstkf__arinvh_batchno__c='{rstkfRows_ReceivableTxn.rstkf__arinvtxn_arinvh__c}'=&gt;rstkfRows_ReceivableSession">
+                      <tags>
+                        <string>disabled</string>
+                      </tags>
                       <arguments>
                         <argument id="soqlQuery">
                           <value class="compound">
@@ -547,7 +575,7 @@
                               <value valueClass="string">select Id,rstkf__arinvh_batchno__c,rstkf__arinvh_poststatus__c from rstkf__arinvh__c where rstkf__arinvh_batchno__c='</value>
                               <variable>
                                 <path element="rstkfRows_ReceivableTxn"/>
-                                <path element="rstkf__arinvtxn_tranid__c"/>
+                                <path element="rstkf__arinvtxn_arinvh__c"/>
                               </variable>
                               <value valueClass="string">'</value>
                             </parts>
