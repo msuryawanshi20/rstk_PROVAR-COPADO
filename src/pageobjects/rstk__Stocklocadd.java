@@ -173,7 +173,7 @@ public class rstk__Stocklocadd {
 	public WebElement Site;
 
 	@TextType()
-	@FindBy(xpath = "//label[normalize-space(.)='Division']/parent::span/parent::th/following-sibling::td")
+	@FindBy(xpath = "//label[normalize-space(.)='Division']//parent::th/following-sibling::td//span[1]/a|//label[normalize-space(.)='Division']/parent::span/parent::th/following-sibling::td")
 	public WebElement division;
 
 	@PageRow()
