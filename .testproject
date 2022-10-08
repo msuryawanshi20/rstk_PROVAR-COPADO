@@ -157,18 +157,5 @@
         </browserProviderDevice>
       </devices>
     </browserProvider>
-    <browserProvider name="SeleniumGrid" type="SeleniumGrid">
-      <devices>
-        <browserProviderDevice name="LINUX Chrome" platform="LINUX">
-          <properties>
-            <browserPlatformProperty name="browserName" type="DesiredCapability" value="Chrome"/>
-            <browserPlatformProperty name="version" type="DesiredCapability" value=""/>
-          </properties>
-        </browserProviderDevice>
-      </devices>
-      <properties>
-        <browserPlatformProperty name="gridUrl" value="http://oracle.mayur.ml:4444/wd/hub"/>
-      </properties>
-    </browserProvider>
   </browserProviders>
 </testProject>

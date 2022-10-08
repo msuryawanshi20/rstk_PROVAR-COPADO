@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase failureBehaviour="Continue" id="2">
+<testCase failureBehaviour="Continue" id="7">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="151" title="Salesforce Connect: SFConnection (Test)">
@@ -999,7 +999,7 @@
                                             <apiParam name="ExtractOperations"/>
                                           </cachedParameters>
                                           <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
-                                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
+                                            <workbookPath class="value" valueClass="string">templates/PDE5/RSTK-9618-Derived Component Receipt.xlsx</workbookPath>
                                             <worksheetName class="value" valueClass="string">Consumable Components</worksheetName>
                                             <valuesRange class="value" valueClass="string">A:I</valuesRange>
                                           </sourceValue>
@@ -1035,20 +1035,21 @@
                                               </arguments>
                                               <parameterValueSources>
                                                 <parameterValueSource variableName="op_ConsumableCompExcelData" variableScope="Test">
-                                                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/QARSF/RSTK-9520-Refurb Work Order.xlsx;1631618975810</cacheToken>
+                                                  <cacheToken>D:/provar/QA-automation/rsqasampleproj/templates/AutomationOrg/RSTK-9618-Derived Component Receipt.xlsx;1664369294461</cacheToken>
                                                   <cachedParameters>
                                                     <apiParam name="RowNumber"/>
-                                                    <apiParam name="Site"/>
-                                                    <apiParam name="ItemNumber"/>
-                                                    <apiParam name="QtyRequired"/>
-                                                    <apiParam name="DueDate"/>
-                                                    <apiParam name="Project"/>
-                                                    <apiParam name="ProjectChargeCode"/>
-                                                    <apiParam name="ExtractComponent"/>
-                                                    <apiParam name="ExtractOperations"/>
+                                                    <apiParam name="DisassemblyItemName"/>
+                                                    <apiParam name="ComponentItem"/>
+                                                    <apiParam name="EnterQtyPerFlag"/>
+                                                    <apiParam name="EnterComponentQtyFlag"/>
+                                                    <apiParam name="FixedComponentQtyFlag"/>
+                                                    <apiParam name="ComponentQty"/>
+                                                    <apiParam name="ScrapFactor"/>
+                                                    <apiParam name="SetupQty"/>
+                                                    <apiParam name="Comments"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
-                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/AutomationOrg/RSTK-9618-Derived Component Receipt.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">Consumable Components</worksheetName>
                                                     <valuesRange class="value" valueClass="string">A:I</valuesRange>
                                                   </sourceValue>
@@ -1085,7 +1086,7 @@
                                                     <apiParam name="ExtractOperations"/>
                                                   </cachedParameters>
                                                   <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="StartsWith" whereName="DisassemblyItemName" whereValue="{op_DisassemblyExcelRow.DisassemblyItemName}">
-                                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9619-Derived Component Receipt Reversal.xlsx</workbookPath>
+                                                    <workbookPath class="value" valueClass="string">templates/QARSF/RSTK-9618-Derived Component Receipt.xlsx</workbookPath>
                                                     <worksheetName class="value" valueClass="string">Consumable Components</worksheetName>
                                                     <valuesRange class="value" valueClass="string">A:I</valuesRange>
                                                   </sourceValue>

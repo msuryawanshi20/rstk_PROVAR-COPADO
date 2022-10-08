@@ -201,7 +201,7 @@ public class wocst_LUI {
 	public WebElement includeBackflush_;
 
 	@LinkType()
-	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Issue']")
+	@FindBy(xpath = "//div[contains(@class,'active') and contains(@class,'oneContent')]//a[normalize-space(.)='Issue' or normalize-space(.)='Disassembly Item Issue']")
 	public WebElement issue;
 
 	public void enterIssueFrom(String IssueFrom) {
@@ -302,5 +302,13 @@ public class wocst_LUI {
 	@LinkType()
 	@FindBy(xpath = "//a[normalize-space(.)='Rootstock Site Map']")
 	public WebElement rootstockSiteMap;
+
+	@LinkType()
+	@FindBy(xpath = "//a[@data-label='Related']")
+	public WebElement Related;
+
+	@ButtonType()
+	@FindBy(xpath = "//header[normalize-space(.)='Derived Components']/parent::div/following-sibling::div/slot//button[normalize-space(.)='Add']")
+	public WebElement addDerivedComponent;
 
 }
