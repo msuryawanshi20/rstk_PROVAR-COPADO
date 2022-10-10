@@ -47,19 +47,19 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="54" title="On MyPageObject page">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="54" title="On HomePage page">
       <arguments>
         <argument id="uiConnectionName">
           <value class="value" valueClass="string">SFConnection</value>
         </argument>
         <argument id="target">
-          <value class="uiTarget" uri="ui:pageobject:target?pageId=pageobjects.MyPageObject"/>
+          <value class="uiTarget" uri="ui:pageobject:target?pageId=pageobjects.HomePage"/>
         </argument>
         <argument id="navigate">
           <value class="value" valueClass="string">Always</value>
         </argument>
         <argument id="targetDescription">
-          <value class="value" valueClass="string">On MyPageObject page</value>
+          <value class="value" valueClass="string">On HomePage page</value>
         </argument>
         <argument id="windowSelection">
           <value class="value" valueClass="string">Default</value>
