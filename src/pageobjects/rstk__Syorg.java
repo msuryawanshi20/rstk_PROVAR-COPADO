@@ -1,11 +1,13 @@
 package pageobjects;
 
-import java.util.List;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-import com.provar.core.testapi.annotations.*;
+import com.provar.core.testapi.annotations.BooleanType;
+import com.provar.core.testapi.annotations.ButtonType;
+import com.provar.core.testapi.annotations.ChoiceListType;
+import com.provar.core.testapi.annotations.PageWaitAfter;
+import com.provar.core.testapi.annotations.SalesforcePage;
+import com.provar.core.testapi.annotations.TextType;
 
 @SalesforcePage( title="Rstk__ Syorg"                                
                , summary=""
@@ -14,40 +16,59 @@ import com.provar.core.testapi.annotations.*;
                , object="rstk__syorg__c"
                , connection="QARSF_Admin"
      )             
-public class rstk__Syorg {
+		public class rstk__Syorg {
 
-	@TextType()
-	@FindBy(xpath = "//span/div/div/input")
-	public WebElement organizationalDepartmentID;
-	@TextType()
-	@FindBy(xpath = "//td/span/div/input")
-	public WebElement description;
-	@ChoiceListType()
-	@FindBy(xpath = "//div/div/div/table/tbody/tr/td/span//select")
-	public WebElement General_Expense_Account;
-	@TextType()
-	@FindBy(xpath = "//input[@id='syorg_dimval__c_autocomplete']")
-	public WebElement Accounting_Dimension_Value;
-	@BooleanType()
-	@FindBy(xpath = "//label[normalize-space(.)='Purchasing Dept Indicator']/parent::span/parent::th/following-sibling::td//input")
-	public WebElement purchasingDeptIndicator;
-	@BooleanType()
-	@FindBy(xpath = "//label[normalize-space(.)='Credit Department Group Indicator']/parent::span/parent::th/following-sibling::td//input")
-	public WebElement creditDepartmentGroupIndicator;
-	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Service Authorization ID']/parent::span/parent::th/following-sibling::td//select")
-	public WebElement Service_Auth_ID;
-	@ChoiceListType()
-	@FindBy(xpath = "//label[normalize-space(.)='Indirect Material Authorization ID']/parent::span/parent::th/following-sibling::td//select")
-	public WebElement Indirect_Material_Auth_ID;
-	@ButtonType()
-	@FindBy(xpath = "//div[1]/table//td[2]/span/input[1]")
-	public WebElement save;
-	@ButtonType()
-	@FindBy(xpath = "//div[1]/table//td[2]/span/input[1]")
-	public WebElement Edit;
-	@ButtonType()
-	@FindBy(xpath = "//div[1]/table//span/input[2]")
-	public WebElement delete;
-	
-}
+			@TextType()
+			@FindBy(xpath = "//span/div/div/input")
+			public WebElement organizationalDepartmentID;
+
+			@TextType()
+			@FindBy(xpath = "//td/span/div/input")
+			public WebElement description;
+
+			@ChoiceListType()
+			@FindBy(xpath = "//div/div/div/table/tbody/tr/td/span//select")
+			public WebElement General_Expense_Account;
+
+			@TextType()
+			@FindBy(xpath = "//input[@id='syorg_dimval__c_autocomplete']")
+			public WebElement Accounting_Dimension_Value;
+
+			@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+			@TextType()
+			@FindBy(id = "li-0")
+			public WebElement accdimList;
+
+			@BooleanType()
+			@FindBy(xpath = "//label[normalize-space(.)='Purchasing Dept Indicator']/parent::span/parent::th/following-sibling::td//input")
+			public WebElement purchasingDeptIndicator;
+
+			@BooleanType()
+			@FindBy(xpath = "//label[normalize-space(.)='Credit Department Group Indicator']/parent::span/parent::th/following-sibling::td//input")
+			public WebElement creditDepartmentGroupIndicator;
+
+			@ChoiceListType()
+			@FindBy(xpath = "//label[normalize-space(.)='Service Authorization ID']/parent::span/parent::th/following-sibling::td//select")
+			public WebElement Service_Auth_ID;
+
+			@ChoiceListType()
+			@FindBy(xpath = "//label[normalize-space(.)='Indirect Material Authorization ID']/parent::span/parent::th/following-sibling::td//select")
+			public WebElement Indirect_Material_Auth_ID;
+
+			@ButtonType()
+			@FindBy(xpath = "//div[1]/table//td[2]/span/input[1]")
+			public WebElement save;
+
+			@ButtonType()
+			@FindBy(xpath = "//div[1]/table//td[2]/span/input[1]")
+			public WebElement Edit;
+
+			@ButtonType()
+			@FindBy(xpath = "//div[1]/table//span/input[2]")
+			public WebElement delete;
+
+			@TextType()
+			@FindBy(xpath = "//label[normalize-space(.)='Division']//parent::th/following-sibling::td//span[1]/a|//label[normalize-space(.)='Division']/parent::span/parent::th/following-sibling::td")
+			public WebElement division;
+
+		}

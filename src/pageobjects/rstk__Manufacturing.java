@@ -5,7 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 import com.provar.core.testapi.annotations.LinkType;
 import com.provar.core.testapi.annotations.SalesforcePage;
-import com.provar.core.testapi.annotations.VisualforceBy;
 
 @SalesforcePage(title = "Rstk__ Manufacturing",
 				summary = "", 
@@ -275,7 +274,7 @@ public class rstk__Manufacturing {
 	public WebElement inventoryLocationNumbers;
 
 	@LinkType()
-	@VisualforceBy(componentXPath = "apex:outputPanel[not(@id)][2]//tr/td[5]/div[1]/div/div[2]/div/li[19]//a[1]")
+	@FindBy(xpath = "//a[normalize-space(.)='Currency Master']")
 	public WebElement currencyMaster;
 
 	@LinkType()
@@ -299,7 +298,7 @@ public class rstk__Manufacturing {
 	public WebElement termsCode;
 
 	@LinkType()
-	@VisualforceBy(componentXPath = "apex:outputPanel[not(@id)][2]//tr/td[5]/div[1]/div/div[2]/div/li[15]//a[1]")
+	@FindBy(xpath = "//a[normalize-space(.)='Inventory Commodity Code']")
 	public WebElement inventoryCommodityCode;
 
 	@LinkType()
@@ -315,7 +314,7 @@ public class rstk__Manufacturing {
 	public WebElement stateProvinceCode;
 
 	@LinkType()
-	@VisualforceBy(componentXPath = "apex:outputPanel[not(@id)][2]//tr/td[5]/div[1]/div/div[2]/div/li[24]//a[1]")
+	@FindBy(xpath = "//a[normalize-space(.)='System Defaults']")
 	public WebElement systemDefaults;
 
 	@LinkType()
@@ -323,7 +322,7 @@ public class rstk__Manufacturing {
 	public WebElement costAccountingUserControlRecord;
 
 	@LinkType()
-	@VisualforceBy(componentXPath = "apex:outputPanel[not(@id)][2]//tr/td[5]/div[1]/div/div[2]/div/li[5]//a[1]")
+	@FindBy(xpath = "//a[normalize-space(.)='Manufacturing Users']")
 	public WebElement manufacturingUsers;
 
 	@LinkType()
@@ -331,6 +330,6 @@ public class rstk__Manufacturing {
 	public WebElement engineeringBOMQueryEdit;
 
 	@LinkType()
-	@VisualforceBy(componentXPath = "apex:outputPanel[not(@id)][2]//tr/td[1]/div[2]/div/div[2]/div/li[5]//a[1]")
+	@FindBy(xpath = "//a[normalize-space(.)='Engineering BOM Mass Add']")
 	public WebElement engineeringBOMMassAdd;
 }
