@@ -119,7 +119,7 @@
       <clauses>
         <clause name="substeps" testItemId="17">
           <steps>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="3" title="SOQL Query: select Id from rstk__icixr__c where rstk__icixr_ordno__c='{OrderNumber}' AND rstk__icixr_parentitem__c = '{varRequirements.ParentItemNo}'=&gt;rstkRows">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="3" title="SOQL Query: select Id from rstk__icixr__c where rstk__icixr_ordno__c='{OrderNumber}' AND rstk__icixr_parentitem__c = '{varRequirements.ParentItemNo}' AND rstk__icixr_ordtype__c='1'=&gt;rstkRows">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -133,7 +133,7 @@
                         <path element="varRequirements"/>
                         <path element="ParentItemNo"/>
                       </variable>
-                      <value valueClass="string">'</value>
+                      <value valueClass="string">' AND rstk__icixr_ordtype__c='1'</value>
                     </parts>
                   </value>
                 </argument>
