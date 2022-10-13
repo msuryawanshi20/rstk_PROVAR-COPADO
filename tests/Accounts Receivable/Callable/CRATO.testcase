@@ -398,6 +398,12 @@
                     <path element="DepositReference"/>
                   </value>
                 </argument>
+                <argument id="rstkf__crato_socustcmpno__c">
+                  <value class="variable">
+                    <path element="SourceData_CRATO"/>
+                    <path element="CustomerCompany"/>
+                  </value>
+                </argument>
               </arguments>
               <parameterGeneratorProperties>
                 <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
@@ -444,6 +450,7 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__crato__c&amp;field=rstkf__crato_depref__c" name="rstkf__crato_depref__c" title="rstkf__crato_depref__c">
                   <summary>This will typically be in a form a user can identify from a bank statement (e.g., 13 May 2019 # 1).</summary>
                 </apiParam>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__crato__c&amp;field=rstkf__crato_socustcmpno__c" name="rstkf__crato_socustcmpno__c" title="rstkf__crato_socustcmpno__c"/>
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="394" title="Sleep for {15} seconds">
@@ -755,6 +762,12 @@
                     <path element="DepositReference"/>
                   </value>
                 </argument>
+                <argument id="rstkf__crato_socustcmpno__c">
+                  <value class="variable">
+                    <path element="SourceData_CRATO"/>
+                    <path element="CustomerCompany"/>
+                  </value>
+                </argument>
               </arguments>
               <parameterGeneratorProperties>
                 <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
@@ -801,6 +814,7 @@
                 <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__crato__c&amp;field=rstkf__crato_depref__c" name="rstkf__crato_depref__c" title="rstkf__crato_depref__c">
                   <summary>This will typically be in a form a user can identify from a bank statement (e.g., 13 May 2019 # 1).</summary>
                 </apiParam>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__crato__c&amp;field=rstkf__crato_socustcmpno__c" name="rstkf__crato_socustcmpno__c" title="rstkf__crato_socustcmpno__c"/>
               </generatedParameters>
             </apiCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="402" title="Sleep for {15} seconds">
