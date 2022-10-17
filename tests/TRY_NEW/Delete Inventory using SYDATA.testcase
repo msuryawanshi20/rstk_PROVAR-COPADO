@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="0">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: QARSF_Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Fail</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="4" title="SOQL Query: select name,rstk__iclocitem_div__c\t,rstk__iclocitem_site__c,rstk__iclocitem_icitem__c,rstk__iclocitem_proj__c,rstk__iclocitem_locqty__c,rstk__iclocitem_locid__c,rstk__iclocitem_locnum__c,rstk__iclocitem_locsec__c from rstk__iclocitem__c where rstk__iclocitem_locqty__c &lt;11 and rstk__iclocitem_icitemsrl__c=null and rstk__iclocitem_locqty__c&gt;0 order by lastmodifiedDate ASC limit 1500=&gt;rstkRows">
+      <arguments>
+        <argument id="soqlQuery">
+          <value class="value" valueClass="string">select name,rstk__iclocitem_div__c\t,rstk__iclocitem_site__c,rstk__iclocitem_icitem__c,rstk__iclocitem_proj__c,rstk__iclocitem_locqty__c,rstk__iclocitem_locid__c,rstk__iclocitem_locnum__c,rstk__iclocitem_locsec__c from rstk__iclocitem__c where rstk__iclocitem_locqty__c &lt;11 and rstk__iclocitem_icitemsrl__c=null and rstk__iclocitem_locqty__c&gt;0 order by lastmodifiedDate ASC limit 1500</value>
+        </argument>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="resultListName">
+          <value class="value" valueClass="string">rstkRows</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="5" title="For Each: {rstkRows}=&gt;row">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="rstkRows"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">row</value>
+        </argument>
+        <argument id="continueOnFailure"/>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="6">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexCreateObject" name="ApexCreateObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand" testItemId="2" title="Create Object: rstk__sydata__c=&gt;sydataId">
+              <arguments>
+                <argument id="objectType">
+                  <value class="value" valueClass="string">rstk__sydata__c</value>
+                </argument>
+                <argument id="resultIdName">
+                  <value class="value" valueClass="string">sydataId</value>
+                </argument>
+                <argument id="apexConnectionName">
+                  <value class="value" valueClass="string">QARSF_Admin</value>
+                </argument>
+                <argument id="rstk__sydata_txntype__c">
+                  <value class="value" valueClass="string">Loc Scrap</value>
+                </argument>
+                <argument id="assignmentRuleId"/>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Test</value>
+                </argument>
+                <argument id="rstk__sydata_sysite__c">
+                  <value class="variable">
+                    <path element="row"/>
+                    <path element="rstk__iclocitem_site__c"/>
+                  </value>
+                </argument>
+                <argument id="rstk__sydata_icitem__c">
+                  <value class="variable">
+                    <path element="row"/>
+                    <path element="rstk__iclocitem_icitem__c"/>
+                  </value>
+                </argument>
+                <argument id="rstk__sydata_pjproj__c">
+                  <value class="variable">
+                    <path element="row"/>
+                    <path element="rstk__iclocitem_proj__c"/>
+                  </value>
+                </argument>
+                <argument id="rstk__sydata_sylocid__c">
+                  <value class="variable">
+                    <path element="row"/>
+                    <path element="rstk__iclocitem_locid__c"/>
+                  </value>
+                </argument>
+                <argument id="rstk__sydata_locnum__c">
+                  <value class="variable">
+                    <path element="row"/>
+                    <path element="rstk__iclocitem_locnum__c"/>
+                  </value>
+                </argument>
+                <argument id="rstk__sydata_lotno__c">
+                  <value class="variable">
+                    <path element="row"/>
+                    <path element="rstk__iclocitem_locsec__c"/>
+                  </value>
+                </argument>
+                <argument id="rstk__sydata_txnqty__c">
+                  <value class="variable">
+                    <path element="row"/>
+                    <path element="rstk__iclocitem_locqty__c"/>
+                  </value>
+                </argument>
+                <argument id="rstk__sydata_acctgdateovr__c"/>
+                <argument id="rstk__sydata_adjclracct__c"/>
+                <argument id="rstk__sydata_txncomments__c"/>
+                <argument id="rstk__sydata_sydiv__c">
+                  <value class="variable">
+                    <path element="row"/>
+                    <path element="rstk__iclocitem_div__c"/>
+                  </value>
+                </argument>
+                <argument id="rstk__sydata_backgroundprocessing__c">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+              </arguments>
+              <parameterGeneratorProperties>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
+                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.CreateCustomObjectTestStepCommand.CustomObjectName">rstk__sydata__c</propertyValue>
+              </parameterGeneratorProperties>
+              <generatedParameters>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_txntype__c" name="rstk__sydata_txntype__c" title="rstk__sydata_txntype__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_sysite__c" name="rstk__sydata_sysite__c" title="rstk__sydata_sysite__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_icitem__c" name="rstk__sydata_icitem__c" title="rstk__sydata_icitem__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_pjproj__c" name="rstk__sydata_pjproj__c" title="rstk__sydata_pjproj__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_sylocid__c" name="rstk__sydata_sylocid__c" title="rstk__sydata_sylocid__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_locnum__c" name="rstk__sydata_locnum__c" title="rstk__sydata_locnum__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_lotno__c" name="rstk__sydata_lotno__c" title="rstk__sydata_lotno__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_txnqty__c" name="rstk__sydata_txnqty__c" title="rstk__sydata_txnqty__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_acctgdateovr__c" name="rstk__sydata_acctgdateovr__c" title="rstk__sydata_acctgdateovr__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_adjclracct__c" name="rstk__sydata_adjclracct__c" title="rstk__sydata_adjclracct__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_txncomments__c" name="rstk__sydata_txncomments__c" title="rstk__sydata_txncomments__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_sydiv__c" name="rstk__sydata_sydiv__c" title="rstk__sydata_sydiv__c"/>
+                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_backgroundprocessing__c" name="rstk__sydata_backgroundprocessing__c" title="rstk__sydata_backgroundprocessing__c"/>
+              </generatedParameters>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+</testCase>
