@@ -1095,6 +1095,13 @@
               <clauses>
                 <clause name="hidden" testItemId="493">
                   <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" name="Sleep" testItemId="969" title="Sleep for {10} seconds">
+                      <arguments>
+                        <argument id="sleepSecs">
+                          <value class="value" valueClass="decimal">10</value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
                     <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="494" title="Read excel data based on selected environment">
                       <arguments>
                         <argument id="description">
@@ -3735,15 +3742,68 @@
                                                                                         </argument>
                                                                                       </arguments>
                                                                                     </apiCall>
-                                                                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" name="WaitFor" testItemId="956" title="Wait For: {op_inspOrdStatus.rstk__inspord_status__c = &quot;Dispositioned&quot;}=&gt;{3}">
+                                                                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="970" title="Read status of recently created sydata record">
+                                                                                      <tags/>
+                                                                                      <arguments>
+                                                                                        <argument id="soqlQuery">
+                                                                                          <value class="compound">
+                                                                                            <parts>
+                                                                                              <value valueClass="string">select id,rstk__sydata_process__c from rstk__sydata__c\twhere rstk__sydata_inspord__c='</value>
+                                                                                              <variable>
+                                                                                                <path element="op_inspOrdStatus"/>
+                                                                                                <path element="Id"/>
+                                                                                              </variable>
+                                                                                              <value valueClass="string">'</value>
+                                                                                            </parts>
+                                                                                          </value>
+                                                                                        </argument>
+                                                                                        <argument id="apexConnectionName">
+                                                                                          <value class="value" valueClass="string">SFConnection</value>
+                                                                                        </argument>
+                                                                                        <argument id="resultListName">
+                                                                                          <value class="value" valueClass="string">op_sydata</value>
+                                                                                        </argument>
+                                                                                        <argument id="resultScope">
+                                                                                          <value class="value" valueClass="string">Test</value>
+                                                                                        </argument>
+                                                                                      </arguments>
+                                                                                    </apiCall>
+                                                                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.WaitFor" name="WaitFor" testItemId="956" title="Wait For: {op_inspOrdStatus.rstk__inspord_status__c = &quot;Dispositioned&quot; OR op_sydata.rstk__sydata_process__c = &quot;Validation Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Batch Processing Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Processing Failure&quot;}=&gt;{3}">
                                                                                       <arguments>
                                                                                         <argument id="condition">
-                                                                                          <value class="eq">
-                                                                                            <lhs class="variable">
-                                                                                              <path element="op_inspOrdStatus"/>
-                                                                                              <path element="rstk__inspord_status__c"/>
+                                                                                          <value class="or">
+                                                                                            <lhs class="or">
+                                                                                              <lhs class="or">
+                                                                                                <lhs class="eq">
+                                                                                                  <lhs class="variable">
+                                                                                                    <path element="op_inspOrdStatus"/>
+                                                                                                    <path element="rstk__inspord_status__c"/>
+                                                                                                  </lhs>
+                                                                                                  <rhs class="value" valueClass="string">Dispositioned</rhs>
+                                                                                                </lhs>
+                                                                                                <rhs class="eq">
+                                                                                                  <lhs class="variable">
+                                                                                                    <path element="op_sydata"/>
+                                                                                                    <path element="rstk__sydata_process__c"/>
+                                                                                                  </lhs>
+                                                                                                  <rhs class="value" valueClass="string">Validation Failure</rhs>
+                                                                                                </rhs>
+                                                                                              </lhs>
+                                                                                              <rhs class="eq">
+                                                                                                <lhs class="variable">
+                                                                                                  <path element="op_sydata"/>
+                                                                                                  <path element="rstk__sydata_process__c"/>
+                                                                                                </lhs>
+                                                                                                <rhs class="value" valueClass="string">Batch Processing Failure</rhs>
+                                                                                              </rhs>
                                                                                             </lhs>
-                                                                                            <rhs class="value" valueClass="string">Dispositioned</rhs>
+                                                                                            <rhs class="eq">
+                                                                                              <lhs class="variable">
+                                                                                                <path element="op_sydata"/>
+                                                                                                <path element="rstk__sydata_process__c"/>
+                                                                                              </lhs>
+                                                                                              <rhs class="value" valueClass="string">Processing Failure</rhs>
+                                                                                            </rhs>
                                                                                           </value>
                                                                                         </argument>
                                                                                         <argument id="testAtStart">
@@ -3762,6 +3822,32 @@
                                                                                       <clauses>
                                                                                         <clause name="substeps" testItemId="957">
                                                                                           <steps>
+                                                                                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="972" title="Read status of recently created sydata record">
+                                                                                              <tags/>
+                                                                                              <arguments>
+                                                                                                <argument id="soqlQuery">
+                                                                                                  <value class="compound">
+                                                                                                    <parts>
+                                                                                                      <value valueClass="string">select id,rstk__sydata_process__c from rstk__sydata__c\twhere rstk__sydata_inspord__c='</value>
+                                                                                                      <variable>
+                                                                                                        <path element="op_inspOrdStatus"/>
+                                                                                                        <path element="Id"/>
+                                                                                                      </variable>
+                                                                                                      <value valueClass="string">'</value>
+                                                                                                    </parts>
+                                                                                                  </value>
+                                                                                                </argument>
+                                                                                                <argument id="apexConnectionName">
+                                                                                                  <value class="value" valueClass="string">SFConnection</value>
+                                                                                                </argument>
+                                                                                                <argument id="resultListName">
+                                                                                                  <value class="value" valueClass="string">op_sydata</value>
+                                                                                                </argument>
+                                                                                                <argument id="resultScope">
+                                                                                                  <value class="value" valueClass="string">Test</value>
+                                                                                                </argument>
+                                                                                              </arguments>
+                                                                                            </apiCall>
                                                                                             <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" isTitleUpdated="true" name="ApexSoqlQuery" testItemId="958" title="Read Inspection order status">
                                                                                               <arguments>
                                                                                                 <argument id="soqlQuery">
@@ -3787,15 +3873,42 @@
                                                                                                 </argument>
                                                                                               </arguments>
                                                                                             </apiCall>
-                                                                                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="959" title="If: {op_inspOrdStatus.rstk__inspord_status__c = &quot;Disposition Error&quot;}">
+                                                                                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="959" title="If: {op_inspOrdStatus.rstk__inspord_status__c = &quot;Disposition Error&quot; OR op_sydata.rstk__sydata_process__c = &quot;Validation Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Batch Processing Failure&quot; OR op_sydata.rstk__sydata_process__c = &quot;Processing Failure&quot;}">
                                                                                               <arguments>
                                                                                                 <argument id="condition">
-                                                                                                  <value class="eq">
-                                                                                                    <lhs class="variable">
-                                                                                                      <path element="op_inspOrdStatus"/>
-                                                                                                      <path element="rstk__inspord_status__c"/>
+                                                                                                  <value class="or">
+                                                                                                    <lhs class="or">
+                                                                                                      <lhs class="or">
+                                                                                                        <lhs class="eq">
+                                                                                                          <lhs class="variable">
+                                                                                                            <path element="op_inspOrdStatus"/>
+                                                                                                            <path element="rstk__inspord_status__c"/>
+                                                                                                          </lhs>
+                                                                                                          <rhs class="value" valueClass="string">Disposition Error</rhs>
+                                                                                                        </lhs>
+                                                                                                        <rhs class="eq">
+                                                                                                          <lhs class="variable">
+                                                                                                            <path element="op_sydata"/>
+                                                                                                            <path element="rstk__sydata_process__c"/>
+                                                                                                          </lhs>
+                                                                                                          <rhs class="value" valueClass="string">Validation Failure</rhs>
+                                                                                                        </rhs>
+                                                                                                      </lhs>
+                                                                                                      <rhs class="eq">
+                                                                                                        <lhs class="variable">
+                                                                                                          <path element="op_sydata"/>
+                                                                                                          <path element="rstk__sydata_process__c"/>
+                                                                                                        </lhs>
+                                                                                                        <rhs class="value" valueClass="string">Batch Processing Failure</rhs>
+                                                                                                      </rhs>
                                                                                                     </lhs>
-                                                                                                    <rhs class="value" valueClass="string">Disposition Error</rhs>
+                                                                                                    <rhs class="eq">
+                                                                                                      <lhs class="variable">
+                                                                                                        <path element="op_sydata"/>
+                                                                                                        <path element="rstk__sydata_process__c"/>
+                                                                                                      </lhs>
+                                                                                                      <rhs class="value" valueClass="string">Processing Failure</rhs>
+                                                                                                    </rhs>
                                                                                                   </value>
                                                                                                 </argument>
                                                                                               </arguments>

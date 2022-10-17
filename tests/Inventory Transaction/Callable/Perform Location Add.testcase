@@ -2300,7 +2300,9 @@
                   <value class="value" valueClass="string">Click the Add Items To Inventory button</value>
                 </argument>
                 <argument id="beforeWait"/>
-                <argument id="afterWait"/>
+                <argument id="afterWait">
+                  <value class="uiWait" uri="ui:wait:alert:timeout=60"/>
+                </argument>
                 <argument id="autoRetry"/>
                 <argument id="captureBefore">
                   <value class="value" valueClass="string">false</value>
