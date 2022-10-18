@@ -570,6 +570,16 @@
         </clause>
       </clauses>
     </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="88" title="End">
+      <arguments>
+        <argument id="description">
+          <value class="value" valueClass="string">End</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="hidden" testItemId="89"/>
+      </clauses>
+    </apiCall>
   </steps>
   <params>
     <param linkedToUrl="provar:hasvalue:31f7d4fa-63c0-4fc6-943b-8da8bfa139bd" name="reuseConnectionName" title="reuseConnectionName">
