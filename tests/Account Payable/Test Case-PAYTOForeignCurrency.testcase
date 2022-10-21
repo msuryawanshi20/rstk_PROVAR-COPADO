@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="45">
+<testCase id="44">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -96,7 +96,7 @@
                     <workbookPath class="variable">
                       <path element="FinExcel"/>
                     </workbookPath>
-                    <worksheetName class="value" valueClass="string">PAYTO</worksheetName>
+                    <worksheetName class="value" valueClass="string">PAYTO_ForeignCurr</worksheetName>
                     <valuesRange class="value"/>
                   </sourceValue>
                 </parameterValueSource>

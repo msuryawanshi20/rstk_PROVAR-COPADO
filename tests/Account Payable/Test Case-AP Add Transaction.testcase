@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="11">
+<testCase id="6">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -162,7 +162,9 @@
         <argument id="valueName">
           <value class="value" valueClass="string">apatodata</value>
         </argument>
-        <argument id="continueOnFailure"/>
+        <argument id="continueOnFailure">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
       </arguments>
       <clauses>
         <clause name="substeps" testItemId="58">
@@ -212,222 +214,53 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="64" title="SOQL Query: SELECT count() FROM rstkf__gltxn__c where rstkf__gltxn_apinvtxn__c = '{txnid}'=&gt;glcount">
-              <tags/>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="94" title="Verify GL Transaction">
               <arguments>
-                <argument argId="fb44ef2b-0676-46e8-b17c-97e564e7ba9b" id="soqlQuery">
-                  <value class="compound">
-                    <parts>
-                      <value valueClass="string">SELECT count() FROM rstkf__gltxn__c where rstkf__gltxn_apinvtxn__c = '</value>
-                      <variable>
-                        <path element="txnid"/>
-                      </variable>
-                      <value valueClass="string">'</value>
-                    </parts>
-                  </value>
-                </argument>
-                <argument id="apexConnectionName">
-                  <value class="value" valueClass="string">SFConnection</value>
-                </argument>
-                <argument id="resultListName">
-                  <value class="value" valueClass="string">glcount</value>
-                </argument>
-                <argument id="resultScope">
-                  <value class="value" valueClass="string">Test</value>
-                </argument>
-              </arguments>
-            </apiCall>
-            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="59" title="If: {apatodata.LoadPosted}">
-              <arguments>
-                <argument id="condition">
-                  <value class="variable">
-                    <path element="apatodata"/>
-                    <path element="LoadPosted"/>
-                  </value>
+                <argument id="description">
+                  <value class="value" valueClass="string">Verify GL Transaction</value>
                 </argument>
               </arguments>
               <clauses>
-                <clause name="then" testItemId="60">
+                <clause name="hidden" testItemId="95">
                   <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="70" title="Assert: 0 EqualTo {glcount}">
+                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="64" title="SOQL Query: SELECT count() FROM rstkf__gltxn__c where rstkf__gltxn_apinvtxn__c = '{txnid}'=&gt;glcount">
+                      <tags/>
                       <arguments>
-                        <argument id="expectedValue">
-                          <value class="value" valueClass="string">0</value>
-                        </argument>
-                        <argument id="actualValue">
-                          <value class="variable">
-                            <path element="glcount"/>
+                        <argument argId="fb44ef2b-0676-46e8-b17c-97e564e7ba9b" id="soqlQuery">
+                          <value class="compound">
+                            <parts>
+                              <value valueClass="string">SELECT count() FROM rstkf__gltxn__c where rstkf__gltxn_apinvtxn__c = '</value>
+                              <variable>
+                                <path element="txnid"/>
+                              </variable>
+                              <value valueClass="string">'</value>
+                            </parts>
                           </value>
                         </argument>
-                        <argument id="comparisonType">
-                          <value class="value" valueClass="string">EqualTo</value>
+                        <argument id="apexConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
                         </argument>
-                        <argument id="caseSensitive">
-                          <value class="value" valueClass="boolean">true</value>
+                        <argument id="resultListName">
+                          <value class="value" valueClass="string">glcount</value>
                         </argument>
-                        <argument id="numeric">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="retainDecimals">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="nullGreater">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="matchMultiLine">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="matchDotAll">
-                          <value class="value" valueClass="boolean">false</value>
-                        </argument>
-                        <argument id="failureMessage">
-                          <value class="value" valueClass="string">GL Transaction Created</value>
+                        <argument id="resultScope">
+                          <value class="value" valueClass="string">Test</value>
                         </argument>
                       </arguments>
                     </apiCall>
-                  </steps>
-                </clause>
-                <clause name="else" testItemId="67">
-                  <steps>
-                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="82" title="If: {apatodata.PostPayTrans}">
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="113" title="If: {apatodata.LoadPosted}">
                       <arguments>
                         <argument id="condition">
                           <value class="variable">
                             <path element="apatodata"/>
-                            <path element="PostPayTrans"/>
+                            <path element="LoadPosted"/>
                           </value>
                         </argument>
                       </arguments>
                       <clauses>
-                        <clause name="then" testItemId="83">
+                        <clause name="then" testItemId="114">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="87" title="Assert: 2 LessThanOrEqualTo {glcount}">
-                              <tags>
-                                <string>disabled</string>
-                              </tags>
-                              <arguments>
-                                <argument id="expectedValue">
-                                  <value class="value" valueClass="string">2</value>
-                                </argument>
-                                <argument id="actualValue">
-                                  <value class="variable">
-                                    <path element="glcount"/>
-                                  </value>
-                                </argument>
-                                <argument id="comparisonType">
-                                  <value class="value" valueClass="string">LessThanOrEqualTo</value>
-                                </argument>
-                                <argument id="caseSensitive">
-                                  <value class="value" valueClass="boolean">true</value>
-                                </argument>
-                                <argument id="numeric">
-                                  <value class="value" valueClass="boolean">false</value>
-                                </argument>
-                                <argument id="retainDecimals">
-                                  <value class="value" valueClass="boolean">false</value>
-                                </argument>
-                                <argument id="nullGreater">
-                                  <value class="value" valueClass="boolean">false</value>
-                                </argument>
-                                <argument id="matchMultiLine">
-                                  <value class="value" valueClass="boolean">false</value>
-                                </argument>
-                                <argument id="matchDotAll">
-                                  <value class="value" valueClass="boolean">false</value>
-                                </argument>
-                                <argument id="failureMessage">
-                                  <value class="value" valueClass="string">GL Transaction Created</value>
-                                </argument>
-                              </arguments>
-                            </apiCall>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="91" title="SOQL Query: SELECT Id,rstkf__gltxn_apinvtxn_homeamt__c,rstkf__gltxn_cramt__c,rstkf__gltxn_dramt__c FROM rstkf__gltxn__c where rstkf__gltxn_apinvtxn__c = '{txnid}'=&gt;gltxnrecord">
-                              <tags/>
-                              <arguments>
-                                <argument argId="fb44ef2b-0676-46e8-b17c-97e564e7ba9b" id="soqlQuery">
-                                  <value class="compound">
-                                    <parts>
-                                      <value valueClass="string">SELECT Id,rstkf__gltxn_apinvtxn_homeamt__c,rstkf__gltxn_cramt__c,rstkf__gltxn_dramt__c FROM rstkf__gltxn__c where rstkf__gltxn_apinvtxn__c = '</value>
-                                      <variable>
-                                        <path element="txnid"/>
-                                      </variable>
-                                      <value valueClass="string">'</value>
-                                    </parts>
-                                  </value>
-                                </argument>
-                                <argument id="apexConnectionName">
-                                  <value class="value" valueClass="string">SFConnection</value>
-                                </argument>
-                                <argument id="resultListName">
-                                  <value class="value" valueClass="string">gltxnrecord</value>
-                                </argument>
-                                <argument id="resultScope">
-                                  <value class="value" valueClass="string">Test</value>
-                                </argument>
-                              </arguments>
-                            </apiCall>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="92" title="For Each: {gltxnrecord}=&gt;gltxndata">
-                              <arguments>
-                                <argument id="list">
-                                  <value class="variable">
-                                    <path element="gltxnrecord"/>
-                                  </value>
-                                </argument>
-                                <argument id="fromItem">
-                                  <value class="value" valueClass="decimal">1</value>
-                                </argument>
-                                <argument id="valueName">
-                                  <value class="value" valueClass="string">gltxndata</value>
-                                </argument>
-                                <argument id="continueOnFailure"/>
-                              </arguments>
-                              <clauses>
-                                <clause name="substeps" testItemId="93">
-                                  <steps>
-                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="90" title="Read Object: rstkf__gltxn__c = {gltxndata.Id}">
-                                      <arguments>
-                                        <argument id="objectType">
-                                          <value class="value" valueClass="string">rstkf__gltxn__c</value>
-                                        </argument>
-                                        <argument id="resultName">
-                                          <value class="value" valueClass="string">rstkfRead</value>
-                                        </argument>
-                                        <argument id="apexConnectionName">
-                                          <value class="value" valueClass="string">SFConnection</value>
-                                        </argument>
-                                        <argument id="objectId">
-                                          <value class="variable">
-                                            <path element="gltxndata"/>
-                                            <path element="Id"/>
-                                          </value>
-                                        </argument>
-                                        <argument id="resultScope">
-                                          <value class="value" valueClass="string">Test</value>
-                                        </argument>
-                                      </arguments>
-                                      <resultAssertions>
-                                        <resultAssertion resultName="rstkf__gltxn_apinvtxn__c" title="Check rstkf__gltxn_apinvtxn__c">
-                                          <expected class="variable">
-                                            <path element="txnid"/>
-                                          </expected>
-                                        </resultAssertion>
-                                      </resultAssertions>
-                                      <parameterGeneratorProperties>
-                                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
-                                        <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">rstkf__gltxn__c</propertyValue>
-                                      </parameterGeneratorProperties>
-                                      <generatedParameters>
-                                        <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__gltxn__c&amp;field=rstkf__gltxn_apinvtxn__c" name="rstkf__gltxn_apinvtxn__c" title="Payable Session Transaction"/>
-                                      </generatedParameters>
-                                    </apiCall>
-                                  </steps>
-                                </clause>
-                              </clauses>
-                            </apiCall>
-                          </steps>
-                        </clause>
-                        <clause name="else" testItemId="85">
-                          <steps>
-                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="88" title="Assert: 0 EqualTo {glcount}">
+                            <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="115" title="Assert: 0 EqualTo {glcount}">
                               <arguments>
                                 <argument id="expectedValue">
                                   <value class="value" valueClass="string">0</value>
@@ -462,6 +295,188 @@
                                   <value class="value" valueClass="string">GL Transaction Created</value>
                                 </argument>
                               </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                        <clause name="else" testItemId="116">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="117" title="If: {apatodata.PostPayTrans}">
+                              <arguments>
+                                <argument id="condition">
+                                  <value class="variable">
+                                    <path element="apatodata"/>
+                                    <path element="PostPayTrans"/>
+                                  </value>
+                                </argument>
+                              </arguments>
+                              <clauses>
+                                <clause name="then" testItemId="118">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="119" title="Assert: 2 LessThanOrEqualTo {glcount}">
+                                      <tags>
+                                        <string>disabled</string>
+                                      </tags>
+                                      <arguments>
+                                        <argument id="expectedValue">
+                                          <value class="value" valueClass="string">2</value>
+                                        </argument>
+                                        <argument id="actualValue">
+                                          <value class="variable">
+                                            <path element="glcount"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="comparisonType">
+                                          <value class="value" valueClass="string">LessThanOrEqualTo</value>
+                                        </argument>
+                                        <argument id="caseSensitive">
+                                          <value class="value" valueClass="boolean">true</value>
+                                        </argument>
+                                        <argument id="numeric">
+                                          <value class="value" valueClass="boolean">false</value>
+                                        </argument>
+                                        <argument id="retainDecimals">
+                                          <value class="value" valueClass="boolean">false</value>
+                                        </argument>
+                                        <argument id="nullGreater">
+                                          <value class="value" valueClass="boolean">false</value>
+                                        </argument>
+                                        <argument id="matchMultiLine">
+                                          <value class="value" valueClass="boolean">false</value>
+                                        </argument>
+                                        <argument id="matchDotAll">
+                                          <value class="value" valueClass="boolean">false</value>
+                                        </argument>
+                                        <argument id="failureMessage">
+                                          <value class="value" valueClass="string">GL Transaction Created</value>
+                                        </argument>
+                                      </arguments>
+                                    </apiCall>
+                                    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="120" title="SOQL Query: SELECT Id,rstkf__gltxn_apinvtxn_homeamt__c,rstkf__gltxn_cramt__c,rstkf__gltxn_dramt__c FROM rstkf__gltxn__c where rstkf__gltxn_apinvtxn__c = '{txnid}'=&gt;gltxnrecord">
+                                      <tags/>
+                                      <arguments>
+                                        <argument argId="fb44ef2b-0676-46e8-b17c-97e564e7ba9b" id="soqlQuery">
+                                          <value class="compound">
+                                            <parts>
+                                              <value valueClass="string">SELECT Id,rstkf__gltxn_apinvtxn_homeamt__c,rstkf__gltxn_cramt__c,rstkf__gltxn_dramt__c FROM rstkf__gltxn__c where rstkf__gltxn_apinvtxn__c = '</value>
+                                              <variable>
+                                                <path element="txnid"/>
+                                              </variable>
+                                              <value valueClass="string">'</value>
+                                            </parts>
+                                          </value>
+                                        </argument>
+                                        <argument id="apexConnectionName">
+                                          <value class="value" valueClass="string">SFConnection</value>
+                                        </argument>
+                                        <argument id="resultListName">
+                                          <value class="value" valueClass="string">gltxnrecord</value>
+                                        </argument>
+                                        <argument id="resultScope">
+                                          <value class="value" valueClass="string">Test</value>
+                                        </argument>
+                                      </arguments>
+                                    </apiCall>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="121" title="For Each: {gltxnrecord}=&gt;gltxndata">
+                                      <arguments>
+                                        <argument id="list">
+                                          <value class="variable">
+                                            <path element="gltxnrecord"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="fromItem">
+                                          <value class="value" valueClass="decimal">1</value>
+                                        </argument>
+                                        <argument id="valueName">
+                                          <value class="value" valueClass="string">gltxndata</value>
+                                        </argument>
+                                        <argument id="continueOnFailure"/>
+                                      </arguments>
+                                      <clauses>
+                                        <clause name="substeps" testItemId="122">
+                                          <steps>
+                                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexReadObject" name="ApexReadObject" parameterGeneratorUri="command:com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand" testItemId="123" title="Read Object: rstkf__gltxn__c = {gltxndata.Id}">
+                                              <arguments>
+                                                <argument id="objectType">
+                                                  <value class="value" valueClass="string">rstkf__gltxn__c</value>
+                                                </argument>
+                                                <argument id="resultName">
+                                                  <value class="value" valueClass="string">rstkfRead</value>
+                                                </argument>
+                                                <argument id="apexConnectionName">
+                                                  <value class="value" valueClass="string">SFConnection</value>
+                                                </argument>
+                                                <argument id="objectId">
+                                                  <value class="variable">
+                                                    <path element="gltxndata"/>
+                                                    <path element="Id"/>
+                                                  </value>
+                                                </argument>
+                                                <argument id="resultScope">
+                                                  <value class="value" valueClass="string">Test</value>
+                                                </argument>
+                                              </arguments>
+                                              <resultAssertions>
+                                                <resultAssertion resultName="rstkf__gltxn_apinvtxn__c" title="Check rstkf__gltxn_apinvtxn__c">
+                                                  <expected class="variable">
+                                                    <path element="txnid"/>
+                                                  </expected>
+                                                </resultAssertion>
+                                              </resultAssertions>
+                                              <parameterGeneratorProperties>
+                                                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.ConnectionName">QARSF_Admin</propertyValue>
+                                                <propertyValue name="com.provar.plugins.forcedotcom.ui.commands.ReadCustomObjectTestStepCommand.CustomObjectName">rstkf__gltxn__c</propertyValue>
+                                              </parameterGeneratorProperties>
+                                              <generatedParameters>
+                                                <apiParam group="fields" modelBinding="sf:ui:binding:object?object=rstkf__gltxn__c&amp;field=rstkf__gltxn_apinvtxn__c" name="rstkf__gltxn_apinvtxn__c" title="Payable Session Transaction"/>
+                                              </generatedParameters>
+                                            </apiCall>
+                                          </steps>
+                                        </clause>
+                                      </clauses>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                                <clause name="else" testItemId="124">
+                                  <steps>
+                                    <apiCall apiId="com.provar.plugins.bundled.apis.AssertValues" name="AssertValues" testItemId="125" title="Assert: 0 EqualTo {glcount}">
+                                      <arguments>
+                                        <argument id="expectedValue">
+                                          <value class="value" valueClass="string">0</value>
+                                        </argument>
+                                        <argument id="actualValue">
+                                          <value class="variable">
+                                            <path element="glcount"/>
+                                          </value>
+                                        </argument>
+                                        <argument id="comparisonType">
+                                          <value class="value" valueClass="string">EqualTo</value>
+                                        </argument>
+                                        <argument id="caseSensitive">
+                                          <value class="value" valueClass="boolean">true</value>
+                                        </argument>
+                                        <argument id="numeric">
+                                          <value class="value" valueClass="boolean">false</value>
+                                        </argument>
+                                        <argument id="retainDecimals">
+                                          <value class="value" valueClass="boolean">false</value>
+                                        </argument>
+                                        <argument id="nullGreater">
+                                          <value class="value" valueClass="boolean">false</value>
+                                        </argument>
+                                        <argument id="matchMultiLine">
+                                          <value class="value" valueClass="boolean">false</value>
+                                        </argument>
+                                        <argument id="matchDotAll">
+                                          <value class="value" valueClass="boolean">false</value>
+                                        </argument>
+                                        <argument id="failureMessage">
+                                          <value class="value" valueClass="string">GL Transaction Created</value>
+                                        </argument>
+                                      </arguments>
+                                    </apiCall>
+                                  </steps>
+                                </clause>
+                              </clauses>
                             </apiCall>
                           </steps>
                         </clause>

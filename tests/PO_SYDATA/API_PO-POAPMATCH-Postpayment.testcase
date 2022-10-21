@@ -76,6 +76,9 @@
                 <outputArgument id="FinExcel">
                   <name class="value" valueClass="string">FinExcel</name>
                 </outputArgument>
+                <outputArgument id="reqpaypath">
+                  <name class="value" valueClass="string">reqpaypath</name>
+                </outputArgument>
               </outputArguments>
             </caseCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="54" title="Read Data for Close PO AP Batch">
@@ -829,6 +832,13 @@
                     <path element="POData"/>
                     <path element="BankAccount"/>
                   </value>
+                </argument>
+                <argument id="Paytype">
+                  <value class="value" valueClass="string">Check</value>
+                </argument>
+                <argument id="VC_TXN"/>
+                <argument id="TransType">
+                  <value class="value" valueClass="string">Payment</value>
                 </argument>
               </arguments>
             </caseCall>
