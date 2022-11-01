@@ -303,6 +303,11 @@
                     <path element="DivisionID"/>
                   </value>
                 </argument>
+                <argument id="OrdNum">
+                  <value class="variable">
+                    <path element="POOrderNum"/>
+                  </value>
+                </argument>
               </arguments>
             </caseCall>
             <caseCall testCaseId="29846612-c501-4e3b-863b-1cd4c090c96b" testCasePath="tests/Purchase Order/Callable/POReceiptVerification.testcase" testItemId="58">
