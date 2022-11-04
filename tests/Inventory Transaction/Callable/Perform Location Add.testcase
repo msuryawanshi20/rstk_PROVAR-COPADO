@@ -657,7 +657,7 @@
                         </argument>
                       </arguments>
                       <generatedParameters>
-                        <apiParam group="value" name="value" seq="10000" title="Value">
+                        <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                           <summary>The value to be populated.</summary>
                           <type>
                             <choiceType/>
@@ -841,10 +841,12 @@
                                               <namedValue name="value">
                                                 <value class="compound">
                                                   <parts>
-                                                    <value valueClass="string">P-</value>
+                                                    <variable>
+                                                      <path element="ip_serialNumberPrefix"/>
+                                                    </variable>
                                                     <funcCall id="UniqueId">
                                                       <argument id="length">
-                                                        <value class="value" valueClass="decimal">7</value>
+                                                        <value class="value" valueClass="decimal">8</value>
                                                       </argument>
                                                     </funcCall>
                                                   </parts>
@@ -926,10 +928,13 @@
                                                             <variable>
                                                               <path element="op_Serials"/>
                                                             </variable>
-                                                            <value valueClass="string">,P-</value>
+                                                            <value valueClass="string">,</value>
+                                                            <variable>
+                                                              <path element="ip_serialNumberPrefix"/>
+                                                            </variable>
                                                             <funcCall id="UniqueId">
                                                               <argument id="length">
-                                                                <value class="value" valueClass="decimal">7</value>
+                                                                <value class="value" valueClass="decimal">8</value>
                                                               </argument>
                                                             </funcCall>
                                                           </parts>
@@ -2662,6 +2667,17 @@
         </textType>
       </type>
     </param>
+    <param name="ip_serialNumberPrefix" title="Serial Number Prefix">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+          </constraints>
+        </textType>
+      </type>
+    </param>
   </params>
   <outputParams>
     <param defaultScope="Test" name="op_SerialCount" title="Total Serial Count">
@@ -2783,6 +2799,9 @@
     </argument>
     <argument id="ip_LocNo">
       <value class="value" valueClass="string">123</value>
+    </argument>
+    <argument id="ip_serialNumberPrefix">
+      <value class="value" valueClass="string">P-</value>
     </argument>
   </args>
   <outputArgs>

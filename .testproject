@@ -30,6 +30,9 @@
     <environment name="DEVQAFF">
       <summary/>
     </environment>
+    <environment name="PDE3">
+      <summary/>
+    </environment>
   </environments>
   <variables>
     <testVariable name="_chromeOptions">
@@ -61,6 +64,7 @@
             <connectionUrl envName="DEVQAFF_LUI" secureStorageNodeId="e80731bf-e4d8-4890-9b7c-90b2d753374d" url="sf:environment=PRERELEASE;apiLoginUrl=https://rstk-dev-qa-ff.my.salesforce.com;identityServiceUrl=https://login.salesforce.com/id/00Dd0000000fRHIEA2/0056T000008ZV22QAG;clientId={clientId};clientSecret={clientSecret};lightningMode=true;authenticationType=OAUTH;callbackUrl={callbackUrl};accessToken={accessToken};refreshToken={refreshToken}"/>
             <connectionUrl envName="DEVQAFF" secureStorageNodeId="b1f9ece9-3af9-4ca1-82ec-32437d7b6d92" url="sf:user=achoudhary@rootstock.com.dev-qa-ff;password={password};securityToken={securityToken};environment=PRERELEASE"/>
             <connectionUrl envName="PDE5" secureStorageNodeId="03d6ef83-22bf-4b92-a0ea-0ee396e23e2f" url="sf:user=msuryawanshi@rootstock.com.pde5;password={password};securityToken={securityToken};environment=PROD_DEV;nsPrefixOverride=-rstk"/>
+            <connectionUrl envName="PDE3" secureStorageNodeId="b0193096-be22-4b46-b201-725a98ae8980" url="sf:user=msuryawanshi@rootstock.com.pde3;password={password};securityToken={securityToken};environment=PROD_DEV"/>
           </connectionUrls>
         </connection>
       </connections>
