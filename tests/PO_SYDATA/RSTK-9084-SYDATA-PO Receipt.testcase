@@ -394,6 +394,11 @@
                     <path element="DivisionID"/>
                   </value>
                 </argument>
+                <argument id="OrdNum">
+                  <value class="variable">
+                    <path element="POOrderNum"/>
+                  </value>
+                </argument>
               </arguments>
             </caseCall>
             <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" name="StepGroup" testItemId="82" title="Fetch Quantity on Hand After Receipt">

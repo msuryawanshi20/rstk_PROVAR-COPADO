@@ -299,6 +299,11 @@
                     <path element="DivisionID"/>
                   </value>
                 </argument>
+                <argument id="OrdNum">
+                  <value class="variable">
+                    <path element="POOrderNum"/>
+                  </value>
+                </argument>
               </arguments>
             </caseCall>
             <caseCall testCaseId="f8653311-2e1f-445e-9169-7875a02298e9" testCasePath="tests/PO_SYDATA/Callable/SYDATAPOClose.testcase" testItemId="245">

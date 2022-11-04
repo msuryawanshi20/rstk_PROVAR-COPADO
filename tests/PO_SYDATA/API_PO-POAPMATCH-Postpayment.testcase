@@ -31,7 +31,7 @@
           <value class="value" valueClass="boolean">true</value>
         </argument>
         <argument id="autoCleanup">
-          <value class="value" valueClass="boolean">true</value>
+          <value class="value" valueClass="boolean">false</value>
         </argument>
         <argument id="cleanupConnectionName"/>
         <argument id="logFileLocation"/>
@@ -459,6 +459,11 @@
                 <argument id="Division">
                   <value class="variable">
                     <path element="DivisionID"/>
+                  </value>
+                </argument>
+                <argument id="OrdNum">
+                  <value class="variable">
+                    <path element="POOrderNum"/>
                   </value>
                 </argument>
               </arguments>

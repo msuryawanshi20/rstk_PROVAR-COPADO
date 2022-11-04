@@ -251,38 +251,29 @@
                   <value class="compound">
                     <parts>
                       <value valueClass="string">NP_</value>
-                      <funcCall id="UniqueId">
-                        <argument id="length">
-                          <value class="value" valueClass="decimal">2</value>
-                        </argument>
-                      </funcCall>
-                      <value valueClass="decimal">26</value>
+                      <variable>
+                        <path element="OrdNum"/>
+                      </variable>
                     </parts>
                   </value>
                 </argument>
-                <argument id="rstk__sydata_srlnos__c">
+                <argument argId="4a99456a-b598-482c-a948-41556a5264af" id="rstk__sydata_srlnos__c">
                   <value class="compound">
                     <parts>
                       <value valueClass="string">NP#</value>
-                      <funcCall id="UniqueId">
-                        <argument id="length">
-                          <value class="value" valueClass="decimal">2</value>
-                        </argument>
-                      </funcCall>
-                      <value valueClass="decimal">26</value>
+                      <variable>
+                        <path element="OrdNum"/>
+                      </variable>
                     </parts>
                   </value>
                 </argument>
                 <argument id="rstk__sydata_lotno__c">
                   <value class="compound">
                     <parts>
-                      <value valueClass="string">NP#LotUn</value>
-                      <funcCall id="UniqueId">
-                        <argument id="length">
-                          <value class="value" valueClass="decimal">1</value>
-                        </argument>
-                      </funcCall>
-                      <value valueClass="decimal">26</value>
+                      <value valueClass="string">NP#Lot</value>
+                      <variable>
+                        <path element="OrdNum"/>
+                      </variable>
                     </parts>
                   </value>
                 </argument>
@@ -470,6 +461,18 @@
     <param linkedToUrl="provar:hasvalue:8e7f06f5-03b5-4dc9-bc7c-28f26008a460" modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_sydiv__c" name="Division" title="Division">
       <summary/>
     </param>
+    <param modelBinding="sf:ui:binding:object?object=rstk__sydata__c&amp;field=rstk__sydata_srlnos__c" name="OrdNum" title="OrdNum">
+      <summary/>
+      <type>
+        <textType>
+          <constraints>
+            <valueConstraint name="minLength">0</valueConstraint>
+            <valueConstraint name="maxLength">9999</valueConstraint>
+            <valueConstraint name="regex"/>
+          </constraints>
+        </textType>
+      </type>
+    </param>
   </params>
   <args>
     <argument id="POlineId">
@@ -499,5 +502,6 @@
         <path element="Division"/>
       </value>
     </argument>
+    <argument id="OrdNum"/>
   </args>
 </testCase>

@@ -425,7 +425,7 @@
                 </argument>
               </arguments>
             </apiCall>
-            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="3" title="SOQL Query: select Id,Name,rstkf__apinvtxn_docno__c,rstkf__apinvtxn_apinvh__c,rstkf__apinvtxn_trantype__c,\trstkf__apinvtxn_dimvals__c,rstkf__apinvtxn_homeamt__c,rstkf__apinvtxn_maintamt__c from rstkf__apinvtxn__c where rstkf__apinvtxn_docno__c = '{soqlapato.rstkf__apato_docno__c}' Limit 1=&gt;apinvtxn">
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="3" title="SOQL Query: select Id,Name,rstkf__apinvtxn_docno__c,rstkf__apinvtxn_apinvh__c,rstkf__apinvtxn_trantype__c,\trstkf__apinvtxn_dimvals__c,rstkf__apinvtxn_homeamt__c,rstkf__apinvtxn_maintamt__c from rstkf__apinvtxn__c where rstkf__apinvtxn_docno__c = '{soqlapato.rstkf__apato_docno__c}' Order By CreatedDate DESC  Limit 1=&gt;apinvtxn">
               <arguments>
                 <argument id="soqlQuery">
                   <value class="compound">
@@ -435,7 +435,7 @@
                         <path element="soqlapato"/>
                         <path element="rstkf__apato_docno__c"/>
                       </variable>
-                      <value valueClass="string">' Limit 1</value>
+                      <value valueClass="string">' Order By CreatedDate DESC  Limit 1</value>
                     </parts>
                   </value>
                 </argument>
@@ -741,9 +741,7 @@
                                 <argument id="counterStart">
                                   <value class="value" valueClass="decimal">1</value>
                                 </argument>
-                                <argument id="counterEnd">
-                                  <value class="value" valueClass="decimal">5</value>
-                                </argument>
+                                <argument id="counterEnd"/>
                                 <argument id="continueOnFailure"/>
                               </arguments>
                               <clauses>
@@ -829,7 +827,7 @@
                       <clauses>
                         <clause name="hidden" testItemId="128">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="129" title="SOQL Query: SELECT rstkf__apinvtxn_homeamt__c,rstkf__apinvtxn_maintamt__c,rstkf__apinvtxn_status__c FROM rstkf__apinvtxn__c where rstkf__apinvtxn_docno__c = '{soqlapato.rstkf__apato_docno__c}' Limit 1=&gt;apinvtxn">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="129" title="SOQL Query: SELECT rstkf__apinvtxn_homeamt__c,rstkf__apinvtxn_maintamt__c,rstkf__apinvtxn_status__c FROM rstkf__apinvtxn__c where rstkf__apinvtxn_docno__c = '{soqlapato.rstkf__apato_docno__c}' Order By CreatedDate Desc Limit 1=&gt;apinvtxn">
                               <arguments>
                                 <argument id="soqlQuery">
                                   <value class="compound">
@@ -839,7 +837,7 @@
                                         <path element="soqlapato"/>
                                         <path element="rstkf__apato_docno__c"/>
                                       </variable>
-                                      <value valueClass="string">' Limit 1</value>
+                                      <value valueClass="string">' Order By CreatedDate Desc Limit 1</value>
                                     </parts>
                                   </value>
                                 </argument>
@@ -1153,7 +1151,7 @@
                       <clauses>
                         <clause name="hidden" testItemId="144">
                           <steps>
-                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="145" title="SOQL Query: SELECT rstkf__apinvtxn_homeamt__c,rstkf__apinvtxn_maintamt__c,rstkf__apinvtxn_status__c FROM rstkf__apinvtxn__c where rstkf__apinvtxn_docno__c = '{soqlapato.rstkf__apato_docno__c}' Limit 1=&gt;apinvtxn">
+                            <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="145" title="SOQL Query: SELECT rstkf__apinvtxn_homeamt__c,rstkf__apinvtxn_maintamt__c,rstkf__apinvtxn_status__c FROM rstkf__apinvtxn__c where rstkf__apinvtxn_docno__c = '{soqlapato.rstkf__apato_docno__c}'  Order By CreatedDate Desc Limit 1=&gt;apinvtxn">
                               <arguments>
                                 <argument id="soqlQuery">
                                   <value class="compound">
@@ -1163,7 +1161,7 @@
                                         <path element="soqlapato"/>
                                         <path element="rstkf__apato_docno__c"/>
                                       </variable>
-                                      <value valueClass="string">' Limit 1</value>
+                                      <value valueClass="string">'  Order By CreatedDate Desc Limit 1</value>
                                     </parts>
                                   </value>
                                 </argument>
