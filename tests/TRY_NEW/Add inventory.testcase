@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase failureBehaviour="Continue" id="0">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName">
+          <value class="value" valueClass="string">rstk__Force_com</value>
+        </argument>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">false</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation"/>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiWithScreen" name="UiWithScreen" testItemId="929" title="On SF rstk__Stocklocadd page with pageobject Rstk__ Stocklocadd">
+      <arguments>
+        <argument id="uiConnectionName">
+          <value class="value" valueClass="string">SFConnection</value>
+        </argument>
+        <argument id="target">
+          <value class="uiTarget" uri="sf:ui:target?pageObject=pageobjects.rstk__Stocklocadd&amp;page=rstk__Stocklocadd"/>
+        </argument>
+        <argument id="navigate">
+          <value class="value" valueClass="string">Always</value>
+        </argument>
+        <argument id="targetDescription">
+          <value class="value" valueClass="string">On SF rstk__Stocklocadd page with pageobject Rstk__ Stocklocadd</value>
+        </argument>
+        <argument id="windowSelection">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="windowSize">
+          <value class="value" valueClass="string">Default</value>
+        </argument>
+        <argument id="closeWindow"/>
+        <argument id="captureBefore">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="captureAfter">
+          <value class="value" valueClass="string">false</value>
+        </argument>
+        <argument id="sfUiTargetVfIndex">
+          <value class="value" valueClass="string">1</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="913">
+          <steps>
+            <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiAssert" isTitleUpdated="true" name="UiAssert" testItemId="914" title="Read Inventory Division name">
+              <arguments>
+                <argument id="resultName">
+                  <value class="value" valueClass="string">op_currentInventoryDivision</value>
+                </argument>
+                <argument id="resultScope">
+                  <value class="value" valueClass="string">Global</value>
+                </argument>
+                <argument id="fieldAssertions">
+                  <value class="valueList" mutable="Mutable">
+                    <uiFieldAssertion resultName="division">
+                      <fieldLocator uri="ui:locator?name=division"/>
+                      <attributeAssertions>
+                        <uiAttributeAssertion attributeName="value" comparisonType="None"/>
+                      </attributeAssertions>
+                    </uiFieldAssertion>
+                  </value>
+                </argument>
+                <argument id="captureAfter">
+                  <value class="value" valueClass="string">false</value>
+                </argument>
+                <argument id="columnAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="pageAssertions">
+                  <value class="valueList" mutable="Mutable"/>
+                </argument>
+                <argument id="beforeWait"/>
+                <argument id="autoRetry"/>
+              </arguments>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="915" title="Set Values: op_currentInventoryDivision">
+              <arguments>
+                <argument id="values">
+                  <value class="valueList" mutable="Mutable">
+                    <namedValues mutable="Mutable">
+                      <namedValue name="valuePath">
+                        <value class="value" valueClass="string">op_currentInventoryDivision</value>
+                      </namedValue>
+                      <namedValue name="value">
+                        <value class="variable">
+                          <path element="op_currentInventoryDivision"/>
+                          <path element="fields"/>
+                          <path element="division"/>
+                          <path element="value"/>
+                        </value>
+                      </namedValue>
+                      <namedValue name="valueScope">
+                        <value class="value" valueClass="string">Test</value>
+                      </namedValue>
+                    </namedValues>
+                  </value>
+                </argument>
+              </arguments>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+      <generatedParameters>
+        <apiParam group="target" name="sfUiTargetVfIndex" title="Page Index">
+          <summary>The VF page index. This is by default 1 and is used when there is same VF embedded multiple times</summary>
+          <type>
+            <numericType/>
+          </type>
+        </apiParam>
+      </generatedParameters>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="904" title="If: {GetSelectedEnvironment() = &quot;PDE5&quot;}">
+      <arguments>
+        <argument id="condition">
+          <value class="eq">
+            <lhs class="funcCall" id="GetSelectedEnvironment"/>
+            <rhs class="value" valueClass="string">PDE5</rhs>
+          </value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="then" testItemId="905">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="909" title="Read excel data:InvLocAdd">
+              <arguments>
+                <argument id="description">
+                  <value class="value" valueClass="string">InvLocAdd</value>
+                </argument>
+              </arguments>
+              <expectedExceptions/>
+              <parameterValueSources>
+                <parameterValueSource variableName="op_InvLocAddExcelData" variableScope="Test">
+                  <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/PDE5/LOCAdd.xlsx;1628189221160</cacheToken>
+                  <cachedParameters>
+                    <apiParam name="RowNumber"/>
+                    <apiParam name="Site"/>
+                    <apiParam name="ItemName"/>
+                    <apiParam name="Project"/>
+                    <apiParam name="StockLOCID"/>
+                    <apiParam name="StockLocNo"/>
+                    <apiParam name="Quantity_SerialNos"/>
+                    <apiParam name="TransactionDate"/>
+                    <apiParam name="AdjustmentAccount"/>
+                    <apiParam name="Comments"/>
+                    <apiParam name="LotNo"/>
+                    <apiParam name="LotExpirationDate"/>
+                    <apiParam name="UnitCostMaterial"/>
+                    <apiParam name="UnitCostLabor"/>
+                    <apiParam name="UnitCostMtlOhd"/>
+                    <apiParam name="UnitCostLaborOhd"/>
+                    <apiParam name="UnitCostFringeOhd"/>
+                    <apiParam name="UnitCostMachOhd"/>
+                    <apiParam name="UnitCostSubMtl"/>
+                    <apiParam name="UnitCostSubLab"/>
+                    <apiParam name="UnitCostFreight"/>
+                    <apiParam name="UnitCostLanding"/>
+                  </cachedParameters>
+                  <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                    <workbookPath class="value" valueClass="string">templates/PDE5/Add Inventory.xlsx</workbookPath>
+                    <worksheetName class="value" valueClass="string">Location Add</worksheetName>
+                    <valuesRange class="value" valueClass="string">A:V</valuesRange>
+                  </sourceValue>
+                </parameterValueSource>
+              </parameterValueSources>
+              <clauses>
+                <clause name="hidden" testItemId="376"/>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+        <clause name="else" testItemId="906">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="918" title="If: {GetSelectedEnvironment() = &quot;AutomationOrg&quot;}">
+              <arguments>
+                <argument id="condition">
+                  <value class="eq">
+                    <lhs class="funcCall" id="GetSelectedEnvironment"/>
+                    <rhs class="value" valueClass="string">AutomationOrg</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="919">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="920" title="Read excel data:InvLocAdd">
+                      <tags/>
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">InvLocAdd</value>
+                        </argument>
+                      </arguments>
+                      <expectedExceptions/>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="op_InvLocAddExcelData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/AutomationOrg/LOCAdd.xlsx;1641997039348</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="Site"/>
+                            <apiParam name="ItemName"/>
+                            <apiParam name="Project"/>
+                            <apiParam name="StockLOCID"/>
+                            <apiParam name="StockLocNo"/>
+                            <apiParam name="Quantity_SerialNos"/>
+                            <apiParam name="TransactionDate"/>
+                            <apiParam name="AdjustmentAccount"/>
+                            <apiParam name="Comments"/>
+                            <apiParam name="LotNo"/>
+                            <apiParam name="LotExpirationDate"/>
+                            <apiParam name="UnitCostMaterial"/>
+                            <apiParam name="UnitCostLabor"/>
+                            <apiParam name="UnitCostMtlOhd"/>
+                            <apiParam name="UnitCostLaborOhd"/>
+                            <apiParam name="UnitCostFringeOhd"/>
+                            <apiParam name="UnitCostMachOhd"/>
+                            <apiParam name="UnitCostSubMtl"/>
+                            <apiParam name="UnitCostSubLab"/>
+                            <apiParam name="UnitCostFreight"/>
+                            <apiParam name="UnitCostLanding"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                            <workbookPath class="value" valueClass="string">templates/AutomationOrg/Add Inventory.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Location Add</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:V</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="921"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="922">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.StepGroup" isTitleUpdated="true" name="StepGroup" testItemId="923" title="Read excel data:InvLocAdd">
+                      <tags/>
+                      <arguments>
+                        <argument id="description">
+                          <value class="value" valueClass="string">InvLocAdd</value>
+                        </argument>
+                      </arguments>
+                      <expectedExceptions/>
+                      <parameterValueSources>
+                        <parameterValueSource variableName="op_InvLocAddExcelData" variableScope="Test">
+                          <cacheToken>D:/provar/rsqasampleproj/rsqasampleproj/templates/LOCAdd.xlsx;1631729628120</cacheToken>
+                          <cachedParameters>
+                            <apiParam name="RowNumber"/>
+                            <apiParam name="Site"/>
+                            <apiParam name="ItemName"/>
+                            <apiParam name="Project"/>
+                            <apiParam name="StockLOCID"/>
+                            <apiParam name="StockLocNo"/>
+                            <apiParam name="Quantity_SerialNos"/>
+                            <apiParam name="TransactionDate"/>
+                            <apiParam name="AdjustmentAccount"/>
+                            <apiParam name="Comments"/>
+                            <apiParam name="LotNo"/>
+                            <apiParam name="LotExpirationDate"/>
+                            <apiParam name="UnitCostMaterial"/>
+                            <apiParam name="UnitCostLabor"/>
+                            <apiParam name="UnitCostMtlOhd"/>
+                            <apiParam name="UnitCostLaborOhd"/>
+                            <apiParam name="UnitCostFringeOhd"/>
+                            <apiParam name="UnitCostMachOhd"/>
+                            <apiParam name="UnitCostSubMtl"/>
+                            <apiParam name="UnitCostSubLab"/>
+                            <apiParam name="UnitCostFreight"/>
+                            <apiParam name="UnitCostLanding"/>
+                          </cachedParameters>
+                          <sourceValue class="excelTarget" debug="true" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+                            <workbookPath class="value" valueClass="string">templates/QARSF/Add Inventory.xlsx</workbookPath>
+                            <worksheetName class="value" valueClass="string">Location Add</worksheetName>
+                            <valuesRange class="value" valueClass="string">A:V</valuesRange>
+                          </sourceValue>
+                        </parameterValueSource>
+                      </parameterValueSources>
+                      <clauses>
+                        <clause name="hidden" testItemId="924"/>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.bundled.apis.control.ForEach" name="ForEach" testItemId="377" title="For Each: {op_InvLocAddExcelData}=&gt;op_InvLocAddExcelRow">
+      <arguments>
+        <argument id="list">
+          <value class="variable">
+            <path element="op_InvLocAddExcelData"/>
+          </value>
+        </argument>
+        <argument id="fromItem">
+          <value class="value" valueClass="decimal">1</value>
+        </argument>
+        <argument id="valueName">
+          <value class="value" valueClass="string">op_InvLocAddExcelRow</value>
+        </argument>
+        <argument id="continueOnFailure">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+      </arguments>
+      <clauses>
+        <clause name="substeps" testItemId="378">
+          <steps>
+            <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="940" title="If: {op_InvLocAddExcelRow.NumberOfIteration &gt; 1}">
+              <arguments>
+                <argument id="condition">
+                  <value class="gt">
+                    <lhs class="variable">
+                      <path element="op_InvLocAddExcelRow"/>
+                      <path element="NumberOfIteration"/>
+                    </lhs>
+                    <rhs class="value" valueClass="decimal">1</rhs>
+                  </value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="then" testItemId="941">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="945" title="Set Values: numOfIteration">
+                      <arguments>
+                        <argument id="values">
+                          <value class="valueList" mutable="Mutable">
+                            <namedValues mutable="Mutable">
+                              <namedValue name="valuePath">
+                                <value class="value" valueClass="string">numOfIteration</value>
+                              </namedValue>
+                              <namedValue name="value">
+                                <value class="variable">
+                                  <path element="op_InvLocAddExcelRow"/>
+                                  <path element="NumberOfIteration"/>
+                                </value>
+                              </namedValue>
+                              <namedValue name="valueScope">
+                                <value class="value" valueClass="string">Test</value>
+                              </namedValue>
+                            </namedValues>
+                          </value>
+                        </argument>
+                      </arguments>
+                    </apiCall>
+                  </steps>
+                </clause>
+                <clause name="else" testItemId="946">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="948" title="If: {op_InvLocAddExcelRow.NumberOfIteration &lt;= 1 OR op_InvLocAddExcelRow.NumberOfIteration = null}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="or">
+                            <lhs class="le">
+                              <lhs class="variable">
+                                <path element="op_InvLocAddExcelRow"/>
+                                <path element="NumberOfIteration"/>
+                              </lhs>
+                              <rhs class="value" valueClass="decimal">1</rhs>
+                            </lhs>
+                            <rhs class="eq">
+                              <lhs class="variable">
+                                <path element="op_InvLocAddExcelRow"/>
+                                <path element="NumberOfIteration"/>
+                              </lhs>
+                            </rhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="949">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="947" title="Set Values: numOfIteration">
+                              <arguments>
+                                <argument id="values">
+                                  <value class="valueList" mutable="Mutable">
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">numOfIteration</value>
+                                      </namedValue>
+                                      <namedValue name="value">
+                                        <value class="value" valueClass="string">1</value>
+                                      </namedValue>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                  </value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+            <apiCall apiId="com.provar.plugins.bundled.apis.control.DoWhile" name="DoWhile" testItemId="953" title="While: {LoopCounter &lt;= numOfIteration}">
+              <arguments>
+                <argument id="condition">
+                  <value class="le">
+                    <lhs class="variable">
+                      <path element="LoopCounter"/>
+                    </lhs>
+                    <rhs class="variable">
+                      <path element="numOfIteration"/>
+                    </rhs>
+                  </value>
+                </argument>
+                <argument id="counterName">
+                  <value class="value" valueClass="string">LoopCounter</value>
+                </argument>
+                <argument id="counterStart">
+                  <value class="value" valueClass="decimal">1</value>
+                </argument>
+                <argument id="counterEnd">
+                  <value class="variable">
+                    <path element="numOfIteration"/>
+                  </value>
+                </argument>
+                <argument id="continueOnFailure">
+                  <value class="value" valueClass="boolean">true</value>
+                </argument>
+              </arguments>
+              <clauses>
+                <clause name="substeps" testItemId="954">
+                  <steps>
+                    <apiCall apiId="com.provar.plugins.bundled.apis.If" name="If" testItemId="955" title="If: {op_InvLocAddExcelRow.StockLocNo = null}">
+                      <arguments>
+                        <argument id="condition">
+                          <value class="eq">
+                            <lhs class="variable">
+                              <path element="op_InvLocAddExcelRow"/>
+                              <path element="StockLocNo"/>
+                            </lhs>
+                          </value>
+                        </argument>
+                      </arguments>
+                      <clauses>
+                        <clause name="then" testItemId="956">
+                          <steps>
+                            <apiCall apiId="com.provar.plugins.bundled.apis.control.SetValues" name="SetValues" testItemId="957" title="Set Values: op_InvLocAddExcelRow.StockLocNo">
+                              <arguments>
+                                <argument id="values">
+                                  <value class="valueList" mutable="Mutable">
+                                    <namedValues mutable="Mutable">
+                                      <namedValue name="valuePath">
+                                        <value class="value" valueClass="string">op_InvLocAddExcelRow.StockLocNo</value>
+                                      </namedValue>
+                                      <namedValue name="value"/>
+                                      <namedValue name="valueScope">
+                                        <value class="value" valueClass="string">Test</value>
+                                      </namedValue>
+                                    </namedValues>
+                                  </value>
+                                </argument>
+                              </arguments>
+                            </apiCall>
+                          </steps>
+                        </clause>
+                      </clauses>
+                    </apiCall>
+                    <caseCall testCaseId="f4d9ed90-b7d8-4697-9c7e-17b4a0e04fef" testCasePath="tests/Inventory Transaction/Callable/Perform Location Add.testcase" testItemId="958">
+                      <arguments>
+                        <argument id="reuseConnectionName">
+                          <value class="value" valueClass="string">SFConnection</value>
+                        </argument>
+                        <argument id="ip_Site">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="Site"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_ItemName">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="ItemName"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_Project">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="Project"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_LocID">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="StockLOCID"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_LocNo">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="StockLocNo"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_Qty">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="Quantity_SerialNos"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_TransactionDate">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="TransactionDate"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_Comments">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="Comments"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_LotNo">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="LotNo"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_LotExpiryDate">
+                          <value class="funcCall" id="DateFormat">
+                            <argument id="date">
+                              <value class="funcCall" id="DateAdd">
+                                <argument id="date">
+                                  <value class="variable">
+                                    <path element="TODAY"/>
+                                  </value>
+                                </argument>
+                                <argument id="amount">
+                                  <value class="value" valueClass="decimal">3</value>
+                                </argument>
+                                <argument id="unit">
+                                  <value class="variable">
+                                    <path element="YEAR"/>
+                                  </value>
+                                </argument>
+                              </value>
+                            </argument>
+                            <argument id="outputFormat">
+                              <value class="value" valueClass="string">MM-dd-YYYY</value>
+                            </argument>
+                          </value>
+                        </argument>
+                        <argument id="ip_UnitCostMaterial">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="UnitCostMaterial"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_UnitCostMtlOhd">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="UnitCostMtlOhd"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_UnitCostLabor">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="UnitCostLabor"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_UnitCostLaborOhd">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="UnitCostLaborOhd"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_UnitCostFringeOhd">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="UnitCostFringeOhd"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_UnitCostMachOhd">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="UnitCostMachOhd"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_UnitCostSubMtl">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="UnitCostSubMtl"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_UnitCostSubLab">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="UnitCostSubLab"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_UnitCostFreight">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="UnitCostFreight"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_UnitCostLanding">
+                          <value class="variable">
+                            <path element="op_InvLocAddExcelRow"/>
+                            <path element="UnitCostLanding"/>
+                          </value>
+                        </argument>
+                        <argument id="ip_serialNumberPrefix">
+                          <value class="value" valueClass="string">A-</value>
+                        </argument>
+                      </arguments>
+                      <outputArguments>
+                        <outputArgument id="op_SerialCount">
+                          <name class="value" valueClass="string">op_SerialCount</name>
+                        </outputArgument>
+                        <outputArgument id="op_EnteredSerials">
+                          <name class="value" valueClass="string">op_EnteredSerials</name>
+                        </outputArgument>
+                        <outputArgument id="op_LocationType">
+                          <name class="value" valueClass="string">op_LocationType</name>
+                        </outputArgument>
+                      </outputArguments>
+                    </caseCall>
+                  </steps>
+                </clause>
+              </clauses>
+            </apiCall>
+          </steps>
+        </clause>
+      </clauses>
+    </apiCall>
+  </steps>
+  <parameterValueSources>
+    <parameterValueSource variableName="SourceData" variableScope="Test"/>
+  </parameterValueSources>
+  <tags/>
+</testCase>

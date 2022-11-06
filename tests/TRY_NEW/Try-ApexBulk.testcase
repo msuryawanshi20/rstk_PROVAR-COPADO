@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase id="19">
+  <summary/>
+  <steps>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: QARSF_Admin (Test)">
+      <arguments>
+        <argument id="connectionName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="resultName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+        <argument id="uiApplicationName"/>
+        <argument id="quickUiLogin">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="closeAllPrimaryTabs">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="reuseConnectionName"/>
+        <argument id="alreadyOpenBehaviour">
+          <value class="value" valueClass="string">Reuse</value>
+        </argument>
+        <argument id="privateBrowsingMode"/>
+        <argument id="enableObjectIdLogging">
+          <value class="value" valueClass="boolean">true</value>
+        </argument>
+        <argument id="autoCleanup"/>
+        <argument id="cleanupConnectionName"/>
+        <argument id="logFileLocation">
+          <value class="template">C:/Users/Mayur/OneDrive - Rootstock Software/HVPE_Provar Test/ID.log</value>
+        </argument>
+        <argument id="username"/>
+        <argument id="password"/>
+        <argument id="securityToken"/>
+        <argument id="environment"/>
+        <argument id="lightningMode">
+          <value class="value" valueClass="string">default</value>
+        </argument>
+        <argument id="webBrowser"/>
+      </arguments>
+    </apiCall>
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexBulk" name="ApexBulk" testItemId="5" title="Apex Bulk: insert=&gt;ResultObjectID">
+      <arguments>
+        <argument id="apexConnectionName">
+          <value class="value" valueClass="string">QARSF_Admin</value>
+        </argument>
+        <argument id="objectType">
+          <value class="value" valueClass="string">soapi__c</value>
+        </argument>
+        <argument id="operation">
+          <value class="value" valueClass="string">insert</value>
+        </argument>
+        <argument id="externalIdFieldName"/>
+        <argument id="assignmentRuleId"/>
+        <argument id="data">
+          <value class="variable">
+            <path element="SourceData"/>
+          </value>
+        </argument>
+        <argument id="contentType">
+          <value class="value" valueClass="string">CSV</value>
+        </argument>
+        <argument id="resultIdName">
+          <value class="value" valueClass="string">ResultObjectID</value>
+        </argument>
+        <argument id="resultScope">
+          <value class="value" valueClass="string">Test</value>
+        </argument>
+      </arguments>
+      <parameterValueSources>
+        <parameterValueSource variableName="SourceData" variableScope="Test">
+          <cacheToken>D:/provar/QA-automation/rsqasampleproj/templates/temp.xlsx;1667298153498</cacheToken>
+          <cachedParameters>
+            <apiParam name="RowNumber"/>
+            <apiParam name="Soapi_mode__c"/>
+            <apiParam name="Soapi_async__c"/>
+            <apiParam name="Soapi_salesdiv__c"/>
+            <apiParam name="Soapi_socust__c"/>
+            <apiParam name="Soapi_upgroup__c"/>
+            <apiParam name="Soapi_soprod__c"/>
+            <apiParam name="Soapi_qtyorder__c"/>
+            <apiParam name="Soapi_price__c"/>
+            <apiParam name="Soapi_duedate__c"/>
+            <apiParam name="Soapi_firm__c"/>
+            <apiParam name="Soapi_addorupdate__c"/>
+            <apiParam name="Soapi_ordprepaid__c"/>
+            <apiParam name="Soapi_ordpreauth__c"/>
+            <apiParam name="Soapi_sogateway__c"/>
+            <apiParam name="Soapi_ordpayid__c"/>
+            <apiParam name="Soapi_ordpayamt__c"/>
+          </cachedParameters>
+          <sourceValue class="excelTarget" namesLocation="FirstRowOfRange" whereComparison="EqualTo">
+            <workbookPath class="value" valueClass="string">templates/temp.xlsx</workbookPath>
+            <worksheetName class="value" valueClass="string">Sheet1</worksheetName>
+            <valuesRange class="value" valueClass="string">A:P</valuesRange>
+          </sourceValue>
+        </parameterValueSource>
+      </parameterValueSources>
+    </apiCall>
+  </steps>
+</testCase>
