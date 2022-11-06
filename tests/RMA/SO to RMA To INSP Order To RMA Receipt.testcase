@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="49">
+<testCase id="2">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="89" title="Salesforce Connect: SFConnection (Test)">
@@ -3413,9 +3413,7 @@
                                                                     <caseCall testCaseId="a673507e-3a7a-44aa-805d-b91da97a47f5" testCasePath="tests/RMA/Callable/Process Receipt.testcase" testItemId="968">
                                                                       <arguments>
                                                                         <argument id="reuseConnectionName">
-                                                                          <value class="variable">
-                                                                            <path element="reuseConnectionName"/>
-                                                                          </value>
+                                                                          <value class="value" valueClass="string">SFConnection</value>
                                                                         </argument>
                                                                         <argument id="ip_recordID">
                                                                           <value class="variable">
@@ -3585,10 +3583,10 @@
                                                                                 </clause>
                                                                               </clauses>
                                                                             </apiCall>
-                                                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" isTitleUpdated="true" name="Sleep" testItemId="951" title="sleep for 5 seconds before query to inspection order">
+                                                                            <apiCall apiId="com.provar.plugins.bundled.apis.control.Sleep" isTitleUpdated="true" name="Sleep" testItemId="951" title="sleep for 15 seconds before query to inspection order">
                                                                               <arguments>
                                                                                 <argument id="sleepSecs">
-                                                                                  <value class="value" valueClass="decimal">5</value>
+                                                                                  <value class="value" valueClass="decimal">15</value>
                                                                                 </argument>
                                                                               </arguments>
                                                                             </apiCall>
@@ -3807,7 +3805,7 @@
                                                                                           </value>
                                                                                         </argument>
                                                                                         <argument id="testAtStart">
-                                                                                          <value class="value" valueClass="boolean">true</value>
+                                                                                          <value class="value" valueClass="boolean">false</value>
                                                                                         </argument>
                                                                                         <argument id="maxIterations">
                                                                                           <value class="value" valueClass="decimal">1000</value>
