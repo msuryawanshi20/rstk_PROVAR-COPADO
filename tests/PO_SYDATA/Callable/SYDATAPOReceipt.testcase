@@ -45,7 +45,7 @@
         <argument id="webBrowser"/>
       </arguments>
     </apiCall>
-    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="25" title="SOQL Query: SELECT Id,rstk__poline_item__c,rstk__poline_ordno__c FROM rstk__poline__c WHERE rstk__poline_ordno__c = '{POHDRID}'  and rstk__poline_potype__c in ('Purchased','Subcontract')=&gt;poline">
+    <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexSoqlQuery" name="ApexSoqlQuery" testItemId="25" title="SOQL Query: SELECT Id,rstk__poline_item__c,rstk__poline_ordno__c FROM rstk__poline__c WHERE rstk__poline_ordno__c = '{POHDRID}'  and rstk__poline_potype__c in ('Purchased','Subcontract') Order By rstk__poline_lne__c Asc=&gt;poline">
       <arguments>
         <argument id="soqlQuery">
           <value class="compound">
@@ -54,7 +54,7 @@
               <variable>
                 <path element="POHDRID"/>
               </variable>
-              <value valueClass="string">'  and rstk__poline_potype__c in ('Purchased','Subcontract')</value>
+              <value valueClass="string">'  and rstk__poline_potype__c in ('Purchased','Subcontract') Order By rstk__poline_lne__c Asc</value>
             </parts>
           </value>
         </argument>
