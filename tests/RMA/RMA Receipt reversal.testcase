@@ -3413,9 +3413,7 @@
                                                                     <caseCall testCaseId="a673507e-3a7a-44aa-805d-b91da97a47f5" testCasePath="tests/RMA/Callable/Process Receipt.testcase" testItemId="1004">
                                                                       <arguments>
                                                                         <argument id="reuseConnectionName">
-                                                                          <value class="variable">
-                                                                            <path element="reuseConnectionName"/>
-                                                                          </value>
+                                                                          <value class="value" valueClass="string">SFConnection</value>
                                                                         </argument>
                                                                         <argument id="ip_recordID">
                                                                           <value class="variable">
