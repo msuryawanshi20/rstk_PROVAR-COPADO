@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testCase>
+  <summary/>
+  <steps>
+    <caseCall testCaseId="c8040a6d-dfff-4e18-8d5e-e7383027484f" testCasePath="tests/Sales Order - RSTKLUI/Callable/Sales Order Creation.testcase" testItemId="13">
+      <arguments>
+        <argument id="reuseConnectionName">
+          <value class="variable">
+            <path element="reuseConnectionName"/>
+          </value>
+        </argument>
+        <argument id="SourceData_AddHeader">
+          <value class="variable">
+            <path element="SourceData_AddHeader"/>
+          </value>
+        </argument>
+      </arguments>
+      <outputArguments>
+        <outputArgument id="OrderNumber" scope="Folder">
+          <name class="value" valueClass="string">OrderNumber</name>
+        </outputArgument>
+        <outputArgument id="DivID" scope="Folder">
+          <name class="value" valueClass="string">DivID</name>
+        </outputArgument>
+      </outputArguments>
+    </caseCall>
+  </steps>
+</testCase>

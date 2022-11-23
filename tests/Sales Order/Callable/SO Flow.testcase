@@ -65,7 +65,7 @@
       <clauses>
         <clause name="hidden" testItemId="187">
           <steps>
-            <caseCall testCaseId="31fccc5f-2d2d-4bf1-8b60-107601f01f2f" testCasePath="tests/Backup/Verify Inventory Quantity-Bak.testcase" testItemId="218">
+            <caseCall testCaseId="82afd0f5-2599-497c-b4e0-7a8cfb8a24c3" testCasePath="tests/Sales Order/Callable/Verify Inventory Quantity.testcase" testItemId="218">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="variable">
@@ -79,7 +79,7 @@
                 </outputArgument>
               </outputArguments>
             </caseCall>
-            <caseCall testCaseId="7910dea4-5b6e-49d5-b77e-ac661332be17" testCasePath="tests/Sales Order - CallableTesting/Verify Inventory Quantity.testcase" testItemId="194">
+            <caseCall testCaseId="82afd0f5-2599-497c-b4e0-7a8cfb8a24c3" testCasePath="tests/Sales Order/Callable/Verify Inventory Quantity.testcase" testItemId="194">
               <tags>
                 <string>disabled</string>
               </tags>
@@ -128,7 +128,7 @@
       <clauses>
         <clause name="hidden" testItemId="181">
           <steps>
-            <caseCall testCaseId="0984cba3-426d-4801-9d11-9d0c5411befe" testCasePath="tests/Sales Order - CallableTesting/SO Header.testcase" testItemId="176">
+            <caseCall testCaseId="480ea311-7c8c-48cd-908c-95d7d55a13d7" testCasePath="tests/Sales Order/Callable/SO Header.testcase" testItemId="176">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -196,7 +196,7 @@
       <clauses>
         <clause name="hidden" testItemId="13">
           <steps>
-            <caseCall testCaseId="645e718d-d1ff-40cf-a157-4cedf2c6c0c7" testCasePath="tests/Sales Order - CallableTesting/SO Line.testcase" testItemId="66">
+            <caseCall testCaseId="7e88b43b-787b-4ca1-af6a-985ed2f72925" testCasePath="tests/Sales Order/Callable/SO Line.testcase" testItemId="66">
               <arguments>
                 <argument id="ONumber">
                   <value class="variable">
@@ -231,10 +231,15 @@
       <clauses>
         <clause name="hidden" testItemId="16">
           <steps>
-            <caseCall testCaseId="e030adcc-8761-45fa-b9e7-56172248d32f" testCasePath="tests/Sales Order - CallableTesting/SO Fulfillment.testcase" testItemId="21">
+            <caseCall testCaseId="3307f89c-9344-416a-ad2f-3707c7b96d7a" testCasePath="tests/Sales Order/Callable/SO Fulfillment.testcase" testItemId="21">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
+                </argument>
+                <argument id="OrderNumber">
+                  <value class="variable">
+                    <path element="OrderNumber"/>
+                  </value>
                 </argument>
               </arguments>
               <outputArguments>
@@ -283,7 +288,7 @@
       <clauses>
         <clause name="hidden" testItemId="77">
           <steps>
-            <caseCall testCaseId="d1c155d8-a563-40be-a3c6-1b3de242393e" testCasePath="tests/Backup/SO Invoice-Bak.testcase" testItemId="221">
+            <caseCall testCaseId="c363a919-584d-4d15-afa1-120241e9e2b5" testCasePath="tests/Sales Order/Callable/SO Invoice.testcase" testItemId="221">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="variable">
@@ -295,9 +300,14 @@
                     <path element="Invoice2"/>
                   </value>
                 </argument>
+                <argument id="Invoice">
+                  <value class="variable">
+                    <path element="Invoice"/>
+                  </value>
+                </argument>
               </arguments>
             </caseCall>
-            <caseCall testCaseId="edeaaaed-79e1-4b83-ab55-0c831a17af81" testCasePath="tests/Sales Order - CallableTesting/SO Invoice.testcase" testItemId="82">
+            <caseCall testCaseId="c363a919-584d-4d15-afa1-120241e9e2b5" testCasePath="tests/Sales Order/Callable/SO Invoice.testcase" testItemId="82">
               <tags>
                 <string>disabled</string>
               </tags>
@@ -335,7 +345,7 @@
       <clauses>
         <clause name="hidden" testItemId="213">
           <steps>
-            <caseCall testCaseId="5f084ad4-2da9-40fa-89cd-bc625a2a8216" testCasePath="tests/Backup/Verify Dimensions-Bak.testcase" testItemId="220">
+            <caseCall testCaseId="6a80148c-7917-4cf7-8edf-eb0e7dfee6ea" testCasePath="tests/Sales Order/Callable/Verify Dimensions.testcase" testItemId="220">
               <arguments>
                 <argument id="SONumber">
                   <value class="variable">
@@ -347,9 +357,19 @@
                     <path element="reuseConnectionName"/>
                   </value>
                 </argument>
+                <argument id="OrderNumber_Dim">
+                  <value class="variable">
+                    <path element="OrderNumber"/>
+                  </value>
+                </argument>
+                <argument id="SourceData_Dimensions">
+                  <value class="variable">
+                    <path element="SourceData_Dimensions"/>
+                  </value>
+                </argument>
               </arguments>
             </caseCall>
-            <caseCall testCaseId="01637071-531b-4ac5-9ef9-a06c305e258b" testCasePath="tests/Sales Order - CallableTesting/Verify Dimensions.testcase" testItemId="215">
+            <caseCall testCaseId="6a80148c-7917-4cf7-8edf-eb0e7dfee6ea" testCasePath="tests/Sales Order/Callable/Verify Dimensions.testcase" testItemId="215">
               <tags>
                 <string>disabled</string>
               </tags>
@@ -377,7 +397,7 @@
       <clauses>
         <clause name="hidden" testItemId="61">
           <steps>
-            <caseCall testCaseId="12e738a7-e0bb-454c-b2ef-8d59dd6777da" testCasePath="tests/Backup/Requirements-Bak.testcase" testItemId="216">
+            <caseCall testCaseId="a4bb4e3b-cdfb-4488-92ca-b62a0a4360cf" testCasePath="tests/Sales Order/Callable/Requirements.testcase" testItemId="216">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="variable">
@@ -389,9 +409,19 @@
                     <path element="SONum"/>
                   </value>
                 </argument>
+                <argument id="OrderNumber_Req">
+                  <value class="variable">
+                    <path element="OrderNumber"/>
+                  </value>
+                </argument>
+                <argument id="SourceData_Requirements">
+                  <value class="variable">
+                    <path element="SourceData_Requirements"/>
+                  </value>
+                </argument>
               </arguments>
             </caseCall>
-            <caseCall testCaseId="1fec0be7-f9cc-4a27-9e17-2604b7a03404" testCasePath="tests/Sales Order - CallableTesting/Requirements.testcase" testItemId="190">
+            <caseCall testCaseId="a4bb4e3b-cdfb-4488-92ca-b62a0a4360cf" testCasePath="tests/Sales Order/Callable/Requirements.testcase" testItemId="190">
               <tags>
                 <string>disabled</string>
               </tags>
@@ -419,7 +449,7 @@
       <clauses>
         <clause name="hidden" testItemId="79">
           <steps>
-            <caseCall testCaseId="25a733f5-0db0-412e-a1ca-afa2c4fb382e" testCasePath="tests/Backup/Sales Order DMD-Bak.testcase" testItemId="217">
+            <caseCall testCaseId="d0c31666-0c7c-41ed-9af3-4208a966671f" testCasePath="tests/Sales Order/Callable/Sales Order DMD.testcase" testItemId="217">
               <arguments>
                 <argument id="value">
                   <value class="variable">
@@ -431,9 +461,19 @@
                     <path element="reuseConnectionName"/>
                   </value>
                 </argument>
+                <argument id="OrderNumber_DMD">
+                  <value class="variable">
+                    <path element="OrderNumber"/>
+                  </value>
+                </argument>
+                <argument id="SourceData_SOORDDMD">
+                  <value class="variable">
+                    <path element="SourceData_SOORDDMD"/>
+                  </value>
+                </argument>
               </arguments>
             </caseCall>
-            <caseCall testCaseId="6e50202a-2bee-4076-9c54-131e12367b03" testCasePath="tests/Sales Order - CallableTesting/Sales Order DMD.testcase" testItemId="80">
+            <caseCall testCaseId="d0c31666-0c7c-41ed-9af3-4208a966671f" testCasePath="tests/Sales Order/Callable/Sales Order DMD.testcase" testItemId="80">
               <tags>
                 <string>disabled</string>
               </tags>
@@ -456,6 +496,16 @@
                     <path element="OrderNumber"/>
                   </value>
                 </argument>
+                <argument id="OrderNumber_DMD">
+                  <value class="variable">
+                    <path element="OrderNumber"/>
+                  </value>
+                </argument>
+                <argument id="SourceData_SOORDDMD">
+                  <value class="variable">
+                    <path element="SourceData_SOORDDMD"/>
+                  </value>
+                </argument>
               </arguments>
             </caseCall>
           </steps>
@@ -471,11 +521,16 @@
       <clauses>
         <clause name="hidden" testItemId="205">
           <steps>
-            <caseCall testCaseId="31fccc5f-2d2d-4bf1-8b60-107601f01f2f" testCasePath="tests/Backup/Verify Inventory Quantity-Bak.testcase" testItemId="219">
+            <caseCall testCaseId="82afd0f5-2599-497c-b4e0-7a8cfb8a24c3" testCasePath="tests/Sales Order/Callable/Verify Inventory Quantity.testcase" testItemId="219">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="variable">
                     <path element="reuseConnectionName"/>
+                  </value>
+                </argument>
+                <argument id="SourceData_InventoryQuantity">
+                  <value class="variable">
+                    <path element="SourceData_InventoryQuantity"/>
                   </value>
                 </argument>
               </arguments>
@@ -483,9 +538,12 @@
                 <outputArgument id="Qty">
                   <name class="value" valueClass="string">Qty</name>
                 </outputArgument>
+                <outputArgument id="QtyOnHand">
+                  <name class="value" valueClass="string">QtyOnHand</name>
+                </outputArgument>
               </outputArguments>
             </caseCall>
-            <caseCall testCaseId="7910dea4-5b6e-49d5-b77e-ac661332be17" testCasePath="tests/Sales Order - CallableTesting/Verify Inventory Quantity.testcase" testItemId="206">
+            <caseCall testCaseId="82afd0f5-2599-497c-b4e0-7a8cfb8a24c3" testCasePath="tests/Sales Order/Callable/Verify Inventory Quantity.testcase" testItemId="206">
               <tags>
                 <string>disabled</string>
               </tags>
@@ -577,7 +635,7 @@
       <clauses>
         <clause name="hidden" testItemId="210">
           <steps>
-            <caseCall testCaseId="45108229-2a83-4c37-b97c-4a5547403749" testCasePath="tests/Sales Order - CallableTesting/Cost Transactions.testcase" testItemId="211">
+            <caseCall testCaseId="1769c12d-e040-419c-ac3c-dec0c67a38cf" testCasePath="tests/Sales Order/Callable/Cost Transactions.testcase" testItemId="211">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
