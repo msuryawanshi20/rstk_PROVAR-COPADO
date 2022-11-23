@@ -52,7 +52,7 @@
       <clauses>
         <clause name="hidden" testItemId="26">
           <steps>
-            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Read Excel Data.testcase" testItemId="30">
+            <caseCall testCaseId="45166f67-6482-468a-9d8a-64329d6e898c" testCasePath="tests/Sales Order/Callable/Read Excel Data.testcase" testItemId="30">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -136,7 +136,7 @@
       <clauses>
         <clause name="hidden" testItemId="3">
           <steps>
-            <caseCall testCaseId="a6c37f2e-69ff-4b6c-84bd-7701e2e8699d" testCasePath="tests/Sales Order/Sales Order - CallableTesting/Create Sales Order Header - SOAPI.testcase" testItemId="15">
+            <caseCall testCaseId="a6c37f2e-69ff-4b6c-84bd-7701e2e8699d" testCasePath="tests/Sales Order/Callable/Create Sales Order Header - SOAPI.testcase" testItemId="15">
               <arguments>
                 <argument id="reuseConnectionName">
                   <value class="value" valueClass="string">SFConnection</value>
@@ -206,7 +206,7 @@
       <clauses>
         <clause name="hidden" testItemId="11">
           <steps>
-            <caseCall testCaseId="85b5dbbd-458d-4123-8349-92fea88265a7" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Firm All Sales Order Lines.testcase" testItemId="12">
+            <caseCall testCaseId="85b5dbbd-458d-4123-8349-92fea88265a7" testCasePath="tests/SYDATA - Sales Orders/Callable/Firm All Sales Order Lines.testcase" testItemId="12">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">
@@ -242,7 +242,7 @@
       <clauses>
         <clause name="hidden" testItemId="20">
           <steps>
-            <caseCall testCaseId="0228c441-4d65-48fc-a5cf-feb7282152e0" testCasePath="tests/SYDATA - Sales Orders/SYDATA - Callables/Allocate Sales Order Lines.testcase" testItemId="22">
+            <caseCall testCaseId="0228c441-4d65-48fc-a5cf-feb7282152e0" testCasePath="tests/SYDATA - Sales Orders/Callable/Allocate Sales Order Lines.testcase" testItemId="22">
               <arguments>
                 <argument id="rstkRows_SOHeader">
                   <value class="variable">

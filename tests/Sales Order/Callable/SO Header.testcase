@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testCase id="7" visibility="Internal">
+<testCase id="7" registryId="480ea311-7c8c-48cd-908c-95d7d55a13d7" visibility="Internal">
   <summary/>
   <steps>
     <apiCall apiId="com.provar.plugins.forcedotcom.core.testapis.ApexConnect" name="ApexConnect" testItemId="1" title="Salesforce Connect: SFConnection (Test)">
@@ -87,7 +87,7 @@
             <apiCall apiId="com.provar.plugins.forcedotcom.core.ui.UiDoAction" isTitleUpdated="true" name="UiDoAction" testItemId="6" title="Click the Sales Order Entry link on sitemap">
               <arguments>
                 <argument id="locator">
-                  <value class="uiLocator" uri="ui:locator?name=salesOrderEntry1"/>
+                  <value class="uiLocator" uri="ui:locator?name=salesOrderEntry"/>
                 </argument>
                 <argument id="interaction">
                   <value class="uiInteraction" uri="ui:interaction?name=action"/>
@@ -108,7 +108,7 @@
                   <value class="uiWait" uri="default"/>
                 </argument>
                 <argument id="interactionDescription">
-                  <value class="value" valueClass="string">Click the Sales Order Entry 1 button</value>
+                  <value class="value" valueClass="string">Click the Sales Order Entry button</value>
                 </argument>
                 <argument id="autoRetry"/>
                 <argument id="ieClickMethod">
