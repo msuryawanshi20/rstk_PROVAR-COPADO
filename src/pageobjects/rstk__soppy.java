@@ -32,6 +32,8 @@ public class rstk__soppy {
 	@FindBy(id = "li-0")
 	public WebElement Customer_Select;
 	
+	@PageWaitAfter.BackgroundActivity(timeoutSeconds = 60)
+	@PageWait.BackgroundActivity(timeoutSeconds = 60)
 	@TextType()
 	@FindBy(xpath = "//input[contains(@id,'soppy_amount')]")
 	public WebElement Amount;

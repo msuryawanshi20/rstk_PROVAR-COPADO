@@ -602,7 +602,7 @@
                           <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
                         </argument>
                         <argument id="afterWait">
-                          <value class="uiWait" uri="ui:wait:timed?seconds=10"/>
+                          <value class="uiWait" uri="ui:wait:auraBusy?timeout=60"/>
                         </argument>
                         <argument id="interactionDescription">
                           <value class="value" valueClass="string">Set the Amount field to {SourceData_Prepayment.Amount}</value>
@@ -677,7 +677,7 @@
                         <argument id="blur"/>
                       </arguments>
                       <generatedParameters>
-                        <apiParam group="value" name="value" seq="10000" title="Value">
+                        <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                           <summary>The value to be populated.</summary>
                           <type>
                             <choiceType/>
@@ -733,7 +733,7 @@
                         <argument id="blur"/>
                       </arguments>
                       <generatedParameters>
-                        <apiParam group="value" name="value" seq="10000" title="Value">
+                        <apiParam group="value" name="value" passwordVariableAllowed="true" seq="10000" title="Value">
                           <summary>The value to be populated.</summary>
                           <type>
                             <choiceType/>
